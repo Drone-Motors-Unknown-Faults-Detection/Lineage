@@ -105,4 +105,5 @@ python Step2_Feature_Extraction_11000.py
 - [Step 4 說明文件](docs/Step4_Unknown_Detection.md)
 - [Step 5 說明文件](docs/Step5_Random_Sampling_Detection.md)
 - [Step 6 說明文件](docs/Step6_Model_Retraining.md)
+- [TensorFlow 與 GPU 使用指南](docs/Tensorflow.md)
 - [Agent 指引](AGENT.md)

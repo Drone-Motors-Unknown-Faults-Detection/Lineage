@@ -22,6 +22,8 @@ e:\Ancestor\
 ├── Step5_Model *__Random_Detecting.ipynb  # 隨機取樣偵測（×27）
 ├── Step6_Model *__Retrain.ipynb           # 模型重訓練（×27）
 ├── T1_T2_T3.ipynb                         # 健康度退化建模
+├── gpu_utils.py                           # GPU/CPU 自動選擇模組（所有 TF Notebook 共用）
+├── requirements.txt                       # Python 套件依賴清單
 ├── README.md                              # 專案說明
 ├── AGENT.md                               # 本文件
 └── docs/
@@ -30,7 +32,8 @@ e:\Ancestor\
     ├── Step3_Model_Training.md
     ├── Step4_Unknown_Detection.md
     ├── Step5_Random_Sampling_Detection.md
-    └── Step6_Model_Retraining.md
+    ├── Step6_Model_Retraining.md
+    └── Tensorflow.md                      # TensorFlow / GPU 使用指南
 ```
 
 ---
@@ -189,3 +192,13 @@ jupyter
 ```bash
 pip install tensorflow hdbscan scikit-learn scipy pandas numpy matplotlib seaborn jupyter
 ```
+
+### GPU 支援
+
+本專案透過 `gpu_utils.py` 統一管理 GPU/CPU 選擇。所有 TensorFlow Notebook 在頂部匯入：
+
+```python
+from gpu_utils import device_scope, DEVICE
+```
+
+訓練區塊以 `with device_scope():` 包裹，有 GPU 時自動使用 `/GPU:0`，否則回退至 `/CPU:0`，不需手動修改任何參數。詳細說明見 [docs/Tensorflow.md](docs/Tensorflow.md)。
