@@ -117,7 +117,7 @@ with device_scope():                          # 將以下運算固定到指定�
 
 ### TensorFlow 裝置分配原則
 
-TensorFlow 使用**裝置字串（device string）**指定運算位置：
+TensorFlow 使用 **裝置字串（device string）** 指定運算位置：
 
 | 字串 | 說明 |
 |---|---|
