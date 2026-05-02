@@ -95,7 +95,7 @@ def slice_and_save(all_data, save_directory, motor, screws):
             sliced_chunk = raw_data.iloc[i:i+10000].reset_index(drop=True)
             sliced_data = pd.concat([sliced_data, sliced_chunk], axis=1)
 
-         # 儲存數據
+        # 儲存數據
         file_name = f"{motor}_{column}_data.csv"
         save_path = os.path.join(save_directory, file_name)
         sliced_data.to_csv(save_path, index=False, encoding='utf-8-sig')

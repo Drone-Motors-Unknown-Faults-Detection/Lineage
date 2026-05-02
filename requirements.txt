@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+scipy
+scikit-learn
+tensorflow
+seaborn
+hdbscan
+natsort
+absl-py
+jupyter
