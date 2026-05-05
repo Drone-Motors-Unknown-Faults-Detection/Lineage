@@ -217,16 +217,25 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-
+# Raw data
 data/*
 *.gz
 *.tar.gz
+*.zip
 
+# MacOS
 .DB_STORE
 
-
+# AI assistant
 .claude/
 .vscode/
 .cursor/
 
+# PyTorch
 *.pth
+
+# CUDA
+cuda_info.txt
+
+# CUDA
+cuda_info.txt
