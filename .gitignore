@@ -231,9 +231,6 @@ data/*
 .vscode/
 .cursor/
 
-# PyTorch
-*.pth
-
 # CUDA
 cuda_info.txt
 
