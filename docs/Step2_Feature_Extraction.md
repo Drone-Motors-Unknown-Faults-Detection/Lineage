@@ -83,7 +83,7 @@ FFT 參數：
 ## 處理流程
 
 ```
-讀取 stage1/csv 資料
+讀取 data/Step-{1|2|3}/csv 資料
     ↓
 逐段讀取 10,000 點資料
     ↓
@@ -104,8 +104,8 @@ FFT 參數：
 
 ## 輸出
 
-- **目錄：** `stage2/features/{Motor_Type}/{RPM}/{Screws}_screws/`
-- **檔案：** `feature_data.csv`
+- **目錄：** `data/Step-{1|2|3}/myfeature/{Motor}/{RPM}/{Screws}/`
+- **檔案：** `{Motor}_Group_feature_data.csv`（依 Notebook/腳本設定，可能為 `*_raw.csv` / `*_clean.csv` 等變體）
 - **格式：** 每列 = 一個訊號片段，105 個特徵欄位
 - **標籤：** 依螺絲配置（故障類別）標記
 

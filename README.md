@@ -70,19 +70,63 @@
 
 ```bash
 # 1. 資料預處理（依轉速執行）
-python Step1_Data_Preprocessing_save_6000.py
-python Step1_Data_Preprocessing_save_8000.py
-python Step1_Data_Preprocessing_save_11000.py
+python Step1_Data_Preprocessing_save_6000_1.py
+python Step1_Data_Preprocessing_save_8000_1.py
+python Step1_Data_Preprocessing_save_11000_1.py
+# 其他馬達/配置可改跑對應的 *_2.py / *_3.py
 
 # 2. 特徵萃取
-python Step2_Feature_Extraction_6000.py
-python Step2_Feature_Extraction_8000.py
-python Step2_Feature_Extraction_11000.py
+python Step2_Feature_Extraction_6000_1.py
+python Step2_Feature_Extraction_8000_1.py
+python Step2_Feature_Extraction_11000_1.py
+# 其他馬達/配置可改跑對應的 *_2.py / *_3.py
 
 # 3 ~ 6. 依序開啟對應 Jupyter Notebook 執行
 # Step3_Model N.ipynb → Step4_Model N__Detecting.ipynb
 # → Step5_Model N__Random_Detecting.ipynb → Step6_Model N__Retrain.ipynb
 ```
+
+---
+
+## `data/` 目錄建議結構（讀寫路徑基準）
+
+本專案所有腳本/Notebooks 皆以**專案根目錄**為基準，並統一從 `data/` 目錄讀寫資料：
+
+```
+data/
+├── Step-1/
+│   ├── csv/
+│   │   └── {Motor}/
+│   │       └── {RPM}/
+│   │           └── {Screws}/
+│   │               ├── {Motor}_Current_data.csv
+│   │               ├── {Motor}_Acceleration_X_data.csv   # 或 {Motor}_X_data.csv（依馬達型別/腳本而定）
+│   │               ├── {Motor}_Acceleration_Y_data.csv   # 或 {Motor}_Y_data.csv
+│   │               ├── {Motor}_Acceleration_Z_data.csv   # 或 {Motor}_Z_data.csv
+│   │               └── {Motor}_Delta_T_data.csv
+│   ├── myfeature/
+│   │   └── {T_CODE}/
+│   │       └── {RPM}/
+│   │           └── {Screws}/
+│   │               ├── {T_CODE}_Group_feature_data.csv
+│   │               ├── {T_CODE}_Group_feature_data_raw.csv
+│   │               └── {T_CODE}_Group_feature_data_clean.csv
+│   └── model/
+│       └── *.keras
+├── Step-2/
+│   ├── csv/ ...
+│   ├── myfeature/ ...
+│   └── model/ ...
+└── Step-3/
+    ├── csv/ ...
+    ├── myfeature/ ...
+    └── model/ ...
+```
+
+- **Step-1 / Step-2 / Step-3**：對應原本的「階段1/2/3」資料集（目前已統一改為 `Step-N` 命名）。
+- **`csv/`**：Step 1 輸出（Step 2 的輸入）。
+- **`myfeature/`**：Step 2 輸出（Step 3/4/5/6 的輸入）。
+- **`model/`**：Step 3 / Step 6 訓練後的模型輸出（`.keras`）。
 
 ---
 

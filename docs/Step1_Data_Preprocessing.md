@@ -34,11 +34,12 @@ Step 1 是整個馬達故障診斷流程的起點，負責從原始量測訊號�
 原始資料存放於多層目錄結構中：
 
 ```
-raw_data/
-└── Motor_{A|B|C}/
-    └── {RPM}/
-        └── {Screws}_screws/
-            └── *.csv  (tab 分隔，標頭位於第 22 行)
+data/
+└── Step-{1|2|3}/
+    └── {Motor}/
+        └── {RPM}/
+            └── {Screws}/
+                └── *.csv  (tab 分隔，標頭位於第 22 行)
 ```
 
 ### 馬達類型
@@ -87,7 +88,7 @@ IQR 離群值移除（閾值 = 1.5 × IQR）
     ↓
 水平拼接（多段並排儲存）
     ↓
-輸出至 stage1/csv/{Motor}/{RPM}/{Screws}/
+輸出至 data/Step-{1|2|3}/csv/{Motor}/{RPM}/{Screws}/
 ```
 
 ### IQR 離群值移除
@@ -103,7 +104,7 @@ filtered = data[(data >= Q1 - 1.5*IQR) & (data <= Q3 + 1.5*IQR)]
 
 ## 輸出
 
-- **目錄：** `stage1/csv/{Motor_Type}/{RPM}/{Screws}_screws/`
+- **目錄：** `data/Step-{1|2|3}/csv/{Motor}/{RPM}/{Screws}/`
 - **格式：** CSV，各段資料水平排列（每段 10,000 行，多段並排）
 - **命名：** 依馬達、轉速、螺絲配置命名
 

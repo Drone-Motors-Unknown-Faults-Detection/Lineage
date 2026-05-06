@@ -22,7 +22,7 @@
 ### 模組位置
 
 ```
-e:\Ancestor\gpu_utils.py
+gpu_utils.py
 ```
 
 ### 模組用途
@@ -424,7 +424,7 @@ unknown_mask = distances > threshold
 
 ```python
 # 載入預訓練模型
-model = load_model(f'{modelDirectory}\\CNN_C8000.keras')
+model = load_model(os.path.join(modelDirectory, 'CNN_C8000.keras'))
 
 # 計算並凍結前 50% 的層
 num_layers    = len(model.layers)
@@ -477,7 +477,7 @@ Step 6 選擇從頭重訓（而非 Fine-tuning）的原因：確保新舊 10 個
 model.save('CNN_C8000.keras')
 
 # 儲存至指定路徑
-model.save(f'{rootDir}\\階段1\\model\\CNN_C8000.keras')
+model.save(os.path.join(rootDir, 'data', 'Step-1', 'model', 'CNN_C8000.keras'))
 ```
 
 `.keras` 格式會儲存：

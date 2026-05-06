@@ -13,7 +13,7 @@
 ## 目錄結構
 
 ```
-e:\Ancestor\
+/home/albert/Ancestor/
 ├── Step1_Data_Preprocessing_figure_*.py   # 資料視覺化腳本（×6）
 ├── Step1_Data_Preprocessing_save_*.py     # 資料儲存腳本（×9）
 ├── Step2_Feature_Extraction_*.py          # 特徵萃取腳本（×9）
@@ -50,9 +50,9 @@ Step 1 → Step 2 → Step 3 → Step 4 → Step 5
 
 | 步驟 | 輸入來源 | 輸出目標 |
 |------|----------|----------|
-| Step 1 | 原始 CSV（raw_data/）| stage1/csv/ |
-| Step 2 | stage1/csv/ | feature_data.csv |
-| Step 3 | feature_data.csv | *.keras 模型 |
+| Step 1 | `data/Step-{1|2|3}/{Motor}/{RPM}/{Screws}/` 原始 CSV | `data/Step-{1|2|3}/csv/` |
+| Step 2 | `data/Step-{1|2|3}/csv/` | `data/Step-{1|2|3}/myfeature/` |
+| Step 3 | `data/Step-{1|2|3}/myfeature/` | `data/Step-{1|2|3}/model/*.keras` |
 | Step 4 | *.keras + 未知資料 | 偵測結果、叢集模型 |
 | Step 5 | Step 4 的叢集模型 | 偵測結果（隨機批次）|
 | Step 6 | 原始已知 + 未知資料 | 重訓練 *.keras 模型 |
@@ -168,7 +168,7 @@ threshold = np.percentile(train_distances, 95)  # 可調整百分位數
 3. **HDBSCAN 隨機性：** 叢集結果可能略有差異，建議固定 `random_state` 或多次執行取平均。
 4. **協方差矩陣奇異性：** 若特徵高度共線，馬氏距離計算可能失敗，需先以 PCA 降維。
 5. **Step 6 從頭重訓練：** 目前不使用 Fine-tuning，若資料量大，訓練時間較長。
-6. **資料路徑：** 所有腳本中的路徑為相對路徑，請確保在 `e:\Ancestor\` 目錄下執行。
+6. **資料路徑：** 所有腳本使用相對路徑（以專案根目錄為基準），並統一從 `data/` 目錄讀寫；請確保在專案根目錄執行（例如 `.../Ancestor/`）。
 
 ---
 

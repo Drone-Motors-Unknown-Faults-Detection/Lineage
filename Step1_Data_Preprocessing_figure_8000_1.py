@@ -1,3 +1,30 @@
+# --- logging bootstrap (auto-added) ---
+import atexit
+from logger import redirect_std_to_logger, save_plot, setup_logger
+
+LOG, RUN_PATHS = setup_logger(__file__)
+_redirect_ctx = redirect_std_to_logger(LOG)
+_redirect_ctx.__enter__()
+atexit.register(_redirect_ctx.__exit__, None, None, None)
+
+# Auto-save matplotlib figures on plt.show()
+try:
+    import matplotlib.pyplot as plt  # type: ignore
+
+    _orig_show = plt.show
+
+    def _show_and_save(*args, **kwargs):
+        try:
+            save_plot(plt, LOG, RUN_PATHS)
+        except Exception:
+            pass
+        return _orig_show(*args, **kwargs)
+
+    plt.show = _show_and_save  # type: ignore[assignment]
+except Exception:
+    pass
+# --- end logging bootstrap ---
+
 ### 論文馬達研究
 ### 第一步 資料前處理
 ### 畫圖
@@ -16,6 +43,8 @@ warnings.filterwarnings("ignore")
 
 # 設定根目錄
 rootDir = os.getcwd()
+dataDir = os.path.join(rootDir, 'data')
+stepDir = os.path.join(dataDir, 'Step-1')
 
 # 設定數據目錄 (包含 A, B, C 馬達)
 # motor_types = ['A', 'B', 'C']
@@ -26,12 +55,12 @@ screws_config = [3]
 rawDataDirectories = {
     motor: {
         **{
-            screws: os.path.join(rootDir, '階段1', motor, '8000rpm', f'{screws}screws')
+            screws: os.path.join(stepDir, motor, '8000rpm', f'{screws}screws')
             for screws in screws_config
         },
-        # '1': os.path.join(rootDir, '階段1', motor, '8000rpm', '1screw'),
-        # '3_14': os.path.join(rootDir, '階段1', motor, '8000rpm', '3_14screws'),
-        # '4_146': os.path.join(rootDir, '階段1', motor, '8000rpm', '4_146screws'),
+        # '1': os.path.join(stepDir, motor, '8000rpm', '1screw'),
+        # '3_14': os.path.join(stepDir, motor, '8000rpm', '3_14screws'),
+        # '4_146': os.path.join(stepDir, motor, '8000rpm', '4_146screws'),
     }
     for motor in motor_types
 }

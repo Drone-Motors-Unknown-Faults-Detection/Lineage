@@ -230,6 +230,8 @@ data/*
 .claude/
 .vscode/
 .cursor/
+scripts/
+tools/
 
 # CUDA
 cuda_info.txt
