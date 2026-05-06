@@ -3,7 +3,7 @@ pandas
 matplotlib
 scipy
 scikit-learn
-tensorflow
+tensorflow[and-gpu]
 seaborn
 hdbscan
 natsort
