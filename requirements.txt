@@ -3,9 +3,10 @@ pandas
 matplotlib
 scipy
 scikit-learn
-tensorflow[and-gpu]
+tensorflow[and-cuda]
 seaborn
 hdbscan
 natsort
 absl-py
 jupyter
+loguru
