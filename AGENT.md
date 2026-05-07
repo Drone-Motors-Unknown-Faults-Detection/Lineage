@@ -202,3 +202,8 @@ from gpu_utils import device_scope, DEVICE
 ```
 
 訓練區塊以 `with device_scope():` 包裹，有 GPU 時自動使用 `/GPU:0`，否則回退至 `/CPU:0`，不需手動修改任何參數。詳細說明見 [docs/Tensorflow.md](docs/Tensorflow.md)。
+
+### GitHub
+
+允許在完成改動後進行 commit and push。
+允許 logs 和 output 推送至 GitHub。不需要加入至 .gitignore
