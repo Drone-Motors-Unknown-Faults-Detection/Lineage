@@ -10,5 +10,5 @@ while true; do
     echo "[TIME] $(date +%Y-%m-%d\ %H:%M:%S)"
     echo ""
     nvidia-smi
-    sleep 1
+    sleep 0.5
 done

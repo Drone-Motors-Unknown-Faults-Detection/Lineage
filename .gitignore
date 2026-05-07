@@ -235,6 +235,10 @@ data/*
 scripts/
 tools/
 
+# Run artifacts
+logs/
+output/
+
 # CUDA
 cuda_info.txt
 
