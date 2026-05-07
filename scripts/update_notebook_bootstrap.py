@@ -11,12 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 NEW_BOOTSTRAP = [
     "# --- logging bootstrap (auto-added) ---\n",
-    "import sys\n",
     "import importlib\n",
-    "# In case an older bootstrap redirected outputs, restore them.\n",
-    "sys.stdout = sys.__stdout__\n",
-    "sys.stderr = sys.__stderr__\n",
-    "\n",
     "import logger as _logger_mod\n",
     "_logger_mod = importlib.reload(_logger_mod)\n",
     "save_plot = _logger_mod.save_plot\n",
