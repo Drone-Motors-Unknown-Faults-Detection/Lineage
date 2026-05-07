@@ -58,6 +58,10 @@ cover/
 # Django stuff:
 *.log
 local_settings.py
+
+# Run artifacts
+logs/
+output/
 db.sqlite3
 db.sqlite3-journal
 
