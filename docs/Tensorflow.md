@@ -14,6 +14,7 @@
 6. [遷移學習模式](#6-遷移學習模式)
 7. [模型儲存與載入](#7-模型儲存與載入)
 8. [常見 API 速查表](#8-常見-api-速查表)
+9. [Logger 模組說明](#9-logger-模組說明)
 
 ---
 
@@ -96,6 +97,11 @@ import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.callbacks import EarlyStopping
 from gpu_utils import device_scope, DEVICE   # 匯入裝置介面
+from logger import setup_logger, save_plot   # 匯入日誌模組
+
+# ── Logger 初始化（Notebook 頂部 bootstrap cell）──────────────────
+LOG, RUN_PATHS = setup_logger(__file__)      # 建立 logs/ 與 output/ 目錄
+# 圖表自動儲存已由 bootstrap cell 掛載到 plt.show()
 
 # ── 訓練 ──────────────────────────────────────────────────────────
 print(f"[Training] Device: {DEVICE}")        # 確認使用的裝置
@@ -505,14 +511,15 @@ model = load_model('CNN_C8000.keras', compile=False)
 
 ```python
 import tensorflow as tf
-from tensorflow.keras.models    import Sequential, Model, load_model
-from tensorflow.keras.layers    import (Conv1D, MaxPooling1D, Flatten,
-                                         Dense, Dropout, Input,
-                                         BatchNormalization)
+from tensorflow.keras.models    import Model, load_model
+from tensorflow.keras.layers    import Conv1D, MaxPooling1D, Flatten, Dense, Dropout, Input
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks  import EarlyStopping
 from gpu_utils import device_scope, DEVICE
+from logger import setup_logger, save_plot
 ```
+
+> `BatchNormalization` 與 `Sequential` 在本專案中未使用；模型均以 Functional API 建構。
 
 ### 層 API 一覽
 
@@ -544,6 +551,72 @@ from gpu_utils import device_scope, DEVICE
 | `device_scope()` | `contextmanager` | `with device_scope():` 包裹訓練區塊 |
 | `gpu_count()` | `int` | 可用 GPU 數量 |
 | `is_gpu()` | `bool` | 是否有 GPU |
+
+---
+
+## 9. Logger 模組說明
+
+### 模組位置
+
+```
+logger.py
+```
+
+### 主要元件
+
+| 元件 | 型別 | 說明 |
+|------|------|------|
+| `RunPaths` | dataclass | 每次執行的路徑集合（logs_dir、output_dir、log_file）|
+| `SimpleFileLogger` | class | 輕量級文字日誌（info / warning / error）|
+| `setup_logger()` | function | 初始化目錄與 logger，回傳 `(log, paths)` |
+| `save_plot()` | function | 自動儲存 matplotlib 圖表（遞增編號）|
+| `_TeeToFileStream` | class | 同時寫入終端機與日誌檔的串流包裝器 |
+| `tee_std_to_file()` | context manager | 將 stdout/stderr 導向 `_TeeToFileStream` |
+| `redirect_std_to_logger()` | context manager | **向後相容的 no-op**，不執行任何動作 |
+
+### 使用方式
+
+```python
+from logger import setup_logger, save_plot
+
+# 初始化（建立 logs/ 與 output/ 目錄）
+log, run_paths = setup_logger(__file__)
+
+# 記錄訊息
+log.info("開始訓練，epochs={}", 100)
+log.warning("資料量不足：{}", len(X))
+log.error("模型載入失敗")
+
+# 儲存圖表（通常透過 plt.show() 自動觸發）
+save_plot(plt, log, run_paths)
+# → output/{run_name}/plot_000.png, plot_001.png, ...
+```
+
+### 日誌格式
+
+```
+2026-05-07 13:51:09 | INFO  | Logger initialized
+2026-05-07 13:51:09 | INFO  | log_file=logs/program_2026-05-07-13-51-09/program.log
+2026-05-07 13:51:09 | INFO  | output_dir=output/program_2026-05-07-13-51-09/
+```
+
+### `_TeeToFileStream` 的 Keras 輸出過濾
+
+`_TeeToFileStream` 在寫入日誌檔時過濾 Keras 訓練輸出的雜訊：
+
+| 行類型 | 處理方式 |
+|--------|----------|
+| `Epoch x/y` 標頭 | 保留 |
+| 最後一個 step 的 loss/accuracy 摘要 | 保留 |
+| 中間進度條（含 `━━━━━━━━`）| 丟棄 |
+| ANSI 控制碼（顏色字元）| 移除 |
+| 純進度比例（如 `42/75`）| 丟棄 |
+
+### 注意事項
+
+- `redirect_std_to_logger()` 目前為 no-op（向後相容保留），呼叫後不影響 stdout/stderr
+- 若需要將輸出導向日誌檔，使用 `tee_std_to_file(run_paths.log_file)` context manager
+- Notebook 的 bootstrap cell 使用 `redirect_std_to_logger`（目前效果等同無操作），圖表仍通過 `plt.show()` 掛載自動儲存
 
 ---
 

@@ -9,7 +9,7 @@ Step 1 是整個馬達故障診斷流程的起點，負責從原始量測訊號�
 ## 目標
 
 - 讀取不同轉速下的馬達原始訊號（振動、電流、溫度）
-- 使用 IQR 方法移除離群值
+- 使用 IQR 方法移除離群值（scale = 3.0）
 - 將連續訊號切割成固定長度片段
 - 儲存整理後的資料供 Step 2 使用
 - 視覺化各類訊號以輔助確認資料品質
@@ -18,12 +18,19 @@ Step 1 是整個馬達故障診斷流程的起點，負責從原始量測訊號�
 
 ## 腳本一覽
 
-| 類型 | 轉速 | 說明 |
-|------|------|------|
-| `figure` 系列 | 6000 / 8000 / 11000 RPM | 繪製原始訊號波形圖 |
-| `save` 系列 | 6000 / 8000 / 11000 RPM | 處理並儲存清洗後的 CSV 資料 |
+| 類型 | 轉速 | 腳本數量 | 說明 |
+|------|------|----------|------|
+| `figure` 系列 | 6000 / 8000 / 11000 RPM | 6 支（各轉速 2 支）| 繪製原始訊號波形圖 |
+| `save` 系列 | 6000 / 8000 / 11000 RPM | 9 支（各轉速 3 支）| 處理並儲存清洗後的 CSV 資料 |
 
-共 **15 支腳本**：6 支 figure + 9 支 save，依轉速分組各 2 支 figure、3 支 save。
+命名規則：
+
+```
+Step1_Data_Preprocessing_save_{RPM}_{1|2|3}.py
+Step1_Data_Preprocessing_figure_{RPM}_{1|2}.py
+```
+
+例如：`Step1_Data_Preprocessing_save_6000_1.py`、`Step1_Data_Preprocessing_figure_8000_1.py`
 
 ---
 
@@ -36,53 +43,73 @@ Step 1 是整個馬達故障診斷流程的起點，負責從原始量測訊號�
 ```
 data/
 └── Step-{1|2|3}/
-    └── {Motor}/
-        └── {RPM}/
-            └── {Screws}/
-                └── *.csv  (tab 分隔，標頭位於第 22 行)
+    └── {Motor}/              # 馬達代碼，例如 T1
+        └── {RPM}/            # 6000rpm / 8000rpm / 11000rpm
+            └── {Screws}/     # 8screws / 1screw / 2screws / ... / 4_146screws
+                └── *.csv     # Tab 分隔，標頭位於第 22 行（skiprows=21）
 ```
 
-### 馬達類型
+### 馬達類型與螺絲配置
 
-- **Motor A、B、C**：代表不同的馬達個體或量測配置
-- **T1**：部分腳本中加入的時序標記馬達
-
-### 螺絲配置（故障等級）
-
-| 配置 | 說明 |
-|------|------|
+| 螺絲配置 | 說明 |
+|----------|------|
 | 8 screws | 正常狀態（Healthy）|
-| 1 ~ 7 screws | 不同程度的人為故障 |
-| 3_14、4_146 | 特殊複合故障配置 |
+| 1 screw | 故障 1（注意：目錄名為 `1screw`，無 s）|
+| 2 ~ 7 screws | 不同程度的人為故障 |
+| 3_14、4_146 | 特殊複合故障配置（非均勻鬆動）|
 
-螺絲數量越少，代表馬達固定程度越低，模擬松脫或故障情境。
+螺絲數量越少，代表馬達固定程度越低，模擬鬆脫或故障情境。
 
 ---
 
-## 萃取欄位
+## 訊號讀取與欄位處理
 
-每個馬達類型讀取 7 個訊號欄位：
+### 原始 CSV 欄位
 
-| 欄位 | 說明 |
-|------|------|
+原始資料包含以下欄位（依馬達型號略有不同）：
+
+| 欄位名稱 | 說明 |
+|----------|------|
 | `Acceleration_X` | X 軸振動加速度 |
 | `Acceleration_Y` | Y 軸振動加速度 |
 | `Acceleration_Z` | Z 軸振動加速度 |
 | `Current` | 馬達電流 |
-| `Temp_A / Temp_B / Temp_C` | 馬達溫度（依馬達類型不同） |
-| `Room_Temp` | 環境室溫 |
-| `Delta_T` | 計算欄位：`馬達溫度 - 室溫`（溫度差） |
+| `Temp_C` | 馬達溫度（馬達殼體）|
+| `Temp_room` | 環境室溫 |
+| `X_Value`、`Comment` | 時間戳或說明欄位（讀取後直接捨棄）|
+
+### 衍生欄位
+
+```python
+df['Delta_T'] = df['Temp_C'] - df['Temp_room']
+```
+
+`Delta_T`（溫度差）為計算欄位，代表馬達殼體溫度與環境溫度的差值，比單一溫度更能反映馬達的發熱狀態。
+
+### 最終輸出的 5 個訊號欄位
+
+讀取並計算 `Delta_T` 後，從原始欄位中選取以下 **5 個訊號**作為後續處理對象：
+
+```python
+signal_columns = ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Delta_T']
+```
+
+`Temp_C` 與 `Temp_room` 僅用於計算 `Delta_T`，不獨立輸出。
 
 ---
 
 ## 處理流程
 
 ```
-原始 CSV 讀取
+原始 CSV 讀取（Tab 分隔，skiprows=21）
     ↓
-欄位選取與重命名
+捨棄無關欄位（X_Value、Comment 等）
     ↓
-IQR 離群值移除（閾值 = 1.5 × IQR）
+計算 Delta_T = Temp_C - Temp_room
+    ↓
+選取 5 個訊號欄位
+    ↓
+逐欄 IQR 離群值移除（scale = 3.0）
     ↓
 訊號切割（每段 10,000 點）
     ↓
@@ -94,31 +121,53 @@ IQR 離群值移除（閾值 = 1.5 × IQR）
 ### IQR 離群值移除
 
 ```python
-Q1 = data.quantile(0.25)
-Q3 = data.quantile(0.75)
-IQR = Q3 - Q1
-filtered = data[(data >= Q1 - 1.5*IQR) & (data <= Q3 + 1.5*IQR)]
+def iqr(series, scale=3.0):
+    Q1 = series.quantile(0.25)
+    Q3 = series.quantile(0.75)
+    IQR = Q3 - Q1
+    lower = Q1 - scale * IQR
+    upper = Q3 + scale * IQR
+    return series[(series >= lower) & (series <= upper)]
 ```
+
+`scale=3.0` 表示移除超出 3 倍四分位距範圍的資料點，相較常見的 `1.5` 倍設定更寬鬆，保留振動訊號中的極端但合理的峰值。
 
 ---
 
 ## 輸出
 
 - **目錄：** `data/Step-{1|2|3}/csv/{Motor}/{RPM}/{Screws}/`
-- **格式：** CSV，各段資料水平排列（每段 10,000 行，多段並排）
-- **命名：** 依馬達、轉速、螺絲配置命名
+- **格式：** CSV，每欄為一個 1 秒片段，每列為一個取樣點
+- **每欄資料量：** 10,000 列（= 1 秒 @ 10 kHz）
+- **欄數：** 依可用資料長度決定（片段數量）
+- **命名：** `{Motor}_{SignalName}_data.csv`，例如 `T1_Acceleration_X_data.csv`
+
+每個螺絲配置輸出 5 個 CSV 檔案，對應 5 個訊號欄位。
 
 ---
 
 ## 視覺化內容（figure 系列）
 
-figure 腳本產生以下圖表：
+figure 腳本產生以下圖表，用於人工確認資料品質：
+
 - 三軸振動訊號波形（X / Y / Z 軸）
 - 馬達溫度與室溫時序圖
 - 溫度差（Delta_T）曲線
 - 電流訊號波形
 
-這些圖表用於人工確認資料品質，識別異常區段。
+這些圖表識別異常區段（訊號中斷、感測器雜訊、異常峰值等），確認資料可用性後再進行 Step 2。
+
+---
+
+## Logger 日誌
+
+所有 `save` 系列腳本頂部包含自動加入的 logger bootstrap，執行時會：
+
+- 建立 `logs/{腳本名稱}_{時間戳}/program.log` 日誌檔
+- 建立 `output/{腳本名稱}_{時間戳}/` 輸出目錄
+- 自動儲存 matplotlib 圖表至 `output/` 目錄
+
+日誌記錄每個螺絲配置的資料處理進度與儲存路徑。
 
 ---
 
@@ -128,13 +177,15 @@ figure 腳本產生以下圖表：
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from natsort import natsorted    # 自然排序，確保檔案以正確順序讀取
 ```
 
 ---
 
 ## 注意事項
 
-- 原始 CSV 為 **Tab 分隔**，讀取時需指定 `sep='\t'`，並跳過前 21 行標頭 (`header=22`)
-- 切割後的每段固定 **10,000 個資料點**
-- Delta_T 為衍生欄位，計算時需確保馬達溫度欄位已正確對應
-- IQR 過濾可能因訊號特性導致部分 RPM 資料損失率不同
+- 原始 CSV 為 **Tab 分隔**，讀取時需指定 `sep='\t'`，並以 `skiprows=21` 跳過前 21 行說明文字
+- 切割後的每段固定 **10,000 個資料點**（= 1 秒 @ Fs=10,000 Hz）
+- IQR 過濾使用 **scale=3.0**（非常見的 1.5），保留較寬的資料範圍
+- `1screw` 目錄名稱沒有複數 `s`，與其他 `{N}screws` 不同，程式碼中已特別處理
+- 所有腳本以**專案根目錄**為執行基準，使用 `os.getcwd()` 取得根路徑

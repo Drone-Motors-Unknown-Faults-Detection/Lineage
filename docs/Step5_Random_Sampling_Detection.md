@@ -39,8 +39,8 @@ Step 5 是 Step 4 偵測機制的延伸驗證，透過**隨機抽樣**方式從�
 | 5 screws | Unknown 1 | New Faulty 1 |
 | 6 screws | Unknown 2 | New Faulty 2 |
 | 7 screws | Unknown 3 | New Faulty 3 |
-| 4_146 screws | Unknown 4 | New Faulty 4 |
-| 3_14 screws | Unknown 5 | New Faulty 5 |
+| 3_14 screws | Unknown 4 | New Faulty 4 |
+| 4_146 screws | Unknown 5 | New Faulty 5 |
 
 ---
 

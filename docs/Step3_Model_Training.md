@@ -2,7 +2,7 @@
 
 ## 概述
 
-Step 3 使用 Step 2 萃取的 105 維特徵向量，訓練一維卷積神經網路（1D CNN），建立馬達故障類型的分類模型，可辨識 5 種已知故障狀態。
+Step 3 使用 Step 2 萃取的 105 維特徵向量，訓練一維卷積神經網路（1D CNN），建立馬達故障類型的分類模型，可辨識 5 種已知故障狀態。訓練完成的模型同時作為 Step 4/5 特徵萃取的基礎。
 
 ---
 
@@ -11,19 +11,19 @@ Step 3 使用 Step 2 萃取的 105 維特徵向量，訓練一維卷積神經網
 - 訓練 CNN 模型區分已知的 5 種故障類別
 - 儲存訓練好的模型供 Step 4 偵測使用
 - 建立中間層特徵萃取器用於異常偵測
-- 評估模型在測試集上的表現
+- 評估模型在測試集上的表現（混淆矩陣、學習曲線）
 
 ---
 
 ## Notebook 一覽
 
-| 模型範圍 | 說明 |
-|----------|------|
-| Model 1 ~ 9 | 基礎版本，對應不同轉速 / 馬達配置組合 |
-| Model 10 ~ 18 | OneStage 變體 |
-| Model 19 ~ 27 | TwoStage 變體 |
+| 模型範圍 | 類型 | 說明 |
+|----------|------|------|
+| Model 1 ~ 9 | 基礎版本 | 從頭訓練，對應不同轉速 / 馬達配置組合 |
+| Model 10 ~ 18 | OneStage 變體 | 載入基礎模型、凍結前半層、以不同馬達資料 Fine-tune |
+| Model 19 ~ 27 | TwoStage 變體 | 兩階段遷移學習（OneStage 後再進行第二次 Fine-tune）|
 
-共 **27 個 Jupyter Notebook**（Step3_Model 1.ipynb ~ Step3_Model 27.ipynb）
+共 **27 個 Jupyter Notebook**（`Step3_Model 1.ipynb` ~ `Step3_Model 27.ipynb`）
 
 ---
 
@@ -41,29 +41,62 @@ Step 3 使用 Step 2 萃取的 105 維特徵向量，訓練一維卷積神經網
 
 ## CNN 模型架構
 
-輸入：`105 × 1`（105 維特徵向量，重塑為 1D 序列）
+輸入：`(105, 1)`（105 維特徵向量，reshape 為 1D 序列）
 
 ```
-Input (105, 1)
+Input (N, 105, 1)
     ↓
-Conv1D(16 filters, kernel=3, padding='same', ReLU)
+Conv1D(16 filters, kernel=3, padding='same', ReLU)    → (N, 105, 16)
     ↓
-Conv1D(16 filters, kernel=3, ReLU) → MaxPooling1D(2)
+Conv1D(16 filters, kernel=3, ReLU) → MaxPooling1D(2)  → (N, 51, 16)
     ↓
-Conv1D(16 filters, kernel=3, ReLU) → MaxPooling1D(2)
+Conv1D(16 filters, kernel=3, ReLU) → MaxPooling1D(2)  → (N, 24, 16)
     ↓
-Conv1D(16 filters, kernel=3, ReLU) → MaxPooling1D(2)
+Conv1D(16 filters, kernel=3, ReLU) → MaxPooling1D(2)  → (N, 11, 16)
     ↓
-Flatten
+Flatten                                                → (N, 176)  ← 特徵萃取點
     ↓
 Dense(16, ReLU)
     ↓
 Dropout(0.3)
     ↓
-Dense(5, Softmax)   ← 5 類輸出
+Dense(5, Softmax)   ← Step 3 輸出 5 類；Step 6 重訓練時改為 10 類
 ```
 
-**層數：** 11 層（含 4 個卷積層、3 個池化層、Flatten、2 個全連接層、1 個 Dropout）
+> `Flatten` 層輸出的 **176 維向量**作為 Step 4/5 HDBSCAN 叢集的輸入特徵空間。
+
+### 模型建構程式碼
+
+```python
+import tensorflow as tf
+from tensorflow.keras.layers import Conv1D, MaxPooling1D, Flatten, Dense, Dropout
+from tensorflow.keras.models import Model
+from tensorflow.keras.optimizers import Adam
+
+def build_cnn_model(input_shape=(105, 1), num_classes=5):
+    input_layer = tf.keras.Input(shape=input_shape)
+
+    x = Conv1D(16, kernel_size=3, activation='relu', padding='same')(input_layer)
+    x = Conv1D(16, kernel_size=3, activation='relu')(x)
+    x = MaxPooling1D(pool_size=2)(x)
+    x = Conv1D(16, kernel_size=3, activation='relu')(x)
+    x = MaxPooling1D(pool_size=2)(x)
+    x = Conv1D(16, kernel_size=3, activation='relu')(x)
+    x = MaxPooling1D(pool_size=2)(x)
+
+    x = Flatten()(x)
+    x = Dense(16, activation='relu')(x)
+    x = Dropout(0.3)(x)
+    output = Dense(num_classes, activation='softmax', name='Screw_Number_Output')(x)
+
+    model = Model(inputs=input_layer, outputs=output)
+    model.compile(
+        optimizer=Adam(learning_rate=1e-4),
+        loss='sparse_categorical_crossentropy',
+        metrics=['accuracy']
+    )
+    return model
+```
 
 ---
 
@@ -73,61 +106,123 @@ Dense(5, Softmax)   ← 5 類輸出
 |------|----|
 | 優化器 | Adam（learning_rate = 1e-4）|
 | 損失函數 | Sparse Categorical Crossentropy |
-| 訓練週期 | 最多 100 epochs |
+| 訓練週期上限 | 100 epochs |
 | 批次大小 | 32 |
-| 訓練/測試比例 | 80 / 20 |
-| 早停策略 | EarlyStopping（patience = 10）|
+| 訓練/測試比例 | 80 / 20（stratify=True 分層抽樣）|
+| 早停策略 | EarlyStopping（patience=10，monitor='val_loss'，restore_best_weights=True）|
+| 標準化方法 | RobustScaler（以訓練集 fit，測試集 transform）|
 
 ---
 
 ## 訓練流程
 
 ```
-讀取 feature_data.csv
-    ↓
-資料標準化（視模型配置）
-    ↓
-訓練/測試集切割（80/20）
-    ↓
-模型建構（Keras Sequential）
-    ↓
-模型訓練（fit with EarlyStopping）
-    ↓
-評估：混淆矩陣、學習曲線
-    ↓
-儲存完整模型（.keras）
-    ↓
-建立中間層萃取器（Flatten 層輸出）
+1. [Bootstrap]  初始化 logger（建立 logs/ 與 output/ 目錄）
+2. [設定]       匯入套件 + GPU 初始化（gpu_utils）
+3. [載入資料]   從 myfeature/ 讀取 *_clean.csv
+4. [標籤編碼]   螺絲字串 → 整數（'8screws'→0, '1screw'→1, ...）
+5. [分割資料]   train_test_split（test_size=0.2, stratify=y）
+6. [標準化]     RobustScaler fit on X_train → transform X_train & X_test
+7. [形狀轉換]   (N, 105) → (N, 105, 1) 以符合 Conv1D 輸入格式
+8. [建模]       build_cnn_model(input_shape=(105,1), num_classes=5)
+9. [訓練]       model.fit() + EarlyStopping callback
+10.[評估]       混淆矩陣 + 準確率/損失曲線 → 自動儲存至 output/
+11.[儲存]       model.save('data/Step-*/model/CNN_*.keras')
+```
+
+### 資料前處理程式碼
+
+```python
+from sklearn.preprocessing import RobustScaler
+from sklearn.model_selection import train_test_split
+
+# 分割
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+# 標準化（僅以訓練集擬合）
+scaler = RobustScaler()
+X_train = scaler.fit_transform(X_train)
+X_test  = scaler.transform(X_test)
+
+# reshape 為 Conv1D 格式
+X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
+X_test  = X_test.reshape(X_test.shape[0],  X_test.shape[1],  1)
 ```
 
 ---
 
 ## 模型輸出
 
-| 輸出物 | 說明 |
-|--------|------|
-| `*.keras` | 完整分類模型 |
-| 中間層萃取器 | 用於 Step 4 HDBSCAN 輸入的特徵萃取子模型 |
-| 混淆矩陣圖 | 測試集各類別預測結果 |
-| 學習曲線圖 | Accuracy 與 Loss 隨 epoch 的變化 |
+| 輸出物 | 儲存位置 | 說明 |
+|--------|----------|------|
+| `CNN_*.keras` | `data/Step-*/model/` | 完整 5 類分類模型 |
+| 混淆矩陣圖 | `output/{run}/plot_*.png` | 測試集各類別預測結果 |
+| 學習曲線圖 | `output/{run}/plot_*.png` | Accuracy 與 Loss 隨 epoch 變化 |
+
+---
+
+## OneStage vs TwoStage 遷移學習
+
+| 類型 | 訓練方式 | 說明 |
+|------|----------|------|
+| 基礎版（Model 1-9） | 從頭訓練 | 使用單一馬達資料完整訓練 |
+| OneStage（Model 10-18）| Fine-tune | 載入基礎版模型，凍結前 50% 層，以第二組馬達資料繼續訓練 |
+| TwoStage（Model 19-27）| 二次 Fine-tune | 在 OneStage 基礎上再凍結並以第三組馬達資料 Fine-tune |
+
+```python
+# OneStage / TwoStage 遷移學習核心程式碼
+model = load_model('CNN_base.keras')
+
+freeze_count = len(model.layers) // 2
+for layer in model.layers[:freeze_count]:
+    layer.trainable = False
+for layer in model.layers[freeze_count:]:
+    layer.trainable = True
+
+# 凍結後必須重新 compile 才會生效
+model.compile(
+    optimizer=Adam(learning_rate=1e-4),
+    loss='sparse_categorical_crossentropy',
+    metrics=['accuracy']
+)
+history = model.fit(X_new, y_new, ...)
+```
 
 ---
 
 ## 模型表現
 
-- 測試集準確率：通常達到 **100%**
-- 早停機制有效防止過擬合
+- 測試集準確率：通常達到 **100%**（5 類已知故障邊界明確）
+- 早停機制有效防止過擬合，實際通常在 20–50 epochs 提前結束
 - Dropout(0.3) 增強模型泛化能力
 
 ---
 
-## OneStage vs TwoStage 說明
+## Logger 與輸出
 
-| 類型 | 說明 |
-|------|------|
-| 基礎（Model 1-9） | 單一 CNN 直接分類 5 類 |
-| OneStage（Model 10-18） | 調整資料組合策略，一階段偵測 |
-| TwoStage（Model 19-27） | 兩階段設計：先判定健康/故障，再細分故障類型 |
+每個 Notebook 頂部包含自動維護的 bootstrap cell：
+
+```python
+# --- logging bootstrap (auto-added) ---
+import atexit
+from logger import redirect_std_to_logger, save_plot, setup_logger
+
+LOG, RUN_PATHS = setup_logger(__file__)
+_redirect_ctx = redirect_std_to_logger(LOG)
+_redirect_ctx.__enter__()
+atexit.register(_redirect_ctx.__exit__, None, None, None)
+
+import matplotlib.pyplot as plt
+_orig_show = plt.show
+def _show_and_save(*args, **kwargs):
+    save_plot(plt, LOG, RUN_PATHS)
+    return _orig_show(*args, **kwargs)
+plt.show = _show_and_save
+```
+
+`plt.show()` 呼叫時自動將圖表存至 `output/{run_name}/plot_000.png`、`plot_001.png` 等。
 
 ---
 
@@ -135,18 +230,24 @@ Dense(5, Softmax)   ← 5 類輸出
 
 ```python
 import tensorflow as tf
-from tensorflow import keras
+from tensorflow.keras.models import Model, load_model
+from tensorflow.keras.layers import Conv1D, MaxPooling1D, Flatten, Dense, Dropout
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import RobustScaler
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from gpu_utils import device_scope, DEVICE
 ```
 
 ---
 
 ## 注意事項
 
-- 模型儲存路徑需與 Step 4 讀取路徑一致
-- 中間層（Flatten 層）輸出用作 Step 4 的無監督特徵空間
-- Step 6 重訓練時，輸出層需從 5 類擴充為 10 類
-- 各 Model 編號對應不同的轉速、馬達類型或資料切割方式，需對照索引表確認對應關係
+- **模型對應：** `Step3_Model N.ipynb` 訓練出的模型必須配合 `Step4_Model N__Detecting.ipynb` 使用，不可交叉混用
+- **Flatten 層特徵：** 176 維的 Flatten 輸出是 Step 4/5 的核心，Step 6 重訓練後的新模型也需保持此架構
+- **Step 6 輸出層：** 重訓練時將最後一層改為 `Dense(10, softmax)`，其他層結構完全相同
+- **遷移學習版本：** OneStage/TwoStage 依賴對應的基礎版模型，執行前須確認來源模型已存在
+- **`_clean.csv` 作為輸入：** 務必使用 Step 2 輸出的 `*_clean.csv`，而非 `*_raw.csv` 或 `*_data.csv`

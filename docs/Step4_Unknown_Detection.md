@@ -33,8 +33,8 @@ Step 4 利用 Step 3 訓練好的 CNN 模型提取深度特徵，結合 HDBSCAN 
 | Unknown 1 | 5 screws | **未知（Unknown）**|
 | Unknown 2 | 6 screws | **未知（Unknown）**|
 | Unknown 3 | 7 screws | **未知（Unknown）**|
-| Unknown 4 | 4_146 screws | **未知（Unknown）**|
-| Unknown 5 | 3_14 screws | **未知（Unknown）**|
+| Unknown 4 | 3_14 screws | **未知（Unknown）**|
+| Unknown 5 | 4_146 screws | **未知（Unknown）**|
 
 ---
 
