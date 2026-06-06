@@ -43,11 +43,10 @@ warnings.filterwarnings("ignore")
 # 設定根目錄
 rootDir = os.getcwd()
 dataDir = os.path.join(rootDir, 'data')
-stepDir = os.path.join(dataDir, 'Step-2')
+stepDir = os.path.join(dataDir, 'Step-1', 'csv')
 
-# 設定數據目錄 (包含 A, B, C 馬達)
-# motor_types = ['A']
-motor_types = ['A', 'B', 'C']
+# 設定數據目錄
+motor_types = ['T1']
 screws_config = [8, 6, 4, 2]
 
 rawDataDirectories = {
@@ -74,40 +73,39 @@ def calculate_iqr_bounds(df):
         bounds[column] = (Q1 - 1.5 * IQR, Q3 + 1.5 * IQR)
     return bounds
 
-# 處理數據並移除異常值
-def process_data(rawDataDirectory):
-    data = {'Current': [], 'X': [], 'Y': [], 'Z': [], 'Delta_T': []}
+# 讀取 per-signal CSV（10000 rows × N segments），攤平後組成 dict of Series
+signal_map = {
+    'Current': 'Current',
+    'X': 'Acceleration_X',
+    'Y': 'Acceleration_Y',
+    'Z': 'Acceleration_Z',
+    'Delta_T': 'Delta_T',
+}
 
+def process_data(rawDataDirectory):
     if not os.path.exists(rawDataDirectory):
         print(f"Directory does not exist: {rawDataDirectory}")
-        return data
+        return {k: pd.Series([], dtype=float) for k in signal_map}
 
-    rawdataset_list = natsorted(os.listdir(rawDataDirectory))
-    for dataset in rawdataset_list:
-        try:
-            # 讀取數據檔案
-            file_path = os.path.join(rawDataDirectory, dataset)
-            df = pd.read_csv(file_path, header=22, delimiter='\t', encoding='unicode_escape')
+    motor = os.path.basename(os.path.dirname(os.path.dirname(rawDataDirectory)))
+    data = {}
+    try:
+        for key, signal in signal_map.items():
+            file_path = os.path.join(rawDataDirectory, f'{motor}_{signal}_data.csv')
+            if not os.path.exists(file_path):
+                data[key] = pd.Series([], dtype=float)
+                continue
+            df = pd.read_csv(file_path, encoding='utf-8-sig')
+            flat = pd.Series(df.values.T.flatten())
+            # IQR 離群值過濾
+            q1, q3 = flat.quantile(0.25), flat.quantile(0.75)
+            iqr = q3 - q1
+            data[key] = flat[(flat >= q1 - 1.5 * iqr) & (flat <= q3 + 1.5 * iqr)].reset_index(drop=True)
+    except Exception as e:
+        print(f"Error processing directory {rawDataDirectory}: {e}")
+        data = {k: pd.Series([], dtype=float) for k in signal_map}
 
-            # 刪除不必要的列，重新命名
-            df.drop(['X_Value', 'Comment'], axis=1, inplace=True)
-            df.columns = ['Current', 'X', 'Y', 'Z', 'Temperature', 'AmbientTemperature']
-
-            # 計算溫差
-            df['Delta_T'] = df['Temperature'] - df['AmbientTemperature']
-
-            # 計算 IQR 範圍並移除異常值
-            bounds = calculate_iqr_bounds(df)
-            df_cleaned = remove_outliers(df, bounds)
-
-            # 收集清理後的數據
-            for key in data.keys():
-                data[key].extend(df_cleaned[key])
-
-        except Exception as e:
-            print(f"Error processing file {dataset} in directory {rawDataDirectory}: {e}")
-
-    return {key: pd.Series(values) for key, values in data.items()}
+    return data
 
 # 繪圖函式
 def plot_signals(data, title_prefix, motor, screws):

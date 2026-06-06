@@ -44,11 +44,11 @@ warnings.filterwarnings("ignore")
 # 設定根目錄
 rootDir = os.getcwd()
 dataDir = os.path.join(rootDir, 'data')
-stepDir = os.path.join(dataDir, 'Step-1')
+stepDir = os.path.join(dataDir, 'Step-1', 'csv')
 
-# 設定數據目錄 (包含 A, B, C 馬達)
-motor_types = ['A', 'B', 'C']
-screws_config = [8, 7, 6, 5, 4, 3, 2]
+# 設定數據目錄
+motor_types = ['T1']
+screws_config = [8, 7, 6, 5, 4, 3, 2, '3_14', '4_146']
 
 rawDataDirectories = {
     motor: {
@@ -56,18 +56,13 @@ rawDataDirectories = {
             screws: os.path.join(stepDir, motor, '11000rpm', f'{screws}screws')
             for screws in screws_config
         },
-        '1': os.path.join(stepDir, motor, '11000rpm', '1screw'),
-        '3_14': os.path.join(stepDir, motor, '11000rpm', '3screws_14'),
-        '4_146': os.path.join(stepDir, motor, '11000rpm', '4screws_146'),
+        '1': os.path.join(stepDir, motor, '11000rpm', '1screws'),
     }
     for motor in motor_types
 }
-# 動態設置馬達溫度欄位名稱
 # 動態設置馬達欄位名稱
 signal_columns = {
-    'A': ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Temp_A', 'Temp_room', 'Delta_T'],
-    'B': ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Temp_B', 'Temp_room', 'Delta_T'],
-    'C': ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Temp_C', 'Temp_room', 'Delta_T'],
+    'T1': ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Delta_T'],
 }
 
 # 使用 IQR 方法檢測並移除離群值
@@ -82,42 +77,23 @@ def remove_outliers(df, column):
     upper_bound = Q3 + 1.5 * IQR
     return df[(df[column] >= lower_bound) & (df[column] <= upper_bound)]
 
-# 合併單一螺絲數配置的馬達數據
+# 讀取 per-signal CSV（10000 rows × N segments），將所有 segment 攤平為一條長序列
 def concat_screws_data(rawDataDirectory, motor):
-    all_data = pd.DataFrame()
+    series_dict = {}
     try:
-        rawdataset_list = natsorted(os.listdir(rawDataDirectory))
-
-        for dataset in rawdataset_list:
-            # 讀取數據
-            file_path = os.path.join(rawDataDirectory, dataset)
-            df = pd.read_csv(file_path, header=22, delimiter='\t', encoding='unicode_escape')
-
-            # 刪除不必要的列，重新命名
-            if signal_columns == 'A':
-                df.drop(['X_Value', 'Temp_B', 'Temp_C', 'Comment'], axis=1, inplace=True)
-                df.columns = ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Temp_A', 'Temp_room']
-                df['Delta_T'] = df['Temp_A'] - df['Temp_room']
-            elif signal_columns == 'B':
-                df.drop(['X_Value', 'Temp_A', 'Temp_C', 'Comment'], axis=1, inplace=True)
-                df.columns = ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Temp_B', 'Temp_room']
-                df['Delta_T'] = df['Temp_B'] - df['Temp_room']
-            elif signal_columns == 'C':
-                df.drop(['X_Value', 'Temp_A', 'Temp_B', 'Comment'], axis=1, inplace=True)
-                df.columns = ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Temp_C', 'Temp_room']
-                df['Delta_T'] = df['Temp_C'] - df['Temp_room']
-
-            # 選取相關欄位
-            relevant_columns = signal_columns[motor]
-            available_columns = [col for col in relevant_columns if col in df.columns]
-            df = df[available_columns]
-
-            all_data = pd.concat([all_data, df.reset_index(drop=True)], axis=0)
-
+        for signal in signal_columns[motor]:
+            file_path = os.path.join(rawDataDirectory, f'{motor}_{signal}_data.csv')
+            if not os.path.exists(file_path):
+                continue
+            df = pd.read_csv(file_path, encoding='utf-8-sig')
+            series_dict[signal] = pd.Series(df.values.T.flatten())
     except Exception as e:
         print(f"Error processing directory {rawDataDirectory}: {e}")
 
-    return all_data
+    if not series_dict:
+        return pd.DataFrame()
+    min_len = min(len(v) for v in series_dict.values())
+    return pd.DataFrame({k: v.values[:min_len] for k, v in series_dict.items()})
 
 
 # 繪製馬達數據
@@ -143,14 +119,8 @@ def plot_screws_data(all_data, motor, screws, title_prefix):
             plt.suptitle(f'{title_prefix} {motor} Motor Vibration Signals ({screws} Screws)', fontsize=16, y=1.02)
             plt.show()
 
-        # 2. 繪製馬達溫度、環境溫度、溫差
-        if motor == 'A':
-            temp_columns = ['Temp_A', 'Temp_room', 'Delta_T']
-        elif motor == 'B':
-            temp_columns = ['Temp_B', 'Temp_room', 'Delta_T']
-        elif motor == 'C':
-            temp_columns = ['Temp_C', 'Temp_room', 'Delta_T']
-            
+        # 2. 繪製溫差
+        temp_columns = ['Delta_T']
         if all(col in all_data.columns for col in temp_columns):
             plt.figure(figsize=(12, 8))
             for idx, column in enumerate(temp_columns):

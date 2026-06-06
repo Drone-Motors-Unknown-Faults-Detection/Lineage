@@ -43,13 +43,11 @@ warnings.filterwarnings("ignore")
 # 設定根目錄
 rootDir = os.getcwd()
 dataDir = os.path.join(rootDir, 'data')
-stepDir = os.path.join(dataDir, 'Step-2')
+stepDir = os.path.join(dataDir, 'Step-1', 'csv')
 
-# 設定數據目錄 (包含 A, B, C 馬達)
-# motor_types = ['A', 'B', 'C']
-motor_types = ['B']
-# screws_config = [8, 7, 6, 5, 4, 3, 2]
-screws_config = [8]
+# 設定數據目錄
+motor_types = ['T1']
+screws_config = [8, 7, 6, 5, 4, 3, 2, '3_14', '4_146']
 
 rawDataDirectories = {
     motor: {
@@ -57,18 +55,14 @@ rawDataDirectories = {
             screws: os.path.join(stepDir, motor, '6000rpm', f'{screws}screws')
             for screws in screws_config
         },
-        '1': os.path.join(stepDir, motor, '6000rpm', '1screw'),
-        '3_14': os.path.join(stepDir, motor, '6000rpm', '3screws_14'),
-        '4_146': os.path.join(stepDir, motor, '6000rpm', '4screws_146'),
+        '1': os.path.join(stepDir, motor, '6000rpm', '1screws'),
     }
     for motor in motor_types
 }
 
 # 動態設置馬達欄位名稱
 signal_columns = {
-    'A': ['Current', 'X', 'Y', 'Z', 'Temperature', 'AmbientTemperature', 'Delta_T'],
-    'B': ['Current', 'X', 'Y', 'Z', 'Temperature', 'AmbientTemperature', 'Delta_T'],
-    'C': ['Current', 'X', 'Y', 'Z', 'Temperature', 'AmbientTemperature', 'Delta_T'],
+    'T1': ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Delta_T'],
 }
 
 # 使用 IQR 方法檢測並移除離群值
@@ -83,42 +77,23 @@ def remove_outliers(df, column):
     upper_bound = Q3 + 1.5 * IQR
     return df[(df[column] >= lower_bound) & (df[column] <= upper_bound)]
 
-# 合併單一螺絲數配置的馬達數據
+# 讀取 per-signal CSV（10000 rows × N segments），將所有 segment 攤平為一條長序列
 def concat_screws_data(rawDataDirectory, motor):
-    all_data = pd.DataFrame()
+    series_dict = {}
     try:
-        rawdataset_list = natsorted(os.listdir(rawDataDirectory))
-
-        for dataset in rawdataset_list:
-            # 讀取數據
-            file_path = os.path.join(rawDataDirectory, dataset)
-            df = pd.read_csv(file_path, header=22, delimiter='\t', encoding='unicode_escape')
-
-            # 刪除不必要的列，重新命名 
-            if signal_columns == 'A':        
-                df.drop(['X_Value', 'Comment'], axis=1, inplace=True)
-                df.columns = ['Current', 'X', 'Y', 'Z', 'Temperature', 'AmbientTemperature']
-                df['Delta_T'] = df['Temperature'] - df['AmbientTemperature']
-            elif signal_columns == 'B':
-                df.drop(['X_Value', 'Comment'], axis=1, inplace=True)
-                df.columns = ['Current', 'X', 'Y', 'Z', 'Temperature', 'AmbientTemperature']
-                df['Delta_T'] = df['Temperature'] - df['AmbientTemperature']
-            elif signal_columns == 'C':
-                df.drop(['X_Value', 'Comment'], axis=1, inplace=True)
-                df.columns = ['Current', 'X', 'Y', 'Z', 'Temperature', 'AmbientTemperature']
-                df['Delta_T'] = df['Temperature'] - df['AmbientTemperature']
-
-            # 選取相關欄位
-            relevant_columns = signal_columns[motor]
-            available_columns = [col for col in relevant_columns if col in df.columns]
-            df = df[available_columns]
-
-            all_data = pd.concat([all_data, df.reset_index(drop=True)], axis=0)
-
+        for signal in signal_columns[motor]:
+            file_path = os.path.join(rawDataDirectory, f'{motor}_{signal}_data.csv')
+            if not os.path.exists(file_path):
+                continue
+            df = pd.read_csv(file_path, encoding='utf-8-sig')
+            series_dict[signal] = pd.Series(df.values.T.flatten())
     except Exception as e:
         print(f"Error processing directory {rawDataDirectory}: {e}")
 
-    return all_data
+    if not series_dict:
+        return pd.DataFrame()
+    min_len = min(len(v) for v in series_dict.values())
+    return pd.DataFrame({k: v.values[:min_len] for k, v in series_dict.items()})
 
 # 繪製馬達數據
 def plot_screws_data(all_data, motor, screws, title_prefix):
@@ -144,7 +119,7 @@ def plot_screws_data(all_data, motor, screws, title_prefix):
             plt.show()
 
         # 2. 繪製馬達溫度、環境溫度、溫差
-        temp_columns = ['Temperature', 'AmbientTemperature', 'Delta_T']
+        temp_columns = ['Delta_T']
             
         if all(col in all_data.columns for col in temp_columns):
             plt.figure(figsize=(12, 8))
