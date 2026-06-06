@@ -65,7 +65,7 @@ Step 2 從 Step 1 處理後的訊號片段中萃取時域與頻域特徵，將�
 | 10 | Impulse Indicator | 衝擊指標 $\frac{x_{max}}{\frac{1}{N}\sum|x_i|}$ |
 | 11 | Max | 最大值 $x_{max}$ |
 | 12 | Min | 最小值 $x_{min}$ |
-| 13 | MSA | 平均絕對偏差 $\frac{1}{N}\sum|x_i - \bar{x}|$ |
+| 13 | MSA | Mean Square Amplitude $\frac{1}{N}\sum x_i^2$ |
 | 14 | Variance | 變異數 $\sigma^2$ |
 | 15 | Mean Amplitude | 平均振幅 $\frac{1}{N}\sum|x_i|$ |
 
@@ -204,7 +204,7 @@ def extract_stat_features(signal):
         peak / mean_amp,                            # 10. Impulse Indicator
         np.max(signal),                             # 11. Max
         np.min(signal),                             # 12. Min
-        np.mean(np.abs(signal - np.mean(signal))),  # 13. MSA
+        np.mean(signal**2),                         # 13. MSA
         np.var(signal),                             # 14. Variance
         mean_amp,                                   # 15. Mean Amplitude
     ]
