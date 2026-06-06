@@ -46,7 +46,7 @@ data/
     └── {Motor}/              # 馬達代碼，例如 T1
         └── {RPM}/            # 6000rpm / 8000rpm / 11000rpm
             └── {Screws}/     # 8screws / 1screw / 2screws / ... / 4_146screws
-                └── *.csv     # Tab 分隔，標頭位於第 22 行（skiprows=21）
+                └── *.csv     # Tab 分隔，標頭位於第 23 行（header=22）
 ```
 
 ### 馬達類型與螺絲配置
@@ -101,7 +101,7 @@ signal_columns = ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current
 ## 處理流程
 
 ```
-原始 CSV 讀取（Tab 分隔，skiprows=21）
+原始 CSV 讀取（Tab 分隔，header=22）
     ↓
 捨棄無關欄位（X_Value、Comment 等）
     ↓
@@ -184,7 +184,7 @@ from natsort import natsorted    # 自然排序，確保檔案以正確順序讀
 
 ## 注意事項
 
-- 原始 CSV 為 **Tab 分隔**，讀取時需指定 `sep='\t'`，並以 `skiprows=21` 跳過前 21 行說明文字
+- 原始 CSV 為 **Tab 分隔**，讀取時需指定 `sep='\t'`，並以 `header=22` 跳過前 21 行說明文字
 - 切割後的每段固定 **10,000 個資料點**（= 1 秒 @ Fs=10,000 Hz）
 - IQR 過濾使用 **scale=3.0**（非常見的 1.5），保留較寬的資料範圍
 - `1screw` 目錄名稱沒有複數 `s`，與其他 `{N}screws` 不同，程式碼中已特別處理
