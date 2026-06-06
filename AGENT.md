@@ -205,5 +205,6 @@ from gpu_utils import device_scope, DEVICE
 
 ### GitHub
 
-允許在完成改動後進行 commit and push。
-允許 logs 和 output 推送至 GitHub。不需要加入至 .gitignore
+1. 允許在完成改動後進行 commit and push，但應該建立 PR 或 issues。
+2. 允許 logs 和 output 推送至 GitHub，不需要加入至 .gitignore。
+3. Agent 在進行 GitHub 相關操作的時候，將自己加入 Co-Authors。
