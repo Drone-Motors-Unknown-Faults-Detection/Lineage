@@ -272,5 +272,11 @@ def tee_std_to_file(log_file: Path) -> Iterator[None]:
 
 @contextlib.contextmanager
 def redirect_std_to_logger(*args, **kwargs) -> Iterator[None]:
-    # Backward compatible no-op.
-    yield
+    log_file: Optional[Path] = None
+    if args and isinstance(args[0], SimpleFileLogger):
+        log_file = args[0].log_file
+    if log_file is not None:
+        with tee_std_to_file(log_file):
+            yield
+    else:
+        yield
