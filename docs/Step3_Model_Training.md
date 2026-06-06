@@ -119,7 +119,7 @@ def build_cnn_model(input_shape=(105, 1), num_classes=5):
 ```
 1. [Bootstrap]  初始化 logger（建立 logs/ 與 output/ 目錄）
 2. [設定]       匯入套件 + GPU 初始化（gpu_utils）
-3. [載入資料]   從 myfeature/ 讀取 *_clean.csv
+3. [載入資料]   從 myfeature/ 讀取 *_Group_feature_data.csv
 4. [標籤編碼]   螺絲字串 → 整數（'8screws'→0, '1screw'→1, ...）
 5. [分割資料]   train_test_split（test_size=0.2, stratify=y）
 6. [標準化]     RobustScaler fit on X_train → transform X_train & X_test
@@ -250,4 +250,4 @@ from gpu_utils import device_scope, DEVICE
 - **Flatten 層特徵：** 176 維的 Flatten 輸出是 Step 4/5 的核心，Step 6 重訓練後的新模型也需保持此架構
 - **Step 6 輸出層：** 重訓練時將最後一層改為 `Dense(10, softmax)`，其他層結構完全相同
 - **遷移學習版本：** OneStage/TwoStage 依賴對應的基礎版模型，執行前須確認來源模型已存在
-- **`_clean.csv` 作為輸入：** 務必使用 Step 2 輸出的 `*_clean.csv`，而非 `*_raw.csv` 或 `*_data.csv`
+- **特徵檔案命名：** Step 2 輸出的特徵檔案為 `*_Group_feature_data.csv`，Step 3 直接讀取此檔案
