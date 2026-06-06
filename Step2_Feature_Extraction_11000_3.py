@@ -109,7 +109,7 @@ feature_name = [
 # 定義函式
 # ========================
 
-def fourier_transform(data, lenFeature, group_label, rpm, screws, feature_type='Vibration_X'):
+def fourier_transform(data, group_label, rpm, screws, feature_type='Vibration_X'):
     """
     對原始信號進行傅立葉變換並繪製頻譜圖，並在圖表上標示 rpm 和 screws 信息
     """
@@ -119,7 +119,8 @@ def fourier_transform(data, lenFeature, group_label, rpm, screws, feature_type='
     myfft2 = myfft[:rawdata2, :]  # 只保留前半部分頻譜數據
 
     plt.figure(figsize=(10, 6))
-    plt.plot(freq, myfft2[:, 0])  # 繪製第一個特徵的頻譜圖
+    freq_local = np.linspace(0, rawdata2 - 1, rawdata2) * (Fs / rawdata)
+    plt.plot(freq_local, myfft2[:, 0])  # 繪製第一個特徵的頻譜圖
     plt.ylabel('Amplitude')
     plt.xlabel('Hz')
     
@@ -149,7 +150,7 @@ def extract_statistical_features(df, num_features):
         features[i, 2] = kurtosis(data, fisher=False)  # kurtosis
         features[i, 3] = np.std(data)               # std
         features[i, 4] = skew(data)                  # skewness
-        features[i, 5] = np.ptp(data)                # peak2peak
+        features[i, 5] = data.max() - data.min()                # peak2peak
         features[i, 6] = np.abs(data.max() / np.sqrt(np.mean(data**2)))  # crest_indicator
         features[i, 7] = np.abs(data.max()) / (np.mean(np.sqrt(np.abs(data))) ** 2)  # clearance_indicator
         features[i, 8] = np.sqrt(np.mean(data**2)) / np.mean(np.abs(data))  # shape_indicator
@@ -197,7 +198,7 @@ def extract_fft_features(Hfeat, base_freq, d_freqs, num_fft_features=10):
         freq_range = ((target_freq - d_freq), (target_freq + d_freq))  # 保留實際頻率範圍
         freq_indices = np.where((freq >= freq_range[0]) & (freq <= freq_range[1]))[0]
         if len(freq_indices) == 0:
-            fft_max = 0
+            fft_max = np.zeros(Hfeat.shape[1])
         else:
             fft_max = Hfeat[freq_indices, :].max(axis=0)
         fft_features.append(fft_max)
@@ -225,9 +226,9 @@ def process_group(group_label, screws):
         VibrationDataset_Y = df_y.values
         VibrationDataset_Z = df_z.values
 
-        Hfeat_xVibration = fourier_transform(VibrationDataset_X, df_x.shape[1], group_label, rpm, screws, feature_type='Vibration_X')
-        Hfeat_yVibration = fourier_transform(VibrationDataset_Y, df_y.shape[1], group_label, rpm, screws, feature_type='Vibration_Y')
-        Hfeat_zVibration = fourier_transform(VibrationDataset_Z, df_z.shape[1], group_label, rpm, screws, feature_type='Vibration_Z')
+        Hfeat_xVibration = fourier_transform(VibrationDataset_X, group_label, rpm, screws, feature_type='Vibration_X')
+        Hfeat_yVibration = fourier_transform(VibrationDataset_Y, group_label, rpm, screws, feature_type='Vibration_Y')
+        Hfeat_zVibration = fourier_transform(VibrationDataset_Z, group_label, rpm, screws, feature_type='Vibration_Z')
 
         # 提取統計特徵
         feature_Current = extract_statistical_features(df_current, 15)
