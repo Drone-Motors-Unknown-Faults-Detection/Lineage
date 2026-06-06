@@ -43,11 +43,10 @@ warnings.filterwarnings("ignore")
 # 設定根目錄
 rootDir = os.getcwd()
 dataDir = os.path.join(rootDir, 'data')
-stepDir = os.path.join(dataDir, 'Step-2')
+stepDir = os.path.join(dataDir, 'Step-1')
 
-# 設定數據目錄 (包含 A, B, C 馬達)
-# motor_types = ['A']
-motor_types = ['A', 'B', 'C']
+# 設定數據目錄
+motor_types = ['T1']
 screws_config = [8, 6, 4, 2]
 
 rawDataDirectories = {
