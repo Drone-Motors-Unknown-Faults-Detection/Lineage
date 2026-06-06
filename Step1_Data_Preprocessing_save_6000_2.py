@@ -121,7 +121,7 @@ def slice_and_save(all_data, save_directory, motor, screws):
 
         # 切割數據並水平合併
         sliced_data = pd.DataFrame()
-        for i in range(0, len(raw_data), 10000):
+        for i in range(0, len(raw_data) - 10000 + 1, 10000):
             sliced_chunk = raw_data.iloc[i:i+10000].reset_index(drop=True)
             sliced_data = pd.concat([sliced_data, sliced_chunk], axis=1)
 
