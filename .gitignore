@@ -244,3 +244,7 @@ cuda_info.txt
 
 # CUDA
 cuda_info.txt
+
+# MacOS
+.DS_STORE
+.DS_Store
