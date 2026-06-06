@@ -151,7 +151,7 @@ def extract_statistical_features(df, num_features):
         features[i, 4] = skew(data)                  # skewness
         features[i, 5] = np.ptp(data)                # peak2peak
         features[i, 6] = np.abs(data.max() / np.sqrt(np.mean(data**2)))  # crest_indicator
-        features[i, 7] = np.abs(data.max() / np.mean(np.sqrt(np.abs(data)**2)))  # clearance_indicator
+        features[i, 7] = np.abs(data.max()) / (np.mean(np.sqrt(np.abs(data))) ** 2)  # clearance_indicator
         features[i, 8] = np.sqrt(np.mean(data**2)) / np.mean(np.abs(data))  # shape_indicator
         features[i, 9] = np.abs(data.max() / np.mean(np.abs(data)))        # impulse_indicator
         features[i, 10] = data.max()              # Max
