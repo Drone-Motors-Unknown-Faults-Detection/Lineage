@@ -1,6 +1,6 @@
 # --- logging bootstrap (auto-added) ---
 import atexit
-from logger import redirect_std_to_logger, save_plot, setup_logger
+from scripts.logger import redirect_std_to_logger, save_plot, setup_logger
 
 LOG, RUN_PATHS = setup_logger(__file__)
 _redirect_ctx = redirect_std_to_logger(LOG)

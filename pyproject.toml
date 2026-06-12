@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ancestor"
+version = "0.1.0"
+requires-python = "==3.10.19"
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "scipy",
+    "scikit-learn",
+    "seaborn",
+    "hdbscan",
+    "natsort",
+    "absl-py",
+    "jupyter",
+    "loguru",
+]
+
+[project.optional-dependencies]
+linux = [
+    "tensorflow[and-cuda]",
+]
+mac = [
+    "tensorflow==2.18.0",
+    "tensorflow-metal==1.2.0",
+]
+
+[tool.setuptools]
+py-modules = []
