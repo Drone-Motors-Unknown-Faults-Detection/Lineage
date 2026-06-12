@@ -48,7 +48,7 @@ save_base_dir = os.path.join(stepDir, 'csv')
 
 # 設定數據目錄
 motor_types = ['T1']
-screws_config = [8, 7, 6, 5, 4, 3, 2]
+screws_config = [8, 7, 6, 5, 4, 3, 2, '3_14', '4_146']
 
 rawDataDirectories = {
     motor: {
@@ -56,9 +56,7 @@ rawDataDirectories = {
             screws: os.path.join(stepDir, motor, '6000rpm', f'{screws}screws')
             for screws in screws_config
         },
-        '1': os.path.join(stepDir, motor, '6000rpm', '1screw'),
-        '3_14': os.path.join(stepDir, motor, '6000rpm', '3_14screws'),
-        '4_146': os.path.join(stepDir, motor, '6000rpm', '4_146screws'),
+        '1': os.path.join(stepDir, motor, '6000rpm', '1screws'),
     }
     for motor in motor_types
 }
