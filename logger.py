@@ -29,6 +29,32 @@ def _safe_program_name(raw: str) -> str:
     return cleaned or "program"
 
 
+def _detect_program_name() -> str:
+    """Auto-detect the running script or notebook filename."""
+    # 1. Shell script sets this before running jupyter execute
+    env_name = os.environ.get("JUPYTER_NOTEBOOK_NAME", "")
+    if env_name:
+        return _safe_program_name(env_name)
+
+    # 2. VS Code Jupyter sets __vsc_ipynb_file__ in the kernel namespace
+    try:
+        from IPython import get_ipython
+        ip = get_ipython()
+        if ip is not None:
+            nb_file = ip.user_ns.get("__vsc_ipynb_file__")
+            if nb_file:
+                return _safe_program_name(str(nb_file))
+    except Exception:
+        pass
+
+    # 3. Standard Python script (skip kernel launcher)
+    argv0 = sys.argv[0] if sys.argv else ""
+    if argv0 and "ipykernel" not in argv0:
+        return _safe_program_name(argv0)
+
+    return "program"
+
+
 def _format_braces(msg: str, *args: object) -> str:
     try:
         return msg.format(*args)
@@ -67,27 +93,26 @@ def setup_logger(
 ) -> tuple[SimpleFileLogger, RunPaths]:
     """
     Create per-run log file under:
-      logs/{program_name}_{yyyy-MM-DD-HH-mm-ss}/program.log
+      logs/{program_name}/{yyyy-MM-DD-HH-mm-ss}.log
 
     Also prepares output directory for images/artifacts:
-      output/{program_name}_{yyyy-MM-DD-HH-mm-ss}/
+      output/{program_name}/{yyyy-MM-DD-HH-mm-ss}/
 
     This logger never redirects stdout/stderr.
     """
-    if program_path is None:
-        program_path = sys.argv[0] if sys.argv else "program"
-
-    program_name = _safe_program_name(str(program_path))
+    if program_path is None or str(program_path) == "notebook":
+        program_name = _detect_program_name()
+    else:
+        program_name = _safe_program_name(str(program_path))
     timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    run_name = f"{program_name}_{timestamp}"
 
     repo_root = Path.cwd()
-    logs_dir = repo_root / "logs" / run_name
-    output_dir = repo_root / "output" / run_name
+    logs_dir = repo_root / "logs" / program_name
+    output_dir = repo_root / "output" / program_name / timestamp
     logs_dir.mkdir(parents=True, exist_ok=True)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    log_file = logs_dir / "program.log"
+    log_file = logs_dir / f"{timestamp}.log"
 
     global _PLOT_COUNTER
     _PLOT_COUNTER = count(0)
