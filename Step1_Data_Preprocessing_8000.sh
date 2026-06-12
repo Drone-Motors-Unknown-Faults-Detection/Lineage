@@ -8,8 +8,7 @@ VENV_DIR="venv"
 PYTHON="$VENV_DIR/bin/python"
 
 SCRIPTS=(
-    Step1_Data_Preprocessing_figure_8000_1.py
-    Step1_Data_Preprocessing_figure_8000_2.py
+    Step1_Data_Preprocessing_figure_8000.py
     Step1_Data_Preprocessing_save_8000_1.py
     Step1_Data_Preprocessing_save_8000_2.py
     Step1_Data_Preprocessing_save_8000_3.py
