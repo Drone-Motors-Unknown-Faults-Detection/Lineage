@@ -33,9 +33,7 @@ except Exception:
 
 # 匯入所需的函式庫
 import os
-import numpy as np
 import pandas as pd
-from natsort import natsorted
 import matplotlib.pyplot as plt
 import warnings
 

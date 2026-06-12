@@ -35,7 +35,6 @@ import pandas as pd
 from scipy.fftpack import fft
 import matplotlib.pyplot as plt
 from scipy.stats import kurtosis, skew
-from natsort import natsorted
 import warnings
 
 warnings.filterwarnings("ignore")
