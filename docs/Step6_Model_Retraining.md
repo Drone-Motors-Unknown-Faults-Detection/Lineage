@@ -19,7 +19,7 @@ Step 6 是整個持續學習迴圈的最後一步，將未知故障資料納入�
 
 ## Notebook 一覽
 
-共 **27 個 Jupyter Notebook**（Step6_Model 1__Retrain.ipynb ~ Step6_Model 27__Retrain.ipynb），對應前序步驟的 27 個模型配置。
+共 **27 個 Jupyter Notebook**（`Step6_Model_1_Retrain.ipynb` ~ `Step6_Model_27_Retrain.ipynb`），對應前序步驟的 27 個模型配置。
 
 ---
 

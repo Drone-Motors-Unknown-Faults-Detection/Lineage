@@ -17,7 +17,7 @@ Step 5 是 Step 4 偵測機制的延伸驗證，透過**隨機抽樣**方式從�
 
 ## Notebook 一覽
 
-共 **27 個 Jupyter Notebook**（Step5_Model 1__Random_Detecting.ipynb ~ Step5_Model 27__Random_Detecting.ipynb），對應 Step 3 / Step 4 的 27 個模型配置。
+共 **27 個 Jupyter Notebook**（`Step5_Model_1_Random_Detecting.ipynb` ~ `Step5_Model_27_Random_Detecting.ipynb`），對應 Step 3 / Step 4 的 27 個模型配置。
 
 ---
 

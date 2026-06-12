@@ -17,7 +17,7 @@ Step 4 利用 Step 3 訓練好的 CNN 模型提取深度特徵，結合 HDBSCAN 
 
 ## Notebook 一覽
 
-共 **27 個 Jupyter Notebook**（Step4_Model 1__Detecting.ipynb ~ Step4_Model 27__Detecting.ipynb），對應 Step 3 的 27 個訓練模型。
+共 **27 個 Jupyter Notebook**（`Step4_Model_1_Detecting.ipynb` ~ `Step4_Model_27_Detecting.ipynb`），對應 Step 3 的 27 個模型編號。
 
 ---
 

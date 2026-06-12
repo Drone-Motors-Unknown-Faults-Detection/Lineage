@@ -17,10 +17,12 @@
 ├── Step1_Data_Preprocessing_figure_*.py   # 資料視覺化腳本（×6）
 ├── Step1_Data_Preprocessing_save_*.py     # 資料儲存腳本（×9）
 ├── Step2_Feature_Extraction_*.py          # 特徵萃取腳本（×9）
-├── Step3_Model *.ipynb                    # CNN 模型訓練（×27）
-├── Step4_Model *__Detecting.ipynb         # 未知故障偵測（×27）
-├── Step5_Model *__Random_Detecting.ipynb  # 隨機取樣偵測（×27）
-├── Step6_Model *__Retrain.ipynb           # 模型重訓練（×27）
+├── Step3_Model_{1..9}.ipynb                        # CNN 訓練，基礎版本（×9）
+├── Step3_Model_{10..27}_OneStage.ipynb             # CNN 訓練，OneStage 遷移學習（×18）
+├── Step3_Model_{10..27}_TwoStage.ipynb             # CNN 訓練，TwoStage 遷移學習（×18）
+├── Step4_Model_{1..27}_Detecting.ipynb             # 未知故障偵測（×27）
+├── Step5_Model_{1..27}_Random_Detecting.ipynb      # 隨機取樣偵測（×27）
+├── Step6_Model_{1..27}_Retrain.ipynb               # 模型重訓練（×27）
 ├── T1_T2_T3.ipynb                         # 健康度退化建模
 ├── gpu_utils.py                           # GPU/CPU 自動選擇模組（所有 TF Notebook 共用）
 ├── requirements.txt                       # Python 套件依賴清單
@@ -61,15 +63,15 @@ Step 1 → Step 2 → Step 3 → Step 4 → Step 5
 
 ## 模型編號系統
 
-27 個模型編號（Model 1 ~ 27）對應不同的實驗配置：
+Step3 共 45 個 Notebook（基礎 9 + OneStage 18 + TwoStage 18），對應不同的實驗配置：
 
 | 編號範圍 | 類型 | 說明 |
 |----------|------|------|
 | 1 ~ 9 | 基礎版本 | 對應不同轉速 / 馬達組合 |
-| 10 ~ 18 | OneStage 變體 | 調整資料組合的一階段偵測 |
-| 19 ~ 27 | TwoStage 變體 | 兩階段故障診斷策略 |
+| 10 ~ 27（OneStage）| OneStage 變體 | 一階段遷移學習（凍結前半層，Fine-tune）|
+| 10 ~ 27（TwoStage）| TwoStage 變體 | 兩階段遷移學習（OneStage 後再次 Fine-tune）|
 
-**重要：** Step N（N = 3~6）的 Notebook 編號必須對應，`Step3_Model 5.ipynb` 對應 `Step4_Model 5__Detecting.ipynb` 等。
+**重要：** Step N（N = 3~6）的 Notebook 編號必須對應，`Step3_Model_5.ipynb` 對應 `Step4_Model_5_Detecting.ipynb` 等。
 
 ---
 

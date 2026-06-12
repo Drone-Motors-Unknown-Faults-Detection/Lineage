@@ -52,19 +52,19 @@
 │   └── Step2_Feature_Extraction_*.py         # 105 維特徵萃取（×9）
 │
 ├── Jupyter Notebooks
-│   ├── Step3_Model {1..27}.ipynb             # CNN 訓練（×27）
-│   ├── Step4_Model {1..27}__Detecting.ipynb  # 未知故障偵測（×27）
-│   ├── Step5_Model {1..27}__Random_Detecting.ipynb  # 隨機取樣驗證（×27）
-│   ├── Step6_Model {1..27}__Retrain.ipynb    # 模型重訓練（×27）
-│   ├── T1_T2_T3.ipynb                        # 健康度退化建模
-│   └── GPU-Test.ipynb                        # GPU / CUDA 環境驗證
+│   ├── Step3_Model_{1..9}.ipynb                         # CNN 訓練，基礎版本（×9）
+│   ├── Step3_Model_{10..27}_OneStage.ipynb              # CNN 訓練，OneStage 遷移學習（×18）
+│   ├── Step3_Model_{10..27}_TwoStage.ipynb              # CNN 訓練，TwoStage 遷移學習（×18）
+│   ├── Step4_Model_{1..27}_Detecting.ipynb              # 未知故障偵測（×27）
+│   ├── Step5_Model_{1..27}_Random_Detecting.ipynb       # 隨機取樣驗證（×27）
+│   ├── Step6_Model_{1..27}_Retrain.ipynb                # 模型重訓練（×27）
+│   ├── T1_T2_T3.ipynb                                   # 健康度退化建模
+│   └── GPU-Test.ipynb                                   # GPU / CUDA 環境驗證
 │
 ├── 基礎設施
 │   ├── logger.py                             # 自訂日誌框架
 │   ├── gpu_utils.py                          # GPU/CPU 自動選擇模組
-│   ├── requirements.txt                      # Python 套件清單
-│   └── scripts/
-│       └── update_notebook_bootstrap.py      # 批次更新 Notebook 日誌標頭
+│   └── requirements.txt                      # Python 套件清單
 │
 ├── docs/                                     # 各步驟詳細說明文件
 │   ├── Step1_Data_Preprocessing.md
@@ -301,7 +301,7 @@ Step1_Data_Preprocessing_save_{RPM}_{variant}.py
 | Impulse Indicator | $\frac{x_{max}}{\frac{1}{N}\sum\|x_i\|}$ | 衝擊指標 |
 | Max | $x_{max}$ | 最大值 |
 | Min | $x_{min}$ | 最小值 |
-| MSA | $\frac{1}{N}\sum\|x_i - \bar{x}\|$ | 平均絕對偏差 |
+| MSA | $\frac{1}{N}\sum x_i^2$ | 均方振幅（Mean Square Amplitude）|
 | Variance | $\sigma^2$ | 變異數 |
 | Mean Amplitude | $\frac{1}{N}\sum\|x_i\|$ | 平均振幅 |
 
@@ -335,7 +335,7 @@ Step1_Data_Preprocessing_save_{RPM}_{variant}.py
 
 ## Step 3：CNN 模型訓練
 
-**檔案：** `Step3_Model {1..27}.ipynb`（×27）
+**檔案：** `Step3_Model_{1..9}.ipynb`（×9 基礎版）、`Step3_Model_{10..27}_OneStage.ipynb`（×18）、`Step3_Model_{10..27}_TwoStage.ipynb`（×18），共 45 個
 
 **輸入：** `data/Step-{1|2|3}/myfeature/` 的 105 維特徵 CSV
 **輸出：** `data/Step-{1|2|3}/model/CNN_*.keras`
@@ -404,7 +404,7 @@ Input: (105, 1)  ← 105 維特徵向量 reshape 為 1D 序列
 
 ## Step 4：未知故障偵測
 
-**檔案：** `Step4_Model {1..27}__Detecting.ipynb`（×27）
+**檔案：** `Step4_Model_{1..27}_Detecting.ipynb`（×27）
 
 **輸入：** Step 3 訓練的 `.keras` 模型 + 未知螺絲配置（5-7 screws、3_14、4_146）
 **輸出：** 叢集距離分布圖、異常判定結果
@@ -475,7 +475,7 @@ threshold = np.percentile(train_distances, 95)
 
 ## Step 5：隨機取樣偵測驗證
 
-**檔案：** `Step5_Model {1..27}__Random_Detecting.ipynb`（×27）
+**檔案：** `Step5_Model_{1..27}_Random_Detecting.ipynb`（×27）
 
 **目的：** 驗證 Step 4 偵測結果的**強健性與穩定性**
 
@@ -499,7 +499,7 @@ Step 4 使用固定批次資料進行偵測；Step 5 則對相同資料集進行
 
 ## Step 6：模型重訓練
 
-**檔案：** `Step6_Model {1..27}__Retrain.ipynb`（×27）
+**檔案：** `Step6_Model_{1..27}_Retrain.ipynb`（×27）
 
 **輸入：** 5 類已知故障資料 + Step 4/5 確認的未知故障資料
 **輸出：** 重訓練的 10 類 `.keras` 模型
@@ -650,22 +650,24 @@ save_plot(plt, log, run_paths)
 
 #### Notebook Bootstrap Cell
 
-每個 Notebook 第一個 cell（自動維護，由 `scripts/update_notebook_bootstrap.py` 更新）：
+每個 Notebook 早期 cell（自動維護）：
 
 ```python
 # --- logging bootstrap (auto-added) ---
-import sys
-sys.path.insert(0, "/home/albert/Ancestor")
-from logger import setup_logger, save_plot, tee_std_to_file
-import matplotlib
-log, run_paths = setup_logger(__file__ if '__file__' in dir() else None)
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-_orig_show = plt.show
-def _auto_save_show(*a, **kw):
-    save_plot(plt, log, run_paths)
-    _orig_show(*a, **kw)
-plt.show = _auto_save_show
+import importlib
+import logger as _logger_mod
+_logger_mod = importlib.reload(_logger_mod)
+save_plot = _logger_mod.save_plot
+setup_logger = _logger_mod.setup_logger
+tee_std_to_file = _logger_mod.tee_std_to_file
+
+LOG, RUN_PATHS = setup_logger('notebook', console=False)
+_tee_ctx = tee_std_to_file(RUN_PATHS.log_file)
+_tee_ctx.__enter__()
+import atexit
+atexit.register(_tee_ctx.__exit__, None, None, None)
+# ... (自動儲存圖表與 GPU 資源釋放邏輯略)
+# --- end logging bootstrap ---
 ```
 
 ---
@@ -702,35 +704,24 @@ DEVICE, _gpus = _configure()
 
 ---
 
-### `scripts/update_notebook_bootstrap.py` — 批次更新工具
-
-當 `logger.py` 的 API 改變時，批次更新所有 Notebook 的日誌初始化 cell：
-
-```bash
-python scripts/update_notebook_bootstrap.py
-# 輸出：Modified 108 notebooks
-```
-
-判斷依據：搜尋含有 `# --- logging bootstrap (auto-added) ---` 的 cell，並以最新版本替換。
-
----
-
 ## 模型編號系統
 
-27 個模型（Model 1 ~ 27）涵蓋不同的資料組合與診斷策略：
+45 個 Step3 Notebook（Model 1 ~ 27，含 OneStage / TwoStage 變體）涵蓋不同的資料組合與診斷策略：
 
 | 編號範圍 | 類型 | 說明 |
 |----------|------|------|
 | 1 ~ 9 | 基礎版本 | 不同轉速 / 馬達組合的標準訓練 |
-| 10 ~ 18 | OneStage 變體 | 一階段診斷（直接從 5 類中找出最近類別）|
-| 19 ~ 27 | TwoStage 變體 | 兩階段診斷（先判健康/故障，再細分故障類型）|
+| 10 ~ 27（OneStage）| OneStage 變體 | 一階段遷移學習（凍結前半層，以不同馬達資料 Fine-tune）|
+| 10 ~ 27（TwoStage）| TwoStage 變體 | 兩階段遷移學習（OneStage 後再以第三組馬達資料 Fine-tune）|
+
+> 模型 10~27 各自同時存在 OneStage 與 TwoStage 兩個訓練版本，Step 4/5/6 的編號 10~27 可對應其中任一版本。
 
 **重要：** 各步驟的 Notebook 編號必須對應，**不可混用**：
 
 ```
-Step3_Model 5.ipynb  →  Step4_Model 5__Detecting.ipynb
-                     →  Step5_Model 5__Random_Detecting.ipynb
-                     →  Step6_Model 5__Retrain.ipynb
+Step3_Model_5.ipynb  →  Step4_Model_5_Detecting.ipynb
+                     →  Step5_Model_5_Random_Detecting.ipynb
+                     →  Step6_Model_5_Retrain.ipynb
 ```
 
 ---
@@ -767,10 +758,13 @@ python Step2_Feature_Extraction_11000_3.py
 
 # === Step 3 ~ 6：依序開啟並執行對應 Jupyter Notebook ===
 # 以 Model 1 為例：
-#   1. 執行 Step3_Model 1.ipynb   → 訓練 CNN，儲存模型
-#   2. 執行 Step4_Model 1__Detecting.ipynb   → 偵測未知故障
-#   3. 執行 Step5_Model 1__Random_Detecting.ipynb   → 隨機取樣驗證
-#   4. 執行 Step6_Model 1__Retrain.ipynb   → 重訓練 10 類模型
+#   1. 執行 Step3_Model_1.ipynb              → 訓練 CNN，儲存模型
+#   2. 執行 Step4_Model_1_Detecting.ipynb    → 偵測未知故障
+#   3. 執行 Step5_Model_1_Random_Detecting.ipynb   → 隨機取樣驗證
+#   4. 執行 Step6_Model_1_Retrain.ipynb      → 重訓練 10 類模型
+# 以 Model 10 為例（含遷移學習版本）：
+#   1a. 執行 Step3_Model_10_OneStage.ipynb   → 一階段遷移學習
+#   1b. 執行 Step3_Model_10_TwoStage.ipynb   → 兩階段遷移學習
 
 # === 附加：健康度退化建模（獨立執行）===
 # 執行 T1_T2_T3.ipynb

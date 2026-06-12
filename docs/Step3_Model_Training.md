@@ -20,10 +20,10 @@ Step 3 使用 Step 2 萃取的 105 維特徵向量，訓練一維卷積神經網
 | 模型範圍 | 類型 | 說明 |
 |----------|------|------|
 | Model 1 ~ 9 | 基礎版本 | 從頭訓練，對應不同轉速 / 馬達配置組合 |
-| Model 10 ~ 18 | OneStage 變體 | 載入基礎模型、凍結前半層、以不同馬達資料 Fine-tune |
-| Model 19 ~ 27 | TwoStage 變體 | 兩階段遷移學習（OneStage 後再進行第二次 Fine-tune）|
+| Model 10 ~ 27（OneStage）| OneStage 變體 | 載入基礎模型、凍結前半層、以不同馬達資料 Fine-tune |
+| Model 10 ~ 27（TwoStage）| TwoStage 變體 | 兩階段遷移學習（OneStage 後再進行第二次 Fine-tune）|
 
-共 **27 個 Jupyter Notebook**（`Step3_Model 1.ipynb` ~ `Step3_Model 27.ipynb`）
+共 **45 個 Jupyter Notebook**：`Step3_Model_1.ipynb` ~ `Step3_Model_9.ipynb`（基礎）、`Step3_Model_10_OneStage.ipynb` ~ `Step3_Model_27_OneStage.ipynb`（OneStage）、`Step3_Model_10_TwoStage.ipynb` ~ `Step3_Model_27_TwoStage.ipynb`（TwoStage）
 
 ---
 
@@ -168,8 +168,8 @@ X_test  = X_test.reshape(X_test.shape[0],  X_test.shape[1],  1)
 | 類型 | 訓練方式 | 說明 |
 |------|----------|------|
 | 基礎版（Model 1-9） | 從頭訓練 | 使用單一馬達資料完整訓練 |
-| OneStage（Model 10-18）| Fine-tune | 載入基礎版模型，凍結前 50% 層，以第二組馬達資料繼續訓練 |
-| TwoStage（Model 19-27）| 二次 Fine-tune | 在 OneStage 基礎上再凍結並以第三組馬達資料 Fine-tune |
+| OneStage（Model 10-27）| Fine-tune | 載入基礎版模型，凍結前 50% 層，以第二組馬達資料繼續訓練 |
+| TwoStage（Model 10-27）| 二次 Fine-tune | 在 OneStage 基礎上再凍結並以第三組馬達資料 Fine-tune |
 
 ```python
 # OneStage / TwoStage 遷移學習核心程式碼
@@ -206,23 +206,23 @@ history = model.fit(X_new, y_new, ...)
 
 ```python
 # --- logging bootstrap (auto-added) ---
+import importlib
+import logger as _logger_mod
+_logger_mod = importlib.reload(_logger_mod)
+save_plot = _logger_mod.save_plot
+setup_logger = _logger_mod.setup_logger
+tee_std_to_file = _logger_mod.tee_std_to_file
+
+LOG, RUN_PATHS = setup_logger('notebook', console=False)
+_tee_ctx = tee_std_to_file(RUN_PATHS.log_file)
+_tee_ctx.__enter__()
 import atexit
-from logger import redirect_std_to_logger, save_plot, setup_logger
-
-LOG, RUN_PATHS = setup_logger(__file__)
-_redirect_ctx = redirect_std_to_logger(LOG)
-_redirect_ctx.__enter__()
-atexit.register(_redirect_ctx.__exit__, None, None, None)
-
-import matplotlib.pyplot as plt
-_orig_show = plt.show
-def _show_and_save(*args, **kwargs):
-    save_plot(plt, LOG, RUN_PATHS)
-    return _orig_show(*args, **kwargs)
-plt.show = _show_and_save
+atexit.register(_tee_ctx.__exit__, None, None, None)
+# ... (自動儲存圖表與 GPU 資源釋放邏輯略)
+# --- end logging bootstrap ---
 ```
 
-`plt.show()` 呼叫時自動將圖表存至 `output/{run_name}/plot_000.png`、`plot_001.png` 等。
+`plt.show()` 呼叫時自動將圖表存至 `output/{run_name}/plot_000.png`、`plot_001.png` 等。stdout/stderr 同步寫入日誌檔。
 
 ---
 
