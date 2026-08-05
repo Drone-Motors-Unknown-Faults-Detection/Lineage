@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ancestor — 馬達故障診斷與持續學習系統</title>
+  <title>Lineage — 馬達故障診斷與持續學習系統</title>
 
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,8 +67,32 @@
 
 </head>
 <body>
-<h1 id="ancestor-馬達故障診斷與持續學習系統">Ancestor — 馬達故障診斷與持續學習系統</h1>
+<h1 id="lineage-馬達故障診斷與持續學習系統">Lineage — 馬達故障診斷與持續學習系統</h1>
 <p>本專案實作了一套完整的旋轉機械（馬達）<strong>故障診斷與預後健康管理（PHM）</strong> 流程，核心亮點在於結合深度學習分類與無監督異常偵測，實現對<strong>未知故障的自動發現與持續學習</strong>能力（開放集故障診斷 / Open-Set Fault Diagnosis）。</p>
+<blockquote>
+<h3 id="與-ancestor-的關係">與 Ancestor 的關係</h3>
+<p>本專案自 <a href="https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor"><code>Ancestor</code></a> 分出，<strong>完整保留其 git 歷史</strong>——包含論文原始碼的兩次上傳（<code>1ea243f</code>、<code>5b0e8d6</code>）以及後續所有修正。</p>
+<p>分家的原因是程式碼已與論文原始版本有實質差異，且後續研究方向也將與原論文分歧。逐項差異對照見 <a href="Differents.md">Differents.md</a>。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ancestor</strong></td>
+<td>論文版本的存檔。<strong>issue 與 PR 只存在於該處</strong>（#1~#60 記錄了每一個缺陷的成因、修正與驗證）</td>
+</tr>
+<tr>
+<td><strong>Lineage</strong>（本專案）</td>
+<td>後續研究的主線</td>
+</tr>
+</tbody>
+</table>
+<p>git 歷史可在兩邊互相對照，但 issue 討論串無法隨 git 複製，需要查閱時請回到 Ancestor。</p>
+</blockquote>
 <hr />
 <h2 id="目錄">目錄</h2>
 <ol>
@@ -103,7 +127,7 @@
 </code></pre>
 <hr />
 <h2 id="目錄結構">目錄結構</h2>
-<pre><code>/home/albert/Ancestor/
+<pre><code>/home/albert/Lineage/
 │
 ├── 核心腳本
 │   ├── Step1_Data_Preprocessing_figure_{6000,8000,11000}.py  # 原始訊號視覺化（×3）
@@ -161,7 +185,7 @@
         ├── csv/ / myfeature/ / model/
 </code></pre>
 <blockquote>
-<p>所有腳本與 Notebook 皆以<strong>專案根目錄</strong>為執行基準（即 <code>.../Ancestor/</code>），資料統一存放於 <code>data/</code> 目錄。</p>
+<p>所有腳本與 Notebook 皆以<strong>專案根目錄</strong>為執行基準（即 <code>.../Lineage/</code>），資料統一存放於 <code>data/</code> 目錄。</p>
 </blockquote>
 <hr />
 <h2 id="環境設定">環境設定</h2>
@@ -1371,7 +1395,7 @@ output/
 <p><strong>Step 6 從頭重訓練</strong>：未使用 Fine-tuning，當資料量大時訓練時間較長（可考慮遷移學習優化）。</p>
 </li>
 <li>
-<p><strong>路徑相對性</strong>：所有腳本使用相對路徑，<strong>必須在專案根目錄（<code>.../Ancestor/</code>）下執行</strong>。</p>
+<p><strong>路徑相對性</strong>：所有腳本使用相對路徑，<strong>必須在專案根目錄（<code>.../Lineage/</code>）下執行</strong>。</p>
 </li>
 <li>
 <p><strong>資料量平衡</strong>：各螺絲配置的資料量不一致時，訓練集可能不均衡，建議使用分層抽樣（已實作）或加入 class_weight。</p>

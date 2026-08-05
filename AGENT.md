@@ -6,14 +6,14 @@
 
 ## 專案定位
 
-**Ancestor** 是一套馬達故障診斷研究專案，實作了從原始訊號到持續學習的完整 PHM（預後健康管理）流程。研究目標是在已知故障分類的基礎上，自動偵測並學習未知的新型故障，實現開放集（Open-Set）故障診斷。
+**Lineage** 是一套馬達故障診斷研究專案，實作了從原始訊號到持續學習的完整 PHM（預後健康管理）流程。研究目標是在已知故障分類的基礎上，自動偵測並學習未知的新型故障，實現開放集（Open-Set）故障診斷。
 
 ---
 
 ## 目錄結構
 
 ```
-/home/albert/Ancestor/
+/home/albert/Lineage/
 ├── Step1_Data_Preprocessing_figure_{6000,8000,11000}.py  # 資料視覺化腳本（×3）
 ├── Step1_Data_Preprocessing_save_*.py     # 資料儲存腳本（×9）
 ├── Step2_Feature_Extraction_*.py          # 特徵萃取腳本（×9）
@@ -189,7 +189,7 @@ threshold = np.percentile(train_distances, 95)  # 可調整百分位數
 3. **HDBSCAN 隨機性：** 叢集結果可能略有差異，建議固定 `random_state` 或多次執行取平均。
 4. **協方差矩陣奇異性：** 若特徵高度共線，馬氏距離計算可能失敗，需先以 PCA 降維。
 5. **Step 6 從頭重訓練：** 目前不使用 Fine-tuning，若資料量大，訓練時間較長。
-6. **資料路徑：** 所有腳本使用相對路徑（以 `os.getcwd()` 為基準），並統一從 `data/` 目錄讀寫；請確保在專案根目錄執行（例如 `.../Ancestor/`）。
+6. **資料路徑：** 所有腳本使用相對路徑（以 `os.getcwd()` 為基準），並統一從 `data/` 目錄讀寫；請確保在專案根目錄執行（例如 `.../Lineage/`）。
 7. **兩種特徵檔不可混用：** Step 3/6 讀 `*_Group_feature_data.csv`，Step 4/5 讀 `*_Group_feature_data_clean.csv`（IQR scale=1.5 逐列過濾後的版本）。
 8. **掃描設定值時要排除註解：** 腳本裡留有不少被註解掉的舊設定（例如 `# groups = ['A', 'B', 'C']`），用 grep 判斷生效值時容易誤判。
 9. **`logs/` 與 `output/` 納入版控：** 每次執行的紀錄會產生新檔案，提交前確認要不要一併帶上。

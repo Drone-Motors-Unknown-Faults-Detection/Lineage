@@ -1,4 +1,4 @@
-# TensorFlow 使用指南 — Ancestor 專案
+# TensorFlow 使用指南 — Lineage 專案
 
 本文件說明 `gpu_utils.py` 的運作原理、如何在 TensorFlow 中使用 GPU 進行訓練，以及本專案中所使用的 TensorFlow / Keras 語法與模型架構。
 
