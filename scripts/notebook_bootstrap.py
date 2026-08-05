@@ -39,9 +39,9 @@ def _patch_pyplot(log: SimpleFileLogger, run_paths: RunPaths) -> None:
     except Exception:
         return
 
-    if getattr(plt, "_ancestor_save_plot_patched", False):
+    if getattr(plt, "_lineage_save_plot_patched", False):
         return
-    plt._ancestor_save_plot_patched = True
+    plt._lineage_save_plot_patched = True
 
     orig_show = plt.show
     saving: set[int] = set()

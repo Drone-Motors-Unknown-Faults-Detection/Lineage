@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # 參考指令
-# albert@aero01:~/Ancestor$ source venv/bin/activate
-# ((venv) ) albert@aero01:~/Ancestor$ jupyter execute Step3_Model_1.ipynb
+# albert@aero01:~/Lineage$ source venv/bin/activate
+# ((venv) ) albert@aero01:~/Lineage$ jupyter execute Step3_Model_1.ipynb
 
 set -e
 
