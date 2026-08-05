@@ -1,0 +1,433 @@
+[H[2J[3J[INFO] (1/27) Exec Step4_Model_01_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_01_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917887.881161 2045907 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917887.926090 2045907 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917888.988702 2045907 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917890.150130 2045907 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785917891.362658 2045983 service.cc:153] XLA service 0x7f6b0402d4e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785917891.362687 2045983 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785917891.369709 2045983 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785917891.400736 2045983 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785917891.868496 2045983 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (2/27) Exec Step4_Model_02_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_02_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917900.966600 2046616 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917901.012088 2046616 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917902.090610 2046616 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917903.362231 2046616 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785917905.473782 2046700 service.cc:153] XLA service 0x7fa3880410c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785917905.473811 2046700 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785917905.491221 2046700 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785917905.830614 2046700 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785917907.148320 2046700 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (3/27) Exec Step4_Model_03_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_03_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917918.366397 2047869 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917918.410899 2047869 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917919.490662 2047869 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917920.799715 2047869 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785917922.343170 2047954 service.cc:153] XLA service 0x7fd0b4041980 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785917922.343199 2047954 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785917922.354721 2047954 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785917922.430035 2047954 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785917923.002395 2047954 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (4/27) Exec Step4_Model_04_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_04_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917931.123512 2048961 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917931.168640 2048961 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917932.325661 2048961 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917933.617601 2048961 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785917935.084449 2049136 service.cc:153] XLA service 0x7f965802e1e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785917935.084500 2049136 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785917935.094358 2049136 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785917935.128828 2049136 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785917935.656107 2049136 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (5/27) Exec Step4_Model_05_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_05_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917954.572318 2050880 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917954.619075 2050880 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917955.723094 2050880 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917956.910880 2050880 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785917958.954844 2050963 service.cc:153] XLA service 0x7f72d8040e10 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785917958.954873 2050963 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785917958.972569 2050963 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785917959.171078 2050963 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785917960.493040 2050963 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (6/27) Exec Step4_Model_06_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_06_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917982.286319 2053381 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917982.331979 2053381 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785917983.538383 2053381 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785917984.958780 2053381 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785917986.525687 2053487 service.cc:153] XLA service 0x7f9f0c030310 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785917986.525714 2053487 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785917986.537511 2053487 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785917986.614394 2053487 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785917987.314065 2053487 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (7/27) Exec Step4_Model_07_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_07_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918005.139260 2055305 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918005.202632 2055305 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918006.480503 2055305 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918007.701333 2055305 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918009.232589 2055389 service.cc:153] XLA service 0x7fca4c02ce00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918009.232618 2055389 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918009.239721 2055389 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918009.270908 2055389 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918009.738204 2055389 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (8/27) Exec Step4_Model_08_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_08_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918027.923801 2057093 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918027.969223 2057093 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918029.184305 2057093 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918030.550458 2057093 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918033.137626 2057175 service.cc:153] XLA service 0x7f9d40052de0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918033.137654 2057175 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918033.155194 2057175 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918033.493420 2057175 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918034.881760 2057175 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (9/27) Exec Step4_Model_09_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_09_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918056.498354 2059284 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918056.561159 2059284 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918057.817739 2059284 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918059.296959 2059284 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918061.006766 2059383 service.cc:153] XLA service 0x7f9a6402ff70 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918061.006793 2059383 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918061.018452 2059383 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918061.212056 2059383 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918061.794329 2059383 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (10/27) Exec Step4_Model_10_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_10_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918078.783271 2061167 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918078.846805 2061167 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918079.985990 2061167 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918081.137197 2061167 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918082.458257 2061250 service.cc:153] XLA service 0x7f615002da20 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918082.458284 2061250 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918082.465821 2061250 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918082.496666 2061250 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918082.979250 2061250 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (11/27) Exec Step4_Model_11_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_11_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918101.350847 2062995 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918101.396989 2062995 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918102.488000 2062995 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918103.653952 2062995 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918105.583848 2063074 service.cc:153] XLA service 0x7f01a40418a0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918105.583874 2063074 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918105.601233 2063074 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918105.937802 2063074 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918107.233011 2063074 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (12/27) Exec Step4_Model_12_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_12_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918127.963031 2065402 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918128.008054 2065402 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918129.107466 2065402 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918130.402781 2065402 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918131.969149 2065484 service.cc:153] XLA service 0x7f2014042790 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918131.969176 2065484 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918131.980833 2065484 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918132.058336 2065484 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918132.759016 2065484 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (13/27) Exec Step4_Model_13_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_13_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918149.859401 2067291 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918149.905447 2067291 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918150.982177 2067291 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918152.140451 2067291 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918153.419885 2067369 service.cc:153] XLA service 0x7fb99003e990 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918153.419915 2067369 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918153.426940 2067369 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918153.456945 2067369 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918153.928769 2067369 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (14/27) Exec Step4_Model_14_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_14_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918172.654170 2069110 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918172.700909 2069110 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918173.784059 2069110 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918174.952705 2069110 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918177.077688 2069190 service.cc:153] XLA service 0x7fd4d8040fc0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918177.077714 2069190 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918177.095176 2069190 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918177.425393 2069190 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918178.751886 2069190 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (15/27) Exec Step4_Model_15_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_15_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918200.894137 2071447 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918200.940453 2071447 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918202.011311 2071447 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918203.323131 2071447 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918204.876448 2071526 service.cc:153] XLA service 0x7f951802fb90 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918204.876476 2071526 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918204.888176 2071526 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918204.963760 2071526 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918205.683423 2071526 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (16/27) Exec Step4_Model_16_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_16_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918223.620444 2073400 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918223.684237 2073400 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918224.908439 2073400 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918226.336205 2073400 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918227.757803 2073495 service.cc:153] XLA service 0x7f876402d680 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918227.757828 2073495 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918227.766797 2073495 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918227.801010 2073495 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918228.346439 2073495 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (17/27) Exec Step4_Model_17_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_17_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918247.221636 2075236 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918247.267171 2075236 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918248.354538 2075236 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918249.526007 2075236 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918251.520939 2075315 service.cc:153] XLA service 0x7f89e4040500 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918251.520967 2075315 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918251.539044 2075315 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918251.872140 2075315 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918253.224974 2075315 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (18/27) Exec Step4_Model_18_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_18_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918276.478542 2077555 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918276.523813 2077555 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918277.614035 2077555 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918278.766525 2077555 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918280.139162 2077632 service.cc:153] XLA service 0x7f0738030590 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918280.139212 2077632 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918280.154623 2077632 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918280.238866 2077632 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918281.025781 2077632 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (19/27) Exec Step4_Model_19_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_19_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918298.529485 2079496 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918298.575410 2079496 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918299.664945 2079496 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918300.930688 2079496 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918302.269952 2079591 service.cc:153] XLA service 0x7fb42003ffb0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918302.269979 2079591 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918302.276954 2079591 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918302.307451 2079591 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918302.775375 2079591 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (20/27) Exec Step4_Model_20_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_20_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918321.522474 2081369 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918321.568407 2081369 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918322.632234 2081369 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918323.925049 2081369 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918326.101798 2081452 service.cc:153] XLA service 0x7f4388041380 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918326.101853 2081452 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918326.123794 2081452 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918326.476964 2081452 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918327.878373 2081452 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (21/27) Exec Step4_Model_21_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_21_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918350.592345 2083664 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918350.639372 2083664 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918351.765487 2083664 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918353.076018 2083664 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918354.671195 2083744 service.cc:153] XLA service 0x7f048c030610 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918354.671236 2083744 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918354.685962 2083744 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918354.767718 2083744 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918355.522175 2083744 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (22/27) Exec Step4_Model_22_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_22_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918373.684132 2085640 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918373.746830 2085640 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918375.065260 2085640 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918376.398544 2085640 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918378.213002 2085723 service.cc:153] XLA service 0x7f9c0002df70 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918378.213039 2085723 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918378.219973 2085723 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918378.250722 2085723 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918378.713101 2085723 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (23/27) Exec Step4_Model_23_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_23_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918396.819178 2087478 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918396.865491 2087478 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918397.942900 2087478 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918399.229755 2087478 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918401.348867 2087560 service.cc:153] XLA service 0x7f3c00053d80 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918401.348899 2087560 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918401.366096 2087560 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918401.698894 2087560 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918403.080366 2087560 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (24/27) Exec Step4_Model_24_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_24_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918422.268697 2089507 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918422.314245 2089507 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918423.482554 2089507 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918424.753520 2089507 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918426.398480 2089589 service.cc:153] XLA service 0x7f63f00318f0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918426.398511 2089589 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918426.410708 2089589 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918426.484745 2089589 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918427.193369 2089589 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (25/27) Exec Step4_Model_25_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_25_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918443.985370 2091457 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918444.030881 2091457 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918445.103030 2091457 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918446.405543 2091457 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918447.812268 2091537 service.cc:153] XLA service 0x7f5d6403fe40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918447.812295 2091537 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918447.819163 2091537 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918447.849516 2091537 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918448.307666 2091537 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (26/27) Exec Step4_Model_26_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_26_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918466.131009 2093315 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918466.176507 2093315 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918467.336204 2093315 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918468.593586 2093315 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918470.828487 2093399 service.cc:153] XLA service 0x7fc6bc053450 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918470.828513 2093399 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918470.845784 2093399 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918471.190393 2093399 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918472.477144 2093399 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (27/27) Exec Step4_Model_27_Detecting.ipynb
+[NbClientApp] Executing Step4_Model_27_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918494.590762 2095673 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918494.635970 2095673 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918495.714913 2095673 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918496.988818 2095673 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918498.471712 2096098 service.cc:153] XLA service 0x7f0774042260 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918498.471739 2096098 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918498.483716 2096098 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918498.560650 2096098 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918499.263044 2096098 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] All 27 notebooks completed.

@@ -1,0 +1,154 @@
+2026-08-05 16:10:51 | INFO  | Logger initialized
+2026-08-05 16:10:51 | INFO  | log_file=/home/albert/Ancestor/logs/Step3_Model_26_TwoStage/2026-08-05-16-10-51.log
+2026-08-05 16:10:51 | INFO  | output_dir=/home/albert/Ancestor/output/Step3_Model_26_TwoStage/2026-08-05-16-10-51
+[gpu_utils] GPU x1 已啟用：['/physical_device:GPU:0']
+自訂 Label Mapping:
+8screws: 0
+1screws: 1
+2screws: 2
+3screws: 3
+4screws: 4
+模型已成功載入。
+Model 3 - Layer 0: input_layer | Trainable: False
+Model 3 - Layer 1: conv1d | Trainable: False
+Model 3 - Layer 2: batch_normalization | Trainable: False
+Model 3 - Layer 3: activation | Trainable: False
+Model 3 - Layer 4: max_pooling1d | Trainable: False
+Model 3 - Layer 5: conv1d_1 | Trainable: False
+Model 3 - Layer 6: batch_normalization_1 | Trainable: False
+Model 3 - Layer 7: activation_1 | Trainable: False
+Model 3 - Layer 8: conv1d_2 | Trainable: False
+Model 3 - Layer 9: batch_normalization_2 | Trainable: False
+Model 3 - Layer 10: add | Trainable: False
+Model 3 - Layer 11: activation_2 | Trainable: False
+Model 3 - Layer 12: conv1d_3 | Trainable: False
+Model 3 - Layer 13: batch_normalization_3 | Trainable: False
+Model 3 - Layer 14: activation_3 | Trainable: False
+Model 3 - Layer 15: conv1d_4 | Trainable: False
+Model 3 - Layer 16: batch_normalization_4 | Trainable: False
+Model 3 - Layer 17: add_1 | Trainable: False
+Model 3 - Layer 18: activation_4 | Trainable: False
+Model 3 - Layer 19: conv1d_5 | Trainable: False
+Model 3 - Layer 20: batch_normalization_5 | Trainable: False
+Model 3 - Layer 21: activation_5 | Trainable: False
+Model 3 - Layer 22: conv1d_6 | Trainable: False
+Model 3 - Layer 23: conv1d_7 | Trainable: False
+Model 3 - Layer 24: batch_normalization_6 | Trainable: False
+Model 3 - Layer 25: batch_normalization_7 | Trainable: False
+Model 3 - Layer 26: add_2 | Trainable: False
+Model 3 - Layer 27: activation_6 | Trainable: False
+Model 3 - Layer 28: conv1d_8 | Trainable: False
+Model 3 - Layer 29: batch_normalization_8 | Trainable: False
+Model 3 - Layer 30: activation_7 | Trainable: False
+Model 3 - Layer 31: conv1d_9 | Trainable: False
+Model 3 - Layer 32: batch_normalization_9 | Trainable: False
+Model 3 - Layer 33: add_3 | Trainable: False
+Model 3 - Layer 34: activation_8 | Trainable: False
+Model 3 - Layer 35: conv1d_10 | Trainable: True
+Model 3 - Layer 36: batch_normalization_10 | Trainable: False
+Model 3 - Layer 37: activation_9 | Trainable: True
+Model 3 - Layer 38: conv1d_11 | Trainable: True
+Model 3 - Layer 39: conv1d_12 | Trainable: True
+Model 3 - Layer 40: batch_normalization_11 | Trainable: False
+Model 3 - Layer 41: batch_normalization_12 | Trainable: False
+Model 3 - Layer 42: add_4 | Trainable: True
+Model 3 - Layer 43: activation_10 | Trainable: True
+Model 3 - Layer 44: conv1d_13 | Trainable: True
+Model 3 - Layer 45: batch_normalization_13 | Trainable: False
+Model 3 - Layer 46: activation_11 | Trainable: True
+Model 3 - Layer 47: conv1d_14 | Trainable: True
+Model 3 - Layer 48: batch_normalization_14 | Trainable: False
+Model 3 - Layer 49: add_5 | Trainable: True
+Model 3 - Layer 50: activation_12 | Trainable: True
+Model 3 - Layer 51: conv1d_15 | Trainable: True
+Model 3 - Layer 52: batch_normalization_15 | Trainable: False
+Model 3 - Layer 53: activation_13 | Trainable: True
+Model 3 - Layer 54: conv1d_16 | Trainable: True
+Model 3 - Layer 55: conv1d_17 | Trainable: True
+Model 3 - Layer 56: batch_normalization_16 | Trainable: False
+Model 3 - Layer 57: batch_normalization_17 | Trainable: False
+Model 3 - Layer 58: add_6 | Trainable: True
+Model 3 - Layer 59: activation_14 | Trainable: True
+Model 3 - Layer 60: conv1d_18 | Trainable: True
+Model 3 - Layer 61: batch_normalization_18 | Trainable: False
+Model 3 - Layer 62: activation_15 | Trainable: True
+Model 3 - Layer 63: conv1d_19 | Trainable: True
+Model 3 - Layer 64: batch_normalization_19 | Trainable: False
+Model 3 - Layer 65: add_7 | Trainable: True
+Model 3 - Layer 66: activation_16 | Trainable: True
+Model 3 - Layer 67: global_average_pooling1d | Trainable: True
+Model 3 - Layer 68: Screw_Number_Output | Trainable: True
+[Training] Device: /GPU:0
+Epoch 1/100
+75/75 54ms/step accuracy=0.4925 loss=2.9714
+75/75 90ms/step accuracy=0.7270 loss=1.3176 val_accuracy=0.9616 val_loss=0.1379
+Epoch 2/100
+75/75 5ms/step accuracy=0.9808 loss=0.0726 val_accuracy=0.9900 val_loss=0.0457
+Epoch 3/100
+75/75 5ms/step accuracy=0.9929 loss=0.0281 val_accuracy=0.9917 val_loss=0.0313
+Epoch 4/100
+75/75 5ms/step accuracy=0.9979 loss=0.0121 val_accuracy=0.9933 val_loss=0.0230
+Epoch 5/100
+75/75 5ms/step accuracy=0.9996 loss=0.0067 val_accuracy=0.9933 val_loss=0.0186
+Epoch 6/100
+75/75 5ms/step accuracy=1.0000 loss=0.0045 val_accuracy=0.9950 val_loss=0.0157
+Epoch 7/100
+75/75 5ms/step accuracy=1.0000 loss=0.0031 val_accuracy=0.9967 val_loss=0.0134
+Epoch 8/100
+75/75 5ms/step accuracy=1.0000 loss=0.0024 val_accuracy=0.9950 val_loss=0.0140
+Epoch 9/100
+75/75 5ms/step accuracy=1.0000 loss=0.0019 val_accuracy=0.9983 val_loss=0.0109
+Epoch 10/100
+75/75 5ms/step accuracy=1.0000 loss=0.0015 val_accuracy=0.9967 val_loss=0.0123
+Epoch 11/100
+75/75 5ms/step accuracy=1.0000 loss=0.0012 val_accuracy=0.9983 val_loss=0.0114
+Epoch 12/100
+75/75 5ms/step accuracy=1.0000 loss=9.7771e-04 val_accuracy=0.9983 val_loss=0.0113
+Epoch 13/100
+75/75 5ms/step accuracy=1.0000 loss=8.4565e-04 val_accuracy=0.9983 val_loss=0.0105
+Epoch 14/100
+75/75 5ms/step accuracy=1.0000 loss=7.2795e-04 val_accuracy=0.9983 val_loss=0.0108
+Epoch 15/100
+75/75 5ms/step accuracy=1.0000 loss=6.2401e-04 val_accuracy=0.9983 val_loss=0.0101
+Epoch 16/100
+75/75 5ms/step accuracy=1.0000 loss=5.4774e-04 val_accuracy=0.9983 val_loss=0.0105
+Epoch 17/100
+75/75 5ms/step accuracy=1.0000 loss=4.9249e-04 val_accuracy=0.9983 val_loss=0.0108
+Epoch 18/100
+75/75 5ms/step accuracy=1.0000 loss=4.2716e-04 val_accuracy=0.9983 val_loss=0.0104
+Epoch 19/100
+75/75 5ms/step accuracy=1.0000 loss=3.8120e-04 val_accuracy=0.9983 val_loss=0.0106
+Epoch 20/100
+75/75 5ms/step accuracy=1.0000 loss=3.4517e-04 val_accuracy=0.9983 val_loss=0.0100
+Epoch 21/100
+75/75 5ms/step accuracy=1.0000 loss=3.1418e-04 val_accuracy=0.9983 val_loss=0.0101
+Epoch 22/100
+75/75 5ms/step accuracy=1.0000 loss=2.8300e-04 val_accuracy=0.9983 val_loss=0.0100
+Epoch 23/100
+75/75 5ms/step accuracy=1.0000 loss=2.5288e-04 val_accuracy=0.9983 val_loss=0.0094
+Epoch 24/100
+75/75 5ms/step accuracy=1.0000 loss=2.3206e-04 val_accuracy=0.9983 val_loss=0.0101
+Epoch 25/100
+75/75 5ms/step accuracy=1.0000 loss=2.1111e-04 val_accuracy=0.9983 val_loss=0.0100
+Epoch 26/100
+75/75 5ms/step accuracy=1.0000 loss=1.9335e-04 val_accuracy=0.9983 val_loss=0.0103
+Epoch 27/100
+75/75 5ms/step accuracy=1.0000 loss=1.7541e-04 val_accuracy=0.9983 val_loss=0.0100
+Epoch 28/100
+75/75 5ms/step accuracy=1.0000 loss=1.6012e-04 val_accuracy=0.9983 val_loss=0.0099
+Epoch 29/100
+75/75 5ms/step accuracy=1.0000 loss=1.4892e-04 val_accuracy=0.9983 val_loss=0.0095
+Epoch 30/100
+75/75 5ms/step accuracy=1.0000 loss=1.3870e-04 val_accuracy=0.9983 val_loss=0.0096
+Epoch 31/100
+75/75 5ms/step accuracy=1.0000 loss=1.2740e-04 val_accuracy=0.9983 val_loss=0.0100
+Epoch 32/100
+75/75 5ms/step accuracy=1.0000 loss=1.1814e-04 val_accuracy=0.9983 val_loss=0.0098
+Epoch 33/100
+75/75 5ms/step accuracy=1.0000 loss=1.0984e-04 val_accuracy=0.9983 val_loss=0.0097
+19/19 3ms/step accuracy=0.9942 loss=0.0291
+19/19 4ms/step accuracy=0.9983 loss=0.0094
+Loss: 0.0094, Accuracy: 0.9983
+2026-08-05 16:11:22 | INFO  | Saved plot: /home/albert/Ancestor/output/Step3_Model_26_TwoStage/2026-08-05-16-10-51/plot_000.png
+2026-08-05 16:11:22 | INFO  | Saved plot: /home/albert/Ancestor/output/Step3_Model_26_TwoStage/2026-08-05-16-10-51/plot_001.png
+2026-08-05 16:11:24 | INFO  | Saved plot: /home/albert/Ancestor/output/Step3_Model_26_TwoStage/2026-08-05-16-10-51/plot_002.png

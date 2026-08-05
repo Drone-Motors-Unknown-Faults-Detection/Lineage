@@ -1,0 +1,1241 @@
+2026-08-05 16:20:27 | INFO  | Logger initialized
+2026-08-05 16:20:27 | INFO  | log_file=/home/albert/Ancestor/logs/Step4_Model_08_Detecting/2026-08-05-16-20-27.log
+2026-08-05 16:20:27 | INFO  | output_dir=/home/albert/Ancestor/output/Step4_Model_08_Detecting/2026-08-05-16-20-27
+=== 1. Loading training data ===
+✔️ Train : (1397, 105)  |  Test : (350, 105)
+==============================
+▶ mcs = 21 | conf = 0.9 | thr = 13.59
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 21
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | New Fault
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 21
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 21
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 21
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 21
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | New Fault
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 21 | conf = 0.95 | thr = 14.66
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 21
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | New Fault
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 21
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 21
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 21
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 21
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | New Fault
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 21 | conf = 0.99 | thr = 16.73
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 21
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | Known
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 21
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 21
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 21
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 21
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | Known
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 22 | conf = 0.9 | thr = 13.59
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 22
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | New Fault
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 22
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 22
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 22
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 22
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | New Fault
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 22 | conf = 0.95 | thr = 14.66
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 22
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | New Fault
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 22
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 22
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 22
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 22
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | New Fault
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 22 | conf = 0.99 | thr = 16.73
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 22
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | Known
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 22
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 22
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 22
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 22
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | Known
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 23 | conf = 0.9 | thr = 13.59
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 23
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | New Fault
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 23
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 23
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 23
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 23
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | New Fault
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 23 | conf = 0.95 | thr = 14.66
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 23
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | New Fault
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 23
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 23
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 23
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 23
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | New Fault
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 23 | conf = 0.99 | thr = 16.73
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 23
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | Known
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 23
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 23
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 23
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 23
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | Known
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 24 | conf = 0.9 | thr = 13.59
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 24
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | New Fault
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 24
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 24
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 24
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 24
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | New Fault
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 24 | conf = 0.95 | thr = 14.66
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 24
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | New Fault
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 24
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 24
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 24
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 24
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | New Fault
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault
+==============================
+▶ mcs = 24 | conf = 0.99 | thr = 16.73
+==============================
+--- Test‑set validation
+C0      : 8screws 71筆
+C1      : 1screws 75筆
+C2      : 2screws 76筆
+C3      : 4screws 66筆
+C4      : 3screws 62筆
+* C0  | size  71 | dist   2.65 | Known
+* C1  | size  75 | dist   2.63 | Known
+* C2  | size  76 | dist   2.41 | Known
+* C3  | size  66 | dist   2.51 | Known
+* C4  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws'] | mcs 24
+C2      : 75 pts
+C3      : 76 pts
+C1      : 66 pts
+C4      : 60 pts
+C5      : 62 pts
+C0      : 71 pts
+C0  | size  71 | dist   2.65 | Known
+C1  | size  66 | dist   2.51 | Known
+C2  | size  75 | dist   2.63 | Known
+C3  | size  76 | dist   2.41 | Known
+C4  | size  60 | dist  16.41 | Known
+C5  | size  62 | dist   2.87 | Known
+--- Unknown ['5screws', '6screws'] | mcs 24
+C3      : 70 pts
+C4      : 61 pts
+C6      : 54 pts
+outliers: 9 pts
+C1      : 62 pts
+C2      : 73 pts
+C0      : 68 pts
+C5      : 53 pts
+C0  | size  68 | dist   2.67 | Known
+C1  | size  62 | dist   2.52 | Known
+C2  | size  73 | dist   2.60 | Known
+C3  | size  70 | dist   2.45 | Known
+C4  | size  61 | dist   2.89 | Known
+C5  | size  53 | dist  16.90 | New Fault
+C6  | size  54 | dist  18.65 | New Fault
+--- Unknown ['5screws', '6screws', '7screws'] | mcs 24
+C3      : 66 pts
+C5      : 49 pts
+C1      : 55 pts
+C0      : 60 pts
+C2      : 64 pts
+outliers: 19 pts
+C6      : 48 pts
+C4      : 53 pts
+C7      : 36 pts
+C0  | size  60 | dist   2.76 | Known
+C1  | size  55 | dist   2.62 | Known
+C2  | size  64 | dist   2.49 | Known
+C3  | size  66 | dist   2.67 | Known
+C4  | size  53 | dist   2.87 | Known
+C5  | size  49 | dist  16.92 | New Fault
+C6  | size  48 | dist  21.02 | New Fault
+C7  | size  36 | dist  19.05 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws'] | mcs 24
+C7      : 41 pts
+C2      : 47 pts
+C1      : 49 pts
+C4      : 62 pts
+C5      : 52 pts
+C3      : 60 pts
+C0      : 48 pts
+C6      : 37 pts
+C8      : 33 pts
+outliers: 21 pts
+C0  | size  48 | dist  78.22 | New Fault
+C1  | size  49 | dist   2.87 | Known
+C2  | size  47 | dist   2.62 | Known
+C3  | size  60 | dist   2.49 | Known
+C4  | size  62 | dist   2.75 | Known
+C5  | size  52 | dist   2.88 | Known
+C6  | size  37 | dist  17.11 | New Fault
+C7  | size  41 | dist  20.95 | New Fault
+C8  | size  33 | dist  19.19 | New Fault
+--- Unknown ['5screws', '6screws', '7screws', '3_14screws', '4_146screws'] | mcs 24
+C3      : 45 pts
+C5      : 57 pts
+outliers: 22 pts
+C4      : 49 pts
+C1      : 49 pts
+C8      : 30 pts
+C2      : 50 pts
+C6      : 45 pts
+C7      : 37 pts
+C0      : 38 pts
+C9      : 28 pts
+C0  | size  38 | dist  77.98 | New Fault
+C1  | size  49 | dist   2.65 | Known
+C2  | size  50 | dist   2.59 | Known
+C3  | size  45 | dist  25.20 | New Fault
+C4  | size  49 | dist   2.84 | Known
+C5  | size  57 | dist   2.62 | Known
+C6  | size  45 | dist   3.00 | Known
+C7  | size  37 | dist  16.67 | Known
+C8  | size  30 | dist  21.03 | New Fault
+C9  | size  28 | dist  19.03 | New Fault

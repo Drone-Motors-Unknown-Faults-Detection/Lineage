@@ -1,0 +1,13 @@
+2026-08-05 16:37:28 | INFO  | Logger initialized
+2026-08-05 16:37:28 | INFO  | log_file=/home/albert/Ancestor/logs/Step5_Model_17_Random_Detecting/2026-08-05-16-37-28.log
+2026-08-05 16:37:28 | INFO  | output_dir=/home/albert/Ancestor/output/Step5_Model_17_Random_Detecting/2026-08-05-16-37-28
+本次隨機抽取組合：
+['Unknown 1']
+=== Loading training data ===
+=== Loading training data ===
+==============================
+▶ mcs=25 | conf=0.95 | thr=13.84
+==============================
+2026-08-05 16:37:41 | INFO  | Saved plot: /home/albert/Ancestor/output/Step5_Model_17_Random_Detecting/2026-08-05-16-37-28/plot_000.png
+2026-08-05 16:37:42 | INFO  | Saved plot: /home/albert/Ancestor/output/Step5_Model_17_Random_Detecting/2026-08-05-16-37-28/plot_001.png
+2026-08-05 16:37:42 | INFO  | Saved plot: /home/albert/Ancestor/output/Step5_Model_17_Random_Detecting/2026-08-05-16-37-28/plot_002.png

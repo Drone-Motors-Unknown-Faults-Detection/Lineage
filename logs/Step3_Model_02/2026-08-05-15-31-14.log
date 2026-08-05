@@ -1,0 +1,167 @@
+2026-08-05 15:31:14 | INFO  | Logger initialized
+2026-08-05 15:31:14 | INFO  | log_file=/home/albert/Ancestor/logs/Step3_Model_02/2026-08-05-15-31-14.log
+2026-08-05 15:31:14 | INFO  | output_dir=/home/albert/Ancestor/output/Step3_Model_02/2026-08-05-15-31-14
+[gpu_utils] GPU x1 已啟用：['/physical_device:GPU:0']
+自訂 Label Mapping:
+8screws: 0
+1screws: 1
+2screws: 2
+3screws: 3
+4screws: 4
+2026-08-05 15:31:19 | INFO  | Saved plot: /home/albert/Ancestor/output/Step3_Model_02/2026-08-05-15-31-14/plot_000.png
+[Training] Device: /GPU:0
+Epoch 1/100
+75/75 128ms/step accuracy=0.7428 loss=0.7275
+75/75 172ms/step accuracy=0.8927 loss=0.3792 val_accuracy=0.4790 val_loss=1.1944
+Epoch 2/100
+75/75 9ms/step accuracy=0.9966 loss=0.0348 val_accuracy=0.7933 val_loss=0.6236
+Epoch 3/100
+75/75 9ms/step accuracy=0.9987 loss=0.0141 val_accuracy=1.0000 val_loss=0.1001
+Epoch 4/100
+75/75 5ms/step accuracy=0.9994 loss=0.0073
+75/75 9ms/step accuracy=0.9975 loss=0.0143 val_accuracy=1.0000 val_loss=0.0100
+Epoch 5/100
+75/75 9ms/step accuracy=0.9996 loss=0.0061 val_accuracy=1.0000 val_loss=0.0030
+Epoch 6/100
+75/75 9ms/step accuracy=1.0000 loss=0.0038 val_accuracy=1.0000 val_loss=0.0013
+Epoch 7/100
+75/75 9ms/step accuracy=0.9996 loss=0.0044 val_accuracy=1.0000 val_loss=7.2597e-04
+Epoch 8/100
+75/75 9ms/step accuracy=1.0000 loss=0.0023 val_accuracy=1.0000 val_loss=6.2626e-04
+Epoch 9/100
+75/75 5ms/step accuracy=1.0000 loss=0.0018
+75/75 9ms/step accuracy=1.0000 loss=0.0019 val_accuracy=1.0000 val_loss=4.3062e-04
+Epoch 10/100
+75/75 5ms/step accuracy=1.0000 loss=0.0018
+75/75 9ms/step accuracy=1.0000 loss=0.0023 val_accuracy=1.0000 val_loss=3.0869e-04
+Epoch 11/100
+75/75 9ms/step accuracy=1.0000 loss=0.0016 val_accuracy=1.0000 val_loss=2.8203e-04
+Epoch 12/100
+75/75 9ms/step accuracy=1.0000 loss=0.0016 val_accuracy=1.0000 val_loss=2.2695e-04
+Epoch 13/100
+75/75 9ms/step accuracy=1.0000 loss=0.0022 val_accuracy=1.0000 val_loss=2.1899e-04
+Epoch 14/100
+75/75 9ms/step accuracy=1.0000 loss=0.0011 val_accuracy=1.0000 val_loss=1.6869e-04
+Epoch 15/100
+75/75 9ms/step accuracy=1.0000 loss=8.1672e-04 val_accuracy=1.0000 val_loss=1.4228e-04
+Epoch 16/100
+75/75 8ms/step accuracy=0.9996 loss=0.0027 val_accuracy=1.0000 val_loss=2.6452e-04
+Epoch 17/100
+75/75 9ms/step accuracy=1.0000 loss=8.1604e-04 val_accuracy=1.0000 val_loss=1.2879e-04
+Epoch 18/100
+75/75 9ms/step accuracy=1.0000 loss=6.4948e-04 val_accuracy=1.0000 val_loss=1.0700e-04
+Epoch 19/100
+75/75 9ms/step accuracy=1.0000 loss=5.3809e-04 val_accuracy=1.0000 val_loss=9.4253e-05
+Epoch 20/100
+75/75 9ms/step accuracy=1.0000 loss=5.9481e-04 val_accuracy=1.0000 val_loss=8.5443e-05
+Epoch 21/100
+75/75 9ms/step accuracy=0.9996 loss=0.0014 val_accuracy=1.0000 val_loss=7.3524e-05
+Epoch 22/100
+75/75 8ms/step accuracy=0.9987 loss=0.0046 val_accuracy=1.0000 val_loss=2.2159e-04
+Epoch 23/100
+75/75 9ms/step accuracy=1.0000 loss=0.0010 val_accuracy=1.0000 val_loss=1.3337e-04
+Epoch 24/100
+75/75 9ms/step accuracy=1.0000 loss=8.7829e-04 val_accuracy=1.0000 val_loss=9.7324e-05
+Epoch 25/100
+75/75 6ms/step accuracy=1.0000 loss=4.6173e-04
+75/75 9ms/step accuracy=1.0000 loss=4.8141e-04 val_accuracy=1.0000 val_loss=9.9202e-05
+Epoch 26/100
+75/75 9ms/step accuracy=1.0000 loss=5.9381e-04 val_accuracy=1.0000 val_loss=7.9129e-05
+Epoch 27/100
+75/75 9ms/step accuracy=0.9996 loss=7.0945e-04 val_accuracy=1.0000 val_loss=6.6416e-05
+Epoch 28/100
+75/75 8ms/step accuracy=1.0000 loss=0.0012 val_accuracy=1.0000 val_loss=9.4950e-05
+Epoch 29/100
+75/75 9ms/step accuracy=1.0000 loss=5.8729e-04 val_accuracy=1.0000 val_loss=7.2866e-05
+Epoch 30/100
+75/75 9ms/step accuracy=0.9996 loss=0.0012 val_accuracy=1.0000 val_loss=4.9686e-05
+Epoch 31/100
+75/75 9ms/step accuracy=1.0000 loss=4.9425e-04 val_accuracy=1.0000 val_loss=3.9163e-05
+Epoch 32/100
+75/75 9ms/step accuracy=1.0000 loss=2.3912e-04 val_accuracy=1.0000 val_loss=3.4931e-05
+Epoch 33/100
+75/75 9ms/step accuracy=1.0000 loss=2.7707e-04 val_accuracy=1.0000 val_loss=3.1632e-05
+Epoch 34/100
+75/75 5ms/step accuracy=1.0000 loss=1.5827e-04
+75/75 9ms/step accuracy=1.0000 loss=1.7396e-04 val_accuracy=1.0000 val_loss=2.8702e-05
+Epoch 35/100
+75/75 9ms/step accuracy=1.0000 loss=2.0170e-04 val_accuracy=1.0000 val_loss=2.6143e-05
+Epoch 36/100
+75/75 9ms/step accuracy=1.0000 loss=2.2320e-04 val_accuracy=1.0000 val_loss=2.3792e-05
+Epoch 37/100
+75/75 9ms/step accuracy=1.0000 loss=3.0353e-04 val_accuracy=1.0000 val_loss=2.3276e-05
+Epoch 38/100
+75/75 8ms/step accuracy=0.9983 loss=0.0040 val_accuracy=1.0000 val_loss=1.4998e-04
+Epoch 39/100
+75/75 6ms/step accuracy=1.0000 loss=5.5419e-04
+75/75 9ms/step accuracy=1.0000 loss=5.6701e-04 val_accuracy=1.0000 val_loss=6.1849e-05
+Epoch 40/100
+75/75 9ms/step accuracy=1.0000 loss=2.3361e-04 val_accuracy=1.0000 val_loss=3.7618e-05
+Epoch 41/100
+75/75 9ms/step accuracy=1.0000 loss=4.2582e-04 val_accuracy=1.0000 val_loss=2.7379e-05
+Epoch 42/100
+75/75 9ms/step accuracy=1.0000 loss=7.4108e-04 val_accuracy=1.0000 val_loss=2.8085e-05
+Epoch 43/100
+75/75 9ms/step accuracy=0.9996 loss=0.0014 val_accuracy=1.0000 val_loss=2.7564e-05
+Epoch 44/100
+75/75 9ms/step accuracy=1.0000 loss=2.1433e-04 val_accuracy=1.0000 val_loss=1.7886e-05
+Epoch 45/100
+75/75 8ms/step accuracy=1.0000 loss=2.1121e-04 val_accuracy=1.0000 val_loss=1.5907e-05
+Epoch 46/100
+75/75 9ms/step accuracy=1.0000 loss=1.4542e-04 val_accuracy=1.0000 val_loss=1.4427e-05
+Epoch 47/100
+75/75 9ms/step accuracy=1.0000 loss=1.1091e-04 val_accuracy=1.0000 val_loss=1.3197e-05
+Epoch 48/100
+75/75 9ms/step accuracy=1.0000 loss=1.0016e-04 val_accuracy=1.0000 val_loss=1.2237e-05
+Epoch 49/100
+75/75 9ms/step accuracy=1.0000 loss=1.2338e-04 val_accuracy=1.0000 val_loss=1.1399e-05
+Epoch 50/100
+75/75 9ms/step accuracy=1.0000 loss=2.4818e-04 val_accuracy=1.0000 val_loss=1.1220e-05
+Epoch 51/100
+75/75 9ms/step accuracy=1.0000 loss=8.0364e-05 val_accuracy=1.0000 val_loss=1.0482e-05
+Epoch 52/100
+75/75 9ms/step accuracy=1.0000 loss=1.0345e-04 val_accuracy=1.0000 val_loss=9.8433e-06
+Epoch 53/100
+75/75 9ms/step accuracy=1.0000 loss=7.3121e-05 val_accuracy=1.0000 val_loss=9.4821e-06
+Epoch 54/100
+75/75 9ms/step accuracy=1.0000 loss=6.8180e-05 val_accuracy=1.0000 val_loss=8.9374e-06
+Epoch 55/100
+75/75 9ms/step accuracy=1.0000 loss=1.0496e-04 val_accuracy=1.0000 val_loss=8.4007e-06
+Epoch 56/100
+75/75 9ms/step accuracy=1.0000 loss=1.1173e-04 val_accuracy=1.0000 val_loss=7.7286e-06
+Epoch 57/100
+75/75 9ms/step accuracy=1.0000 loss=7.8922e-05 val_accuracy=1.0000 val_loss=7.4250e-06
+Epoch 58/100
+75/75 9ms/step accuracy=1.0000 loss=5.6768e-05 val_accuracy=1.0000 val_loss=7.2649e-06
+Epoch 59/100
+75/75 9ms/step accuracy=1.0000 loss=1.2959e-04 val_accuracy=1.0000 val_loss=6.7807e-06
+Epoch 60/100
+75/75 8ms/step accuracy=1.0000 loss=3.6859e-05 val_accuracy=1.0000 val_loss=6.8000e-06
+Epoch 61/100
+75/75 9ms/step accuracy=1.0000 loss=1.4143e-04 val_accuracy=1.0000 val_loss=6.4961e-06
+Epoch 62/100
+75/75 9ms/step accuracy=1.0000 loss=9.6007e-05 val_accuracy=1.0000 val_loss=1.2797e-05
+Epoch 63/100
+75/75 9ms/step accuracy=1.0000 loss=9.7335e-05 val_accuracy=1.0000 val_loss=1.0580e-05
+Epoch 64/100
+75/75 5ms/step accuracy=1.0000 loss=9.9847e-05
+75/75 9ms/step accuracy=0.9992 loss=0.0022 val_accuracy=1.0000 val_loss=9.3599e-06
+Epoch 65/100
+75/75 9ms/step accuracy=1.0000 loss=2.7852e-04 val_accuracy=1.0000 val_loss=1.8742e-05
+Epoch 66/100
+75/75 9ms/step accuracy=1.0000 loss=1.8350e-04 val_accuracy=1.0000 val_loss=8.9826e-06
+Epoch 67/100
+75/75 9ms/step accuracy=1.0000 loss=5.7328e-05 val_accuracy=1.0000 val_loss=8.9576e-06
+Epoch 68/100
+75/75 9ms/step accuracy=1.0000 loss=1.0451e-04 val_accuracy=1.0000 val_loss=8.4104e-06
+Epoch 69/100
+75/75 9ms/step accuracy=1.0000 loss=7.9206e-05 val_accuracy=1.0000 val_loss=7.7767e-06
+Epoch 70/100
+75/75 9ms/step accuracy=1.0000 loss=7.0758e-05 val_accuracy=1.0000 val_loss=7.2338e-06
+Epoch 71/100
+75/75 9ms/step accuracy=1.0000 loss=5.1304e-05 val_accuracy=1.0000 val_loss=6.8808e-06
+19/19 4ms/step accuracy=1.0000 loss=6.4961e-06
+Loss: 0.0000, Accuracy: 1.0000
+2026-08-05 15:32:41 | INFO  | Saved plot: /home/albert/Ancestor/output/Step3_Model_02/2026-08-05-15-31-14/plot_001.png
+2026-08-05 15:32:41 | INFO  | Saved plot: /home/albert/Ancestor/output/Step3_Model_02/2026-08-05-15-31-14/plot_002.png
+2026-08-05 15:32:43 | INFO  | Saved plot: /home/albert/Ancestor/output/Step3_Model_02/2026-08-05-15-31-14/plot_003.png
