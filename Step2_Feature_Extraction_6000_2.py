@@ -203,6 +203,24 @@ def extract_fft_features(Hfeat, base_freq, d_freqs, num_fft_features=10):
         fft_features.append(fft_max)
     return np.array(fft_features).T  # 轉置以匹配特徵數量
 
+def drop_feature_outliers(df, scale=1.5):
+    """
+    以 IQR 移除特徵層的離群值。
+
+    任一維特徵落在 [Q1 - scale*IQR, Q3 + scale*IQR] 之外，整列捨棄。
+    Step4/5 的 HDBSCAN 叢集與馬氏距離對離群值敏感，因此在原始特徵之外
+    另存一份乾淨版本供其使用；Step3/Step6 的訓練仍讀未過濾的版本。
+
+    scale 取 1.5（Step1 的訊號層過濾用 3.0），與既有 _clean.csv 一致。
+    """
+    Q1 = df.quantile(0.25)
+    Q3 = df.quantile(0.75)
+    IQR = Q3 - Q1
+    lower = Q1 - scale * IQR
+    upper = Q3 + scale * IQR
+    return df[((df >= lower) & (df <= upper)).all(axis=1)]
+
+
 def align_rows(*arrays):
     min_rows = min(arr.shape[0] for arr in arrays)
     aligned_arrays = [arr[:min_rows, :] for arr in arrays]
@@ -268,6 +286,13 @@ def process_group(group_label, screws):
         output_csv = os.path.join(group_feature_dir, f'{group_label}_Group_feature_data.csv')
         feature_data.to_csv(output_csv, index=False)
         print(f"特徵數據已保存為 CSV 文件: {output_csv}")
+
+        # 儲存去除離群值後的特徵數據（Step4/5 使用）
+        clean_data = drop_feature_outliers(feature_data)
+        clean_csv = os.path.join(group_feature_dir, f'{group_label}_Group_feature_data_clean.csv')
+        clean_data.to_csv(clean_csv, index=False)
+        print(f"乾淨特徵數據已保存為 CSV 文件: {clean_csv} "
+              f"({len(feature_data)} -> {len(clean_data)} 列)")
 
     except FileNotFoundError:
         print(f"找不到群組 {group_label} 在 {screws} 的資料檔案，無法讀取檔案!!!")
