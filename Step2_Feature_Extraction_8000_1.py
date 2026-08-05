@@ -302,7 +302,7 @@ def process_group(group_label, screws):
         # feature_data = handle_missing_values(feature_data, method="mean")
 
         # 處理缺失值：刪除整行
-        # feature_data = drop_missing_values(feature_data)
+        feature_data = drop_missing_values(feature_data)
 
         # 計算X；Y、Z振動缺值比例
         missing_ratio_X = feature_data.iloc[:, 16:31].isnull().sum().sum() / (feature_data.shape[0] * feature_data.iloc[:, 16:31].shape[1])
