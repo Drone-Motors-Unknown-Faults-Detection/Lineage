@@ -1,0 +1,70 @@
+2026-06-13 03:07:24 | INFO  | Logger initialized
+2026-06-13 03:07:24 | INFO  | log_file=/home/albert/Ancestor/logs/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24.log
+2026-06-13 03:07:24 | INFO  | output_dir=/home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24
+Processing data for T1 motor with 8 screws...
+2026-06-13 03:08:33 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_000.png
+2026-06-13 03:08:37 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_001.png
+Processing data for T1 motor with 7 screws...
+2026-06-13 03:09:53 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_003.png
+2026-06-13 03:09:58 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_004.png
+Processing data for T1 motor with 6 screws...
+2026-06-13 03:11:13 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_006.png
+2026-06-13 03:11:19 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_007.png
+Processing data for T1 motor with 5 screws...
+2026-06-13 03:12:33 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_009.png
+2026-06-13 03:12:37 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_010.png
+Processing data for T1 motor with 4 screws...
+2026-06-13 03:13:55 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_012.png
+2026-06-13 03:14:00 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_013.png
+Processing data for T1 motor with 3 screws...
+2026-06-13 03:15:28 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_015.png
+2026-06-13 03:15:33 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_016.png
+Processing data for T1 motor with 2 screws...
+2026-06-13 03:16:56 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_018.png
+2026-06-13 03:17:11 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_019.png
+Processing data for T1 motor with 1 screws...
+2026-06-13 03:18:26 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_021.png
+2026-06-13 03:18:31 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_6000/2026-06-13-03-07-24/plot_022.png
+Processing data for T1 motor with 3_14 screws...
+Traceback (most recent call last):
+File "/home/albert/Ancestor/Step1_Data_Preprocessing_figure_6000.py", line 153, in <module>
+plot_screws_data(all_data, motor, screws, 'Group')
+File "/home/albert/Ancestor/Step1_Data_Preprocessing_figure_6000.py", line 118, in plot_screws_data
+plt.show()
+File "/home/albert/Ancestor/Step1_Data_Preprocessing_figure_6000.py", line 18, in _show_and_save
+save_plot(plt, LOG, RUN_PATHS)
+File "/home/albert/Ancestor/scripts/logger.py", line 154, in save_plot
+plt.savefig(str(plot_path), dpi=dpi, bbox_inches=bbox_inches)
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/pyplot.py", line 1250, in savefig
+res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/figure.py", line 3497, in savefig
+self.canvas.print_figure(fname, **kwargs)
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2160, in print_figure
+bbox_inches = self.figure.get_tightbbox(
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/figure.py", line 1855, in get_tightbbox
+bbox = ax.get_tightbbox(
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/axes/_base.py", line 4587, in get_tightbbox
+bbox = a.get_tightbbox(renderer)
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/legend.py", line 1060, in get_tightbbox
+return self._legend_box.get_window_extent(renderer)
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/offsetbox.py", line 369, in get_window_extent
+px, py = self.get_offset(bbox, renderer)
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/offsetbox.py", line 60, in get_offset
+return meth(params["self"], bbox, params["renderer"])
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/offsetbox.py", line 306, in get_offset
+self._offset(bbox.width, bbox.height, -bbox.x0, -bbox.y0, renderer)
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/legend.py", line 722, in _findoffset
+x, y = self._find_best_position(width, height, renderer)
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/legend.py", line 1154, in _find_best_position
+bboxes, lines, offsets = self._auto_legend_data(renderer)
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/legend.py", line 958, in _auto_legend_data
+artist.get_transform().transform_path(artist.get_path()))
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/transforms.py", line 1601, in transform_path
+return self.transform_path_affine(self.transform_path_non_affine(path))
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/transforms.py", line 1611, in transform_path_affine
+return self.get_affine().transform_path_affine(path)
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/transforms.py", line 1802, in transform_path_affine
+return Path(self.transform_affine(path.vertices),
+File "/home/albert/Ancestor/venv/lib/python3.10/site-packages/matplotlib/transforms.py", line 1854, in transform_affine
+return affine_transform(values, mtx)
+KeyboardInterrupt
