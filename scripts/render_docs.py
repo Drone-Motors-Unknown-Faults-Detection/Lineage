@@ -65,14 +65,33 @@ def render(md_path: Path, css: str) -> str:
     m = re.search(r"^#\s+(.+)$", text, re.M)
     title = m.group(1).strip() if m else md_path.stem
 
-    # 文件間互相連結時指向 .md，輸出成 HTML 後要改指 .html
     body = markdown.Markdown(
         extensions=["tables", "fenced_code", "toc", "sane_lists"],
         extension_configs={"toc": {"slugify": lambda v, s: slugify(v, s)}},
     ).convert(text)
-    body = re.sub(r'(href="[^"]*?)\.md(#[^"]*)?"', r'\1.html\2"', body)
+    body = _relink(body, md_path)
 
     return PAGE.format(title=title, css=css, body=body)
+
+
+def _relink(body: str, md_path: Path) -> str:
+    """把指向「本腳本也會轉檔」的 .md 連結改指 .html。
+
+    只改寫轉得出 HTML 的目標。像 `../logs/claude/Result.md` 這種不在
+    TARGETS 裡的 Markdown，改寫後會指向不存在的檔案，必須原樣保留。
+    """
+    rendered = {md.resolve() for md, _ in TARGETS}
+
+    def swap(m: re.Match) -> str:
+        href, anchor = m.group(1), m.group(2) or ""
+        if href.startswith(("http://", "https://", "//", "#")):
+            return m.group(0)
+        target = (md_path.parent / f"{href}.md").resolve()
+        if target not in rendered:
+            return m.group(0)
+        return f'href="{href}.html{anchor}"'
+
+    return re.sub(r'href="([^"]*?)\.md(#[^"]*)?"', swap, body)
 
 
 def main() -> int:

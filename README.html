@@ -144,6 +144,7 @@
 │   ├── Step4_Unknown_Detection.md
 │   ├── Step5_Random_Sampling_Detection.md
 │   ├── Step6_Model_Retraining.md
+│   ├── OpenSet_Recognition.md                # 開放集辨識取代馬氏距離的技術評估
 │   └── Tensorflow.md                         # TensorFlow &amp; GPU 安裝指南
 │
 └── data/                                     # 所有資料（讀寫基準）
@@ -781,6 +782,11 @@ print(tf.config.list_physical_devices('GPU'))  # 應回傳 [PhysicalDevice(name=
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>這個機制有三個結構性弱點——單一全域共變異數、百分位數不是機率、判定粒度是叢集而非樣本。
+替代方案（OpenMax、能量分數、證據深度學習等）的評估見
+<a href="docs/OpenSet_Recognition.html">docs/OpenSet_Recognition.md</a>。</p>
+</blockquote>
 <h3 id="取樣限制">取樣限制</h3>
 <table>
 <thead>
@@ -1358,11 +1364,15 @@ threshold = np.percentile(train_distances, 95)  # 95 可調整為 90~99
 <td>增量學習流程、資料合併策略</td>
 </tr>
 <tr>
+<td><a href="docs/OpenSet_Recognition.html">開放集辨識評估</a></td>
+<td>現行馬氏距離閾值的三個弱點，以及 OpenMax、能量分數等五種替代方案</td>
+</tr>
+<tr>
 <td><a href="docs/Tensorflow.html">TensorFlow &amp; GPU 指南</a></td>
 <td>CUDA 安裝、記憶體管理、疑難排解</td>
 </tr>
 <tr>
-<td><a href="AGENT.html">Agent 指引</a></td>
+<td><a href="AGENT.md">Agent 指引</a></td>
 <td>AI 自動化工具的操作慣例與約束</td>
 </tr>
 </tbody>
