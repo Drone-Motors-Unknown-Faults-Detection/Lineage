@@ -261,6 +261,13 @@ def process_group(group_label, screws):
         feature_data.to_csv(output_csv, index=False)
         print(f"特徵數據已保存為 CSV 文件: {output_csv}")
 
+        # 儲存去除離群值後的特徵數據（Step4/5 使用）
+        clean_data = drop_feature_outliers(feature_data)
+        clean_csv = os.path.join(group_feature_dir, f'{group_label}_Group_feature_data_clean.csv')
+        clean_data.to_csv(clean_csv, index=False)
+        print(f"乾淨特徵數據已保存為 CSV 文件: {clean_csv} "
+              f"({len(feature_data)} -> {len(clean_data)} 列)")
+
     except FileNotFoundError:
         print(f"找不到群組 {group_label} 在 {screws} 的資料檔案，無法讀取檔案!!!")
 
