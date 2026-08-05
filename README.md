@@ -12,7 +12,7 @@
 4. [資料說明](#資料說明)
 5. [Step 1：資料預處理](#step-1資料預處理)
 6. [Step 2：特徵萃取](#step-2特徵萃取)
-7. [Step 3：CNN 模型訓練](#step-3cnn-模型訓練)
+7. [Step 3：模型訓練](#step-3模型訓練)
 8. [Step 4：未知故障偵測](#step-4未知故障偵測)
 9. [Step 5：隨機取樣偵測驗證](#step-5隨機取樣偵測驗證)
 10. [Step 6：模型重訓練](#step-6模型重訓練)
@@ -30,7 +30,7 @@
 原始訊號（3 軸振動 + 電流 + 溫度差）
   └─ Step 1：資料預處理（IQR 離群值移除 → 切割成 1 秒段）
        └─ Step 2：特徵萃取（統計特徵 + FFT → 105 維固定特徵向量）
-            └─ Step 3：CNN 模型訓練（1D CNN，5 類已知故障）
+            └─ Step 3：模型訓練（1D CNN / ResNet / VGG16，5 類已知故障）
                  ├─ Step 4：未知故障偵測（HDBSCAN 叢集 + 馬氏距離閾值）
                  ├─ Step 5：隨機取樣偵測驗證（多批次強健性測試）
                  └─ Step 6：模型重訓練（5 類 → 10 類增量學習）
@@ -47,24 +47,36 @@
 /home/albert/Ancestor/
 │
 ├── 核心腳本
-│   ├── Step1_Data_Preprocessing_figure_*.py  # 原始訊號視覺化（×6）
+│   ├── Step1_Data_Preprocessing_figure_{6000,8000,11000}.py  # 原始訊號視覺化（×3）
 │   ├── Step1_Data_Preprocessing_save_*.py    # 資料預處理與儲存（×9）
 │   └── Step2_Feature_Extraction_*.py         # 105 維特徵萃取（×9）
 │
+├── 批次執行腳本
+│   ├── Step1_Data_Preprocessing.sh           # 依序跑完 Step1 的 12 支腳本
+│   ├── Step2_Feature_Extraction.sh           # 依序跑完 Step2 的 9 支腳本
+│   ├── Step3_Model.sh                        # 依序跑完 45 個 Step3 Notebook
+│   ├── Step4_Model_Detecting.sh              # ×27
+│   ├── Step5_Model_Random_Detecting.sh       # ×27
+│   └── Step6_Model_Retrain.sh                # ×27
+│
 ├── Jupyter Notebooks
-│   ├── Step3_Model_{1..9}.ipynb                         # CNN 訓練，基礎版本（×9）
-│   ├── Step3_Model_{10..27}_OneStage.ipynb              # CNN 訓練，OneStage 遷移學習（×18）
-│   ├── Step3_Model_{10..27}_TwoStage.ipynb              # CNN 訓練，TwoStage 遷移學習（×18）
-│   ├── Step4_Model_{1..27}_Detecting.ipynb              # 未知故障偵測（×27）
-│   ├── Step5_Model_{1..27}_Random_Detecting.ipynb       # 隨機取樣驗證（×27）
-│   ├── Step6_Model_{1..27}_Retrain.ipynb                # 模型重訓練（×27）
+│   ├── Step3_Model_{01..09}.ipynb                       # 從頭訓練，基礎版本（×9）
+│   ├── Step3_Model_{10..27}_OneStage.ipynb              # OneStage 遷移學習（×18）
+│   ├── Step3_Model_{10..27}_TwoStage.ipynb              # TwoStage 遷移學習（×18）
+│   ├── Step4_Model_{01..27}_Detecting.ipynb             # 未知故障偵測（×27）
+│   ├── Step5_Model_{01..27}_Random_Detecting.ipynb      # 隨機取樣驗證（×27）
+│   ├── Step6_Model_{01..27}_Retrain.ipynb               # 模型重訓練（×27）
 │   ├── T1_T2_T3.ipynb                                   # 健康度退化建模
 │   └── GPU-Test.ipynb                                   # GPU / CUDA 環境驗證
 │
-├── 基礎設施
+├── scripts/                                  # 基礎設施模組（以套件形式匯入）
 │   ├── logger.py                             # 自訂日誌框架
 │   ├── gpu_utils.py                          # GPU/CPU 自動選擇模組
-│   └── requirements.txt                      # Python 套件清單
+│   ├── notebook_bootstrap.py                 # Notebook 共用初始化（日誌 + 自動存圖）
+│   └── render_docs.py                        # 由 .md 產生 docs 的 .html
+│
+├── pyproject.toml                            # 套件依賴與 Python 版本
+├── build_uv.sh / build_venv.sh               # 建立 venv 的兩種方式
 │
 ├── docs/                                     # 各步驟詳細說明文件
 │   ├── Step1_Data_Preprocessing.md
@@ -92,42 +104,35 @@
 
 ## 環境設定
 
-### 需求套件
+### 依賴管理
 
-```
-numpy
-pandas
-matplotlib
-scipy
-scikit-learn
-tensorflow[and-cuda]    # GPU 版 TensorFlow（含 CUDA 支援）
-seaborn
-hdbscan                 # 階層式 DBSCAN 叢集演算法
-natsort                 # 自然排序（用於檔案排序）
-jupyter
-loguru                  # 日誌框架（可選，logger.py 內部使用）
-```
+套件與 Python 版本統一定義在 `pyproject.toml`（Python 釘在 **3.10.19**），依平台分成兩組 optional dependencies：
 
-安裝：
+| extra | 內容 |
+|-------|------|
+| `linux` | `tensorflow[and-cuda]`（GPU 版，含 CUDA） |
+| `mac` | `tensorflow==2.18.0` + `tensorflow-metal==1.2.0` |
+
+共用依賴：`numpy`、`pandas`、`matplotlib`、`scipy`、`scikit-learn`、`seaborn`、`hdbscan`（階層式 DBSCAN）、`natsort`（檔案自然排序）、`absl-py`、`jupyter`、`loguru`、`markdown`（產生文件 HTML）。
+
+### 建立環境
 
 ```bash
-pip install -r requirements.txt
+./build_uv.sh        # 以 uv 建立 venv（Linux，安裝 .[linux]）
+./build_uv_mac.sh    # 以 uv 建立 venv（macOS，安裝 .[mac]）
+./build_venv.sh      # 以標準 venv 建立
 ```
 
-或手動安裝：
-
-```bash
-pip install tensorflow[and-cuda] hdbscan scikit-learn scipy pandas numpy matplotlib seaborn jupyter natsort loguru
-```
+三者都會在專案根目錄產生 `venv/`。所有批次執行腳本都直接使用 `venv/bin/python` 與 `venv/bin/jupyter`，不需要先 activate。
 
 ### GPU 環境（目前實驗機）
 
 | 項目 | 版本 |
 |------|------|
-| Python | 3.12 |
+| Python | 3.10.19 |
 | TensorFlow | 2.21.0 |
-| CUDA | 13.1 |
-| cuDNN | 9.21.1 |
+| CUDA（TF 建置） | 12.5.1 |
+| cuDNN | 9 |
 | GPU | NVIDIA L40S（46 GB VRAM）|
 | 驅動程式 | 590.48.01 |
 
@@ -206,18 +211,17 @@ data/
 │   │   └── {Motor}/
 │   │       └── {RPM}/
 │   │           └── {Screws}/
-│   │               ├── {Motor}_Group_feature_data.csv        # 原始萃取特徵
-│   │               ├── {Motor}_Group_feature_data_raw.csv    # 中間結果
-│   │               └── {Motor}_Group_feature_data_clean.csv  # 去除離群值後的乾淨特徵
+│   │               ├── {Motor}_Group_feature_data.csv        # 萃取結果（Step 3/6 訓練用）
+│   │               └── {Motor}_Group_feature_data_clean.csv  # IQR 過濾後（Step 4/5 用）
 │   └── model/
-│       └── CNN_*.keras             # 訓練完成的模型（Step 3 / Step 6 輸出）
+│       └── {CNN|ResNet|VGG16}_*.keras   # 訓練完成的模型（Step 3 / Step 6 輸出）
 ```
 
 ---
 
 ## Step 1：資料預處理
 
-**檔案：** `Step1_Data_Preprocessing_save_*.py`（×9）、`Step1_Data_Preprocessing_figure_*.py`（×6，僅視覺化）
+**檔案：** `Step1_Data_Preprocessing_save_*.py`（×9）、`Step1_Data_Preprocessing_figure_{6000,8000,11000}.py`（×3，僅視覺化）
 
 **輸入：** 原始量測 CSV 檔（Tab 分隔，標頭位於第 22 行）
 **輸出：** `data/Step-{1|2|3}/csv/{Motor}/{RPM}/{Screws}/{Motor}_{Signal}_data.csv`
@@ -323,22 +327,35 @@ Step1_Data_Preprocessing_save_{RPM}_{variant}.py
 
 ### 輸出格式
 
+每個螺絲配置的目錄下各產生兩個檔案：
+
 ```
-{Motor}_Group_feature_data.csv       ← 所有螺絲配置的特徵向量合併
-{Motor}_Group_feature_data_raw.csv   ← 未去除離群值的原始版本
-{Motor}_Group_feature_data_clean.csv ← IQR 去除特徵離群值後的版本
+{Motor}_Group_feature_data.csv       ← 萃取結果，Step 3 / Step 6 訓練用
+{Motor}_Group_feature_data_clean.csv ← 再以 IQR 逐列過濾，Step 4 / Step 5 用
 ```
 
-每列 = 1 個 1 秒片段的 105 維特徵向量，最後一欄為螺絲配置標籤。
+每列 = 1 個 1 秒片段的 105 維特徵向量。
+
+`_clean` 版本的過濾規則：**任一維特徵落在 `[Q1 - 1.5*IQR, Q3 + 1.5*IQR]` 之外，整列捨棄**。
+
+```python
+def drop_feature_outliers(df, scale=1.5):
+    Q1 = df.quantile(0.25)
+    Q3 = df.quantile(0.75)
+    IQR = Q3 - Q1
+    return df[((df >= Q1 - scale * IQR) & (df <= Q3 + scale * IQR)).all(axis=1)]
+```
+
+> `scale=1.5` 比 Step 1 訊號層用的 `3.0` 嚴格得多，實測約會濾掉一半的列。Step 4/5 的 HDBSCAN 叢集與馬氏距離對離群值敏感，因此另外準備這份乾淨版本；Step 3/6 的訓練仍讀未過濾的版本。
 
 ---
 
-## Step 3：CNN 模型訓練
+## Step 3：模型訓練
 
-**檔案：** `Step3_Model_{1..9}.ipynb`（×9 基礎版）、`Step3_Model_{10..27}_OneStage.ipynb`（×18）、`Step3_Model_{10..27}_TwoStage.ipynb`（×18），共 45 個
+**檔案：** `Step3_Model_{01..09}.ipynb`（×9，從頭訓練）、`Step3_Model_{10..27}_OneStage.ipynb`（×18）、`Step3_Model_{10..27}_TwoStage.ipynb`（×18），共 45 個
 
 **輸入：** `data/Step-{1|2|3}/myfeature/` 的 105 維特徵 CSV
-**輸出：** `data/Step-{1|2|3}/model/CNN_*.keras`
+**輸出：** `data/Step-{1|2|3}/model/{CNN|ResNet|VGG16}_*.keras`
 
 ### 問題定義
 
@@ -352,7 +369,19 @@ Step1_Data_Preprocessing_save_{RPM}_{variant}.py
 | 3 | 3 screws | Faulty 3 |
 | 4 | 4 screws | Faulty 4（輕度鬆動）|
 
-### CNN 模型架構
+### 三種模型架構
+
+每個轉速 / 馬達組合都會分別以三種架構各訓練一次（論文中稱 CNN_11 Layers、CNN_Res、CNN_VGG）：
+
+| 架構 | 建構函式 | 特點 |
+|------|----------|------|
+| CNN | `build_cnn_model()` | 4 層 Conv1D 堆疊，最精簡 |
+| ResNet | `build_resnet_model()` | 加入殘差連接，緩解深層退化 |
+| VGG16 | `build_vgg16_model()` | VGG 風格的連續卷積區塊 |
+
+三者的輸入（`(105, 1)`）、輸出（5 類 softmax）、訓練設定完全一致，只有中間的特徵萃取結構不同。
+
+#### CNN 架構（基準）
 
 ```
 Input: (105, 1)  ← 105 維特徵向量 reshape 為 1D 序列
@@ -393,12 +422,12 @@ Input: (105, 1)  ← 105 維特徵向量 reshape 為 1D 序列
 7. [建模]      建立 CNN 模型（上述架構）
 8. [訓練]      model.fit + EarlyStopping callback
 9. [評估]      混淆矩陣 + 準確率 + 損失曲線
-10.[儲存]      model.save('data/Step-*/model/CNN_*.keras')
+10.[儲存]      model.save('data/Step-*/model/{ARCH}_*.keras')
 ```
 
 ### 模型變體說明
 
-27 個模型對應不同的資料組合與訓練策略，詳見[模型編號系統](#模型編號系統)。
+45 個 Notebook 對應「馬達時期 × 轉速 × 架構」的完整交叉組合，以及 OneStage / TwoStage 兩種遷移策略，詳見[模型編號系統](#模型編號系統)。
 
 ---
 
@@ -582,7 +611,7 @@ model.fit(X_train_health, y_HI_train)
 
 ## 基礎設施模組
 
-### `logger.py` — 日誌框架
+### `scripts/logger.py` — 日誌框架
 
 所有腳本與 Notebook 共用此模組，提供統一的日誌管理。
 
@@ -594,11 +623,11 @@ model.fit(X_train_health, y_HI_train)
 
 ```python
 RunPaths(
-    program_name = "Step3_Model_1",
-    timestamp    = "2026-05-07-13-51-09",
-    logs_dir     = Path("logs/Step3_Model_1_2026-05-07-13-51-09/"),
-    output_dir   = Path("output/Step3_Model_1_2026-05-07-13-51-09/"),
-    log_file     = Path("logs/Step3_Model_1_2026-05-07-13-51-09/program.log"),
+    program_name = "Step3_Model_01",
+    timestamp    = "2026-08-05-14-30-35",
+    logs_dir     = Path("logs/Step3_Model_01/"),
+    output_dir   = Path("output/Step3_Model_01/2026-08-05-14-30-35/"),
+    log_file     = Path("logs/Step3_Model_01/2026-08-05-14-30-35.log"),
 )
 ```
 
@@ -607,7 +636,7 @@ RunPaths(
 輕量級文件日誌，不依賴 loguru 背景執行緒（避免 Jupyter 環境的遞迴問題）：
 
 ```python
-log, paths = setup_logger("Step3_Model_1.ipynb")
+log, paths = setup_logger("Step3_Model_01.ipynb")
 log.info("開始訓練，epoch={}", epochs)
 log.warning("資料量不足：{}", count)
 log.error("模型載入失敗：{}", e)
@@ -616,9 +645,9 @@ log.error("模型載入失敗：{}", e)
 日誌格式：
 
 ```
-2026-05-07 13:51:09 | INFO  | Logger initialized
-2026-05-07 13:51:09 | INFO  | log_file=logs/program_2026-05-07-13-51-09/program.log
-2026-05-07 13:51:09 | ERROR | 某個錯誤訊息
+2026-08-05 14:30:35 | INFO  | Logger initialized
+2026-08-05 14:30:35 | INFO  | log_file=logs/Step3_Model_01/2026-08-05-14-30-35.log
+2026-08-05 14:30:35 | ERROR | 某個錯誤訊息
 ```
 
 **`_TeeToFileStream`**（Notebook 專用）
@@ -628,7 +657,7 @@ log.error("模型載入失敗：{}", e)
 ```python
 # Notebook 頂部 bootstrap cell：
 with tee_std_to_file(log_file):
-    # 以下所有 print / stdout / stderr 輸出同步寫入 program.log
+    # 以下所有 print / stdout / stderr 輸出同步寫入該次執行的 .log
     model.fit(...)
 ```
 
@@ -672,10 +701,10 @@ atexit.register(_tee_ctx.__exit__, None, None, None)
 
 ---
 
-### `gpu_utils.py` — GPU/CPU 自動管理
+### `scripts/gpu_utils.py` — GPU/CPU 自動管理
 
 ```python
-from gpu_utils import device_scope, DEVICE, gpu_count, is_gpu
+from scripts.gpu_utils import device_scope, DEVICE, gpu_count, is_gpu
 
 print(f"使用裝置：{DEVICE}")   # → /GPU:0 或 /CPU:0
 print(f"GPU 數量：{gpu_count()}")
@@ -706,103 +735,144 @@ DEVICE, _gpus = _configure()
 
 ## 模型編號系統
 
-45 個 Step3 Notebook（Model 1 ~ 27，含 OneStage / TwoStage 變體）涵蓋不同的資料組合與診斷策略：
-
-| 編號範圍 | 類型 | 說明 |
-|----------|------|------|
-| 1 ~ 9 | 基礎版本 | 不同轉速 / 馬達組合的標準訓練 |
-| 10 ~ 27（OneStage）| OneStage 變體 | 一階段遷移學習（凍結前半層，以不同馬達資料 Fine-tune）|
-| 10 ~ 27（TwoStage）| TwoStage 變體 | 兩階段遷移學習（OneStage 後再以第三組馬達資料 Fine-tune）|
-
-> 模型 10~27 各自同時存在 OneStage 與 TwoStage 兩個訓練版本，Step 4/5/6 的編號 10~27 可對應其中任一版本。
-
-**重要：** 各步驟的 Notebook 編號必須對應，**不可混用**：
+Model 01 ~ 27 是**三個維度的完整交叉組合**：
 
 ```
-Step3_Model_5.ipynb  →  Step4_Model_5_Detecting.ipynb
-                     →  Step5_Model_5_Random_Detecting.ipynb
-                     →  Step6_Model_5_Retrain.ipynb
+編號 N  →  馬達時期 = 01-09:T1 / 10-18:T2 / 19-27:T3
+           轉速     = ((N-1) // 3) % 3  →  0:8000rpm  1:6000rpm  2:11000rpm
+           架構     = (N-1) % 3         →  0:CNN  1:ResNet  2:VGG16
+```
+
+論文中三種架構分別稱為 CNN_11 Layers、CNN_Res、CNN_VGG。
+
+### 資料夾 T 碼與模型檔名字母碼是反的
+
+這是最容易踩到的一點——**資料目錄用 `T1/T2/T3`，模型檔名卻用 `C/B/A`，順序相反**：
+
+| 資料目錄 | 馬達時期 | 模型檔名字母 |
+|----------|----------|--------------|
+| `data/Step-1/` | T1（新機）| `*_C*.keras` |
+| `data/Step-2/` | T2（老化）| `*_B*.keras` |
+| `data/Step-3/` | T3（衰退）| `*_A*.keras` |
+
+### 完整對照表
+
+| Model | 資料 | 轉速 | 架構 | Step3 產出 |
+|-------|------|------|------|-----------|
+| 01 / 02 / 03 | T1 | 8000 | CNN / ResNet / VGG16 | `{ARCH}_C8000.keras` |
+| 04 / 05 / 06 | T1 | 6000 | CNN / ResNet / VGG16 | `{ARCH}_C6000_1.keras` |
+| 07 / 08 / 09 | T1 | 11000 | CNN / ResNet / VGG16 | `{ARCH}_C11000_1.keras` |
+| 10 ~ 12 | T2 | 8000 | CNN / ResNet / VGG16 | `{ARCH}_B8000{_1}.keras` |
+| 13 ~ 15 | T2 | 6000 | CNN / ResNet / VGG16 | `{ARCH}_B6000{_1}.keras` |
+| 16 ~ 18 | T2 | 11000 | CNN / ResNet / VGG16 | `{ARCH}_B11000{_1}.keras` |
+| 19 ~ 21 | T3 | 8000 | CNN / ResNet / VGG16 | `{ARCH}_A8000{_1}.keras` |
+| 22 ~ 24 | T3 | 6000 | CNN / ResNet / VGG16 | `{ARCH}_A6000{_1}.keras` |
+| 25 ~ 27 | T3 | 11000 | CNN / ResNet / VGG16 | `{ARCH}_A11000{_1}.keras` |
+
+> `_1` 後綴代表 OneStage 版本；TwoStage 版本不帶後綴。
+
+### 訓練來源鏈
+
+**只有 Model 01 ~ 03 是從頭訓練的**，產出 `CNN_C8000` / `ResNet_C8000` / `VGG16_C8000`——這三個是全專案唯一的 baseline，後面 24 組全部由此遷移而來（凍結前 50% 層 Fine-tune）。
+
+| 變體 | 載入的來源模型 |
+|------|---------------|
+| Model 04 ~ 09 | `{ARCH}_C8000.keras`（同馬達、不同轉速）|
+| OneStage（10 ~ 27）| 一律 `{ARCH}_C8000.keras` |
+| TwoStage（10~12、19~21，8000rpm 組）| 同樣是 `{ARCH}_C8000.keras` |
+| TwoStage（13~18、22~27，6000/11000rpm 組）| 同馬達的 8000rpm 模型（`{ARCH}_B8000` / `{ARCH}_A8000`）|
+
+> 注意：**8000rpm 的 TwoStage 其實與 OneStage 載入同一個模型**，兩者只差在存檔名。真正跑滿兩階段的只有 6000/11000rpm 那 12 組。
+
+**Step 4/5 一律載入 OneStage 產物（帶 `_1` 的檔案）。** Step 6 不載入既有模型，直接以 10 類從頭重訓練。
+
+### 編號必須對應
+
+```
+Step3_Model_05.ipynb  →  Step4_Model_05_Detecting.ipynb
+                      →  Step5_Model_05_Random_Detecting.ipynb
+                      →  Step6_Model_05_Retrain.ipynb
 ```
 
 ---
 
 ## 執行流程
 
-### 完整執行步驟
+### 批次執行（建議）
+
+各步驟都有對應的 `.sh` 入口，會依序跑完該步驟的所有腳本 / Notebook，並直接使用 `venv/`，不需要先 activate：
 
 ```bash
-# === Step 1：資料預處理（按轉速 × 批次執行）===
-python Step1_Data_Preprocessing_save_6000_1.py
-python Step1_Data_Preprocessing_save_6000_2.py
-python Step1_Data_Preprocessing_save_6000_3.py
-python Step1_Data_Preprocessing_save_8000_1.py
-python Step1_Data_Preprocessing_save_8000_2.py
-python Step1_Data_Preprocessing_save_8000_3.py
-python Step1_Data_Preprocessing_save_11000_1.py
-python Step1_Data_Preprocessing_save_11000_2.py
-python Step1_Data_Preprocessing_save_11000_3.py
+./Step1_Data_Preprocessing.sh      # 12 支腳本（3 支 figure + 9 支 save）
+./Step2_Feature_Extraction.sh      # 9 支腳本
+./Step3_Model.sh                   # 45 個 Notebook
+./Step4_Model_Detecting.sh         # 27 個 Notebook
+./Step5_Model_Random_Detecting.sh  # 27 個 Notebook
+./Step6_Model_Retrain.sh           # 27 個 Notebook
+```
 
-# 視覺化確認（可選）
-python Step1_Data_Preprocessing_figure_6000_1.py  # 查看 6000 RPM 原始訊號
+Step 1 另有按轉速拆分的版本，方便只重跑其中一組：
 
-# === Step 2：特徵萃取 ===
-python Step2_Feature_Extraction_6000_1.py
-python Step2_Feature_Extraction_6000_2.py
-python Step2_Feature_Extraction_6000_3.py
-python Step2_Feature_Extraction_8000_1.py
-python Step2_Feature_Extraction_8000_2.py
-python Step2_Feature_Extraction_8000_3.py
-python Step2_Feature_Extraction_11000_1.py
-python Step2_Feature_Extraction_11000_2.py
-python Step2_Feature_Extraction_11000_3.py
+```bash
+./Step1_Data_Preprocessing_6000.sh
+./Step1_Data_Preprocessing_8000.sh
+./Step1_Data_Preprocessing_11000.sh
+```
 
-# === Step 3 ~ 6：依序開啟並執行對應 Jupyter Notebook ===
-# 以 Model 1 為例：
-#   1. 執行 Step3_Model_1.ipynb              → 訓練 CNN，儲存模型
-#   2. 執行 Step4_Model_1_Detecting.ipynb    → 偵測未知故障
-#   3. 執行 Step5_Model_1_Random_Detecting.ipynb   → 隨機取樣驗證
-#   4. 執行 Step6_Model_1_Retrain.ipynb      → 重訓練 10 類模型
-# 以 Model 10 為例（含遷移學習版本）：
-#   1a. 執行 Step3_Model_10_OneStage.ipynb   → 一階段遷移學習
-#   1b. 執行 Step3_Model_10_TwoStage.ipynb   → 兩階段遷移學習
+### 單獨執行
 
-# === 附加：健康度退化建模（獨立執行）===
-# 執行 T1_T2_T3.ipynb
+```bash
+venv/bin/python Step2_Feature_Extraction_8000_1.py
+
+# Notebook 須帶上 JUPYTER_NOTEBOOK_NAME，logger 才能取到正確的程式名稱
+JUPYTER_NOTEBOOK_NAME="Step3_Model_01.ipynb" venv/bin/jupyter execute Step3_Model_01.ipynb
+```
+
+單一模型的完整流程（以 Model 05 為例）：
+
+```
+Step3_Model_05.ipynb            → 訓練並儲存 ResNet_C6000_1.keras
+Step4_Model_05_Detecting.ipynb  → 偵測未知故障
+Step5_Model_05_Random_Detecting.ipynb → 隨機取樣驗證
+Step6_Model_05_Retrain.ipynb    → 重訓練 10 類模型
 ```
 
 ### 資料流摘要
 
 ```
 原始 CSV（tab 分隔）
-    ↓  Step 1（IQR 過濾 + 切割）
+    ↓  Step 1（IQR scale=3.0 過濾 + 切割成 1 秒段）
 data/Step-*/csv/.../*_data.csv
-    ↓  Step 2（統計 + FFT 特徵萃取）
-data/Step-*/myfeature/.../*_feature_data_clean.csv  （105 維）
-    ↓  Step 3（1D CNN 訓練）
-data/Step-*/model/CNN_*.keras  （5 類模型）
+    ↓  Step 2（統計 + FFT 特徵萃取，105 維）
+data/Step-*/myfeature/.../*_Group_feature_data.csv        → Step 3 / Step 6 訓練用
+data/Step-*/myfeature/.../*_Group_feature_data_clean.csv  → Step 4 / Step 5 用（IQR scale=1.5 逐列過濾）
+    ↓  Step 3（1D CNN / ResNet / VGG16 訓練）
+data/Step-*/model/{ARCH}_*.keras  （5 類模型）
     ↓  Step 4（HDBSCAN + 馬氏距離）
 偵測結果：Unknown / Known 判定
-    ↓  Step 6（從頭重訓練）
-data/Step-*/model/CNN_*_retrained.keras  （10 類模型）
+    ↓  Step 6（10 類從頭重訓練）
+data/Step-*/model/{ARCH}_{LETTER}{RPM}_retrained.keras  （10 類模型）
     ↓  回到 Step 4 繼續下一輪
 ```
 
 ### 日誌與輸出
 
-每次執行自動生成：
+每次執行自動生成（同一支程式的多次執行以時間戳區分）：
 
 ```
 logs/
-└── {program_name}_{YYYY-MM-DD-HH-MM-SS}/
-    └── program.log       ← 完整執行日誌
+└── {program_name}/
+    └── {YYYY-MM-DD-HH-MM-SS}.log    ← 完整執行日誌
 
 output/
-└── {program_name}_{YYYY-MM-DD-HH-MM-SS}/
-    ├── plot_000.png      ← 混淆矩陣
-    ├── plot_001.png      ← 損失曲線
-    ├── plot_002.png      ← 準確率曲線
-    └── ...
+└── {program_name}/
+    └── {YYYY-MM-DD-HH-MM-SS}/
+        ├── plot_000.png              ← 依 plt.show() 的呼叫順序編號
+        ├── plot_001.png
+        └── ...
 ```
+
+`logs/` 與 `output/` 都納入版控，執行紀錄會跟著 commit 一起保存。
 
 ---
 
@@ -863,3 +933,16 @@ threshold = np.percentile(train_distances, 95)  # 95 可調整為 90~99
 | [Step 6 詳細說明](docs/Step6_Model_Retraining.md) | 增量學習流程、資料合併策略 |
 | [TensorFlow & GPU 指南](docs/Tensorflow.md) | CUDA 安裝、記憶體管理、疑難排解 |
 | [Agent 指引](AGENT.md) | AI 自動化工具的操作慣例與約束 |
+
+---
+
+## 文件維護
+
+`README.html` 與 `docs/*.html` 由對應的 Markdown 產生，改完 `.md` 後執行：
+
+```bash
+venv/bin/python scripts/render_docs.py           # 重新產生全部 HTML
+venv/bin/python scripts/render_docs.py --check   # 只檢查是否過期（不寫檔，過期時回傳 1）
+```
+
+樣式來自 `scripts/templates/doc.css`，八份文件共用。

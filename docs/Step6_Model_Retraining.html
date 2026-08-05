@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Step 6：模型重訓練 (Model Retraining)</title>
-  
+
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
                  "Noto Sans", sans-serif;
@@ -67,26 +67,26 @@
 
 </head>
 <body>
-<h1 id="step-6-model-retraining">Step 6：模型重訓練 (Model Retraining)</h1>
-<h2 id="_1">概述</h2>
-<p>Step 6 是整個持續學習迴圈的最後一步，將未知故障資料納入訓練集，對 CNN 模型進行增量重訓練，使模型擴充從 5 類分類器升級為 <strong>10 類分類器</strong>，完成一次完整的「故障知識更新」週期。</p>
+<h1 id="step-6模型重訓練-model-retraining">Step 6：模型重訓練 (Model Retraining)</h1>
+<h2 id="概述">概述</h2>
+<p>Step 6 是整個持續學習迴圈的最後一步，將未知故障資料納入訓練集，對模型進行增量重訓練，使模型擴充從 5 類分類器升級為 <strong>10 類分類器</strong>，完成一次完整的「故障知識更新」週期。</p>
 <blockquote>
 <p><strong>實作說明：</strong> 目前 Step 6 直接從 <code>myfeature/</code> 讀取已標記的未知故障特徵（ground truth），而非接入 Step 4/5 的偵測輸出，以評估模型知識擴充的效能上界。完整的閉環流程（自動接收 Step 4/5 偵測結果）為未來工作方向。</p>
 </blockquote>
-<hr>
-<h2 id="_2">目標</h2>
+<hr />
+<h2 id="目標">目標</h2>
 <ul>
 <li>將 5 種未知故障資料整合進訓練集</li>
 <li>重訓練 CNN 使其具備識別 10 種故障類型的能力</li>
 <li>驗證新類別的分類準確率</li>
 <li>建立下一輪偵測循環的基礎模型</li>
 </ul>
-<hr>
-<h2 id="notebook">Notebook 一覽</h2>
+<hr />
+<h2 id="notebook-一覽">Notebook 一覽</h2>
 <p>共 <strong>27 個 Jupyter Notebook</strong>（<code>Step6_Model_1_Retrain.ipynb</code> ~ <code>Step6_Model_27_Retrain.ipynb</code>），對應前序步驟的 27 個模型配置。</p>
-<hr>
-<h2 id="_3">分類類別擴充</h2>
-<h3 id="step-3-5">重訓練前（Step 3 模型）：5 類</h3>
+<hr />
+<h2 id="分類類別擴充">分類類別擴充</h2>
+<h3 id="重訓練前step-3-模型5-類">重訓練前（Step 3 模型）：5 類</h3>
 <table>
 <thead>
 <tr>
@@ -123,7 +123,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="step-6-10">重訓練後（Step 6 模型）：10 類</h3>
+<h3 id="重訓練後step-6-模型10-類">重訓練後（Step 6 模型）：10 類</h3>
 <table>
 <thead>
 <tr>
@@ -185,10 +185,10 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="_4">模型架構變更</h2>
+<hr />
+<h2 id="模型架構變更">模型架構變更</h2>
 <p>Step 6 的 CNN 架構與 Step 3 <strong>完全相同</strong>，唯一差異在於輸出層：</p>
-<pre class="codehilite"><code>... (前 9 層相同) ...
+<pre><code>... (前 9 層相同) ...
     ↓
 Dense(16, ReLU)
     ↓
@@ -196,12 +196,10 @@ Dropout(0.3)
     ↓
 Dense(10, Softmax)   ← 從 5 類擴充為 10 類
 </code></pre>
-
-<hr>
-<h2 id="_5">訓練資料組合</h2>
-<pre class="codehilite"><code>訓練資料 = 原始已知資料（5 類）+ 新增未知資料（5 類）
+<hr />
+<h2 id="訓練資料組合">訓練資料組合</h2>
+<pre><code>訓練資料 = 原始已知資料（5 類）+ 新增未知資料（5 類）
 </code></pre>
-
 <table>
 <thead>
 <tr>
@@ -224,8 +222,8 @@ Dense(10, Softmax)   ← 從 5 類擴充為 10 類
 </tbody>
 </table>
 <p>兩組資料合併後重新進行 80/20 訓練測試切割。</p>
-<hr>
-<h2 id="_6">訓練配置</h2>
+<hr />
+<h2 id="訓練配置">訓練配置</h2>
 <p>與 Step 3 相同：</p>
 <table>
 <thead>
@@ -261,9 +259,9 @@ Dense(10, Softmax)   ← 從 5 類擴充為 10 類
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="_7">訓練流程</h2>
-<pre class="codehilite"><code>載入合併後的 10 類資料集
+<hr />
+<h2 id="訓練流程">訓練流程</h2>
+<pre><code>載入合併後的 10 類資料集
     ↓
 資料標準化（與 Step 3 相同處理）
     ↓
@@ -279,9 +277,8 @@ Dense(10, Softmax)   ← 從 5 類擴充為 10 類
     ↓
 （可選）建立新的 Flatten 層萃取器供下一輪偵測使用
 </code></pre>
-
-<hr>
-<h2 id="_8">輸出</h2>
+<hr />
+<h2 id="輸出">輸出</h2>
 <table>
 <thead>
 <tr>
@@ -291,8 +288,8 @@ Dense(10, Softmax)   ← 從 5 類擴充為 10 類
 </thead>
 <tbody>
 <tr>
-<td><code>*_retrained.keras</code></td>
-<td>重訓練後的 10 類分類模型</td>
+<td><code>{ARCH}_{LETTER}{RPM}_retrained.keras</code></td>
+<td>重訓練後的 10 類分類模型（例：<code>CNN_C8000_retrained.keras</code>）</td>
 </tr>
 <tr>
 <td>混淆矩陣圖（10×10）</td>
@@ -304,17 +301,17 @@ Dense(10, Softmax)   ← 從 5 類擴充為 10 類
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="_9">模型表現</h2>
+<hr />
+<h2 id="模型表現">模型表現</h2>
 <ul>
 <li>測試集準確率：通常達到 <strong>100%</strong></li>
 <li>新加入的 5 類故障可被準確識別</li>
 <li>原有 5 類故障分類能力不退化</li>
 </ul>
-<hr>
-<h2 id="_10">持續學習迴圈</h2>
+<hr />
+<h2 id="持續學習迴圈">持續學習迴圈</h2>
 <p>Step 6 完成後，系統可進入下一輪循環：</p>
-<pre class="codehilite"><code>Step 3（5 類模型）
+<pre><code>Step 3（5 類模型）
     ↓
 Steps 4-5（偵測未知）
     ↓
@@ -326,20 +323,18 @@ Step 6（繼續擴充 → 15 類模型）
     ↓
 ...（持續迭代）
 </code></pre>
-
 <p>此架構實現了<strong>開放集（Open-Set）故障診斷</strong>的持續學習能力。</p>
-<hr>
-<h2 id="_11">技術依賴</h2>
-<pre class="codehilite"><code class="language-python">import tensorflow as tf
+<hr />
+<h2 id="技術依賴">技術依賴</h2>
+<pre><code class="language-python">import tensorflow as tf
 from tensorflow import keras
 from sklearn.model_selection import train_test_split
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 </code></pre>
-
-<hr>
-<h2 id="_12">注意事項</h2>
+<hr />
+<h2 id="注意事項">注意事項</h2>
 <ul>
 <li>重訓練從頭開始（非 Fine-tuning），確保新舊類別之間無偏差</li>
 <li>若採用增量學習（Fine-tuning），需注意災難性遺忘（Catastrophic Forgetting）問題</li>

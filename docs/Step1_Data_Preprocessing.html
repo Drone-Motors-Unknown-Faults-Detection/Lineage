@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Step 1：資料預處理 (Data Preprocessing)</title>
-  
+
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
                  "Noto Sans", sans-serif;
@@ -67,11 +67,11 @@
 
 </head>
 <body>
-<h1 id="step-1-data-preprocessing">Step 1：資料預處理 (Data Preprocessing)</h1>
-<h2 id="_1">概述</h2>
+<h1 id="step-1資料預處理-data-preprocessing">Step 1：資料預處理 (Data Preprocessing)</h1>
+<h2 id="概述">概述</h2>
 <p>Step 1 是整個馬達故障診斷流程的起點，負責從原始量測訊號中進行資料讀取、清洗、視覺化與儲存，為後續特徵萃取建立乾淨的資料基礎。</p>
-<hr>
-<h2 id="_2">目標</h2>
+<hr />
+<h2 id="目標">目標</h2>
 <ul>
 <li>讀取不同轉速下的馬達原始訊號（振動、電流、溫度）</li>
 <li>使用 IQR 方法移除離群值（scale = 3.0）</li>
@@ -79,8 +79,8 @@
 <li>儲存整理後的資料供 Step 2 使用</li>
 <li>視覺化各類訊號以輔助確認資料品質</li>
 </ul>
-<hr>
-<h2 id="_3">腳本一覽</h2>
+<hr />
+<h2 id="腳本一覽">腳本一覽</h2>
 <table>
 <thead>
 <tr>
@@ -106,24 +106,22 @@
 </tbody>
 </table>
 <p>命名規則：</p>
-<pre class="codehilite"><code>Step1_Data_Preprocessing_save_{RPM}_{1|2|3}.py
+<pre><code>Step1_Data_Preprocessing_save_{RPM}_{1|2|3}.py
 Step1_Data_Preprocessing_figure_{RPM}_{1|2}.py
 </code></pre>
-
 <p>例如：<code>Step1_Data_Preprocessing_save_6000_1.py</code>、<code>Step1_Data_Preprocessing_figure_8000_1.py</code></p>
-<hr>
-<h2 id="_4">資料結構</h2>
-<h3 id="_5">輸入</h3>
+<hr />
+<h2 id="資料結構">資料結構</h2>
+<h3 id="輸入">輸入</h3>
 <p>原始資料存放於多層目錄結構中：</p>
-<pre class="codehilite"><code>data/
+<pre><code>data/
 └── Step-{1|2|3}/
     └── {Motor}/              # 馬達代碼，例如 T1
         └── {RPM}/            # 6000rpm / 8000rpm / 11000rpm
             └── {Screws}/     # 8screws / 1screw / 2screws / ... / 4_146screws
                 └── *.csv     # Tab 分隔，標頭位於第 23 行（header=22）
 </code></pre>
-
-<h3 id="_6">馬達類型與螺絲配置</h3>
+<h3 id="馬達類型與螺絲配置">馬達類型與螺絲配置</h3>
 <table>
 <thead>
 <tr>
@@ -151,9 +149,9 @@ Step1_Data_Preprocessing_figure_{RPM}_{1|2}.py
 </tbody>
 </table>
 <p>螺絲數量越少，代表馬達固定程度越低，模擬鬆脫或故障情境。</p>
-<hr>
-<h2 id="_7">訊號讀取與欄位處理</h2>
-<h3 id="csv">原始 CSV 欄位</h3>
+<hr />
+<h2 id="訊號讀取與欄位處理">訊號讀取與欄位處理</h2>
+<h3 id="原始-csv-欄位">原始 CSV 欄位</h3>
 <p>原始資料包含以下欄位（依馬達型號略有不同）：</p>
 <table>
 <thead>
@@ -193,20 +191,18 @@ Step1_Data_Preprocessing_figure_{RPM}_{1|2}.py
 </tr>
 </tbody>
 </table>
-<h3 id="_8">衍生欄位</h3>
-<pre class="codehilite"><code class="language-python">df['Delta_T'] = df['Temp_C'] - df['Temp_room']
+<h3 id="衍生欄位">衍生欄位</h3>
+<pre><code class="language-python">df['Delta_T'] = df['Temp_C'] - df['Temp_room']
 </code></pre>
-
 <p><code>Delta_T</code>（溫度差）為計算欄位，代表馬達殼體溫度與環境溫度的差值，比單一溫度更能反映馬達的發熱狀態。</p>
-<h3 id="5">最終輸出的 5 個訊號欄位</h3>
+<h3 id="最終輸出的-5-個訊號欄位">最終輸出的 5 個訊號欄位</h3>
 <p>讀取並計算 <code>Delta_T</code> 後，從原始欄位中選取以下 <strong>5 個訊號</strong>作為後續處理對象：</p>
-<pre class="codehilite"><code class="language-python">signal_columns = ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Delta_T']
+<pre><code class="language-python">signal_columns = ['Acceleration_X', 'Acceleration_Y', 'Acceleration_Z', 'Current', 'Delta_T']
 </code></pre>
-
 <p><code>Temp_C</code> 與 <code>Temp_room</code> 僅用於計算 <code>Delta_T</code>，不獨立輸出。</p>
-<hr>
-<h2 id="_9">處理流程</h2>
-<pre class="codehilite"><code>原始 CSV 讀取（Tab 分隔，header=22）
+<hr />
+<h2 id="處理流程">處理流程</h2>
+<pre><code>原始 CSV 讀取（Tab 分隔，header=22）
     ↓
 捨棄無關欄位（X_Value、Comment 等）
     ↓
@@ -222,9 +218,8 @@ Step1_Data_Preprocessing_figure_{RPM}_{1|2}.py
     ↓
 輸出至 data/Step-{1|2|3}/csv/{Motor}/{RPM}/{Screws}/
 </code></pre>
-
-<h3 id="iqr">IQR 離群值移除</h3>
-<pre class="codehilite"><code class="language-python">def iqr(series, scale=3.0):
+<h3 id="iqr-離群值移除">IQR 離群值移除</h3>
+<pre><code class="language-python">def iqr(series, scale=3.0):
     Q1 = series.quantile(0.25)
     Q3 = series.quantile(0.75)
     IQR = Q3 - Q1
@@ -232,10 +227,9 @@ Step1_Data_Preprocessing_figure_{RPM}_{1|2}.py
     upper = Q3 + scale * IQR
     return series[(series &gt;= lower) &amp; (series &lt;= upper)]
 </code></pre>
-
 <p><code>scale=3.0</code> 表示移除超出 3 倍四分位距範圍的資料點，相較常見的 <code>1.5</code> 倍設定更寬鬆，保留振動訊號中的極端但合理的峰值。</p>
-<hr>
-<h2 id="_10">輸出</h2>
+<hr />
+<h2 id="輸出">輸出</h2>
 <ul>
 <li><strong>目錄：</strong> <code>data/Step-{1|2|3}/csv/{Motor}/{RPM}/{Screws}/</code></li>
 <li><strong>格式：</strong> CSV，每欄為一個 1 秒片段，每列為一個取樣點</li>
@@ -244,8 +238,8 @@ Step1_Data_Preprocessing_figure_{RPM}_{1|2}.py
 <li><strong>命名：</strong> <code>{Motor}_{SignalName}_data.csv</code>，例如 <code>T1_Acceleration_X_data.csv</code></li>
 </ul>
 <p>每個螺絲配置輸出 5 個 CSV 檔案，對應 5 個訊號欄位。</p>
-<hr>
-<h2 id="figure">視覺化內容（figure 系列）</h2>
+<hr />
+<h2 id="視覺化內容figure-系列">視覺化內容（figure 系列）</h2>
 <p>figure 腳本產生以下圖表，用於人工確認資料品質：</p>
 <ul>
 <li>三軸振動訊號波形（X / Y / Z 軸）</li>
@@ -254,25 +248,24 @@ Step1_Data_Preprocessing_figure_{RPM}_{1|2}.py
 <li>電流訊號波形</li>
 </ul>
 <p>這些圖表識別異常區段（訊號中斷、感測器雜訊、異常峰值等），確認資料可用性後再進行 Step 2。</p>
-<hr>
-<h2 id="logger">Logger 日誌</h2>
+<hr />
+<h2 id="logger-日誌">Logger 日誌</h2>
 <p>所有 <code>save</code> 系列腳本頂部包含自動加入的 logger bootstrap，執行時會：</p>
 <ul>
-<li>建立 <code>logs/{腳本名稱}_{時間戳}/program.log</code> 日誌檔</li>
+<li>建立 <code>logs/{腳本名稱}/{時間戳}.log</code> 日誌檔</li>
 <li>建立 <code>output/{腳本名稱}_{時間戳}/</code> 輸出目錄</li>
 <li>自動儲存 matplotlib 圖表至 <code>output/</code> 目錄</li>
 </ul>
 <p>日誌記錄每個螺絲配置的資料處理進度與儲存路徑。</p>
-<hr>
-<h2 id="_11">技術依賴</h2>
-<pre class="codehilite"><code class="language-python">import pandas as pd
+<hr />
+<h2 id="技術依賴">技術依賴</h2>
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from natsort import natsorted    # 自然排序，確保檔案以正確順序讀取
 </code></pre>
-
-<hr>
-<h2 id="_12">注意事項</h2>
+<hr />
+<h2 id="注意事項">注意事項</h2>
 <ul>
 <li>原始 CSV 為 <strong>Tab 分隔</strong>，讀取時需指定 <code>sep='\t'</code>，並以 <code>header=22</code> 跳過前 21 行說明文字</li>
 <li>切割後的每段固定 <strong>10,000 個資料點</strong>（= 1 秒 @ Fs=10,000 Hz）</li>

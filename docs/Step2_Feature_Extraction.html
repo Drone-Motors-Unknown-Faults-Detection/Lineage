@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Step 2：特徵萃取 (Feature Extraction)</title>
-  
+
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
                  "Noto Sans", sans-serif;
@@ -67,18 +67,18 @@
 
 </head>
 <body>
-<h1 id="step-2-feature-extraction">Step 2：特徵萃取 (Feature Extraction)</h1>
-<h2 id="_1">概述</h2>
+<h1 id="step-2特徵萃取-feature-extraction">Step 2：特徵萃取 (Feature Extraction)</h1>
+<h2 id="概述">概述</h2>
 <p>Step 2 從 Step 1 處理後的訊號片段中萃取時域與頻域特徵，將原始波形轉換為 <strong>105 維固定特徵向量</strong>，作為後續機器學習模型的輸入。</p>
-<hr>
-<h2 id="_2">目標</h2>
+<hr />
+<h2 id="目標">目標</h2>
 <ul>
 <li>計算振動、電流、溫度訊號的統計特徵（時域）</li>
 <li>對振動訊號執行 FFT，萃取諧波頻率幅值（頻域）</li>
 <li>輸出結構化特徵矩陣供 Step 3 模型訓練使用</li>
 </ul>
-<hr>
-<h2 id="_3">腳本一覽</h2>
+<hr />
+<h2 id="腳本一覽">腳本一覽</h2>
 <table>
 <thead>
 <tr>
@@ -136,8 +136,8 @@
 </tbody>
 </table>
 <p>共 <strong>9 支腳本</strong>，每個轉速 3 支，對應不同的馬達個體或資料配置。</p>
-<hr>
-<h2 id="105">特徵向量結構（105 維）</h2>
+<hr />
+<h2 id="特徵向量結構105-維">特徵向量結構（105 維）</h2>
 <table>
 <thead>
 <tr>
@@ -194,9 +194,9 @@
 </tbody>
 </table>
 <p>此維度順序固定，所有步驟（Step 3 ~ Step 6）均依賴此格式，<strong>不可更動</strong>。</p>
-<hr>
-<h2 id="_4">特徵定義</h2>
-<h3 id="15">時域統計特徵（每訊號 15 個）</h3>
+<hr />
+<h2 id="特徵定義">特徵定義</h2>
+<h3 id="時域統計特徵每訊號-15-個">時域統計特徵（每訊號 15 個）</h3>
 <table>
 <thead>
 <tr>
@@ -283,7 +283,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="fft-10">頻域 FFT 特徵（振動三軸各 10 個）</h3>
+<h3 id="頻域-fft-特徵振動三軸各-10-個">頻域 FFT 特徵（振動三軸各 10 個）</h3>
 <p>對振動訊號進行 FFT，在基頻的 1 ~ 10 倍諧波頻率處各萃取一個幅值：</p>
 <table>
 <thead>
@@ -316,7 +316,7 @@
 </tbody>
 </table>
 <p>FFT 參數：</p>
-<pre class="codehilite"><code class="language-python">Fs = 10000      # 取樣率（固定，不可更改）
+<pre><code class="language-python">Fs = 10000      # 取樣率（固定，不可更改）
 rawdata = 10000 # 每段點數（= 1 秒）
 dF = Fs / rawdata   # 頻率解析度 = 1 Hz
 
@@ -326,10 +326,9 @@ for i in range(1, 11):
     idx = np.argmin(np.abs(freq - target_freq))
     feature = fft_amplitude[idx]
 </code></pre>
-
-<hr>
-<h2 id="_5">處理流程</h2>
-<pre class="codehilite"><code>讀取 data/Step-{1|2|3}/csv/{Motor}/{RPM}/{Screws}/ 資料
+<hr />
+<h2 id="處理流程">處理流程</h2>
+<pre><code>讀取 data/Step-{1|2|3}/csv/{Motor}/{RPM}/{Screws}/ 資料
     ↓
 逐欄讀取（每欄 = 1 個 10,000 點片段）
     ↓
@@ -347,32 +346,29 @@ RobustScaler 標準化（fit_transform 每個片段）
     ↓
 依螺絲配置合併輸出 feature_data.csv
 </code></pre>
-
-<h3 id="_6">標準化說明</h3>
+<h3 id="標準化說明">標準化說明</h3>
 <p>在計算統計特徵前，先對原始訊號套用 <code>RobustScaler</code>：</p>
-<pre class="codehilite"><code class="language-python">from sklearn.preprocessing import RobustScaler
+<pre><code class="language-python">from sklearn.preprocessing import RobustScaler
 
 scaler = RobustScaler()
 segment_scaled = scaler.fit_transform(segment.reshape(-1, 1)).flatten()
 </code></pre>
-
 <p><code>RobustScaler</code> 使用中位數與四分位距（IQR）進行標準化，對訊號中殘留的離群值具強健性，不受極端振幅污染統計特徵的計算結果。</p>
-<hr>
-<h2 id="_7">輸出</h2>
-<h3 id="_8">目錄結構</h3>
-<pre class="codehilite"><code>data/Step-{1|2|3}/myfeature/{Motor}/{RPM}/{Screws}/
+<hr />
+<h2 id="輸出">輸出</h2>
+<h3 id="目錄結構">目錄結構</h3>
+<pre><code>data/Step-{1|2|3}/myfeature/{Motor}/{RPM}/{Screws}/
 ├── {Motor}_Group_feature_data.csv        # 原始萃取特徵（所有配置合併）
 ├── {Motor}_Group_feature_data_raw.csv    # 中間版本（含離群特徵列）
 └── {Motor}_Group_feature_data_clean.csv  # 乾淨版本（IQR 去除特徵離群值）
 </code></pre>
-
-<h3 id="_9">檔案格式</h3>
+<h3 id="檔案格式">檔案格式</h3>
 <ul>
 <li><strong>每列</strong>：一個 1 秒訊號片段的 105 維特徵向量</li>
 <li><strong>最後一欄</strong>：螺絲配置標籤（字串，如 <code>8screws</code>、<code>1screw</code>）</li>
 <li><strong>欄位順序</strong>：固定為 Current(15) → Vib_X(25) → Vib_Y(25) → Vib_Z(25) → Delta_T(15)</li>
 </ul>
-<h3 id="_10">三種輸出檔案的差異</h3>
+<h3 id="三種輸出檔案的差異">三種輸出檔案的差異</h3>
 <table>
 <thead>
 <tr>
@@ -400,10 +396,10 @@ segment_scaled = scaler.fit_transform(segment.reshape(-1, 1)).flatten()
 </tbody>
 </table>
 <p>Step 3 ~ Step 6 均使用 <code>*_clean.csv</code> 作為模型輸入。</p>
-<hr>
-<h2 id="_11">程式碼關鍵片段</h2>
-<h3 id="fft">FFT 特徵萃取</h3>
-<pre class="codehilite"><code class="language-python">from scipy.fftpack import fft
+<hr />
+<h2 id="程式碼關鍵片段">程式碼關鍵片段</h2>
+<h3 id="fft-特徵萃取">FFT 特徵萃取</h3>
+<pre><code class="language-python">from scipy.fftpack import fft
 
 def extract_fft_features(signal, base_freq, Fs=10000, num_harmonics=10):
     N = len(signal)
@@ -417,9 +413,8 @@ def extract_fft_features(signal, base_freq, Fs=10000, num_harmonics=10):
         features.append(fft_vals[idx])
     return features
 </code></pre>
-
-<h3 id="_12">統計特徵計算</h3>
-<pre class="codehilite"><code class="language-python">from scipy.stats import kurtosis, skew
+<h3 id="統計特徵計算">統計特徵計算</h3>
+<pre><code class="language-python">from scipy.stats import kurtosis, skew
 
 def extract_stat_features(signal):
     rms = np.sqrt(np.mean(signal**2))
@@ -444,19 +439,17 @@ def extract_stat_features(signal):
         mean_amp,                                   # 15. Mean Amplitude
     ]
 </code></pre>
-
-<hr>
-<h2 id="_13">技術依賴</h2>
-<pre class="codehilite"><code class="language-python">import pandas as pd
+<hr />
+<h2 id="技術依賴">技術依賴</h2>
+<pre><code class="language-python">import pandas as pd
 import numpy as np
 from scipy.fftpack import fft
 from scipy.stats import kurtosis, skew
 from sklearn.preprocessing import RobustScaler
 from natsort import natsorted
 </code></pre>
-
-<hr>
-<h2 id="_14">注意事項</h2>
+<hr />
+<h2 id="注意事項">注意事項</h2>
 <ul>
 <li><strong>FFT 基頻</strong>：各轉速的基頻 = RPM / 60，不同腳本硬編碼對應值，新增轉速時需正確設定</li>
 <li><strong>取樣率固定</strong>：<code>Fs = 10000 Hz</code>，所有腳本共用，與 Step 1 一致，<strong>不可修改</strong></li>

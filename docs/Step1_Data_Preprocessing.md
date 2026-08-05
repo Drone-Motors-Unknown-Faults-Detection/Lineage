@@ -163,7 +163,7 @@ figure 腳本產生以下圖表，用於人工確認資料品質：
 
 所有 `save` 系列腳本頂部包含自動加入的 logger bootstrap，執行時會：
 
-- 建立 `logs/{腳本名稱}_{時間戳}/program.log` 日誌檔
+- 建立 `logs/{腳本名稱}/{時間戳}.log` 日誌檔
 - 建立 `output/{腳本名稱}_{時間戳}/` 輸出目錄
 - 自動儲存 matplotlib 圖表至 `output/` 目錄
 
