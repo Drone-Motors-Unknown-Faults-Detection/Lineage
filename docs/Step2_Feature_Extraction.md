@@ -138,9 +138,8 @@ segment_scaled = scaler.fit_transform(segment.reshape(-1, 1)).flatten()
 
 ```
 data/Step-{1|2|3}/myfeature/{Motor}/{RPM}/{Screws}/
-├── {Motor}_Group_feature_data.csv        # 原始萃取特徵（所有配置合併）
-├── {Motor}_Group_feature_data_raw.csv    # 中間版本（含離群特徵列）
-└── {Motor}_Group_feature_data_clean.csv  # 乾淨版本（IQR 去除特徵離群值）
+├── {Motor}_Group_feature_data.csv        # 萃取結果（移除含 NaN 的列後）
+└── {Motor}_Group_feature_data_clean.csv  # 再以 IQR 逐列過濾離群值
 ```
 
 ### 檔案格式
@@ -149,15 +148,18 @@ data/Step-{1|2|3}/myfeature/{Motor}/{RPM}/{Screws}/
 - **最後一欄**：螺絲配置標籤（字串，如 `8screws`、`1screw`）
 - **欄位順序**：固定為 Current(15) → Vib_X(25) → Vib_Y(25) → Vib_Z(25) → Delta_T(15)
 
-### 三種輸出檔案的差異
+### 兩種輸出檔案的差異
 
-| 檔案 | 說明 | 供 Step 3 使用 |
-|------|------|---------------|
-| `*_raw.csv` | 所有萃取的特徵，未過濾 | 否 |
-| `*_data.csv` | 移除 NaN 後的版本 | 否 |
-| `*_clean.csv` | 再次 IQR 過濾特徵空間離群值後的版本 | **是**（主要輸入）|
+| 檔案 | 說明 | 讀取者 |
+|------|------|--------|
+| `*_Group_feature_data.csv` | 萃取結果，已移除含 NaN 的列 | **Step 3 / Step 6**（訓練）|
+| `*_Group_feature_data_clean.csv` | 再以 IQR（scale=1.5）逐列過濾，任一維超界即捨棄整列 | **Step 4 / Step 5**（叢集與距離判定）|
 
-Step 3 ~ Step 6 均使用 `*_clean.csv` 作為模型輸入。
+兩者不可混用。Step 4/5 的 HDBSCAN 與馬氏距離對離群值敏感，因此另備乾淨版本；
+Step 3/6 的訓練則使用未過濾的完整資料。實測過濾後約保留 54% 的列。
+
+> 早期版本另有 `*_raw.csv`，現已廢除——它沒有任何讀取端，且曾造成
+> baseline（T1/8000rpm）長期讀到過期特徵檔。
 
 ---
 

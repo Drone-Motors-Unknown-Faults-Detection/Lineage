@@ -171,7 +171,7 @@ HDBSCAN 叢集分析（僅使用已知訓練資料）
 <p>使用 Keras 功能 API 擷取 Flatten 層輸出：</p>
 <pre><code class="language-python">feature_extractor = keras.Model(
     inputs=model.input,
-    outputs=model.get_layer('flatten').output
+    outputs=get_feature_layer(model).output   # 依架構自動取 flatten 或 GAP
 )
 features = feature_extractor.predict(X)
 </code></pre>

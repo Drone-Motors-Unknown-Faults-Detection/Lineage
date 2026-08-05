@@ -358,9 +358,8 @@ segment_scaled = scaler.fit_transform(segment.reshape(-1, 1)).flatten()
 <h2 id="輸出">輸出</h2>
 <h3 id="目錄結構">目錄結構</h3>
 <pre><code>data/Step-{1|2|3}/myfeature/{Motor}/{RPM}/{Screws}/
-├── {Motor}_Group_feature_data.csv        # 原始萃取特徵（所有配置合併）
-├── {Motor}_Group_feature_data_raw.csv    # 中間版本（含離群特徵列）
-└── {Motor}_Group_feature_data_clean.csv  # 乾淨版本（IQR 去除特徵離群值）
+├── {Motor}_Group_feature_data.csv        # 萃取結果（移除含 NaN 的列後）
+└── {Motor}_Group_feature_data_clean.csv  # 再以 IQR 逐列過濾離群值
 </code></pre>
 <h3 id="檔案格式">檔案格式</h3>
 <ul>
@@ -368,34 +367,34 @@ segment_scaled = scaler.fit_transform(segment.reshape(-1, 1)).flatten()
 <li><strong>最後一欄</strong>：螺絲配置標籤（字串，如 <code>8screws</code>、<code>1screw</code>）</li>
 <li><strong>欄位順序</strong>：固定為 Current(15) → Vib_X(25) → Vib_Y(25) → Vib_Z(25) → Delta_T(15)</li>
 </ul>
-<h3 id="三種輸出檔案的差異">三種輸出檔案的差異</h3>
+<h3 id="兩種輸出檔案的差異">兩種輸出檔案的差異</h3>
 <table>
 <thead>
 <tr>
 <th>檔案</th>
 <th>說明</th>
-<th>供 Step 3 使用</th>
+<th>讀取者</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>*_raw.csv</code></td>
-<td>所有萃取的特徵，未過濾</td>
-<td>否</td>
+<td><code>*_Group_feature_data.csv</code></td>
+<td>萃取結果，已移除含 NaN 的列</td>
+<td><strong>Step 3 / Step 6</strong>（訓練）</td>
 </tr>
 <tr>
-<td><code>*_data.csv</code></td>
-<td>移除 NaN 後的版本</td>
-<td>否</td>
-</tr>
-<tr>
-<td><code>*_clean.csv</code></td>
-<td>再次 IQR 過濾特徵空間離群值後的版本</td>
-<td><strong>是</strong>（主要輸入）</td>
+<td><code>*_Group_feature_data_clean.csv</code></td>
+<td>再以 IQR（scale=1.5）逐列過濾，任一維超界即捨棄整列</td>
+<td><strong>Step 4 / Step 5</strong>（叢集與距離判定）</td>
 </tr>
 </tbody>
 </table>
-<p>Step 3 ~ Step 6 均使用 <code>*_clean.csv</code> 作為模型輸入。</p>
+<p>兩者不可混用。Step 4/5 的 HDBSCAN 與馬氏距離對離群值敏感，因此另備乾淨版本；
+Step 3/6 的訓練則使用未過濾的完整資料。實測過濾後約保留 54% 的列。</p>
+<blockquote>
+<p>早期版本另有 <code>*_raw.csv</code>，現已廢除——它沒有任何讀取端，且曾造成
+baseline（T1/8000rpm）長期讀到過期特徵檔。</p>
+</blockquote>
 <hr />
 <h2 id="程式碼關鍵片段">程式碼關鍵片段</h2>
 <h3 id="fft-特徵萃取">FFT 特徵萃取</h3>

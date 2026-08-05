@@ -96,8 +96,8 @@ TensorFlow 預設在程式啟動時佔用 GPU 的全部 VRAM。啟用動態記�
 import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.callbacks import EarlyStopping
-from gpu_utils import device_scope, DEVICE   # 匯入裝置介面
-from logger import setup_logger, save_plot   # 匯入日誌模組
+from scripts.gpu_utils import device_scope, DEVICE   # 匯入裝置介面
+from scripts.logger import setup_logger, save_plot   # 匯入日誌模組
 
 # ── Logger 初始化（Notebook 頂部 bootstrap cell）──────────────────
 LOG, RUN_PATHS = setup_logger(__file__)      # 建立 logs/ 與 output/ 目錄
@@ -160,7 +160,7 @@ print("CUDA 可用：", tf.test.is_built_with_cuda())
 或直接匯入 `gpu_utils` 觀察輸出訊息：
 
 ```python
-from gpu_utils import DEVICE, gpu_count
+from scripts.gpu_utils import DEVICE, gpu_count
 # [gpu_utils] GPU x1 已啟用：['/physical_device:GPU:0']
 print("訓練裝置：", DEVICE)   # /GPU:0
 print("GPU 數量：", gpu_count())   # 1
@@ -243,7 +243,7 @@ def build_cnn_model(input_shape, num_classes):
 | `Conv1D` | `filters=16, kernel_size=3` | 1D 卷積，提取局部時序特徵 |
 | `Conv1D(padding='same')` | 第一層專用 | 保持輸出長度與輸入相同 |
 | `MaxPooling1D` | `pool_size=2` | 降採樣，壓縮空間維度 50% |
-| `Flatten` | — | 展平為 1D 向量（176 維），作為特徵萃取點 |
+| `Flatten` | — | 展平為 1D 向量（CNN 為 176 維），作為特徵萃取點 |
 | `Dense` | `units=16, activation='relu'` | 全連接分類層 |
 | `Dropout` | `rate=0.3` | 正規化，防止過擬合 |
 | `Dense(softmax)` | `units=num_classes` | 輸出各類別的機率分布 |
@@ -356,7 +356,7 @@ tf.keras.backend.clear_session()
 
 ### 用途
 
-Step 4 / Step 5 需要將輸入資料投影到 CNN 學習到的特徵空間，再用 HDBSCAN 叢集分析偵測未知故障。萃取點為 **`Flatten` 層輸出**（176 維向量）。
+Step 4 / Step 5 需要將輸入資料投影到模型學習到的特徵空間，再用 HDBSCAN 叢集分析偵測未知故障。萃取點依架構而異：CNN 與 VGG16 取 **`Flatten` 層輸出**（176 / 48 維），ResNet 取 **`global_average_pooling1d`**（128 維）。程式中以 `scripts.model_utils.get_feature_layer(model)` 自動判別。
 
 ### 萃取模型建構
 
@@ -399,7 +399,7 @@ X_te_f = feat_model.predict(
 import hdbscan
 import numpy as np
 
-# HDBSCAN 叢集（在 176 維特徵空間）
+# HDBSCAN 叢集（在中間層特徵空間）
 clusterer = hdbscan.HDBSCAN(min_cluster_size=25, min_samples=3)
 cluster_labels = clusterer.fit_predict(X_te_f)
 
@@ -515,8 +515,8 @@ from tensorflow.keras.models    import Model, load_model
 from tensorflow.keras.layers    import Conv1D, MaxPooling1D, Flatten, Dense, Dropout, Input
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks  import EarlyStopping
-from gpu_utils import device_scope, DEVICE
-from logger import setup_logger, save_plot
+from scripts.gpu_utils import device_scope, DEVICE
+from scripts.logger import setup_logger, save_plot
 ```
 
 > `BatchNormalization` 與 `Sequential` 在本專案中未使用；模型均以 Functional API 建構。
@@ -528,7 +528,7 @@ from logger import setup_logger, save_plot
 | `Input` | `tf.keras.layers.Input` | `shape=(105, 1)` |
 | `Conv1D` | `tf.keras.layers.Conv1D` | `filters=16, kernel_size=3` |
 | `MaxPooling1D` | `tf.keras.layers.MaxPooling1D` | `pool_size=2` |
-| `Flatten` | `tf.keras.layers.Flatten` | 展平至 176 維 |
+| `Flatten` | `tf.keras.layers.Flatten` | 展平至 176 維（CNN；ResNet 改用 GAP 至 128 維）|
 | `Dense` | `tf.keras.layers.Dense` | `units=16/5/10` |
 | `Dropout` | `tf.keras.layers.Dropout` | `rate=0.3` |
 
@@ -547,7 +547,7 @@ from logger import setup_logger, save_plot
 
 | API | 回傳值 | 說明 |
 |---|---|---|
-| `from gpu_utils import DEVICE` | `str` | `'/GPU:0'` 或 `'/CPU:0'` |
+| `from scripts.gpu_utils import DEVICE` | `str` | `'/GPU:0'` 或 `'/CPU:0'` |
 | `device_scope()` | `contextmanager` | `with device_scope():` 包裹訓練區塊 |
 | `gpu_count()` | `int` | 可用 GPU 數量 |
 | `is_gpu()` | `bool` | 是否有 GPU |
@@ -577,7 +577,7 @@ logger.py
 ### 使用方式
 
 ```python
-from logger import setup_logger, save_plot
+from scripts.logger import setup_logger, save_plot
 
 # 初始化（建立 logs/ 與 output/ 目錄）
 log, run_paths = setup_logger(__file__)
@@ -596,7 +596,7 @@ save_plot(plt, log, run_paths)
 
 ```
 2026-05-07 13:51:09 | INFO  | Logger initialized
-2026-05-07 13:51:09 | INFO  | log_file=logs/program_2026-05-07-13-51-09/program.log
+2026-08-05 15:30:16 | INFO  | log_file=logs/Step3_Model_01/2026-08-05-15-30-16.log
 2026-05-07 13:51:09 | INFO  | output_dir=output/program_2026-05-07-13-51-09/
 ```
 
@@ -630,7 +630,7 @@ MaxPooling1D(2)        →  (N,  51, 16)
 Conv1D(16, k=3)        →  (N,  49, 16)
 MaxPooling1D(2)        →  (N,  24, 16)
 Conv1D(16, k=3)        →  (N,  22, 16)
-MaxPooling1D(2)        →  (N,  11, 16)  ← Step4/5 特徵萃取點（接 Flatten = 176 維）
+MaxPooling1D(2)        →  (N,  11, 16)  ← Step4/5 特徵萃取點（CNN 接 Flatten = 176 維）
 Flatten                →  (N, 176)
 Dense(16, relu)        →  (N,  16)
 Dropout(0.3)           →  (N,  16)

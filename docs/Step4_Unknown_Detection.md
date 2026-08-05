@@ -73,7 +73,7 @@ HDBSCAN 叢集分析（僅使用已知訓練資料）
 ```python
 feature_extractor = keras.Model(
     inputs=model.input,
-    outputs=model.get_layer('flatten').output
+    outputs=get_feature_layer(model).output   # 依架構自動取 flatten 或 GAP
 )
 features = feature_extractor.predict(X)
 ```
