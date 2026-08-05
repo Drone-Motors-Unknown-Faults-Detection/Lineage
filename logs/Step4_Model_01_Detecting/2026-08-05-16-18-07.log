@@ -1,0 +1,18 @@
+2026-08-05 16:18:07 | INFO  | Logger initialized
+2026-08-05 16:18:07 | INFO  | log_file=/home/albert/Ancestor/logs/Step4_Model_01_Detecting/2026-08-05-16-18-07.log
+2026-08-05 16:18:07 | INFO  | output_dir=/home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07
+=== Loading training data ===
+==============================
+▶ mcs=25 | conf=0.95 | thr=16.36
+==============================
+2026-08-05 16:18:13 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_000.png
+2026-08-05 16:18:13 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_001.png
+2026-08-05 16:18:14 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_002.png
+2026-08-05 16:18:15 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_003.png
+2026-08-05 16:18:15 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_004.png
+2026-08-05 16:18:15 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_005.png
+2026-08-05 16:18:16 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_006.png
+2026-08-05 16:18:16 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_007.png
+2026-08-05 16:18:16 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_008.png
+2026-08-05 16:18:17 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_009.png
+2026-08-05 16:18:17 | INFO  | Saved plot: /home/albert/Ancestor/output/Step4_Model_01_Detecting/2026-08-05-16-18-07/plot_010.png

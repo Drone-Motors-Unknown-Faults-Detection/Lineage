@@ -1,0 +1,485 @@
+[H[2J[3J[INFO] (1/27) Exec Step5_Model_01_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_01_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918833.813646 2110094 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918833.877618 2110094 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918835.151113 2110094 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918836.581589 2110094 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918837.918851 2110185 service.cc:153] XLA service 0x7fcd28040200 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918837.918881 2110185 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918837.933256 2110185 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918837.964832 2110185 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918838.438009 2110185 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (2/27) Exec Step5_Model_02_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_02_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918844.957956 2110646 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918845.003286 2110646 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918846.085416 2110646 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918847.389114 2110646 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918849.653035 2110728 service.cc:153] XLA service 0x7f5d60053a10 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918849.653063 2110728 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918849.671797 2110728 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918849.867433 2110728 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918851.202552 2110728 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (3/27) Exec Step5_Model_03_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_03_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918862.144729 2111563 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918862.189775 2111563 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918863.258227 2111563 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918864.667245 2111563 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918866.124024 2111646 service.cc:153] XLA service 0x7fc0e8042090 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918866.124051 2111646 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918866.135665 2111646 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918866.211000 2111646 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918866.767128 2111646 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (4/27) Exec Step5_Model_04_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_04_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918873.923839 2112195 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918873.969008 2112195 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918875.018107 2112195 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918876.337259 2112195 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918877.629467 2112460 service.cc:153] XLA service 0x7fb69c02d490 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918877.629495 2112460 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918877.636813 2112460 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918877.668194 2112460 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918878.145590 2112460 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (5/27) Exec Step5_Model_05_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_05_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918885.232308 2112989 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918885.277086 2112989 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918886.334889 2112989 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918887.690838 2112989 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918889.852182 2113082 service.cc:153] XLA service 0x7f7718040a70 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918889.852211 2113082 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918889.870157 2113082 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918890.070668 2113082 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918891.528426 2113082 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (6/27) Exec Step5_Model_06_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_06_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918902.832242 2113911 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918902.877012 2113911 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918904.087871 2113911 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918905.468220 2113911 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918907.431934 2114009 service.cc:153] XLA service 0x7f2f500307a0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918907.431972 2114009 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918907.443573 2114009 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918907.519268 2114009 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918908.232721 2114009 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (7/27) Exec Step5_Model_07_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_07_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918915.646455 2114758 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918915.690709 2114758 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918916.986162 2114758 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918918.568502 2114758 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918920.154558 2114901 service.cc:153] XLA service 0x7fba3003f460 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918920.154588 2114901 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918920.161899 2114901 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918920.193051 2114901 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918920.651660 2114901 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (8/27) Exec Step5_Model_08_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_08_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918927.003547 2115383 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918927.048230 2115383 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918928.126321 2115383 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918929.449797 2115383 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918931.569660 2115646 service.cc:153] XLA service 0x7f3228041500 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918931.569689 2115646 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918931.587998 2115646 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918931.915165 2115646 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918933.297584 2115646 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (9/27) Exec Step5_Model_09_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_09_Random_Detecting.ipynb
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918945.267671 2117082 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918945.313158 2117082 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918946.404242 2117082 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918947.594580 2117082 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918949.090915 2117386 service.cc:153] XLA service 0x7f42dc02fa40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918949.090973 2117386 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918949.106101 2117386 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918949.192647 2117386 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918949.952744 2117386 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (10/27) Exec Step5_Model_10_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_10_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918957.288137 2117990 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918957.333948 2117990 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918958.388101 2117990 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918959.683406 2117990 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918961.030549 2118082 service.cc:153] XLA service 0x7fee8002f500 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918961.030600 2118082 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918961.041724 2118082 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918961.080296 2118082 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918961.644022 2118082 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (11/27) Exec Step5_Model_11_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_11_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918968.125537 2118533 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918968.170554 2118533 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918969.237723 2118533 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918970.444993 2118533 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918972.569393 2118616 service.cc:153] XLA service 0x7fa3c0040e80 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918972.569420 2118616 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918972.587160 2118616 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918972.931235 2118616 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918974.276789 2118616 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (12/27) Exec Step5_Model_12_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_12_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918985.568229 2119404 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918985.614331 2119404 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918986.671949 2119404 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918987.950951 2119404 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785918989.443709 2119491 service.cc:153] XLA service 0x7f0c14030400 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785918989.443761 2119491 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785918989.459060 2119491 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785918989.540627 2119491 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785918990.284791 2119491 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (13/27) Exec Step5_Model_13_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_13_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918997.510724 2120056 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785918997.557002 2120056 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785918998.727172 2120056 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919000.103235 2120056 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919001.839303 2120139 service.cc:153] XLA service 0x7f3edc03e7f0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919001.839329 2120139 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919001.846314 2120139 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919001.876374 2120139 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919002.337318 2120139 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (14/27) Exec Step5_Model_14_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_14_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919008.766813 2120592 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919008.813236 2120592 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919009.870772 2120592 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919011.028903 2120592 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919012.986244 2120668 service.cc:153] XLA service 0x7fa534054050 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919012.986297 2120668 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919013.008989 2120668 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919013.323805 2120668 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919014.722251 2120668 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (15/27) Exec Step5_Model_15_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_15_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919025.837727 2121458 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919025.883490 2121458 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919026.954329 2121458 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919028.262373 2121458 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919029.836467 2121538 service.cc:153] XLA service 0x7fd3580305f0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919029.836498 2121538 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919029.848177 2121538 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919029.922547 2121538 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919030.629051 2121538 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (16/27) Exec Step5_Model_16_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_16_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919037.896000 2122106 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919037.941532 2122106 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919039.111735 2122106 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919040.458728 2122106 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919041.852483 2122188 service.cc:153] XLA service 0x7fd0d8002830 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919041.852533 2122188 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919041.863737 2122188 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919041.899485 2122188 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919042.383123 2122188 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (17/27) Exec Step5_Model_17_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_17_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919049.159550 2122649 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919049.206009 2122649 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919050.271277 2122649 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919051.454047 2122649 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919053.412465 2122819 service.cc:153] XLA service 0x7fe854040bf0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919053.412492 2122819 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919053.429833 2122819 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919053.771167 2122819 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919055.131661 2122819 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (18/27) Exec Step5_Model_18_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_18_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919066.351811 2123875 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919066.396968 2123875 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919067.464500 2123875 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919068.746430 2123875 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919070.230022 2123957 service.cc:153] XLA service 0x7f7e2802fa00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919070.230046 2123957 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919070.241534 2123957 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919070.315433 2123957 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919070.870247 2123957 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (19/27) Exec Step5_Model_19_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_19_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919078.579534 2124516 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919078.625664 2124516 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919079.689537 2124516 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919080.862337 2124516 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919082.147320 2124610 service.cc:153] XLA service 0x7efd4802d6d0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919082.147349 2124610 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919082.154151 2124610 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919082.184326 2124610 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919082.642965 2124610 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (20/27) Exec Step5_Model_20_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_20_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919088.902921 2125065 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919088.966677 2125065 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919090.179017 2125065 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919091.517904 2125065 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919093.633297 2125146 service.cc:153] XLA service 0x7fbd78041ac0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919093.633325 2125146 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919093.650707 2125146 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919093.998219 2125146 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919095.294907 2125146 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (21/27) Exec Step5_Model_21_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_21_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919106.105373 2125966 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919106.151034 2125966 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919107.286714 2125966 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919108.552121 2125966 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919110.485590 2126043 service.cc:153] XLA service 0x7f3fdc030860 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919110.485617 2126043 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919110.497127 2126043 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919110.572039 2126043 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919111.346095 2126043 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (22/27) Exec Step5_Model_22_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_22_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919118.760530 2126600 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919118.807685 2126600 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919119.899780 2126600 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919121.089973 2126600 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919122.388000 2126682 service.cc:153] XLA service 0x7fe81802d550 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919122.388046 2126682 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919122.398354 2126682 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919122.434082 2126682 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919122.970112 2126682 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (23/27) Exec Step5_Model_23_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_23_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919129.389489 2127160 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919129.434810 2127160 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919130.489623 2127160 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919131.814118 2127160 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919133.943561 2127241 service.cc:153] XLA service 0x7fb1bc041560 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919133.943588 2127241 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919133.961230 2127241 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919134.311694 2127241 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919135.645392 2127241 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (24/27) Exec Step5_Model_24_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_24_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919146.929594 2128045 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919146.975577 2128045 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919148.053849 2128045 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919149.321822 2128045 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919150.806249 2128128 service.cc:153] XLA service 0x7efcdc0303a0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919150.806276 2128128 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919150.817875 2128128 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919150.892716 2128128 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919151.444976 2128128 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (25/27) Exec Step5_Model_25_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_25_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919158.574139 2128684 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919158.619214 2128684 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919159.672692 2128684 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919160.838501 2128684 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919162.053833 2128763 service.cc:153] XLA service 0x7fad1003fdf0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919162.053858 2128763 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919162.061207 2128763 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919162.092486 2128763 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919162.539781 2128763 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (26/27) Exec Step5_Model_26_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_26_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919168.615154 2129214 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919168.660475 2129214 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919169.717090 2129214 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919170.893678 2129214 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919172.880504 2129309 service.cc:153] XLA service 0x7f80e0041070 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919172.880531 2129309 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919172.897572 2129309 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919173.232284 2129309 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919174.526477 2129309 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] (27/27) Exec Step5_Model_27_Random_Detecting.ipynb
+[NbClientApp] Executing Step5_Model_27_Random_Detecting.ipynb
+/home/albert/Ancestor/venv/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbClientApp] Executing notebook with kernel: python3
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919185.748844 2130103 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919185.793771 2130103 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 AMX_FP16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1785919186.901950 2130103 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1785919188.236076 2130103 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 43489 MB memory:  -> device: 0, name: NVIDIA L40S, pci bus id: 0000:01:00.0, compute capability: 8.9
+I0000 00:00:1785919189.780037 2130185 service.cc:153] XLA service 0x7f5fd80304b0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1785919189.780063 2130185 service.cc:161]   StreamExecutor [0]: NVIDIA L40S, Compute Capability 8.9 (Driver: 13.1.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.23.1)
+I0000 00:00:1785919189.791983 2130185 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1785919189.867197 2130185 cuda_dnn.cc:461] Loaded cuDNN version 92301
+I0000 00:00:1785919190.435568 2130185 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[INFO] All 27 notebooks completed.

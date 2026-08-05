@@ -1,0 +1,63 @@
+2026-08-05 15:06:41 | INFO  | Logger initialized
+2026-08-05 15:06:41 | INFO  | log_file=/home/albert/Ancestor/logs/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41.log
+2026-08-05 15:06:41 | INFO  | output_dir=/home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41
+開始處理群組 T1，螺絲數量: 8screws...
+2026-08-05 15:06:45 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_000.png
+2026-08-05 15:06:45 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_001.png
+2026-08-05 15:06:45 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_002.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/8screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/8screws/T1_Group_feature_data_clean.csv (594 -> 320 列)
+開始處理群組 T1，螺絲數量: 7screws...
+2026-08-05 15:06:53 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_003.png
+2026-08-05 15:06:53 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_004.png
+2026-08-05 15:06:54 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_005.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/7screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/7screws/T1_Group_feature_data_clean.csv (595 -> 331 列)
+開始處理群組 T1，螺絲數量: 6screws...
+2026-08-05 15:07:02 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_006.png
+2026-08-05 15:07:02 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_007.png
+2026-08-05 15:07:02 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_008.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/6screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/6screws/T1_Group_feature_data_clean.csv (596 -> 323 列)
+開始處理群組 T1，螺絲數量: 5screws...
+2026-08-05 15:07:10 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_009.png
+2026-08-05 15:07:11 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_010.png
+2026-08-05 15:07:11 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_011.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/5screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/5screws/T1_Group_feature_data_clean.csv (594 -> 361 列)
+開始處理群組 T1，螺絲數量: 4screws...
+2026-08-05 15:07:19 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_012.png
+2026-08-05 15:07:19 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_013.png
+2026-08-05 15:07:20 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_014.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/4screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/4screws/T1_Group_feature_data_clean.csv (594 -> 383 列)
+開始處理群組 T1，螺絲數量: 3screws...
+2026-08-05 15:07:28 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_015.png
+2026-08-05 15:07:28 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_016.png
+2026-08-05 15:07:28 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_017.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/3screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/3screws/T1_Group_feature_data_clean.csv (594 -> 351 列)
+開始處理群組 T1，螺絲數量: 2screws...
+2026-08-05 15:07:36 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_018.png
+2026-08-05 15:07:37 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_019.png
+2026-08-05 15:07:37 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_020.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/2screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/2screws/T1_Group_feature_data_clean.csv (595 -> 310 列)
+開始處理群組 T1，螺絲數量: 1screws...
+2026-08-05 15:07:45 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_021.png
+2026-08-05 15:07:45 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_022.png
+2026-08-05 15:07:46 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_023.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/1screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/1screws/T1_Group_feature_data_clean.csv (596 -> 312 列)
+開始處理群組 T1，螺絲數量: 3_14screws...
+2026-08-05 15:07:54 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_024.png
+2026-08-05 15:07:54 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_025.png
+2026-08-05 15:07:54 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_026.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/3_14screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/3_14screws/T1_Group_feature_data_clean.csv (597 -> 363 列)
+開始處理群組 T1，螺絲數量: 4_146screws...
+2026-08-05 15:08:02 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_027.png
+2026-08-05 15:08:03 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_028.png
+2026-08-05 15:08:03 | INFO  | Saved plot: /home/albert/Ancestor/output/Step2_Feature_Extraction_6000_1/2026-08-05-15-06-41/plot_029.png
+特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/4_146screws/T1_Group_feature_data.csv
+乾淨特徵數據已保存為 CSV 文件: /home/albert/Ancestor/data/Step-1/myfeature/T1/6000rpm/4_146screws/T1_Group_feature_data_clean.csv (595 -> 300 列)

@@ -1,0 +1,143 @@
+2026-08-05 17:03:20 | INFO  | Logger initialized
+2026-08-05 17:03:20 | INFO  | log_file=/home/albert/Ancestor/logs/Step6_Model_18_Retrain/2026-08-05-17-03-20.log
+2026-08-05 17:03:20 | INFO  | output_dir=/home/albert/Ancestor/output/Step6_Model_18_Retrain/2026-08-05-17-03-20
+[gpu_utils] GPU x1 已啟用：['/physical_device:GPU:0']
+自訂 Label Mapping:
+8screws: 0
+1screws: 1
+2screws: 2
+3screws: 3
+4screws: 4
+5screws: 5
+6screws: 6
+7screws: 7
+3_14screws: 8
+4_146screws: 9
+[Training] Device: /GPU:0
+Epoch 1/100
+150/150 47ms/step accuracy=0.1345 loss=2.2494
+150/150 65ms/step accuracy=0.1601 loss=2.1694 val_accuracy=0.2504 val_loss=2.0147
+Epoch 2/100
+150/150 5ms/step accuracy=0.3464 loss=1.8300 val_accuracy=0.6311 val_loss=1.4138
+Epoch 3/100
+150/150 5ms/step accuracy=0.5768 loss=1.2508 val_accuracy=0.8406 val_loss=0.6984
+Epoch 4/100
+150/150 5ms/step accuracy=0.7270 loss=0.8435 val_accuracy=0.9516 val_loss=0.3263
+Epoch 5/100
+150/150 5ms/step accuracy=0.8260 loss=0.5688 val_accuracy=0.9725 val_loss=0.2016
+Epoch 6/100
+150/150 4ms/step accuracy=0.8669 loss=0.4339 val_accuracy=0.9791 val_loss=0.1376
+Epoch 7/100
+150/150 4ms/step accuracy=0.8971 loss=0.3558 val_accuracy=0.9866 val_loss=0.1083
+Epoch 8/100
+150/150 5ms/step accuracy=0.9222 loss=0.2705 val_accuracy=0.9875 val_loss=0.0912
+Epoch 9/100
+150/150 5ms/step accuracy=0.9370 loss=0.2279 val_accuracy=0.9917 val_loss=0.0717
+Epoch 10/100
+150/150 5ms/step accuracy=0.9437 loss=0.2090 val_accuracy=0.9942 val_loss=0.0695
+Epoch 11/100
+150/150 4ms/step accuracy=0.9501 loss=0.1661 val_accuracy=0.9967 val_loss=0.0601
+Epoch 12/100
+150/150 3ms/step accuracy=0.9622 loss=0.1304
+150/150 5ms/step accuracy=0.9629 loss=0.1320 val_accuracy=0.9967 val_loss=0.0615
+Epoch 13/100
+150/150 5ms/step accuracy=0.9635 loss=0.1462 val_accuracy=0.9950 val_loss=0.0551
+Epoch 14/100
+150/150 5ms/step accuracy=0.9689 loss=0.1129 val_accuracy=0.9958 val_loss=0.0587
+Epoch 15/100
+150/150 5ms/step accuracy=0.9718 loss=0.1008 val_accuracy=0.9958 val_loss=0.0438
+Epoch 16/100
+150/150 4ms/step accuracy=0.9779 loss=0.0868 val_accuracy=0.9933 val_loss=0.0712
+Epoch 17/100
+150/150 4ms/step accuracy=0.9745 loss=0.0961 val_accuracy=0.9975 val_loss=0.0441
+Epoch 18/100
+150/150 4ms/step accuracy=0.9795 loss=0.0738 val_accuracy=0.9958 val_loss=0.0457
+Epoch 19/100
+150/150 4ms/step accuracy=0.9800 loss=0.0775 val_accuracy=0.9967 val_loss=0.0489
+Epoch 20/100
+150/150 4ms/step accuracy=0.9787 loss=0.0890 val_accuracy=0.9958 val_loss=0.0529
+Epoch 21/100
+150/150 4ms/step accuracy=0.9843 loss=0.0651 val_accuracy=0.9983 val_loss=0.0459
+Epoch 22/100
+150/150 4ms/step accuracy=0.9875 loss=0.0524 val_accuracy=0.9983 val_loss=0.0252
+Epoch 23/100
+150/150 5ms/step accuracy=0.9866 loss=0.0546 val_accuracy=0.9975 val_loss=0.0408
+Epoch 24/100
+150/150 4ms/step accuracy=0.9891 loss=0.0352 val_accuracy=0.9983 val_loss=0.0359
+Epoch 25/100
+150/150 5ms/step accuracy=0.9879 loss=0.0467 val_accuracy=0.9983 val_loss=0.0281
+Epoch 26/100
+150/150 5ms/step accuracy=0.9875 loss=0.0551 val_accuracy=0.9992 val_loss=0.0377
+Epoch 27/100
+150/150 5ms/step accuracy=0.9825 loss=0.0596 val_accuracy=0.9992 val_loss=0.0388
+Epoch 28/100
+150/150 4ms/step accuracy=0.9914 loss=0.0369 val_accuracy=0.9992 val_loss=0.0326
+Epoch 29/100
+150/150 4ms/step accuracy=0.9935 loss=0.0318 val_accuracy=0.9992 val_loss=0.0370
+Epoch 30/100
+150/150 4ms/step accuracy=0.9908 loss=0.0342 val_accuracy=0.9992 val_loss=0.0409
+Epoch 31/100
+150/150 4ms/step accuracy=0.9858 loss=0.0513 val_accuracy=0.9992 val_loss=0.0459
+Epoch 32/100
+150/150 4ms/step accuracy=0.9935 loss=0.0294 val_accuracy=0.9992 val_loss=0.0224
+Epoch 33/100
+150/150 3ms/step accuracy=0.9902 loss=0.0368
+150/150 4ms/step accuracy=0.9906 loss=0.0339 val_accuracy=0.9992 val_loss=0.0426
+Epoch 34/100
+150/150 4ms/step accuracy=0.9958 loss=0.0232 val_accuracy=0.9992 val_loss=0.0336
+Epoch 35/100
+150/150 4ms/step accuracy=0.9939 loss=0.0180 val_accuracy=0.9992 val_loss=0.0305
+Epoch 36/100
+150/150 4ms/step accuracy=0.9965 loss=0.0166 val_accuracy=0.9992 val_loss=0.0211
+Epoch 37/100
+150/150 4ms/step accuracy=0.9948 loss=0.0184 val_accuracy=0.9975 val_loss=0.0442
+Epoch 38/100
+150/150 4ms/step accuracy=0.9944 loss=0.0210 val_accuracy=0.9992 val_loss=0.0308
+Epoch 39/100
+150/150 4ms/step accuracy=0.9914 loss=0.0256 val_accuracy=0.9992 val_loss=0.0241
+Epoch 40/100
+150/150 5ms/step accuracy=0.9929 loss=0.0304 val_accuracy=0.9983 val_loss=0.0256
+Epoch 41/100
+150/150 5ms/step accuracy=0.9946 loss=0.0170 val_accuracy=0.9992 val_loss=0.0285
+Epoch 42/100
+150/150 5ms/step accuracy=0.9954 loss=0.0168 val_accuracy=0.9992 val_loss=0.0176
+Epoch 43/100
+150/150 4ms/step accuracy=0.9960 loss=0.0135 val_accuracy=0.9992 val_loss=0.0292
+Epoch 44/100
+150/150 3ms/step accuracy=0.9941 loss=0.0357
+150/150 4ms/step accuracy=0.9927 loss=0.0334 val_accuracy=0.9992 val_loss=0.0354
+Epoch 45/100
+150/150 4ms/step accuracy=0.9958 loss=0.0173 val_accuracy=0.9992 val_loss=0.0284
+Epoch 46/100
+150/150 4ms/step accuracy=0.9921 loss=0.0334 val_accuracy=0.9983 val_loss=0.0261
+Epoch 47/100
+150/150 5ms/step accuracy=0.9960 loss=0.0164 val_accuracy=0.9992 val_loss=0.0209
+Epoch 48/100
+150/150 4ms/step accuracy=0.9952 loss=0.0196 val_accuracy=0.9992 val_loss=0.0152
+Epoch 49/100
+150/150 5ms/step accuracy=0.9939 loss=0.0247 val_accuracy=0.9992 val_loss=0.0397
+Epoch 50/100
+150/150 5ms/step accuracy=0.9965 loss=0.0150 val_accuracy=0.9992 val_loss=0.0419
+Epoch 51/100
+150/150 5ms/step accuracy=0.9977 loss=0.0092 val_accuracy=0.9992 val_loss=0.0370
+Epoch 52/100
+150/150 4ms/step accuracy=0.9985 loss=0.0067 val_accuracy=0.9992 val_loss=0.0456
+Epoch 53/100
+150/150 4ms/step accuracy=0.9935 loss=0.0272 val_accuracy=0.9992 val_loss=0.0457
+Epoch 54/100
+150/150 3ms/step accuracy=0.9930 loss=0.0314
+150/150 4ms/step accuracy=0.9939 loss=0.0243 val_accuracy=0.9992 val_loss=0.0570
+Epoch 55/100
+150/150 4ms/step accuracy=0.9954 loss=0.0186 val_accuracy=0.9992 val_loss=0.0310
+Epoch 56/100
+150/150 5ms/step accuracy=0.9981 loss=0.0082 val_accuracy=0.9992 val_loss=0.0282
+Epoch 57/100
+150/150 4ms/step accuracy=0.9977 loss=0.0089 val_accuracy=0.9992 val_loss=0.0268
+Epoch 58/100
+150/150 5ms/step accuracy=0.9977 loss=0.0080 val_accuracy=0.9992 val_loss=0.0279
+38/38 5ms/step accuracy=0.9992 loss=0.0152
+Screw Number Loss: 0.0152, Screw Number Accuracy: 0.9992
+2026-08-05 17:04:24 | INFO  | Saved plot: /home/albert/Ancestor/output/Step6_Model_18_Retrain/2026-08-05-17-03-20/plot_000.png
+2026-08-05 17:04:24 | INFO  | Saved plot: /home/albert/Ancestor/output/Step6_Model_18_Retrain/2026-08-05-17-03-20/plot_001.png
+2026-08-05 17:04:25 | INFO  | Saved plot: /home/albert/Ancestor/output/Step6_Model_18_Retrain/2026-08-05-17-03-20/plot_002.png
+重訓練模型已儲存：/home/albert/Ancestor/data/Step-2/model/VGG16_B11000_retrained.keras
