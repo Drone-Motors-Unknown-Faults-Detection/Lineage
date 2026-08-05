@@ -47,7 +47,7 @@ Step1_Data_Preprocessing_figure_{6000,8000,11000}.py         （3 支）
 |------|------|------|
 | 批次執行 | `Step{1..6}*.sh`（9 支） | 依序跑完各步驟，取代手動逐一開啟 Notebook |
 | 環境建置 | `pyproject.toml`、`build_uv.sh`、`build_uv_mac.sh`、`build_venv.sh` | 釘住 Python 3.10.19 與依賴版本 |
-| 基礎設施 | `scripts/logger.py`、`gpu_utils.py`、`notebook_bootstrap.py`、`model_utils.py`、`train_guard.py`、`render_docs.py` | 見下方第三節 |
+| 基礎設施 | `scripts/logger.py`、`gpu_utils.py`、`notebook_bootstrap.py`、`model_utils.py`、`train_guard.py`、`render_docs.py` | 見第二節第 11 項 |
 | 文件 | `AGENT.md`、`docs/*.md`（8 份）、對應的 `.html` | 原本只有一份 README |
 | 其他 | `.gitignore`、`GPU-Test.ipynb`、`GPU.sh`、`論文全文.md` | — |
 
@@ -238,7 +238,150 @@ from tensorflow.keras.models import Sequential
 
 ---
 
-## 三、演算法核心未變更
+## 三、特徵計算與數值正確性的修正
+
+上一節談的是結構與流程。這一節是**計算本身出錯**的部分——這類修正只改一兩行，卻直接影響特徵值與模型輸入。
+
+### 1. `clearance_indicator` 實際算出的是 Impulse Indicator（9 支腳本）
+
+```python
+# 原始
+features[i, 7] = np.abs(data.max() / np.mean(np.sqrt(np.abs(data)**2)))  # clearance_indicator
+
+# 現行
+features[i, 7] = np.abs(data.max()) / (np.mean(np.sqrt(np.abs(data))) ** 2)
+```
+
+`np.sqrt(np.abs(x)**2)` 恆等於 `np.abs(x)`，所以原始的分母其實是 `mean(|x|)`，整式退化為 `peak / mean(|x|)`——**這正是 Feature 10 Impulse Indicator 的定義**。
+
+論文（表 2）的正確公式是：
+
+$$x_{cli} = \frac{\max|x|}{\left(\frac{1}{n}\sum\sqrt{|x_i|}\right)^2}$$
+
+`sqrt` 要作用在 `|x|` 上，而不是 `|x|²`。
+
+**數值驗證**（10000 點常態隨機訊號）：
+
+| 公式 | 值 |
+|------|-----|
+| 原始 clearance | 4.354311 |
+| impulse | 4.354311 |
+| 修正後 clearance | 5.112289 |
+
+**影響：** `extract_statistical_features()` 對 5 個訊號各呼叫一次，因此產生 **5 對完全重複的維度**：
+
+| clearance（錯誤）| impulse（正確）| 訊號 |
+|---|---|---|
+| Feature 8 | Feature 10 | Current |
+| Feature 23 | Feature 25 | Vibration X |
+| Feature 48 | Feature 50 | Vibration Y |
+| Feature 73 | Feature 75 | Vibration Z |
+| Feature 98 | Feature 100 | Delta_T |
+
+105 維特徵向量的**有效唯一維度只有 100 維**，5 維是冗餘的。
+
+#### 修正後仍有一對重複——但這次不是 bug
+
+以修正後重新產生的特徵實測，5 對之中有 **4 對已經分開，Current 那一對仍然相同**：
+
+| 訊號 | clearance 與 impulse 是否仍相同 |
+|------|------------------------------|
+| Current | **是** |
+| Vibration X / Y / Z、Delta_T | 否 |
+
+原因是資料本身的性質，不是公式。由 Jensen 不等式，`mean(sqrt(|x|))² ≤ mean(|x|)`，**等號在 |x| 為定值時成立**。而 Current 訊號近乎定值：
+
+```
+Current   min=0.004035  max=0.004089  變異係數 1.55e-03
+          mean(sqrt(|x|))² = 0.00406372
+          mean(|x|)        = 0.00406372     相對差異 6.05e-07
+
+振動 X     變異係數 5.53
+          mean(sqrt(|x|))² = 0.00034536
+          mean(|x|)        = 0.00039718     相對差異 13.05%
+```
+
+所以**修正把有效唯一維度從 100 提升到 104，而不是 105**。這一點 issue #1 的分析沒有涵蓋——它假設修正後 5 對都會分開。
+
+### 2. `extract_fft_features` 在空頻率區間回傳純量（9 支腳本）
+
+```python
+# 原始
+if len(freq_indices) == 0:
+    fft_max = 0                       # 純量
+
+# 現行
+if len(freq_indices) == 0:
+    fft_max = np.zeros(Hfeat.shape[1])   # 與其他情況同形狀
+```
+
+其他情況下 `fft_max` 是長度等於片段數的陣列。混入一個純量後，末尾的 `np.array(fft_features).T` 會拋出：
+
+```
+ValueError: setting an array element with a sequence.
+```
+
+### 3. `np.ptp()` 已在 NumPy 2.0 移除（9 支腳本）
+
+```python
+# 原始
+features[i, 5] = np.ptp(data)          # peak2peak
+
+# 現行
+features[i, 5] = data.max() - data.min()
+```
+
+數值等價，但 `np.ptp()` 自 NumPy 1.24 起被棄用、2.0 移除。本專案釘的是 NumPy 2.2.6。
+
+### 4. `fourier_transform` 的未使用參數與全域 `freq`（9 支腳本）
+
+移除未使用的 `lenFeature` 參數，並在函式內以 `freq_local` 就地計算頻率軸，取代對模組層級 `freq` 的依賴——後者在資料長度與 `rawdata` 常數不符時會靜默取錯頻率。
+
+### 5. `Delta_t_data.csv` 大小寫不符（2 支腳本）
+
+`6000_2.py` 與 `6000_3.py` 讀取 `Delta_t_data.csv`（小寫 t），但 Step 1 存的是 `Delta_T_data.csv`。在大小寫敏感的檔案系統（Linux）上直接 `FileNotFoundError`。
+
+### 6. `clear_session()` 在 evaluate/save 之前呼叫（45 個 Notebook）
+
+原始版本在訓練後、評估與存檔之前呼叫 `tf.keras.backend.clear_session()`，會清掉計算圖使後續操作作用在失效的模型上。現行版本改為透過 `scripts/notebook_bootstrap.py` 註冊到 `atexit`，只在程序結束時執行。
+
+### 7. Step 5 的 New Faulty 標籤依遞增計數而非固定映射（27 個 Notebook）
+
+```python
+# 原始
+label_str = f"New Faulty {unknown_id}"      # unknown_id 隨叢集出現順序遞增
+
+# 現行
+label_str = UNKNOWN_LABEL_MAP.get(most_common_screw, f"New Faulty {unknown_id}")
+```
+
+原始版本的編號取決於 HDBSCAN 回傳叢集的順序，**同一個螺絲配置在不同批次會拿到不同的 New Faulty 編號**，跨批次結果無法對照。現行版本以叢集內最多數的螺絲配置查固定映射表，遞增計數只作為查不到時的後備。
+
+### 8. Step 1 figure 腳本的 `motor_types` 與 save 腳本不一致（6 支腳本）
+
+```python
+# 原始 figure_6000_1.py
+motor_types = ['A', 'B', 'C']
+# 原始 figure_6000_2.py
+motor_types = ['B']
+
+# 現行 figure_6000.py（與 save 腳本一致）
+motor_types = ['T1']
+```
+
+原始的視覺化腳本用的是 `A`/`B`/`C`，而 save 腳本用 `T1`/`T2`/`T3`，因此 figure 腳本的所有路徑都找不到資料。這 6 支後來合併為 3 支（見第一節）。
+
+### 9. Step 6 重複的資料載入函式（27 個 Notebook）
+
+原始版本定義了 `load_and_preprocess_data` 與 `load_and_preprocess_newdata` 兩個**內容完全相同**的函式。現行改為別名：
+
+```python
+load_and_preprocess_newdata = load_and_preprocess_data
+```
+
+---
+
+## 四、演算法核心未變更
 
 比對過程中特別確認了以下不變量，全數一致——**這些修正都沒有動到方法本身**：
 
@@ -260,7 +403,7 @@ from tensorflow.keras.models import Sequential
 
 ---
 
-## 四、變更量統計
+## 五、變更量統計
 
 | 步驟 | 有變更的檔案 | 新增行 | 移除行 |
 |------|------------|--------|--------|
@@ -286,3 +429,18 @@ Step 1/2/3/6 的行數變動較大，主因是每個檔案都加入了日誌 boo
 3. **統計變更模式** —— 以 `difflib.SequenceMatcher` 逐檔取 opcodes，彙總最常出現的新增/移除行，據此歸納出上述 12 類變更。
 4. **逐項驗證數量** —— 每個宣稱（如「144 處路徑」「72 個 Notebook」）都以述詞函式在兩版上分別計數，而非目測。
 5. **確認不變量** —— 對演算法常數做同樣的計數比對，確保修正沒有改動方法本身。
+
+### 修訂：第一版遺漏了整類修正
+
+本文第一版只涵蓋了第二節那 12 項，第三節的 9 項全部遺漏。原因出在步驟 3 的作法：
+
+當時是「彙總最常出現的新增／移除行」來歸納變更模式。這個排序會被樣板碼主導——Step 2 的比對中 `"""` 出現 116 次、`# ====` 出現 54 次，而 `clearance_indicator` 這類**每支腳本只出現一次、全專案共 9 次**的修正被埋在後面看不到。
+
+**問題在於：出現頻率與重要性無關。** 一行公式錯誤影響的是每一筆特徵值，遠比 100 次的註解調整重要。
+
+修訂時改用兩個互補的作法：
+
+- **以已關閉的 issue 為索引反查** —— 逐一針對 #1~#20 的描述寫述詞函式，在兩版分別計數。
+- **過濾出「含運算式」的變更行**（排除註解、docstring、空行）再逐行檢視，而不是依頻率排序。
+
+這樣找出的 9 項修正，有 8 項是第一版沒寫到的。列在此處以說明本文的涵蓋範圍是如何確認的。
