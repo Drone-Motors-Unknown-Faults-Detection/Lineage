@@ -85,6 +85,7 @@
 │   ├── Step4_Unknown_Detection.md
 │   ├── Step5_Random_Sampling_Detection.md
 │   ├── Step6_Model_Retraining.md
+│   ├── OpenSet_Recognition.md                # 開放集辨識取代馬氏距離的技術評估
 │   └── Tensorflow.md                         # TensorFlow & GPU 安裝指南
 │
 └── data/                                     # 所有資料（讀寫基準）
@@ -487,6 +488,10 @@ threshold = np.percentile(train_distances, 95)
 |----------|------|
 | 提高（e.g. 99%）| 降低誤報，但可能遺漏真實未知故障 |
 | 降低（e.g. 90%）| 更敏感地偵測未知，但誤報增加 |
+
+> 這個機制有三個結構性弱點——單一全域共變異數、百分位數不是機率、判定粒度是叢集而非樣本。
+> 替代方案（OpenMax、能量分數、證據深度學習等）的評估見
+> [docs/OpenSet_Recognition.md](docs/OpenSet_Recognition.md)。
 
 ### 取樣限制
 
@@ -931,6 +936,7 @@ threshold = np.percentile(train_distances, 95)  # 95 可調整為 90~99
 | [Step 4 詳細說明](docs/Step4_Unknown_Detection.md) | HDBSCAN 原理、馬氏距離計算、閾值選擇 |
 | [Step 5 詳細說明](docs/Step5_Random_Sampling_Detection.md) | 隨機批次驗證方法與解讀 |
 | [Step 6 詳細說明](docs/Step6_Model_Retraining.md) | 增量學習流程、資料合併策略 |
+| [開放集辨識評估](docs/OpenSet_Recognition.md) | 現行馬氏距離閾值的三個弱點，以及 OpenMax、能量分數等五種替代方案 |
 | [TensorFlow & GPU 指南](docs/Tensorflow.md) | CUDA 安裝、記憶體管理、疑難排解 |
 | [Agent 指引](AGENT.md) | AI 自動化工具的操作慣例與約束 |
 
