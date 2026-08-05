@@ -1,0 +1,33 @@
+2026-06-13 03:33:19 | INFO  | Logger initialized
+2026-06-13 03:33:19 | INFO  | log_file=/home/albert/Ancestor/logs/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19.log
+2026-06-13 03:33:19 | INFO  | output_dir=/home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19
+Processing data for T1 motor with 8 screws...
+2026-06-13 03:34:29 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_000.png
+2026-06-13 03:34:34 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_001.png
+Processing data for T1 motor with 7 screws...
+2026-06-13 03:35:48 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_003.png
+2026-06-13 03:35:52 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_004.png
+Processing data for T1 motor with 6 screws...
+2026-06-13 03:37:11 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_006.png
+2026-06-13 03:37:27 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_007.png
+Processing data for T1 motor with 5 screws...
+2026-06-13 03:38:42 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_009.png
+2026-06-13 03:38:57 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_010.png
+Processing data for T1 motor with 4 screws...
+2026-06-13 03:40:15 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_012.png
+2026-06-13 03:40:20 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_013.png
+Processing data for T1 motor with 3 screws...
+2026-06-13 03:41:33 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_015.png
+2026-06-13 03:41:38 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_016.png
+Processing data for T1 motor with 2 screws...
+2026-06-13 03:42:52 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_018.png
+2026-06-13 03:42:57 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_019.png
+Processing data for T1 motor with 1 screws...
+2026-06-13 03:44:12 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_021.png
+2026-06-13 03:44:17 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_022.png
+Processing data for T1 motor with 3_14 screws...
+2026-06-13 03:45:26 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_024.png
+2026-06-13 03:45:31 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_025.png
+Processing data for T1 motor with 4_146 screws...
+2026-06-13 03:46:41 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_027.png
+2026-06-13 03:46:46 | INFO  | Saved plot: /home/albert/Ancestor/output/Step1_Data_Preprocessing_figure_8000/2026-06-13-03-33-19/plot_028.png

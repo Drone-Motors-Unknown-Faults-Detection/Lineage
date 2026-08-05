@@ -232,8 +232,9 @@ data/*
 tools/
 
 # Run artifacts
-logs/
-output/
+# logs/ 與 output/ 刻意納入版控，見 AGENT.md「GitHub」章節。
+# 上方 Django 區塊的 *.log 會連執行紀錄一起擋掉，此處明確排除。
+!logs/**/*.log
 
 # CUDA
 cuda_info.txt
