@@ -18,6 +18,7 @@ dependencies = [
     "absl-py",
     "jupyter",
     "loguru",
+    "markdown",
 ]
 
 [project.optional-dependencies]

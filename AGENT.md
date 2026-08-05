@@ -14,18 +14,23 @@
 
 ```
 /home/albert/Ancestor/
-├── Step1_Data_Preprocessing_figure_*.py   # 資料視覺化腳本（×6）
+├── Step1_Data_Preprocessing_figure_{6000,8000,11000}.py  # 資料視覺化腳本（×3）
 ├── Step1_Data_Preprocessing_save_*.py     # 資料儲存腳本（×9）
 ├── Step2_Feature_Extraction_*.py          # 特徵萃取腳本（×9）
-├── Step3_Model_{1..9}.ipynb                        # CNN 訓練，基礎版本（×9）
-├── Step3_Model_{10..27}_OneStage.ipynb             # CNN 訓練，OneStage 遷移學習（×18）
-├── Step3_Model_{10..27}_TwoStage.ipynb             # CNN 訓練，TwoStage 遷移學習（×18）
-├── Step4_Model_{1..27}_Detecting.ipynb             # 未知故障偵測（×27）
-├── Step5_Model_{1..27}_Random_Detecting.ipynb      # 隨機取樣偵測（×27）
-├── Step6_Model_{1..27}_Retrain.ipynb               # 模型重訓練（×27）
+├── Step3_Model_{01..09}.ipynb                      # 從頭訓練，基礎版本（×9）
+├── Step3_Model_{10..27}_OneStage.ipynb             # OneStage 遷移學習（×18）
+├── Step3_Model_{10..27}_TwoStage.ipynb             # TwoStage 遷移學習（×18）
+├── Step4_Model_{01..27}_Detecting.ipynb            # 未知故障偵測（×27）
+├── Step5_Model_{01..27}_Random_Detecting.ipynb     # 隨機取樣偵測（×27）
+├── Step6_Model_{01..27}_Retrain.ipynb              # 模型重訓練（×27）
 ├── T1_T2_T3.ipynb                         # 健康度退化建模
-├── gpu_utils.py                           # GPU/CPU 自動選擇模組（所有 TF Notebook 共用）
-├── requirements.txt                       # Python 套件依賴清單
+├── Step{1..6}*.sh                         # 各步驟的批次執行入口
+├── scripts/
+│   ├── logger.py                          # 自訂日誌框架
+│   ├── gpu_utils.py                       # GPU/CPU 自動選擇模組
+│   └── notebook_bootstrap.py              # Notebook 共用初始化
+├── pyproject.toml                         # 套件依賴與 Python 版本（3.10.19）
+├── build_uv.sh / build_venv.sh            # 建立 venv
 ├── README.md                              # 專案說明
 ├── AGENT.md                               # 本文件
 └── docs/
@@ -65,13 +70,25 @@ Step 1 → Step 2 → Step 3 → Step 4 → Step 5
 
 Step3 共 45 個 Notebook（基礎 9 + OneStage 18 + TwoStage 18），對應不同的實驗配置：
 
-| 編號範圍 | 類型 | 說明 |
-|----------|------|------|
-| 1 ~ 9 | 基礎版本 | 對應不同轉速 / 馬達組合 |
-| 10 ~ 27（OneStage）| OneStage 變體 | 一階段遷移學習（凍結前半層，Fine-tune）|
-| 10 ~ 27（TwoStage）| TwoStage 變體 | 兩階段遷移學習（OneStage 後再次 Fine-tune）|
+Model 01 ~ 27 是三個維度的完整交叉組合：
 
-**重要：** Step N（N = 3~6）的 Notebook 編號必須對應，`Step3_Model_5.ipynb` 對應 `Step4_Model_5_Detecting.ipynb` 等。
+```
+編號 N  →  馬達時期 = 01-09:T1 / 10-18:T2 / 19-27:T3
+           轉速     = ((N-1) // 3) % 3  →  0:8000rpm  1:6000rpm  2:11000rpm
+           架構     = (N-1) % 3         →  0:CNN  1:ResNet  2:VGG16
+```
+
+**資料夾 T 碼與模型檔名字母碼是反的**（最容易踩到的一點）：
+
+| 資料目錄 | 馬達時期 | 模型檔名字母 |
+|----------|----------|--------------|
+| `data/Step-1/` | T1 | `*_C*.keras` |
+| `data/Step-2/` | T2 | `*_B*.keras` |
+| `data/Step-3/` | T3 | `*_A*.keras` |
+
+只有 Model 01 ~ 03 從頭訓練，產出的 `{ARCH}_C8000.keras` 是全專案唯一的 baseline，其餘 24 組皆由此遷移（凍結前 50% 層）。OneStage 存檔帶 `_1`，TwoStage 不帶；8000rpm 的 TwoStage 其實與 OneStage 載入同一個模型，只有 6000/11000rpm 組才是真正的兩階段。Step 4/5 一律載入 OneStage 產物。
+
+**重要：** Step N（N = 3~6）的 Notebook 編號必須對應，`Step3_Model_05.ipynb` 對應 `Step4_Model_05_Detecting.ipynb` 等。
 
 ---
 
@@ -105,10 +122,12 @@ Step3 共 45 個 Notebook（基礎 9 + OneStage 18 + TwoStage 18），對應不�
 
 ---
 
-## CNN 模型規格
+## 模型規格
+
+每個組合都會以 **CNN / ResNet / VGG16** 三種架構各訓練一次（論文稱 CNN_11 Layers / CNN_Res / CNN_VGG），輸入輸出與訓練設定一致，只有中間結構不同。以下為 CNN 基準架構：
 
 ```python
-# 標準架構（Step 3 / Step 6 共用）
+# CNN 架構（Step 3 / Step 6 共用）
 Input:    (105, 1)
 Conv1D:   16 filters, kernel=3, padding='same', ReLU
 Conv1D:   16 filters, kernel=3, ReLU  → MaxPool(2)
@@ -170,37 +189,33 @@ threshold = np.percentile(train_distances, 95)  # 可調整百分位數
 3. **HDBSCAN 隨機性：** 叢集結果可能略有差異，建議固定 `random_state` 或多次執行取平均。
 4. **協方差矩陣奇異性：** 若特徵高度共線，馬氏距離計算可能失敗，需先以 PCA 降維。
 5. **Step 6 從頭重訓練：** 目前不使用 Fine-tuning，若資料量大，訓練時間較長。
-6. **資料路徑：** 所有腳本使用相對路徑（以專案根目錄為基準），並統一從 `data/` 目錄讀寫；請確保在專案根目錄執行（例如 `.../Ancestor/`）。
+6. **資料路徑：** 所有腳本使用相對路徑（以 `os.getcwd()` 為基準），並統一從 `data/` 目錄讀寫；請確保在專案根目錄執行（例如 `.../Ancestor/`）。
+7. **兩種特徵檔不可混用：** Step 3/6 讀 `*_Group_feature_data.csv`，Step 4/5 讀 `*_Group_feature_data_clean.csv`（IQR scale=1.5 逐列過濾後的版本）。
+8. **掃描設定值時要排除註解：** 腳本裡留有不少被註解掉的舊設定（例如 `# groups = ['A', 'B', 'C']`），用 grep 判斷生效值時容易誤判。
+9. **`logs/` 與 `output/` 納入版控：** 每次執行的紀錄會產生新檔案，提交前確認要不要一併帶上。
 
 ---
 
 ## 環境需求
 
-```
-Python >= 3.8
-TensorFlow >= 2.x
-hdbscan
-scikit-learn
-scipy
-pandas
-numpy
-matplotlib
-seaborn
-jupyter
-```
+套件與 Python 版本定義在 `pyproject.toml`（Python 釘在 3.10.19），依平台分成 `.[linux]`（`tensorflow[and-cuda]`）與 `.[mac]`（`tensorflow` + `tensorflow-metal`）兩組。
 
 安裝：
 
 ```bash
-pip install tensorflow hdbscan scikit-learn scipy pandas numpy matplotlib seaborn jupyter
+./build_uv.sh        # Linux
+./build_uv_mac.sh    # macOS
+./build_venv.sh      # 標準 venv
 ```
+
+執行時一律使用 `venv/bin/python` 與 `venv/bin/jupyter`，各步驟的 `.sh` 入口已經這樣寫，不需要先 activate。
 
 ### GPU 支援
 
-本專案透過 `gpu_utils.py` 統一管理 GPU/CPU 選擇。所有 TensorFlow Notebook 在頂部匯入：
+本專案透過 `scripts/gpu_utils.py` 統一管理 GPU/CPU 選擇。所有 TensorFlow Notebook 在頂部匯入：
 
 ```python
-from gpu_utils import device_scope, DEVICE
+from scripts.gpu_utils import device_scope, DEVICE
 ```
 
 訓練區塊以 `with device_scope():` 包裹，有 GPU 時自動使用 `/GPU:0`，否則回退至 `/CPU:0`，不需手動修改任何參數。詳細說明見 [docs/Tensorflow.md](docs/Tensorflow.md)。

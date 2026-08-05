@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Step 3：模型訓練 (Model Training)</title>
-  
+
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
                  "Noto Sans", sans-serif;
@@ -67,19 +67,19 @@
 
 </head>
 <body>
-<h1 id="step-3-model-training">Step 3：模型訓練 (Model Training)</h1>
-<h2 id="_1">概述</h2>
+<h1 id="step-3模型訓練-model-training">Step 3：模型訓練 (Model Training)</h1>
+<h2 id="概述">概述</h2>
 <p>Step 3 使用 Step 2 萃取的 105 維特徵向量，訓練一維卷積神經網路（1D CNN），建立馬達故障類型的分類模型，可辨識 5 種已知故障狀態。訓練完成的模型同時作為 Step 4/5 特徵萃取的基礎。</p>
-<hr>
-<h2 id="_2">目標</h2>
+<hr />
+<h2 id="目標">目標</h2>
 <ul>
-<li>訓練 CNN 模型區分已知的 5 種故障類別</li>
+<li>以三種架構（CNN / ResNet / VGG16）分別訓練，區分已知的 5 種故障類別</li>
 <li>儲存訓練好的模型供 Step 4 偵測使用</li>
 <li>建立中間層特徵萃取器用於異常偵測</li>
 <li>評估模型在測試集上的表現（混淆矩陣、學習曲線）</li>
 </ul>
-<hr>
-<h2 id="notebook">Notebook 一覽</h2>
+<hr />
+<h2 id="notebook-一覽">Notebook 一覽</h2>
 <table>
 <thead>
 <tr>
@@ -90,9 +90,9 @@
 </thead>
 <tbody>
 <tr>
-<td>Model 1 ~ 9</td>
+<td>Model 01 ~ 09</td>
 <td>基礎版本</td>
-<td>從頭訓練，對應不同轉速 / 馬達配置組合</td>
+<td>從頭訓練（僅 01~03 是真正的 baseline，04~09 由 8000rpm 遷移）</td>
 </tr>
 <tr>
 <td>Model 10 ~ 27（OneStage）</td>
@@ -102,13 +102,14 @@
 <tr>
 <td>Model 10 ~ 27（TwoStage）</td>
 <td>TwoStage 變體</td>
-<td>兩階段遷移學習（OneStage 後再進行第二次 Fine-tune）</td>
+<td>兩階段遷移學習（6000/11000rpm 組才是真正的兩階段）</td>
 </tr>
 </tbody>
 </table>
-<p>共 <strong>45 個 Jupyter Notebook</strong>：<code>Step3_Model_1.ipynb</code> ~ <code>Step3_Model_9.ipynb</code>（基礎）、<code>Step3_Model_10_OneStage.ipynb</code> ~ <code>Step3_Model_27_OneStage.ipynb</code>（OneStage）、<code>Step3_Model_10_TwoStage.ipynb</code> ~ <code>Step3_Model_27_TwoStage.ipynb</code>（TwoStage）</p>
-<hr>
-<h2 id="_3">分類目標</h2>
+<p>共 <strong>45 個 Jupyter Notebook</strong>：<code>Step3_Model_01.ipynb</code> ~ <code>Step3_Model_09.ipynb</code>（基礎）、<code>Step3_Model_10_OneStage.ipynb</code> ~ <code>Step3_Model_27_OneStage.ipynb</code>（OneStage）、<code>Step3_Model_10_TwoStage.ipynb</code> ~ <code>Step3_Model_27_TwoStage.ipynb</code>（TwoStage）</p>
+<p>編號與「馬達時期 × 轉速 × 架構」的完整對照見 <a href="../README.html#模型編號系統">README 的模型編號系統</a>。</p>
+<hr />
+<h2 id="分類目標">分類目標</h2>
 <table>
 <thead>
 <tr>
@@ -145,10 +146,11 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="cnn">CNN 模型架構</h2>
+<hr />
+<h2 id="模型架構">模型架構</h2>
+<p>每個組合都會以 CNN / ResNet / VGG16 三種架構各訓練一次（論文稱 CNN_11 Layers / CNN_Res / CNN_VGG），三者輸入輸出與訓練設定一致，只有中間結構不同。以下為 CNN 基準架構。</p>
 <p>輸入：<code>(105, 1)</code>（105 維特徵向量，reshape 為 1D 序列）</p>
-<pre class="codehilite"><code>Input (N, 105, 1)
+<pre><code>Input (N, 105, 1)
     ↓
 Conv1D(16 filters, kernel=3, padding='same', ReLU)    → (N, 105, 16)
     ↓
@@ -166,12 +168,11 @@ Dropout(0.3)
     ↓
 Dense(5, Softmax)   ← Step 3 輸出 5 類；Step 6 重訓練時改為 10 類
 </code></pre>
-
 <blockquote>
 <p><code>Flatten</code> 層輸出的 <strong>176 維向量</strong>作為 Step 4/5 HDBSCAN 叢集的輸入特徵空間。</p>
 </blockquote>
-<h3 id="_4">模型建構程式碼</h3>
-<pre class="codehilite"><code class="language-python">import tensorflow as tf
+<h3 id="模型建構程式碼">模型建構程式碼</h3>
+<pre><code class="language-python">import tensorflow as tf
 from tensorflow.keras.layers import Conv1D, MaxPooling1D, Flatten, Dense, Dropout
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
@@ -200,9 +201,8 @@ def build_cnn_model(input_shape=(105, 1), num_classes=5):
     )
     return model
 </code></pre>
-
-<hr>
-<h2 id="_5">訓練配置</h2>
+<hr />
+<h2 id="訓練配置">訓練配置</h2>
 <table>
 <thead>
 <tr>
@@ -241,10 +241,10 @@ def build_cnn_model(input_shape=(105, 1), num_classes=5):
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="_6">訓練流程</h2>
-<pre class="codehilite"><code>1. [Bootstrap]  初始化 logger（建立 logs/ 與 output/ 目錄）
-2. [設定]       匯入套件 + GPU 初始化（gpu_utils）
+<hr />
+<h2 id="訓練流程">訓練流程</h2>
+<pre><code>1. [Bootstrap]  初始化 logger（建立 logs/ 與 output/ 目錄）
+2. [設定]       匯入套件 + GPU 初始化（scripts.gpu_utils）
 3. [載入資料]   從 myfeature/ 讀取 *_Group_feature_data.csv
 4. [標籤編碼]   螺絲字串 → 整數（'8screws'→0, '1screw'→1, ...）
 5. [分割資料]   train_test_split（test_size=0.2, stratify=y）
@@ -255,9 +255,8 @@ def build_cnn_model(input_shape=(105, 1), num_classes=5):
 10.[評估]       混淆矩陣 + 準確率/損失曲線 → 自動儲存至 output/
 11.[儲存]       model.save('data/Step-*/model/CNN_*.keras')
 </code></pre>
-
-<h3 id="_7">資料前處理程式碼</h3>
-<pre class="codehilite"><code class="language-python">from sklearn.preprocessing import RobustScaler
+<h3 id="資料前處理程式碼">資料前處理程式碼</h3>
+<pre><code class="language-python">from sklearn.preprocessing import RobustScaler
 from sklearn.model_selection import train_test_split
 
 # 分割
@@ -274,9 +273,8 @@ X_test  = scaler.transform(X_test)
 X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
 X_test  = X_test.reshape(X_test.shape[0],  X_test.shape[1],  1)
 </code></pre>
-
-<hr>
-<h2 id="_8">模型輸出</h2>
+<hr />
+<h2 id="模型輸出">模型輸出</h2>
 <table>
 <thead>
 <tr>
@@ -303,8 +301,8 @@ X_test  = X_test.reshape(X_test.shape[0],  X_test.shape[1],  1)
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="onestage-vs-twostage">OneStage vs TwoStage 遷移學習</h2>
+<hr />
+<h2 id="onestage-vs-twostage-遷移學習">OneStage vs TwoStage 遷移學習</h2>
 <table>
 <thead>
 <tr>
@@ -331,7 +329,7 @@ X_test  = X_test.reshape(X_test.shape[0],  X_test.shape[1],  1)
 </tr>
 </tbody>
 </table>
-<pre class="codehilite"><code class="language-python"># OneStage / TwoStage 遷移學習核心程式碼
+<pre><code class="language-python"># OneStage / TwoStage 遷移學習核心程式碼
 model = load_model('CNN_base.keras')
 
 freeze_count = len(model.layers) // 2
@@ -348,18 +346,17 @@ model.compile(
 )
 history = model.fit(X_new, y_new, ...)
 </code></pre>
-
-<hr>
-<h2 id="_9">模型表現</h2>
+<hr />
+<h2 id="模型表現">模型表現</h2>
 <ul>
 <li>測試集準確率：通常達到 <strong>100%</strong>（5 類已知故障邊界明確）</li>
 <li>早停機制有效防止過擬合，實際通常在 20–50 epochs 提前結束</li>
 <li>Dropout(0.3) 增強模型泛化能力</li>
 </ul>
-<hr>
-<h2 id="logger">Logger 與輸出</h2>
+<hr />
+<h2 id="logger-與輸出">Logger 與輸出</h2>
 <p>每個 Notebook 頂部包含自動維護的 bootstrap cell：</p>
-<pre class="codehilite"><code class="language-python"># --- logging bootstrap (auto-added) ---
+<pre><code class="language-python"># --- logging bootstrap (auto-added) ---
 import importlib
 import logger as _logger_mod
 _logger_mod = importlib.reload(_logger_mod)
@@ -375,11 +372,10 @@ atexit.register(_tee_ctx.__exit__, None, None, None)
 # ... (自動儲存圖表與 GPU 資源釋放邏輯略)
 # --- end logging bootstrap ---
 </code></pre>
-
 <p><code>plt.show()</code> 呼叫時自動將圖表存至 <code>output/{run_name}/plot_000.png</code>、<code>plot_001.png</code> 等。stdout/stderr 同步寫入日誌檔。</p>
-<hr>
-<h2 id="_10">技術依賴</h2>
-<pre class="codehilite"><code class="language-python">import tensorflow as tf
+<hr />
+<h2 id="技術依賴">技術依賴</h2>
+<pre><code class="language-python">import tensorflow as tf
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.layers import Conv1D, MaxPooling1D, Flatten, Dense, Dropout
 from tensorflow.keras.optimizers import Adam
@@ -389,11 +385,10 @@ from sklearn.preprocessing import RobustScaler
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from gpu_utils import device_scope, DEVICE
+from scripts.gpu_utils import device_scope, DEVICE
 </code></pre>
-
-<hr>
-<h2 id="_11">注意事項</h2>
+<hr />
+<h2 id="注意事項">注意事項</h2>
 <ul>
 <li><strong>模型對應：</strong> <code>Step3_Model N.ipynb</code> 訓練出的模型必須配合 <code>Step4_Model N__Detecting.ipynb</code> 使用，不可交叉混用</li>
 <li><strong>Flatten 層特徵：</strong> 176 維的 Flatten 輸出是 Step 4/5 的核心，Step 6 重訓練後的新模型也需保持此架構</li>

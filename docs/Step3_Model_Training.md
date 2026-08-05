@@ -8,7 +8,7 @@ Step 3 使用 Step 2 萃取的 105 維特徵向量，訓練一維卷積神經網
 
 ## 目標
 
-- 訓練 CNN 模型區分已知的 5 種故障類別
+- 以三種架構（CNN / ResNet / VGG16）分別訓練，區分已知的 5 種故障類別
 - 儲存訓練好的模型供 Step 4 偵測使用
 - 建立中間層特徵萃取器用於異常偵測
 - 評估模型在測試集上的表現（混淆矩陣、學習曲線）
@@ -19,11 +19,13 @@ Step 3 使用 Step 2 萃取的 105 維特徵向量，訓練一維卷積神經網
 
 | 模型範圍 | 類型 | 說明 |
 |----------|------|------|
-| Model 1 ~ 9 | 基礎版本 | 從頭訓練，對應不同轉速 / 馬達配置組合 |
+| Model 01 ~ 09 | 基礎版本 | 從頭訓練（僅 01~03 是真正的 baseline，04~09 由 8000rpm 遷移）|
 | Model 10 ~ 27（OneStage）| OneStage 變體 | 載入基礎模型、凍結前半層、以不同馬達資料 Fine-tune |
-| Model 10 ~ 27（TwoStage）| TwoStage 變體 | 兩階段遷移學習（OneStage 後再進行第二次 Fine-tune）|
+| Model 10 ~ 27（TwoStage）| TwoStage 變體 | 兩階段遷移學習（6000/11000rpm 組才是真正的兩階段）|
 
-共 **45 個 Jupyter Notebook**：`Step3_Model_1.ipynb` ~ `Step3_Model_9.ipynb`（基礎）、`Step3_Model_10_OneStage.ipynb` ~ `Step3_Model_27_OneStage.ipynb`（OneStage）、`Step3_Model_10_TwoStage.ipynb` ~ `Step3_Model_27_TwoStage.ipynb`（TwoStage）
+共 **45 個 Jupyter Notebook**：`Step3_Model_01.ipynb` ~ `Step3_Model_09.ipynb`（基礎）、`Step3_Model_10_OneStage.ipynb` ~ `Step3_Model_27_OneStage.ipynb`（OneStage）、`Step3_Model_10_TwoStage.ipynb` ~ `Step3_Model_27_TwoStage.ipynb`（TwoStage）
+
+編號與「馬達時期 × 轉速 × 架構」的完整對照見 [README 的模型編號系統](../README.md#模型編號系統)。
 
 ---
 
@@ -39,7 +41,9 @@ Step 3 使用 Step 2 萃取的 105 維特徵向量，訓練一維卷積神經網
 
 ---
 
-## CNN 模型架構
+## 模型架構
+
+每個組合都會以 CNN / ResNet / VGG16 三種架構各訓練一次（論文稱 CNN_11 Layers / CNN_Res / CNN_VGG），三者輸入輸出與訓練設定一致，只有中間結構不同。以下為 CNN 基準架構。
 
 輸入：`(105, 1)`（105 維特徵向量，reshape 為 1D 序列）
 
@@ -118,7 +122,7 @@ def build_cnn_model(input_shape=(105, 1), num_classes=5):
 
 ```
 1. [Bootstrap]  初始化 logger（建立 logs/ 與 output/ 目錄）
-2. [設定]       匯入套件 + GPU 初始化（gpu_utils）
+2. [設定]       匯入套件 + GPU 初始化（scripts.gpu_utils）
 3. [載入資料]   從 myfeature/ 讀取 *_Group_feature_data.csv
 4. [標籤編碼]   螺絲字串 → 整數（'8screws'→0, '1screw'→1, ...）
 5. [分割資料]   train_test_split（test_size=0.2, stratify=y）
@@ -239,7 +243,7 @@ from sklearn.preprocessing import RobustScaler
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from gpu_utils import device_scope, DEVICE
+from scripts.gpu_utils import device_scope, DEVICE
 ```
 
 ---
