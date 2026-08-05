@@ -73,6 +73,8 @@
 │   ├── logger.py                             # 自訂日誌框架
 │   ├── gpu_utils.py                          # GPU/CPU 自動選擇模組
 │   ├── notebook_bootstrap.py                 # Notebook 共用初始化（日誌 + 自動存圖）
+│   ├── model_utils.py                        # 依架構取特徵層（Step 4/5 用）
+│   ├── train_guard.py                        # 訓練前後的健全性斷言（Step 3/6 用）
 │   └── render_docs.py                        # 由 .md 產生 docs 的 .html
 │
 ├── pyproject.toml                            # 套件依賴與 Python 版本
@@ -392,13 +394,15 @@ Input: (105, 1)  ← 105 維特徵向量 reshape 為 1D 序列
 ├── Conv1D(filters=16, kernel=3, activation='relu')  + MaxPooling1D(pool_size=2)
 ├── Conv1D(filters=16, kernel=3, activation='relu')  + MaxPooling1D(pool_size=2)
 │
-├── Flatten()  →  176 維中間特徵（供 Step 4/5 使用）
+├── Flatten()  →  176 維中間特徵（供 Step 4/5 使用；ResNet 改用 GAP 得 128 維、VGG16 得 48 維）
 ├── Dense(16, activation='relu')
 ├── Dropout(rate=0.3)
 └── Dense(5, activation='softmax')   # Step 6 重訓練時改為 10
 ```
 
-> `Flatten` 層的 176 維輸出作為**無監督特徵空間**，供 Step 4/5 的異常偵測使用。
+> CNN 的 `Flatten` 層輸出（176 維）作為**無監督特徵空間**，供 Step 4/5 的異常偵測使用。
+> ResNet 沒有 Flatten 層，改以 `global_average_pooling1d`（128 維）；VGG16 的 Flatten 為 48 維。
+> Step 4/5 以 `scripts/model_utils.py` 的 `get_feature_layer()` 自動判別。
 
 ### 訓練設定
 
@@ -451,7 +455,7 @@ Input: (105, 1)  ← 105 維特徵向量 reshape 為 1D 序列
 階段 A：訓練資料的特徵空間建立
 ─────────────────────────────────
 1. 載入 Step 3 訓練完的 CNN 模型
-2. 建立特徵萃取模型：Input → Flatten 層輸出（176 維）
+2. 建立特徵萃取模型：Input → 中間層輸出（CNN 176 / ResNet 128 / VGG16 48 維）
 3. 對 5 類訓練資料萃取 Flatten 特徵
 4. 執行 HDBSCAN 叢集（將訓練特徵分成有意義的叢集）
 5. 計算每個訓練樣本到其叢集中心的馬氏距離（Mahalanobis Distance）
@@ -684,25 +688,21 @@ save_plot(plt, log, run_paths)
 
 #### Notebook Bootstrap Cell
 
-每個 Notebook 早期 cell（自動維護）：
+全部 128 個 Notebook 的第一個 cell 都是這三行：
 
 ```python
 # --- logging bootstrap (auto-added) ---
-import importlib
-import logger as _logger_mod
-_logger_mod = importlib.reload(_logger_mod)
-save_plot = _logger_mod.save_plot
-setup_logger = _logger_mod.setup_logger
-tee_std_to_file = _logger_mod.tee_std_to_file
+from scripts.notebook_bootstrap import bootstrap
 
-LOG, RUN_PATHS = setup_logger('notebook', console=False)
-_tee_ctx = tee_std_to_file(RUN_PATHS.log_file)
-_tee_ctx.__enter__()
-import atexit
-atexit.register(_tee_ctx.__exit__, None, None, None)
-# ... (自動儲存圖表與 GPU 資源釋放邏輯略)
+LOG, RUN_PATHS = bootstrap()
 # --- end logging bootstrap ---
 ```
+
+`bootstrap()` 一次做完四件事：建立本次執行的 logger、把 stdout/stderr 導向 log、
+註冊 TensorFlow 的資源釋放，以及攔截 `plt.show()` 自動存圖。
+
+> 這段先前是 56 行、複製在每個 Notebook 裡的。要修一個 bug 就得改 128 個地方，
+> 因此收斂到 `scripts/notebook_bootstrap.py` 統一維護。
 
 ---
 
@@ -735,6 +735,48 @@ DEVICE, _gpus = _configure()
 
 - **動態記憶體分配（`set_memory_growth=True`）**：避免 TensorFlow 一次佔用全部 GPU 記憶體，允許多個程序共用 GPU。
 - **自動回退**：無 GPU 時自動使用 CPU，程式碼不需修改。
+
+---
+
+### `scripts/model_utils.py` — 依架構取特徵層
+
+Step 4/5 需要模型的中間層輸出作為無監督特徵空間，但三種架構的特徵層並不同名：
+
+```python
+from scripts.model_utils import get_feature_layer
+
+feat_model = Model(inputs=cnn.input, outputs=get_feature_layer(cnn).output)
+```
+
+| 架構 | 取到的層 | 維度 |
+|------|----------|------|
+| CNN | `flatten` | 176 |
+| ResNet | `global_average_pooling1d` | 128 |
+| VGG16 | `flatten` | 48 |
+
+依 `FEATURE_LAYER_CANDIDATES` 的順序尋找，都找不到時退回輸出層的前一層。
+
+---
+
+### `scripts/train_guard.py` — 訓練健全性斷言
+
+訓練若因輸入含 NaN 而失敗，並不會拋出例外——模型照樣存檔、Notebook 照樣「成功」結束，
+唯一的線索是準確率剛好等於 `1 / 類別數`。這個模組把那種靜默失敗變成明確的例外：
+
+```python
+from scripts.train_guard import assert_finite_inputs, assert_model_learned
+
+assert_finite_inputs(X_train=X_train, X_test=X_test)
+# ... 訓練 ...
+assert_model_learned(history, results, len(np.unique(y_train_screws)))
+```
+
+| 函式 | 檢查內容 |
+|------|----------|
+| `assert_finite_inputs` | 輸入不得含 NaN/inf，錯誤訊息會指出前幾個出問題的 `(列, 欄)` |
+| `assert_model_learned` | 訓練與評估的 loss 必須有限；測試準確率不得落在 `1/類別數 + margin` 以內 |
+
+Step 3 的 45 個與 Step 6 的 27 個 Notebook 都已插入這兩道檢查。
 
 ---
 
@@ -939,6 +981,7 @@ threshold = np.percentile(train_distances, 95)  # 95 可調整為 90~99
 | [開放集辨識評估](docs/OpenSet_Recognition.md) | 現行馬氏距離閾值的三個弱點，以及 OpenMax、能量分數等五種替代方案 |
 | [TensorFlow & GPU 指南](docs/Tensorflow.md) | CUDA 安裝、記憶體管理、疑難排解 |
 | [Agent 指引](AGENT.md) | AI 自動化工具的操作慣例與約束 |
+| [與原始版本的差異](Differents.md) | 對照 `1ea243f` / `5b0e8d6` 兩個原始上傳版本，逐項說明改了什麼與為什麼 |
 
 ---
 

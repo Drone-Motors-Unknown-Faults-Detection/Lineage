@@ -172,8 +172,8 @@ TensorFlow 預設在程式啟動時佔用 GPU 的全部 VRAM。啟用動態記�
 import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.callbacks import EarlyStopping
-from gpu_utils import device_scope, DEVICE   # 匯入裝置介面
-from logger import setup_logger, save_plot   # 匯入日誌模組
+from scripts.gpu_utils import device_scope, DEVICE   # 匯入裝置介面
+from scripts.logger import setup_logger, save_plot   # 匯入日誌模組
 
 # ── Logger 初始化（Notebook 頂部 bootstrap cell）──────────────────
 LOG, RUN_PATHS = setup_logger(__file__)      # 建立 logs/ 與 output/ 目錄
@@ -238,7 +238,7 @@ print(&quot;GPU 清單：&quot;, tf.config.list_physical_devices('GPU'))
 print(&quot;CUDA 可用：&quot;, tf.test.is_built_with_cuda())
 </code></pre>
 <p>或直接匯入 <code>gpu_utils</code> 觀察輸出訊息：</p>
-<pre><code class="language-python">from gpu_utils import DEVICE, gpu_count
+<pre><code class="language-python">from scripts.gpu_utils import DEVICE, gpu_count
 # [gpu_utils] GPU x1 已啟用：['/physical_device:GPU:0']
 print(&quot;訓練裝置：&quot;, DEVICE)   # /GPU:0
 print(&quot;GPU 數量：&quot;, gpu_count())   # 1
@@ -331,7 +331,7 @@ model = tf.keras.Sequential([
 <tr>
 <td><code>Flatten</code></td>
 <td>—</td>
-<td>展平為 1D 向量（176 維），作為特徵萃取點</td>
+<td>展平為 1D 向量（CNN 為 176 維），作為特徵萃取點</td>
 </tr>
 <tr>
 <td><code>Dense</code></td>
@@ -468,7 +468,7 @@ plt.show()
 <hr />
 <h2 id="5-中間層特徵萃取">5. 中間層特徵萃取</h2>
 <h3 id="用途">用途</h3>
-<p>Step 4 / Step 5 需要將輸入資料投影到 CNN 學習到的特徵空間，再用 HDBSCAN 叢集分析偵測未知故障。萃取點為 <strong><code>Flatten</code> 層輸出</strong>（176 維向量）。</p>
+<p>Step 4 / Step 5 需要將輸入資料投影到模型學習到的特徵空間，再用 HDBSCAN 叢集分析偵測未知故障。萃取點依架構而異：CNN 與 VGG16 取 <strong><code>Flatten</code> 層輸出</strong>（176 / 48 維），ResNet 取 <strong><code>global_average_pooling1d</code></strong>（128 維）。程式中以 <code>scripts.model_utils.get_feature_layer(model)</code> 自動判別。</p>
 <h3 id="萃取模型建構">萃取模型建構</h3>
 <pre><code class="language-python">from tensorflow.keras.models import Model, load_model
 
@@ -503,7 +503,7 @@ X_te_f = feat_model.predict(
 <pre><code class="language-python">import hdbscan
 import numpy as np
 
-# HDBSCAN 叢集（在 176 維特徵空間）
+# HDBSCAN 叢集（在中間層特徵空間）
 clusterer = hdbscan.HDBSCAN(min_cluster_size=25, min_samples=3)
 cluster_labels = clusterer.fit_predict(X_te_f)
 
@@ -616,8 +616,8 @@ from tensorflow.keras.models    import Model, load_model
 from tensorflow.keras.layers    import Conv1D, MaxPooling1D, Flatten, Dense, Dropout, Input
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks  import EarlyStopping
-from gpu_utils import device_scope, DEVICE
-from logger import setup_logger, save_plot
+from scripts.gpu_utils import device_scope, DEVICE
+from scripts.logger import setup_logger, save_plot
 </code></pre>
 <blockquote>
 <p><code>BatchNormalization</code> 與 <code>Sequential</code> 在本專案中未使用；模型均以 Functional API 建構。</p>
@@ -650,7 +650,7 @@ from logger import setup_logger, save_plot
 <tr>
 <td><code>Flatten</code></td>
 <td><code>tf.keras.layers.Flatten</code></td>
-<td>展平至 176 維</td>
+<td>展平至 176 維（CNN；ResNet 改用 GAP 至 128 維）</td>
 </tr>
 <tr>
 <td><code>Dense</code></td>
@@ -710,7 +710,7 @@ from logger import setup_logger, save_plot
 </thead>
 <tbody>
 <tr>
-<td><code>from gpu_utils import DEVICE</code></td>
+<td><code>from scripts.gpu_utils import DEVICE</code></td>
 <td><code>str</code></td>
 <td><code>'/GPU:0'</code> 或 <code>'/CPU:0'</code></td>
 </tr>
@@ -784,7 +784,7 @@ from logger import setup_logger, save_plot
 </tbody>
 </table>
 <h3 id="使用方式">使用方式</h3>
-<pre><code class="language-python">from logger import setup_logger, save_plot
+<pre><code class="language-python">from scripts.logger import setup_logger, save_plot
 
 # 初始化（建立 logs/ 與 output/ 目錄）
 log, run_paths = setup_logger(__file__)
@@ -800,7 +800,7 @@ save_plot(plt, log, run_paths)
 </code></pre>
 <h3 id="日誌格式">日誌格式</h3>
 <pre><code>2026-05-07 13:51:09 | INFO  | Logger initialized
-2026-05-07 13:51:09 | INFO  | log_file=logs/program_2026-05-07-13-51-09/program.log
+2026-08-05 15:30:16 | INFO  | log_file=logs/Step3_Model_01/2026-08-05-15-30-16.log
 2026-05-07 13:51:09 | INFO  | output_dir=output/program_2026-05-07-13-51-09/
 </code></pre>
 <h3 id="teetofilestream-的-keras-輸出過濾"><code>_TeeToFileStream</code> 的 Keras 輸出過濾</h3>
@@ -850,7 +850,7 @@ MaxPooling1D(2)        →  (N,  51, 16)
 Conv1D(16, k=3)        →  (N,  49, 16)
 MaxPooling1D(2)        →  (N,  24, 16)
 Conv1D(16, k=3)        →  (N,  22, 16)
-MaxPooling1D(2)        →  (N,  11, 16)  ← Step4/5 特徵萃取點（接 Flatten = 176 維）
+MaxPooling1D(2)        →  (N,  11, 16)  ← Step4/5 特徵萃取點（CNN 接 Flatten = 176 維）
 Flatten                →  (N, 176)
 Dense(16, relu)        →  (N,  16)
 Dropout(0.3)           →  (N,  16)

@@ -169,7 +169,35 @@ Dropout(0.3)
 Dense(5, Softmax)   ← Step 3 輸出 5 類；Step 6 重訓練時改為 10 類
 </code></pre>
 <blockquote>
-<p><code>Flatten</code> 層輸出的 <strong>176 維向量</strong>作為 Step 4/5 HDBSCAN 叢集的輸入特徵空間。</p>
+<p>CNN 的 <code>Flatten</code> 層輸出為 <strong>176 維向量</strong>，作為 Step 4/5 HDBSCAN 叢集的輸入特徵空間。</p>
+<p><strong>三種架構的特徵層並不相同</strong>——ResNet 使用 Global Average Pooling，沒有 Flatten 層：</p>
+<table>
+<thead>
+<tr>
+<th>架構</th>
+<th>特徵層</th>
+<th>維度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNN</td>
+<td><code>flatten</code></td>
+<td>176</td>
+</tr>
+<tr>
+<td>ResNet</td>
+<td><code>global_average_pooling1d</code></td>
+<td>128</td>
+</tr>
+<tr>
+<td>VGG16</td>
+<td><code>flatten</code></td>
+<td>48</td>
+</tr>
+</tbody>
+</table>
+<p>Step 4/5 以 <code>scripts/model_utils.get_feature_layer(model)</code> 自動取得對應層。</p>
 </blockquote>
 <h3 id="模型建構程式碼">模型建構程式碼</h3>
 <pre><code class="language-python">import tensorflow as tf
@@ -358,7 +386,7 @@ history = model.fit(X_new, y_new, ...)
 <p>每個 Notebook 頂部包含自動維護的 bootstrap cell：</p>
 <pre><code class="language-python"># --- logging bootstrap (auto-added) ---
 import importlib
-import logger as _logger_mod
+from scripts.notebook_bootstrap import bootstrap
 _logger_mod = importlib.reload(_logger_mod)
 save_plot = _logger_mod.save_plot
 setup_logger = _logger_mod.setup_logger
@@ -391,7 +419,7 @@ from scripts.gpu_utils import device_scope, DEVICE
 <h2 id="注意事項">注意事項</h2>
 <ul>
 <li><strong>模型對應：</strong> <code>Step3_Model N.ipynb</code> 訓練出的模型必須配合 <code>Step4_Model N__Detecting.ipynb</code> 使用，不可交叉混用</li>
-<li><strong>Flatten 層特徵：</strong> 176 維的 Flatten 輸出是 Step 4/5 的核心，Step 6 重訓練後的新模型也需保持此架構</li>
+<li><strong>中間層特徵：</strong> 特徵萃取層是 Step 4/5 的核心（CNN 176 維、ResNet 128 維、VGG16 48 維），Step 6 重訓練後的新模型也需保持對應架構</li>
 <li><strong>Step 6 輸出層：</strong> 重訓練時將最後一層改為 <code>Dense(10, softmax)</code>，其他層結構完全相同</li>
 <li><strong>遷移學習版本：</strong> OneStage/TwoStage 依賴對應的基礎版模型，執行前須確認來源模型已存在</li>
 <li><strong>特徵檔案命名：</strong> Step 2 輸出的特徵檔案為 <code>*_Group_feature_data.csv</code>，Step 3 直接讀取此檔案</li>

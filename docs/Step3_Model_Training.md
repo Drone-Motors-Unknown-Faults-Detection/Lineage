@@ -67,7 +67,17 @@ Dropout(0.3)
 Dense(5, Softmax)   ← Step 3 輸出 5 類；Step 6 重訓練時改為 10 類
 ```
 
-> `Flatten` 層輸出的 **176 維向量**作為 Step 4/5 HDBSCAN 叢集的輸入特徵空間。
+> CNN 的 `Flatten` 層輸出為 **176 維向量**，作為 Step 4/5 HDBSCAN 叢集的輸入特徵空間。
+>
+> **三種架構的特徵層並不相同**——ResNet 使用 Global Average Pooling，沒有 Flatten 層：
+>
+> | 架構 | 特徵層 | 維度 |
+> |------|--------|------|
+> | CNN | `flatten` | 176 |
+> | ResNet | `global_average_pooling1d` | 128 |
+> | VGG16 | `flatten` | 48 |
+>
+> Step 4/5 以 `scripts/model_utils.get_feature_layer(model)` 自動取得對應層。
 
 ### 模型建構程式碼
 
@@ -211,7 +221,7 @@ history = model.fit(X_new, y_new, ...)
 ```python
 # --- logging bootstrap (auto-added) ---
 import importlib
-import logger as _logger_mod
+from scripts.notebook_bootstrap import bootstrap
 _logger_mod = importlib.reload(_logger_mod)
 save_plot = _logger_mod.save_plot
 setup_logger = _logger_mod.setup_logger
@@ -251,7 +261,7 @@ from scripts.gpu_utils import device_scope, DEVICE
 ## 注意事項
 
 - **模型對應：** `Step3_Model N.ipynb` 訓練出的模型必須配合 `Step4_Model N__Detecting.ipynb` 使用，不可交叉混用
-- **Flatten 層特徵：** 176 維的 Flatten 輸出是 Step 4/5 的核心，Step 6 重訓練後的新模型也需保持此架構
+- **中間層特徵：** 特徵萃取層是 Step 4/5 的核心（CNN 176 維、ResNet 128 維、VGG16 48 維），Step 6 重訓練後的新模型也需保持對應架構
 - **Step 6 輸出層：** 重訓練時將最後一層改為 `Dense(10, softmax)`，其他層結構完全相同
 - **遷移學習版本：** OneStage/TwoStage 依賴對應的基礎版模型，執行前須確認來源模型已存在
 - **特徵檔案命名：** Step 2 輸出的特徵檔案為 `*_Group_feature_data.csv`，Step 3 直接讀取此檔案

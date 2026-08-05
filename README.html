@@ -132,6 +132,8 @@
 │   ├── logger.py                             # 自訂日誌框架
 │   ├── gpu_utils.py                          # GPU/CPU 自動選擇模組
 │   ├── notebook_bootstrap.py                 # Notebook 共用初始化（日誌 + 自動存圖）
+│   ├── model_utils.py                        # 依架構取特徵層（Step 4/5 用）
+│   ├── train_guard.py                        # 訓練前後的健全性斷言（Step 3/6 用）
 │   └── render_docs.py                        # 由 .md 產生 docs 的 .html
 │
 ├── pyproject.toml                            # 套件依賴與 Python 版本
@@ -646,13 +648,15 @@ print(tf.config.list_physical_devices('GPU'))  # 應回傳 [PhysicalDevice(name=
 ├── Conv1D(filters=16, kernel=3, activation='relu')  + MaxPooling1D(pool_size=2)
 ├── Conv1D(filters=16, kernel=3, activation='relu')  + MaxPooling1D(pool_size=2)
 │
-├── Flatten()  →  176 維中間特徵（供 Step 4/5 使用）
+├── Flatten()  →  176 維中間特徵（供 Step 4/5 使用；ResNet 改用 GAP 得 128 維、VGG16 得 48 維）
 ├── Dense(16, activation='relu')
 ├── Dropout(rate=0.3)
 └── Dense(5, activation='softmax')   # Step 6 重訓練時改為 10
 </code></pre>
 <blockquote>
-<p><code>Flatten</code> 層的 176 維輸出作為<strong>無監督特徵空間</strong>，供 Step 4/5 的異常偵測使用。</p>
+<p>CNN 的 <code>Flatten</code> 層輸出（176 維）作為<strong>無監督特徵空間</strong>，供 Step 4/5 的異常偵測使用。
+ResNet 沒有 Flatten 層，改以 <code>global_average_pooling1d</code>（128 維）；VGG16 的 Flatten 為 48 維。
+Step 4/5 以 <code>scripts/model_utils.py</code> 的 <code>get_feature_layer()</code> 自動判別。</p>
 </blockquote>
 <h3 id="訓練設定">訓練設定</h3>
 <table>
@@ -717,7 +721,7 @@ print(tf.config.list_physical_devices('GPU'))  # 應回傳 [PhysicalDevice(name=
 <pre><code>階段 A：訓練資料的特徵空間建立
 ─────────────────────────────────
 1. 載入 Step 3 訓練完的 CNN 模型
-2. 建立特徵萃取模型：Input → Flatten 層輸出（176 維）
+2. 建立特徵萃取模型：Input → 中間層輸出（CNN 176 / ResNet 128 / VGG16 48 維）
 3. 對 5 類訓練資料萃取 Flatten 特徵
 4. 執行 HDBSCAN 叢集（將訓練特徵分成有意義的叢集）
 5. 計算每個訓練樣本到其叢集中心的馬氏距離（Mahalanobis Distance）
@@ -1008,23 +1012,19 @@ with tee_std_to_file(log_file):
 # → output/program_2026-05-07-13-51-09/plot_001.png
 </code></pre>
 <h4 id="notebook-bootstrap-cell">Notebook Bootstrap Cell</h4>
-<p>每個 Notebook 早期 cell（自動維護）：</p>
+<p>全部 128 個 Notebook 的第一個 cell 都是這三行：</p>
 <pre><code class="language-python"># --- logging bootstrap (auto-added) ---
-import importlib
-import logger as _logger_mod
-_logger_mod = importlib.reload(_logger_mod)
-save_plot = _logger_mod.save_plot
-setup_logger = _logger_mod.setup_logger
-tee_std_to_file = _logger_mod.tee_std_to_file
+from scripts.notebook_bootstrap import bootstrap
 
-LOG, RUN_PATHS = setup_logger('notebook', console=False)
-_tee_ctx = tee_std_to_file(RUN_PATHS.log_file)
-_tee_ctx.__enter__()
-import atexit
-atexit.register(_tee_ctx.__exit__, None, None, None)
-# ... (自動儲存圖表與 GPU 資源釋放邏輯略)
+LOG, RUN_PATHS = bootstrap()
 # --- end logging bootstrap ---
 </code></pre>
+<p><code>bootstrap()</code> 一次做完四件事：建立本次執行的 logger、把 stdout/stderr 導向 log、
+註冊 TensorFlow 的資源釋放，以及攔截 <code>plt.show()</code> 自動存圖。</p>
+<blockquote>
+<p>這段先前是 56 行、複製在每個 Notebook 裡的。要修一個 bug 就得改 128 個地方，
+因此收斂到 <code>scripts/notebook_bootstrap.py</code> 統一維護。</p>
+</blockquote>
 <hr />
 <h3 id="scriptsgpu-utilspy-gpucpu-自動管理"><code>scripts/gpu_utils.py</code> — GPU/CPU 自動管理</h3>
 <pre><code class="language-python">from scripts.gpu_utils import device_scope, DEVICE, gpu_count, is_gpu
@@ -1051,6 +1051,69 @@ DEVICE, _gpus = _configure()
 <li><strong>動態記憶體分配（<code>set_memory_growth=True</code>）</strong>：避免 TensorFlow 一次佔用全部 GPU 記憶體，允許多個程序共用 GPU。</li>
 <li><strong>自動回退</strong>：無 GPU 時自動使用 CPU，程式碼不需修改。</li>
 </ul>
+<hr />
+<h3 id="scriptsmodel-utilspy-依架構取特徵層"><code>scripts/model_utils.py</code> — 依架構取特徵層</h3>
+<p>Step 4/5 需要模型的中間層輸出作為無監督特徵空間，但三種架構的特徵層並不同名：</p>
+<pre><code class="language-python">from scripts.model_utils import get_feature_layer
+
+feat_model = Model(inputs=cnn.input, outputs=get_feature_layer(cnn).output)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>架構</th>
+<th>取到的層</th>
+<th>維度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNN</td>
+<td><code>flatten</code></td>
+<td>176</td>
+</tr>
+<tr>
+<td>ResNet</td>
+<td><code>global_average_pooling1d</code></td>
+<td>128</td>
+</tr>
+<tr>
+<td>VGG16</td>
+<td><code>flatten</code></td>
+<td>48</td>
+</tr>
+</tbody>
+</table>
+<p>依 <code>FEATURE_LAYER_CANDIDATES</code> 的順序尋找，都找不到時退回輸出層的前一層。</p>
+<hr />
+<h3 id="scriptstrain-guardpy-訓練健全性斷言"><code>scripts/train_guard.py</code> — 訓練健全性斷言</h3>
+<p>訓練若因輸入含 NaN 而失敗，並不會拋出例外——模型照樣存檔、Notebook 照樣「成功」結束，
+唯一的線索是準確率剛好等於 <code>1 / 類別數</code>。這個模組把那種靜默失敗變成明確的例外：</p>
+<pre><code class="language-python">from scripts.train_guard import assert_finite_inputs, assert_model_learned
+
+assert_finite_inputs(X_train=X_train, X_test=X_test)
+# ... 訓練 ...
+assert_model_learned(history, results, len(np.unique(y_train_screws)))
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>函式</th>
+<th>檢查內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assert_finite_inputs</code></td>
+<td>輸入不得含 NaN/inf，錯誤訊息會指出前幾個出問題的 <code>(列, 欄)</code></td>
+</tr>
+<tr>
+<td><code>assert_model_learned</code></td>
+<td>訓練與評估的 loss 必須有限；測試準確率不得落在 <code>1/類別數 + margin</code> 以內</td>
+</tr>
+</tbody>
+</table>
+<p>Step 3 的 45 個與 Step 6 的 27 個 Notebook 都已插入這兩道檢查。</p>
 <hr />
 <h2 id="模型編號系統">模型編號系統</h2>
 <p>Model 01 ~ 27 是<strong>三個維度的完整交叉組合</strong>：</p>
@@ -1374,6 +1437,10 @@ threshold = np.percentile(train_distances, 95)  # 95 可調整為 90~99
 <tr>
 <td><a href="AGENT.md">Agent 指引</a></td>
 <td>AI 自動化工具的操作慣例與約束</td>
+</tr>
+<tr>
+<td><a href="Differents.md">與原始版本的差異</a></td>
+<td>對照 <code>1ea243f</code> / <code>5b0e8d6</code> 兩個原始上傳版本，逐項說明改了什麼與為什麼</td>
 </tr>
 </tbody>
 </table>
