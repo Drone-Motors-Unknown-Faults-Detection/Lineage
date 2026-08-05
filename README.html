@@ -147,6 +147,7 @@
 │   ├── Step5_Random_Sampling_Detection.md
 │   ├── Step6_Model_Retraining.md
 │   ├── OpenSet_Recognition.md                # 開放集辨識取代馬氏距離的技術評估
+│   ├── Model_Choice_Analysis.md              # 換模型／調參數的實測分析
 │   └── Tensorflow.md                         # TensorFlow &amp; GPU 安裝指南
 │
 └── data/                                     # 所有資料（讀寫基準）
@@ -1429,6 +1430,10 @@ threshold = np.percentile(train_distances, 95)  # 95 可調整為 90~99
 <tr>
 <td><a href="docs/OpenSet_Recognition.html">開放集辨識評估</a></td>
 <td>現行馬氏距離閾值的三個弱點，以及 OpenMax、能量分數等五種替代方案</td>
+</tr>
+<tr>
+<td><a href="docs/Model_Choice_Analysis.html">模型選擇分析</a></td>
+<td>固定馬氏距離流程下，換模型／調參數對準確率與偵測能力的實測分析</td>
 </tr>
 <tr>
 <td><a href="docs/Tensorflow.html">TensorFlow &amp; GPU 指南</a></td>
