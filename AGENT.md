@@ -57,9 +57,9 @@ Step 1 → Step 2 → Step 3 → Step 4 → Step 5
 
 | 步驟 | 輸入來源 | 輸出目標 |
 |------|----------|----------|
-| Step 1 | `data/Step-{1|2|3}/{Motor}/{RPM}/{Screws}/` 原始 CSV | `data/Step-{1|2|3}/csv/` |
-| Step 2 | `data/Step-{1|2|3}/csv/` | `data/Step-{1|2|3}/myfeature/` |
-| Step 3 | `data/Step-{1|2|3}/myfeature/` | `data/Step-{1|2|3}/model/*.keras` |
+| Step 1 | `data/Step-{1..3}/{Motor}/{RPM}/{Screws}/` 原始 CSV | `data/Step-{1..3}/csv/` |
+| Step 2 | `data/Step-{1..3}/csv/` | `data/Step-{1..3}/myfeature/` |
+| Step 3 | `data/Step-{1..3}/myfeature/` | `data/Step-{1..3}/model/*.keras` |
 | Step 4 | *.keras + 未知資料 | 偵測結果、叢集模型 |
 | Step 5 | Step 4 的叢集模型 | 偵測結果（隨機批次）|
 | Step 6 | 原始已知 + 未知資料 | 重訓練 *.keras 模型 |
