@@ -118,7 +118,9 @@ class MahalanobisOpenSetDetector:
             location = train_t.mean(axis=0)
             covariance = np.cov(train_t, rowvar=False)
             precision = np.linalg.pinv(covariance + np.eye(covariance.shape[0]) * self.ridge)
-            threshold = float(np.quantile(_distances(cal_t, location, precision), self.confidence))
+            # Preserve the notebook baseline exactly: its threshold is measured
+            # on the same training features used to estimate mean/covariance.
+            threshold = float(np.quantile(_distances(train_t, location, precision), self.confidence))
             self.distributions_.append(ClassDistribution(-1, location, precision, threshold))
             return self
 

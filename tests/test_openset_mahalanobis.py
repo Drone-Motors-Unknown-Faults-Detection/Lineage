@@ -39,6 +39,12 @@ class MahalanobisOpenSetDetectorTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             detector.fit(self.X_train, self.y_train, self.X_cal, self.y_cal, self.X_unknown)
 
+    def test_legacy_threshold_matches_training_quantile(self):
+        detector = MahalanobisOpenSetDetector(method="legacy").fit(
+            self.X_train, self.y_train, self.X_cal + 100.0, self.y_cal
+        )
+        self.assertLess(detector.distributions_[0].threshold, 10.0)
+
 
 if __name__ == "__main__":
     unittest.main()
