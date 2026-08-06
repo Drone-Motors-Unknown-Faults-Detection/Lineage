@@ -45,6 +45,10 @@ class MahalanobisOpenSetDetectorTest(unittest.TestCase):
         )
         self.assertLess(detector.distributions_[0].threshold, 10.0)
 
+    def test_default_is_selected_ledoit_wolf_method(self):
+        detector = MahalanobisOpenSetDetector()
+        self.assertEqual(detector.method, "ledoit_wolf")
+
 
 if __name__ == "__main__":
     unittest.main()

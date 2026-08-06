@@ -50,7 +50,7 @@ class MahalanobisOpenSetDetector:
 
     def __init__(
         self,
-        method: Method = "legacy",
+        method: Method = "ledoit_wolf",
         confidence: float = 0.95,
         ridge: float = 1e-6,
         mcd_variance: float = 0.95,
