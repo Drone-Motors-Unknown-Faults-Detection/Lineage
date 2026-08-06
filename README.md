@@ -994,6 +994,7 @@ threshold = np.percentile(train_distances, 95)  # 95 可調整為 90~99
 | [Step 6 詳細說明](docs/Step6_Model_Retraining.md) | 增量學習流程、資料合併策略 |
 | [開放集辨識評估](docs/OpenSet_Recognition.md) | 現行馬氏距離閾值的三個弱點，以及 OpenMax、能量分數等五種替代方案 |
 | [模型選擇分析](docs/Model_Choice_Analysis.md) | 固定馬氏距離流程下，換模型／調參數對準確率與偵測能力的實測分析 |
+| [馬氏距離改善實驗](docs/Mahalanobis_Improvement.md) | Legacy、Ledoit–Wolf、OAS、MCD 的 18 模型真實資料比較與採用結論 |
 | [TensorFlow & GPU 指南](docs/Tensorflow.md) | CUDA 安裝、記憶體管理、疑難排解 |
 | [Agent 指引](AGENT.md) | AI 自動化工具的操作慣例與約束 |
 | [與原始版本的差異](Differents.md) | 對照 `1ea243f` / `5b0e8d6` 兩個原始上傳版本，逐項說明改了什麼與為什麼 |

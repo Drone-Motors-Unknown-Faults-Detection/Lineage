@@ -1,0 +1,96 @@
+2026-08-06 13:56:50 | INFO  | Logger initialized
+2026-08-06 13:56:50 | INFO  | log_file=D:\schoolshit\專題\src\Lineage\logs\mahalanobis_benchmark\2026-08-06-13-56-50.log
+2026-08-06 13:56:50 | INFO  | output_dir=D:\schoolshit\專題\src\Lineage\output\mahalanobis_benchmark\2026-08-06-13-56-50
+2026-08-06 13:56:50 | INFO  | benchmark_configs=[{'model_id': 1, 'step': 'Step-1', 't_code': 'T1', 'rpm': '8000rpm', 'architecture': 'CNN', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\model\\CNN_C8000.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\myfeature\\T1\\8000rpm'}, {'model_id': 2, 'step': 'Step-1', 't_code': 'T1', 'rpm': '8000rpm', 'architecture': 'ResNet', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\model\\ResNet_C8000.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\myfeature\\T1\\8000rpm'}, {'model_id': 3, 'step': 'Step-1', 't_code': 'T1', 'rpm': '8000rpm', 'architecture': 'VGG16', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\model\\VGG16_C8000.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\myfeature\\T1\\8000rpm'}, {'model_id': 4, 'step': 'Step-1', 't_code': 'T1', 'rpm': '6000rpm', 'architecture': 'CNN', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\model\\CNN_C6000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\myfeature\\T1\\6000rpm'}, {'model_id': 5, 'step': 'Step-1', 't_code': 'T1', 'rpm': '6000rpm', 'architecture': 'ResNet', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\model\\ResNet_C6000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\myfeature\\T1\\6000rpm'}, {'model_id': 6, 'step': 'Step-1', 't_code': 'T1', 'rpm': '6000rpm', 'architecture': 'VGG16', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\model\\VGG16_C6000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\myfeature\\T1\\6000rpm'}, {'model_id': 7, 'step': 'Step-1', 't_code': 'T1', 'rpm': '11000rpm', 'architecture': 'CNN', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\model\\CNN_C11000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\myfeature\\T1\\11000rpm'}, {'model_id': 8, 'step': 'Step-1', 't_code': 'T1', 'rpm': '11000rpm', 'architecture': 'ResNet', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\model\\ResNet_C11000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\myfeature\\T1\\11000rpm'}, {'model_id': 9, 'step': 'Step-1', 't_code': 'T1', 'rpm': '11000rpm', 'architecture': 'VGG16', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\model\\VGG16_C11000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-1\\myfeature\\T1\\11000rpm'}, {'model_id': 19, 'step': 'Step-3', 't_code': 'T3', 'rpm': '8000rpm', 'architecture': 'CNN', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\model\\CNN_A8000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\myfeature\\T3\\8000rpm'}, {'model_id': 20, 'step': 'Step-3', 't_code': 'T3', 'rpm': '8000rpm', 'architecture': 'ResNet', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\model\\ResNet_A8000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\myfeature\\T3\\8000rpm'}, {'model_id': 21, 'step': 'Step-3', 't_code': 'T3', 'rpm': '8000rpm', 'architecture': 'VGG16', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\model\\VGG16_A8000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\myfeature\\T3\\8000rpm'}, {'model_id': 22, 'step': 'Step-3', 't_code': 'T3', 'rpm': '6000rpm', 'architecture': 'CNN', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\model\\CNN_A6000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\myfeature\\T3\\6000rpm'}, {'model_id': 23, 'step': 'Step-3', 't_code': 'T3', 'rpm': '6000rpm', 'architecture': 'ResNet', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\model\\ResNet_A6000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\myfeature\\T3\\6000rpm'}, {'model_id': 24, 'step': 'Step-3', 't_code': 'T3', 'rpm': '6000rpm', 'architecture': 'VGG16', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\model\\VGG16_A6000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\myfeature\\T3\\6000rpm'}, {'model_id': 25, 'step': 'Step-3', 't_code': 'T3', 'rpm': '11000rpm', 'architecture': 'CNN', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\model\\CNN_A11000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\myfeature\\T3\\11000rpm'}, {'model_id': 26, 'step': 'Step-3', 't_code': 'T3', 'rpm': '11000rpm', 'architecture': 'ResNet', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\model\\ResNet_A11000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\myfeature\\T3\\11000rpm'}, {'model_id': 27, 'step': 'Step-3', 't_code': 'T3', 'rpm': '11000rpm', 'architecture': 'VGG16', 'model_path': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\model\\VGG16_A11000_1.keras', 'feature_dir': 'D:\\schoolshit\\專題\\src\\Lineage\\data\\Step-3\\myfeature\\T3\\11000rpm'}]
+2026-08-06 13:56:50 | INFO  | starting model=01 path=D:\schoolshit\專題\src\Lineage\data\Step-1\model\CNN_C8000.keras
+2026-08-06 13:56:51 | INFO  | model=01 arch=CNN rpm=8000rpm method=legacy auroc=0.9997 accuracy=0.9611 known_accept=0.7676 unknown_recall=1.0000
+2026-08-06 13:56:51 | INFO  | model=01 arch=CNN rpm=8000rpm method=ledoit_wolf auroc=1.0000 accuracy=0.9941 known_accept=0.9648 unknown_recall=1.0000
+2026-08-06 13:56:51 | INFO  | model=01 arch=CNN rpm=8000rpm method=oas auroc=1.0000 accuracy=0.9923 known_accept=0.9542 unknown_recall=1.0000
+2026-08-06 13:56:52 | INFO  | model=01 arch=CNN rpm=8000rpm method=mcd auroc=0.9841 accuracy=0.9269 known_accept=0.9507 unknown_recall=0.9221
+2026-08-06 13:56:52 | INFO  | starting model=02 path=D:\schoolshit\專題\src\Lineage\data\Step-1\model\ResNet_C8000.keras
+2026-08-06 13:56:54 | INFO  | model=02 arch=ResNet rpm=8000rpm method=legacy auroc=0.9879 accuracy=0.9634 known_accept=0.8486 unknown_recall=0.9865
+2026-08-06 13:56:54 | INFO  | model=02 arch=ResNet rpm=8000rpm method=ledoit_wolf auroc=0.9993 accuracy=0.9882 known_accept=0.9401 unknown_recall=0.9979
+2026-08-06 13:56:54 | INFO  | model=02 arch=ResNet rpm=8000rpm method=oas auroc=0.9993 accuracy=0.9882 known_accept=0.9401 unknown_recall=0.9979
+2026-08-06 13:56:54 | INFO  | model=02 arch=ResNet rpm=8000rpm method=mcd auroc=0.9901 accuracy=0.9640 known_accept=0.9366 unknown_recall=0.9695
+2026-08-06 13:56:54 | INFO  | starting model=03 path=D:\schoolshit\專題\src\Lineage\data\Step-1\model\VGG16_C8000.keras
+2026-08-06 13:56:56 | INFO  | model=03 arch=VGG16 rpm=8000rpm method=legacy auroc=0.9949 accuracy=0.9811 known_accept=0.8979 unknown_recall=0.9979
+2026-08-06 13:56:56 | INFO  | model=03 arch=VGG16 rpm=8000rpm method=ledoit_wolf auroc=0.9999 accuracy=0.9882 known_accept=0.9296 unknown_recall=1.0000
+2026-08-06 13:56:56 | INFO  | model=03 arch=VGG16 rpm=8000rpm method=oas auroc=0.9999 accuracy=0.9876 known_accept=0.9261 unknown_recall=1.0000
+2026-08-06 13:56:56 | INFO  | model=03 arch=VGG16 rpm=8000rpm method=mcd auroc=0.9753 accuracy=0.9163 known_accept=0.9472 unknown_recall=0.9101
+2026-08-06 13:56:56 | INFO  | starting model=04 path=D:\schoolshit\專題\src\Lineage\data\Step-1\model\CNN_C6000_1.keras
+2026-08-06 13:56:57 | INFO  | model=04 arch=CNN rpm=6000rpm method=legacy auroc=1.0000 accuracy=0.9583 known_accept=0.7500 unknown_recall=1.0000
+2026-08-06 13:56:57 | INFO  | model=04 arch=CNN rpm=6000rpm method=ledoit_wolf auroc=1.0000 accuracy=0.9906 known_accept=0.9433 unknown_recall=1.0000
+2026-08-06 13:56:57 | INFO  | model=04 arch=CNN rpm=6000rpm method=oas auroc=1.0000 accuracy=0.9906 known_accept=0.9433 unknown_recall=1.0000
+2026-08-06 13:56:57 | INFO  | model=04 arch=CNN rpm=6000rpm method=mcd auroc=0.9975 accuracy=0.9856 known_accept=0.9267 unknown_recall=0.9973
+2026-08-06 13:56:57 | INFO  | starting model=05 path=D:\schoolshit\專題\src\Lineage\data\Step-1\model\ResNet_C6000_1.keras
+2026-08-06 13:57:00 | INFO  | model=05 arch=ResNet rpm=6000rpm method=legacy auroc=0.9987 accuracy=0.9672 known_accept=0.8067 unknown_recall=0.9993
+2026-08-06 13:57:00 | INFO  | model=05 arch=ResNet rpm=6000rpm method=ledoit_wolf auroc=0.9998 accuracy=0.9900 known_accept=0.9400 unknown_recall=1.0000
+2026-08-06 13:57:00 | INFO  | model=05 arch=ResNet rpm=6000rpm method=oas auroc=0.9998 accuracy=0.9900 known_accept=0.9400 unknown_recall=1.0000
+2026-08-06 13:57:00 | INFO  | model=05 arch=ResNet rpm=6000rpm method=mcd auroc=0.9899 accuracy=0.9594 known_accept=0.9333 unknown_recall=0.9647
+2026-08-06 13:57:00 | INFO  | starting model=06 path=D:\schoolshit\專題\src\Lineage\data\Step-1\model\VGG16_C6000_1.keras
+2026-08-06 13:57:01 | INFO  | model=06 arch=VGG16 rpm=6000rpm method=legacy auroc=0.9966 accuracy=0.9833 known_accept=0.9000 unknown_recall=1.0000
+2026-08-06 13:57:01 | INFO  | model=06 arch=VGG16 rpm=6000rpm method=ledoit_wolf auroc=1.0000 accuracy=0.9928 known_accept=0.9567 unknown_recall=1.0000
+2026-08-06 13:57:02 | INFO  | model=06 arch=VGG16 rpm=6000rpm method=oas auroc=1.0000 accuracy=0.9922 known_accept=0.9533 unknown_recall=1.0000
+2026-08-06 13:57:02 | INFO  | model=06 arch=VGG16 rpm=6000rpm method=mcd auroc=0.9911 accuracy=0.9417 known_accept=0.9667 unknown_recall=0.9367
+2026-08-06 13:57:02 | INFO  | starting model=07 path=D:\schoolshit\專題\src\Lineage\data\Step-1\model\CNN_C11000_1.keras
+2026-08-06 13:57:03 | INFO  | model=07 arch=CNN rpm=11000rpm method=legacy auroc=1.0000 accuracy=0.9606 known_accept=0.7633 unknown_recall=1.0000
+2026-08-06 13:57:03 | INFO  | model=07 arch=CNN rpm=11000rpm method=ledoit_wolf auroc=1.0000 accuracy=0.9944 known_accept=0.9667 unknown_recall=1.0000
+2026-08-06 13:57:03 | INFO  | model=07 arch=CNN rpm=11000rpm method=oas auroc=1.0000 accuracy=0.9944 known_accept=0.9667 unknown_recall=1.0000
+2026-08-06 13:57:03 | INFO  | model=07 arch=CNN rpm=11000rpm method=mcd auroc=0.9759 accuracy=0.8944 known_accept=0.9367 unknown_recall=0.8860
+2026-08-06 13:57:03 | INFO  | starting model=08 path=D:\schoolshit\專題\src\Lineage\data\Step-1\model\ResNet_C11000_1.keras
+2026-08-06 13:57:05 | INFO  | model=08 arch=ResNet rpm=11000rpm method=legacy auroc=0.9986 accuracy=0.9728 known_accept=0.8367 unknown_recall=1.0000
+2026-08-06 13:57:06 | INFO  | model=08 arch=ResNet rpm=11000rpm method=ledoit_wolf auroc=1.0000 accuracy=0.9872 known_accept=0.9233 unknown_recall=1.0000
+2026-08-06 13:57:06 | INFO  | model=08 arch=ResNet rpm=11000rpm method=oas auroc=1.0000 accuracy=0.9872 known_accept=0.9233 unknown_recall=1.0000
+2026-08-06 13:57:06 | INFO  | model=08 arch=ResNet rpm=11000rpm method=mcd auroc=0.9996 accuracy=0.9894 known_accept=0.9367 unknown_recall=1.0000
+2026-08-06 13:57:06 | INFO  | starting model=09 path=D:\schoolshit\專題\src\Lineage\data\Step-1\model\VGG16_C11000_1.keras
+2026-08-06 13:57:07 | INFO  | model=09 arch=VGG16 rpm=11000rpm method=legacy auroc=0.9981 accuracy=0.9750 known_accept=0.8500 unknown_recall=1.0000
+2026-08-06 13:57:07 | INFO  | model=09 arch=VGG16 rpm=11000rpm method=ledoit_wolf auroc=0.9998 accuracy=0.9917 known_accept=0.9500 unknown_recall=1.0000
+2026-08-06 13:57:07 | INFO  | model=09 arch=VGG16 rpm=11000rpm method=oas auroc=0.9998 accuracy=0.9917 known_accept=0.9500 unknown_recall=1.0000
+2026-08-06 13:57:07 | INFO  | model=09 arch=VGG16 rpm=11000rpm method=mcd auroc=0.9756 accuracy=0.9000 known_accept=0.9500 unknown_recall=0.8900
+2026-08-06 13:57:07 | INFO  | starting model=19 path=D:\schoolshit\專題\src\Lineage\data\Step-3\model\CNN_A8000_1.keras
+2026-08-06 13:57:08 | INFO  | model=19 arch=CNN rpm=8000rpm method=legacy auroc=0.9984 accuracy=0.9681 known_accept=0.8028 unknown_recall=1.0000
+2026-08-06 13:57:09 | INFO  | model=19 arch=CNN rpm=8000rpm method=ledoit_wolf auroc=1.0000 accuracy=0.9877 known_accept=0.9239 unknown_recall=1.0000
+2026-08-06 13:57:09 | INFO  | model=19 arch=CNN rpm=8000rpm method=oas auroc=1.0000 accuracy=0.9871 known_accept=0.9204 unknown_recall=1.0000
+2026-08-06 13:57:09 | INFO  | model=19 arch=CNN rpm=8000rpm method=mcd auroc=0.9240 accuracy=0.8234 known_accept=0.9481 unknown_recall=0.7993
+2026-08-06 13:57:09 | INFO  | starting model=20 path=D:\schoolshit\專題\src\Lineage\data\Step-3\model\ResNet_A8000_1.keras
+2026-08-06 13:57:11 | INFO  | model=20 arch=ResNet rpm=8000rpm method=legacy auroc=0.9632 accuracy=0.8910 known_accept=0.8927 unknown_recall=0.8907
+2026-08-06 13:57:11 | INFO  | model=20 arch=ResNet rpm=8000rpm method=ledoit_wolf auroc=0.9998 accuracy=0.9894 known_accept=0.9377 unknown_recall=0.9993
+2026-08-06 13:57:11 | INFO  | model=20 arch=ResNet rpm=8000rpm method=oas auroc=0.9998 accuracy=0.9894 known_accept=0.9377 unknown_recall=0.9993
+2026-08-06 13:57:11 | INFO  | model=20 arch=ResNet rpm=8000rpm method=mcd auroc=0.9914 accuracy=0.9648 known_accept=0.9619 unknown_recall=0.9653
+2026-08-06 13:57:11 | INFO  | starting model=21 path=D:\schoolshit\專題\src\Lineage\data\Step-3\model\VGG16_A8000_1.keras
+2026-08-06 13:57:13 | INFO  | model=21 arch=VGG16 rpm=8000rpm method=legacy auroc=0.9852 accuracy=0.9771 known_accept=0.8927 unknown_recall=0.9933
+2026-08-06 13:57:13 | INFO  | model=21 arch=VGG16 rpm=8000rpm method=ledoit_wolf auroc=0.9984 accuracy=0.9871 known_accept=0.9481 unknown_recall=0.9947
+2026-08-06 13:57:13 | INFO  | model=21 arch=VGG16 rpm=8000rpm method=oas auroc=0.9984 accuracy=0.9871 known_accept=0.9481 unknown_recall=0.9947
+2026-08-06 13:57:13 | INFO  | model=21 arch=VGG16 rpm=8000rpm method=mcd auroc=0.9494 accuracy=0.8614 known_accept=0.9481 unknown_recall=0.8447
+2026-08-06 13:57:13 | INFO  | starting model=22 path=D:\schoolshit\專題\src\Lineage\data\Step-3\model\CNN_A6000_1.keras
+2026-08-06 13:57:14 | INFO  | model=22 arch=CNN rpm=6000rpm method=legacy auroc=0.9956 accuracy=0.9620 known_accept=0.7804 unknown_recall=1.0000
+2026-08-06 13:57:15 | INFO  | model=22 arch=CNN rpm=6000rpm method=ledoit_wolf auroc=0.9997 accuracy=0.9918 known_accept=0.9527 unknown_recall=1.0000
+2026-08-06 13:57:15 | INFO  | model=22 arch=CNN rpm=6000rpm method=oas auroc=0.9996 accuracy=0.9912 known_accept=0.9493 unknown_recall=1.0000
+2026-08-06 13:57:15 | INFO  | model=22 arch=CNN rpm=6000rpm method=mcd auroc=0.9867 accuracy=0.9509 known_accept=0.9392 unknown_recall=0.9533
+2026-08-06 13:57:15 | INFO  | starting model=23 path=D:\schoolshit\專題\src\Lineage\data\Step-3\model\ResNet_A6000_1.keras
+2026-08-06 13:57:17 | INFO  | model=23 arch=ResNet rpm=6000rpm method=legacy auroc=0.9556 accuracy=0.9006 known_accept=0.8074 unknown_recall=0.9201
+2026-08-06 13:57:17 | INFO  | model=23 arch=ResNet rpm=6000rpm method=ledoit_wolf auroc=0.9942 accuracy=0.9719 known_accept=0.9358 unknown_recall=0.9795
+2026-08-06 13:57:17 | INFO  | model=23 arch=ResNet rpm=6000rpm method=oas auroc=0.9942 accuracy=0.9713 known_accept=0.9324 unknown_recall=0.9795
+2026-08-06 13:57:18 | INFO  | model=23 arch=ResNet rpm=6000rpm method=mcd auroc=0.8726 accuracy=0.7485 known_accept=0.9257 unknown_recall=0.7115
+2026-08-06 13:57:18 | INFO  | starting model=24 path=D:\schoolshit\專題\src\Lineage\data\Step-3\model\VGG16_A6000_1.keras
+2026-08-06 13:57:19 | INFO  | model=24 arch=VGG16 rpm=6000rpm method=legacy auroc=0.9204 accuracy=0.7883 known_accept=0.8885 unknown_recall=0.7673
+2026-08-06 13:57:19 | INFO  | model=24 arch=VGG16 rpm=6000rpm method=ledoit_wolf auroc=0.9862 accuracy=0.9526 known_accept=0.9324 unknown_recall=0.9569
+2026-08-06 13:57:19 | INFO  | model=24 arch=VGG16 rpm=6000rpm method=oas auroc=0.9859 accuracy=0.9509 known_accept=0.9324 unknown_recall=0.9547
+2026-08-06 13:57:19 | INFO  | model=24 arch=VGG16 rpm=6000rpm method=mcd auroc=0.9619 accuracy=0.8497 known_accept=0.9324 unknown_recall=0.8324
+2026-08-06 13:57:19 | INFO  | starting model=25 path=D:\schoolshit\專題\src\Lineage\data\Step-3\model\CNN_A11000_1.keras
+2026-08-06 13:57:21 | INFO  | model=25 arch=CNN rpm=11000rpm method=legacy auroc=1.0000 accuracy=0.9577 known_accept=0.7441 unknown_recall=1.0000
+2026-08-06 13:57:21 | INFO  | model=25 arch=CNN rpm=11000rpm method=ledoit_wolf auroc=1.0000 accuracy=0.9822 known_accept=0.8923 unknown_recall=1.0000
+2026-08-06 13:57:21 | INFO  | model=25 arch=CNN rpm=11000rpm method=oas auroc=1.0000 accuracy=0.9816 known_accept=0.8889 unknown_recall=1.0000
+2026-08-06 13:57:21 | INFO  | model=25 arch=CNN rpm=11000rpm method=mcd auroc=0.9998 accuracy=0.9922 known_accept=0.9529 unknown_recall=1.0000
+2026-08-06 13:57:21 | INFO  | starting model=26 path=D:\schoolshit\專題\src\Lineage\data\Step-3\model\ResNet_A11000_1.keras
+2026-08-06 13:57:24 | INFO  | model=26 arch=ResNet rpm=11000rpm method=legacy auroc=0.9999 accuracy=0.9705 known_accept=0.8215 unknown_recall=1.0000
+2026-08-06 13:57:24 | INFO  | model=26 arch=ResNet rpm=11000rpm method=ledoit_wolf auroc=0.9999 accuracy=0.9917 known_accept=0.9495 unknown_recall=1.0000
+2026-08-06 13:57:24 | INFO  | model=26 arch=ResNet rpm=11000rpm method=oas auroc=0.9999 accuracy=0.9917 known_accept=0.9495 unknown_recall=1.0000
+2026-08-06 13:57:24 | INFO  | model=26 arch=ResNet rpm=11000rpm method=mcd auroc=0.9896 accuracy=0.9566 known_accept=0.9226 unknown_recall=0.9633
+2026-08-06 13:57:24 | INFO  | starting model=27 path=D:\schoolshit\專題\src\Lineage\data\Step-3\model\VGG16_A11000_1.keras
+2026-08-06 13:57:26 | INFO  | model=27 arch=VGG16 rpm=11000rpm method=legacy auroc=0.9983 accuracy=0.9789 known_accept=0.8721 unknown_recall=1.0000
+2026-08-06 13:57:26 | INFO  | model=27 arch=VGG16 rpm=11000rpm method=ledoit_wolf auroc=1.0000 accuracy=0.9844 known_accept=0.9057 unknown_recall=1.0000
+2026-08-06 13:57:26 | INFO  | model=27 arch=VGG16 rpm=11000rpm method=oas auroc=1.0000 accuracy=0.9844 known_accept=0.9057 unknown_recall=1.0000
+2026-08-06 13:57:26 | INFO  | model=27 arch=VGG16 rpm=11000rpm method=mcd auroc=1.0000 accuracy=0.9839 known_accept=0.9024 unknown_recall=1.0000
+2026-08-06 13:57:26 | INFO  | results_csv=D:\schoolshit\專題\src\Lineage\output\mahalanobis_benchmark\2026-08-06-13-56-50\results.csv
+2026-08-06 13:57:26 | INFO  | summary_csv=D:\schoolshit\專題\src\Lineage\output\mahalanobis_benchmark\2026-08-06-13-56-50\summary.csv
