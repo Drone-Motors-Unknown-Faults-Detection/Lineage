@@ -63,6 +63,7 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
 | 開集判定 | 正規化分數 > 1 = 未知 | `core.mahalanobis` |
 | HDBSCAN | min_cluster_size=25, min_samples=3 | `experiments.exp2_scale_growth` |
 | 重分群節流 | 每 10 筆新未知樣本試一次 | 同上 `recluster_every` |
+| 隔離線 | 分數 > 2.0 才進隔離區（偵測線仍為 1.0）| 同上 `quarantine_margin` |
 | 趨勢 EWMA | alpha=0.08 | `core.trend.TrendMonitor` |
 | 中間帶 / 警報線 | [0.2, 0.5) / 0.5 | 同上 |
 | 突發判定 | 中間帶停留 ≤ 12 筆 | 同上 `sudden_max` |
@@ -93,10 +94,12 @@ venv/bin/python -m experiments.exp3_trend --trials 40
 
 1. **健康誤報率 ≈ 10.9%**（名目 5%）：校準集只有 ~62 筆的有限樣本效應，是已知結果
    不是 bug；EWMA 警報線與中間帶下緣（0.5 / 0.2）就是據此拉開的，調整前先看
-   `experiments/exp3_trend.py` 的分布數據。**衍生行為**：這些已知類別的邊界樣本會
-   進隔離區累積，串流夠久會自聚成 HDBSCAN 叢——此時 `confirm()` 回傳
-   `action="rejected_known"`（操作員退回、清叢、量尺不變），這是設計行為不是錯誤。
-   同理，web 偵測統計拆「學會前偵測率／學會後認出率」兩組，認出率天生 ≈ 90–95%。
+   `experiments/exp3_trend.py` 的分布數據。**衍生設計**：誤報分數僅些微超線
+   （實測 1.01–1.08），而真實故障最低分 ≥ 10——因此隔離區設「隔離線」
+   `quarantine_margin=2.0`，邊界誤報只警報、不參與新類發現；若仍有已知類別
+   邊界樣本聚成叢，`confirm()` 回傳 `action="rejected_known"`（操作員退回、
+   清叢、量尺不變）作為第二道保險。web 偵測統計拆「學會前偵測率／學會後
+   認出率」兩組，認出率天生 ≈ 90–95%。
 2. **3_14screws 特徵發散**：在 HDBSCAN 下需要遠超 25 筆才成叢；exp2 全序列重播中
    它在自身階段（600 筆）未被發現，其樣本累積到下一階段才成叢。
 3. **exp2 的 stage 列「learned」欄可能不等於注入配置**：候選叢集取自整個隔離區，
