@@ -143,7 +143,11 @@ th{color:var(--muted); font-weight:600;}
       <h2 style="color:var(--yellow)">⚠ 候選新故障（待確認）</h2>
       <div class="kv"><span class="k">叢集大小</span><span id="candSize">—</span></div>
       <div class="kv"><span class="k">叢集純度</span><span id="candPurity">—</span></div>
+      <div class="kv"><span class="k">樣本蒐集區間</span><span id="candRange">—</span></div>
       <div class="kv"><span class="k">揭示真實身分</span><span id="candMajority">—</span></div>
+      <div id="candHint" class="mini" style="display:none; margin-top:6px; color:#fde68a">
+        此叢多數屬於<b>已知類別的邊界樣本</b>（例如健康期零星誤報的累積，注意蒐集區間偏舊）——
+        確認後將退回清除，量尺不變。</div>
       <button id="btnConfirm" class="confirm" style="width:100%; margin-top:8px">✔ 操作員確認 → 納入並重訓練</button>
     </div>
     <div class="panel">
@@ -243,8 +247,16 @@ function onState(m){
     $("candidateCard").style.display = "";
     $("candSize").textContent = m.candidate.size + " 筆";
     $("candPurity").textContent = (m.candidate.purity * 100).toFixed(0) + "%";
+    $("candRange").textContent = m.candidate.t_range
+      ? `#${m.candidate.t_range[0]} ~ #${m.candidate.t_range[1]}` : "—";
     $("candMajority").textContent = m.candidate.majority_display || m.candidate.majority;
-    $("btnConfirm").disabled = busy;
+    const known = !!m.candidate.is_known;
+    $("candHint").style.display = known ? "" : "none";
+    const btn = $("btnConfirm");
+    btn.textContent = known ? "✋ 操作員退回（已知類別邊界樣本）" : "✔ 操作員確認 → 納入並重訓練";
+    btn.className = known ? "warn" : "confirm";
+    btn.style.width = "100%"; btn.style.marginTop = "8px";
+    btn.disabled = busy;
   } else {
     $("candidateCard").style.display = "none";
   }

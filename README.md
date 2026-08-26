@@ -80,7 +80,10 @@ venv/bin/python -m experiments.exp1_cold_start --motor T1 --rpm 8000rpm
 
 **方法**：未知樣本進隔離區 → 累積 ≥ 25 筆後以 HDBSCAN（min_cluster_size=25,
 min_samples=3）找穩定叢集 → 產生「候選新故障」→ 操作員確認（此時才揭示真實標籤，
-偵測與分群全程不用標籤）→ 納入已知、整組重擬合。
+偵測與分群全程不用標籤）→ 納入已知、整組重擬合。採**兩段閾值**：偵測線 1.0
+（判未知／警報），隔離線 2.0（分數明顯超線才參與新類發現）——已知類別的邊界誤報
+只些微超線（實測 1.01–1.08）、真實故障遠在其上（最低 ≥ 10），隔離線落在空隙中，
+避免誤報累積自聚成假候選。
 
 ```bash
 venv/bin/python -m experiments.exp2_scale_growth --motor T1 --rpm 8000rpm

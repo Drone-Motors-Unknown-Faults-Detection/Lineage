@@ -7,6 +7,13 @@ ScaleGrowthSession 是核心狀態機（Web 即時展示直接驅動它）：
        納入已知類別並重新擬合 → 量尺擴張
     偵測與分群過程從未使用標籤；標籤只在確認步驟扮演「操作員」。
 
+兩段閾值設計：
+    - 偵測線 1.0：正規化分數 > 1 即判「未知」（逐樣本判定與警報用）
+    - 隔離線 quarantine_margin（預設 2.0）：分數要明顯超線才進隔離區參與新類發現。
+      校準閾值天生讓 ~5–11% 已知樣本些微超線（實測健康誤報 1.01–1.08），
+      而真實故障遠在其上（實測九種配置最低分 ≥ 10）——隔離線落在空隙中，
+      擋掉邊界誤報、不漏任何故障，避免誤報累積自聚成假候選。
+
 批次執行（產出論文數據：逐配置的發現延遲、叢集純度、擴張後準確率）：
     venv/bin/python -m experiments.exp2_scale_growth --motor T1 --rpm 8000rpm
 """
@@ -36,6 +43,7 @@ class ScaleGrowthSession:
         min_cluster_size: int = 25,
         min_samples: int = 3,
         recluster_every: int = 10,
+        quarantine_margin: float = 2.0,
     ) -> None:
         self.pools = pools
         self.monitor = OpenSetMonitor(pools, seed=seed, confidence=confidence, method=method)
@@ -43,21 +51,27 @@ class ScaleGrowthSession:
         self.min_cluster_size = min_cluster_size
         self.min_samples = min_samples
         self.recluster_every = recluster_every
+        self.quarantine_margin = quarantine_margin
         self.quarantine_X: list[np.ndarray] = []
         self.quarantine_truth: list[str] = []
+        self.quarantine_t: list[int] = []
         self.candidate: dict | None = None
         self._since_cluster = 0
+        self.n_seen = 0
 
     # -- 串流 ------------------------------------------------------------------
 
     def process(self, x_raw: np.ndarray, truth: str) -> dict:
         """處理一筆樣本。truth 僅存入隔離區供之後的「操作員確認」揭示。"""
+        self.n_seen += 1
         score = float(self.monitor.score(x_raw)[0])
         label = self.monitor.classify(x_raw)[0]
         candidate_new = False
-        if label is None:
+        # 隔離線：分數明顯超線才參與新類發現，邊界誤報（如健康的 1.0x）僅警報不進隔離區
+        if label is None and score > self.quarantine_margin:
             self.quarantine_X.append(np.asarray(x_raw, dtype=float).ravel())
             self.quarantine_truth.append(truth)
+            self.quarantine_t.append(self.n_seen)
             self._since_cluster += 1
             if (
                 self.candidate is None
@@ -87,6 +101,7 @@ class ScaleGrowthSession:
             return False
         idx = np.flatnonzero(labels == best)
         truths = [self.quarantine_truth[i] for i in idx]
+        ts = [self.quarantine_t[i] for i in idx]
         majority = max(set(truths), key=truths.count)
         self.candidate = {
             "indices": idx.tolist(),
@@ -94,6 +109,9 @@ class ScaleGrowthSession:
             "majority": majority,
             "majority_display": display_name(majority),
             "purity": round(truths.count(majority) / len(truths), 4),
+            # 叢集樣本的蒐集時間區間——區分「舊帳」（如健康期累積的誤報）與現行串流
+            "t_range": [int(min(ts)), int(max(ts))],
+            "is_known": majority in self.monitor.known,
         }
         return True
 
@@ -126,6 +144,7 @@ class ScaleGrowthSession:
             keep = [i for i, t in enumerate(self.quarantine_truth) if t != config]
         self.quarantine_X = [self.quarantine_X[i] for i in keep]
         self.quarantine_truth = [self.quarantine_truth[i] for i in keep]
+        self.quarantine_t = [self.quarantine_t[i] for i in keep]
         self.candidate = None
         # 殘餘的未知樣本（可能屬於另一種故障）在下一筆未知樣本進來時即可再分群
         self._since_cluster = self.recluster_every
