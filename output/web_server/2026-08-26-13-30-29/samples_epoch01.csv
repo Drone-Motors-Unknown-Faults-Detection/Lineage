@@ -584,3 +584,10 @@ epoch,t,truth,score,verdict,predicted,ewma,cusum,quarantine,n_known,source_mode
 1,583,5screws,83.5179,unknown,,1.0,17931.06,255,1,manual
 1,584,5screws,83.9386,unknown,,1.0,18014.0,256,1,manual
 1,585,5screws,82.0995,unknown,,1.0,18095.1,257,1,manual
+1,586,5screws,86.1506,unknown,,1.0,18180.25,258,1,manual
+1,587,5screws,83.0129,unknown,,1.0,18262.27,259,1,manual
+1,588,5screws,85.5211,unknown,,1.0,18346.79,260,1,manual
+1,589,5screws,79.7114,unknown,,1.0,18425.5,261,1,manual
+1,590,5screws,82.8668,unknown,,1.0,18507.37,262,1,manual
+1,591,5screws,76.6796,unknown,,1.0,18583.05,263,1,manual
+1,592,5screws,81.9139,unknown,,1.0,18663.96,264,1,manual
