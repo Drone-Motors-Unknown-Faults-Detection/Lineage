@@ -162,11 +162,12 @@ th{color:var(--muted); font-weight:600;}
       <canvas id="scatter" height="230"></canvas>
     </div>
     <div class="panel">
-      <h2>偵測統計（實驗一）</h2>
+      <h2>偵測統計（學會前 = 該被判未知；學會後 = 該被認出）</h2>
       <table id="metricsTable">
-        <thead><tr><th>注入配置</th><th>樣本</th><th>判未知</th><th>比例</th></tr></thead>
+        <thead><tr><th>注入配置</th><th>學會前</th><th>偵測率</th><th>學會後</th><th>認出率</th></tr></thead>
         <tbody></tbody>
       </table>
+      <div class="mini" style="margin-top:6px">認出率天生 ≈ 90–95%：校準閾值取第 95 百分位，已知樣本本來就有少數落在線外。</div>
     </div>
   </div>
 </main>
@@ -302,8 +303,10 @@ function logLine(level, text, t){
 }
 
 function onMetrics(m){
+  const fmt = (n, rate, good) => n === 0 ? "<td>—</td><td>—</td>"
+    : `<td>${n}</td><td style="color:${rate >= good ? "var(--green)" : "var(--yellow)"}">${rate.toFixed(1)}%</td>`;
   $("metricsTable").querySelector("tbody").innerHTML = m.rows.map(r =>
-    `<tr><td>${r.display}</td><td>${r.streamed}</td><td>${r.flagged}</td><td>${r.rate.toFixed(1)}%</td></tr>`).join("");
+    `<tr><td>${r.display}</td>${fmt(r.pre_streamed, r.pre_rate, 95)}${fmt(r.post_streamed, r.post_rate, 85)}</tr>`).join("");
 }
 
 /* ---------- 分數串流圖 ---------- */

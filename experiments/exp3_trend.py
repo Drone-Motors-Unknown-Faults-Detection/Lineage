@@ -116,7 +116,8 @@ def run(
             "mean_latency": None if not alarmed else float(np.mean([t["latency"] for t in alarmed])),
             "mean_transition": None if not alarmed else float(np.mean([t["transition"] for t in alarmed])),
         }
-    return {"trials": trials, "summary": summary, "seed": seed, "n_trials": n_trials, "method": method}
+    return {"trials": trials, "summary": summary, "model": monitor.summary(),
+            "seed": seed, "n_trials": n_trials, "method": method}
 
 
 def main() -> None:
@@ -139,7 +140,8 @@ def main() -> None:
     import pandas as pd
 
     pd.DataFrame(result["trials"]).to_csv(paths.output_dir / "trials.csv", index=False)
-    save_json(paths.output_dir / "summary.json", result["summary"])
+    save_json(paths.output_dir / "summary.json",
+              {k: v for k, v in result.items() if k != "trials"})
 
     for key, s in result["summary"].items():
         latency = "—" if s["mean_latency"] is None else f"{s['mean_latency']:.1f}"

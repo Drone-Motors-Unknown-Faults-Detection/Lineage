@@ -93,7 +93,10 @@ venv/bin/python -m experiments.exp3_trend --trials 40
 
 1. **健康誤報率 ≈ 10.9%**（名目 5%）：校準集只有 ~62 筆的有限樣本效應，是已知結果
    不是 bug；EWMA 警報線與中間帶下緣（0.5 / 0.2）就是據此拉開的，調整前先看
-   `experiments/exp3_trend.py` 的分布數據。
+   `experiments/exp3_trend.py` 的分布數據。**衍生行為**：這些已知類別的邊界樣本會
+   進隔離區累積，串流夠久會自聚成 HDBSCAN 叢——此時 `confirm()` 回傳
+   `action="rejected_known"`（操作員退回、清叢、量尺不變），這是設計行為不是錯誤。
+   同理，web 偵測統計拆「學會前偵測率／學會後認出率」兩組，認出率天生 ≈ 90–95%。
 2. **3_14screws 特徵發散**：在 HDBSCAN 下需要遠超 25 筆才成叢；exp2 全序列重播中
    它在自身階段（600 筆）未被發現，其樣本累積到下一階段才成叢。
 3. **exp2 的 stage 列「learned」欄可能不等於注入配置**：候選叢集取自整個隔離區，
