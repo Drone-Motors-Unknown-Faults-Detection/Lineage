@@ -160,10 +160,12 @@ footer a:hover{color:var(--blue);}
     </div>
     <div class="panel">
       <h2>變化點分析（實驗三）</h2>
-      <div class="kv"><span class="k">EWMA 異常比例</span><span id="ewmaVal">0</span></div>
+      <div class="kv"><span class="k">EWMA 異常比例（≥ 0.5 觸發警報）</span><span id="ewmaVal">0</span></div>
       <div class="gauge"><div id="ewmaBar" style="background:var(--yellow); width:0%"></div></div>
-      <div class="kv" style="margin-top:6px"><span class="k">CUSUM 累積量</span><span id="cusumVal">0</span></div>
+      <div class="kv" style="margin-top:6px"><span class="k">CUSUM 偏移能量（展示統計，無門檻）</span><span id="cusumVal">0</span></div>
       <div class="kv"><span class="k">最近判別</span><span id="trendKind">—</span></div>
+      <div class="mini" style="margin-top:6px">本卡只負責警報與漸進／突發判別；
+        「候選新故障 → 操作員確認」由隔離區累積 ≥ 25 筆成叢觸發（見流程列進度）。</div>
     </div>
     <div class="panel">
       <h2>特徵空間投影（PCA，已知資料擬合）</h2>
