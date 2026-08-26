@@ -1,0 +1,5 @@
+2026-08-26 11:47:41 | INFO    | Logger initialized: web_server
+2026-08-26 11:47:41 | INFO    | log_file=logs/web_server/2026-08-26-11-47-41.log
+2026-08-26 11:47:41 | INFO    | 載入資料集 T1/8000rpm 並擬合健康基準…
+2026-08-26 11:47:41 | INFO    | 就緒 → http://localhost:8600  （Ctrl+C 結束）
+2026-08-26 11:48:40 | INFO    | 伺服器結束
