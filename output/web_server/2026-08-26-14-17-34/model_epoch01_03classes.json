@@ -1,0 +1,50 @@
+{
+  "t": 243,
+  "tag": "learned_6screws",
+  "dataset": {
+    "motor": "T1",
+    "rpm": "8000rpm"
+  },
+  "seed": 42,
+  "method": "ledoit_wolf",
+  "confidence": 0.95,
+  "n_known": 3,
+  "classes": [
+    {
+      "config": "8screws",
+      "label": 0,
+      "n_train": 187,
+      "n_cal": 62,
+      "n_holdout": 64,
+      "threshold": 8.203406157707153,
+      "centroid_pca": [
+        5.684758551872213,
+        -0.6451695751886364
+      ]
+    },
+    {
+      "config": "7screws",
+      "label": 1,
+      "n_train": 193,
+      "n_cal": 64,
+      "n_holdout": 65,
+      "threshold": 9.550585129655722,
+      "centroid_pca": [
+        -1.9020359878567357,
+        3.7620095123468262
+      ]
+    },
+    {
+      "config": "6screws",
+      "label": 2,
+      "n_train": 188,
+      "n_cal": 62,
+      "n_holdout": 64,
+      "threshold": 8.362647384627973,
+      "centroid_pca": [
+        -3.7018984231050736,
+        -3.220325134695013
+      ]
+    }
+  ]
+}
