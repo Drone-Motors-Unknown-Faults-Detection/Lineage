@@ -107,3 +107,25 @@ class OpenSetMonitor:
     def holdout(self, config: str) -> np.ndarray:
         """已知配置的保留集（未參與擬合與校準）。"""
         return self.pools[config][self.splits[config].holdout]
+
+    def summary(self) -> dict:
+        """目前擬合狀態的可序列化摘要（保存用：逐類閾值與樣本數）。"""
+        classes = []
+        for item in self.detector.distributions_:
+            config = self._label_to_config.get(int(item.label), str(item.label))
+            sp = self.splits[config]
+            classes.append({
+                "config": config,
+                "label": int(item.label),
+                "n_train": int(len(sp.train)),
+                "n_cal": int(len(sp.cal)),
+                "n_holdout": int(len(sp.holdout)),
+                "threshold": float(item.threshold),
+                "centroid_pca": list(self.centroids.get(config, ())),
+            })
+        return {
+            "method": self.method,
+            "confidence": self.confidence,
+            "n_known": len(self.known),
+            "classes": classes,
+        }

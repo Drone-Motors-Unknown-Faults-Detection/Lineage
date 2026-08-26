@@ -67,6 +67,7 @@ def run(
         "healthy_fp_rate": rows[0]["detect_rate"],
         "macro_detect_rate": float(np.mean([r["detect_rate"] for r in fault_rows])),
         "macro_auroc": float(np.mean([r["auroc"] for r in fault_rows])),
+        "model": monitor.summary(),
         "confidence": confidence,
         "method": method,
         "seed": seed,

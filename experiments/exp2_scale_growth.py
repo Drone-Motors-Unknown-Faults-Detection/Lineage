@@ -100,7 +100,13 @@ class ScaleGrowthSession:
     # -- 擴張 ------------------------------------------------------------------
 
     def confirm(self) -> dict:
-        """操作員確認候選叢集 → 納入已知並重新擬合（量尺擴張）。"""
+        """操作員確認候選叢集（此步驟才揭示真實標籤）。兩種結果：
+
+        - ``learned``：叢集多數是尚未學過的故障 → 納入已知並重新擬合（量尺擴張）。
+        - ``rejected_known``：叢集多數其實是**已知類別的邊界樣本**（例如健康誤報
+          ——95% 校準閾值天生會讓 ~5–11% 的已知樣本被判未知，累積夠多就會自己
+          聚成一叢）→ 操作員退回：清除該叢，不擴張量尺。
+        """
         if self.candidate is None:
             raise RuntimeError("目前沒有待確認的候選叢集")
         config = self.candidate["majority"]
@@ -110,8 +116,14 @@ class ScaleGrowthSession:
             "size": self.candidate["size"],
             "purity": self.candidate["purity"],
         }
-        result["label"] = self.monitor.add_class(config)
-        keep = [i for i, t in enumerate(self.quarantine_truth) if t != config]
+        if config in self.monitor.known:
+            cluster = set(self.candidate["indices"])
+            keep = [i for i in range(len(self.quarantine_truth)) if i not in cluster]
+            result["action"] = "rejected_known"
+        else:
+            result["action"] = "learned"
+            result["label"] = self.monitor.add_class(config)
+            keep = [i for i, t in enumerate(self.quarantine_truth) if t != config]
         self.quarantine_X = [self.quarantine_X[i] for i in keep]
         self.quarantine_truth = [self.quarantine_truth[i] for i in keep]
         self.candidate = None
@@ -151,17 +163,25 @@ def run(
     stages = []
     for config in sequence:
         sampler = CycleSampler(pools[config], np.arange(len(pools[config])), rng)
-        found_at = None
+        res, found_at, rejected = None, None, 0
         for tick in range(1, max_ticks_per_stage + 1):
             session.process(sampler.draw(), config)
             if session.candidate is not None:
-                found_at = tick
+                outcome = session.confirm()
+                if outcome["action"] == "rejected_known":
+                    rejected += 1  # 已知類別邊界樣本聚成的叢，操作員退回後續跑
+                    continue
+                res, found_at = outcome, tick
                 break
-        row = {"config": config, "display": display_name(config), "discovered": found_at is not None}
-        if found_at is None:
+        row = {
+            "config": config,
+            "display": display_name(config),
+            "discovered": res is not None,
+            "rejected_known_clusters": rejected,
+        }
+        if res is None:
             stages.append(row)
             continue
-        res = session.confirm()
         own = session.monitor.classify(session.monitor.holdout(res["config"]))
         healthy = session.monitor.classify(session.monitor.holdout(HEALTHY))
         row.update(
@@ -180,6 +200,7 @@ def run(
     return {
         "stages": stages,
         "final_known": list(session.monitor.known),
+        "model": session.monitor.summary(),
         "seed": seed,
         "confidence": confidence,
         "method": method,

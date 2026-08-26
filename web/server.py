@@ -32,10 +32,11 @@ STATIC_DIR = Path(__file__).parent / "static"
 class Hub:
     """連線集合 + 串流節拍器 + 重任務執行緒池。"""
 
-    def __init__(self, demo: LiveDemo, datasets: list[dict], rate: int, seed: int):
+    def __init__(self, demo: LiveDemo, datasets: list[dict], rate: int, seed: int, out_dir=None):
         self.demo = demo
         self.datasets = datasets
         self.seed = seed
+        self.out_dir = out_dir
         self.clients: set[tornado.websocket.WebSocketHandler] = set()
         self.running = False
         self.busy = False
@@ -175,6 +176,12 @@ class WSHandler(tornado.websocket.WebSocketHandler):
     @staticmethod
     def _do_confirm() -> str:
         res = HUB.demo.confirm()
+        if res["action"] == "rejected_known":
+            return (
+                f"✋ 操作員辨識：候選叢集其實是已知類別「{res['display']}」的邊界樣本"
+                f"（{res['size']} 筆——校準閾值天生會讓少量已知樣本被判未知，累積後自成一叢）"
+                f"→ 已退回並清出隔離區，量尺不變"
+            )
         return (
             f"✔ 操作員確認：叢集多數為「{res['display']}」（純度 {res['purity']*100:.0f}%）"
             f"→ 已納入為類別 {res['label']}，量尺擴張、監測器重新擬合完成"
@@ -184,13 +191,14 @@ class WSHandler(tornado.websocket.WebSocketHandler):
     def _do_reset() -> str:
         HUB.demo._build()
         HUB.running = False
-        return "↺ 已重置回階段 0（只認識健康）"
+        return f"↺ 已重置回階段 0（只認識健康）；session 紀錄換到 epoch {HUB.demo.epoch}"
 
     @staticmethod
     def _do_dataset(motor: str, rpm: str) -> str:
         for ds in HUB.datasets:
             if ds["motor"] == motor and ds["rpm"] == rpm:
-                HUB.demo = LiveDemo(ds, seed=HUB.seed)
+                HUB.demo.close()
+                HUB.demo = LiveDemo(ds, seed=HUB.seed, out_dir=HUB.out_dir)
                 HUB.running = False
                 return f"已載入資料集 {motor}/{rpm}，回到階段 0"
         raise KeyError(f"{motor}/{rpm}")
@@ -206,7 +214,7 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
 
-    log, _paths = setup_run("web_server", make_output=False)
+    log, paths = setup_run("web_server")
 
     datasets = discover_datasets(args.data_root)
     if not datasets:
@@ -219,7 +227,11 @@ def main() -> None:
 
     global HUB
     log.info(f"載入資料集 {chosen['motor']}/{chosen['rpm']} 並擬合健康基準…")
-    HUB = Hub(LiveDemo(chosen, seed=args.seed), datasets, args.rate, args.seed)
+    log.info(f"session 紀錄（逐筆樣本 + 模型快照）→ {paths.output_dir}")
+    HUB = Hub(
+        LiveDemo(chosen, seed=args.seed, out_dir=paths.output_dir),
+        datasets, args.rate, args.seed, out_dir=paths.output_dir,
+    )
 
     app = tornado.web.Application([(r"/", IndexHandler), (r"/ws", WSHandler)])
     app.listen(args.port, address="0.0.0.0")
@@ -228,6 +240,7 @@ def main() -> None:
     try:
         tornado.ioloop.IOLoop.current().start()
     except KeyboardInterrupt:
+        HUB.demo.close()
         log.info("伺服器結束")
 
 
