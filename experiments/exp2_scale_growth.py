@@ -45,19 +45,23 @@ class ScaleGrowthSession:
         self.recluster_every = recluster_every
         self.quarantine_X: list[np.ndarray] = []
         self.quarantine_truth: list[str] = []
+        self.quarantine_t: list[int] = []
         self.candidate: dict | None = None
         self._since_cluster = 0
+        self.n_seen = 0
 
     # -- 串流 ------------------------------------------------------------------
 
     def process(self, x_raw: np.ndarray, truth: str) -> dict:
         """處理一筆樣本。truth 僅存入隔離區供之後的「操作員確認」揭示。"""
+        self.n_seen += 1
         score = float(self.monitor.score(x_raw)[0])
         label = self.monitor.classify(x_raw)[0]
         candidate_new = False
         if label is None:
             self.quarantine_X.append(np.asarray(x_raw, dtype=float).ravel())
             self.quarantine_truth.append(truth)
+            self.quarantine_t.append(self.n_seen)
             self._since_cluster += 1
             if (
                 self.candidate is None
@@ -87,6 +91,7 @@ class ScaleGrowthSession:
             return False
         idx = np.flatnonzero(labels == best)
         truths = [self.quarantine_truth[i] for i in idx]
+        ts = [self.quarantine_t[i] for i in idx]
         majority = max(set(truths), key=truths.count)
         self.candidate = {
             "indices": idx.tolist(),
@@ -94,6 +99,9 @@ class ScaleGrowthSession:
             "majority": majority,
             "majority_display": display_name(majority),
             "purity": round(truths.count(majority) / len(truths), 4),
+            # 叢集樣本的蒐集時間區間——區分「舊帳」（如健康期累積的誤報）與現行串流
+            "t_range": [int(min(ts)), int(max(ts))],
+            "is_known": majority in self.monitor.known,
         }
         return True
 
@@ -126,6 +134,7 @@ class ScaleGrowthSession:
             keep = [i for i, t in enumerate(self.quarantine_truth) if t != config]
         self.quarantine_X = [self.quarantine_X[i] for i in keep]
         self.quarantine_truth = [self.quarantine_truth[i] for i in keep]
+        self.quarantine_t = [self.quarantine_t[i] for i in keep]
         self.candidate = None
         # 殘餘的未知樣本（可能屬於另一種故障）在下一筆未知樣本進來時即可再分群
         self._since_cluster = self.recluster_every

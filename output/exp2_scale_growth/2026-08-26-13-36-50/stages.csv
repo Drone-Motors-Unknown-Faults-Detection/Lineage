@@ -1,0 +1,4 @@
+config,display,discovered,rejected_known_clusters,learned,samples_to_candidate,cluster_size,cluster_purity,own_holdout_acc,healthy_holdout_acc,known_after
+5screws,5 螺絲（中度鬆動）,True,0,5screws,75,47,1.0,0.9767441860465116,1.0,2
+3_14screws,3_14（複合不均勻鬆動）,True,0,3_14screws,485,38,1.0,0.9295774647887324,0.96875,3
+2screws,2 螺絲（很嚴重鬆動）,True,0,2screws,395,266,1.0,0.9830508474576272,0.953125,4
