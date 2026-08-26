@@ -176,6 +176,7 @@ class LiveDemo:
     def tick(self) -> list[dict]:
         config, msgs = self._draw_config()
         was_known = config in self.session.monitor.known
+        prev_attempts = self.session.cluster_attempts
         x = self.samplers[config].draw()
         r = self.session.process(x, config)
         tr = self.trend.update(r["score"])
@@ -214,8 +215,18 @@ class LiveDemo:
             "cusum": tr["cusum"],
             "health": round(min(1.0, 1.0 / max(r["score"], 1e-9)) * 100, 1),
             "quarantine": r["quarantine"],
+            "attempts": r["cluster_attempts"],
             "phase": self.phase(),
         }] + msgs
+
+        if r["cluster_attempts"] > prev_attempts and r["cluster_attempts"] % 5 == 0:
+            out.append(_event(
+                "info",
+                f"隔離區 {r['quarantine']} 筆，HDBSCAN 已嘗試 {r['cluster_attempts']} 次"
+                f"仍未聚出穩定叢集——此故障樣本較發散，持續累積中"
+                f"（密度門檻會隨樣本數自動放寬）",
+                self.t,
+            ))
 
         if tr["alarm_now"]:
             latency = None if self.fault_onset_t is None else self.t - self.fault_onset_t
