@@ -1,7 +1,0 @@
-,auroc,auroc,fpr_at_tpr95,fpr_at_tpr95,open_set_accuracy,open_set_accuracy,balanced_accuracy,balanced_accuracy,known_acceptance,known_acceptance,unknown_recall,unknown_recall
-,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std
-method,,,,,,,,,,,,
-ledoit_wolf,1.0,,0.0,,0.9861111111111112,,0.9583333333333333,,0.9166666666666666,,1.0,
-legacy,1.0,,0.0,,0.8569444444444444,,0.5708333333333333,,0.14166666666666666,,1.0,
-mcd,0.9802500000000001,,0.1,,0.9444444444444444,,0.9233333333333333,,0.8916666666666667,,0.955,
-oas,1.0,,0.0,,0.9861111111111112,,0.9583333333333333,,0.9166666666666666,,1.0,
