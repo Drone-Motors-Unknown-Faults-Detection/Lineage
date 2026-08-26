@@ -61,7 +61,7 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
 | 共變異數估計 | Ledoit–Wolf（逐類）| `core.monitor.OpenSetMonitor` |
 | 校準信心水準 | 0.95（校準距離分位數）| `--confidence` |
 | 開集判定 | 正規化分數 > 1 = 未知 | `core.mahalanobis` |
-| HDBSCAN | min_cluster_size=25, min_samples=3 | `experiments.exp2_scale_growth` |
+| HDBSCAN | (25,3)，自適應階梯：隔離區 ≥75 加試 (15,3)、≥100 加試 (10,2)；候選仍需叢 ≥25 筆 | `experiments.exp2_scale_growth` |
 | 重分群節流 | 每 10 筆新未知樣本試一次 | 同上 `recluster_every` |
 | 隔離線 | 分數 > 2.0 才進隔離區（偵測線仍為 1.0）| 同上 `quarantine_margin` |
 | 趨勢 EWMA | alpha=0.08 | `core.trend.TrendMonitor` |

@@ -1,0 +1,267 @@
+{
+  "stages": [
+    {
+      "config": "7screws",
+      "display": "7 螺絲（最輕微鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "7screws",
+      "samples_to_candidate": 105,
+      "cluster_size": 31,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 1.0,
+      "healthy_holdout_acc": 0.953125,
+      "known_after": 2
+    },
+    {
+      "config": "6screws",
+      "display": "6 螺絲（輕微鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "6screws",
+      "samples_to_candidate": 255,
+      "cluster_size": 87,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 1.0,
+      "healthy_holdout_acc": 0.9375,
+      "known_after": 3
+    },
+    {
+      "config": "5screws",
+      "display": "5 螺絲（中度鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "5screws",
+      "samples_to_candidate": 205,
+      "cluster_size": 25,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.9302325581395349,
+      "healthy_holdout_acc": 0.9375,
+      "known_after": 4
+    },
+    {
+      "config": "4screws",
+      "display": "4 螺絲（明顯鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "4screws",
+      "samples_to_candidate": 105,
+      "cluster_size": 37,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.9655172413793104,
+      "healthy_holdout_acc": 0.921875,
+      "known_after": 5
+    },
+    {
+      "config": "3screws",
+      "display": "3 螺絲（嚴重鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "3screws",
+      "samples_to_candidate": 215,
+      "cluster_size": 101,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.8571428571428571,
+      "healthy_holdout_acc": 0.921875,
+      "known_after": 6
+    },
+    {
+      "config": "2screws",
+      "display": "2 螺絲（很嚴重鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "2screws",
+      "samples_to_candidate": 105,
+      "cluster_size": 74,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.847457627118644,
+      "healthy_holdout_acc": 0.9375,
+      "known_after": 7
+    },
+    {
+      "config": "1screws",
+      "display": "1 螺絲（最嚴重鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "1screws",
+      "samples_to_candidate": 65,
+      "cluster_size": 32,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.9014084507042254,
+      "healthy_holdout_acc": 0.921875,
+      "known_after": 8
+    },
+    {
+      "config": "3_14screws",
+      "display": "3_14（複合不均勻鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "3_14screws",
+      "samples_to_candidate": 225,
+      "cluster_size": 37,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.8591549295774648,
+      "healthy_holdout_acc": 0.90625,
+      "known_after": 9
+    },
+    {
+      "config": "4_146screws",
+      "display": "4_146（複合不均勻鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "4_146screws",
+      "samples_to_candidate": 265,
+      "cluster_size": 30,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.92,
+      "healthy_holdout_acc": 0.9375,
+      "known_after": 10
+    }
+  ],
+  "final_known": [
+    "8screws",
+    "7screws",
+    "6screws",
+    "5screws",
+    "4screws",
+    "3screws",
+    "2screws",
+    "1screws",
+    "3_14screws",
+    "4_146screws"
+  ],
+  "model": {
+    "method": "ledoit_wolf",
+    "confidence": 0.95,
+    "n_known": 10,
+    "classes": [
+      {
+        "config": "8screws",
+        "label": 0,
+        "n_train": 187,
+        "n_cal": 62,
+        "n_holdout": 64,
+        "threshold": 8.022338910200896,
+        "centroid_pca": [
+          -8.469454146558522,
+          6.112968219484861
+        ]
+      },
+      {
+        "config": "7screws",
+        "label": 1,
+        "n_train": 193,
+        "n_cal": 64,
+        "n_holdout": 65,
+        "threshold": 9.369499559301733,
+        "centroid_pca": [
+          -4.563795414919601,
+          -1.4888680506328207
+        ]
+      },
+      {
+        "config": "6screws",
+        "label": 2,
+        "n_train": 188,
+        "n_cal": 62,
+        "n_holdout": 64,
+        "threshold": 8.133499146209614,
+        "centroid_pca": [
+          -2.5281001640675775,
+          -4.654142278586527
+        ]
+      },
+      {
+        "config": "5screws",
+        "label": 3,
+        "n_train": 127,
+        "n_cal": 42,
+        "n_holdout": 43,
+        "threshold": 7.4754663348843735,
+        "centroid_pca": [
+          -2.6260249048975433,
+          -4.109161880294479
+        ]
+      },
+      {
+        "config": "4screws",
+        "label": 4,
+        "n_train": 172,
+        "n_cal": 57,
+        "n_holdout": 58,
+        "threshold": 8.082576487923616,
+        "centroid_pca": [
+          -2.9621176517719365,
+          -3.3943653704007684
+        ]
+      },
+      {
+        "config": "3screws",
+        "label": 5,
+        "n_train": 144,
+        "n_cal": 48,
+        "n_holdout": 49,
+        "threshold": 7.750670097307491,
+        "centroid_pca": [
+          -2.274890331998239,
+          -4.307822611614549
+        ]
+      },
+      {
+        "config": "2screws",
+        "label": 6,
+        "n_train": 172,
+        "n_cal": 57,
+        "n_holdout": 59,
+        "threshold": 7.311453524914124,
+        "centroid_pca": [
+          -1.8371789635620868,
+          -2.2541151708752634
+        ]
+      },
+      {
+        "config": "1screws",
+        "label": 7,
+        "n_train": 209,
+        "n_cal": 69,
+        "n_holdout": 71,
+        "threshold": 8.706664673177071,
+        "centroid_pca": [
+          25.88019698524191,
+          1.0841841472265754
+        ]
+      },
+      {
+        "config": "3_14screws",
+        "label": 8,
+        "n_train": 210,
+        "n_cal": 70,
+        "n_holdout": 71,
+        "threshold": 7.678474629568131,
+        "centroid_pca": [
+          -1.7086430702527935,
+          0.8648989678955838
+        ]
+      },
+      {
+        "config": "4_146screws",
+        "label": 9,
+        "n_train": 223,
+        "n_cal": 74,
+        "n_holdout": 75,
+        "threshold": 8.305218509573328,
+        "centroid_pca": [
+          -2.7968361671060755,
+          7.734128354455953
+        ]
+      }
+    ]
+  },
+  "seed": 42,
+  "confidence": 0.95,
+  "method": "ledoit_wolf",
+  "dataset": {
+    "motor": "T1",
+    "rpm": "8000rpm"
+  }
+}

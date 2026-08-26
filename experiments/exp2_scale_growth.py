@@ -58,6 +58,7 @@ class ScaleGrowthSession:
         self.candidate: dict | None = None
         self._since_cluster = 0
         self.n_seen = 0
+        self.cluster_attempts = 0  # 連續分群失敗次數（成功即歸零；供 UI 呈現進度）
 
     # -- 串流 ------------------------------------------------------------------
 
@@ -84,21 +85,42 @@ class ScaleGrowthSession:
             "label": label,
             "quarantine": len(self.quarantine_X),
             "candidate_new": candidate_new,
+            "cluster_attempts": self.cluster_attempts,
         }
+
+    def _cluster_params(self, n: int) -> list[tuple[int, int]]:
+        """密度參數階梯：先嚴格，隔離區越大越放寬。
+
+        實測（T1/8000rpm，嚴重鬆動類如 2screws 在特徵空間較發散）：
+        mcs=25 要累積 225 筆才成叢，mcs=15 需 150 筆，mcs=10/min_samples=2
+        只需 100 筆就聚出 73 筆的大叢。候選門檻（叢 ≥ min_cluster_size）不變，
+        放寬的只是 HDBSCAN 的密度要求，純度不受影響（mcs 越小切得越細）。
+        """
+        ladder = [(self.min_cluster_size, self.min_samples)]
+        if n >= 3 * self.min_cluster_size:
+            ladder.append((max(15, self.min_cluster_size // 2), self.min_samples))
+        if n >= 4 * self.min_cluster_size:
+            ladder.append((max(10, self.min_cluster_size // 3), 2))
+        return ladder
 
     def _try_cluster(self) -> bool:
         X = self.monitor.scaler.transform(np.vstack(self.quarantine_X))
-        labels = hdbscan.HDBSCAN(
-            min_cluster_size=self.min_cluster_size, min_samples=self.min_samples
-        ).fit_predict(X)
         self._since_cluster = 0
-        best, best_size = None, 0
-        for cl in set(labels) - {-1}:
-            size = int((labels == cl).sum())
-            if size > best_size:
-                best, best_size = cl, size
+        best, best_size, used = None, 0, None
+        for mcs, ms in self._cluster_params(len(X)):
+            labels = hdbscan.HDBSCAN(min_cluster_size=mcs, min_samples=ms).fit_predict(X)
+            for cl in set(labels) - {-1}:
+                size = int((labels == cl).sum())
+                if size > best_size:
+                    best, best_size, used = cl, size, (mcs, ms)
+                    best_labels = labels
+            if best is not None and best_size >= self.min_cluster_size:
+                break
         if best is None or best_size < self.min_cluster_size:
+            self.cluster_attempts += 1
             return False
+        self.cluster_attempts = 0
+        labels = best_labels
         idx = np.flatnonzero(labels == best)
         truths = [self.quarantine_truth[i] for i in idx]
         ts = [self.quarantine_t[i] for i in idx]
@@ -112,6 +134,7 @@ class ScaleGrowthSession:
             # 叢集樣本的蒐集時間區間——區分「舊帳」（如健康期累積的誤報）與現行串流
             "t_range": [int(min(ts)), int(max(ts))],
             "is_known": majority in self.monitor.known,
+            "cluster_params": list(used),
         }
         return True
 

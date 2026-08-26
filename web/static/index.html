@@ -307,7 +307,11 @@ function onSample(m){
   $("ewmaVal").textContent = m.ewma.toFixed(2);
   $("ewmaBar").style.width = (m.ewma * 100) + "%";
   $("cusumVal").textContent = m.cusum.toFixed(0);
-  if (m.quarantine !== undefined) $("qCount").textContent = m.quarantine > 0 ? `${m.quarantine} 筆` : "";
+  if (m.quarantine !== undefined){
+    let q = m.quarantine > 0 ? `${m.quarantine} 筆` : "";
+    if (m.attempts > 0) q += `（已試分群 ${m.attempts} 次）`;
+    $("qCount").textContent = q;
+  }
   drawChart(); drawScatter();
 }
 
