@@ -1,0 +1,12 @@
+{
+  "healthy_fp_rate": 0.109375,
+  "macro_detect_rate": 1.0,
+  "macro_auroc": 1.0,
+  "confidence": 0.95,
+  "method": "ledoit_wolf",
+  "seed": 42,
+  "dataset": {
+    "motor": "T1",
+    "rpm": "8000rpm"
+  }
+}

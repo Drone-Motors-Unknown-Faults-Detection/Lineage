@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>冷啟動 PHM 即時展示</title>
+<style>
+:root{
+  --bg:#0f172a; --panel:#16213b; --panel2:#1e293b; --border:#2d3b55;
+  --text:#e2e8f0; --muted:#8fa3bf;
+  --green:#22c55e; --red:#ef4444; --blue:#60a5fa; --yellow:#eab308; --purple:#a78bfa;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{background:var(--bg); color:var(--text); font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif; font-size:14px;}
+header{display:flex; align-items:center; gap:12px; padding:10px 16px; background:var(--panel); border-bottom:1px solid var(--border); flex-wrap:wrap;}
+header h1{font-size:17px; font-weight:700; margin-right:4px;}
+header .sub{color:var(--muted); font-size:12px;}
+.badge{padding:3px 10px; border-radius:99px; font-size:12px; font-weight:600; border:1px solid var(--border);}
+.badge.stage{background:#172554; color:var(--blue); border-color:#1d4ed8;}
+.badge.run{background:#052e16; color:var(--green); border-color:#166534;}
+.badge.stop{background:#3f1d1d; color:#fca5a5; border-color:#7f1d1d;}
+.badge.busy{background:#422006; color:var(--yellow); border-color:#a16207;}
+.spacer{flex:1;}
+select,button,input[type=range]{font:inherit; color:var(--text);}
+select{background:var(--panel2); border:1px solid var(--border); border-radius:8px; padding:6px 8px;}
+button{background:var(--panel2); border:1px solid var(--border); border-radius:8px; padding:6px 14px; cursor:pointer; font-weight:600;}
+button:hover{border-color:var(--blue);}
+button.primary{background:#1d4ed8; border-color:#1d4ed8;}
+button.warn{background:#7f1d1d; border-color:#991b1b;}
+button.confirm{background:#166534; border-color:#16a34a;}
+button:disabled{opacity:.4; cursor:not-allowed;}
+.controls{display:flex; align-items:center; gap:10px; padding:8px 16px; background:var(--panel); border-bottom:1px solid var(--border); flex-wrap:wrap;}
+.controls label{color:var(--muted); font-size:12px;}
+main{display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:12px; padding:12px 16px; max-width:1500px; margin:0 auto;}
+.panel{background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:12px;}
+.panel h2{font-size:13px; color:var(--muted); font-weight:700; margin-bottom:8px; letter-spacing:.5px;}
+canvas{width:100%; display:block;}
+.col{display:flex; flex-direction:column; gap:12px; min-width:0;}
+/* 流程 stepper */
+.steps{display:flex; gap:6px; flex-wrap:wrap;}
+.step{flex:1; min-width:110px; text-align:center; padding:8px 6px; border-radius:10px; border:1px solid var(--border); color:var(--muted); font-size:12px; background:var(--panel2); transition:all .3s;}
+.step .n{display:inline-block; width:18px; height:18px; line-height:18px; border-radius:50%; background:var(--border); margin-bottom:4px; font-size:11px;}
+.step.active{border-color:var(--blue); color:var(--text); box-shadow:0 0 12px #1d4ed855;}
+.step.active .n{background:var(--blue); color:#fff;}
+.step.done .n{background:var(--green); color:#fff;}
+.step.alert{border-color:var(--yellow); color:#fde68a; animation:pulse 1.2s infinite;}
+@keyframes pulse{50%{box-shadow:0 0 16px #eab30877;}}
+/* 狀態卡 */
+.kv{display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px dashed #24324d; font-size:13px;}
+.kv:last-child{border-bottom:0;}
+.kv .k{color:var(--muted);}
+.verdict-healthy{color:var(--green); font-weight:700;}
+.verdict-known{color:var(--blue); font-weight:700;}
+.verdict-unknown{color:var(--red); font-weight:700;}
+.gauge{height:14px; background:var(--panel2); border-radius:99px; overflow:hidden; border:1px solid var(--border); margin-top:4px;}
+.gauge > div{height:100%; width:100%; background:var(--green); transition:width .3s, background .3s;}
+/* 量尺 chips */
+.chips{display:flex; flex-wrap:wrap; gap:6px;}
+.chip{padding:4px 10px; border-radius:99px; font-size:12px; border:1px solid var(--border); background:var(--panel2);}
+.chip.healthy{border-color:var(--green); color:var(--green);}
+.chip.fault{border-color:var(--blue); color:var(--blue);}
+.chip.new{animation:pop .6s;}
+@keyframes pop{0%{transform:scale(1.4);}100%{transform:scale(1);}}
+/* 候選卡 */
+#candidateCard{border-color:var(--yellow);}
+/* 事件日誌 */
+#log{max-height:220px; overflow-y:auto; font-size:12.5px; line-height:1.65;}
+#log .info{color:var(--muted);}
+#log .warn{color:#fde68a;}
+#log .success{color:var(--green);}
+#log .error{color:#fca5a5;}
+#log .t{color:#475569; margin-right:6px; font-family:monospace;}
+/* 表格 */
+table{width:100%; border-collapse:collapse; font-size:12.5px;}
+th,td{text-align:right; padding:3px 6px; border-bottom:1px solid #24324d;}
+th:first-child,td:first-child{text-align:left;}
+th{color:var(--muted); font-weight:600;}
+.mini{font-size:12px; color:var(--muted);}
+</style>
+</head>
+<body>
+<header>
+  <h1>冷啟動 PHM 即時展示</h1>
+  <span class="sub">健康基準 → 未知故障偵測 → 量尺擴張</span>
+  <span id="stageBadge" class="badge stage">階段 0：僅健康</span>
+  <span id="runBadge" class="badge stop">⏸ 暫停</span>
+  <span class="spacer"></span>
+  <label class="mini">資料集</label>
+  <select id="datasetSel"></select>
+  <button id="btnReset" class="warn">↺ 重置</button>
+</header>
+<div class="controls">
+  <button id="btnRun" class="primary">▶ 開始串流</button>
+  <label>速率 <span id="rateLabel">4</span> 筆/秒</label>
+  <input type="range" id="rate" min="1" max="10" value="4" style="width:120px">
+  <span style="width:12px"></span>
+  <label>注入來源</label>
+  <select id="sourceSel"></select>
+  <span style="width:12px"></span>
+  <button id="btnScA">劇本 A：漸進磨損</button>
+  <button id="btnScB">劇本 B：突發外力</button>
+  <span id="scenarioLabel" class="mini"></span>
+</div>
+
+<main>
+  <div class="col">
+    <div class="panel">
+      <h2>開集分數串流（每點 = 1 秒訊號的 105 維特徵；虛線 = 未知判定線 1.0）</h2>
+      <canvas id="chart" height="240"></canvas>
+      <div class="mini" style="margin-top:4px">
+        <span style="color:var(--green)">●</span> 判定健康&nbsp;
+        <span style="color:var(--blue)">●</span> 判定已知故障&nbsp;
+        <span style="color:var(--red)">●</span> 判定未知&nbsp;
+        <span style="color:var(--purple)">▲</span> 事件
+      </div>
+    </div>
+    <div class="panel">
+      <h2>未知故障處理流程</h2>
+      <div class="steps">
+        <div class="step" id="st0"><span class="n">1</span><br>即時監測</div>
+        <div class="step" id="st1"><span class="n">2</span><br>異常隔離累積<br><span id="qCount" class="mini"></span></div>
+        <div class="step" id="st2"><span class="n">3</span><br>HDBSCAN 分群</div>
+        <div class="step" id="st3"><span class="n">4</span><br>操作員確認</div>
+        <div class="step" id="st4"><span class="n">5</span><br>擴張重訓</div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>事件日誌</h2>
+      <div id="log"></div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="panel">
+      <h2>即時狀態</h2>
+      <div class="kv"><span class="k">實際注入（僅展示者可見）</span><span id="truth">—</span></div>
+      <div class="kv"><span class="k">系統判定</span><span id="verdict">—</span></div>
+      <div class="kv"><span class="k">開集分數</span><span id="score">—</span></div>
+      <div class="kv"><span class="k">健康度</span><span id="healthPct">—</span></div>
+      <div class="gauge"><div id="healthBar"></div></div>
+    </div>
+    <div class="panel" id="candidateCard" style="display:none">
+      <h2 style="color:var(--yellow)">⚠ 候選新故障（待確認）</h2>
+      <div class="kv"><span class="k">叢集大小</span><span id="candSize">—</span></div>
+      <div class="kv"><span class="k">叢集純度</span><span id="candPurity">—</span></div>
+      <div class="kv"><span class="k">揭示真實身分</span><span id="candMajority">—</span></div>
+      <button id="btnConfirm" class="confirm" style="width:100%; margin-top:8px">✔ 操作員確認 → 納入並重訓練</button>
+    </div>
+    <div class="panel">
+      <h2>健康量尺（已知類別）</h2>
+      <div class="chips" id="knownChips"></div>
+    </div>
+    <div class="panel">
+      <h2>變化點分析（實驗三）</h2>
+      <div class="kv"><span class="k">EWMA 異常比例</span><span id="ewmaVal">0</span></div>
+      <div class="gauge"><div id="ewmaBar" style="background:var(--yellow); width:0%"></div></div>
+      <div class="kv" style="margin-top:6px"><span class="k">CUSUM 累積量</span><span id="cusumVal">0</span></div>
+      <div class="kv"><span class="k">最近判別</span><span id="trendKind">—</span></div>
+    </div>
+    <div class="panel">
+      <h2>特徵空間投影（PCA，已知資料擬合）</h2>
+      <canvas id="scatter" height="230"></canvas>
+    </div>
+    <div class="panel">
+      <h2>偵測統計（實驗一）</h2>
+      <table id="metricsTable">
+        <thead><tr><th>注入配置</th><th>樣本</th><th>判未知</th><th>比例</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const COLORS = {healthy:"#22c55e", known:"#60a5fa", unknown:"#ef4444"};
+let ws = null, state = null, running = false, busy = false;
+let samples = [];          // {t, score, verdict}
+let markers = [];          // {t, color}
+let points = [];           // scatter {x,y,verdict}
+let centroids = [];
+let knownCount = 0;
+const MAXPTS = 600, MAXSCATTER = 220;
+
+function connect(){
+  ws = new WebSocket((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/ws");
+  ws.onmessage = e => handle(JSON.parse(e.data));
+  ws.onclose = () => { logLine("error", "連線中斷，2 秒後重連…", ""); setTimeout(connect, 2000); };
+}
+function send(obj){ if (ws && ws.readyState === 1) ws.send(JSON.stringify(obj)); }
+
+function handle(m){
+  if (m.type === "state" || m.type === "state_patch") return onState(m);
+  if (m.type === "sample") return onSample(m);
+  if (m.type === "event") return onEvent(m);
+  if (m.type === "metrics") return onMetrics(m);
+}
+
+function onState(m){
+  const prev = state; state = m;
+  if (m.type === "state"){ running = m.running; busy = m.busy; }
+  // 重置偵測：時間軸倒退 → 清空圖表
+  if (prev && m.t < prev.t){ samples = []; markers = []; points = []; }
+  // 量尺變化（重訓完成）→ 投影已換，清 scatter
+  if (m.known.length !== knownCount){ points = []; knownCount = m.known.length; }
+  centroids = m.centroids || centroids;
+
+  $("stageBadge").textContent = m.known.length <= 1
+    ? "階段 0：僅健康" : `階段 ${m.known.length - 1}：已知 ${m.known.length} 類`;
+  const rb = $("runBadge");
+  if (busy){ rb.className = "badge busy"; rb.textContent = "⚙ 重訓練中…"; }
+  else if (running){ rb.className = "badge run"; rb.textContent = "▶ 串流中"; }
+  else { rb.className = "badge stop"; rb.textContent = "⏸ 暫停"; }
+  $("btnRun").textContent = running ? "⏸ 暫停" : "▶ 開始串流";
+  if (m.type === "state" && m.rate){ $("rate").value = m.rate; $("rateLabel").textContent = m.rate; }
+
+  // 資料集下拉
+  if (m.datasets && $("datasetSel").options.length !== m.datasets.length){
+    $("datasetSel").innerHTML = m.datasets.map(d =>
+      `<option value="${d.motor}|${d.rpm}">${d.motor} / ${d.rpm}</option>`).join("");
+  }
+  if (m.meta) $("datasetSel").value = m.meta.motor + "|" + m.meta.rpm;
+
+  // 注入來源下拉
+  if (m.configs){
+    const cur = $("sourceSel").value;
+    $("sourceSel").innerHTML = m.configs.map(c =>
+      `<option value="${c.config}">${c.known ? "✓ " : ""}${c.display}（${c.n} 筆）</option>`).join("");
+    $("sourceSel").value = m.source || cur || "8screws";
+  }
+  $("scenarioLabel").textContent = m.scenario ? "⏵ " + m.scenario.name + " 進行中" : "";
+
+  // 已知量尺 chips
+  const chips = m.known.map((k, i) =>
+    `<div class="chip ${k.config === "8screws" ? "healthy" : "fault"}${i === m.known.length-1 && m.known.length > knownChipsLast ? " new" : ""}">${k.label}｜${k.display}</div>`).join("");
+  $("knownChips").innerHTML = chips;
+  knownChipsLast = m.known.length;
+
+  // 候選卡
+  if (m.candidate){
+    $("candidateCard").style.display = "";
+    $("candSize").textContent = m.candidate.size + " 筆";
+    $("candPurity").textContent = (m.candidate.purity * 100).toFixed(0) + "%";
+    $("candMajority").textContent = m.candidate.majority_display || m.candidate.majority;
+    $("btnConfirm").disabled = busy;
+  } else {
+    $("candidateCard").style.display = "none";
+  }
+  setSteps(m.phase, m.quarantine, m.min_cluster_size);
+  drawScatter();
+}
+let knownChipsLast = 1;
+
+function setSteps(phase, q, need){
+  const steps = [ $("st0"), $("st1"), $("st2"), $("st3"), $("st4") ];
+  steps.forEach(s => s.className = "step");
+  $("qCount").textContent = q > 0 ? `${q} / ${need} 筆` : "";
+  if (busy){ steps[4].classList.add("active"); steps.slice(0,4).forEach(s=>s.classList.add("done")); return; }
+  if (phase === "monitoring"){ steps[0].classList.add("active"); }
+  else if (phase === "accumulating"){ steps[0].classList.add("done"); steps[1].classList.add("active"); }
+  else if (phase === "pending"){
+    steps[0].classList.add("done"); steps[1].classList.add("done");
+    steps[2].classList.add("done"); steps[3].classList.add("alert");
+  }
+}
+
+function onSample(m){
+  samples.push(m); if (samples.length > MAXPTS) samples.shift();
+  points.push({x:m.pca[0], y:m.pca[1], verdict:m.verdict});
+  if (points.length > MAXSCATTER) points.shift();
+
+  $("truth").textContent = m.truth_display;
+  const v = $("verdict");
+  v.textContent = m.verdict === "unknown" ? "⚠ 未知（不在量尺上）" : m.cls;
+  v.className = "verdict-" + m.verdict;
+  $("score").textContent = m.score.toFixed(2) + (m.score > 1 ? "（> 1 未知）" : "");
+  $("healthPct").textContent = m.health.toFixed(0) + "%";
+  const hb = $("healthBar");
+  hb.style.width = m.health + "%";
+  hb.style.background = m.health > 66 ? "var(--green)" : m.health > 33 ? "var(--yellow)" : "var(--red)";
+  $("ewmaVal").textContent = m.ewma.toFixed(2);
+  $("ewmaBar").style.width = (m.ewma * 100) + "%";
+  $("cusumVal").textContent = m.cusum.toFixed(0);
+  if (m.quarantine !== undefined) $("qCount").textContent = m.quarantine > 0 ? `${m.quarantine} 筆` : "";
+  drawChart(); drawScatter();
+}
+
+function onEvent(m){
+  logLine(m.level, m.text, m.t);
+  markers.push({t: m.t, color: m.level === "warn" ? "#eab308" : m.level === "success" ? "#22c55e" : "#a78bfa"});
+  if (m.text.includes("判別為「漸進")) $("trendKind").innerHTML = '<span style="color:var(--yellow)">漸進退化（漂移）</span>';
+  if (m.text.includes("判別為「突發")) $("trendKind").innerHTML = '<span style="color:var(--red)">突發事件（跳變）</span>';
+}
+function logLine(level, text, t){
+  const div = document.createElement("div");
+  div.className = level;
+  div.innerHTML = `<span class="t">#${t}</span>${text}`;
+  const log = $("log");
+  log.prepend(div);
+  while (log.children.length > 80) log.removeChild(log.lastChild);
+}
+
+function onMetrics(m){
+  $("metricsTable").querySelector("tbody").innerHTML = m.rows.map(r =>
+    `<tr><td>${r.display}</td><td>${r.streamed}</td><td>${r.flagged}</td><td>${r.rate.toFixed(1)}%</td></tr>`).join("");
+}
+
+/* ---------- 分數串流圖 ---------- */
+function drawChart(){
+  const cv = $("chart"), ctx = cv.getContext("2d");
+  const W = cv.width = cv.clientWidth * devicePixelRatio;
+  const H = cv.height = 240 * devicePixelRatio;
+  ctx.clearRect(0, 0, W, H);
+  if (!samples.length) return;
+  const pad = 34 * devicePixelRatio;
+  const maxScore = Math.max(4, ...samples.map(s => s.score));
+  const yOf = s => H - pad - (Math.sqrt(s) / Math.sqrt(maxScore)) * (H - pad * 1.6);
+  const t0 = samples[0].t, t1 = samples[samples.length - 1].t;
+  const xOf = t => pad + (t1 === t0 ? 0 : (t - t0) / (t1 - t0)) * (W - pad * 1.3);
+
+  // 格線與刻度
+  ctx.font = `${11 * devicePixelRatio}px monospace`;
+  ctx.fillStyle = "#64748b"; ctx.strokeStyle = "#1e293b"; ctx.lineWidth = devicePixelRatio;
+  for (const g of [1, 10, Math.round(maxScore)]){
+    if (g > maxScore) continue;
+    const y = yOf(g);
+    ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(W, y); ctx.stroke();
+    ctx.fillText(String(g), 4 * devicePixelRatio, y + 4 * devicePixelRatio);
+  }
+  // 閾值線
+  ctx.strokeStyle = "#94a3b8"; ctx.setLineDash([6 * devicePixelRatio, 5 * devicePixelRatio]);
+  ctx.beginPath(); ctx.moveTo(pad, yOf(1)); ctx.lineTo(W, yOf(1)); ctx.stroke();
+  ctx.setLineDash([]);
+  // 事件標記
+  for (const mk of markers){
+    if (mk.t < t0 || mk.t > t1) continue;
+    const x = xOf(mk.t);
+    ctx.strokeStyle = mk.color + "66";
+    ctx.beginPath(); ctx.moveTo(x, pad * 0.4); ctx.lineTo(x, H - pad); ctx.stroke();
+  }
+  // 樣本點與連線
+  ctx.strokeStyle = "#334155";
+  ctx.beginPath();
+  samples.forEach((s, i) => { const x = xOf(s.t), y = yOf(s.score); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+  ctx.stroke();
+  for (const s of samples){
+    ctx.fillStyle = COLORS[s.verdict];
+    ctx.beginPath(); ctx.arc(xOf(s.t), yOf(s.score), 2.4 * devicePixelRatio, 0, 7); ctx.fill();
+  }
+}
+
+/* ---------- PCA 散佈圖 ---------- */
+function drawScatter(){
+  const cv = $("scatter"), ctx = cv.getContext("2d");
+  const W = cv.width = cv.clientWidth * devicePixelRatio;
+  const H = cv.height = 230 * devicePixelRatio;
+  ctx.clearRect(0, 0, W, H);
+  const xs = [...centroids.map(c => c.x), ...points.map(p => p.x)];
+  const ys = [...centroids.map(c => c.y), ...points.map(p => p.y)];
+  if (!xs.length) return;
+  const pad = 18 * devicePixelRatio;
+  let xmin = Math.min(...xs), xmax = Math.max(...xs), ymin = Math.min(...ys), ymax = Math.max(...ys);
+  const xr = (xmax - xmin) || 1, yr = (ymax - ymin) || 1;
+  xmin -= xr * .1; xmax += xr * .1; ymin -= yr * .1; ymax += yr * .1;
+  const X = v => pad + (v - xmin) / (xmax - xmin) * (W - pad * 2);
+  const Y = v => H - pad - (v - ymin) / (ymax - ymin) * (H - pad * 2);
+  points.forEach((p, i) => {
+    ctx.globalAlpha = 0.25 + 0.75 * (i / points.length);
+    ctx.fillStyle = COLORS[p.verdict];
+    ctx.beginPath(); ctx.arc(X(p.x), Y(p.y), 2.6 * devicePixelRatio, 0, 7); ctx.fill();
+  });
+  ctx.globalAlpha = 1;
+  ctx.font = `${11 * devicePixelRatio}px sans-serif`;
+  for (const c of centroids){
+    ctx.strokeStyle = "#e2e8f0"; ctx.lineWidth = 2 * devicePixelRatio;
+    const x = X(c.x), y = Y(c.y), r = 5 * devicePixelRatio;
+    ctx.beginPath(); ctx.moveTo(x - r, y - r); ctx.lineTo(x + r, y + r);
+    ctx.moveTo(x + r, y - r); ctx.lineTo(x - r, y + r); ctx.stroke();
+    ctx.fillStyle = "#cbd5e1";
+    ctx.fillText(c.config, x + 7 * devicePixelRatio, y - 5 * devicePixelRatio);
+  }
+}
+
+/* ---------- 控制 ---------- */
+$("btnRun").onclick = () => send({cmd: running ? "pause" : "start"});
+$("btnReset").onclick = () => { if (confirm("重置回階段 0（只認識健康）？")) send({cmd:"reset"}); };
+$("rate").oninput = e => { $("rateLabel").textContent = e.target.value; };
+$("rate").onchange = e => send({cmd:"rate", value:+e.target.value});
+$("sourceSel").onchange = e => send({cmd:"set_source", config:e.target.value});
+$("btnScA").onclick = () => send({cmd:"scenario", name:"A"});
+$("btnScB").onclick = () => send({cmd:"scenario", name:"B"});
+$("btnConfirm").onclick = () => send({cmd:"confirm"});
+$("datasetSel").onchange = e => {
+  const [motor, rpm] = e.target.value.split("|");
+  send({cmd:"dataset", motor, rpm});
+};
+window.addEventListener("resize", () => { drawChart(); drawScatter(); });
+connect();
+</script>
+</body>
+</html>

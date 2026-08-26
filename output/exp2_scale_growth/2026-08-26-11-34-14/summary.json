@@ -1,0 +1,123 @@
+{
+  "stages": [
+    {
+      "config": "7screws",
+      "display": "7 螺絲（最輕微鬆動）",
+      "discovered": true,
+      "learned": "7screws",
+      "samples_to_candidate": 195,
+      "cluster_size": 56,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 1.0,
+      "healthy_holdout_acc": 0.953125,
+      "known_after": 2
+    },
+    {
+      "config": "6screws",
+      "display": "6 螺絲（輕微鬆動）",
+      "discovered": true,
+      "learned": "6screws",
+      "samples_to_candidate": 595,
+      "cluster_size": 307,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 1.0,
+      "healthy_holdout_acc": 0.9375,
+      "known_after": 3
+    },
+    {
+      "config": "5screws",
+      "display": "5 螺絲（中度鬆動）",
+      "discovered": true,
+      "learned": "5screws",
+      "samples_to_candidate": 295,
+      "cluster_size": 45,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.9302325581395349,
+      "healthy_holdout_acc": 0.9375,
+      "known_after": 4
+    },
+    {
+      "config": "4screws",
+      "display": "4 螺絲（明顯鬆動）",
+      "discovered": true,
+      "learned": "4screws",
+      "samples_to_candidate": 365,
+      "cluster_size": 72,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.9655172413793104,
+      "healthy_holdout_acc": 0.921875,
+      "known_after": 5
+    },
+    {
+      "config": "3screws",
+      "display": "3 螺絲（嚴重鬆動）",
+      "discovered": true,
+      "learned": "3screws",
+      "samples_to_candidate": 505,
+      "cluster_size": 310,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.8571428571428571,
+      "healthy_holdout_acc": 0.921875,
+      "known_after": 6
+    },
+    {
+      "config": "2screws",
+      "display": "2 螺絲（很嚴重鬆動）",
+      "discovered": true,
+      "learned": "2screws",
+      "samples_to_candidate": 215,
+      "cluster_size": 132,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.847457627118644,
+      "healthy_holdout_acc": 0.9375,
+      "known_after": 7
+    },
+    {
+      "config": "1screws",
+      "display": "1 螺絲（最嚴重鬆動）",
+      "discovered": true,
+      "learned": "1screws",
+      "samples_to_candidate": 75,
+      "cluster_size": 32,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.9014084507042254,
+      "healthy_holdout_acc": 0.921875,
+      "known_after": 8
+    },
+    {
+      "config": "3_14screws",
+      "display": "3_14（複合不均勻鬆動）",
+      "discovered": false
+    },
+    {
+      "config": "4_146screws",
+      "display": "4_146（複合不均勻鬆動）",
+      "discovered": true,
+      "learned": "3_14screws",
+      "samples_to_candidate": 25,
+      "cluster_size": 600,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.8591549295774648,
+      "healthy_holdout_acc": 0.90625,
+      "known_after": 9
+    }
+  ],
+  "final_known": [
+    "8screws",
+    "7screws",
+    "6screws",
+    "5screws",
+    "4screws",
+    "3screws",
+    "2screws",
+    "1screws",
+    "3_14screws"
+  ],
+  "seed": 42,
+  "confidence": 0.95,
+  "method": "ledoit_wolf",
+  "dataset": {
+    "motor": "T1",
+    "rpm": "8000rpm"
+  }
+}
