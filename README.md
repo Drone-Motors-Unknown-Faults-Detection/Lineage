@@ -162,9 +162,11 @@ venv/bin/python -m experiments.exp3_trend --motor T1 --rpm 8000rpm --trials 40
 - **即時狀態卡**：實際注入（僅展示者可見）vs 系統判定、開集分數、健康度儀表
 - **未知故障處理流程 stepper**：監測 → 異常隔離累積（n/25）→ HDBSCAN 分群 →
   操作員確認 → 擴張重訓，跟著真實狀態亮燈
-- **候選卡**：叢集大小／純度／揭示真實身分，「✔ 操作員確認」一鍵納入重訓（亞秒完成）；
-  若揭示後發現叢集其實是**已知類別的邊界樣本**（如健康誤報累積自聚成叢），
-  則走「操作員退回」——清出隔離區、量尺不變
+- **候選卡**：叢集大小／純度／**樣本蒐集區間**（區分舊帳與現行串流）／揭示真實身分，
+  「✔ 操作員確認」一鍵納入重訓（亞秒完成）；若揭示後發現叢集其實是**已知類別的
+  邊界樣本**（如健康誤報累積自聚成叢），按鈕轉為「✋ 操作員退回」——清出隔離區、量尺不變
+- **分群進度回饋**：流程列顯示「已試分群 N 次」，HDBSCAN 連續失敗每 5 次發事件說明
+  樣本發散、密度門檻將自動放寬——發散故障累積期不會看起來像當機
 - **健康量尺**：已知類別 chips，隨確認即時長大
 - **變化點分析卡**：EWMA 異常密度、CUSUM、漸進／突發判別結果
 - **PCA 特徵空間投影**：已知類別中心（✕）與最近樣本的即時散佈
@@ -210,6 +212,7 @@ Lineage/
 │   ├── live.py                  #   LiveDemo：把三個實驗模組串成互動串流
 │   ├── server.py                #   Tornado + WebSocket 伺服器
 │   └── static/index.html        #   單檔儀表板（原生 JS，無外部依賴）
+├── docs/                        # 論文版技術文件快照 + Lineage 時期研究文件（見 docs/README.md）
 ├── data/                        # 特徵資料（由論文版管線產出，本專案唯讀；git 忽略）
 │   └── Step-*/myfeature/{Motor}/{RPM}/{Screws}/*_Group_feature_data_clean.csv
 ├── logs/                        # 每次執行的 loguru 日誌（納入版控）
@@ -283,14 +286,16 @@ output/{program}/{YYYY-MM-DD-HH-MM-SS}/       # results.csv / summary.json / *.p
 
 ## 與 legacy 的關係
 
-論文版程式碼（Step 1–6 管線、128 個 notebook、scripts、docs、執行紀錄與論文全文）
+論文版程式碼（Step 1–6 管線、128 個 notebook、scripts、執行紀錄與論文全文）
 已整批移回 [Ancestor](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor)
 repo 保存——issue 討論串（#1–#60，缺陷成因與修正驗證）也在該處；
 本 repo 的 git 歷史仍完整保留搬移前的所有版本，可隨時回溯。
+技術文件快照（Step 1–6 說明 + 三份 Lineage 時期研究文件）保留於本 repo 的
+[docs/](docs/README.md)，每份都有歷史標記。
 
 - 本專案**繼承**：資料集與 105 維特徵工程（直接讀論文版管線產出的 clean CSV）、
-  逐類 Ledoit–Wolf 馬氏開集偵測器（Ancestor `docs/Mahalanobis_Improvement.md` 的採用結論）、
-  HDBSCAN 參數、logs/output 慣例。
+  逐類 Ledoit–Wolf 馬氏開集偵測器（[docs/Mahalanobis_Improvement.md](docs/Mahalanobis_Improvement.md)
+  的採用結論）、HDBSCAN 參數、logs/output 慣例。
 - 本專案**翻轉**：起點從「已知 5 類」改為「只知健康」；HDBSCAN 從「判定器」
   改為「新方向發現器」；判定粒度從叢集改為逐樣本。
 - **規範**：新程式碼一律不依賴論文版程式碼——需要的零件以「複製 + 來源註記」帶入
@@ -305,8 +310,9 @@ repo 保存——issue 討論串（#1–#60，缺陷成因與修正驗證）也�
    （本專案依 motor×rpm 分資料集正是為此）。
 3. **健康誤報率受校準集大小影響**（實測 10.9% vs 名目 5%）：可用更多健康資料或
    conformal 校準改善。
-4. **複合故障（3_14/4_146）發散難成叢**：新方向發現對非均勻故障需要更長累積或
-   自適應的 min_cluster_size。
+4. **發散故障需要較長累積**：嚴重鬆動與複合配置在特徵空間發散，即使有自適應密度
+   階梯，發現延遲（225~265 筆）仍明顯高於輕度鬆動（65~105 筆）——更快的新方向
+   發現（如線上式分群）是可改進點。
 5. **衰退曲線外插未實作**：T1/T2/T3 三個壽命期資料可作為 run-to-failure 模板
    （similarity-based prognostics），為下一步方向。
 6. **單一測試台、單一故障機制**：結論外推到其他 PHM 任務需再驗證。

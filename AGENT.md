@@ -11,9 +11,10 @@
 （開放集 + 持續學習），並以變化點分析判別故障是漸進磨損還是突發事件。
 完整說明、實驗結果與引用文獻見 [README.md](README.md)。
 
-原論文版程式碼（Step 1–6 管線、128 個 notebook、docs 與論文全文）已整批移回
+原論文版程式碼（Step 1–6 管線、128 個 notebook 與論文全文）已整批移回
 [Ancestor](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor) repo
 （本機路徑 `~/Ancestor`）保存；本 repo 的 git 歷史仍保留搬移前的所有版本。
+技術文件快照（含三份 Lineage 時期研究文件）於 2026-09-17 放回本 repo 的 `docs/`。
 
 ---
 
@@ -23,6 +24,8 @@
 core/            共用零件：data / mahalanobis / monitor / trend / logger / runner
 experiments/     三個實驗模組（exp1_cold_start、exp2_scale_growth、exp3_trend）
 web/             即時展示（live.py 編排、server.py Tornado+WS、static/index.html）
+docs/            論文版技術文件快照 + Lineage 時期研究文件（歷史參考，見 docs/README.md；
+                 內文的程式路徑不對應現行架構，勿據以改碼）
 data/            特徵資料（git 忽略；由論文版管線產出，本專案唯讀）
 logs/ output/    每次執行的日誌與結果（納入版控）
 run_web.sh       啟動展示伺服器
@@ -64,7 +67,7 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
 | HDBSCAN | (25,3)，自適應階梯：隔離區 ≥75 加試 (15,3)、≥100 加試 (10,2)；候選仍需叢 ≥25 筆 | `experiments.exp2_scale_growth` |
 | 重分群節流 | 每 10 筆新未知樣本試一次 | 同上 `recluster_every` |
 | 隔離線 | 分數 > 2.0 才進隔離區（偵測線仍為 1.0）| 同上 `quarantine_margin` |
-| 趨勢 EWMA | alpha=0.08 | `core.trend.TrendMonitor` |
+| 趨勢 EWMA | alpha=0.08（window=120、warmup=10）| `core.trend.TrendMonitor` |
 | 中間帶 / 警報線 | [0.2, 0.5) / 0.5 | 同上 |
 | 突發判定 | 中間帶停留 ≤ 12 筆 | 同上 `sudden_max` |
 | 特徵維度 | 105（固定，不可增減）| 資料層 |
@@ -100,8 +103,9 @@ venv/bin/python -m experiments.exp3_trend --trials 40
    邊界樣本聚成叢，`confirm()` 回傳 `action="rejected_known"`（操作員退回、
    清叢、量尺不變）作為第二道保險。web 偵測統計拆「學會前偵測率／學會後
    認出率」兩組，認出率天生 ≈ 90–95%。
-2. **3_14screws 特徵發散**：在 HDBSCAN 下需要遠超 25 筆才成叢；exp2 全序列重播中
-   它在自身階段（600 筆）未被發現，其樣本累積到下一階段才成叢。
+2. **發散故障（嚴重鬆動、複合配置）成叢較慢**：固定 (25,3) 下 2screws 要 225 筆、
+   3_14 在 600 筆內失敗——自適應密度階梯（見參數表）已把發現延遲壓到 65~265 筆，
+   但這類故障仍天生比輕度鬆動需要更多累積；web 會顯示「已試分群 N 次」而非卡死。
 3. **exp2 的 stage 列「learned」欄可能不等於注入配置**：候選叢集取自整個隔離區，
    多數決可能是前一階段的殘餘（CSV 中有 `learned` 欄，判讀時以它為準）。
 4. **量尺擴張後 PCA 投影會變**：web 前端在已知類別數改變時清空散佈圖，這是刻意行為。

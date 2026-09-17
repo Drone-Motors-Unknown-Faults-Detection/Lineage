@@ -1,3 +1,5 @@
+> 📌 **歷史文件**：本文撰於論文版（Step 1–6）管線時期。文中提及的程式路徑、notebook 與執行紀錄以 [Ancestor repo](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor) 與本 repo 的 git 歷史為準，並不對應目前的 `core/ experiments/ web/` 架構；新專案說明見 [README](../README.md)、文件索引見 [docs/README.md](README.md)。
+
 # TensorFlow 使用指南 — Lineage 專案
 
 本文件說明 `gpu_utils.py` 的運作原理、如何在 TensorFlow 中使用 GPU 進行訓練，以及本專案中所使用的 TensorFlow / Keras 語法與模型架構。

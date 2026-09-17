@@ -67,6 +67,7 @@
 
 </head>
 <body>
+<p style="margin:0 0 1.5em;padding:10px 14px;border-left:4px solid #b45309;background:#fff7ed;color:#7c2d12;font-size:.92em;">📌 歷史文件：本文撰於論文版（Step 1–6）管線時期，程式路徑與執行紀錄以 <a href="https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor">Ancestor repo</a> 與本 repo 的 git 歷史為準，不對應目前的 core / experiments / web 架構。</p>
 <h1 id="以開放集辨識取代馬氏距離閾值">以開放集辨識取代馬氏距離閾值</h1>
 <h2 id="概述">概述</h2>
 <p>目前 Step 4/5 以「HDBSCAN 叢集中心到訓練分布的馬氏距離是否超過第 95 百分位數」來判定未知故障。本文拆解該機制的三個結構性弱點，並整理五種可替換的開放集辨識（Open-Set Recognition, OSR）方法，逐一標註它們接進本專案需要動到什麼。</p>
