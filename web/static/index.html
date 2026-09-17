@@ -87,6 +87,7 @@ footer a:hover{color:var(--blue);}
   <h1>冷啟動 PHM 即時展示</h1>
   <span class="sub">健康基準 → 未知故障偵測 → 量尺擴張</span>
   <span id="stageBadge" class="badge stage">階段 0：僅健康</span>
+  <span id="methodBadge" class="badge stage">Open Set：Mahalanobis</span>
   <span id="runBadge" class="badge stop">⏸ 暫停</span>
   <span class="spacer"></span>
   <label class="mini">資料集</label>
@@ -225,6 +226,12 @@ function onState(m){
 
   $("stageBadge").textContent = m.known.length <= 1
     ? "階段 0：僅健康" : `階段 ${m.known.length - 1}：已知 ${m.known.length} 類`;
+  if (m.openset){
+    const method = m.openset.openset_method === "knn"
+      ? `k-NN（k=${m.openset.knn_neighbors}）`
+      : `Mahalanobis（${m.openset.method}）`;
+    $("methodBadge").textContent = "Open Set：" + method;
+  }
   const rb = $("runBadge");
   if (busy){ rb.className = "badge busy"; rb.textContent = "⚙ 重訓練中…"; }
   else if (running){ rb.className = "badge run"; rb.textContent = "▶ 串流中"; }

@@ -19,7 +19,7 @@ import numpy as np
 from core.data import HEALTHY, display_name
 from core.logger import save_plot, setup_run
 from core.monitor import OpenSetMonitor
-from core.runner import add_dataset_args, resolve_dataset, save_json
+from core.runner import add_dataset_args, add_openset_args, resolve_dataset, save_json
 
 
 def run(
@@ -27,8 +27,17 @@ def run(
     seed: int = 42,
     confidence: float = 0.95,
     method: str = "ledoit_wolf",
+    openset_method: str = "mahalanobis",
+    knn_neighbors: int = 5,
 ) -> dict:
-    monitor = OpenSetMonitor(pools, seed=seed, confidence=confidence, method=method)
+    monitor = OpenSetMonitor(
+        pools,
+        seed=seed,
+        confidence=confidence,
+        method=method,
+        openset_method=openset_method,
+        knn_neighbors=knn_neighbors,
+    )
     monitor.fit_initial()
 
     healthy_scores = monitor.score(monitor.holdout(HEALTHY))
@@ -69,7 +78,14 @@ def run(
         "macro_auroc": float(np.mean([r["auroc"] for r in fault_rows])),
         "model": monitor.summary(),
         "confidence": confidence,
+        "openset_method": openset_method,
         "method": method,
+        "score_type": monitor.summary()["score_type"],
+        "threshold": 1.0,
+        "threshold_strategy": monitor.summary()["threshold_strategy"],
+        "calibration_source": "known-only 20% calibration split",
+        "split": {"train": 0.6, "calibration": 0.2, "holdout": 0.2},
+        "knn_neighbors": knn_neighbors if openset_method == "knn" else None,
         "seed": seed,
     }
 
@@ -104,16 +120,23 @@ def _make_figure(result: dict):
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     add_dataset_args(parser)
-    parser.add_argument("--confidence", type=float, default=0.95)
-    parser.add_argument("--method", default="ledoit_wolf")
+    add_openset_args(parser)
     args = parser.parse_args()
 
     ds, pools = resolve_dataset(args)
     log, paths = setup_run("exp1_cold_start")
     log.info(f"實驗一：冷啟動偵測 — {ds['motor']}/{ds['rpm']}"
-             f"（method={args.method}, confidence={args.confidence}, seed={args.seed}）")
+             f"（openset={args.openset_method}, method={args.method}, "
+             f"confidence={args.confidence}, seed={args.seed}）")
 
-    result = run(pools, seed=args.seed, confidence=args.confidence, method=args.method)
+    result = run(
+        pools,
+        seed=args.seed,
+        confidence=args.confidence,
+        method=args.method,
+        openset_method=args.openset_method,
+        knn_neighbors=args.knn_neighbors,
+    )
     result["dataset"] = {"motor": ds["motor"], "rpm": ds["rpm"]}
 
     import pandas as pd

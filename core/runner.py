@@ -12,6 +12,7 @@ from pathlib import Path
 import numpy as np
 
 from core.data import discover_datasets, load_pools
+from core.openset import SUPPORTED_OPENSET_METHODS
 
 
 def add_dataset_args(parser: argparse.ArgumentParser) -> None:
@@ -19,6 +20,32 @@ def add_dataset_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--motor", default="T1", help="馬達代碼（預設 T1）")
     parser.add_argument("--rpm", default="8000rpm", help="轉速目錄名（預設 8000rpm）")
     parser.add_argument("--seed", type=int, default=42)
+
+
+def add_openset_args(parser: argparse.ArgumentParser) -> None:
+    """加入所有實驗共用的 Open Set 方法與校準參數。
+
+    ``--method`` 保留原行為，仍只控制 Mahalanobis 的 covariance estimator。
+    """
+    parser.add_argument(
+        "--openset-method",
+        choices=SUPPORTED_OPENSET_METHODS,
+        default="mahalanobis",
+        help="Open Set detector 家族（預設 mahalanobis）",
+    )
+    parser.add_argument(
+        "--method",
+        choices=("legacy", "ledoit_wolf", "oas", "mcd"),
+        default="ledoit_wolf",
+        help="Mahalanobis covariance estimator；使用 knn 時忽略",
+    )
+    parser.add_argument("--confidence", type=float, default=0.95)
+    parser.add_argument(
+        "--knn-neighbors",
+        type=int,
+        default=5,
+        help="k-NN detector 的鄰居數（預設 5）",
+    )
 
 
 def resolve_dataset(args: argparse.Namespace) -> tuple[dict, dict]:

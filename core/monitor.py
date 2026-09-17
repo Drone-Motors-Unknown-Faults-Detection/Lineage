@@ -1,8 +1,8 @@
 """OpenSetMonitor — 從健康基準冷啟動、可逐類擴張的開放集監測器。
 
-階段 0 只以 8screws 擬合單一類別（Mahalanobis–Taguchi 式健康基準）；
-之後每確認一種新故障呼叫 add_class()，整組重新擬合：
-RobustScaler + 逐類 Ledoit–Wolf 馬氏距離（正規化分數 > 1 = 未知）+ PCA 2D 投影。
+階段 0 只以 8screws 擬合單一類別；之後每確認一種新故障呼叫
+add_class()，整組重新擬合。Open Set detector 可選既有逐類 Mahalanobis 或
+逐類 k-NN 距離；兩者皆以 calibration split 正規化，分數 > 1 = 未知。
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import RobustScaler
 
 from core.data import HEALTHY, Split, make_split
-from core.mahalanobis import MahalanobisOpenSetDetector
+from core.openset import OpenSetDetector, create_openset_detector
 
 
 class OpenSetMonitor:
@@ -22,15 +22,20 @@ class OpenSetMonitor:
         seed: int = 42,
         confidence: float = 0.95,
         method: str = "ledoit_wolf",
+        openset_method: str = "mahalanobis",
+        knn_neighbors: int = 5,
     ) -> None:
         self.pools = pools
         self.confidence = confidence
+        self.openset_method = openset_method
         self.method = method
+        self.knn_neighbors = knn_neighbors
+        self.seed = seed
         self.rng = np.random.default_rng(seed)
         self.known: dict[str, int] = {}
         self.splits: dict[str, Split] = {}
         self.scaler: RobustScaler | None = None
-        self.detector: MahalanobisOpenSetDetector | None = None
+        self.detector: OpenSetDetector | None = None
         self.pca: PCA | None = None
         self.centroids: dict[str, tuple[float, float]] = {}
         self._label_to_config: dict[int, str] = {}
@@ -75,8 +80,11 @@ class OpenSetMonitor:
 
         self.scaler = RobustScaler().fit(X_tr)
         X_tr_s = self.scaler.transform(X_tr)
-        self.detector = MahalanobisOpenSetDetector(
-            method=self.method, confidence=self.confidence
+        self.detector = create_openset_detector(
+            self.openset_method,
+            confidence=self.confidence,
+            mahalanobis_method=self.method,
+            knn_neighbors=self.knn_neighbors,
         ).fit(X_tr_s, y_tr, self.scaler.transform(X_ca), y_ca)
 
         self.pca = PCA(n_components=2, random_state=0).fit(X_tr_s)
@@ -111,21 +119,34 @@ class OpenSetMonitor:
     def summary(self) -> dict:
         """目前擬合狀態的可序列化摘要（保存用：逐類閾值與樣本數）。"""
         classes = []
-        for item in self.detector.distributions_:
-            config = self._label_to_config.get(int(item.label), str(item.label))
+        for item in self.detector.class_summaries():
+            label = int(item["label"])
+            config = self._label_to_config.get(label, str(label))
             sp = self.splits[config]
-            classes.append({
+            row = {
                 "config": config,
-                "label": int(item.label),
+                "label": label,
                 "n_train": int(len(sp.train)),
                 "n_cal": int(len(sp.cal)),
                 "n_holdout": int(len(sp.holdout)),
-                "threshold": float(item.threshold),
+                "threshold": float(item["threshold"]),
                 "centroid_pca": list(self.centroids.get(config, ())),
-            })
+            }
+            row.update({k: v for k, v in item.items() if k not in {"label", "threshold"}})
+            classes.append(row)
         return {
+            "openset_method": self.openset_method,
             "method": self.method,
+            "score_type": "normalized_class_mahalanobis"
+            if self.openset_method == "mahalanobis"
+            else "normalized_class_knn_mean_euclidean",
+            "threshold": 1.0,
+            "threshold_strategy": f"known_calibration_class_quantile_{self.confidence:.4g}",
+            "calibration_source": "known-only 20% calibration split",
             "confidence": self.confidence,
+            "knn_neighbors": self.knn_neighbors if self.openset_method == "knn" else None,
+            "random_seed": self.seed,
+            "split": {"train": 0.6, "calibration": 0.2, "holdout": 0.2},
             "n_known": len(self.known),
             "classes": classes,
         }

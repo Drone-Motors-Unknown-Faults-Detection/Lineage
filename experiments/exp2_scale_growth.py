@@ -11,7 +11,7 @@ ScaleGrowthSession 是核心狀態機（Web 即時展示直接驅動它）：
     - 偵測線 1.0：正規化分數 > 1 即判「未知」（逐樣本判定與警報用）
     - 隔離線 quarantine_margin（預設 2.0）：分數要明顯超線才進隔離區參與新類發現。
       校準閾值天生讓 ~5–11% 已知樣本些微超線（實測健康誤報 1.01–1.08），
-      而真實故障遠在其上（實測九種配置最低分 ≥ 10）——隔離線落在空隙中，
+      而真實故障遠在其上（實測九種配置最低分 >= 10）——隔離線落在空隙中，
       擋掉邊界誤報、不漏任何故障，避免誤報累積自聚成假候選。
 
 批次執行（產出論文數據：逐配置的發現延遲、叢集純度、擴張後準確率）：
@@ -28,7 +28,7 @@ import numpy as np
 from core.data import CONFIG_ORDER, HEALTHY, CycleSampler, config_sort_key, display_name
 from core.logger import setup_run
 from core.monitor import OpenSetMonitor
-from core.runner import add_dataset_args, resolve_dataset, save_json
+from core.runner import add_dataset_args, add_openset_args, resolve_dataset, save_json
 
 
 class ScaleGrowthSession:
@@ -40,13 +40,22 @@ class ScaleGrowthSession:
         seed: int = 42,
         confidence: float = 0.95,
         method: str = "ledoit_wolf",
+        openset_method: str = "mahalanobis",
+        knn_neighbors: int = 5,
         min_cluster_size: int = 25,
         min_samples: int = 3,
         recluster_every: int = 10,
         quarantine_margin: float = 2.0,
     ) -> None:
         self.pools = pools
-        self.monitor = OpenSetMonitor(pools, seed=seed, confidence=confidence, method=method)
+        self.monitor = OpenSetMonitor(
+            pools,
+            seed=seed,
+            confidence=confidence,
+            method=method,
+            openset_method=openset_method,
+            knn_neighbors=knn_neighbors,
+        )
         self.monitor.fit_initial()
         self.min_cluster_size = min_cluster_size
         self.min_samples = min_samples
@@ -93,7 +102,7 @@ class ScaleGrowthSession:
 
         實測（T1/8000rpm，嚴重鬆動類如 2screws 在特徵空間較發散）：
         mcs=25 要累積 225 筆才成叢，mcs=15 需 150 筆，mcs=10/min_samples=2
-        只需 100 筆就聚出 73 筆的大叢。候選門檻（叢 ≥ min_cluster_size）不變，
+        只需 100 筆就聚出 73 筆的大叢。候選門檻（叢 >= min_cluster_size）不變，
         放寬的只是 HDBSCAN 的密度要求，純度不受影響（mcs 越小切得越細）。
         """
         ladder = [(self.min_cluster_size, self.min_samples)]
@@ -194,12 +203,21 @@ def run(
     seed: int = 42,
     confidence: float = 0.95,
     method: str = "ledoit_wolf",
+    openset_method: str = "mahalanobis",
+    knn_neighbors: int = 5,
     max_ticks_per_stage: int = 600,
 ) -> dict:
     """依序注入各未知配置：量測發現延遲 → 自動確認 → 驗證擴張後的分類能力。"""
     if sequence is None:
         sequence = sorted((c for c in pools if c != HEALTHY), key=config_sort_key)
-    session = ScaleGrowthSession(pools, seed=seed, confidence=confidence, method=method)
+    session = ScaleGrowthSession(
+        pools,
+        seed=seed,
+        confidence=confidence,
+        method=method,
+        openset_method=openset_method,
+        knn_neighbors=knn_neighbors,
+    )
     rng = np.random.default_rng(seed + 1)
 
     stages = []
@@ -245,15 +263,21 @@ def run(
         "model": session.monitor.summary(),
         "seed": seed,
         "confidence": confidence,
+        "openset_method": openset_method,
         "method": method,
+        "score_type": session.monitor.summary()["score_type"],
+        "threshold": 1.0,
+        "threshold_strategy": session.monitor.summary()["threshold_strategy"],
+        "calibration_source": "known-only 20% calibration split",
+        "split": {"train": 0.6, "calibration": 0.2, "holdout": 0.2},
+        "knn_neighbors": knn_neighbors if openset_method == "knn" else None,
     }
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     add_dataset_args(parser)
-    parser.add_argument("--confidence", type=float, default=0.95)
-    parser.add_argument("--method", default="ledoit_wolf")
+    add_openset_args(parser)
     parser.add_argument(
         "--sequence", nargs="*", default=None,
         help="注入順序（預設：所有未知配置由輕到重）",
@@ -263,11 +287,13 @@ def main() -> None:
     ds, pools = resolve_dataset(args)
     log, paths = setup_run("exp2_scale_growth")
     log.info(f"實驗二：量尺擴張重播 — {ds['motor']}/{ds['rpm']}"
-             f"（method={args.method}, confidence={args.confidence}, seed={args.seed}）")
+             f"（openset={args.openset_method}, method={args.method}, "
+             f"confidence={args.confidence}, seed={args.seed}）")
 
     result = run(
         pools, sequence=args.sequence, seed=args.seed,
         confidence=args.confidence, method=args.method,
+        openset_method=args.openset_method, knn_neighbors=args.knn_neighbors,
     )
     result["dataset"] = {"motor": ds["motor"], "rpm": ds["rpm"]}
 

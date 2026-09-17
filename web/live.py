@@ -41,10 +41,23 @@ def _event(level: str, text: str, t: int) -> dict:
 
 
 class LiveDemo:
-    def __init__(self, dataset: dict, seed: int = 42, out_dir: Path | str | None = None):
+    def __init__(
+        self,
+        dataset: dict,
+        seed: int = 42,
+        out_dir: Path | str | None = None,
+        openset_method: str = "mahalanobis",
+        mahalanobis_method: str = "ledoit_wolf",
+        confidence: float = 0.95,
+        knn_neighbors: int = 5,
+    ):
         self.meta = {"motor": dataset["motor"], "rpm": dataset["rpm"]}
         self.pools = load_pools(dataset["path"])
         self.seed = seed
+        self.openset_method = openset_method
+        self.mahalanobis_method = mahalanobis_method
+        self.confidence = confidence
+        self.knn_neighbors = knn_neighbors
         self.out_dir = Path(out_dir) if out_dir else None
         self.epoch = 0
         self._sample_file = None
@@ -52,7 +65,14 @@ class LiveDemo:
 
     def _build(self) -> None:
         self.epoch += 1
-        self.session = ScaleGrowthSession(self.pools, seed=self.seed)
+        self.session = ScaleGrowthSession(
+            self.pools,
+            seed=self.seed,
+            confidence=self.confidence,
+            method=self.mahalanobis_method,
+            openset_method=self.openset_method,
+            knn_neighbors=self.knn_neighbors,
+        )
         self.trend = TrendMonitor()
         self.stream_rng = np.random.default_rng(self.seed + 1)
         self.t = 0
@@ -266,6 +286,7 @@ class LiveDemo:
         mon = self.session.monitor
         return {
             "meta": self.meta,
+            "openset": self.session.monitor.summary(),
             "t": self.t,
             "epoch": self.epoch,
             "phase": self.phase(),
