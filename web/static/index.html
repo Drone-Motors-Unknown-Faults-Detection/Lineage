@@ -140,6 +140,7 @@ footer a:hover{color:var(--blue);}
       <div class="kv"><span class="k">實際注入（僅展示者可見）</span><span id="truth">—</span></div>
       <div class="kv"><span class="k">系統判定</span><span id="verdict">—</span></div>
       <div class="kv"><span class="k">開集分數</span><span id="score">—</span></div>
+      <div class="kv"><span class="k">方向熟悉度（實驗四）</span><span id="dirInfo">—</span></div>
       <div class="kv"><span class="k">健康度</span><span id="healthPct">—</span></div>
       <div class="gauge"><div id="healthBar"></div></div>
     </div>
@@ -166,6 +167,12 @@ footer a:hover{color:var(--blue);}
       <div class="kv"><span class="k">最近判別</span><span id="trendKind">—</span></div>
       <div class="mini" style="margin-top:6px">本卡只負責警報與漸進／突發判別；
         「候選新故障 → 操作員確認」由隔離區累積 ≥ 25 筆成叢觸發（見流程列進度）。</div>
+    </div>
+    <div class="panel">
+      <h2>極座標健康地圖（實驗四：方向 = 故障類型、半徑 = 嚴重度）</h2>
+      <canvas id="polar" height="250"></canvas>
+      <div class="mini" style="margin-top:4px">圓心 = 健康；虛線圈 = 未知判定；✕ = 已知故障射線端點；
+        點的角度偏離 = 方向陌生度（cos 越低偏得越開）</div>
     </div>
     <div class="panel">
       <h2>特徵空間投影（PCA，已知資料擬合）</h2>
@@ -196,7 +203,8 @@ let ws = null, state = null, running = false, busy = false;
 let samples = [];          // {t, score, verdict}
 let markers = [];          // {t, color}
 let points = [];           // scatter {x,y,verdict}
-let centroids = [];
+let polarPts = [];         // {ray, cos, radius, verdict, t}
+let centroids = [], rays = [], healthyThr = 10;
 let knownCount = 0;
 const MAXPTS = 600, MAXSCATTER = 220;
 
@@ -218,10 +226,12 @@ function onState(m){
   const prev = state; state = m;
   if (m.type === "state"){ running = m.running; busy = m.busy; }
   // 重置偵測：時間軸倒退 → 清空圖表
-  if (prev && m.t < prev.t){ samples = []; markers = []; points = []; }
-  // 量尺變化（重訓完成）→ 投影已換，清 scatter
-  if (m.known.length !== knownCount){ points = []; knownCount = m.known.length; }
+  if (prev && m.t < prev.t){ samples = []; markers = []; points = []; polarPts = []; }
+  // 量尺變化（重訓完成）→ 投影與射線已換，清 scatter/polar
+  if (m.known.length !== knownCount){ points = []; polarPts = []; knownCount = m.known.length; }
   centroids = m.centroids || centroids;
+  rays = m.rays || rays;
+  if (m.healthy_threshold) healthyThr = m.healthy_threshold;
 
   $("stageBadge").textContent = m.known.length <= 1
     ? "階段 0：僅健康" : `階段 ${m.known.length - 1}：已知 ${m.known.length} 類`;
@@ -273,7 +283,7 @@ function onState(m){
     $("candidateCard").style.display = "none";
   }
   setSteps(m.phase, m.quarantine, m.min_cluster_size);
-  drawScatter();
+  drawScatter(); drawPolar();
 }
 let knownChipsLast = 1;
 
@@ -294,6 +304,21 @@ function onSample(m){
   samples.push(m); if (samples.length > MAXPTS) samples.shift();
   points.push({x:m.pca[0], y:m.pca[1], verdict:m.verdict});
   if (points.length > MAXSCATTER) points.shift();
+  if (m.direction){
+    polarPts.push({ray:m.direction.ray, cos:m.direction.cos,
+                   radius:m.direction.radius, verdict:m.verdict, t:m.t});
+    if (polarPts.length > MAXSCATTER) polarPts.shift();
+    const di = $("dirInfo");
+    if (m.verdict !== "unknown" || m.direction.cos === null){
+      di.textContent = m.direction.cos === null ? "—（尚無已知故障射線）" : "—";
+      di.className = "";
+    } else {
+      const c = m.direction.cos;
+      const tag = c >= 0.6 ? "接近已知家族" : c <= 0.45 ? "新方向" : "不明確";
+      di.textContent = `cos ${c.toFixed(2)} → ${tag}（最近：${m.direction.ray_display}）`;
+      di.className = c >= 0.6 ? "verdict-known" : c <= 0.45 ? "verdict-unknown" : "";
+    }
+  }
 
   $("truth").textContent = m.truth_display;
   const v = $("verdict");
@@ -312,7 +337,7 @@ function onSample(m){
     if (m.attempts > 0) q += `（已試分群 ${m.attempts} 次）`;
     $("qCount").textContent = q;
   }
-  drawChart(); drawScatter();
+  drawChart(); drawScatter(); drawPolar();
 }
 
 function onEvent(m){
@@ -413,6 +438,64 @@ function drawScatter(){
   }
 }
 
+/* ---------- 極座標健康地圖（實驗四） ---------- */
+function drawPolar(){
+  const cv = $("polar"), ctx = cv.getContext("2d");
+  const W = cv.width = cv.clientWidth * devicePixelRatio;
+  const H = cv.height = 250 * devicePixelRatio;
+  ctx.clearRect(0, 0, W, H);
+  const cx = W / 2, cy = H * 0.86;                    // 圓心放下方，扇面朝上
+  const maxR = Math.min(W * 0.46, H * 0.8);
+  const maxRadiusVal = Math.max(150, ...rays.map(r => r.radius), ...polarPts.map(p => p.radius));
+  const R = v => Math.min(1, Math.log1p(Math.max(v, 0)) / Math.log1p(maxRadiusVal)) * maxR;
+  // 射線角度：以正上方為 0，扇形展開 ±75°
+  const angleOf = {};
+  rays.forEach((r, i) => {
+    angleOf[r.config] = rays.length === 1 ? 0
+      : (-75 + i * (150 / (rays.length - 1))) * Math.PI / 180;
+  });
+  const XY = (ang, rv) => [cx + Math.sin(ang) * rv, cy - Math.cos(ang) * rv];
+
+  // 未知判定圈（健康閾值）
+  ctx.strokeStyle = "#94a3b8"; ctx.setLineDash([5 * devicePixelRatio, 4 * devicePixelRatio]);
+  ctx.beginPath(); ctx.arc(cx, cy, R(healthyThr), Math.PI, 2 * Math.PI); ctx.stroke();
+  ctx.setLineDash([]);
+  // 射線
+  ctx.font = `${11 * devicePixelRatio}px sans-serif`;
+  for (const r of rays){
+    const ang = angleOf[r.config];
+    const [x, y] = XY(ang, R(r.radius));
+    ctx.strokeStyle = "#475569"; ctx.lineWidth = devicePixelRatio;
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x, y); ctx.stroke();
+    ctx.strokeStyle = "#e2e8f0"; ctx.lineWidth = 2 * devicePixelRatio;
+    const s = 5 * devicePixelRatio;
+    ctx.beginPath(); ctx.moveTo(x - s, y - s); ctx.lineTo(x + s, y + s);
+    ctx.moveTo(x + s, y - s); ctx.lineTo(x - s, y + s); ctx.stroke();
+    ctx.fillStyle = "#cbd5e1";
+    ctx.fillText(r.config, x + 7 * devicePixelRatio, y - 4 * devicePixelRatio);
+  }
+  // 樣本點：角度 = 最近射線 ± arccos(cos)（cos 越低偏離越大；無射線時朝正上）
+  polarPts.forEach((p, i) => {
+    let ang = 0;
+    if (p.ray && angleOf[p.ray] !== undefined && p.cos !== null){
+      const dev = Math.acos(Math.max(-1, Math.min(1, p.cos)));
+      ang = angleOf[p.ray] + (p.t % 2 === 0 ? dev : -dev) * 0.55; // 縮放避免出扇面
+    } else {
+      ang = ((p.t % 21) - 10) / 10 * 0.35;                        // 無射線 → 圓心上方散佈
+    }
+    ctx.globalAlpha = 0.25 + 0.75 * (i / polarPts.length);
+    ctx.fillStyle = COLORS[p.verdict];
+    const [x, y] = XY(ang, R(p.radius));
+    ctx.beginPath(); ctx.arc(x, y, 2.6 * devicePixelRatio, 0, 7); ctx.fill();
+  });
+  ctx.globalAlpha = 1;
+  // 圓心（健康）
+  ctx.fillStyle = "#22c55e";
+  ctx.beginPath(); ctx.arc(cx, cy, 4 * devicePixelRatio, 0, 7); ctx.fill();
+  ctx.fillStyle = "#86efac";
+  ctx.fillText("Healthy", cx + 8 * devicePixelRatio, cy - 4 * devicePixelRatio);
+}
+
 /* ---------- 控制 ---------- */
 $("btnRun").onclick = () => send({cmd: running ? "pause" : "start"});
 $("btnReset").onclick = () => { if (confirm("重置回階段 0（只認識健康）？")) send({cmd:"reset"}); };
@@ -426,7 +509,7 @@ $("datasetSel").onchange = e => {
   const [motor, rpm] = e.target.value.split("|");
   send({cmd:"dataset", motor, rpm});
 };
-window.addEventListener("resize", () => { drawChart(); drawScatter(); });
+window.addEventListener("resize", () => { drawChart(); drawScatter(); drawPolar(); });
 connect();
 </script>
 </body>

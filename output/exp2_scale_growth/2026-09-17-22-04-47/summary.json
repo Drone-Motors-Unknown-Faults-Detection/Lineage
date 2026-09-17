@@ -1,0 +1,111 @@
+{
+  "stages": [
+    {
+      "config": "5screws",
+      "display": "5 螺絲（中度鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "5screws",
+      "samples_to_candidate": 75,
+      "cluster_size": 47,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.9767441860465116,
+      "healthy_holdout_acc": 1.0,
+      "known_after": 2
+    },
+    {
+      "config": "3_14screws",
+      "display": "3_14（複合不均勻鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "3_14screws",
+      "samples_to_candidate": 125,
+      "cluster_size": 86,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.9295774647887324,
+      "healthy_holdout_acc": 0.96875,
+      "known_after": 3
+    },
+    {
+      "config": "2screws",
+      "display": "2 螺絲（很嚴重鬆動）",
+      "discovered": true,
+      "rejected_known_clusters": 0,
+      "learned": "2screws",
+      "samples_to_candidate": 125,
+      "cluster_size": 83,
+      "cluster_purity": 1.0,
+      "own_holdout_acc": 0.9830508474576272,
+      "healthy_holdout_acc": 0.953125,
+      "known_after": 4
+    }
+  ],
+  "final_known": [
+    "8screws",
+    "5screws",
+    "3_14screws",
+    "2screws"
+  ],
+  "model": {
+    "method": "ledoit_wolf",
+    "confidence": 0.95,
+    "n_known": 4,
+    "classes": [
+      {
+        "config": "8screws",
+        "label": 0,
+        "n_train": 187,
+        "n_cal": 62,
+        "n_holdout": 64,
+        "threshold": 7.3167834777969345,
+        "centroid_pca": [
+          -11.193376274313515,
+          -1.8823259005296655
+        ]
+      },
+      {
+        "config": "5screws",
+        "label": 1,
+        "n_train": 127,
+        "n_cal": 42,
+        "n_holdout": 43,
+        "threshold": 8.524690399386396,
+        "centroid_pca": [
+          8.70977460799081,
+          -4.147789766111057
+        ]
+      },
+      {
+        "config": "3_14screws",
+        "label": 2,
+        "n_train": 210,
+        "n_cal": 70,
+        "n_holdout": 71,
+        "threshold": 8.248726521158966,
+        "centroid_pca": [
+          2.479090068094433,
+          4.556052963856686
+        ]
+      },
+      {
+        "config": "2screws",
+        "label": 3,
+        "n_train": 172,
+        "n_cal": 57,
+        "n_holdout": 59,
+        "threshold": 8.133311133464765,
+        "centroid_pca": [
+          2.7116922894300126,
+          -0.4535283646206519
+        ]
+      }
+    ]
+  },
+  "seed": 42,
+  "confidence": 0.95,
+  "method": "ledoit_wolf",
+  "dataset": {
+    "motor": "T1",
+    "rpm": "8000rpm"
+  }
+}

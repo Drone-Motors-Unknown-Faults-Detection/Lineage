@@ -1,5 +1,9 @@
 # docs/ 文件索引
 
+> **想了解本專題的實驗？先讀 [實驗說明手冊（小白友善版）](Experiments_Guide.md)**——
+> 六個實驗的設計理念、方法、預期與實際結果，不需要機器學習背景。
+> 本目錄其餘文件為論文版管線的歷史快照（見下）。
+
 本目錄是**論文版管線時期的技術文件快照**（對應本 repo git 歷史 `dda8910` 時的版本，
 2026-09-17 放回）。文中描述的 Step 1–6 程式碼、notebook 與 `scripts/` 模組現存於
 [Ancestor repo](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor)，

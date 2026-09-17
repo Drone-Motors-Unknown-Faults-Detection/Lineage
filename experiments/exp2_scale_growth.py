@@ -26,6 +26,7 @@ import hdbscan
 import numpy as np
 
 from core.data import CONFIG_ORDER, HEALTHY, CycleSampler, config_sort_key, display_name
+from core.geometry import PolarMap
 from core.logger import setup_run
 from core.monitor import OpenSetMonitor
 from core.runner import add_dataset_args, resolve_dataset, save_json
@@ -59,6 +60,7 @@ class ScaleGrowthSession:
         self._since_cluster = 0
         self.n_seen = 0
         self.cluster_attempts = 0  # 連續分群失敗次數（成功即歸零；供 UI 呈現進度）
+        self.polar = PolarMap(self.monitor)  # 極座標幾何（實驗四），每次擴張後重建
 
     # -- 串流 ------------------------------------------------------------------
 
@@ -67,6 +69,8 @@ class ScaleGrowthSession:
         self.n_seen += 1
         score = float(self.monitor.score(x_raw)[0])
         label = self.monitor.classify(x_raw)[0]
+        # 極座標判讀（方向熟悉度為連續參考指標；不影響既有的已知/未知判定）
+        direction = self.polar.analyze(x_raw)[0]
         candidate_new = False
         # 隔離線：分數明顯超線才參與新類發現，邊界誤報（如健康的 1.0x）僅警報不進隔離區
         if label is None and score > self.quarantine_margin:
@@ -86,6 +90,7 @@ class ScaleGrowthSession:
             "quarantine": len(self.quarantine_X),
             "candidate_new": candidate_new,
             "cluster_attempts": self.cluster_attempts,
+            "direction": direction,
         }
 
     def _cluster_params(self, n: int) -> list[tuple[int, int]]:
@@ -164,6 +169,7 @@ class ScaleGrowthSession:
         else:
             result["action"] = "learned"
             result["label"] = self.monitor.add_class(config)
+            self.polar = PolarMap(self.monitor)  # 量尺擴張 → 重建極座標幾何
             keep = [i for i, t in enumerate(self.quarantine_truth) if t != config]
         self.quarantine_X = [self.quarantine_X[i] for i in keep]
         self.quarantine_truth = [self.quarantine_truth[i] for i in keep]

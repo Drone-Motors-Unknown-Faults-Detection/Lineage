@@ -33,6 +33,7 @@ from experiments.exp3_trend import KIND_DISPLAY, SCENARIOS
 SAMPLE_FIELDS = [
     "epoch", "t", "truth", "score", "verdict", "predicted",
     "ewma", "cusum", "quarantine", "n_known", "source_mode",
+    "dir_radius", "dir_ray", "dir_cos",
 ]
 
 
@@ -195,12 +196,22 @@ class LiveDemo:
             verdict = "known"
         xy = self.session.monitor.project(x)[0]
 
+        d = r["direction"]
         self._log_sample([
             self.epoch, self.t, config, round(float(r["score"]), 4), verdict,
             r["label"] or "", tr["ewma"], tr["cusum"], r["quarantine"],
             len(self.session.monitor.known),
             self.scenario["key"] if self.scenario else "manual",
+            round(d["radius"], 3), d["best_ray"] or "", d["best_cos"] if d["best_cos"] is not None else "",
         ])
+
+        dd = r["direction"]
+        direction = {
+            "ray": dd["best_ray"],
+            "ray_display": display_name(dd["best_ray"]) if dd["best_ray"] else None,
+            "cos": dd["best_cos"],
+            "radius": round(dd["radius"], 2),
+        }
 
         out = [{
             "type": "sample",
@@ -210,6 +221,7 @@ class LiveDemo:
             "cls": display_name(r["label"]),
             "truth": config,
             "truth_display": display_name(config),
+            "direction": direction,
             "pca": [round(float(xy[0]), 3), round(float(xy[1]), 3)],
             "ewma": tr["ewma"],
             "cusum": tr["cusum"],
@@ -293,6 +305,14 @@ class LiveDemo:
                  "x": round(xy[0], 3), "y": round(xy[1], 3)}
                 for c, xy in mon.centroids.items()
             ],
+            "rays": [
+                {"config": r["config"], "display": display_name(r["config"]),
+                 "radius": r["radius"]}
+                for r in self.session.polar.summary()["rays"]
+            ],
+            "healthy_threshold": round(next(
+                c["threshold"] for c in mon.summary()["classes"]
+                if c["config"] == HEALTHY), 2),
         }
 
     def state_msg(self) -> dict:

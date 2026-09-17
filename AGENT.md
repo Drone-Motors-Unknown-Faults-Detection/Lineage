@@ -21,8 +21,9 @@
 ## 目錄結構
 
 ```
-core/            共用零件：data / mahalanobis / monitor / geometry / trend / logger / runner
-experiments/     實驗模組（exp1_cold_start、exp2_scale_growth、exp3_trend、exp4_polar_map）
+core/            共用零件：data / mahalanobis / monitor / geometry / detectors / trend / logger / runner
+experiments/     實驗模組（exp1 冷啟動、exp2 量尺擴張、exp3 趨勢、exp4 極座標、
+                 exp5 跨工況、exp6 OSR 基準）；設計說明見 docs/Experiments_Guide.md
 web/             即時展示（live.py 編排、server.py Tornado+WS、static/index.html）
 docs/            論文版技術文件快照 + Lineage 時期研究文件（歷史參考，見 docs/README.md；
                  內文的程式路徑不對應現行架構，勿據以改碼）
@@ -82,6 +83,8 @@ venv/bin/python -m experiments.exp1_cold_start --motor T1 --rpm 8000rpm
 venv/bin/python -m experiments.exp2_scale_growth --sequence 5screws 3_14screws
 venv/bin/python -m experiments.exp3_trend --trials 40
 venv/bin/python -m experiments.exp4_polar_map --part abc
+venv/bin/python -m experiments.exp5_cross_condition        # 9 組資料集全跑
+venv/bin/python -m experiments.exp6_osr_benchmark          # 七種偵測器 × 9 組
 
 # 即時展示（http://localhost:8600）
 ./run_web.sh
