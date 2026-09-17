@@ -21,8 +21,8 @@
 ## 目錄結構
 
 ```
-core/            共用零件：data / mahalanobis / monitor / trend / logger / runner
-experiments/     三個實驗模組（exp1_cold_start、exp2_scale_growth、exp3_trend）
+core/            共用零件：data / mahalanobis / monitor / geometry / trend / logger / runner
+experiments/     實驗模組（exp1_cold_start、exp2_scale_growth、exp3_trend、exp4_polar_map）
 web/             即時展示（live.py 編排、server.py Tornado+WS、static/index.html）
 docs/            論文版技術文件快照 + Lineage 時期研究文件（歷史參考，見 docs/README.md；
                  內文的程式路徑不對應現行架構，勿據以改碼）
@@ -77,10 +77,11 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
 ## 常用指令
 
 ```bash
-# 三個實驗（在專案根目錄執行；輸出到 logs/ 與 output/）
+# 實驗（在專案根目錄執行；輸出到 logs/ 與 output/）
 venv/bin/python -m experiments.exp1_cold_start --motor T1 --rpm 8000rpm
 venv/bin/python -m experiments.exp2_scale_growth --sequence 5screws 3_14screws
 venv/bin/python -m experiments.exp3_trend --trials 40
+venv/bin/python -m experiments.exp4_polar_map --part abc
 
 # 即時展示（http://localhost:8600）
 ./run_web.sh
@@ -111,8 +112,9 @@ venv/bin/python -m experiments.exp3_trend --trials 40
 4. **量尺擴張後 PCA 投影會變**：web 前端在已知類別數改變時清空散佈圖，這是刻意行為。
 5. **目錄名陷阱**：螺絲配置目錄可能是 `1screw` 或 `1screws`（既有資料兩種都出現過），
    `core.data` 以掃描目錄迴避硬編碼——不要寫死配置清單去讀資料。
-6. **T2（Step-2）資料不全**：備份僅含部分特徵檔；`discover_datasets` 只列出實際
-   存在 clean CSV 的 (motor, rpm) 組合，以掃描結果為準。
+6. **資料集以掃描為準**：目前 9 組（T1/T2/T3 × 3 轉速）皆有完整 10 配置、各約
+   3000 筆（早期「T2 不全」的狀況已補齊）；`discover_datasets` 動態列出，
+   勿硬編碼組合清單。
 7. **venv 相容性**：現有 venv 是舊依賴集（含 TF）建的超集，可直接跑新專案；
    重建才會套用新 `pyproject.toml`。伺服器用的 Tornado 由 Jupyter 附帶或新依賴提供。
 
