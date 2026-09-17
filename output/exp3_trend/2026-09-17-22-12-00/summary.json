@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "A": {
+      "name": "劇本 A：漸進磨損",
+      "expected": "gradual",
+      "trials": 40,
+      "alarm_rate": 1.0,
+      "correct_rate": 0.975,
+      "mean_latency": 49.8,
+      "mean_transition": 37.925
+    },
+    "B": {
+      "name": "劇本 B：突發外力",
+      "expected": "sudden",
+      "trials": 40,
+      "alarm_rate": 1.0,
+      "correct_rate": 0.975,
+      "mean_latency": 7.675,
+      "mean_transition": 6.65
+    }
+  },
+  "model": {
+    "method": "ledoit_wolf",
+    "confidence": 0.95,
+    "n_known": 1,
+    "classes": [
+      {
+        "config": "8screws",
+        "label": 0,
+        "n_train": 187,
+        "n_cal": 62,
+        "n_holdout": 64,
+        "threshold": 9.71809584700257,
+        "centroid_pca": [
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  "seed": 42,
+  "n_trials": 40,
+  "method": "ledoit_wolf",
+  "dataset": {
+    "motor": "T1",
+    "rpm": "8000rpm"
+  }
+}

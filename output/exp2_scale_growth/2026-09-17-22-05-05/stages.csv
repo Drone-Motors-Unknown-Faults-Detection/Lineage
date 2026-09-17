@@ -1,0 +1,10 @@
+config,display,discovered,rejected_known_clusters,learned,samples_to_candidate,cluster_size,cluster_purity,own_holdout_acc,healthy_holdout_acc,known_after
+7screws,7 螺絲（最輕微鬆動）,True,0,7screws,105,31,1.0,1.0,0.953125,2
+6screws,6 螺絲（輕微鬆動）,True,0,6screws,255,87,1.0,1.0,0.9375,3
+5screws,5 螺絲（中度鬆動）,True,0,5screws,205,25,1.0,0.9302325581395349,0.9375,4
+4screws,4 螺絲（明顯鬆動）,True,0,4screws,105,37,1.0,0.9655172413793104,0.921875,5
+3screws,3 螺絲（嚴重鬆動）,True,0,3screws,215,101,1.0,0.8571428571428571,0.921875,6
+2screws,2 螺絲（很嚴重鬆動）,True,0,2screws,105,74,1.0,0.847457627118644,0.9375,7
+1screws,1 螺絲（最嚴重鬆動）,True,0,1screws,65,32,1.0,0.9014084507042254,0.921875,8
+3_14screws,3_14（複合不均勻鬆動）,True,0,3_14screws,225,37,1.0,0.8591549295774648,0.90625,9
+4_146screws,4_146（複合不均勻鬆動）,True,0,4_146screws,265,30,1.0,0.92,0.9375,10

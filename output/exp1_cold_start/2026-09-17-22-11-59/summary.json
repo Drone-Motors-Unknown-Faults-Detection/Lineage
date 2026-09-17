@@ -1,0 +1,31 @@
+{
+  "healthy_fp_rate": 0.109375,
+  "macro_detect_rate": 1.0,
+  "macro_auroc": 1.0,
+  "model": {
+    "method": "ledoit_wolf",
+    "confidence": 0.95,
+    "n_known": 1,
+    "classes": [
+      {
+        "config": "8screws",
+        "label": 0,
+        "n_train": 187,
+        "n_cal": 62,
+        "n_holdout": 64,
+        "threshold": 9.71809584700257,
+        "centroid_pca": [
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  "confidence": 0.95,
+  "method": "ledoit_wolf",
+  "seed": 42,
+  "dataset": {
+    "motor": "T1",
+    "rpm": "8000rpm"
+  }
+}
