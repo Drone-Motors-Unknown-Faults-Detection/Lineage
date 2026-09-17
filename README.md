@@ -163,8 +163,10 @@ venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn
 `RobustScaler` 處理的 105 維特徵。對每個已知類別計算「查詢樣本到該類 training
 split 的 k 個最近鄰平均歐氏距離」，再除以該類 calibration split 距離的第 95
 百分位；跨類取最小值，正規化分數嚴格大於 1 判為 unknown。分數越大代表越不像
-任何已知類別。此方法的鄰近性基礎源自 Cover & Hart (1967)，以近鄰距離作異常分數
-的依據可追溯至 Ramaswamy, Rastogi & Shim (2000)。
+任何已知類別。此方法的鄰近性基礎源自
+[Cover & Hart (1967)](https://doi.org/10.1109/TIT.1967.1053964)，以近鄰距離作異常分數
+的依據可追溯至
+[Ramaswamy, Rastogi & Shim (2000)](https://doi.org/10.1145/342009.335437)。
 
 公平比較輸出到 `logs/openset_comparison/` 與 `output/openset_comparison/`，包含
 `summary.csv/json`、逐配置 `details.csv` 與比較圖；unknown 為正類，紀錄 AUROC、
@@ -307,7 +309,7 @@ output/{program}/{YYYY-MM-DD-HH-MM-SS}/       # results.csv / summary.json / *.p
 | 階段 0 健康基準 | 健康分布 + 馬氏距離的單類監測 | Taguchi & Jugulum (2002) *The Mahalanobis–Taguchi Strategy*；綜述：Pimentel et al. (2014) *Signal Processing*；對照法：Schölkopf et al. (2001) OC-SVM、Tax & Duin (2004) SVDD |
 | 開集判定 | 逐類高斯 + 馬氏距離、校準分位數閾值 | 學長論文（本資料集與基礎流程）；K. Lee et al. (2018) *NeurIPS*（深度特徵逐類馬氏）；開集理論：Scheirer et al. (2013) *TPAMI*、Bendale & Boult (2016) *CVPR* OpenMax |
 | 共變異數估計 | Ledoit–Wolf 收縮（高維小樣本可逆、良態）| Ledoit & Wolf (2004) *J. Multivariate Analysis*；替代：Chen et al. (2010) OAS |
-| 非參數開集對照 | 逐類 k-NN 平均歐氏距離 + known-only 校準分位數 | Cover & Hart (1967) *IEEE Transactions on Information Theory*；Ramaswamy, Rastogi & Shim (2000) *SIGMOD* |
+| 非參數開集對照 | 逐類 k-NN 平均歐氏距離 + known-only 校準分位數 | [Cover & Hart (1967)](https://doi.org/10.1109/TIT.1967.1053964) *IEEE Transactions on Information Theory*；[Ramaswamy, Rastogi & Shim (2000)](https://doi.org/10.1145/342009.335437) *SIGMOD* |
 | 新故障分群 | HDBSCAN（自動叢集數、雜訊點標記）| Campello, Moulavi & Sander (2013) |
 | 變化點偵測 | EWMA 管制圖 + CUSUM | Roberts (1959) *Technometrics*；Page (1954) *Biometrika* |
 | 持續學習 | 全資料重擬合（= 完整 rehearsal，迴避災難性遺忘）| Kirkpatrick et al. (2017) *PNAS* EWC；Rebuffi et al. (2017) *CVPR* iCaRL |
