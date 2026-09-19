@@ -39,11 +39,12 @@ Exp1 只用健康 class 起始；exp2 在操作員確認後將新 class 納入�
 - raw source 與 materialized output 有 containment 檢查；Step-1/3 的 archive member 有相對路徑檢查；來源 manifest 紀錄 archive/file hash。
 - matrix CLI 目前對 `incomplete` 回傳非零（`experiments/exp6_matrix.py:222-249`），故不把已修正項目重複列為 finding。
 
-## 維護性觀察（待後續分階段補證據）
+## 維護性觀察與已確認 findings
 
-1. exp1–3 與 exp6 的結果 metadata schema 不完全一致，造成跨實驗追溯與 aggregate 擴充成本。
-2. `core.data.load_pools()`、formal materialization、Web dataset reload 各自承擔部分資料 schema 假設；缺少一個可在入口共用的 formal contract validator。
-3. `exp6_osr_benchmark.run()`、`exp6_matrix.run_matrix()`、`web.live.tick()` 同時處理 orchestration、狀態更新與輸出副作用，現有測試較難覆蓋失敗路徑。
-4. `pyproject.toml`、`build_uv.sh`、`build_uv_mac.sh` 與目前 Windows 3.12 venv 的支援宣告不一致；依賴沒有 lockfile，CI 也不存在。
+1. **ARCH-001（P1）**：`core.runner` 對 exp1–3/Web 有共用 CLI helper，但 exp6 自有 parser，結果 metadata schema 也不同；缺少單一 resolved-config/result contract。
+2. **ARCH-002（P2）**：`exp6_osr_benchmark.run()`、`exp6_matrix.run_matrix()`、`web.live.tick()` 分別約 131、110、79 行，同時處理 orchestration、狀態更新與輸出副作用；不是已證明的數值 bug，但會提高失敗路徑測試成本。
+3. **ARCH-003（P2）**：`OpenSetMonitor.score/classify/project`（102–113 行）沒有 fitted-state guard；錯誤可讀性不足，適合以小型 API contract test 先修補。
+4. `core.data.load_pools()`、formal materialization、Web dataset reload 各自承擔部分資料 schema 假設；DATA-001 已將這件事提升為資料可靠度 finding。
+5. `pyproject.toml`、`build_uv.sh`、`build_uv_mac.sh` 與目前 Windows 3.12 venv 的支援宣告不一致；ENV-001 已將環境問題提升為 finding。
 
-以上第 1–4 點先作架構觀察；是否列為 finding 會在後續 correctness、reproducibility 與 maintainability 階段以行號與命令補證據。
+ARCH-001～003 已加入 `findings.csv`；後續 roadmap 會把共用 metadata、API guard、CI 與大型函式拆分成不同 PR-sized 任務，避免「重構整個專案」這種不可驗收的工作。
