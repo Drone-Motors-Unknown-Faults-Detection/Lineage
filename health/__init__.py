@@ -4,6 +4,7 @@ from health.calibration import HealthIndexCalibrator
 from health.config import HealthMonitorConfig, OutputMode
 from health.index import CalibratedHealthIndex
 from health.schema import HealthMonitoringResult
+from health.severity import DEFAULT_SEVERITY_POLICY, RelativeSeverityPolicy
 from health.trajectory import SessionTrajectoryMonitor, TrajectoryConfig
 
 __all__ = [
@@ -14,4 +15,6 @@ __all__ = [
     "OutputMode",
     "SessionTrajectoryMonitor",
     "TrajectoryConfig",
+    "DEFAULT_SEVERITY_POLICY",
+    "RelativeSeverityPolicy",
 ]

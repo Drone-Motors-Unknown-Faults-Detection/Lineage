@@ -19,6 +19,7 @@ from sklearn.preprocessing import RobustScaler
 from core.openset import OpenSetDetector, canonical_openset_method, create_openset_detector
 from health.calibration import HealthIndexCalibrator
 from health.schema import HealthMonitoringResult
+from health.severity import DEFAULT_SEVERITY_POLICY, RelativeSeverityPolicy
 
 
 def _matrix(value: np.ndarray, name: str, *, allow_empty: bool = False) -> np.ndarray:
@@ -32,7 +33,7 @@ def _matrix(value: np.ndarray, name: str, *, allow_empty: bool = False) -> np.nd
     return matrix
 
 
-def relative_severity(health_index: float) -> str:
+def relative_severity(health_index: float, policy: RelativeSeverityPolicy = DEFAULT_SEVERITY_POLICY) -> str:
     """Map a relative health value to a policy stage.
 
     These thresholds are presentation policy, not supervised severity labels.
@@ -40,13 +41,7 @@ def relative_severity(health_index: float) -> str:
     them without changing the detector or calibration code.
     """
 
-    if health_index >= 0.8:
-        return "healthy"
-    if health_index >= 0.5:
-        return "early_warning"
-    if health_index >= 0.2:
-        return "degraded"
-    return "critical"
+    return policy.classify(health_index)
 
 
 def _decision_margin_confidence(openset_score: float) -> float:
