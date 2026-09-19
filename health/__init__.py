@@ -2,6 +2,7 @@
 
 from health.calibration import HealthIndexCalibrator
 from health.config import HealthMonitorConfig, OutputMode
+from health.diagnosis import DiagnosisDecision, DiagnosisResolver
 from health.index import CalibratedHealthIndex
 from health.schema import HealthMonitoringResult
 from health.severity import DEFAULT_SEVERITY_POLICY, RelativeSeverityPolicy
@@ -9,6 +10,8 @@ from health.trajectory import SessionTrajectoryMonitor, TrajectoryConfig
 
 __all__ = [
     "CalibratedHealthIndex",
+    "DiagnosisDecision",
+    "DiagnosisResolver",
     "HealthIndexCalibrator",
     "HealthMonitoringResult",
     "HealthMonitorConfig",

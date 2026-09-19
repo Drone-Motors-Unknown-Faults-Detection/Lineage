@@ -18,6 +18,7 @@ from sklearn.preprocessing import RobustScaler
 
 from core.openset import OpenSetDetector, canonical_openset_method, create_openset_detector
 from health.calibration import HealthIndexCalibrator
+from health.diagnosis import DiagnosisResolver
 from health.schema import HealthMonitoringResult
 from health.severity import DEFAULT_SEVERITY_POLICY, RelativeSeverityPolicy
 
@@ -79,6 +80,7 @@ class CalibratedHealthIndex:
         self.confidence = float(confidence)
         self.knn_neighbors = int(knn_neighbors)
         self.label_to_fault_type = {int(k): str(v) for k, v in (label_to_fault_type or {}).items()}
+        self.diagnosis = DiagnosisResolver(self.label_to_fault_type)
 
     @classmethod
     def fit(
@@ -171,12 +173,7 @@ class CalibratedHealthIndex:
             unknown = int(label) < 0 or float(score) > 1.0
             health_value = float(health)
             confidence = _decision_margin_confidence(float(score))
-            if unknown:
-                fault_type = "unknown"
-                fault_confidence = None
-            else:
-                fault_type = self.label_to_fault_type.get(int(label), f"known_class_{int(label)}")
-                fault_confidence = confidence
+            diagnosis = self.diagnosis.resolve(int(label), float(score), confidence)
             results.append(
                 HealthMonitoringResult(
                     is_fault=unknown,
@@ -185,11 +182,11 @@ class CalibratedHealthIndex:
                     severity_stage=relative_severity(health_value),
                     trend="insufficient_history",
                     degradation_rate=None,
-                    fault_type=fault_type,
-                    fault_type_confidence=fault_confidence,
+                    fault_type=diagnosis.fault_type,
+                    fault_type_confidence=diagnosis.confidence,
                     openset_method=self.openset_method,
                     openset_score=float(score),
-                    is_unknown_fault=unknown,
+                    is_unknown_fault=diagnosis.is_unknown,
                     prediction_confidence=confidence,
                     uncertainty=1.0 - confidence,
                     estimated_rul=None,
