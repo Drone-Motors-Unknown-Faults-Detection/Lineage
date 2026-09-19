@@ -6,6 +6,12 @@
 **不對應**目前的 `core/ experiments/ web/` 架構；每份文件頂部都有歷史標記。
 新專案（冷啟動 PHM）的說明見根目錄 [README.md](../README.md)。
 
+## 現行健康監測工作流程
+
+| 文件 | 內容 |
+|---|---|
+| [health_monitoring_workflow](health_monitoring_workflow.md) | Level A 資料能力、Health Index、趨勢/告警、正式 9×3×2 結果、限制與 CLI |
+
 ## 論文版管線文件（程式碼在 Ancestor）
 
 | 文件 | 內容 | 與新專案的關係 |
