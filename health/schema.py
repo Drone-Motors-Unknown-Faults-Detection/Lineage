@@ -67,6 +67,14 @@ class HealthMonitoringResult:
     raw_health_index: float | None = None
     smoothed_health_index: float | None = None
     change_point_state: ChangePointState = "none"
+    health_deviation_score: float | None = None
+    health_reference_version: str | None = None
+    unknown_score: float | None = None
+    direction_familiarity: float | None = None
+    nearest_known_direction: str | None = None
+    predicted_class: str | None = None
+    calibration_version: str | None = None
+    model_version: str | None = None
 
     def __post_init__(self) -> None:
         health = _bounded(self.health_index, "health_index")
@@ -89,6 +97,10 @@ class HealthMonitoringResult:
             _bounded(self.smoothed_health_index, "smoothed_health_index")
         if self.change_point_state not in _CHANGE_POINT_STATES:
             raise ValueError(f"unsupported change_point_state: {self.change_point_state!r}")
+        for name in ("health_deviation_score", "unknown_score", "direction_familiarity"):
+            value = getattr(self, name)
+            if value is not None:
+                _bounded(value, name)
         if self.fault_type_confidence is not None:
             _bounded(self.fault_type_confidence, "fault_type_confidence")
         _bounded(self.prediction_confidence, "prediction_confidence")
@@ -143,6 +155,14 @@ class HealthMonitoringResult:
                     "raw_health_index",
                     "smoothed_health_index",
                     "change_point_state",
+                    "health_deviation_score",
+                    "health_reference_version",
+                    "unknown_score",
+                    "direction_familiarity",
+                    "nearest_known_direction",
+                    "predicted_class",
+                    "calibration_version",
+                    "model_version",
                 )
             }
         return payload

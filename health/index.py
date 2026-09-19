@@ -21,6 +21,7 @@ from health.calibration import HealthIndexCalibrator
 from health.diagnosis import DiagnosisResolver
 from health.schema import HealthMonitoringResult
 from health.severity import DEFAULT_SEVERITY_POLICY, RelativeSeverityPolicy
+from health.scores import DirectionFamiliarity, FixedHealthReference, bounded_unknown_score
 
 
 def _matrix(value: np.ndarray, name: str, *, allow_empty: bool = False) -> np.ndarray:
@@ -71,6 +72,8 @@ class CalibratedHealthIndex:
         confidence: float,
         knn_neighbors: int,
         label_to_fault_type: Mapping[int, str] | None = None,
+        health_reference: FixedHealthReference | None = None,
+        direction_model: DirectionFamiliarity | None = None,
     ) -> None:
         self.scaler = scaler
         self.detector = detector
@@ -81,6 +84,8 @@ class CalibratedHealthIndex:
         self.knn_neighbors = int(knn_neighbors)
         self.label_to_fault_type = {int(k): str(v) for k, v in (label_to_fault_type or {}).items()}
         self.diagnosis = DiagnosisResolver(self.label_to_fault_type)
+        self.health_reference = health_reference
+        self.direction_model = direction_model
 
     @classmethod
     def fit(
@@ -134,6 +139,15 @@ class CalibratedHealthIndex:
             confidence=confidence,
             lower_quantile=lower_quantile,
         )
+        healthy_train = X_train[y_train == np.min(np.unique(y_train))]
+        healthy_calibration = X_calibration[y_calibration == np.min(np.unique(y_train))]
+        health_reference = FixedHealthReference.fit(healthy_train, healthy_calibration)
+        direction_model = DirectionFamiliarity.fit(
+            X_train,
+            y_train,
+            health_reference,
+            label_names=label_to_fault_type,
+        )
         return cls(
             scaler=scaler,
             detector=detector,
@@ -143,6 +157,8 @@ class CalibratedHealthIndex:
             confidence=confidence,
             knn_neighbors=knn_neighbors,
             label_to_fault_type=label_to_fault_type,
+            health_reference=health_reference,
+            direction_model=direction_model,
         )
 
     def _validate_features(self, features: np.ndarray) -> np.ndarray:
@@ -168,8 +184,19 @@ class CalibratedHealthIndex:
         scores = np.asarray(self.detector.score_samples(scaled), dtype=float)
         labels = np.asarray(self.detector.predict_known_class(scaled), dtype=int)
         health_values = np.asarray(self.calibrator.transform(scores), dtype=float)
+        if self.health_reference is not None:
+            health_deviation = np.asarray(self.health_reference.deviation(matrix), dtype=float)
+        else:
+            health_deviation = bounded_unknown_score(scores)
+        unknown_values = np.asarray(bounded_unknown_score(scores), dtype=float)
+        if self.direction_model is not None and self.health_reference is not None:
+            direction_values, directions = self.direction_model.score(matrix, self.health_reference)
+        else:
+            direction_values, directions = np.zeros(len(matrix), dtype=float), [None] * len(matrix)
         results: list[HealthMonitoringResult] = []
-        for score, label, health in zip(scores, labels, health_values, strict=True):
+        for score, label, health, deviation, unknown_value, direction, nearest_direction in zip(
+            scores, labels, health_values, health_deviation, unknown_values, direction_values, directions, strict=True
+        ):
             unknown = int(label) < 0 or float(score) > 1.0
             health_value = float(health)
             confidence = _decision_margin_confidence(float(score))
@@ -196,6 +223,14 @@ class CalibratedHealthIndex:
                     data_quality="valid",
                     raw_health_index=health_value,
                     smoothed_health_index=health_value,
+                    health_deviation_score=float(deviation),
+                    health_reference_version=self.health_reference.version if self.health_reference else None,
+                    unknown_score=float(unknown_value),
+                    direction_familiarity=float(direction),
+                    nearest_known_direction=nearest_direction,
+                    predicted_class=self.label_to_fault_type.get(int(label)) if int(label) >= 0 else None,
+                    calibration_version="health-index-calibration-v1",
+                    model_version=f"openset-{self.openset_method}-v1",
                 )
             )
         return results

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "experiment": "score_separation_regression",
+  "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+  "probe_samples": 100,
+  "health_deviation_max_abs_change": 0.0,
+  "health_deviation_mean_before": 0.717726867872297,
+  "health_deviation_mean_after": 0.717726867872297,
+  "unknown_score_mean_before": 0.717726867872297,
+  "unknown_score_mean_after": 0.5581918337508934,
+  "unknown_score_decreased": true,
+  "predicted_classes_before": [
+    null
+  ],
+  "predicted_classes_after": [
+    "5screws",
+    null
+  ],
+  "direction_familiarity_mean_before": 0.0,
+  "direction_familiarity_mean_after": 0.998853361072416,
+  "rul_status": "unavailable_no_run_to_failure_data",
+  "data_status": "formal_replay; update arrival order simulated by source-file row order"
+}
