@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "repository": "Drone-Motors-Unknown-Faults-Detection/Lineage",
+  "branch": "research-improvements-20260920",
+  "current_commit": "f21ad6ac94e66cad9c78e14bb07f7dad20d54470",
+  "current_phase": "P0",
+  "completed_phases": [],
+  "phases": {
+    "P0": {"status": "running"},
+    "P1": {"status": "pending"},
+    "P2": {"status": "pending"},
+    "P3": {"status": "pending"},
+    "P4": {"status": "pending"},
+    "P5": {"status": "pending"},
+    "P6": {"status": "pending"},
+    "P7": {"status": "pending"},
+    "P8": {"status": "pending"},
+    "P9": {"status": "pending"}
+  },
+  "commands": [
+    {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "62 passed"}
+  ],
+  "tests": {"baseline": {"passed": 62, "failed": 0}},
+  "experiment_runs": [],
+  "failed_runs": [],
+  "blockers": [
+    "Formal data has no verified motor/session/timestamp metadata; group-level temporal conclusions require new field data.",
+    "No run-to-failure trajectories or ordinal severity labels; RUL remains unavailable."
+  ],
+  "commits": [],
+  "push": {"status": "pending", "remote": "origin", "branch": "research-improvements-20260920"}
+}
