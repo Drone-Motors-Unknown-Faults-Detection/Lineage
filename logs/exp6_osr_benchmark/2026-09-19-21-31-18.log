@@ -1,0 +1,6 @@
+2026-09-19 21:31:18 | INFO    | Logger initialized: exp6_osr_benchmark
+2026-09-19 21:31:18 | INFO    | log_file=logs\exp6_osr_benchmark\2026-09-19-21-31-18.log
+2026-09-19 21:31:18 | INFO    | output_dir=output\exp6_osr_benchmark\2026-09-19-21-31-18
+2026-09-19 21:31:18 | INFO    | 正式 OSR benchmark method=mahalanobis, seed=42, confidence=0.95
+2026-09-19 21:31:23 | INFO    | 圖表已儲存：output\exp6_osr_benchmark\2026-09-19-21-31-18\osr_benchmark.png
+2026-09-19 21:31:23 | INFO    | completed 9 conditions; output=output\exp6_osr_benchmark\2026-09-19-21-31-18
