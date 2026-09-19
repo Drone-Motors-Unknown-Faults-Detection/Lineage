@@ -2,6 +2,13 @@
 
 from health.calibration import HealthIndexCalibrator
 from health.config import HealthMonitorConfig, OutputMode
+from health.index import CalibratedHealthIndex
 from health.schema import HealthMonitoringResult
 
-__all__ = ["HealthIndexCalibrator", "HealthMonitoringResult", "HealthMonitorConfig", "OutputMode"]
+__all__ = [
+    "CalibratedHealthIndex",
+    "HealthIndexCalibrator",
+    "HealthMonitoringResult",
+    "HealthMonitorConfig",
+    "OutputMode",
+]
