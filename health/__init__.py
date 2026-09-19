@@ -3,6 +3,7 @@
 from health.calibration import HealthIndexCalibrator
 from health.config import HealthMonitorConfig, OutputMode
 from health.diagnosis import DiagnosisDecision, DiagnosisResolver
+from health.evaluation import evaluate_results
 from health.index import CalibratedHealthIndex
 from health.schema import HealthMonitoringResult
 from health.severity import DEFAULT_SEVERITY_POLICY, RelativeSeverityPolicy
@@ -12,6 +13,7 @@ __all__ = [
     "CalibratedHealthIndex",
     "DiagnosisDecision",
     "DiagnosisResolver",
+    "evaluate_results",
     "HealthIndexCalibrator",
     "HealthMonitoringResult",
     "HealthMonitorConfig",
