@@ -2,15 +2,16 @@
   "schema_version": 1,
   "repository": "Drone-Motors-Unknown-Faults-Detection/Lineage",
   "branch": "research-improvements-20260920",
-  "current_commit": "cfd408e1ea79b7f0980e9d67f296e7ce183bde9d",
-  "current_phase": "P4",
-  "completed_phases": ["P0", "P1", "P2", "P3"],
+  "current_commit": "3d784d9bf608271e4910ddc78f884e5a4ee3d727",
+  "current_phase": "P5",
+  "completed_phases": ["P0", "P1", "P2", "P3", "P4"],
   "phases": {
     "P0": {"status": "completed", "commit_sha": "af3c9b06157a2c8bc2113621188432bccb7a6c5c"},
     "P1": {"status": "completed", "commit_sha": "02bba5881ed26dcef7c5da701165ebb24e0a439b", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d"},
     "P2": {"status": "completed", "commit_sha": "60e114de35f74f03635b474aeafe70477a8495ce", "result_fingerprint": "c7ff515470004aeb443ad3a263bb91a2b9c626026042ee8f65d3f6a44d284046"},
     "P3": {"status": "completed", "commit_sha": "cfd408e1ea79b7f0980e9d67f296e7ce183bde9d", "health_deviation_max_abs_change": 0.0},
-    "P4": {"status": "running"},
+    "P4": {"status": "completed", "commit_sha": "3d784d9bf608271e4910ddc78f884e5a4ee3d727", "rows": 240},
+    "P5": {"status": "running"},
     "P5": {"status": "pending"},
     "P6": {"status": "pending"},
     "P7": {"status": "pending"},
@@ -39,6 +40,6 @@
     "Formal data has no verified motor/session/timestamp metadata; group-level temporal conclusions require new field data.",
     "No run-to-failure trajectories or ordinal severity labels; RUL remains unavailable."
   ],
-  "commits": ["af3c9b0", "0093649", "02bba58", "24fa28f", "60e114d", "86079c5", "cfd408e"],
+  "commits": ["af3c9b0", "0093649", "02bba58", "24fa28f", "60e114d", "86079c5", "cfd408e", "021b8d5", "580ba63", "3d784d9"],
   "push": {"status": "pending", "remote": "origin", "branch": "research-improvements-20260920"}
 }
