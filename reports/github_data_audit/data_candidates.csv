@@ -1,0 +1,3 @@
+"repository","branch","commit_sha","path_or_url","type","size","lfs_or_dvc","conditions","classes","split","schema_match","available","confidence","evidence","missing"
+"Drone-Motors-Unknown-Faults-Detection/GPU-Learning-PyTorch","main","156de327373017df07e7feb4c4dd8664d70cc98a","https://download.pytorch.org/whl/cu121","D_POINTER_EXTERNAL","489","","","","","pending","unknown","Low","Build_Linux_VENV.sh external URL",""
+"Drone-Motors-Unknown-Faults-Detection/GPU-Learning-PyTorch","main","156de327373017df07e7feb4c4dd8664d70cc98a","https://download.pytorch.org/whl/cu121","D_POINTER_EXTERNAL","757","","","","","pending","unknown","Low","Build_Windows_UV.bat external URL",""
