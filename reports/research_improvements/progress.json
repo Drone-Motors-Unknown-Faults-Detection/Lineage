@@ -3,11 +3,11 @@
   "repository": "Drone-Motors-Unknown-Faults-Detection/Lineage",
   "branch": "research-improvements-20260920",
   "current_commit": "f21ad6ac94e66cad9c78e14bb07f7dad20d54470",
-  "current_phase": "P0",
-  "completed_phases": [],
+  "current_phase": "P1",
+  "completed_phases": ["P0"],
   "phases": {
-    "P0": {"status": "running"},
-    "P1": {"status": "pending"},
+    "P0": {"status": "completed", "commit_sha": "af3c9b06157a2c8bc2113621188432bccb7a6c5c"},
+    "P1": {"status": "running"},
     "P2": {"status": "pending"},
     "P3": {"status": "pending"},
     "P4": {"status": "pending"},
@@ -18,10 +18,12 @@
     "P9": {"status": "pending"}
   },
   "commands": [
-    {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "62 passed"}
+    {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "62 passed"},
+    {"command": "venv\\Scripts\\python.exe -m unittest tests.test_continual_protocol -v", "exit_code": 0, "result": "3 passed"},
+    {"command": "venv\\Scripts\\python.exe -m core.continual_protocol --data-root data/formal_local --output-root reports/research_improvements/protocols/formal_seed42 --seed 42", "exit_code": 0, "result": "30 files, 14070 samples, protocol dff5656e..."}
   ],
-  "tests": {"baseline": {"passed": 62, "failed": 0}},
-  "experiment_runs": [],
+  "tests": {"baseline": {"passed": 62, "failed": 0}, "P1": {"passed": 3, "failed": 0, "leakage": "passed"}},
+  "experiment_runs": [{"phase": "P1", "run_id": "formal_seed42", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "immutable_test_samples": 7422}],
   "failed_runs": [],
   "blockers": [
     "Formal data has no verified motor/session/timestamp metadata; group-level temporal conclusions require new field data.",

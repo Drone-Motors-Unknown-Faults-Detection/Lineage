@@ -1,0 +1,48 @@
+{
+  "files_by_split": {
+    "initial_known_train": 3,
+    "discovery_stream": 6,
+    "validation": 3,
+    "healthy_calibration": 3,
+    "immutable_test": 24,
+    "human_confirmed_update_pool": 6
+  },
+  "samples_by_split": {
+    "initial_known_train": 991,
+    "healthy_calibration": 945,
+    "discovery_stream": 2076,
+    "human_confirmed_update_pool": 1872,
+    "validation": 764,
+    "immutable_test": 7422
+  },
+  "conditions_by_split": {
+    "initial_known_train": [
+      "8screws"
+    ],
+    "healthy_calibration": [
+      "8screws"
+    ],
+    "discovery_stream": [
+      "5screws",
+      "6screws"
+    ],
+    "human_confirmed_update_pool": [
+      "5screws",
+      "6screws"
+    ],
+    "validation": [
+      "7screws"
+    ],
+    "immutable_test": [
+      "1screws",
+      "2screws",
+      "3_14screws",
+      "3screws",
+      "4_146screws",
+      "4screws",
+      "7screws",
+      "8screws"
+    ]
+  },
+  "session_id_status": "unavailable; source-file grouping is the conservative fallback"
+}
