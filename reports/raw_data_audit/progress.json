@@ -1,0 +1,23 @@
+﻿{
+    "raw_data_root":  "D:\\schoolshit\\fcu\\專題\\馬達研究",
+    "root_exists":  true,
+    "root_is_read_only_for_this_audit":  true,
+    "contains_git_repository":  false,
+    "file_count":  154,
+    "directory_count":  2,
+    "total_size_bytes":  4937135027,
+    "total_size_gib":  4.598,
+    "archive_file_count":  3,
+    "nested_archive_entry_count":  16,
+    "unreadable_file_count":  0,
+    "unreadable_files":  [
+
+                         ],
+    "candidate_directories":  [
+                                  ".",
+                                  "馬達研究"
+                              ],
+    "scan_stage":  "P1_inventory",
+    "analysis_status":  "completed",
+    "generated_at":  "2026-09-19T17:28:58.2408022+08:00"
+}

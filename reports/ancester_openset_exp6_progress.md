@@ -128,3 +128,27 @@ P2 的 repository provenance 已完成，但「正式資料取得」是 P3 的�
 3. 可讀取該資料的 Git LFS／雲端／共享資料權限與下載方式。
 
 取得資料後，才會進入 P3，建立 fingerprint、逐工況列樣本數、驗證 loader、split 互斥性，再逐階段修正程式並執行正式實驗。
+
+## 2026-09-19：本機正式資料搜尋重新開工
+
+使用者指定的唯讀資料根目錄 `D:\schoolshit\fcu\專題\馬達研究` 已確認存在並可讀取。本次沒有修改該目錄；完整 P1 inventory 已放在 [reports/raw_data_audit/](raw_data_audit/)。
+
+| 階段 | 狀態 | 證據 | Commit | 下一步 |
+|---|---|---|---|---|
+| Raw data inventory | completed | 154 files、2 directories、4.598 GiB、3 outer ZIP、796 archive entries | pending P1 commit | 解析 raw／feature metadata |
+| Data validation | pending | 已確認九個 condition archive；尚未完成 row／label／shape validation | — | 完成 P2 |
+| Lineage data integration | blocked pending validation | T1/T3 有 105-feature clean CSV；T2 目前只有 raw CSV | — | 決定 T2 conversion |
+| Credibility issue 1 | not started | 需先閱讀 Albert／exp6 證據 | — | 找出可重現問題 |
+| Credibility issue 2 | not started | 需先閱讀 Albert／exp6 證據 | — | 找出可重現問題 |
+| Credibility issue 3 | not started | 需先閱讀 Albert／exp6 證據 | — | 找出可重現問題 |
+| exp6 factory integration | pending | feature branch 沒有 exp6；`origin/main` 有 `experiments/exp6_osr_benchmark.py` | — | 以 main 的 exp6 做整合前基線 |
+| Mahalanobis default | verified | `core.openset.create_openset_detector()` 預設 `mahalanobis`；11 tests passed | — | 保持回歸測試 |
+| PolarMap base | pending | 只存在 `origin/main` 的 `core/geometry.py`／exp4 | — | 讀取 main 版本並驗證 |
+| k-NN method | verified | factory、CLI、comparison tests；11 tests passed | existing feature commits | 不改變既有介面 |
+| Experiment runner | pending | feature branch 沒有正式 exp6 matrix runner | — | 先完成資料與 factory |
+| Seed 1 runs | blocked | 正式資料尚未完成 contract validation | — | — |
+| Seed 2 runs | blocked | 正式資料尚未完成 contract validation | — | — |
+| Seed 3 runs | blocked | 正式資料尚未完成 contract validation | — | — |
+| Aggregate report | blocked | 不得以歷史 output 或 synthetic data 冒充正式 runs | — | — |
+
+P1 原則：raw ZIP 保持在來源目錄；所有 inventory、驗證摘要與後續轉換輸出只放在 Lineage 的受版控報告或 ignored data/cache 路徑。未完成 P2/P3 前，不宣稱正式資料已可直接跑 exp6，也不執行 54-run 矩陣。
