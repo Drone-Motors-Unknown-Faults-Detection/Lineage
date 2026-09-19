@@ -46,3 +46,21 @@
 ## 基線判讀
 
 現有測試對近期正式資料與 Open Set 改動有良好保護，但測試數量集中在 `core.formal_data`、`core.openset`、PolarMap 與 exp6。沒有 CI、coverage、lint 或 type-check 設定，表示本機 28/28 通過不能推論 Web、歷史 exp1–3、資料載入器與跨平台行為已被保護。這些是測試／工程缺口，不是目前已證明的模型錯誤。
+
+## 可重現性盤點
+
+| 項目 | exp6 現況 | exp1–3 現況 | 稽核判讀 |
+|---|---|---|---|
+| seed／split | summary 有 seed；正式 contract 明確 60/20/20 | seed／split 部分存在 | 已完成的 exp6 contract 不需重做；歷史實驗需統一 schema |
+| dataset fingerprint | 有 manifest 時使用 archive/file hash；54-run aggregate 指紋一致 | 沒有保存 | REPRO-001、DATA-003 |
+| commit SHA | 有 | 沒有 | REPRO-001 |
+| Python／package versions | 只有 Python，沒有 package lock／版本表 | 沒有 | ENV-001、REPRO-002 |
+| hardware／CUDA | 沒有 | 沒有 | REPRO-002；目前硬體僅記錄於本稽核環境 |
+| resolved config | 分散在 config 欄位與 top-level 欄位 | 分散且不完整 | ARCH-001、REPRO-001 |
+| checkpoint | formal path 不使用 checkpoint，summary 明確為 `None` | 同樣沒有 | 不是 bug；應明確保存 `not_used` |
+| run identity／resume | matrix run_id、status、summary reference 存在 | timestamp 目錄，無跨實驗 schema | EXP-002、ARCH-001 |
+
+## 重要的「已確認」與「需驗證」界線
+
+- 已確認：沒有 CI／coverage/lint/type-check；高風險模組沒有直接測試；exp1–3 與 exp6 的 metadata 不一致；aggregate 只信 JSON evidence。
+- 需驗證：正式資料是否在所有來源副本都維持相同 bytes、跨 OS 的浮點差異大小、GPU 是否實際參與目前 pipeline。這些不在本輪宣稱為 bug。

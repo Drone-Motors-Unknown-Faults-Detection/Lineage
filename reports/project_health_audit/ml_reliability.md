@@ -41,3 +41,7 @@
 ### REPRO-001：exp1–3 metadata 未達 exp6 追溯標準
 
 exp6 summary 有 fingerprint／commit／Python／config；相對地，既有 exp1–3 summary 只保存 motor/rpm、seed、method 與指標。這是可重現性缺口，不是模型指標計算已被證明錯誤。實作時應先建立共同 metadata schema，再逐一補入歷史實驗。
+
+### REPRO-002：exp6 尚未保存完整軟硬體環境
+
+目前 `experiments.exp6_osr_benchmark.run()`（239–267 行）保存 Python 與 commit，但沒有 package version、OS／CPU／GPU／CUDA 或完整 resolved CLI config。這不否定現有 54-run 結果，只表示結果 artifact 還不能完整回答「在哪個數值環境重現」；應用 portable metadata 補強，未知硬體欄位要明確標成 unavailable。

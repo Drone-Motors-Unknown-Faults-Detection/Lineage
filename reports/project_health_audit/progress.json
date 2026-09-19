@@ -9,9 +9,10 @@
     "repository_map",
     "test_inventory",
     "correctness_and_data_reliability",
-    "architecture_and_maintainability"
+    "architecture_and_maintainability",
+    "tests_reproducibility_and_ci"
   ],
-  "current_section": "tests_reproducibility_and_ci",
+  "current_section": "performance_security_and_documentation",
   "commands_executed": [
     "git status --short",
     "git branch --show-current",
@@ -31,8 +32,8 @@
     "cli_help": "8 passed",
     "formal_full_matrix_rerun": "not run by audit boundary"
   },
-  "finding_count": 12,
+  "finding_count": 15,
   "blockers": [],
   "final_status": "in_progress",
-  "last_audit_commit": "ccdd1ae6b6f1fde883c6faea9c45c82f4758c3eb"
+  "last_audit_commit": "a148ec3664f48603451fc5c79172b41123672a5a"
 }
