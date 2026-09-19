@@ -10,7 +10,7 @@
     "P1": {"status": "completed", "commit_sha": "02bba5881ed26dcef7c5da701165ebb24e0a439b", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d"},
     "P2": {"status": "completed", "commit_sha": "60e114de35f74f03635b474aeafe70477a8495ce", "result_fingerprint": "c7ff515470004aeb443ad3a263bb91a2b9c626026042ee8f65d3f6a44d284046"},
     "P3": {"status": "completed", "commit_sha": "cfd408e1ea79b7f0980e9d67f296e7ce183bde9d", "health_deviation_max_abs_change": 0.0},
-    "P4": {"status": "pending"},
+    "P4": {"status": "running"},
     "P5": {"status": "pending"},
     "P6": {"status": "pending"},
     "P7": {"status": "pending"},
@@ -23,10 +23,13 @@
     {"command": "venv\\Scripts\\python.exe -m core.continual_protocol --data-root data/formal_local --output-root reports/research_improvements/protocols/formal_seed42 --seed 42", "exit_code": 0, "result": "30 files, 14070 samples, protocol dff5656e..."},
     {"command": "venv\\Scripts\\python.exe -m experiments.calibration_ablation --data-root data/formal_local --output-root reports/research_improvements/calibration_ablation", "exit_code": 0, "result": "45 rows, 3 seeds, result c7ff5154..."},
     {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "76 passed"},
-    {"command": "venv\\Scripts\\python.exe -m experiments.score_separation --data-root data/formal_local --output-root reports/research_improvements/score_separation", "exit_code": 0, "result": "health deviation delta 0.0; unknown score decreased"}
+    {"command": "venv\\Scripts\\python.exe -m experiments.score_separation --data-root data/formal_local --output-root reports/research_improvements/score_separation", "exit_code": 0, "result": "health deviation delta 0.0; unknown score decreased"},
+    {"command": "venv\\Scripts\\python.exe -m experiments.continual_learning --data-root data/formal_local --output-root reports/research_improvements/continual_learning", "exit_code": 0, "result": "240 completed rows; budgets 10/25/50/100; 3 seeds; 4 orders"},
+    {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "79 passed"}
   ],
-  "tests": {"baseline": {"passed": 62, "failed": 0}, "P1": {"passed": 3, "failed": 0, "leakage": "passed"}, "P2": {"passed": 73, "failed": 0}, "P3": {"passed": 76, "failed": 0}},
+  "tests": {"baseline": {"passed": 62, "failed": 0}, "P1": {"passed": 3, "failed": 0, "leakage": "passed"}, "P2": {"passed": 73, "failed": 0}, "P3": {"passed": 76, "failed": 0}, "P4": {"passed": 79, "failed": 0}},
   "experiment_runs": [
+    {"phase": "P4", "run_id": "arrival_only_continual_learning", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "rows": 240, "budgets": [10, 25, 50, 100], "seeds": [42, 123, 2026], "orders": ["mild_to_severe", "severe_to_mild", "random", "interleaved"]},
     {"phase": "P1", "run_id": "formal_seed42", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "immutable_test_samples": 7422},
     {"phase": "P2", "run_id": "calibration_ablation", "status": "completed", "result_fingerprint": "c7ff515470004aeb443ad3a263bb91a2b9c626026042ee8f65d3f6a44d284046", "rows": 45, "seeds": [42, 123, 2026]},
     {"phase": "P3", "run_id": "score_separation_regression", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "probe_samples": 100, "health_deviation_max_abs_change": 0.0, "unknown_score_decreased": true}
