@@ -53,23 +53,78 @@ git push --dry-run origin HEAD:refs/heads/feat/knn-openset-comparison
 
 結果為 `non-fast-forward`，原因是本地 `a28763c` 落後遠端 `dd0190f`。因此本階段沒有從原始工作樹推送舊 HEAD；改用不含使用者未提交檔案的隔離工作樹，並在遠端最新 branch 上建立本 P1 commit，避免覆蓋遠端歷史。
 
-## P2 前置搜尋結果與阻塞
+## P2 — `Ancestor` 正式來源核對
 
-依照任務規格搜尋 exact repository name `ancester`，沒有把它更正成 `ancestor`：
+使用者已提供並確認正式來源 URL：
 
-- `Drone-Motors-Unknown-Faults-Detection` organization API 目前只列出 `Ancestor`、`Lineage`、`GPU-Learning-PyTorch`、`GPU-Learning-Tensorflow`，沒有 `ancester`。
-- 已登入帳號 `05zhi` 的可存取 repositories 沒有 exact `ancester`。
-- Albert 帳號 `JW-Albert` 的公開 repositories 沒有 exact `ancester`。
-- GitHub repository search 的 exact-name 候選是無關的公開專案，沒有與 Drone Motors organization 或 Lineage 資料格式相符者。
-- Lineage 的 `AGENT.md`、`README.md` 與 Git 歷史只明確引用 `Ancestor`，不能據此把 `Ancestor` 假定為使用者指定的 `ancester`。
+`https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor`
 
-因此 P2 尚未通過。正式資料、9 個工況、dataset fingerprint、LFS objects 與資料 provenance 目前都不能安全確認；在取得 exact `ancester` URL/owner 與權限前，不執行正式資料恢復或 54-run 實驗，也不以 synthetic/demo data 代替。
+雖然任務文字曾使用拼字 `ancester`，本次以使用者提供的完整 URL 為準，不再猜測其他 repository。
 
-## 後續解除阻塞所需資訊
+| 項目 | 已核對結果 |
+|---|---|
+| repository | `Drone-Motors-Unknown-Faults-Detection/Ancestor` |
+| visibility | private；目前 GitHub 帳號可讀取 |
+| default branch | `main` |
+| source commit | `1ef4a891ae02dc95910f747a5163bb2edd608f28` |
+| latest commit | `文件整理` |
+| repository description | `未知故障預測核心程式碼` |
+| license | GitHub metadata 未提供 license |
+| Git LFS | `.gitattributes` 不存在；`git lfs ls-files` 無輸出 |
+| releases / tags | 無 release、無 tag |
+| tree 中實際資料檔 | 0 個 CSV、ZIP、NPY/NPZ、HDF5、Parquet 或 checkpoint |
+| history 中實際資料檔 | 未找到上述資料檔路徑 |
+| manifest / checksum | repository 未提供 |
 
-請提供下列其中一項：
+### 文件所描述的正式資料格式
 
-1. exact `ancester` repository URL（例如 `owner/ancester`），並確保目前 GitHub 帳號可讀取；或
-2. 若 repository 是 private，授予目前 GitHub 帳號讀取權限；若正式資料在 repo 外，另提供資料根目錄或受控下載方式。
+Ancestor 的 README 與 Step 1/2/4 文件一致描述正式資料應位於：
 
-收到後才會進入 P2，逐檔核對 manifest、checksum、9 個正式工況、class mapping、split 與 Lineage loader。
+```text
+data/Step-{1|2|3}/myfeature/{Motor}/{RPM}/{Screws}/
+└── {Motor}_Group_feature_data_clean.csv
+```
+
+文件可核對出的 9 個正式工況為：
+
+```text
+T1/6000rpm, T1/8000rpm, T1/11000rpm
+T2/6000rpm, T2/8000rpm, T2/11000rpm
+T3/6000rpm, T3/8000rpm, T3/11000rpm
+```
+
+class mapping 為 10 類：
+
+```text
+0: 8screws      Healthy（known）
+1: 1screw       Faulty 1（known）
+2: 2screws      Faulty 2（known）
+3: 3screws      Faulty 3（known）
+4: 4screws      Faulty 4（known）
+5: 5screws      New Faulty 1（unknown）
+6: 6screws      New Faulty 2（unknown）
+7: 7screws      New Faulty 3（unknown）
+8: 3_14screws   New Faulty 4（unknown）
+9: 4_146screws  New Faulty 5（unknown）
+```
+
+文件也指定：105 維特徵、`*_Group_feature_data_clean.csv` 為 IQR scale=1.5 逐列過濾版本，Step 4/5 使用 clean CSV；但這些都是 provenance/documentation，並不是目前已取得的資料物件。
+
+### P2 驗收結論
+
+- source repository、owner、URL、branch、source commit 已唯一確認。
+- 文件格式、9 工況、class mapping、known/unknown 語意已確認。
+- 實際正式資料本體沒有在 Ancestor Git tree、歷史、release 或 LFS 中；目前 workspace 與常用使用者資料目錄也沒有對應的 clean CSV 或 `data.zip`。
+- 因缺少正式資料檔、manifest/checksum 與每工況樣本數，dataset fingerprint、split 樣本數、資料完整性與 P3 loader 初始化尚不能驗證。
+
+P2 的 repository provenance 已完成，但「正式資料取得」是 P3 的必要前置，不能用 synthetic/demo data 代替，也不能宣稱 54 個正式 runs 已完成。
+
+## 後續解除 P3 阻塞所需資訊
+
+請提供以下任一項：
+
+1. Ancestor 正式資料的實際資料根目錄（包含 `data/Step-*/myfeature/.../*_Group_feature_data_clean.csv`）；或
+2. `data.zip`、`階段1.zip`、`階段2.zip`、`階段3.zip` 的受控下載位置；或
+3. 可讀取該資料的 Git LFS／雲端／共享資料權限與下載方式。
+
+取得資料後，才會進入 P3，建立 fingerprint、逐工況列樣本數、驗證 loader、split 互斥性，再逐階段修正程式並執行正式實驗。
