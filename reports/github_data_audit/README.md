@@ -66,3 +66,21 @@
 ## 可恢復進度
 
 機器可讀進度見 [progress.json](progress.json)。P2 起將建立 repository、branch、file、candidate inventory；每完成一個 repository 便更新、檢查、commit、push，再處理下一個。
+
+## P3 repository audit — Ancestor
+
+第一個依字典序處理的 repository 是 `Drone-Motors-Unknown-Faults-Detection/Ancestor`。已使用 GitHub API 取得所有 branch，並在 recursive tree 沒有截斷的情況下記錄完整 file entries；兩個 branch 即使內容有重疊，仍分別保留：
+
+| Branch | HEAD | Tree mode | File entries | LFS/DVC | Audit status |
+|---|---|---|---:|---|---|
+| `main` | `1ef4a891ae02dc95910f747a5163bb2edd608f28` | recursive | 1334 | 0 / 0 | completed |
+| `original` | `2708e0d31d7904aa38af8d08b9950d91b5f9c7c7` | recursive | 152 | 0 / 0 | completed |
+
+Ancestor 的完整分支與檔案 inventory 位於：
+
+- [repository metadata](repositories/Drone-Motors-Unknown-Faults-Detection__Ancestor/repository.json)
+- [branch audit](repositories/Drone-Motors-Unknown-Faults-Detection__Ancestor/branches.json)
+- [branch inventory](branch_inventory.csv)
+- [file inventory](file_inventory.csv)
+
+兩個 branch 的 tree 都沒有實際 `data/`、`*_Group_feature_data_clean.csv`、archive、LFS pointer、DVC metadata 或 checkpoint data object。README／docs 只描述資料應放在 `data/Step-*`，因此目前分類是「referenced-but-missing」，不是正式資料候選。
