@@ -36,6 +36,6 @@
 
 ## 目前結論（持續更新）
 
-目前核心 exp6 路徑已有明確 detector factory、正式資料 fingerprint、calibration-only threshold、portable 結果 schema 與 28 個測試；因此本稽核不把這些已被證明的項目當成待辦。已確認的改善空間集中在：矩陣／resume／aggregate 證據完整性、資料 schema fail-fast、channel 對齊政策、fallback fingerprint、歷史與正式實驗的可重現 metadata、Stage-2 archive containment、CI 與高風險邊界測試、Web 展示的網路暴露面、環境鎖定與文件可操作性。
+目前核心 exp6 路徑已有明確 detector factory、正式資料 fingerprint、calibration-only threshold、portable 結果 schema 與 28 個測試；因此本稽核不把這些已被證明的項目當成待辦。已確認的改善空間集中在：矩陣／resume／aggregate 證據完整性、資料 schema fail-fast、channel 對齊政策、fallback fingerprint、歷史與正式實驗的可重現 metadata、Stage-2 archive containment、CI 與高風險邊界測試、Web 展示的 origin／錯誤暴露面、環境鎖定、效能 profiling、文件與 Windows onboarding。
 
 每完成一個稽核階段，報告會先通過 `git diff --check`、敏感資訊／大型檔案檢查，再以單一文件 commit 推送；本輪不會因為發現問題而直接改碼。

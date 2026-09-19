@@ -64,3 +64,14 @@
 
 - 已確認：沒有 CI／coverage/lint/type-check；高風險模組沒有直接測試；exp1–3 與 exp6 的 metadata 不一致；aggregate 只信 JSON evidence。
 - 需驗證：正式資料是否在所有來源副本都維持相同 bytes、跨 OS 的浮點差異大小、GPU 是否實際參與目前 pipeline。這些不在本輪宣稱為 bug。
+
+## 效能 baseline
+
+不重新產生正式矩陣；直接讀取既有 54-run summaries 的 27 個 Mahalanobis 與 27 個 k-NN `inference_seconds` 欄位：
+
+| Method | n | Min (s) | Mean (s) | Max (s) | 判讀 |
+|---|---:|---:|---:|---:|---|
+| Mahalanobis | 27 | 0.003835 | 0.006262 | 0.008675 | 目前 formal workload 很快 |
+| k-NN | 27 | 0.011378 | 0.013440 | 0.016254 | 約為 Mahalanobis 2.15 倍，但仍非整體瓶頸證據 |
+
+資料讀取、Web reset/dataset reload 的 wall time 與記憶體目前沒有 instrumentation，因此 PERF-001/002 只列 profile 任務，不宣稱主要瓶頸。任何快取或 k-NN 向量化必須先有 baseline，並用 byte-equivalence／score regression 保證不改數值。

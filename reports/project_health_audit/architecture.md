@@ -38,6 +38,7 @@ Exp1 只用健康 class 起始；exp2 在操作員確認後將新 class 納入�
 - formal exp6 已保存 schema version、dataset fingerprint、commit SHA、split／threshold／score direction、每條件的 metrics 與 portable root label。
 - raw source 與 materialized output 有 containment 檢查；Step-1/3 的 archive member 有相對路徑檢查；來源 manifest 紀錄 archive/file hash。
 - matrix CLI 目前對 `incomplete` 回傳非零（`experiments/exp6_matrix.py:222-249`），故不把已修正項目重複列為 finding。
+- `.gitignore` 排除 `data/*`、archives、virtual environments and caches；本稽核的全 repo secret pattern scan 沒有找到 token/private-key pattern，tracked files 也沒有超過 5 MB 的意外新增檔案。
 
 ## 維護性觀察與已確認 findings
 
@@ -48,3 +49,10 @@ Exp1 只用健康 class 起始；exp2 在操作員確認後將新 class 納入�
 5. `pyproject.toml`、`build_uv.sh`、`build_uv_mac.sh` 與目前 Windows 3.12 venv 的支援宣告不一致；ENV-001 已將環境問題提升為 finding。
 
 ARCH-001～003 已加入 `findings.csv`；後續 roadmap 會把共用 metadata、API guard、CI 與大型函式拆分成不同 PR-sized 任務，避免「重構整個專案」這種不可驗收的工作。
+
+## 安全、效能與使用性觀察
+
+- `web.server` 的 `check_origin=True` 與 `0.0.0.0` bind 是 P1 security finding（SEC-001）；廣泛例外與 `repr(exc)` 客戶端廣播是 SEC-002。
+- formal artifact 的現有 inference baseline 是 Mahalanobis 平均 0.006262 s、k-NN 平均 0.013440 s（各 27 rows）；這只支持「先 profile／再決定」的 PERF-001/002，不足以宣稱 k-NN 是整體瓶頸。
+- `.gitignore` 有 raw data、zip、env、cache 規則，但 `uv.lock` 被忽略且沒有 CI；環境可重現性仍由 ENV-001/REPRO-002 處理。
+- `docs/README.md` 已明示歷史連結可能失效；這是 DOC-001 文件維護問題，不是把 Ancestor 文件刪除的理由。
