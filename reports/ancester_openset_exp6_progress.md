@@ -212,7 +212,7 @@ Smoke test（T2/8000rpm/8screws）實際讀取巢狀 ZIP 並產生 `599 → 368`
 | 編號 | 問題與證據 | 影響 | 修正與驗證 |
 |---|---|---|---|
 | C1 | Albert exp6 在 `discover_datasets()` 回傳空集合時仍建立空摘要；log `2026-09-18-22-44-35` 明確記錄 `n_datasets=0`、`rows=[]` 與全 NaN | 空執行可被誤讀成 benchmark 完成 | exp6 對缺資料、重複條件、非 9 工況直接丟出非零錯誤；`tests/test_exp6_benchmark.py::test_missing_formal_data_fails_instead_of_nan_success` |
-| C2 | Albert README 宣稱所有方法共用 calibration 95th percentile，但 legacy Mahalanobis 路徑在 `core/mahalanobis.py` 以 training distance 自校準；既有結果健康誤報 83.1% | 方法比較不是同一 threshold policy，主結論不公平 | 正式 exp6 限定 shared factory 的 `mahalanobis` / `knn`，兩者都只用 known calibration；新增 metadata 與 threshold regression，將在 C2 commit 固化 |
+| C2 | Albert README 宣稱所有方法共用 calibration 95th percentile，但 legacy Mahalanobis 路徑在 `core/mahalanobis.py` 以 training distance 自校準；既有結果健康誤報 83.1% | 方法比較不是同一 threshold policy，主結論不公平 | 正式 exp6 限定 shared factory 的 `mahalanobis` / `knn`，兩者都只用 known calibration；新增 metadata 與 threshold regression，已由 `999da4c` 固化 |
 | C3 | Albert exp6 只有 `seed=42` 一輪；README 的跨 9 工況平均沒有 seed variation | 無法知道結論是否跨隨機切分穩定 | `exp6_matrix.py` 先寫完整 pending matrix，再每 run 原子保存 summary/results/log，resume 只跳過通過 schema 的 completed run；P13 產生 mean±std |
 
 C2 的修正不刪除 `core.mahalanobis` 的 legacy 相容實作；它只禁止把不符合 shared calibration policy 的 legacy threshold 混入正式 Mahalanobis-vs-kNN 結果。歷史 legacy 結果仍可作為明確標示的診斷對照，但不會被當成正式公平比較。
@@ -220,3 +220,7 @@ C2 的修正不刪除 `core.mahalanobis` 的 legacy 相容實作；它只禁止�
 ## P7 — exp6 factory integration
 
 `experiments/exp6_osr_benchmark.py` 直接呼叫 `core.openset.create_openset_detector`；exp6 不再 import `core.detectors`、不再維護另一份 detector registry 或 threshold policy。`core.openset.canonical_openset_method` 將 `k-nn` / `k_nn` / `maha` 正規化為 `knn` / `mahalanobis`，結果 metadata 同時保存 requested 與 canonical method。factory integration、alias、invalid method 與 exp6 呼叫 factory 的測試均通過。
+
+## P8 — PolarMap 的 Mahalanobis 幾何基準固定
+
+`core/geometry.py` 的 `PolarMap` 不再跟著 Open Set detector switch 改變幾何基準：不論該次 rejection detector 是 `mahalanobis` 或 `knn`，半徑、白化方向與 ray cosine 都使用同一個 Ledoit–Wolf Mahalanobis 模型，且只用 monitor 的 known train/calibration split fit。摘要固定寫入 `polarmap_base_method=mahalanobis`；health-only monitor 不會虛構 fault ray。兩個 regression tests 已確認 Mahalanobis 與 kNN monitor 在同一 seed 下產生完全相同的幾何量。
