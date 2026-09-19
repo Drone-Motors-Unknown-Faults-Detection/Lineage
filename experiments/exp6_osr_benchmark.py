@@ -124,7 +124,9 @@ def _detector_metadata(detector, confidence: float, openset_method: str, knn_nei
         "threshold_strategy": f"known_calibration_quantile_{confidence:.4g}",
         "score_direction": "higher_is_unknown",
         "calibration_source": "known training/calibration only",
-        "reference_bank_samples": [int(item["n_reference"]) for item in summaries],
+        "reference_bank_samples": [int(item["n_reference"]) for item in summaries]
+        if openset_method == "knn"
+        else None,
         "effective_neighbors": [int(item["effective_neighbors"]) for item in summaries]
         if openset_method == "knn"
         else None,
