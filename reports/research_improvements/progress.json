@@ -2,9 +2,9 @@
   "schema_version": 1,
   "repository": "Drone-Motors-Unknown-Faults-Detection/Lineage",
   "branch": "research-improvements-20260920",
-  "current_commit": "3d784d9bf608271e4910ddc78f884e5a4ee3d727",
-  "current_phase": "P5",
-  "completed_phases": ["P0", "P1", "P2", "P3", "P4"],
+  "current_commit": "2b9110c40131793ae400020efdd09bdbb839fe14",
+  "current_phase": "P6",
+  "completed_phases": ["P0", "P1", "P2", "P3", "P4", "P5"],
   "phases": {
     "P0": {"status": "completed", "commit_sha": "af3c9b06157a2c8bc2113621188432bccb7a6c5c"},
     "P1": {"status": "completed", "commit_sha": "02bba5881ed26dcef7c5da701165ebb24e0a439b", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d"},
@@ -12,7 +12,7 @@
     "P3": {"status": "completed", "commit_sha": "cfd408e1ea79b7f0980e9d67f296e7ce183bde9d", "health_deviation_max_abs_change": 0.0},
     "P4": {"status": "completed", "commit_sha": "3d784d9bf608271e4910ddc78f884e5a4ee3d727", "rows": 240},
     "P5": {"status": "running"},
-    "P5": {"status": "running"},
+    "P5": {"status": "completed", "commit_sha": "2b9110c40131793ae400020efdd09bdbb839fe14", "scenarios": 6},
     "P6": {"status": "running"},
     "P7": {"status": "pending"},
     "P8": {"status": "pending"},
@@ -28,11 +28,13 @@
     {"command": "venv\\Scripts\\python.exe -m experiments.continual_learning --data-root data/formal_local --output-root reports/research_improvements/continual_learning", "exit_code": 0, "result": "240 completed rows; budgets 10/25/50/100; 3 seeds; 4 orders"},
     {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "83 passed"},
     {"command": "venv\\Scripts\\python.exe -m experiments.field_scenarios --data-root data/formal_local --output-root reports/research_improvements/field_scenarios", "exit_code": 0, "result": "6 scenarios completed; simulation replay"},
-    {"command": "venv\\Scripts\\python.exe -m experiments.detector_comparison --data-root data/formal_local --output-root reports/research_improvements/detector_comparison", "exit_code": 0, "result": "30 rows; 18 completed; 12 not-applicable/blocked"}
+    {"command": "venv\\Scripts\\python.exe -m experiments.detector_comparison --data-root data/formal_local --output-root reports/research_improvements/detector_comparison", "exit_code": 0, "result": "30 rows; 18 completed; 12 not-applicable/blocked"},
+    {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "84 passed"}
   ],
-  "tests": {"baseline": {"passed": 62, "failed": 0}, "P1": {"passed": 3, "failed": 0, "leakage": "passed"}, "P2": {"passed": 73, "failed": 0}, "P3": {"passed": 76, "failed": 0}, "P4": {"passed": 79, "failed": 0}, "P5": {"passed": 83, "failed": 0}},
+  "tests": {"baseline": {"passed": 62, "failed": 0}, "P1": {"passed": 3, "failed": 0, "leakage": "passed"}, "P2": {"passed": 73, "failed": 0}, "P3": {"passed": 76, "failed": 0}, "P4": {"passed": 79, "failed": 0}, "P5": {"passed": 83, "failed": 0}, "P6": {"passed": 84, "failed": 0}},
   "experiment_runs": [
     {"phase": "P5", "run_id": "field_scenarios", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "scenarios": 6, "data_status": "simulation_replay_formal_data"},
+    {"phase": "P6", "run_id": "detector_comparison", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "rows": 30, "completed": 18, "blocked_or_not_applicable": 12}
     {"phase": "P4", "run_id": "arrival_only_continual_learning", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "rows": 240, "budgets": [10, 25, 50, 100], "seeds": [42, 123, 2026], "orders": ["mild_to_severe", "severe_to_mild", "random", "interleaved"]},
     {"phase": "P1", "run_id": "formal_seed42", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "immutable_test_samples": 7422},
     {"phase": "P2", "run_id": "calibration_ablation", "status": "completed", "result_fingerprint": "c7ff515470004aeb443ad3a263bb91a2b9c626026042ee8f65d3f6a44d284046", "rows": 45, "seeds": [42, 123, 2026]},

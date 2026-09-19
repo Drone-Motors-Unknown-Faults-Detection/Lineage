@@ -1,0 +1,459 @@
+{
+  "schema_version": 1,
+  "experiment": "detector_comparison",
+  "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "feature_policy": "all completed rows use the same scaled raw 105D feature representation",
+  "rows": [
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "mahalanobis_ledoit_wolf",
+      "feature_type": "raw_105d",
+      "seed": 42,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 1.0,
+      "metrics": {
+        "healthy_false_positive_rate": 0.002257336343115124,
+        "unknown_recall": 0.5910342717258262,
+        "auroc": 0.7859486683925943,
+        "aupr_unknown": 0.9680317277156902,
+        "fpr_at_95_tpr": 0.7054176072234764,
+        "inference_latency_ms_per_sample": 0.0010820668281236805,
+        "calibration_time_seconds": 0.01784649999899557
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "knn",
+      "feature_type": "raw_105d",
+      "seed": 42,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 0.9999999999999999,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.2238372093023256,
+        "auroc": 0.7629867640517115,
+        "aupr_unknown": 0.9630188502863727,
+        "fpr_at_95_tpr": 0.6704288939051919,
+        "inference_latency_ms_per_sample": 0.0019766504988103792,
+        "calibration_time_seconds": 0.07434800000191899
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "oc_svm",
+      "feature_type": "raw_105d",
+      "seed": 42,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 9.926389715135876,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.0,
+        "auroc": 0.7341075543404681,
+        "aupr_unknown": 0.9498612976380817,
+        "fpr_at_95_tpr": 0.6704288939051919,
+        "inference_latency_ms_per_sample": 0.004729129615359257,
+        "calibration_time_seconds": 0.04392879999795696
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "isolation_forest",
+      "feature_type": "raw_105d",
+      "seed": 42,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 0.6752165818002581,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.03014075887392901,
+        "auroc": 0.8114680353437533,
+        "aupr_unknown": 0.9723089036933872,
+        "fpr_at_95_tpr": 0.8826185101580135,
+        "inference_latency_ms_per_sample": 0.005447251414324588,
+        "calibration_time_seconds": 0.20218739999836544
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "lof",
+      "feature_type": "raw_105d",
+      "seed": 42,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 17.588695987596598,
+      "metrics": {
+        "healthy_false_positive_rate": 0.09255079006772009,
+        "unknown_recall": 0.22200122399020808,
+        "auroc": 0.5673671224625688,
+        "aupr_unknown": 0.9110467657078966,
+        "fpr_at_95_tpr": 0.690744920993228,
+        "inference_latency_ms_per_sample": 0.0028510644032830827,
+        "calibration_time_seconds": 0.056038900002022274
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "pca_reconstruction",
+      "feature_type": "raw_105d",
+      "seed": 42,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 16.57416616181074,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.408812729498164,
+        "auroc": 0.771045102519541,
+        "aupr_unknown": 0.9643317718377228,
+        "fpr_at_95_tpr": 0.6715575620767494,
+        "inference_latency_ms_per_sample": 0.0011311910539528952,
+        "calibration_time_seconds": 0.03392819999862695
+      }
+    },
+    {
+      "scenario": "existing_multiclass_logits",
+      "method": "msp",
+      "feature_type": "logits",
+      "seed": 42,
+      "status": "not_applicable",
+      "reason": "Lineage cold-start pipeline has no multiclass logits/activation layer; MSP, Energy and OpenMax cannot be fairly evaluated"
+    },
+    {
+      "scenario": "existing_multiclass_logits",
+      "method": "energy",
+      "feature_type": "logits",
+      "seed": 42,
+      "status": "not_applicable",
+      "reason": "Lineage cold-start pipeline has no multiclass logits/activation layer; MSP, Energy and OpenMax cannot be fairly evaluated"
+    },
+    {
+      "scenario": "existing_multiclass_logits",
+      "method": "openmax",
+      "feature_type": "logits",
+      "seed": 42,
+      "status": "not_applicable",
+      "reason": "Lineage cold-start pipeline has no multiclass logits/activation layer; MSP, Energy and OpenMax cannot be fairly evaluated"
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "deep_svdd",
+      "feature_type": "neural_embedding",
+      "seed": 42,
+      "status": "blocked",
+      "reason": "PyTorch/TensorFlow is not installed in the CPU Lineage environment; no neural representation or hyperparameter policy exists",
+      "source": "Ruff et al., Deep One-Class Classification, PMLR 80 (2018)"
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "mahalanobis_ledoit_wolf",
+      "feature_type": "raw_105d",
+      "seed": 123,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 1.0,
+      "metrics": {
+        "healthy_false_positive_rate": 0.002257336343115124,
+        "unknown_recall": 0.5910342717258262,
+        "auroc": 0.7859486683925943,
+        "aupr_unknown": 0.9680317277156902,
+        "fpr_at_95_tpr": 0.7054176072234764,
+        "inference_latency_ms_per_sample": 0.000660980867746589,
+        "calibration_time_seconds": 0.013521200002287515
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "knn",
+      "feature_type": "raw_105d",
+      "seed": 123,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 0.9999999999999999,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.2238372093023256,
+        "auroc": 0.7629867640517115,
+        "aupr_unknown": 0.9630188502863727,
+        "fpr_at_95_tpr": 0.6704288939051919,
+        "inference_latency_ms_per_sample": 0.001644287253837913,
+        "calibration_time_seconds": 0.045059399999445304
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "oc_svm",
+      "feature_type": "raw_105d",
+      "seed": 123,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 9.926389715135876,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.0,
+        "auroc": 0.7341075543404681,
+        "aupr_unknown": 0.9498612976380817,
+        "fpr_at_95_tpr": 0.6704288939051919,
+        "inference_latency_ms_per_sample": 0.0066598356239646606,
+        "calibration_time_seconds": 0.06547729999874718
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "isolation_forest",
+      "feature_type": "raw_105d",
+      "seed": 123,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 0.6703922235295925,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.05645654834761322,
+        "auroc": 0.847396154239344,
+        "aupr_unknown": 0.9782507382528222,
+        "fpr_at_95_tpr": 0.8329571106094809,
+        "inference_latency_ms_per_sample": 0.005617569388814632,
+        "calibration_time_seconds": 0.19904439999663737
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "lof",
+      "feature_type": "raw_105d",
+      "seed": 123,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 17.588695987596598,
+      "metrics": {
+        "healthy_false_positive_rate": 0.09255079006772009,
+        "unknown_recall": 0.22200122399020808,
+        "auroc": 0.5673671224625688,
+        "aupr_unknown": 0.9110467657078966,
+        "fpr_at_95_tpr": 0.690744920993228,
+        "inference_latency_ms_per_sample": 0.0023745486390875058,
+        "calibration_time_seconds": 0.05272430000331951
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "pca_reconstruction",
+      "feature_type": "raw_105d",
+      "seed": 123,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 16.57416616181074,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.408812729498164,
+        "auroc": 0.771045102519541,
+        "aupr_unknown": 0.9643317718377228,
+        "fpr_at_95_tpr": 0.6715575620767494,
+        "inference_latency_ms_per_sample": 0.0010458501756101034,
+        "calibration_time_seconds": 0.03870399999868823
+      }
+    },
+    {
+      "scenario": "existing_multiclass_logits",
+      "method": "msp",
+      "feature_type": "logits",
+      "seed": 123,
+      "status": "not_applicable",
+      "reason": "Lineage cold-start pipeline has no multiclass logits/activation layer; MSP, Energy and OpenMax cannot be fairly evaluated"
+    },
+    {
+      "scenario": "existing_multiclass_logits",
+      "method": "energy",
+      "feature_type": "logits",
+      "seed": 123,
+      "status": "not_applicable",
+      "reason": "Lineage cold-start pipeline has no multiclass logits/activation layer; MSP, Energy and OpenMax cannot be fairly evaluated"
+    },
+    {
+      "scenario": "existing_multiclass_logits",
+      "method": "openmax",
+      "feature_type": "logits",
+      "seed": 123,
+      "status": "not_applicable",
+      "reason": "Lineage cold-start pipeline has no multiclass logits/activation layer; MSP, Energy and OpenMax cannot be fairly evaluated"
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "deep_svdd",
+      "feature_type": "neural_embedding",
+      "seed": 123,
+      "status": "blocked",
+      "reason": "PyTorch/TensorFlow is not installed in the CPU Lineage environment; no neural representation or hyperparameter policy exists",
+      "source": "Ruff et al., Deep One-Class Classification, PMLR 80 (2018)"
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "mahalanobis_ledoit_wolf",
+      "feature_type": "raw_105d",
+      "seed": 2026,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 1.0,
+      "metrics": {
+        "healthy_false_positive_rate": 0.002257336343115124,
+        "unknown_recall": 0.5910342717258262,
+        "auroc": 0.7859486683925943,
+        "aupr_unknown": 0.9680317277156902,
+        "fpr_at_95_tpr": 0.7054176072234764,
+        "inference_latency_ms_per_sample": 0.0008066154677732425,
+        "calibration_time_seconds": 0.04340729999967152
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "knn",
+      "feature_type": "raw_105d",
+      "seed": 2026,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 0.9999999999999999,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.2238372093023256,
+        "auroc": 0.7629867640517115,
+        "aupr_unknown": 0.9630188502863727,
+        "fpr_at_95_tpr": 0.6704288939051919,
+        "inference_latency_ms_per_sample": 0.0018616006464005517,
+        "calibration_time_seconds": 0.044393999996827915
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "oc_svm",
+      "feature_type": "raw_105d",
+      "seed": 2026,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 9.926389715135876,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.0,
+        "auroc": 0.7341075543404681,
+        "aupr_unknown": 0.9498612976380817,
+        "fpr_at_95_tpr": 0.6704288939051919,
+        "inference_latency_ms_per_sample": 0.005528671517131531,
+        "calibration_time_seconds": 0.04962250000244239
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "isolation_forest",
+      "feature_type": "raw_105d",
+      "seed": 2026,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 0.6765255681844651,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.08491432068543452,
+        "auroc": 0.9125223454194308,
+        "aupr_unknown": 0.9865196178694506,
+        "fpr_at_95_tpr": 0.4051918735891648,
+        "inference_latency_ms_per_sample": 0.0053281325791808476,
+        "calibration_time_seconds": 0.20268490000307793
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "lof",
+      "feature_type": "raw_105d",
+      "seed": 2026,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 17.588695987596598,
+      "metrics": {
+        "healthy_false_positive_rate": 0.09255079006772009,
+        "unknown_recall": 0.22200122399020808,
+        "auroc": 0.5673671224625688,
+        "aupr_unknown": 0.9110467657078966,
+        "fpr_at_95_tpr": 0.690744920993228,
+        "inference_latency_ms_per_sample": 0.0022689706277116287,
+        "calibration_time_seconds": 0.05101060000015423
+      }
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "pca_reconstruction",
+      "feature_type": "raw_105d",
+      "seed": 2026,
+      "status": "completed",
+      "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d",
+      "calibration": "independent_95_percentile_healthy_only",
+      "threshold": 16.57416616181074,
+      "metrics": {
+        "healthy_false_positive_rate": 0.0,
+        "unknown_recall": 0.408812729498164,
+        "auroc": 0.771045102519541,
+        "aupr_unknown": 0.9643317718377228,
+        "fpr_at_95_tpr": 0.6715575620767494,
+        "inference_latency_ms_per_sample": 0.0011560765288735565,
+        "calibration_time_seconds": 0.05989219999901252
+      }
+    },
+    {
+      "scenario": "existing_multiclass_logits",
+      "method": "msp",
+      "feature_type": "logits",
+      "seed": 2026,
+      "status": "not_applicable",
+      "reason": "Lineage cold-start pipeline has no multiclass logits/activation layer; MSP, Energy and OpenMax cannot be fairly evaluated"
+    },
+    {
+      "scenario": "existing_multiclass_logits",
+      "method": "energy",
+      "feature_type": "logits",
+      "seed": 2026,
+      "status": "not_applicable",
+      "reason": "Lineage cold-start pipeline has no multiclass logits/activation layer; MSP, Energy and OpenMax cannot be fairly evaluated"
+    },
+    {
+      "scenario": "existing_multiclass_logits",
+      "method": "openmax",
+      "feature_type": "logits",
+      "seed": 2026,
+      "status": "not_applicable",
+      "reason": "Lineage cold-start pipeline has no multiclass logits/activation layer; MSP, Energy and OpenMax cannot be fairly evaluated"
+    },
+    {
+      "scenario": "healthy_only_cold_start",
+      "method": "deep_svdd",
+      "feature_type": "neural_embedding",
+      "seed": 2026,
+      "status": "blocked",
+      "reason": "PyTorch/TensorFlow is not installed in the CPU Lineage environment; no neural representation or hyperparameter policy exists",
+      "source": "Ruff et al., Deep One-Class Classification, PMLR 80 (2018)"
+    }
+  ],
+  "not_claimed": [
+    "Deep SVDD is not compared numerically without a neural feature policy and dependency.",
+    "MSP/Energy/OpenMax are not compared because no suitable multiclass logits exist.",
+    "This healthy-only experiment does not answer multimodal class-distribution questions."
+  ]
+}
