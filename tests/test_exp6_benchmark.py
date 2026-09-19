@@ -5,10 +5,12 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
 
+from core.openset import create_openset_detector
 from experiments.exp6_osr_benchmark import _fpr_at_tpr95, run
 
 
@@ -41,6 +43,20 @@ class Exp6BenchmarkTests(unittest.TestCase):
             self.assertEqual(row["calibration_source"], "known training/calibration only")
             self.assertEqual(row["score_direction"], "higher_is_unknown")
             self.assertTrue(np.isfinite(row["auroc"]))
+
+    def test_exp6_calls_shared_factory_and_canonicalizes_alias(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = _fixture(Path(directory))
+            with patch(
+                "experiments.exp6_osr_benchmark.create_openset_detector",
+                wraps=create_openset_detector,
+            ) as factory:
+                result = run(root, seed=42, openset_method="k-nn", require_nine=False)
+            self.assertTrue(factory.called)
+            self.assertEqual(factory.call_args.args[0], "knn")
+            self.assertEqual(result["method"], "knn")
+            self.assertEqual(result["requested_method"], "k-nn")
+            self.assertEqual(result["rows"][0]["requested_method"], "k-nn")
 
     def test_formal_benchmark_rejects_legacy_training_threshold(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

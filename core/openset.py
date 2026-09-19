@@ -28,6 +28,22 @@ from core.mahalanobis import MahalanobisOpenSetDetector, Method as MahalanobisMe
 
 OpenSetMethod = Literal["mahalanobis", "knn"]
 SUPPORTED_OPENSET_METHODS: tuple[OpenSetMethod, ...] = ("mahalanobis", "knn")
+OPENSET_METHOD_ALIASES = {
+    "mahalanobis": "mahalanobis",
+    "maha": "mahalanobis",
+    "knn": "knn",
+    "k-nn": "knn",
+    "k_nn": "knn",
+}
+
+
+def canonical_openset_method(value: str) -> OpenSetMethod:
+    """Normalize public method names to the two formal factory methods."""
+    canonical = OPENSET_METHOD_ALIASES.get(str(value).strip().lower())
+    if canonical is None:
+        supported = ", ".join(SUPPORTED_OPENSET_METHODS)
+        raise ValueError(f"Unsupported Open Set method: {value!r}; choose from {supported}")
+    return canonical  # type: ignore[return-value]
 
 
 @runtime_checkable
@@ -177,13 +193,14 @@ class KNNOpenSetDetector:
 
 
 def create_openset_detector(
-    openset_method: OpenSetMethod = "mahalanobis",
+    openset_method: str = "mahalanobis",
     *,
     confidence: float = 0.95,
     mahalanobis_method: MahalanobisMethod = "ledoit_wolf",
     knn_neighbors: int = 5,
 ) -> OpenSetDetector:
     """建立 detector；所有實作的正規化 unknown threshold 都固定為 1。"""
+    openset_method = canonical_openset_method(openset_method)
     if openset_method == "mahalanobis":
         return MahalanobisOpenSetDetector(
             method=mahalanobis_method,
@@ -191,5 +208,4 @@ def create_openset_detector(
         )
     if openset_method == "knn":
         return KNNOpenSetDetector(confidence=confidence, n_neighbors=knn_neighbors)
-    supported = ", ".join(SUPPORTED_OPENSET_METHODS)
-    raise ValueError(f"Unsupported Open Set method: {openset_method!r}; choose from {supported}")
+    raise AssertionError(f"unhandled canonical Open Set method: {openset_method}")

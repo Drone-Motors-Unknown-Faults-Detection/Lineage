@@ -7,7 +7,7 @@ import numpy as np
 
 from core.monitor import OpenSetMonitor
 from core.mahalanobis import MahalanobisOpenSetDetector
-from core.openset import KNNOpenSetDetector, create_openset_detector
+from core.openset import KNNOpenSetDetector, canonical_openset_method, create_openset_detector
 from core.runner import add_openset_args
 from experiments.compare_openset import run as run_comparison
 
@@ -75,6 +75,11 @@ class KNNDetectorTests(unittest.TestCase):
 
 
 class CompatibilityTests(unittest.TestCase):
+    def test_public_method_aliases_are_canonicalized(self) -> None:
+        self.assertEqual(canonical_openset_method("k-nn"), "knn")
+        self.assertEqual(canonical_openset_method("k_nn"), "knn")
+        self.assertEqual(canonical_openset_method("maha"), "mahalanobis")
+
     def test_mahalanobis_factory_is_regression_equivalent(self):
         X_train, y_train, X_cal, y_cal = detector_data()
         direct = MahalanobisOpenSetDetector(method="ledoit_wolf", confidence=0.9)

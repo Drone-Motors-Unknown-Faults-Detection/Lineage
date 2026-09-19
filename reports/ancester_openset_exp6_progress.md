@@ -141,7 +141,7 @@ P2 的 repository provenance 已完成，但「正式資料取得」是 P3 的�
 | Credibility issue 1 | fixed in working tree | Albert log `2026-09-18-22-44-35`: `rows=[]`, `n_datasets=0`, all summary metrics `NaN`, exit code 0 | pending | exp6 now fails fast on missing/incomplete formal data; regression test added |
 | Credibility issue 2 | fixed in working tree | Albert README claims one calibration philosophy, but legacy detector calibrates on training distances (`core/mahalanobis.py` legacy path), producing 83.1% healthy false positives | pending | formal exp6 rejects legacy training-distance threshold; regression test added |
 | Credibility issue 3 | fixed in working tree | Albert exp6 log and README report one seed (`seed=42`) and no across-seed uncertainty; this cannot support stability claims | pending | `experiments/exp6_matrix.py` emits a pending matrix and runs fixed seeds `42,123,2026` with resumable per-run status |
-| exp6 factory integration | fixed in working tree | old Albert exp6 imported `core.detectors.ALL_DETECTORS`; new entry point imports `core.openset.create_openset_detector` | pending | add factory mock/integration regression tests and push as its own phase |
+| exp6 factory integration | fixed in working tree | old Albert exp6 imported `core.detectors.ALL_DETECTORS`; new entry point imports `core.openset.create_openset_detector` | pending | factory mock, alias and source-inspection regression tests pass |
 | Mahalanobis default | verified | `core.openset.create_openset_detector()` 預設 `mahalanobis`；11 tests passed | — | 保持回歸測試 |
 | PolarMap base | pending | 只存在 `origin/main` 的 `core/geometry.py`／exp4 | — | 讀取 main 版本並驗證 |
 | k-NN method | verified | factory、CLI、comparison tests；11 tests passed | existing feature commits | 不改變既有介面 |
@@ -216,3 +216,7 @@ Smoke test（T2/8000rpm/8screws）實際讀取巢狀 ZIP 並產生 `599 → 368`
 | C3 | Albert exp6 只有 `seed=42` 一輪；README 的跨 9 工況平均沒有 seed variation | 無法知道結論是否跨隨機切分穩定 | `exp6_matrix.py` 先寫完整 pending matrix，再每 run 原子保存 summary/results/log，resume 只跳過通過 schema 的 completed run；P13 產生 mean±std |
 
 C2 的修正不刪除 `core.mahalanobis` 的 legacy 相容實作；它只禁止把不符合 shared calibration policy 的 legacy threshold 混入正式 Mahalanobis-vs-kNN 結果。歷史 legacy 結果仍可作為明確標示的診斷對照，但不會被當成正式公平比較。
+
+## P7 — exp6 factory integration
+
+`experiments/exp6_osr_benchmark.py` 直接呼叫 `core.openset.create_openset_detector`；exp6 不再 import `core.detectors`、不再維護另一份 detector registry 或 threshold policy。`core.openset.canonical_openset_method` 將 `k-nn` / `k_nn` / `maha` 正規化為 `knn` / `mahalanobis`，結果 metadata 同時保存 requested 與 canonical method。factory integration、alias、invalid method 與 exp6 呼叫 factory 的測試均通過。

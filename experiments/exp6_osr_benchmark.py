@@ -33,7 +33,7 @@ from sklearn.preprocessing import RobustScaler
 
 from core.data import HEALTHY, discover_datasets, load_pools, make_split
 from core.logger import save_plot, setup_run
-from core.openset import OpenSetMethod, create_openset_detector
+from core.openset import OpenSetMethod, canonical_openset_method, create_openset_detector
 from core.runner import save_json
 
 
@@ -130,7 +130,7 @@ def run(
     data_root: Path | str = "data",
     seed: int = 42,
     confidence: float = 0.95,
-    openset_method: OpenSetMethod = "mahalanobis",
+    openset_method: str = "mahalanobis",
     mahalanobis_method: str = "ledoit_wolf",
     knn_neighbors: int = 5,
     *,
@@ -140,8 +140,10 @@ def run(
     data_path = Path(data_root).expanduser().resolve()
     datasets = sorted(discover_datasets(data_path), key=lambda row: (row["motor"], row["rpm"]))
     _validate_datasets(datasets, data_path, require_nine)
+    requested_method = str(openset_method)
+    openset_method = canonical_openset_method(requested_method)
     if openset_method not in FORMAL_METHODS:
-        raise ValueError(f"unsupported formal method {openset_method!r}; choose mahalanobis or knn")
+        raise ValueError(f"unsupported formal method {requested_method!r}; choose mahalanobis or knn")
     if openset_method == "mahalanobis" and mahalanobis_method == "legacy":
         raise ValueError(
             "formal exp6 rejects mahalanobis_method='legacy': its historical "
@@ -196,6 +198,7 @@ def run(
                 "rpm": dataset["rpm"],
                 "seed": int(seed),
                 "method": openset_method,
+                "requested_method": requested_method,
                 "mahalanobis_method": mahalanobis_method if openset_method == "mahalanobis" else None,
                 "knn_neighbors": knn_neighbors if openset_method == "knn" else None,
                 "n_train": int(len(X_train)),
@@ -224,6 +227,7 @@ def run(
         "schema_version": 2,
         "status": "completed",
         "method": openset_method,
+        "requested_method": requested_method,
         "seed": int(seed),
         "confidence": float(confidence),
         "formal_condition_count": len(rows),
@@ -263,7 +267,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--data-root", default="data")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--confidence", type=float, default=0.95)
-    parser.add_argument("--openset-method", choices=FORMAL_METHODS, default="mahalanobis")
+    parser.add_argument("--openset-method", default="mahalanobis")
     parser.add_argument("--method", dest="mahalanobis_method", default="ledoit_wolf")
     parser.add_argument("--knn-neighbors", type=int, default=5)
     args = parser.parse_args(argv)
