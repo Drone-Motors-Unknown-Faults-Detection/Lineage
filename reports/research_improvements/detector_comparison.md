@@ -1,7 +1,5 @@
 # P6 Detector Comparison
 
-# P6 Detector Comparison
-
 ## 公平設定
 
 `experiments.detector_comparison` 固定使用 P1 split、同一 raw 105 維 RobustScaler、同一 95% healthy calibration、同一 immutable test、3 seeds 與同一 sample budget。完成的 healthy-only 方法是 Mahalanobis–Ledoit–Wolf、k-NN、OC-SVM、Isolation Forest、LOF、PCA reconstruction；每列都記錄 healthy FPR、unknown recall、AUROC、AUPR、FPR@95TPR、inference latency 與 calibration time。
