@@ -227,11 +227,11 @@ C2 的修正不刪除 `core.mahalanobis` 的 legacy 相容實作；它只禁止�
 
 ## P9 — 正式 54-run 矩陣
 
-`output/exp6_formal_matrix/matrix_manifest.json` 記錄 9 工況 × seeds `{42,123,2026}` × methods `{mahalanobis,knn}`，共 54 個 run。每個 run 的 summary 僅保存 manifest 指定工況的一列，並以 atomic JSON、CSV、log 寫入；不完整或工況不符的舊 summary 不會被 resume 誤判為完成。實際執行結果為 `54/54 completed, 0 failed, 0 missing`，資料 fingerprint 全部一致。矩陣修正與 strict regression test 會和正式結果一起以獨立 commit 推送。
+`output/exp6_formal_matrix/matrix_manifest.json` 記錄 9 工況 × seeds `{42,123,2026}` × methods `{mahalanobis,knn}`，共 54 個 run。每個 run 的 summary 僅保存 manifest 指定工況的一列，並以 atomic JSON、CSV、log 寫入；不完整或工況不符的舊 summary 不會被 resume 誤判為完成。實際執行結果為 `54/54 completed, 0 failed, 0 missing`，資料 fingerprint 全部一致。矩陣契約修正與 strict regression test 在 `ff49e3b`，三個 seed 的結果分別在 `6b9d935`、`2efae34`、`4babc9a`。
 
 ## P10 — 跨 seed 彙整與實際差異
 
-`experiments/aggregate_exp6.py` 僅接受完整且 fingerprint 一致的矩陣，輸出 `aggregate.json`、三個 CSV 與 `aggregate.md`，並計算每工況 mean±std 及同一工況/seed 的 paired difference。正式 27 對配對結果（9 工況 × 3 seeds）如下：
+`experiments/aggregate_exp6.py`（程式 commit `bfe9837`）僅接受完整且 fingerprint 一致的矩陣，輸出 `aggregate.json`、三個 CSV 與 `aggregate.md`，並計算每工況 mean±std 及同一工況/seed 的 paired difference。正式 27 對配對結果（9 工況 × 3 seeds）如下；完整 artifacts 隨 `4babc9a` 推送：
 
 | 指標 | Mahalanobis mean±std | kNN mean±std | kNN − Mahalanobis |
 |---|---:|---:|---:|
