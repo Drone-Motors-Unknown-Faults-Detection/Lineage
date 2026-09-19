@@ -11,6 +11,7 @@ manifest.
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import json
 from collections import Counter
@@ -252,11 +253,14 @@ def build_protocol(
     }
     output_path.mkdir(parents=True, exist_ok=True)
     # Keep the committed artifact reviewable: file-level metadata contains
-    # motor/RPM/condition, while each sample only needs its identity and row
-    # location for leakage audits.  The full in-memory manifest remains useful
-    # to callers that want the expanded fields.
+    # motor/RPM/condition.  Per-sample IDs are written as a compressed sidecar
+    # rather than expanding the JSON manifest to many megabytes; the full
+    # in-memory manifest remains useful to callers.
     disk_manifest = dict(manifest)
-    disk_manifest["records"] = [
+    disk_manifest.pop("records", None)
+    disk_manifest["sample_record_count"] = len(records)
+    disk_manifest["sample_fingerprint_artifact"] = "sample_fingerprints.json.gz"
+    sample_sidecar = [
         {
             "sample_id": item["sample_id"],
             "row_index": item["row_index"],
@@ -267,6 +271,8 @@ def build_protocol(
         }
         for item in records
     ]
+    with gzip.open(output_path / "sample_fingerprints.json.gz", "wt", encoding="utf-8") as handle:
+        json.dump(sample_sidecar, handle, ensure_ascii=False, separators=(",", ":"))
     (output_path / "split_manifest.json").write_text(json.dumps(disk_manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     (output_path / "split_summary.json").write_text(json.dumps(manifest["summary"], ensure_ascii=False, indent=2), encoding="utf-8")
     (output_path / "split_fingerprints.json").write_text(
