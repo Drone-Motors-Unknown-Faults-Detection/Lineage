@@ -45,5 +45,5 @@
     "No run-to-failure trajectories or ordinal severity labels; RUL remains unavailable."
   ],
   "commits": ["af3c9b0", "0093649", "02bba58", "24fa28f", "60e114d", "86079c5", "cfd408e", "021b8d5", "580ba63", "3d784d9", "2b9110c", "27985cc", "1dbf9c8", "0873aba", "ce0af80", "d30c19b", "c697b6e", "504c3e9"],
-  "push": {"status": "pending", "remote": "origin", "branch": "research-improvements-20260920"}
+  "push": {"status": "completed", "remote": "origin", "branch": "research-improvements-20260920", "verified_head": "8e81f34"}
 }
