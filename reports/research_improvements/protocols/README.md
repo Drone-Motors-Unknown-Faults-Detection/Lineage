@@ -18,4 +18,4 @@ venv\Scripts\python.exe -m core.continual_protocol `
   --seed 42
 ```
 
-`split_fingerprints.json` 固定 immutable test 的 sample/file IDs；`split_manifest.json` 保存 source hash、group、split 與 sample fingerprint；`split_summary.json` 保存 class/condition/count 統計。變更 update budget 不會改這三個檔案。
+`split_fingerprints.json` 固定 immutable test 的 sample/file IDs；`split_manifest.json` 保存 source hash、group、split 與 artifact 指標；`sample_fingerprints.json.gz` 保存完整 sample fingerprint sidecar；`split_summary.json` 保存 class/condition/count 統計。變更 update budget 不會改這些 split artifacts。
