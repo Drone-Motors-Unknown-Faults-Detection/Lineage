@@ -32,7 +32,7 @@ def _matrix(value: np.ndarray, name: str, *, allow_empty: bool = False) -> np.nd
     return matrix
 
 
-def _relative_severity(health_index: float) -> str:
+def relative_severity(health_index: float) -> str:
     """Map a relative health value to a policy stage.
 
     These thresholds are presentation policy, not supervised severity labels.
@@ -187,7 +187,7 @@ class CalibratedHealthIndex:
                     is_fault=unknown,
                     health_index=health_value,
                     degradation_score=1.0 - health_value,
-                    severity_stage=_relative_severity(health_value),
+                    severity_stage=relative_severity(health_value),
                     trend="insufficient_history",
                     degradation_rate=None,
                     fault_type=fault_type,
