@@ -14,10 +14,14 @@ from typing import Literal
 SeverityStage = Literal["healthy", "early_warning", "degraded", "critical"]
 Trend = Literal["stable", "worsening", "recovering", "insufficient_history"]
 DataQuality = Literal["valid", "invalid", "insufficient"]
+AlarmState = Literal["normal", "warning", "critical"]
+SeverityBasis = Literal["relative_calibrated", "supervised_ordinal"]
 
 _SEVERITY_STAGES = {"healthy", "early_warning", "degraded", "critical"}
 _TRENDS = {"stable", "worsening", "recovering", "insufficient_history"}
 _DATA_QUALITY = {"valid", "invalid", "insufficient"}
+_ALARM_STATES = {"normal", "warning", "critical"}
+_SEVERITY_BASES = {"relative_calibrated", "supervised_ordinal"}
 
 
 def _bounded(value: float, name: str) -> float:
@@ -55,6 +59,9 @@ class HealthMonitoringResult:
     timestamp: str | None
     condition: str
     data_quality: DataQuality
+    alarm_state: AlarmState = "normal"
+    alarm_reason: str | None = None
+    severity_basis: SeverityBasis = "relative_calibrated"
 
     def __post_init__(self) -> None:
         health = _bounded(self.health_index, "health_index")
@@ -67,6 +74,10 @@ class HealthMonitoringResult:
             raise ValueError(f"unsupported trend: {self.trend!r}")
         if self.data_quality not in _DATA_QUALITY:
             raise ValueError(f"unsupported data_quality: {self.data_quality!r}")
+        if self.alarm_state not in _ALARM_STATES:
+            raise ValueError(f"unsupported alarm_state: {self.alarm_state!r}")
+        if self.severity_basis not in _SEVERITY_BASES:
+            raise ValueError(f"unsupported severity_basis: {self.severity_basis!r}")
         if self.fault_type_confidence is not None:
             _bounded(self.fault_type_confidence, "fault_type_confidence")
         _bounded(self.prediction_confidence, "prediction_confidence")
@@ -115,6 +126,9 @@ class HealthMonitoringResult:
                     "timestamp",
                     "condition",
                     "data_quality",
+                    "alarm_state",
+                    "alarm_reason",
+                    "severity_basis",
                 )
             }
         return payload
