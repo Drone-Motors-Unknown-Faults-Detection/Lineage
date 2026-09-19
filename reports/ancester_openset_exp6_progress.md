@@ -136,8 +136,8 @@ P2 的 repository provenance 已完成，但「正式資料取得」是 P3 的�
 | 階段 | 狀態 | 證據 | Commit | 下一步 |
 |---|---|---|---|---|
 | Raw data inventory | completed | 154 files、2 directories、4.598 GiB、3 outer ZIP、796 archive entries | `731313f` | 解析 raw／feature metadata |
-| Data validation | completed with feature gap | 450 raw CSV、9/9 conditions、每 condition 50 files／10 classes／5 channels／10,000 rows；60 clean feature CSV、105 維且數值欄無非數值 | pending P2 commit | 建立 Lineage contract 對照 |
-| Lineage data integration | blocked pending validation | T1/T3 有 105-feature clean CSV；T2 目前只有 raw CSV | — | 決定 T2 conversion |
+| Data validation | completed with feature gap | 450 raw CSV、9/9 conditions、每 condition 50 files／10 classes／5 channels／10,000 rows；60 clean feature CSV、105 維且數值欄無非數值 | `061ec8b` | 建立 Lineage contract 對照 |
+| Lineage data integration | pending implementation | P3 mapping confirms raw source is complete; T1/T3 features present; T2 features missing | — | 建立 configurable source adapter/conversion |
 | Credibility issue 1 | not started | 需先閱讀 Albert／exp6 證據 | — | 找出可重現問題 |
 | Credibility issue 2 | not started | 需先閱讀 Albert／exp6 證據 | — | 找出可重現問題 |
 | Credibility issue 3 | not started | 需先閱讀 Albert／exp6 證據 | — | 找出可重現問題 |
@@ -174,3 +174,9 @@ P2 產物：
 - [P2 progress](raw_data_audit/p2_progress.json)
 
 目前可以確認「9 個工況的 raw source 完整存在」，但不能把 T2 raw 直接當成已完成的 Lineage 105 維 feature source；P3 會把 raw/provenance 與 Lineage loader contract 做逐項對照，並決定可重現的 T2 conversion 方案。
+
+## P3 — Lineage contract mapping
+
+P3 mapping 已完成，詳見 [formal_contract_mapping.md](raw_data_audit/formal_contract_mapping.md)。三個 outer archive 的 SHA-256、nested condition archive metadata 與現有 clean-feature entry metadata 已寫入 [formal_source_manifest.json](raw_data_audit/formal_source_manifest.json)。
+
+結論是：本機資料是可信的 9-condition formal raw source，但不是目前 loader 可直接讀的 `data/Step-*/myfeature/.../*_Group_feature_data_clean.csv` 目錄。T1/T3 的 60 個 clean feature 檔可作為已存在 processed reference；T2 的 150 個 raw CSV 必須透過可重現、只寫入 ignored processed root 的轉換補齊，不能用 synthetic 或歷史 output 代替。P3 mapping 本身不修改演算法或 exp6。

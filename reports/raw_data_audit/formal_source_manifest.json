@@ -1,0 +1,609 @@
+﻿{
+    "schema_version":  1,
+    "raw_data_root":  "D:\\schoolshit\\fcu\\專題\\馬達研究",
+    "source_type":  "user_provided_nested_zip_archives",
+    "outer_archives":  [
+                           {
+                               "relative_path":  "馬達研究\\階段1.zip",
+                               "size_bytes":  1606710569,
+                               "last_write_time":  "2026-04-09T12:42:06.0437020+08:00",
+                               "sha256":  "2247FD21219828E8B9330618AAFAF0B4689D36ACA8D0D572188935F60D34C4F4"
+                           },
+                           {
+                               "relative_path":  "馬達研究\\階段2.zip",
+                               "size_bytes":  1640710552,
+                               "last_write_time":  "2026-04-09T12:43:09.7114843+08:00",
+                               "sha256":  "3DBE5A0C20B9C57F63307564B0255BAB49795E1707BC593A80CD30AECAA2F076"
+                           },
+                           {
+                               "relative_path":  "馬達研究\\階段3.zip",
+                               "size_bytes":  1671631565,
+                               "last_write_time":  "2026-04-09T12:43:19.9365862+08:00",
+                               "sha256":  "17536553F20C1E5D4ACE1A822A5F2C9C0978634A42A077CDF7B58A9A67A27B14"
+                           }
+                       ],
+    "condition_archives":  [
+                               {
+                                   "archive_path":  "馬達研究\\階段1.zip::階段1/csv.zip",
+                                   "entry_path":  "csv/T1/11000rpm.zip",
+                                   "uncompressed_size_bytes":  "527866773",
+                                   "compressed_size_bytes":  "526696092",
+                                   "last_write_time":  "2025-06-30T18:22:16.0000000+08:00"
+                               },
+                               {
+                                   "archive_path":  "馬達研究\\階段1.zip::階段1/csv.zip",
+                                   "entry_path":  "csv/T1/6000rpm.zip",
+                                   "uncompressed_size_bytes":  "525294993",
+                                   "compressed_size_bytes":  "523828425",
+                                   "last_write_time":  "2025-06-30T18:19:04.0000000+08:00"
+                               },
+                               {
+                                   "archive_path":  "馬達研究\\階段1.zip::階段1/csv.zip",
+                                   "entry_path":  "csv/T1/8000rpm.zip",
+                                   "uncompressed_size_bytes":  "524546316",
+                                   "compressed_size_bytes":  "523181038",
+                                   "last_write_time":  "2025-06-30T18:22:14.0000000+08:00"
+                               },
+                               {
+                                   "archive_path":  "馬達研究\\階段2.zip::階段2/csv.zip",
+                                   "entry_path":  "csv/T2/11000rpm.zip",
+                                   "uncompressed_size_bytes":  "549759440",
+                                   "compressed_size_bytes":  "548472055",
+                                   "last_write_time":  "2025-06-30T18:30:32.0000000+08:00"
+                               },
+                               {
+                                   "archive_path":  "馬達研究\\階段2.zip::階段2/csv.zip",
+                                   "entry_path":  "csv/T2/6000rpm.zip",
+                                   "uncompressed_size_bytes":  "545577219",
+                                   "compressed_size_bytes":  "544299356",
+                                   "last_write_time":  "2025-06-30T18:30:26.0000000+08:00"
+                               },
+                               {
+                                   "archive_path":  "馬達研究\\階段2.zip::階段2/csv.zip",
+                                   "entry_path":  "csv/T2/8000rpm.zip",
+                                   "uncompressed_size_bytes":  "548767290",
+                                   "compressed_size_bytes":  "547437933",
+                                   "last_write_time":  "2025-06-30T18:30:28.0000000+08:00"
+                               },
+                               {
+                                   "archive_path":  "馬達研究\\階段3.zip::階段3/csv.zip",
+                                   "entry_path":  "csv/T3/11000rpm.zip",
+                                   "uncompressed_size_bytes":  "546706787",
+                                   "compressed_size_bytes":  "545474219",
+                                   "last_write_time":  "2025-06-30T18:35:26.0000000+08:00"
+                               },
+                               {
+                                   "archive_path":  "馬達研究\\階段3.zip::階段3/csv.zip",
+                                   "entry_path":  "csv/T3/6000rpm.zip",
+                                   "uncompressed_size_bytes":  "542071000",
+                                   "compressed_size_bytes":  "540814422",
+                                   "last_write_time":  "2025-06-30T18:35:22.0000000+08:00"
+                               },
+                               {
+                                   "archive_path":  "馬達研究\\階段3.zip::階段3/csv.zip",
+                                   "entry_path":  "csv/T3/8000rpm.zip",
+                                   "uncompressed_size_bytes":  "544602310",
+                                   "compressed_size_bytes":  "543281930",
+                                   "last_write_time":  "2025-06-30T18:35:28.0000000+08:00"
+                               }
+                           ],
+    "validated_feature_entries":  [
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/1screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "731086",
+                                          "rows":  "373",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/2screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "752198",
+                                          "rows":  "382",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/3screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "611226",
+                                          "rows":  "309",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/3_14screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "612030",
+                                          "rows":  "313",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/4screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "649445",
+                                          "rows":  "328",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/4_146screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "695733",
+                                          "rows":  "356",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/5screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "595566",
+                                          "rows":  "301",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/6screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "607719",
+                                          "rows":  "307",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/7screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "642536",
+                                          "rows":  "325",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/11000rpm/8screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "704363",
+                                          "rows":  "358",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/1screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "616219",
+                                          "rows":  "312",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/2screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "616892",
+                                          "rows":  "310",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/3screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "707066",
+                                          "rows":  "355",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/3_14screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "720431",
+                                          "rows":  "363",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/4screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "760521",
+                                          "rows":  "383",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/4_146screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "599540",
+                                          "rows":  "300",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/5screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "717116",
+                                          "rows":  "361",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/6screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "641688",
+                                          "rows":  "323",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/7screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "658093",
+                                          "rows":  "331",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/6000rpm/8screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "639520",
+                                          "rows":  "320",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/1screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "679382",
+                                          "rows":  "349",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/2screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "568442",
+                                          "rows":  "288",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/3screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "476854",
+                                          "rows":  "241",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/3_14screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "692061",
+                                          "rows":  "351",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/4screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "569249",
+                                          "rows":  "287",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/4_146screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "735309",
+                                          "rows":  "372",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/5screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "420740",
+                                          "rows":  "212",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/6screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "621161",
+                                          "rows":  "314",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/7screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "634110",
+                                          "rows":  "322",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段1.zip::階段1/myfeature.zip",
+                                          "source_entry":  "myfeature/T1/8000rpm/8screws/T1_Group_feature_data_clean.csv",
+                                          "size_bytes":  "624072",
+                                          "rows":  "313",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/1screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "696097",
+                                          "rows":  "352",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/2screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "669538",
+                                          "rows":  "340",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/3screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "600316",
+                                          "rows":  "305",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/3_14screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "625196",
+                                          "rows":  "317",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/4screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "558693",
+                                          "rows":  "283",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/4_146screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "611841",
+                                          "rows":  "310",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/5screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "600230",
+                                          "rows":  "304",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/6screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "614240",
+                                          "rows":  "309",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/7screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "611254",
+                                          "rows":  "308",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/11000rpm/8screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "595895",
+                                          "rows":  "300",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/1screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "596597",
+                                          "rows":  "300",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/2screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "562335",
+                                          "rows":  "283",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/3screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "658286",
+                                          "rows":  "333",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/3_14screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "574568",
+                                          "rows":  "289",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/4screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "580506",
+                                          "rows":  "293",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/4_146screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "580395",
+                                          "rows":  "292",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/5screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "602155",
+                                          "rows":  "304",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/6screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "559219",
+                                          "rows":  "281",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/7screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "501080",
+                                          "rows":  "252",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/6000rpm/8screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "624018",
+                                          "rows":  "314",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/1screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "573149",
+                                          "rows":  "297",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/2screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "712512",
+                                          "rows":  "362",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/3screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "702426",
+                                          "rows":  "356",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/3_14screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "653404",
+                                          "rows":  "334",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/4screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "537849",
+                                          "rows":  "274",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/4_146screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "638424",
+                                          "rows":  "321",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/5screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "636211",
+                                          "rows":  "324",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/6screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "683997",
+                                          "rows":  "350",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/7screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "658299",
+                                          "rows":  "335",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      },
+                                      {
+                                          "source_archive":  "階段3.zip::階段3/myfeature.zip",
+                                          "source_entry":  "myfeature/T3/8000rpm/8screws/T3_Group_feature_data_clean.csv",
+                                          "size_bytes":  "541033",
+                                          "rows":  "272",
+                                          "columns":  "105",
+                                          "confidence":  "High"
+                                      }
+                                  ],
+    "raw_contract":  {
+                         "conditions":  [
+                                            "T1/6000rpm",
+                                            "T1/8000rpm",
+                                            "T1/11000rpm",
+                                            "T2/6000rpm",
+                                            "T2/8000rpm",
+                                            "T2/11000rpm",
+                                            "T3/6000rpm",
+                                            "T3/8000rpm",
+                                            "T3/11000rpm"
+                                        ],
+                         "files_per_condition":  50,
+                         "classes_per_condition":  10,
+                         "channels_per_class":  5,
+                         "rows_per_raw_csv":  10000,
+                         "sampling_rate_hz":  10000
+                     },
+    "feature_contract":  {
+                             "feature_columns":  105,
+                             "clean_feature_files_present":  60,
+                             "conditions_with_clean_features":  [
+                                                                    "T1/11000rpm",
+                                                                    "T1/6000rpm",
+                                                                    "T1/8000rpm",
+                                                                    "T3/11000rpm",
+                                                                    "T3/6000rpm",
+                                                                    "T3/8000rpm"
+                                                                ],
+                             "conditions_missing_clean_features":  [
+                                                                       "T2/6000rpm",
+                                                                       "T2/8000rpm",
+                                                                       "T2/11000rpm"
+                                                                   ]
+                         },
+    "fingerprint_policy":  "SHA-256 of the three outer archives; nested entry sizes and timestamps are included in the manifest",
+    "generated_at":  "2026-09-19T17:44:08.6787185+08:00"
+}
