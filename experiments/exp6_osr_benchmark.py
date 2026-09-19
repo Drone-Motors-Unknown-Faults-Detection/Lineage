@@ -232,7 +232,8 @@ def run(
         "confidence": float(confidence),
         "formal_condition_count": len(rows),
         "dataset_fingerprint": dataset_fingerprint(data_path),
-        "dataset_root": str(data_path),
+        # Keep committed summaries portable and free of user-specific absolute paths.
+        "dataset_root": data_path.name,
         "positive_class": "unknown",
         "score_direction": "higher_is_unknown",
         "polarmap_base_method": "mahalanobis",

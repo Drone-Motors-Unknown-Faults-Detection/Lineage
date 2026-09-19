@@ -114,7 +114,8 @@ def run_matrix(
     manifest = {
         "schema_version": 1,
         "status": "running",
-        "data_root": str(data_path),
+        # The manifest is committed as evidence; never serialize a local absolute path.
+        "data_root": data_path.name,
         "seeds": [int(seed) for seed in seeds],
         "methods": list(methods),
         "expected_runs": len(matrix),
@@ -160,7 +161,7 @@ def run_matrix(
                     "commit_sha": result["commit_sha"],
                     "duration_seconds": round(time.perf_counter() - started, 6),
                     "finished_at_utc": datetime.now(timezone.utc).isoformat(),
-                    "summary": str(summary_path),
+                    "summary": str(Path("runs") / entry["run_id"] / "summary.json"),
                 }
             )
             log_path.write_text(

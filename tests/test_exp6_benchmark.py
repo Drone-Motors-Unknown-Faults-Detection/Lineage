@@ -38,6 +38,8 @@ class Exp6BenchmarkTests(unittest.TestCase):
             result = run(root, seed=42, openset_method="knn", require_nine=False)
             self.assertEqual(result["status"], "completed")
             self.assertEqual(result["method"], "knn")
+            self.assertEqual(result["dataset_root"], root.name)
+            self.assertFalse(Path(result["dataset_root"]).is_absolute())
             self.assertEqual(result["polarmap_base_method"], "mahalanobis")
             row = result["rows"][0]
             self.assertEqual(row["calibration_source"], "known training/calibration only")
