@@ -106,3 +106,46 @@ Ancestor 的完整分支與檔案 inventory 位於：
 | `main` | `c16c5e839914379af4005bef1c681a6cf9da6054` | recursive | 51 | 0 / 0 | completed |
 
 此 repository 的檔案是 TensorFlow/CUDA 設定、MNIST/CIFAR 訓練程式、log、報告與文件；沒有 `data/Step-*`、馬達特徵 CSV、9 工況 label、LFS/DVC pointer 或可對應 Lineage 的 checkpoint。分類為 `F_IRRELEVANT`。
+
+## P3 repository audit — Lineage
+
+`Drone-Motors-Unknown-Faults-Detection/Lineage` 是 public、非 fork、非 archived repository。這次掃描以以下三個 branch HEAD 作為不可變的稽核邊界；稽核報告本身是在掃描後才提交回 feature branch，因此不能把稽核產物誤算成原始資料：
+
+| Branch | HEAD | Tree mode | File entries | LFS/DVC | Audit status |
+|---|---|---|---:|---|---|
+| `backup_260806` | `3a699ab81c16503fff4ba2c2b8ec566202c24d7d` | recursive | 1339 | 0 / 0 | completed |
+| `feat/knn-openset-comparison` | `1a48f22575270e6ea3ca36a4ec9979282d857957` | recursive | 158 | 0 / 0 | completed |
+| `main` | `afcfcc419dab3103a86a8f95601d3af85890eb38` | recursive | 179 | 0 / 0 | completed |
+
+三個 branch 都完成 recursive tree 掃描，沒有截斷；分支內也沒有真正的 `data/`、`*_Group_feature_data_clean.csv`、壓縮資料集、HDF5/NPZ/Parquet、checkpoint data object、LFS pointer 或 DVC metadata。`main` 的 `exp6_osr_benchmark` 與少量 `output/**/results.csv` 是程式碼／實驗結果，不是可重新載入的正式資料集；feature branch 的 k-NN 比較結果同樣是衍生輸出。`reports/github_data_audit/audit_one_repo.ps1` 裡出現的 Git LFS 文件網址是稽核工具字串，不是 LFS pointer；檔案內容偵測結果為 `lfs_detected=false`。
+
+Lineage 候選 inventory 共記錄 43 筆：27 筆 `B_PROCESSED_DERIVED`（實驗結果或稽核報表）、12 筆 `C_SAMPLE_DEBUG`（web server sample）、4 筆 `D_POINTER_EXTERNAL`（PyTorch wheel／工具網址）。這些候選都沒有同時滿足正式資料的九項條件，因此不能把任何一筆宣稱為正式資料來源。
+
+完整資料位於：
+
+- [Lineage repository metadata](repositories/Drone-Motors-Unknown-Faults-Detection__Lineage/repository.json)
+- [Lineage branch audit](repositories/Drone-Motors-Unknown-Faults-Detection__Lineage/branches.json)
+- [organization inventory](account_inventory.json)
+- [branch inventory](branch_inventory.csv)
+- [file inventory](file_inventory.csv)
+- [candidate inventory](data_candidates.csv)
+
+## P4 candidate verification and final result
+
+### 結論
+
+目前 GitHub 組織可存取的四個 repository（Ancestor、Lineage、GPU-Learning-PyTorch、GPU-Learning-Tensorflow）中，**找不到可直接供 Lineage 正式 Open Set 實驗使用的資料集**。特別是沒有發現符合 `data/Step-*/myfeature/{Motor}/{RPM}/{Screws}/*_Group_feature_data_clean.csv`、105 維特徵、`8screws` 健康類、9 組正式工況、known/unknown 可分配、60/20/20 split、可追溯來源與可重現讀取方式的完整物件。
+
+### 整體完整性檢查
+
+- Repository：`completed + inaccessible + failed = 4 + 0 + 0 = 4`。
+- Branch：`completed + inaccessible + failed = 7 + 0 + 0 = 7`。
+- Branch HEAD SHA 去重後為 7，與七個 branch 一一對應。
+- Recursive tree file entries：Ancestor 1486、GPU-Learning-PyTorch 66、GPU-Learning-Tensorflow 51、Lineage 1676，共 3279 筆 branch-path entries；去重後 blob/tree SHA 共 1784 筆。
+- LFS pointer、DVC metadata、submodule、release、workflow artifact、fork：四個 repository 均未發現（各項數量為 0）。
+
+### 對後續實驗的含義
+
+這次 audit 沒有修改 Mahalanobis、k-NN、PolarMap 或其他 Open Set 演算法，也沒有執行需要正式資料的 54 組實驗。要開始正式 benchmark，仍需由團隊提供或重新掛載符合上述契約的資料來源；在那之前，repository 內的 output CSV 只能作為歷史結果參考，不能當作正式訓練／校準／holdout data。
+
+機器可讀狀態見 [progress.json](progress.json)。此 audit 的 `final_status` 為 `completed`，但「正式資料來源」的結果是 **not found**，不是資料已存在。

@@ -2,17 +2,17 @@
   "account_url": "https://github.com/Drone-Motors-Unknown-Faults-Detection",
   "account_type": "Organization",
   "audit_start_time": "2026-09-19T00:00:00+08:00",
-  "last_update_time": "2026-09-19T17:10:00+08:00",
+  "last_update_time": "2026-09-19T17:30:00+08:00",
   "github_api_authentication": "authenticated_as_05zhi",
   "repositories_discovered": 4,
-  "repositories_completed": 3,
-  "current_repository": "Drone-Motors-Unknown-Faults-Detection/GPU-Learning-Tensorflow",
-  "current_branch": "main",
-  "branches_completed": 4,
+  "repositories_completed": 4,
+  "current_repository": null,
+  "current_branch": null,
+  "branches_completed": 7,
   "rate_limit_status": "5000_limit_5000_remaining_at_p2_start",
   "errors": [],
-  "final_status": "running",
-  "phase": "P3_repository_audit",
+  "final_status": "completed",
+  "phase": "P4_candidate_verification",
   "notes": [
     "Original Lineage working tree contains an existing untracked core/openset.py; it is preserved and excluded from audit commits.",
     "Current task branch is audited from an isolated worktree aligned to the remote feature branch.",
@@ -21,6 +21,8 @@
     "Ancestor main and original branches were fully tree-audited; no data object, archive, LFS pointer, or DVC metadata was found.",
     "GPU-Learning-PyTorch main was fully tree-audited; its 66 files are unrelated GPU training code and contain no Lineage data.",
     "GPU-Learning-Tensorflow main was fully tree-audited; its 51 files are unrelated TensorFlow training code and contain no Lineage data.",
-    "Three of four repositories are complete; Lineage is pending."
+    "Lineage backup_260806, feat/knn-openset-comparison, and main were fully tree-audited; no formal data object, archive, LFS pointer, DVC metadata, or checkpoint data object was found.",
+    "All four repositories and all seven branches are complete. Candidate CSVs are derived outputs, debug samples, external package pointers, or audit artifacts; none satisfies the nine-condition formal data contract.",
+    "Integrity checks: repositories_completed + inaccessible + failed = 4 + 0 + 0 = 4; branches_completed + inaccessible_branches + failed_branches = 7 + 0 + 0 = 7; unique branch HEAD commits = 7."
   ]
 }

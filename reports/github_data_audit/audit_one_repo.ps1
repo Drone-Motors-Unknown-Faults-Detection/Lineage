@@ -97,7 +97,7 @@ function Get-BlobInspection {
     if ($bytes.Length -gt 8MB) {
         return [pscustomobject]@{ status = 'metadata-only-too-large'; text = $null; lfs = $false; bytes = $bytes.Length }
     }
-    $isLfs = $text -match 'version https://git-lfs.github.com/spec/v1' -and $text -match 'oid sha256:'
+    $isLfs = $text -match '(?m)^version https://git-lfs.github.com/spec/v1\s*$' -and $text -match '(?m)^oid sha256:'
     return [pscustomobject]@{ status = 'read'; text = $text; lfs = $isLfs; bytes = $bytes.Length }
 }
 
