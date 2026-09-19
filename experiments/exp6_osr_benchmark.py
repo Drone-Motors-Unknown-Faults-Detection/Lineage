@@ -13,6 +13,7 @@ import argparse
 import hashlib
 import json
 import platform
+import random
 import subprocess
 import time
 from datetime import datetime, timezone
@@ -123,6 +124,12 @@ def _detector_metadata(detector, confidence: float, openset_method: str, knn_nei
         "threshold_strategy": f"known_calibration_quantile_{confidence:.4g}",
         "score_direction": "higher_is_unknown",
         "calibration_source": "known training/calibration only",
+        "reference_bank_samples": [int(item["n_reference"]) for item in summaries],
+        "effective_neighbors": [int(item["effective_neighbors"]) for item in summaries]
+        if openset_method == "knn"
+        else None,
+        "distance_metric": "euclidean" if openset_method == "knn" else "ledoit_wolf_mahalanobis",
+        "neighbor_aggregation": "mean_distance" if openset_method == "knn" else None,
     }
 
 
@@ -152,6 +159,10 @@ def run(
     if not 0.0 < confidence < 1.0:
         raise ValueError("confidence must be between zero and one")
 
+    # The formal benchmark currently uses NumPy/scikit-learn only, but seed the
+    # Python RNG as well so future helpers cannot silently add an uncontrolled
+    # source of split or sampling randomness.
+    random.seed(seed)
     rng = np.random.default_rng(seed)
     rows: list[dict] = []
     for dataset in datasets:
@@ -237,6 +248,18 @@ def run(
         "positive_class": "unknown",
         "score_direction": "higher_is_unknown",
         "polarmap_base_method": "mahalanobis",
+        "checkpoint_identifier": None,
+        "config": {
+            "feature_count": 105,
+            "normalization": "RobustScaler fit on known training split only",
+            "split": "known health 60/20/20 train/calibration/holdout; all other configurations unknown positive",
+            "threshold": 1.0,
+            "threshold_strategy": f"known_calibration_quantile_{confidence:.4g}",
+            "openset_method": openset_method,
+            "mahalanobis_method": mahalanobis_method if openset_method == "mahalanobis" else None,
+            "knn_neighbors": knn_neighbors if openset_method == "knn" else None,
+            "checkpoint_identifier": None,
+        },
         "commit_sha": _git_sha(Path(__file__).resolve().parents[1]),
         "python": platform.python_version(),
         "rows": rows,
@@ -289,7 +312,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     result["started_at_utc"] = started
     result["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
-    result["output_dir"] = str(paths.output_dir)
+    result["output_dir"] = str(Path("output") / "exp6_osr_benchmark" / paths.output_dir.name)
     pd.DataFrame(result["rows"]).to_csv(paths.output_dir / "results.csv", index=False)
     save_json(paths.output_dir / "summary.json", result)
     save_plot(_figure(result), paths, "osr_benchmark.png")

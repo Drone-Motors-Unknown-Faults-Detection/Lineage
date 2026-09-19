@@ -40,6 +40,10 @@ class Exp6BenchmarkTests(unittest.TestCase):
             self.assertEqual(result["method"], "knn")
             self.assertEqual(result["dataset_root"], root.name)
             self.assertFalse(Path(result["dataset_root"]).is_absolute())
+            self.assertEqual(result["checkpoint_identifier"], None)
+            self.assertEqual(result["config"]["normalization"], "RobustScaler fit on known training split only")
+            self.assertEqual(result["rows"][0]["distance_metric"], "euclidean")
+            self.assertTrue(result["rows"][0]["reference_bank_samples"])
             self.assertEqual(result["polarmap_base_method"], "mahalanobis")
             row = result["rows"][0]
             self.assertEqual(row["calibration_source"], "known training/calibration only")

@@ -68,6 +68,7 @@ def expected_run_matrix(data_root: Path | str, seeds: Iterable[int] = DEFAULT_SE
                         "seed": int(seed),
                         "method": method,
                         "status": "pending",
+                        "log_path": str(Path("runs") / run_id / "run.log"),
                     }
                 )
     return matrix
