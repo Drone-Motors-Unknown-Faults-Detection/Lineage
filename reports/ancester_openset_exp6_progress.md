@@ -180,3 +180,29 @@ P2 產物：
 P3 mapping 已完成，詳見 [formal_contract_mapping.md](raw_data_audit/formal_contract_mapping.md)。三個 outer archive 的 SHA-256、nested condition archive metadata 與現有 clean-feature entry metadata 已寫入 [formal_source_manifest.json](raw_data_audit/formal_source_manifest.json)。
 
 結論是：本機資料是可信的 9-condition formal raw source，但不是目前 loader 可直接讀的 `data/Step-*/myfeature/.../*_Group_feature_data_clean.csv` 目錄。T1/T3 的 60 個 clean feature 檔可作為已存在 processed reference；T2 的 150 個 raw CSV 必須透過可重現、只寫入 ignored processed root 的轉換補齊，不能用 synthetic 或歷史 output 代替。P3 mapping 本身不修改演算法或 exp6。
+
+## P4 — formal data adapter and materialization
+
+P4 已完成：`core/formal_data.py` 現在提供不依賴個人電腦路徑的正式資料轉換器。呼叫者必須明確傳入 `--source-root` 與 `--output-root`；轉換器會拒絕把輸出寫進 raw source 目錄。
+
+### 已實作的轉換規則
+
+1. Stage 1 / Stage 3：從巢狀 `myfeature.zip` 原樣複製 60 個既有 `*_Group_feature_data_clean.csv`，並檢查 105 個數值欄位。
+2. Stage 2：從巢狀 `csv.zip` 讀取 T2 的 5 通道矩陣；每個視窗計算 15 個統計特徵，X/Y/Z 各加 10 個轉頻諧波 FFT 特徵，合計 105 維。
+3. Stage 2 clean：依既有 T1/T3 檔案逐列比對確認的規則，對每個 feature 欄位套用 `Q1 - 1.5*IQR` 至 `Q3 + 1.5*IQR`，任一欄超界就移除整列。
+4. 每筆輸出均寫入 materialization manifest，記錄來源 archive/member、SHA-256、清理前後列數與輸出路徑；raw source 永遠只讀。
+
+### 實際物化驗收
+
+```text
+output: data/formal_local/       （Git ignored，不提交資料本體）
+files: 90 = 30 copied Stage-1 + 30 converted Stage-2 + 30 copied Stage-3
+conditions: 9/9 motor×rpm combinations
+classes: 10/10 configurations per condition
+feature shape: every file has 105 numeric columns and no NaN
+rows after clean: 180–387 per class file
+```
+
+Smoke test（T2/8000rpm/8screws）實際讀取巢狀 ZIP 並產生 `599 → 368` clean rows；完整物化亦已由 Lineage `discover_datasets` 找到 9 組資料池，`load_pools` 每組都包含健康 `8screws` 基準。16 個單元測試通過，其中包含 feature-name 順序、1.5-IQR 規則、T1/T2/T3 channel alias 與禁止寫回 source 的安全測試。
+
+本階段 commit：待 P4 程式與報告驗證完成後建立並推送；正式資料本體與 manifest（含本機絕對路徑）不納入 Git。

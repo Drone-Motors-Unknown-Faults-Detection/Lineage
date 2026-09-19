@@ -81,3 +81,28 @@ P2 streamed every raw CSV in the nine condition archives and every clean feature
 - No pickle, Keras checkpoint, or other unsafe serialized object was loaded during validation. The Keras archives remain checkpoint candidates only.
 
 The P2 machine-readable reports are [raw_validation.csv](raw_validation.csv), [feature_validation.csv](feature_validation.csv), [condition_summary.csv](condition_summary.csv), [candidate_inventory.csv](candidate_inventory.csv), and [p2_progress.json](p2_progress.json). The raw source remained unchanged.
+
+## P4 materialization
+
+`core/formal_data.py` now connects this nested-archive source to Lineage's
+`data/Step-*/myfeature` contract without embedding a developer-specific path.
+Stage 1 and Stage 3 clean features are copied byte-for-byte; Stage 2 is
+converted from its five-channel matrices using the documented 105-feature
+pipeline and the observed feature-level 1.5-IQR clean rule. The converter
+requires explicit `--source-root` and `--output-root` arguments and refuses to
+write under the source root.
+
+The complete local materialization was validated outside Git tracking:
+
+| Check | Result |
+|---|---:|
+| Materialized files | 90 (30 per stage) |
+| Motor × RPM conditions | 9/9 |
+| Configurations per condition | 10/10 |
+| Feature columns | 105 in every file |
+| Non-finite / non-numeric feature rows | 0 |
+| Clean rows per class file | 180–387 |
+| `discover_datasets` / `load_pools` | 9 datasets, all with `8screws` |
+
+The materialized files and `formal_materialization_manifest.json` stay under
+the ignored `data/` directory; the 4.6 GiB source remains read-only.
