@@ -16,6 +16,7 @@ from sklearn.metrics import (
 )
 
 from health.schema import HealthMonitoringResult
+from health.thresholds import AlarmPolicy, apply_alarm_policy
 
 
 def _binary(values: Iterable[bool | int], *, name: str) -> np.ndarray:
@@ -145,6 +146,81 @@ def evaluate_results(
     else:
         output["open_set"] = evaluate_open_set(results, unknown_labels)
     return output
+
+
+def _runs(values: np.ndarray) -> list[tuple[int, int]]:
+    runs: list[tuple[int, int]] = []
+    start: int | None = None
+    for index, value in enumerate(values.astype(bool)):
+        if value and start is None:
+            start = index
+        elif not value and start is not None:
+            runs.append((start, index - 1))
+            start = None
+    if start is not None:
+        runs.append((start, len(values) - 1))
+    return runs
+
+
+def evaluate_alarm_series(
+    scores: Sequence[float] | np.ndarray,
+    event_labels: Iterable[bool | int],
+    timestamps: Sequence[object],
+    *,
+    threshold: float,
+    policy: AlarmPolicy | None = None,
+) -> dict:
+    """Compare sample and event alarms without tuning on the supplied labels.
+
+    ``event_labels`` are offline evaluation annotations.  They are never read
+    by :func:`apply_alarm_policy`; callers must fit calibration separately.
+    """
+
+    values = np.asarray(scores, dtype=float).reshape(-1)
+    labels = _binary(event_labels, name="event_labels")
+    if len(values) == 0 or len(values) != len(labels) or len(values) != len(timestamps):
+        raise ValueError("scores, event_labels and timestamps must have equal non-zero length")
+    if not np.isfinite(values).all():
+        raise ValueError("scores must be finite")
+    times = np.asarray([_time_value(value) for value in timestamps], dtype=float)
+    if np.any(np.diff(times) < 0):
+        raise ValueError("timestamps must be monotonically non-decreasing")
+    alarm = apply_alarm_policy(values, float(threshold), policy or AlarmPolicy())
+    true_runs = _runs(labels)
+    alarm_runs = _runs(alarm)
+    duration_seconds = float(max(0.0, times[-1] - times[0]))
+    true_event_hits = sum(any(alarm[start : end + 1]) for start, end in true_runs)
+    false_alarm_runs = sum(not labels[start : end + 1].any() for start, end in alarm_runs)
+    delays = []
+    lead_times = []
+    for start, end in true_runs:
+        hits = np.flatnonzero(alarm[start : end + 1])
+        if len(hits):
+            delays.append(float(times[start + int(hits[0])] - times[start]))
+        prior = np.flatnonzero(alarm[:start])
+        if len(prior):
+            lead_times.append(float(max(0.0, times[start] - times[int(prior[-1])])))
+    transitions = int(np.count_nonzero(alarm[1:] != alarm[:-1]))
+    if duration_seconds > 0:
+        false_per_hour = float(false_alarm_runs / (duration_seconds / 3600.0))
+    else:
+        false_per_hour = None
+    return {
+        "n_windows": int(len(values)),
+        "alarm_policy": (policy or AlarmPolicy()).kind,
+        "alarm_threshold": float(threshold),
+        "sample_unknown_recall": float(((alarm == 1) & (labels == 1)).sum() / max(1, int(labels.sum()))),
+        "event_unknown_recall": float(true_event_hits / len(true_runs)) if true_runs else None,
+        "true_event_count": int(len(true_runs)),
+        "false_alarm_events": int(false_alarm_runs),
+        "false_alarms_per_hour": false_per_hour,
+        "detection_delay_seconds_mean": float(np.mean(delays)) if delays else None,
+        "detection_delay_seconds_max": float(np.max(delays)) if delays else None,
+        "early_warning_lead_time_seconds_mean": float(np.mean(lead_times)) if lead_times else None,
+        "alarm_duration_seconds": float(np.sum([times[end] - times[start] for start, end in alarm_runs])),
+        "alarm_flapping_count": transitions,
+        "event_metrics_status": "computed_offline_labels",
+    }
 
 
 def assert_group_disjoint(train_groups: Iterable[object], test_groups: Iterable[object]) -> None:

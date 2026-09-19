@@ -21,10 +21,15 @@
   "commands": [
     {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "62 passed"},
     {"command": "venv\\Scripts\\python.exe -m unittest tests.test_continual_protocol -v", "exit_code": 0, "result": "3 passed"},
-    {"command": "venv\\Scripts\\python.exe -m core.continual_protocol --data-root data/formal_local --output-root reports/research_improvements/protocols/formal_seed42 --seed 42", "exit_code": 0, "result": "30 files, 14070 samples, protocol dff5656e..."}
+    {"command": "venv\\Scripts\\python.exe -m core.continual_protocol --data-root data/formal_local --output-root reports/research_improvements/protocols/formal_seed42 --seed 42", "exit_code": 0, "result": "30 files, 14070 samples, protocol dff5656e..."},
+    {"command": "venv\\Scripts\\python.exe -m experiments.calibration_ablation --data-root data/formal_local --output-root reports/research_improvements/calibration_ablation", "exit_code": 0, "result": "45 rows, 3 seeds, result c7ff5154..."},
+    {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "73 passed"}
   ],
-  "tests": {"baseline": {"passed": 62, "failed": 0}, "P1": {"passed": 3, "failed": 0, "leakage": "passed"}},
-  "experiment_runs": [{"phase": "P1", "run_id": "formal_seed42", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "immutable_test_samples": 7422}],
+  "tests": {"baseline": {"passed": 62, "failed": 0}, "P1": {"passed": 3, "failed": 0, "leakage": "passed"}, "P2": {"passed": 73, "failed": 0}},
+  "experiment_runs": [
+    {"phase": "P1", "run_id": "formal_seed42", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "immutable_test_samples": 7422},
+    {"phase": "P2", "run_id": "calibration_ablation", "status": "completed", "result_fingerprint": "c7ff515470004aeb443ad3a263bb91a2b9c626026042ee8f65d3f6a44d284046", "rows": 45, "seeds": [42, 123, 2026]}
+  ],
   "failed_runs": [],
   "blockers": [
     "Formal data has no verified motor/session/timestamp metadata; group-level temporal conclusions require new field data.",

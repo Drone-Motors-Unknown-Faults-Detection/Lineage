@@ -3,12 +3,14 @@ import unittest
 from health.evaluation import (
     assert_group_disjoint,
     assert_temporal_order,
+    evaluate_alarm_series,
     evaluate_event_metrics,
     evaluate_open_set,
     evaluate_results,
     evaluate_trajectory,
 )
 from health.schema import HealthMonitoringResult
+from health.thresholds import AlarmPolicy
 
 
 def _result(score: float, alarm: str = "normal") -> HealthMonitoringResult:
@@ -72,3 +74,21 @@ class HealthEvaluationTests(unittest.TestCase):
         metrics = evaluate_trajectory([_result(0.2), _result(1.2, "warning"), _result(1.4, "critical")])
         self.assertEqual(metrics["alarm_transition_count"], 2)
         self.assertGreater(metrics["alarm_fraction"], 0.0)
+
+    def test_event_alarm_metrics_report_spike_tradeoff(self):
+        scores = [0.2, 1.4, 0.2, 1.4, 1.4, 0.2]
+        labels = [0, 0, 0, 1, 1, 0]
+        timestamps = list(range(len(scores)))
+        single = evaluate_alarm_series(scores, labels, timestamps, threshold=1.0)
+        persistent = evaluate_alarm_series(
+            scores,
+            labels,
+            timestamps,
+            threshold=1.0,
+            policy=AlarmPolicy(kind="consecutive", consecutive=2),
+        )
+        self.assertEqual(single["false_alarm_events"], 1)
+        self.assertEqual(single["event_unknown_recall"], 1.0)
+        self.assertEqual(persistent["false_alarm_events"], 0)
+        self.assertEqual(persistent["event_unknown_recall"], 1.0)
+        self.assertEqual(persistent["detection_delay_seconds_mean"], 1.0)
