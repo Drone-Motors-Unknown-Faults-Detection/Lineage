@@ -1,0 +1,21 @@
+{
+  "account_url": "https://github.com/Drone-Motors-Unknown-Faults-Detection",
+  "account_type": "pending_p0_api_check",
+  "audit_start_time": "2026-09-19T00:00:00+08:00",
+  "last_update_time": "2026-09-19T00:00:00+08:00",
+  "github_api_authentication": "pending_p2",
+  "repositories_discovered": 0,
+  "repositories_completed": 0,
+  "current_repository": null,
+  "current_branch": null,
+  "branches_completed": 0,
+  "rate_limit_status": "pending_p2",
+  "errors": [],
+  "final_status": "running",
+  "phase": "P1_lineage_data_contract",
+  "notes": [
+    "Original Lineage working tree contains an existing untracked core/openset.py; it is preserved and excluded from audit commits.",
+    "Current task branch is audited from an isolated worktree aligned to the remote feature branch.",
+    "No GitHub repository, branch, file, or formal data candidate has been declared complete yet."
+  ]
+}
