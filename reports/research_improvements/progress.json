@@ -2,9 +2,9 @@
   "schema_version": 1,
   "repository": "Drone-Motors-Unknown-Faults-Detection/Lineage",
   "branch": "research-improvements-20260920",
-  "current_commit": "27985cceb02cd922c92cfdd5dcd6e403f4d0b011",
-  "current_phase": "P7",
-  "completed_phases": ["P0", "P1", "P2", "P3", "P4", "P5", "P6"],
+  "current_commit": "0873aba",
+  "current_phase": "P8",
+  "completed_phases": ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "P7"],
   "phases": {
     "P0": {"status": "completed", "commit_sha": "af3c9b06157a2c8bc2113621188432bccb7a6c5c"},
     "P1": {"status": "completed", "commit_sha": "02bba5881ed26dcef7c5da701165ebb24e0a439b", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d"},
@@ -13,8 +13,8 @@
     "P4": {"status": "completed", "commit_sha": "3d784d9bf608271e4910ddc78f884e5a4ee3d727", "rows": 240},
     "P5": {"status": "completed", "commit_sha": "2b9110c40131793ae400020efdd09bdbb839fe14", "scenarios": 6},
     "P6": {"status": "completed", "commit_sha": "27985cceb02cd922c92cfdd5dcd6e403f4d0b011", "rows": 30, "completed": 18, "blocked_or_not_applicable": 12},
-    "P7": {"status": "running"},
-    "P8": {"status": "pending"},
+    "P7": {"status": "completed", "commit_sha": "0873aba", "tests": 2, "status_note": "metadata validator and candidate quarantine manifest; no raw field data fabricated"},
+    "P8": {"status": "running"},
     "P9": {"status": "pending"}
   },
   "commands": [
@@ -30,7 +30,7 @@
     {"command": "venv\\Scripts\\python.exe -m experiments.detector_comparison --data-root data/formal_local --output-root reports/research_improvements/detector_comparison", "exit_code": 0, "result": "30 rows; 18 completed; 12 not-applicable/blocked"},
     {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "84 passed"}
   ],
-  "tests": {"baseline": {"passed": 62, "failed": 0}, "P1": {"passed": 3, "failed": 0, "leakage": "passed"}, "P2": {"passed": 73, "failed": 0}, "P3": {"passed": 76, "failed": 0}, "P4": {"passed": 79, "failed": 0}, "P5": {"passed": 83, "failed": 0}, "P6": {"passed": 84, "failed": 0}},
+  "tests": {"baseline": {"passed": 62, "failed": 0}, "P1": {"passed": 3, "failed": 0, "leakage": "passed"}, "P2": {"passed": 73, "failed": 0}, "P3": {"passed": 76, "failed": 0}, "P4": {"passed": 79, "failed": 0}, "P5": {"passed": 83, "failed": 0}, "P6": {"passed": 84, "failed": 0}, "P7": {"passed": 92, "failed": 0}},
   "experiment_runs": [
     {"phase": "P5", "run_id": "field_scenarios", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "scenarios": 6, "data_status": "simulation_replay_formal_data"},
     {"phase": "P6", "run_id": "detector_comparison", "status": "completed", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d", "rows": 30, "completed": 18, "blocked_or_not_applicable": 12},
@@ -44,6 +44,6 @@
     "Formal data has no verified motor/session/timestamp metadata; group-level temporal conclusions require new field data.",
     "No run-to-failure trajectories or ordinal severity labels; RUL remains unavailable."
   ],
-  "commits": ["af3c9b0", "0093649", "02bba58", "24fa28f", "60e114d", "86079c5", "cfd408e", "021b8d5", "580ba63", "3d784d9", "2b9110c", "27985cc"],
+  "commits": ["af3c9b0", "0093649", "02bba58", "24fa28f", "60e114d", "86079c5", "cfd408e", "021b8d5", "580ba63", "3d784d9", "2b9110c", "27985cc", "1dbf9c8", "0873aba"],
   "push": {"status": "pending", "remote": "origin", "branch": "research-improvements-20260920"}
 }
