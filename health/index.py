@@ -194,6 +194,8 @@ class CalibratedHealthIndex:
                     timestamp=timestamp,
                     condition=condition,
                     data_quality="valid",
+                    raw_health_index=health_value,
+                    smoothed_health_index=health_value,
                 )
             )
         return results

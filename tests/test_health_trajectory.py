@@ -68,6 +68,7 @@ class SessionTrajectoryTests(unittest.TestCase):
             )
         self.assertEqual(first_session[-1].trend, "worsening")
         self.assertIn(first_session[-1].alarm_state, {"warning", "critical"})
+        self.assertEqual(first_session[-1].smoothed_health_index, first_session[-1].health_index)
         self.assertEqual(len(monitor.history("motor-a", "session-1")), 6)
         other = monitor.update(
             np.array([0.9]),
@@ -78,6 +79,30 @@ class SessionTrajectoryTests(unittest.TestCase):
         )
         self.assertEqual(other.trend, "insufficient_history")
         self.assertEqual(len(monitor.history("motor-a", "session-2")), 1)
+
+    def test_change_point_requires_persistent_drop(self):
+        predictor = lambda features, **kwargs: _result(float(features[0]), kwargs["timestamp"])
+        monitor = SessionTrajectoryMonitor(
+            predictor,
+            config=TrajectoryConfig(
+                min_history=2,
+                ewma_alpha=1.0,
+                change_point_delta=0.2,
+                change_point_persistence=2,
+            ),
+        )
+        states = []
+        for idx, health in enumerate((0.9, 0.9, 0.5, 0.1, 0.1)):
+            result = monitor.update(
+                np.array([health]),
+                motor_id="m",
+                session_id="change",
+                timestamp=str(idx),
+                condition="x",
+            )
+            states.append(result.change_point_state)
+        self.assertEqual(states[3], "candidate")
+        self.assertEqual(states[4], "confirmed")
 
     def test_alarm_hysteresis_requires_persistent_clear(self):
         predictor = lambda features, **kwargs: _result(float(features[0]), kwargs["timestamp"])

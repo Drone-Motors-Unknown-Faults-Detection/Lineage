@@ -16,12 +16,14 @@ Trend = Literal["stable", "worsening", "recovering", "insufficient_history"]
 DataQuality = Literal["valid", "invalid", "insufficient"]
 AlarmState = Literal["normal", "warning", "critical"]
 SeverityBasis = Literal["relative_calibrated", "supervised_ordinal"]
+ChangePointState = Literal["none", "candidate", "confirmed"]
 
 _SEVERITY_STAGES = {"healthy", "early_warning", "degraded", "critical"}
 _TRENDS = {"stable", "worsening", "recovering", "insufficient_history"}
 _DATA_QUALITY = {"valid", "invalid", "insufficient"}
 _ALARM_STATES = {"normal", "warning", "critical"}
 _SEVERITY_BASES = {"relative_calibrated", "supervised_ordinal"}
+_CHANGE_POINT_STATES = {"none", "candidate", "confirmed"}
 
 
 def _bounded(value: float, name: str) -> float:
@@ -62,6 +64,9 @@ class HealthMonitoringResult:
     alarm_state: AlarmState = "normal"
     alarm_reason: str | None = None
     severity_basis: SeverityBasis = "relative_calibrated"
+    raw_health_index: float | None = None
+    smoothed_health_index: float | None = None
+    change_point_state: ChangePointState = "none"
 
     def __post_init__(self) -> None:
         health = _bounded(self.health_index, "health_index")
@@ -78,6 +83,12 @@ class HealthMonitoringResult:
             raise ValueError(f"unsupported alarm_state: {self.alarm_state!r}")
         if self.severity_basis not in _SEVERITY_BASES:
             raise ValueError(f"unsupported severity_basis: {self.severity_basis!r}")
+        if self.raw_health_index is not None:
+            _bounded(self.raw_health_index, "raw_health_index")
+        if self.smoothed_health_index is not None:
+            _bounded(self.smoothed_health_index, "smoothed_health_index")
+        if self.change_point_state not in _CHANGE_POINT_STATES:
+            raise ValueError(f"unsupported change_point_state: {self.change_point_state!r}")
         if self.fault_type_confidence is not None:
             _bounded(self.fault_type_confidence, "fault_type_confidence")
         _bounded(self.prediction_confidence, "prediction_confidence")
@@ -129,6 +140,9 @@ class HealthMonitoringResult:
                     "alarm_state",
                     "alarm_reason",
                     "severity_basis",
+                    "raw_health_index",
+                    "smoothed_health_index",
+                    "change_point_state",
                 )
             }
         return payload

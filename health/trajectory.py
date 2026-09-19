@@ -31,6 +31,8 @@ class TrajectoryConfig:
     critical_clear: float = 0.3
     enter_persistence: int = 3
     clear_persistence: int = 3
+    change_point_delta: float = 0.15
+    change_point_persistence: int = 2
 
     def __post_init__(self) -> None:
         if self.history_window < 2:
@@ -51,6 +53,10 @@ class TrajectoryConfig:
             raise ValueError("critical_clear must exceed critical_enter")
         if self.enter_persistence < 1 or self.clear_persistence < 1:
             raise ValueError("persistence values must be positive")
+        if not 0.0 < self.change_point_delta <= 1.0:
+            raise ValueError("change_point_delta must be in (0, 1]")
+        if self.change_point_persistence < 1:
+            raise ValueError("change_point_persistence must be positive")
 
 
 @dataclass
@@ -60,6 +66,7 @@ class _SessionState:
     alarm_state: str = "normal"
     candidate_streak: int = 0
     clear_streak: int = 0
+    change_point_streak: int = 0
 
 
 class SessionTrajectoryMonitor:
@@ -147,6 +154,17 @@ class SessionTrajectoryMonitor:
         state.results.append(result)
         state.smoothed.append(smoothed)
 
+        if prior_smoothed is not None and prior_smoothed - robust_health >= self.config.change_point_delta:
+            state.change_point_streak += 1
+        else:
+            state.change_point_streak = 0
+        if state.change_point_streak >= self.config.change_point_persistence:
+            change_point_state = "confirmed"
+        elif state.change_point_streak > 0:
+            change_point_state = "candidate"
+        else:
+            change_point_state = "none"
+
         if len(state.smoothed) < self.config.min_history:
             trend = "insufficient_history"
             rate = None
@@ -213,6 +231,9 @@ class SessionTrajectoryMonitor:
             alarm_state=state.alarm_state,  # type: ignore[arg-type]
             alarm_reason=alarm_reason,
             data_quality="valid",
+            raw_health_index=result.raw_health_index if result.raw_health_index is not None else result.health_index,
+            smoothed_health_index=smoothed,
+            change_point_state=change_point_state,  # type: ignore[arg-type]
         )
 
     def history(self, motor_id: str, session_id: str) -> tuple[HealthMonitoringResult, ...]:
