@@ -140,7 +140,7 @@ P2 的 repository provenance 已完成，但「正式資料取得」是 P3 的�
 | Lineage data integration | pending implementation | P3 mapping confirms raw source is complete; T1/T3 features present; T2 features missing | — | 建立 configurable source adapter/conversion |
 | Credibility issue 1 | fixed in working tree | Albert log `2026-09-18-22-44-35`: `rows=[]`, `n_datasets=0`, all summary metrics `NaN`, exit code 0 | pending | exp6 now fails fast on missing/incomplete formal data; regression test added |
 | Credibility issue 2 | fixed in working tree | Albert README claims one calibration philosophy, but legacy detector calibrates on training distances (`core/mahalanobis.py` legacy path), producing 83.1% healthy false positives | pending | formal exp6 rejects legacy training-distance threshold; regression test added |
-| Credibility issue 3 | confirmed, pending | Albert exp6 log and README report one seed (`seed=42`) and no across-seed uncertainty; this cannot support stability claims | — | add resumable 9×3×2 matrix and seed-level aggregation |
+| Credibility issue 3 | fixed in working tree | Albert exp6 log and README report one seed (`seed=42`) and no across-seed uncertainty; this cannot support stability claims | pending | `experiments/exp6_matrix.py` emits a pending matrix and runs fixed seeds `42,123,2026` with resumable per-run status |
 | exp6 factory integration | fixed in working tree | old Albert exp6 imported `core.detectors.ALL_DETECTORS`; new entry point imports `core.openset.create_openset_detector` | pending | add factory mock/integration regression tests and push as its own phase |
 | Mahalanobis default | verified | `core.openset.create_openset_detector()` 預設 `mahalanobis`；11 tests passed | — | 保持回歸測試 |
 | PolarMap base | pending | 只存在 `origin/main` 的 `core/geometry.py`／exp4 | — | 讀取 main 版本並驗證 |
@@ -213,6 +213,6 @@ Smoke test（T2/8000rpm/8screws）實際讀取巢狀 ZIP 並產生 `599 → 368`
 |---|---|---|---|
 | C1 | Albert exp6 在 `discover_datasets()` 回傳空集合時仍建立空摘要；log `2026-09-18-22-44-35` 明確記錄 `n_datasets=0`、`rows=[]` 與全 NaN | 空執行可被誤讀成 benchmark 完成 | exp6 對缺資料、重複條件、非 9 工況直接丟出非零錯誤；`tests/test_exp6_benchmark.py::test_missing_formal_data_fails_instead_of_nan_success` |
 | C2 | Albert README 宣稱所有方法共用 calibration 95th percentile，但 legacy Mahalanobis 路徑在 `core/mahalanobis.py` 以 training distance 自校準；既有結果健康誤報 83.1% | 方法比較不是同一 threshold policy，主結論不公平 | 正式 exp6 限定 shared factory 的 `mahalanobis` / `knn`，兩者都只用 known calibration；新增 metadata 與 threshold regression，將在 C2 commit 固化 |
-| C3 | Albert exp6 只有 `seed=42` 一輪；README 的跨 9 工況平均沒有 seed variation | 無法知道結論是否跨隨機切分穩定 | P9 runner 固定 seeds `42,123,2026`、每 run 保存 seed 與 status，P13 產生 mean±std；在 C3/P9 commit 驗證 |
+| C3 | Albert exp6 只有 `seed=42` 一輪；README 的跨 9 工況平均沒有 seed variation | 無法知道結論是否跨隨機切分穩定 | `exp6_matrix.py` 先寫完整 pending matrix，再每 run 原子保存 summary/results/log，resume 只跳過通過 schema 的 completed run；P13 產生 mean±std |
 
 C2 的修正不刪除 `core.mahalanobis` 的 legacy 相容實作；它只禁止把不符合 shared calibration policy 的 legacy threshold 混入正式 Mahalanobis-vs-kNN 結果。歷史 legacy 結果仍可作為明確標示的診斷對照，但不會被當成正式公平比較。
