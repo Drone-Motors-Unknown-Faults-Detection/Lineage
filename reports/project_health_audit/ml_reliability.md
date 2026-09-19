@@ -23,3 +23,21 @@
 ## 評估原則
 
 本稽核不因正式結果漂亮就推論方法正確，也不因未覆蓋就宣稱 leakage。只有能以程式碼、測試、現有 artifact 或可安全重現命令支持的項目才會進入 `findings.csv`；其餘標記為「需驗證」並交給 roadmap 的測試任務。
+
+## 正確性／資料可信度 findings
+
+### DATA-001：loader 沒有完整 formal schema fail-fast
+
+`core.data.discover_datasets()`（54–65 行）只要找到任一 clean CSV 就列出工況；`load_pools()`（68–88 行）會跳過缺檔 config，將 DataFrame 只保留 numeric columns，最後只檢查 105 維與健康類存在。現有 formal manifest 實際有 9 工況、10 config、90 個 105 維檔案，因此「目前資料正確」不等於「loader 會拒絕部分資料」。這是 P1 的資料完整性風險，建議在 exp6 入口加入 exact contract validator。
+
+### DATA-002：Stage-2 channel 寬度採最小值靜默截斷
+
+`core.formal_data._convert_condition()`（337–353 行）使用 `min(widths.values())` 後切片；既有 raw audit（`reports/ancester_openset_exp6_progress.md:163`）記錄 channel 寬度跨檔為 568–600。這不代表目前結果錯誤，但表示資料對齊政策是隱含的；應在 manifest 寫出原始寬度與截斷數，或改成 mismatch fail-fast，並由資料擁有者決定。
+
+### EXP-002：resume 只驗 summary
+
+`experiments.exp6_matrix._is_complete()`（77–100 行）會驗 summary 的狀態、seed、method、工況與 fingerprint，但沒有驗 `results.csv`、`run.log` 是否存在或符合 schema。matrix 本身已能把 incomplete 狀態以非零退出（222–249 行），因此本 finding 是「證據檔案完整性」而不是已完成的 exit-code 問題。
+
+### REPRO-001：exp1–3 metadata 未達 exp6 追溯標準
+
+exp6 summary 有 fingerprint／commit／Python／config；相對地，既有 exp1–3 summary 只保存 motor/rpm、seed、method 與指標。這是可重現性缺口，不是模型指標計算已被證明錯誤。實作時應先建立共同 metadata schema，再逐一補入歷史實驗。
