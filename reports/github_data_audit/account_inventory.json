@@ -1,0 +1,41 @@
+{
+  "target_url": "https://github.com/Drone-Motors-Unknown-Faults-Detection",
+  "entity": {
+    "login": "Drone-Motors-Unknown-Faults-Detection",
+    "type": "Organization",
+    "id": 251830300,
+    "created_at": "2025-12-28T07:59:01Z",
+    "updated_at": "2026-06-06T11:36:50Z",
+    "public_repos_reported": 3
+  },
+  "authenticated_account": {
+    "login": "05zhi",
+    "auth_status": "authenticated_via_github_cli_keyring",
+    "credentials_exposed": false
+  },
+  "repository_counts": {
+    "organization_api_all_pages": 4,
+    "organization_api_public": 3,
+    "organization_api_private": 1,
+    "inventory_rows": 4,
+    "inaccessible_repositories": 0
+  },
+  "pagination": {
+    "repos_endpoint": "all pages consumed with gh api --paginate",
+    "branches_endpoint": "all pages consumed per repository",
+    "tree_endpoint": "recursive tree checked; truncated trees use subtree walk"
+  },
+  "release_artifact_fork_check": {
+    "Ancestor": { "releases": 0, "workflow_artifacts": 0, "forks": 0 },
+    "GPU-Learning-PyTorch": { "releases": 0, "workflow_artifacts": 0, "forks": 0 },
+    "GPU-Learning-Tensorflow": { "releases": 0, "workflow_artifacts": 0, "forks": 0 },
+    "Lineage": { "releases": 0, "workflow_artifacts": 0, "forks": 0 }
+  },
+  "rate_limit_at_final_inventory_check": {
+    "limit": 5000,
+    "used": 0,
+    "remaining": 5000,
+    "reset_unix": 1789812937
+  },
+  "scope_note": "This inventory covers every repository returned by the target organization API, including its private Ancestor repository. It does not claim access to unrelated private repositories outside this organization."
+}
