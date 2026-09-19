@@ -1,0 +1,36 @@
+{
+  "audit_start_time_utc": "2026-09-20T00:00:00Z",
+  "repository": "Drone-Motors-Unknown-Faults-Detection/Lineage",
+  "remote_branch": "feat/knn-openset-comparison",
+  "audit_worktree": "_lineage_compare/p1_worktree",
+  "base_commit": "44d98daf7eac2d65fc9ea8d8f6b94a43852bf66d",
+  "completed_sections": [
+    "baseline",
+    "repository_map",
+    "test_inventory"
+  ],
+  "current_section": "correctness_and_data_reliability",
+  "commands_executed": [
+    "git status --short",
+    "git branch --show-current",
+    "git branch -vv",
+    "git remote -v",
+    "git rev-parse HEAD",
+    "git log --oneline --decorate -n 20",
+    "python -m unittest discover -s tests -v",
+    "python -m compileall -q core experiments web",
+    "python -m pip check",
+    "python -m <supported module> --help"
+  ],
+  "test_status": {
+    "unit_tests": "28 passed",
+    "compileall": "passed",
+    "pip_check": "passed",
+    "cli_help": "8 passed",
+    "formal_full_matrix_rerun": "not run by audit boundary"
+  },
+  "finding_count": 2,
+  "blockers": [],
+  "final_status": "in_progress",
+  "last_audit_commit": null
+}
