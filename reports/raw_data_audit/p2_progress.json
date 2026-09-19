@@ -1,0 +1,30 @@
+﻿{
+    "scan_stage":  "P2_content_validation",
+    "raw_data_root":  "D:\\schoolshit\\fcu\\專題\\馬達研究",
+    "raw_files_validated":  450,
+    "feature_clean_files_validated":  60,
+    "condition_count":  9,
+    "conditions":  [
+                       "T1/11000rpm",
+                       "T1/6000rpm",
+                       "T1/8000rpm",
+                       "T2/11000rpm",
+                       "T2/6000rpm",
+                       "T2/8000rpm",
+                       "T3/11000rpm",
+                       "T3/6000rpm",
+                       "T3/8000rpm"
+                   ],
+    "raw_rows_min":  10000,
+    "raw_rows_max":  10000,
+    "raw_columns":  "568;571;573;576;577;580;581;586;588;589;591;592;595;596;597;598;599;600",
+    "raw_malformed_rows":  0,
+    "feature_columns":  "105",
+    "feature_non_numeric_fields":  0,
+    "formal_raw_status":  "candidate_complete",
+    "formal_feature_status":  "T1_T3_complete_T2_missing",
+    "unsafe_pickle_or_checkpoint_loaded":  false,
+    "raw_source_modified":  false,
+    "analysis_status":  "completed",
+    "generated_at":  "2026-09-19T17:41:10.4074677+08:00"
+}

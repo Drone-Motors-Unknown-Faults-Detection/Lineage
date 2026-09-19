@@ -135,8 +135,8 @@ P2 的 repository provenance 已完成，但「正式資料取得」是 P3 的�
 
 | 階段 | 狀態 | 證據 | Commit | 下一步 |
 |---|---|---|---|---|
-| Raw data inventory | completed | 154 files、2 directories、4.598 GiB、3 outer ZIP、796 archive entries | pending P1 commit | 解析 raw／feature metadata |
-| Data validation | pending | 已確認九個 condition archive；尚未完成 row／label／shape validation | — | 完成 P2 |
+| Raw data inventory | completed | 154 files、2 directories、4.598 GiB、3 outer ZIP、796 archive entries | `731313f` | 解析 raw／feature metadata |
+| Data validation | completed with feature gap | 450 raw CSV、9/9 conditions、每 condition 50 files／10 classes／5 channels／10,000 rows；60 clean feature CSV、105 維且數值欄無非數值 | pending P2 commit | 建立 Lineage contract 對照 |
 | Lineage data integration | blocked pending validation | T1/T3 有 105-feature clean CSV；T2 目前只有 raw CSV | — | 決定 T2 conversion |
 | Credibility issue 1 | not started | 需先閱讀 Albert／exp6 證據 | — | 找出可重現問題 |
 | Credibility issue 2 | not started | 需先閱讀 Albert／exp6 證據 | — | 找出可重現問題 |
@@ -152,3 +152,25 @@ P2 的 repository provenance 已完成，但「正式資料取得」是 P3 的�
 | Aggregate report | blocked | 不得以歷史 output 或 synthetic data 冒充正式 runs | — | — |
 
 P1 原則：raw ZIP 保持在來源目錄；所有 inventory、驗證摘要與後續轉換輸出只放在 Lineage 的受版控報告或 ignored data/cache 路徑。未完成 P2/P3 前，不宣稱正式資料已可直接跑 exp6，也不執行 54-run 矩陣。
+
+## P2 — raw data content validation
+
+P2 以唯讀 ZIP stream 逐檔解析完成：
+
+- 450 個 raw CSV 全部可讀；9 個正式工況全部存在。
+- 每個工況固定 50 檔：10 個 screw configuration × 5 個 raw channel。
+- 每個 raw CSV 都有 10,000 個資料列；檔案內列長一致，malformed row 合計 0。
+- raw channel 檔案的欄數會依實際量測檔案而變（跨檔 568–600），不能把 raw array 欄數誤稱為 Lineage 的 105 維 feature。
+- T1 與 T3 各有 30 個 clean feature CSV（3 RPM × 10 class）；每檔 105 欄，所有 body fields 都通過 numeric 檢查。
+- T2 三個工況各有完整 raw CSV，但目前沒有 `myfeature.zip`／105 維 clean feature CSV；這是正式接入前必須處理的轉換缺口。
+- model.zip 只列為 checkpoint 候選，沒有載入；notebook／Python 檔只作為 preprocessing provenance，不直接執行。
+
+P2 產物：
+
+- [raw validation](raw_data_audit/raw_validation.csv)
+- [feature validation](raw_data_audit/feature_validation.csv)
+- [condition summary](raw_data_audit/condition_summary.csv)
+- [candidate inventory](raw_data_audit/candidate_inventory.csv)
+- [P2 progress](raw_data_audit/p2_progress.json)
+
+目前可以確認「9 個工況的 raw source 完整存在」，但不能把 T2 raw 直接當成已完成的 Lineage 105 維 feature source；P3 會把 raw/provenance 與 Lineage loader contract 做逐項對照，並決定可重現的 T2 conversion 方案。

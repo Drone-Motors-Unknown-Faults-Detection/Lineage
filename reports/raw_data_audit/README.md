@@ -67,3 +67,17 @@ The raw directory also contains preprocessing notebooks and Python scripts, incl
 - [nested archive inspector](inspect_nested_archives.ps1): repeatable read-only nested ZIP listing.
 
 P1 does not yet claim that all nine conditions are ready for exp6. P2 must parse representative raw and feature files, validate columns/shapes/row counts/labels, and determine how to produce the missing T2 feature layer without modifying the raw source.
+
+## P2 content validation
+
+P2 streamed every raw CSV in the nine condition archives and every clean feature CSV present in `myfeature.zip`:
+
+- 450/450 raw CSV files readable; every condition has 50 files, 10 classes, and 5 channels.
+- Every raw CSV has exactly 10,000 data rows and zero malformed rows.
+- Raw files have file-specific column widths between 568 and 600; this is the waveform/window representation and is not the Lineage 105-feature schema.
+- 60/60 present clean feature CSV files readable; every one has 105 columns and zero non-numeric body fields.
+- T1 and T3 have all 30 clean feature files each; T2 has zero clean feature files even though all 150 raw CSV files are present.
+- Label semantics come from the screw-configuration directory: `8screws` is healthy known, `1screws`–`4screws` are known faults, and `5screws`, `6screws`, `7screws`, `3_14screws`, `4_146screws` are unknown faults according to the existing project contract.
+- No pickle, Keras checkpoint, or other unsafe serialized object was loaded during validation. The Keras archives remain checkpoint candidates only.
+
+The P2 machine-readable reports are [raw_validation.csv](raw_validation.csv), [feature_validation.csv](feature_validation.csv), [condition_summary.csv](condition_summary.csv), [candidate_inventory.csv](candidate_inventory.csv), and [p2_progress.json](p2_progress.json). The raw source remained unchanged.
