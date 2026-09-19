@@ -211,9 +211,9 @@ Smoke test（T2/8000rpm/8screws）實際讀取巢狀 ZIP 並產生 `599 → 368`
 
 | 編號 | 問題與證據 | 影響 | 修正與驗證 |
 |---|---|---|---|
-| C1 | Albert exp6 在 `discover_datasets()` 回傳空集合時仍建立空摘要；log `2026-09-18-22-44-35` 明確記錄 `n_datasets=0`、`rows=[]` 與全 NaN | 空執行可被誤讀成 benchmark 完成 | exp6 對缺資料、重複條件、非 9 工況直接丟出非零錯誤；`tests/test_exp6_benchmark.py::test_missing_formal_data_fails_instead_of_nan_success` |
+| C1 | Albert exp6 在 `discover_datasets()` 回傳空集合時仍建立空摘要；log `2026-09-18-22-44-35` 明確記錄 `n_datasets=0`、`rows=[]` 與全 NaN | 空執行可被誤讀成 benchmark 完成 | exp6 對缺資料、重複條件、非 9 工況直接丟出非零錯誤；`tests/test_exp6_benchmark.py::test_missing_formal_data_fails_instead_of_nan_success`；已由 `e33ddb2` 固化 |
 | C2 | Albert README 宣稱所有方法共用 calibration 95th percentile，但 legacy Mahalanobis 路徑在 `core/mahalanobis.py` 以 training distance 自校準；既有結果健康誤報 83.1% | 方法比較不是同一 threshold policy，主結論不公平 | 正式 exp6 限定 shared factory 的 `mahalanobis` / `knn`，兩者都只用 known calibration；新增 metadata 與 threshold regression，已由 `999da4c` 固化 |
-| C3 | Albert exp6 只有 `seed=42` 一輪；README 的跨 9 工況平均沒有 seed variation | 無法知道結論是否跨隨機切分穩定 | `exp6_matrix.py` 先寫完整 pending matrix，再每 run 原子保存 summary/results/log，resume 只跳過通過 schema 的 completed run；P13 產生 mean±std |
+| C3 | Albert exp6 只有 `seed=42` 一輪；README 的跨 9 工況平均沒有 seed variation | 無法知道結論是否跨隨機切分穩定 | `exp6_matrix.py` 先寫完整 pending matrix，再每 run 原子保存 summary/results/log，resume 只跳過通過 schema 的 completed run；P13 產生 mean±std；已由 `7be0419` 與後續矩陣修正固化 |
 
 C2 的修正不刪除 `core.mahalanobis` 的 legacy 相容實作；它只禁止把不符合 shared calibration policy 的 legacy threshold 混入正式 Mahalanobis-vs-kNN 結果。歷史 legacy 結果仍可作為明確標示的診斷對照，但不會被當成正式公平比較。
 
@@ -224,3 +224,20 @@ C2 的修正不刪除 `core.mahalanobis` 的 legacy 相容實作；它只禁止�
 ## P8 — PolarMap 的 Mahalanobis 幾何基準固定
 
 `core/geometry.py` 的 `PolarMap` 不再跟著 Open Set detector switch 改變幾何基準：不論該次 rejection detector 是 `mahalanobis` 或 `knn`，半徑、白化方向與 ray cosine 都使用同一個 Ledoit–Wolf Mahalanobis 模型，且只用 monitor 的 known train/calibration split fit。摘要固定寫入 `polarmap_base_method=mahalanobis`；health-only monitor 不會虛構 fault ray。兩個 regression tests 已確認 Mahalanobis 與 kNN monitor 在同一 seed 下產生完全相同的幾何量。
+
+## P9 — 正式 54-run 矩陣
+
+`output/exp6_formal_matrix/matrix_manifest.json` 記錄 9 工況 × seeds `{42,123,2026}` × methods `{mahalanobis,knn}`，共 54 個 run。每個 run 的 summary 僅保存 manifest 指定工況的一列，並以 atomic JSON、CSV、log 寫入；不完整或工況不符的舊 summary 不會被 resume 誤判為完成。實際執行結果為 `54/54 completed, 0 failed, 0 missing`，資料 fingerprint 全部一致。矩陣修正與 strict regression test 會和正式結果一起以獨立 commit 推送。
+
+## P10 — 跨 seed 彙整與實際差異
+
+`experiments/aggregate_exp6.py` 僅接受完整且 fingerprint 一致的矩陣，輸出 `aggregate.json`、三個 CSV 與 `aggregate.md`，並計算每工況 mean±std 及同一工況/seed 的 paired difference。正式 27 對配對結果（9 工況 × 3 seeds）如下：
+
+| 指標 | Mahalanobis mean±std | kNN mean±std | kNN − Mahalanobis |
+|---|---:|---:|---:|
+| known accuracy | 0.946214 ± 0.040142 | 0.945683 ± 0.043856 | −0.000531 |
+| open-set accuracy | 0.998849 ± 0.000887 | 0.998842 ± 0.000937 | −0.000007 |
+| AUROC | 1.000000 ± 0.000000 | 1.000000 ± 0.000000 | 0.000000 |
+| unknown F1 | 0.999412 ± 0.000453 | 0.999409 ± 0.000478 | −0.000003 |
+
+兩種方法在這份正式資料上 AUROC、AUPR、TPR95 對應 FPR 與 unknown recall 都完全相同；Mahalanobis 在 known accuracy、open-set accuracy、unknown F1 的平均值略高，但差距小於 0.06 個百分點。這表示目前資料的故障群與健康群在 105 維特徵空間中已高度可分，kNN 沒有提供額外排序收益；Mahalanobis 的全域 covariance whitening 在小幅 seed 波動下較穩定。這是資料與特徵的實驗結論，不宣稱可外推到尚未測試的資料分布。

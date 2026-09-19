@@ -85,7 +85,14 @@ def _is_complete(summary_path: Path, expected: dict, fingerprint: str | None = N
     if int(summary.get("seed", -1)) != expected["seed"]:
         return False
     rows = summary.get("rows")
-    if not isinstance(rows, list) or not rows or any(row.get("status") != "completed" for row in rows):
+    if not isinstance(rows, list) or len(rows) != 1 or any(row.get("status") != "completed" for row in rows):
+        return False
+    row = rows[0]
+    if expected.get("motor") is not None and row.get("motor") != expected["motor"]:
+        return False
+    if expected.get("rpm") is not None and row.get("rpm") != expected["rpm"]:
+        return False
+    if row.get("method") not in {None, expected["method"]} or row.get("seed") not in {None, expected["seed"]}:
         return False
     if fingerprint is not None and summary.get("dataset_fingerprint") != fingerprint:
         return False
@@ -151,6 +158,16 @@ def run_matrix(
                 openset_method=entry["method"],
                 require_nine=True,
             )
+            condition_rows = [
+                row
+                for row in result["rows"]
+                if row.get("motor") == entry["motor"] and row.get("rpm") == entry["rpm"]
+            ]
+            if len(condition_rows) != 1:
+                raise ValueError(
+                    f"expected one row for {entry['condition']}, found {len(condition_rows)}"
+                )
+            result = dict(result, formal_condition_count=1, rows=condition_rows)
             fingerprint = result["dataset_fingerprint"]
             _atomic_json(summary_path, result)
             _write_run_csv(run_dir, result)

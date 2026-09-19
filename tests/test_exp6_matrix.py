@@ -19,13 +19,13 @@ class MatrixTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "summary.json"
             path.write_text(
-                '{"status":"completed","method":"knn","seed":42,"rows":[{"status":"completed"}]}',
+                '{"status":"completed","method":"knn","seed":42,"rows":[{"status":"completed","motor":"T1","rpm":"6000rpm","method":"knn","seed":42}]}',
                 encoding="utf-8",
             )
-            expected = {"method": "knn", "seed": 42}
+            expected = {"method": "knn", "seed": 42, "motor": "T1", "rpm": "6000rpm"}
             self.assertTrue(_is_complete(path, expected))
             path.write_text(
-                '{"status":"completed","method":"knn","seed":42,"rows":[{"status":"failed"}]}',
+                '{"status":"completed","method":"knn","seed":42,"rows":[{"status":"failed","motor":"T1","rpm":"6000rpm","method":"knn","seed":42}]}',
                 encoding="utf-8",
             )
             self.assertFalse(_is_complete(path, expected))
