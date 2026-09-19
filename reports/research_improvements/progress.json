@@ -2,9 +2,9 @@
   "schema_version": 1,
   "repository": "Drone-Motors-Unknown-Faults-Detection/Lineage",
   "branch": "research-improvements-20260920",
-  "current_commit": "d30c19b",
-  "current_phase": "P9",
-  "completed_phases": ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8"],
+  "current_commit": "504c3e9",
+  "current_phase": "FINAL",
+  "completed_phases": ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9"],
   "phases": {
     "P0": {"status": "completed", "commit_sha": "af3c9b06157a2c8bc2113621188432bccb7a6c5c"},
     "P1": {"status": "completed", "commit_sha": "02bba5881ed26dcef7c5da701165ebb24e0a439b", "protocol_fingerprint": "dff5656eeba26fdeea1c050b6b0b45162536d3f9049bae36615db8556801162d"},
@@ -15,7 +15,7 @@
     "P6": {"status": "completed", "commit_sha": "27985cceb02cd922c92cfdd5dcd6e403f4d0b011", "rows": 30, "completed": 18, "blocked_or_not_applicable": 12},
     "P7": {"status": "completed", "commit_sha": "0873aba", "tests": 2, "status_note": "metadata validator and candidate quarantine manifest; no raw field data fabricated"},
     "P8": {"status": "completed", "commit_sha": "d30c19b", "tests": 2, "status_note": "per-motor trajectory contract; T1/T2/T3 remain separate; RUL blocked without failure endpoint"},
-    "P9": {"status": "pending"}
+    "P9": {"status": "completed", "commit_sha": "504c3e9", "tests": 4, "status_note": "portable product schemas, rollback guard and CSV/live stream contract; UI and device socket remain pending"}
   },
   "commands": [
     {"command": "venv\\Scripts\\python.exe -m unittest discover -s tests -v", "exit_code": 0, "result": "62 passed"},
@@ -44,6 +44,6 @@
     "Formal data has no verified motor/session/timestamp metadata; group-level temporal conclusions require new field data.",
     "No run-to-failure trajectories or ordinal severity labels; RUL remains unavailable."
   ],
-  "commits": ["af3c9b0", "0093649", "02bba58", "24fa28f", "60e114d", "86079c5", "cfd408e", "021b8d5", "580ba63", "3d784d9", "2b9110c", "27985cc", "1dbf9c8", "0873aba", "ce0af80", "d30c19b"],
+  "commits": ["af3c9b0", "0093649", "02bba58", "24fa28f", "60e114d", "86079c5", "cfd408e", "021b8d5", "580ba63", "3d784d9", "2b9110c", "27985cc", "1dbf9c8", "0873aba", "ce0af80", "d30c19b", "c697b6e", "504c3e9"],
   "push": {"status": "pending", "remote": "origin", "branch": "research-improvements-20260920"}
 }
