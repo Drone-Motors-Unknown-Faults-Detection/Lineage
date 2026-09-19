@@ -142,6 +142,11 @@ def run(
     _validate_datasets(datasets, data_path, require_nine)
     if openset_method not in FORMAL_METHODS:
         raise ValueError(f"unsupported formal method {openset_method!r}; choose mahalanobis or knn")
+    if openset_method == "mahalanobis" and mahalanobis_method == "legacy":
+        raise ValueError(
+            "formal exp6 rejects mahalanobis_method='legacy': its historical "
+            "training-distance threshold is not the shared known-calibration policy"
+        )
     if not 0.0 < confidence < 1.0:
         raise ValueError("confidence must be between zero and one")
 

@@ -42,6 +42,18 @@ class Exp6BenchmarkTests(unittest.TestCase):
             self.assertEqual(row["score_direction"], "higher_is_unknown")
             self.assertTrue(np.isfinite(row["auroc"]))
 
+    def test_formal_benchmark_rejects_legacy_training_threshold(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = _fixture(Path(directory))
+            with self.assertRaisesRegex(ValueError, "training-distance threshold"):
+                run(
+                    root,
+                    seed=42,
+                    openset_method="mahalanobis",
+                    mahalanobis_method="legacy",
+                    require_nine=False,
+                )
+
     def test_fpr_metric_is_separate_from_normalized_detector_threshold(self) -> None:
         fpr = _fpr_at_tpr95(np.array([0.2, 0.4]), np.array([2.0, 3.0, 4.0, 5.0]))
         self.assertEqual(fpr, 0.0)
