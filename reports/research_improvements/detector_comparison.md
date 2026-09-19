@@ -24,3 +24,14 @@
 - multimodal class-distribution（multiple prototypes/local model）及 raw-vs-neural comparison 尚待有標註 known classes 與 neural embedding 後另開 scenario；本表沒有把 feature extractor 差異歸因給 detector。
 
 結果檔：`detector_comparison/summary.json`。所有完成 rows 都是 raw_105d；blocked/not_applicable rows 不納入 aggregate。
+
+## 方法來源
+
+- Mahalanobis distance：P. C. Mahalanobis, “On the generalized distance in statistics,” *Proceedings of the National Institute of Sciences of India*, 1936；covariance shrinkage 使用 O. Ledoit and M. Wolf, “A well-conditioned estimator for large-dimensional covariance matrices,” *Journal of Multivariate Analysis*, 2004。
+- PCA reconstruction：K. Pearson, “On lines and planes of closest fit to systems of points in space,” *Philosophical Magazine*, 1901。
+- k-nearest neighbours：E. Fix and J. L. Hodges, “Discriminatory analysis—nonparametric discrimination: Consistency properties,” USAF School of Aviation Medicine, 1951。
+- Local Outlier Factor：M. M. Breunig, H.-P. Kriegel, R. T. Ng, and J. Sander, “LOF: Identifying density-based local outliers,” *SIGMOD*, 2000。
+- Isolation Forest：F. T. Liu, K. M. Ting, and Z.-H. Zhou, “Isolation forest,” *IEEE ICDM*, 2008。
+- One-Class SVM：B. Schölkopf et al., “Estimating the support of a high-dimensional distribution,” *Neural Computation*, 2001。
+- HDBSCAN：R. J. G. B. Campello, D. Moulavi, and J. Sander, “Density-based clustering based on hierarchical density estimates,” *PAKDD*, 2013。
+- Deep SVDD（本輪 blocked）：L. Ruff et al., “Deep one-class classification,” *PMLR 80*, 2018。
