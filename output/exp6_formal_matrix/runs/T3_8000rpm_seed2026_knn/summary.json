@@ -11,7 +11,19 @@
   "positive_class": "unknown",
   "score_direction": "higher_is_unknown",
   "polarmap_base_method": "mahalanobis",
-  "commit_sha": "ff49e3b7c514a36a2b8cb6fbeba8a27a97e9fd1b",
+  "checkpoint_identifier": null,
+  "config": {
+    "feature_count": 105,
+    "normalization": "RobustScaler fit on known training split only",
+    "split": "known health 60/20/20 train/calibration/holdout; all other configurations unknown positive",
+    "threshold": 1.0,
+    "threshold_strategy": "known_calibration_quantile_0.95",
+    "openset_method": "knn",
+    "mahalanobis_method": null,
+    "knn_neighbors": 5,
+    "checkpoint_identifier": null
+  },
+  "commit_sha": "07582ffcdf1c4a55be08ea78684bb3aa6f9408e7",
   "python": "3.12.14",
   "rows": [
     {
@@ -38,7 +50,7 @@
       "unknown_f1": 0.999323,
       "known_score_median": 0.876787,
       "unknown_score_median": 56.892071,
-      "inference_seconds": 0.01139,
+      "inference_seconds": 0.014238,
       "peak_memory_mb": null,
       "status": "completed",
       "openset_method": "knn",
@@ -49,7 +61,15 @@
       ],
       "threshold_strategy": "known_calibration_quantile_0.95",
       "score_direction": "higher_is_unknown",
-      "calibration_source": "known training/calibration only"
+      "calibration_source": "known training/calibration only",
+      "reference_bank_samples": [
+        163
+      ],
+      "effective_neighbors": [
+        5
+      ],
+      "distance_metric": "euclidean",
+      "neighbor_aggregation": "mean_distance"
     }
   ]
 }
