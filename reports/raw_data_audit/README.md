@@ -106,3 +106,7 @@ The complete local materialization was validated outside Git tracking:
 
 The materialized files and `formal_materialization_manifest.json` stay under
 the ignored `data/` directory; the 4.6 GiB source remains read-only.
+
+P4 implementation and tests were pushed as commit
+`2cac19f45056e382f59eaa03bb275d8499389268` on
+`feat/knn-openset-comparison`.

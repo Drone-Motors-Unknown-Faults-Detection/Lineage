@@ -205,4 +205,4 @@ rows after clean: 180–387 per class file
 
 Smoke test（T2/8000rpm/8screws）實際讀取巢狀 ZIP 並產生 `599 → 368` clean rows；完整物化亦已由 Lineage `discover_datasets` 找到 9 組資料池，`load_pools` 每組都包含健康 `8screws` 基準。16 個單元測試通過，其中包含 feature-name 順序、1.5-IQR 規則、T1/T2/T3 channel alias 與禁止寫回 source 的安全測試。
 
-本階段 commit：待 P4 程式與報告驗證完成後建立並推送；正式資料本體與 manifest（含本機絕對路徑）不納入 Git。
+本階段 commit：`2cac19f45056e382f59eaa03bb275d8499389268`（已推送至 `feat/knn-openset-comparison`）；正式資料本體與 manifest（含本機絕對路徑）不納入 Git。
