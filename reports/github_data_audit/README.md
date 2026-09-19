@@ -96,3 +96,13 @@ Ancestor 的完整分支與檔案 inventory 位於：
 完整檔案 inventory 已加入 [file_inventory.csv](file_inventory.csv)，repository metadata 與 branch audit 位於 `repositories/Drone-Motors-Unknown-Faults-Detection__GPU-Learning-PyTorch/` 的同名檔案。此 repository 只有 GPU/CUDA 設定、MNIST/CIFAR 訓練程式、log 與文件；找到的外部 URL 是 PyTorch wheel index，沒有馬達資料、105 維 clean features、9 工況或 checkpoint 可對應 Lineage。
 
 因此此 repository 分類為 `F_IRRELEVANT`；外部下載 URL 僅記為 `D_POINTER_EXTERNAL`，不視為正式資料。
+
+## P3 repository audit — GPU-Learning-Tensorflow
+
+`Drone-Motors-Unknown-Faults-Detection/GPU-Learning-Tensorflow` 是 public、MIT、非 fork、非 archived repository。API 回報只有一個 branch，recursive tree 沒有截斷：
+
+| Branch | HEAD | Tree mode | File entries | LFS/DVC | Audit status |
+|---|---|---|---:|---|---|
+| `main` | `c16c5e839914379af4005bef1c681a6cf9da6054` | recursive | 51 | 0 / 0 | completed |
+
+此 repository 的檔案是 TensorFlow/CUDA 設定、MNIST/CIFAR 訓練程式、log、報告與文件；沒有 `data/Step-*`、馬達特徵 CSV、9 工況 label、LFS/DVC pointer 或可對應 Lineage 的 checkpoint。分類為 `F_IRRELEVANT`。
