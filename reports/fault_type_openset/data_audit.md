@@ -21,7 +21,7 @@ The directory names encode one **screw-loosening mechanism** in nine configurati
 
 Each label occurs in three stage/T-code campaigns and three RPM values (6000, 8000, 11000) per campaign, yielding nine feature files. Stage totals: T1 9,759, T2 9,857, T3 9,294 rows. The largest/smallest class ratio is about 1.15, so sample count imbalance is modest; campaign and processing differences matter more.
 
-The existing `core.data.load_pools` keys classes by directory-name strings. `data_audit.json` assigns stable numeric IDs 0–9 in table order for this new experiment only; these IDs are not claimed to be pre-existing source labels.
+The existing `core.data.load_pools` keys classes by directory-name strings. `data_audit.json` assigns a stable numeric encoding for this new experiment only: `8screws=0`, then faulty labels in `core.formal_data.CONFIGS` order as 1–9. These IDs are not claimed to be pre-existing source labels.
 
 ## Acquisition units and missing metadata
 
