@@ -23,3 +23,10 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Artifacts: `data_audit.md`, `data_audit.json`. Status: completed audit; strict physical-independence evidence remains incomplete.
 - Audit commit/push: `6efdfd259867e624599bbd532182f73eb803ae6f` was pushed to `origin/research-improvements-20260920` and verified by `git ls-remote --heads`.
 - Audit follow-up: corrected the newly assigned numeric encoding to match `core.formal_data.CONFIGS` order; strings in source CSV paths remain authoritative.
+
+## 2026-09-29 — Stage 2 class-role splits
+
+- Stage 0 commit `72906cda8cf092c4080de3dcae7f885e24950865` and Stage 1 audit commit `6efdfd259867e624599bbd532182f73eb803ae6f` were verified in the remote branch. Stage 1 encoding follow-up commit `58d8f234b1e937840d679b5be3e6fcaff977ad3a` was also pushed and verified.
+- `venv\Scripts\python.exe -m unittest tests.test_fault_type_class_split -v` → 7 passed, 0 failed.
+- Registry command: `venv\Scripts\python.exe -m core.fault_type_class_split --dataset-fingerprint c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d --output-root reports/fault_type_openset/manifests --class-seed 42 --sample-seed 42 --sample-seed 123 --sample-seed 2026` → 199 Protocol A and 120 Protocol B roles, checksum `6bdff74614f1d7818da90e5d0ac00c69746c9f98fa60e8afc56184f310d4f106`.
+- N=5 initially pre-registers 30 balanced combinations; full 126 is supported by a separate immutable registry after a pre-test runtime estimate. No test score was used for this choice.
