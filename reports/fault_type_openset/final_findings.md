@@ -242,9 +242,14 @@ https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage.git 。
 | README/reproduction | 2104fec172e1b71d4047ee201cd080b5164e450d |
 | Protocol B results | 9532e6d76911af9eb6bba8ecfb60dde01671cd9d |
 | N-sweep results | 686cb38a1392e3da536a6e45e5e2d291014cd516 |
+| Final report/tables/artifact paths | 79ff29200551627fb3a312c8deddb7f7a050b7b9 |
 
 本最終report／evidence bookkeeping的後續SHA與GitHub issue連結，記錄於
 execution_log.md及最後回覆，不將尚未生成的自身commit SHA寫成已完成。
+
+已建立追蹤 [GitHub issue #9](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9)，
+保留獨立來源metadata、更多test groups、跨stage特徵語意與模型可靠性驗證的
+未完成條件。研究運算完成，不代表這些資料／效能條件已解決。
 
 ## 13. 主要artifacts完整路徑
 

@@ -392,3 +392,4 @@ N=5 全部 126 組已完成：已知分類 accuracy 25.744%，unknown AUROC
 N=5、remaining N-sweep 與 B 輪替三組已合計完成2490/2490次、0失敗、
 1245組detector配對；完整測試137項通過。研究運算完成不等於可信模型
 或完整獨立測試已成立；資料來源限制仍由validator與上述報告明確保留。
+剩餘資料追溯與模型可信度條件記錄於 [研究追蹤 issue #9](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9)。

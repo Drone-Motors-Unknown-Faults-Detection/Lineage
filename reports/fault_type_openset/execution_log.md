@@ -141,3 +141,10 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Combined report archived using `python -m experiments.fault_type_archive --output-root output/fault_type_report/2026-09-30-23-49-34 --destination D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-09-30`: exit 0, 2,176,346 bytes, 10 files, CRC PASS, SHA `414532b03e8dbc3a7e13b22daef2934c5771bdfbddcdcfb35f4cae80108df047`. Index `output/fault_type_archive/2026-09-30-23-53-04/archive_index.json`.
 - Final teacher audit distinguishes completed engineering/2490-run evaluation from unresolved reliable classification/rejection and external independent-data provenance. Full 13-section report, artifact full paths, reproduction commands and explicit limitations are saved. Existing 282 historical tracked deletions remain untouched and unstaged.
 - Tracking issue search returned no existing open matching issue; its evidence body is saved for creation after the final report is pushed, as required by AGENT.md.
+
+## 2026-10-01 — Final push and research tracking handoff
+
+- Final report/tables/paths commit `79ff29200551627fb3a312c8deddb7f7a050b7b9` pushed to the existing research branch and exact remote SHA verified by ls-remote. No main merge or history rewrite.
+- Created https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9 using the saved evidence body, satisfying AGENT.md's issue/PR requirement. It tracks unresolved independent-data provenance, cross-stage feature semantics, efficacy and untested Python3.10 compatibility, not a claim that those items are fixed.
+- Final local status review: no modified tracked implementation files; existing 282 historical deletions remain unstaged. Untracked per-run prediction/manifests are intentionally not in Git and are retained in verified D-drive archives. Raw source files were not modified or uploaded.
+- Teacher recommendations are implemented and evaluated; trustworthy fault-type/generalization conclusions remain unsupported by the observed weak baseline and INCOMPLETE datasets. No additional threshold/model tuning is authorized or implied by reporting these limitations.
