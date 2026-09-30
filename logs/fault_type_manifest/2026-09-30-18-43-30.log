@@ -1,0 +1,6 @@
+2026-09-30 18:43:30 | INFO    | Logger initialized: fault_type_manifest
+2026-09-30 18:43:30 | INFO    | log_file=logs\fault_type_manifest\2026-09-30-18-43-30.log
+2026-09-30 18:43:30 | INFO    | output_dir=output\fault_type_manifest\2026-09-30-18-43-30
+2026-09-30 18:43:33 | INFO    | fold=train1-valcal2-test3 seed=42 status=INCOMPLETE
+2026-09-30 18:43:34 | INFO    | fold=train2-valcal3-test1 seed=123 status=INCOMPLETE
+2026-09-30 18:43:35 | INFO    | fold=train3-valcal1-test2 seed=2026 status=INCOMPLETE

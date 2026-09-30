@@ -38,3 +38,13 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Initial fixture test failed because different fixture labels contained byte-identical CSVs; the duplicate fingerprint guard correctly rejected them. Fixed the fixture to contain distinct source values. Retry reason: invalid fixture, not relaxed validation.
 - `venv\Scripts\python.exe -m unittest tests.test_fault_type_sample_split tests.test_fault_type_features -q` → 9 passed.
 - Ran the sample-split CLI on all 90 formal files with known labels `1screws 2screws 3screws 3_14screws 4screws` and remaining four faulty labels unknown; `manifests/campaign_example/campaign_split_summary.json` records all three folds and counts. Dataset fingerprint matched the audit.
+
+## 2026-09-30 — Stage 4 manifests and validator
+
+- Stage 3 commit `819c9d06b8cefa13d7b084838ea33b784536195e` was pushed and verified.
+- On resume, 282 tracked files were absent (historical logs/output/docs/scripts/package initializers); unrelated deletions are not staged or restored. Their cause is not established. The D-drive counterpart worktree was not present.
+- The ignored venv also lacked Python sources and pip RECORD metadata. Initial tests failed on SciPy imports, not algorithm assertions. Same-version cached wheel reinstall first failed on missing six RECORD, then succeeded with `pip --ignore-installed --no-deps`; cloudpickle/colorama/narwhals were repaired in a follow-up. No raw data changed.
+- `venv\Scripts\python.exe -m unittest tests.test_fault_type_validator tests.test_fault_type_manifest tests.test_fault_type_sample_split tests.test_fault_type_features -q`: stage-specific checks pass (19 tests; metrics are a later stage).
+- Actual CLI: `venv\Scripts\python.exe -m core.fault_type_manifest --data-root data/formal_local --registry reports/fault_type_openset/manifests/class_roles_v1_6bdff74614f1d781.json --git-commit 819c9d06b8cefa13d7b084838ea33b784536195e`.
+- Three gzip manifests were read back and checksum verified. Compact report: `output/fault_type_manifest/2026-09-30-18-43-30/validation_index.json`; all three are INCOMPLETE (`TEST_INSUFFICIENT_GROUPS`), not INVALID. Complete manifests remain local large artifacts; index and log are committed.
+- Additional metrics check found an incorrect synthetic FPR95 expectation (two negatives precede the fourth positive, so FPR95=1.0); correction belongs to stage 6. No measured formal score has yet been used to select combinations or methods.

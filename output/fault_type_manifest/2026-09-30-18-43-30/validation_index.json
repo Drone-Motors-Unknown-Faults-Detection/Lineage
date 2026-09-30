@@ -1,0 +1,216 @@
+{
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "git_commit": "819c9d06b8cefa13d7b084838ea33b784536195e",
+  "manifests": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_manifest\\2026-09-30-18-43-30\\manifests\\sample-v1-29b07daf0e7626015a02_7d6e41daab090972.json.gz",
+      "split_id": "sample-v1-29b07daf0e7626015a02",
+      "checksum": "7d6e41daab0909720393024a4c129ae0e0624a318657560a94e4cbe7460e6edd",
+      "seed": 42,
+      "counts": {
+        "train": {
+          "1screws": 1034,
+          "2screws": 980,
+          "3_14screws": 1027,
+          "3screws": 905,
+          "4screws": 998,
+          "8screws": 991
+        },
+        "validation": {
+          "1screws": 1003,
+          "2screws": 1020,
+          "3_14screws": 1054,
+          "3screws": 1030,
+          "4screws": 955,
+          "8screws": 945
+        },
+        "calibration": {
+          "1screws": 1003,
+          "2screws": 1020,
+          "3_14screws": 1054,
+          "3screws": 1030,
+          "4screws": 955,
+          "8screws": 945
+        },
+        "test": {
+          "1screws": 949,
+          "2screws": 985,
+          "3_14screws": 940,
+          "3screws": 994,
+          "4_146screws": 923,
+          "4screws": 850,
+          "5screws": 932,
+          "6screws": 940,
+          "7screws": 895,
+          "8screws": 886
+        }
+      },
+      "validator": {
+        "status": "INCOMPLETE",
+        "error_codes": [
+          "TEST_INSUFFICIENT_GROUPS"
+        ],
+        "details": {
+          "TEST_INSUFFICIENT_GROUPS": [
+            "1screws: 1 test groups; minimum 2",
+            "2screws: 1 test groups; minimum 2",
+            "3_14screws: 1 test groups; minimum 2",
+            "3screws: 1 test groups; minimum 2",
+            "4_146screws: 1 test groups; minimum 2",
+            "4screws: 1 test groups; minimum 2",
+            "5screws: 1 test groups; minimum 2",
+            "6screws: 1 test groups; minimum 2",
+            "7screws: 1 test groups; minimum 2",
+            "8screws: 1 test groups; minimum 2",
+            "validation and calibration are explicitly shared; independent four-way split unavailable"
+          ]
+        },
+        "warnings": [
+          "source intervals unavailable for some samples; overlap cannot be excluded beyond group boundaries"
+        ],
+        "test_sample_count": 9294,
+        "test_group_count": 30
+      }
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_manifest\\2026-09-30-18-43-30\\manifests\\sample-v1-d8181dc12d62a159114a_74aa8a71e9737e9b.json.gz",
+      "split_id": "sample-v1-d8181dc12d62a159114a",
+      "checksum": "74aa8a71e9737e9bdc97fe0268bf186dafdd3b0513815535808f31c9bc6c8f61",
+      "seed": 123,
+      "counts": {
+        "train": {
+          "1screws": 1003,
+          "2screws": 1020,
+          "3_14screws": 1054,
+          "3screws": 1030,
+          "4screws": 955,
+          "8screws": 945
+        },
+        "validation": {
+          "1screws": 949,
+          "2screws": 985,
+          "3_14screws": 940,
+          "3screws": 994,
+          "4screws": 850,
+          "8screws": 886
+        },
+        "calibration": {
+          "1screws": 949,
+          "2screws": 985,
+          "3_14screws": 940,
+          "3screws": 994,
+          "4screws": 850,
+          "8screws": 886
+        },
+        "test": {
+          "1screws": 1034,
+          "2screws": 980,
+          "3_14screws": 1027,
+          "3screws": 905,
+          "4_146screws": 1028,
+          "4screws": 998,
+          "5screws": 874,
+          "6screws": 944,
+          "7screws": 978,
+          "8screws": 991
+        }
+      },
+      "validator": {
+        "status": "INCOMPLETE",
+        "error_codes": [
+          "TEST_INSUFFICIENT_GROUPS"
+        ],
+        "details": {
+          "TEST_INSUFFICIENT_GROUPS": [
+            "1screws: 1 test groups; minimum 2",
+            "2screws: 1 test groups; minimum 2",
+            "3_14screws: 1 test groups; minimum 2",
+            "3screws: 1 test groups; minimum 2",
+            "4_146screws: 1 test groups; minimum 2",
+            "4screws: 1 test groups; minimum 2",
+            "5screws: 1 test groups; minimum 2",
+            "6screws: 1 test groups; minimum 2",
+            "7screws: 1 test groups; minimum 2",
+            "8screws: 1 test groups; minimum 2",
+            "validation and calibration are explicitly shared; independent four-way split unavailable"
+          ]
+        },
+        "warnings": [
+          "source intervals unavailable for some samples; overlap cannot be excluded beyond group boundaries"
+        ],
+        "test_sample_count": 9759,
+        "test_group_count": 30
+      }
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_manifest\\2026-09-30-18-43-30\\manifests\\sample-v1-006886c78d20fcb64d8a_fd70a81c490f9402.json.gz",
+      "split_id": "sample-v1-006886c78d20fcb64d8a",
+      "checksum": "fd70a81c490f9402e6de1456d952e8772b70e59962d8e19711254716f109e502",
+      "seed": 2026,
+      "counts": {
+        "train": {
+          "1screws": 949,
+          "2screws": 985,
+          "3_14screws": 940,
+          "3screws": 994,
+          "4screws": 850,
+          "8screws": 886
+        },
+        "validation": {
+          "1screws": 1034,
+          "2screws": 980,
+          "3_14screws": 1027,
+          "3screws": 905,
+          "4screws": 998,
+          "8screws": 991
+        },
+        "calibration": {
+          "1screws": 1034,
+          "2screws": 980,
+          "3_14screws": 1027,
+          "3screws": 905,
+          "4screws": 998,
+          "8screws": 991
+        },
+        "test": {
+          "1screws": 1003,
+          "2screws": 1020,
+          "3_14screws": 1054,
+          "3screws": 1030,
+          "4_146screws": 1010,
+          "4screws": 955,
+          "5screws": 1084,
+          "6screws": 992,
+          "7screws": 764,
+          "8screws": 945
+        }
+      },
+      "validator": {
+        "status": "INCOMPLETE",
+        "error_codes": [
+          "TEST_INSUFFICIENT_GROUPS"
+        ],
+        "details": {
+          "TEST_INSUFFICIENT_GROUPS": [
+            "1screws: 1 test groups; minimum 2",
+            "2screws: 1 test groups; minimum 2",
+            "3_14screws: 1 test groups; minimum 2",
+            "3screws: 1 test groups; minimum 2",
+            "4_146screws: 1 test groups; minimum 2",
+            "4screws: 1 test groups; minimum 2",
+            "5screws: 1 test groups; minimum 2",
+            "6screws: 1 test groups; minimum 2",
+            "7screws: 1 test groups; minimum 2",
+            "8screws: 1 test groups; minimum 2",
+            "validation and calibration are explicitly shared; independent four-way split unavailable"
+          ]
+        },
+        "warnings": [
+          "source intervals unavailable for some samples; overlap cannot be excluded beyond group boundaries"
+        ],
+        "test_sample_count": 9857,
+        "test_group_count": 30
+      }
+    }
+  ]
+}
