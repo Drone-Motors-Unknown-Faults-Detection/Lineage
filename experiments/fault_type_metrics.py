@@ -525,6 +525,11 @@ def paired_mahalanobis_knn(runs: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
         if mahalanobis_ids is not None or knn_ids is not None:
             if mahalanobis_ids is None or knn_ids is None or mahalanobis_ids != knn_ids:
                 raise ValueError(f"paired detector sample IDs differ for manifest checksum {checksum}")
+        else:
+            left = methods["mahalanobis"].get("test_sample_ids_sha256")
+            right = methods["knn"].get("test_sample_ids_sha256")
+            if not left or not right or left != right:
+                raise ValueError(f"paired detector sample IDs digest missing or different for manifest checksum {checksum}")
         differences: dict[str, float] = {}
         for path in _AGGREGATED_METRICS:
             mahalanobis_value = _nested_value(methods["mahalanobis"].get("metrics", {}), path)

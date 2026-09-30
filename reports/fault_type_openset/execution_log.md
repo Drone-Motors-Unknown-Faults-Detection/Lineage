@@ -63,3 +63,10 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Corrected FPR95 fixture expectation from .5 to 1.0 by direct ROC ordering; no algorithm or threshold was changed. Fixed a real reporting issue: faulty samples predicted healthy must remain in the fault-only confusion matrix.
 - `venv\Scripts\python.exe -m unittest tests.test_fault_type_metrics -q` → 7 passed.
 - `venv\Scripts\python.exe -m unittest discover -s tests -q` → 129 passed, exit 0 (including original binary and PolarMap tests). No formal experiment score has yet been inspected.
+
+## 2026-09-30 — Stage 7 end-to-end matrix verification
+
+- Stage 6 commit `3bb4a7ccef254a120edd00d92132108a669a9fd9` pushed and verified.
+- Added immutable run plans, per-run attempt/status/reason records, exact-artifact resume verification, original complete manifests, paired test-ID digests and protocol/N/detector-stratified aggregation. Smoke can cap each source before fitting; normal research matrices cannot silently cap data.
+- Matrix synthetic tests: 4 passed; both detectors execute end to end. Resume does not refit completed runs, corrupted prediction artifacts fail fast, and intentional failed runs remain in the status/index.
+- Feature ablation is explicitly skipped because current Lineage has only the formal 105-D representation, not a usable neural embedding.

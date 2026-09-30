@@ -142,6 +142,7 @@ def save_result(result: dict, root: Path | str) -> dict:
     prediction_path = root / "predictions.jsonl.gz"
     prediction_path.write_bytes(packed)
     summary = {k: v for k, v in result.items() if k not in {"predictions", "fit_audit"}}
+    summary["test_sample_ids_sha256"] = hashlib.sha256(json.dumps(sorted(r["sample_id"] for r in rows), separators=(",", ":")).encode()).hexdigest()
     summary["prediction_artifact"] = {"path": str(prediction_path.resolve()), "sha256": hashlib.sha256(packed).hexdigest(), "rows": len(rows)}
     audit = gzip.compress(json.dumps(result["fit_audit"], sort_keys=True).encode(), mtime=0)
     audit_path = root / "fit_audit.json.gz"
