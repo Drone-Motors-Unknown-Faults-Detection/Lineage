@@ -27,6 +27,18 @@ class FaultTypeMatrixTests(unittest.TestCase):
     def tearDown(self):
         logger.enable("experiments.fault_type_matrix")
 
+    def test_checkpoint_failure_preserves_previous_valid_state(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "state.json"
+            matrix._write_json(path, {"completed": 1})
+            with patch.object(matrix.os, "fsync", side_effect=OSError("simulated interruption")):
+                with self.assertRaises(OSError):
+                    matrix._write_json(path, {"completed": 2})
+            self.assertEqual(json.loads(path.read_text()), {"completed": 1})
+            matrix._write_json(path, {"completed": 2})
+            self.assertEqual(json.loads(path.read_text()), {"completed": 2})
+            self.assertFalse(path.with_name("state.json.tmp").exists())
+
     def test_plan_is_predeclared_deterministic_and_tamper_rejected(self):
         _, _, registry = registry_fixture()
         kwargs = dict(n_values=[1], protocol="A", git_commit="fixed", methods=["mahalanobis", "knn"])

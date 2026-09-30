@@ -8,6 +8,7 @@ import gzip
 import hashlib
 import importlib.metadata
 import json
+import os
 import platform
 import subprocess
 import time
@@ -30,7 +31,13 @@ def _digest(value) -> str:
 
 
 def _write_json(path: Path, value) -> None:
-    path.write_text(json.dumps(value, indent=2, allow_nan=False), encoding="utf-8")
+    # A terminated process must leave the previous valid checkpoint intact.
+    temporary = path.with_name(path.name + ".tmp")
+    with temporary.open("w", encoding="utf-8") as file:
+        file.write(json.dumps(value, indent=2, allow_nan=False))
+        file.flush()
+        os.fsync(file.fileno())
+    temporary.replace(path)
 
 
 def cap_fold(fold: dict, records: list[dict], cap: int) -> dict:
@@ -52,6 +59,10 @@ def cap_fold(fold: dict, records: list[dict], cap: int) -> dict:
 
 def make_plan(registry: dict, *, n_values: list[int], protocol: str, git_commit: str,
               methods: list[str], pilot: bool = False, cap: int | None = None) -> dict:
+    if not n_values or len(n_values) != len(set(n_values)) or any(n not in range(1, 10) for n in n_values):
+        raise ValueError("N values must be unique integers from 1 through 9")
+    if protocol not in {"A", "B"}:
+        raise ValueError("protocol must be A or B")
     if cap is not None and cap < 1:
         raise ValueError("sample cap must be positive")
     if len(methods) != len(set(methods)) or not methods or set(methods) - set(SUPPORTED_OPENSET_METHODS):

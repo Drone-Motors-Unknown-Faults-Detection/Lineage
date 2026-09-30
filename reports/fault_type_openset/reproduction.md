@@ -4,6 +4,17 @@ Run from the Lineage worktree root, on `research-improvements-20260920`.
 The read-only feature root must be `data/formal_local` with the fingerprint in
 `data_audit.json`. This workflow never runs raw feature extraction or edits data.
 
+Environment caveat: this execution used the existing repaired Windows Python
+3.14.6 venv, not the Python 3.10.19 declared in pyproject.toml. Exact scientific
+versions are saved per matrix in environment.json. Do not assume numerical or
+installation equivalence to an untested 3.10 environment. The repaired stack was
+NumPy 2.5.3, pandas 3.0.6, SciPy 1.18.1, scikit-learn 1.9.1, threadpoolctl 3.7.0,
+joblib 1.6.0, cloudpickle 3.1.2, matplotlib 3.11.2, loguru 0.7.3, hdbscan 0.8.44,
+Tornado 6.5.10. Use the verified existing venv for these reproduction commands;
+do not silently upgrade dependencies or run pip install -e . against its
+incompatible pyproject Python requirement. Future Python-version validation is
+separate from this fixed-environment study.
+
 1. Run all tests:
 
    ```powershell
