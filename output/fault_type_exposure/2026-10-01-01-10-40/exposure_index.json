@@ -1,0 +1,45 @@
+{
+  "baseline_checks": [
+    {
+      "checked_run": "sample-v1-4117c79b583bdef6bc4b_mahalanobis",
+      "matrix": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-05-42",
+      "plan_checksum": "2fd187bf96d8f93251a3d36a79d2a564c9dabed8923b0b920bc593d00af57ebe",
+      "plan_sha256": "985ce4189cb21f39d471827eba33583f95e6ed77b46d7e6b11f622961092d50f",
+      "runs": 756,
+      "saved_predictions_metrics_check": "PASS"
+    },
+    {
+      "checked_run": "sample-v1-b0e53bc157a9ddcbed5e_mahalanobis",
+      "matrix": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-37-27",
+      "plan_checksum": "578c2370320b2694b42cb63b70b44578fac26c7f8e36f566b77a55d3767f686d",
+      "plan_sha256": "a0c02dd8021322da5ee08b5eecf376bca392e7202a407cd09b5208bb9b230bc4",
+      "runs": 1014,
+      "saved_predictions_metrics_check": "PASS"
+    },
+    {
+      "checked_run": "sample-v1-4f468c3a05272feff20e_mahalanobis",
+      "matrix": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-37-39",
+      "plan_checksum": "62cffdf786336e1076b6a9d592933885af0ceb45350ad6ffc067fd642e3ce733",
+      "plan_sha256": "2733376cde4a262826c819a76c84eccbcdb32327477acf7748e818fc66ad5e62",
+      "runs": 720,
+      "saved_predictions_metrics_check": "PASS"
+    }
+  ],
+  "catalog": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "dataset_fingerprint_method": "sha256(compact_json(sorted(source_sha256 for all files)))",
+    "feature_dim": 105,
+    "file_count": 90,
+    "group_key": "acquisition_stage_campaign; source_file subgroup",
+    "provenance_status": "physical motor, session, run, timestamp, raw interval and event unavailable",
+    "sample_count": 28910
+  },
+  "exposure_ledger": {
+    "historical_test_sample_count": 28910,
+    "ledger_checksum": "4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc",
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_exposure\\2026-10-01-01-10-40\\exposure_ledger.json.gz",
+    "sha256": "9e6d7b1a4171cf6f863adff146accfb00e95ab964d2abc6c02563116b5725332"
+  },
+  "fresh_final_test_found": false,
+  "reason": "Existing90CSV are all exposed; duplicate source ZIPs and unclean derivatives are not independent acquisitions."
+}

@@ -170,3 +170,12 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - CLI feature audit01:04:50–01:14:09 exit0; output/fault_type_feature_audit/2026-10-01-01-04-50/feature_audit.json. Checks all30 Stage2 conditions and predeclared6 healthy Stage1/3 RPM probes using existing extracted files, independent numerical reference, fileSHAs.
 - Stage2's9857 clean rows uniquely matched recomputed105-D processed windows. Together with Stage1/3 mappings this recovers all28910 processed ordinals, zero original DAQ intervals. This is not900 independent recordings or a raw-time metadata recovery.
 - Historical statistics/FFT kept fixed: redundant clearance/impulse, signed max crest, RMS/MSA and std/variance redundancy, integer133/183Hz bases, nominal10kHz, Y/Z historical FFTnX text labels. Physical axes/units/calibration/load remain unknown.
+
+- Stage3 commit27927a28ed80c06e65aac272519985e19b000bb3 pushed and exact remote SHA verified. All36 probes' clean rows match recomputed105D; all30 Stage2 adapter clean reproductions true. Nine scripts have one statistical-function AST and one FFT-function AST. Actual unequal channel counts occur T1/11000 healthy596vs600, T1/6000 healthy595vs600, T2/6000/7screws599vs600; matching feature values does NOT prove synchronized physical windows.
+
+## 2026-10-01 — Exposure ledger and final-test guard, Stage 4
+
+- Checked three saved matrix plan checksums/completed status (756+1014+720); recomputed metrics from one actual saved prediction run per matrix, allPASS. No retraining of baseline2490 runs.
+- Three completed N9 frozen test manifests cover all28910 unique catalog IDs. Saved ledger output/fault_type_exposure/2026-10-01-01-10-40/exposure_ledger.json.gz checksum4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc.
+- Added read-only ingest/data-version verification and final eligibility gate: exposed bytes/numeric-row copies, same acquisition, overlapping windows, new-session-vs-new-motor claims, unlocked configs, coverage, and sealed histories.12 new semantic tests passed. No fresh independent final test found in the inspected sources.
+- acquisition_contract.md gives minimum real acquisition facts and executable CLI. No hardware collection performed or external messages sent. Eligibility is conditional on attested physical provenance, not automatic reliabilityPASS.

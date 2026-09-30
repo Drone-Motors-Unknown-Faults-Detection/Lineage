@@ -85,3 +85,23 @@ variance=std²。原則：不在本baseline偷偷修公式；未來若改成一�
 ```powershell
 .\venv\Scripts\python.exe -m experiments.fault_type_feature_audit --data-root data/formal_local --source-root 'D:/schoolshit/fcu/專題/馬達研究/馬達研究' --extracted-root 'D:/schoolshit/專題/src/馬達研究/馬達研究'
 ```
+
+## Exposure ledger 與 fresh-final qualification
+
+3份保存的N9完整closed-set test manifests涵蓋全部28910 IDs；每一顆motor
+都已在某fold test。三matrix的plan/checksum/status與各一個實際predictions
+metrics抽查PASS，沒有重跑2490次。所有本輪known-validation與再分析標
+exploratory/historical-test-exposed。原ZIP副本、未清理feature、換seed、重切窗
+均不能變成freshfinal。
+
+ledger保存sourceSHA、semantic numeric-row digest（12 significant digits）、
+已曝光IDs與文檔motor IDs；沒有raw session identity的地方保留未知。
+final guard要求sealed data version、sealed exposure history、先locked模型及
+fit artifact，阻擋已曝光錄製/bytes/數值副本、同來源window重疊、coverage不足。
+new_session接受既有motor新session主張；new_motor拒絕把既有motor換session
+充當新個體。所有新採集事實仍需實際operator記錄，checksum無法認證硬體。
+详見 acquisition_contract.md；不存在合格freshfinal時獨立研究驗證維持待資料。
+
+```powershell
+.\venv\Scripts\python.exe -m experiments.fault_type_exposure --data-root data/formal_local --matrix output/fault_type_matrix/2026-09-30-19-05-42 --matrix output/fault_type_matrix/2026-09-30-19-37-27 --matrix output/fault_type_matrix/2026-09-30-19-37-39
+```

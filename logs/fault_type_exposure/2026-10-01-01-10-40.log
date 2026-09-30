@@ -1,0 +1,4 @@
+2026-10-01 01:10:40 | INFO    | Logger initialized: fault_type_exposure
+2026-10-01 01:10:40 | INFO    | log_file=logs\fault_type_exposure\2026-10-01-01-10-40.log
+2026-10-01 01:10:40 | INFO    | output_dir=output\fault_type_exposure\2026-10-01-01-10-40
+2026-10-01 01:10:45 | INFO    | 28910 historically tested samples; no fresh final test; 3 saved matrices checked
