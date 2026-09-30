@@ -363,7 +363,8 @@ configurations，剩餘配置作 unknown，對照 Mahalanobis（Ledoit–Wolf）
 是同一螺絲鬆動機制的數量／位置配置，不是九種已驗證物理故障原因，也不是
 經扭力量測校準的嚴重度。上文 cold-start 的 60/20/20 與歷史數字不等同於
 這個新增實驗；本研究採整個 campaign holdout，不能直接比較兩者的準確率。
-T1/T2/T3 的物理馬達／壽命意義未被充分驗證，不能據此宣稱跨馬達或
+固定版本文件支持 T1/T2/T3 為三顆不同馬達；經路徑核對可解讀 documented LOMO，
+但 serial/session/raw-window 來源仍不完整，不能宣稱完整獨立測試或
 run-to-failure 測試。
 
 目前只有三個 campaign，因此每類 test 只有一個 campaign，而且 validation

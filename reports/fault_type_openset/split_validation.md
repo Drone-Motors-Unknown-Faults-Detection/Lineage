@@ -1,5 +1,10 @@
 # Frozen manifests and completeness rules
 
+> 2026-10-01: pinned documentation identifies three physical motor individuals.
+> Existing frozen manifests/validator thresholds remain unchanged; see
+> provenance_followup.md for the documented LOMO interpretation. Two test
+> groups is this study's completeness policy, not a universal LOMO requirement.
+
 `core.fault_type_manifest` freezes roles, sample IDs, provenance, exclusions,
 counts, seeds and source fingerprints. Both protocol content and embedded
 validation evidence are checksum-bound. Gzip encoding has mtime=0; writing

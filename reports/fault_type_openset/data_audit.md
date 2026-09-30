@@ -1,5 +1,11 @@
 # Fault-configuration data audit (2026-09-29)
 
+> 2026-10-01 correction: T1/T2/T3 are documented distinct motor individuals,
+> not merely unidentified campaigns. Missing serials do not negate identity.
+> The older identity paragraph below is retained as audit history, superseded
+> by [provenance_followup.md](provenance_followup.md). Raw-window/session
+> provenance and the original INCOMPLETE split status remain unresolved.
+
 ## Actual input and physical meaning
 
 The experiment loader consumes the ignored local `data/formal_local/Step-*/myfeature/*/*/*/*_Group_feature_data_clean.csv`, materialized from three user-provided stage ZIP archives. The materialization manifest records 90 clean feature CSVs, 28,910 rows and 105 numeric features per row. Stage 1/T1 and Stage 3/T3 files were copied from clean-feature archives; Stage 2/T2 features were reconstructed from five 10 kHz channels. All 90 files were readable and their numeric rows finite. A numeric-position exact-duplicate check across all 28,910 rows found zero exact duplicates; this does not establish independence of nearby or overlapping raw windows.

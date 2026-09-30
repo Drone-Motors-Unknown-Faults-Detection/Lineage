@@ -1,5 +1,15 @@
 {
   "schema_version": 1,
+  "identity_correction_2026_10_01": {
+    "supersedes": "historical statements denying documented physical motor identity",
+    "documented_motor_ids": ["T1", "T2", "T3"],
+    "source_commit": "afcfcc419dab3103a86a8f95601d3af85890eb38",
+    "source_path": "docs/Experiments_Guide.md",
+    "source_lines": [218, 230, 231],
+    "scope": "document-supported distinct individuals; serial/session/raw provenance incomplete",
+    "overlay": "experiments.fault_type_provenance",
+    "historical_fields_below": "retained as original audit, not current identity interpretation"
+  },
   "audit_date": "2026-09-29",
   "source": "data/formal_local/formal_materialization_manifest.json",
   "dataset_fingerprint_method": "sha256(compact_json(sorted(source_sha256 for all 90 files)))",

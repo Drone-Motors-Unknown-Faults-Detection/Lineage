@@ -1,5 +1,10 @@
 # 老師建議完成度與目前問題：完整研究回報
 
+> 2026-10-01 更正：本文第3節「不是三顆已驗證不同馬達」過度否定文件證據，
+> 已撤回。固定版本文件支持三顆不同個體；經路徑核對可解讀 documented LOMO。
+> 身分、採集來源鏈、獨立測試完整度是不同層次。詳見 provenance_followup.md；
+> 舊 immutable artifacts／數字與 INCOMPLETE 狀態不改寫。
+
 結論：要求的 class-role／group-aware split、不可變 manifests、validator、
 多類別 classifier、兩種 factory detectors、N=5、N-sweep 與 Protocol B
 已實作並實際完成運算。2490/2490 detector runs 完成、0 failed，137 tests

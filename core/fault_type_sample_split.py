@@ -1,9 +1,10 @@
 """Campaign-held-out sample splits for fault-configuration open-set studies.
 
-The formal archive has three acquisition-stage codes (T1/T2/T3), but no
-verified physical motor or session identifiers.  A campaign is kept whole in
-each fold.  This is deliberately stricter than splitting source-file windows,
-although it cannot prove independence between physical motors.
+The pinned Experiments_Guide documents T1/T2/T3 as three distinct motors.
+A campaign is kept whole in each fold, so mapped folds are documented
+leave-one-motor-out. Session, serial and raw-window provenance remain missing.
+Historical frozen manifests retain their original campaign terminology;
+core.fault_type_provenance adds evidence without changing their checksums.
 """
 
 from __future__ import annotations
@@ -30,7 +31,8 @@ def load_formal_catalog(data_root: Path | str) -> tuple[list[dict[str, object]],
 
     File parsing and sample IDs deliberately use the P1 protocol's rules.
     ``physical_motor_id`` and other unverified acquisition provenance remain
-    null; the T-code and stage are only path-level campaign identifiers.
+    null for compatibility with frozen historical manifests. Documented
+    motor evidence is carried separately by fault_type_provenance overlays.
     """
 
     root = Path(data_root).expanduser().resolve()

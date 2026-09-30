@@ -54,7 +54,7 @@ raw ZIP、notebook、checkpoint 與任何來源檔案均未修改、移動、重
 | Fault type | 不支援可靠原因 | 只有 screw configuration 與 known/unknown role，沒有 bearing／winding／ESC label | `fault_type=unknown` 或 `uncertain`；不可訓練原因 classifier |
 | Severity | 不支援真實 severity | 沒有 severity 欄位、人工損傷百分比或 ordinal label | 只能輸出 calibrated relative stage |
 | 時間順序 | 不足 | raw CSV 有固定 10,000 rows，但 header 是重複 channel 名稱，沒有 timestamp column | 只在明確 stream session 追蹤輸入順序；無法宣稱跨檔 chronology |
-| 同一馬達長期追蹤 | 不支援 | T1/T2/T3 是資料路徑／階段代碼，沒有 physical motor unique ID | 必須要求使用者提供 motor_id 才能啟用 per-motor history |
+| 同一馬達長期追蹤 | 不支援 | 固定版本 Experiments_Guide L218、230–231 支持 T1/T2/T3 是三顆不同馬達；沒有同一顆的長期追蹤與使用時數 | documented motor ID 可用於分組，但 per-motor history 仍需時間與採集追溯 |
 | 同一 experiment session | 不支援 | 沒有 session_id 或連續實驗事件欄位 | 每次啟動建立新的 session；不可跨 session 拼接 |
 | 健康到故障連續過程 | 不支援正式證據 | 9 工況是獨立 condition/config archive；目前沒有同一 motor 的健康→失效紀錄 | 可用 synthetic exp3 做方法 smoke，但不能稱為實際劣化驗證 |
 | 只有獨立正常／故障樣本 | 目前主要是 | 每個 config 是獨立 raw archive／feature pool；沒有可靠 transition event | Level A 相對健康 baseline |

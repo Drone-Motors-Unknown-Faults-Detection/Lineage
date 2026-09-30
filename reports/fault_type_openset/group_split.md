@@ -1,5 +1,10 @@
 # Campaign-held-out sample splitting
 
+> 2026-10-01 correction: verified path mappings plus the pinned guide support
+> documented leave-one-motor-out interpretation. The original "not proven
+> physical motor holdout" wording below concerns missing full provenance,
+> not absence of documented motor identity. See provenance_followup.md.
+
 `core.fault_type_sample_split` chooses source groups only after a class-role split has been fixed. The formal CSVs have three acquisition stage/T-code campaigns. Each fold holds out one entire campaign for final test, uses another for known-class training, and uses the third for validation and calibration. The three deterministic rotations are:
 
 | Fold index | Train | Validation and calibration | Final test |
