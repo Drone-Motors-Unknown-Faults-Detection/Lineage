@@ -1,0 +1,8 @@
+2026-09-30 19:03:28 | INFO    | Logger initialized: fault_type_matrix
+2026-09-30 19:03:28 | INFO    | log_file=logs\fault_type_matrix\2026-09-30-19-03-28.log
+2026-09-30 19:03:28 | INFO    | output_dir=output\fault_type_matrix\2026-09-30-19-03-28
+2026-09-30 19:03:30 | INFO    | completed sample-v1-0c1fb892bd2cda386708_mahalanobis N=5 seed=42 method=mahalanobis seconds=0.57 progress=1
+2026-09-30 19:03:30 | INFO    | completed sample-v1-0c1fb892bd2cda386708_knn N=5 seed=42 method=knn seconds=0.03 progress=2
+2026-09-30 19:03:30 | INFO    | aggregate protocol=A N=5 method=knn runs=1
+2026-09-30 19:03:30 | INFO    | aggregate protocol=A N=5 method=mahalanobis runs=1
+2026-09-30 19:03:30 | INFO    | matrix finished: completed=2 not_completed=0 root=C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\output\fault_type_matrix\2026-09-30-19-03-28

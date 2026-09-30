@@ -70,3 +70,10 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Added immutable run plans, per-run attempt/status/reason records, exact-artifact resume verification, original complete manifests, paired test-ID digests and protocol/N/detector-stratified aggregation. Smoke can cap each source before fitting; normal research matrices cannot silently cap data.
 - Matrix synthetic tests: 4 passed; both detectors execute end to end. Resume does not refit completed runs, corrupted prediction artifacts fail fast, and intentional failed runs remain in the status/index.
 - Feature ablation is explicitly skipped because current Lineage has only the formal 105-D representation, not a usable neural embedding.
+
+## 2026-09-30 — Stage 8 smoke, runtime and primary registration
+
+- Stage 7 commit `f2f09b44cbe8825676fca2383046b5d85ae1b71b` pushed and remote SHA verified. Full suite: 133 passed.
+- Real-data smoke: `python -m experiments.fault_type_matrix --registry reports/fault_type_openset/manifests/class_roles_v1_6bdff74614f1d781.json --n 5 --pilot --sample-cap-per-source 10` → 2 completed, 0 failed, 300 test samples per method; output `output/fault_type_matrix/2026-09-30-19-03-28`.
+- Full-data pilot: same command without the sample cap → 2 completed, 0 failed; output `output/fault_type_matrix/2026-09-30-19-03-39`. Timing/bytes only were inspected for planning; no score-based method/combination selection. 3.983s matrix execution, 9,854,684 artifact bytes.
+- Generated and pre-registered full126 Protocol A N=5 registry `40cb4312c2e923426407035fc3c0696f8d51cdd7190a2f1ee123c6aae3f1d8d6` before primary evaluation. Runtime decision and separate balanced30 Protocol B budget in `runtime_plan.md`.

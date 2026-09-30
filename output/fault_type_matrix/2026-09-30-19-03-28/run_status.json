@@ -1,0 +1,41 @@
+{
+  "plan_checksum": "011b2aeb6944a381b08b87d047b7bb27ff8bb2a0e9e6f74c4642af8ab0ab8d23",
+  "runs": {
+    "sample-v1-0c1fb892bd2cda386708_mahalanobis": {
+      "run_id": "sample-v1-0c1fb892bd2cda386708_mahalanobis",
+      "protocol": "A",
+      "N": 5,
+      "method": "mahalanobis",
+      "seed": 42,
+      "manifest_path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-03-28\\manifests\\sample-v1-0c1fb892bd2cda386708_e1aa433d5c77af9c.json.gz",
+      "attempts": [
+        {
+          "status": "completed",
+          "reason": "initial_predeclared_run"
+        }
+      ],
+      "status": "completed",
+      "summary_path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-03-28\\runs\\sample-v1-0c1fb892bd2cda386708_mahalanobis\\summary.json",
+      "elapsed_seconds": 0.5679477999997289
+    },
+    "sample-v1-0c1fb892bd2cda386708_knn": {
+      "run_id": "sample-v1-0c1fb892bd2cda386708_knn",
+      "protocol": "A",
+      "N": 5,
+      "method": "knn",
+      "seed": 42,
+      "manifest_path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-03-28\\manifests\\sample-v1-0c1fb892bd2cda386708_e1aa433d5c77af9c.json.gz",
+      "attempts": [
+        {
+          "status": "completed",
+          "reason": "initial_predeclared_run"
+        }
+      ],
+      "status": "completed",
+      "summary_path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-03-28\\runs\\sample-v1-0c1fb892bd2cda386708_knn\\summary.json",
+      "elapsed_seconds": 0.029526199999963865
+    }
+  },
+  "execution_seconds_this_invocation": 1.1251366999999846,
+  "declared_run_count": 2
+}

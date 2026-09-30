@@ -1,0 +1,41 @@
+{
+  "plan_checksum": "7537d31101c8375dbe834b453ed3e9113cfe1e7853113022cf4798deac714fd2",
+  "runs": {
+    "sample-v1-d1ea8ebf3ff487f709e3_mahalanobis": {
+      "run_id": "sample-v1-d1ea8ebf3ff487f709e3_mahalanobis",
+      "protocol": "A",
+      "N": 5,
+      "method": "mahalanobis",
+      "seed": 42,
+      "manifest_path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-03-39\\manifests\\sample-v1-d1ea8ebf3ff487f709e3_2ac2b1fcbf669b70.json.gz",
+      "attempts": [
+        {
+          "status": "completed",
+          "reason": "initial_predeclared_run"
+        }
+      ],
+      "status": "completed",
+      "summary_path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-03-39\\runs\\sample-v1-d1ea8ebf3ff487f709e3_mahalanobis\\summary.json",
+      "elapsed_seconds": 0.8598903000001883
+    },
+    "sample-v1-d1ea8ebf3ff487f709e3_knn": {
+      "run_id": "sample-v1-d1ea8ebf3ff487f709e3_knn",
+      "protocol": "A",
+      "N": 5,
+      "method": "knn",
+      "seed": 42,
+      "manifest_path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-03-39\\manifests\\sample-v1-d1ea8ebf3ff487f709e3_2ac2b1fcbf669b70.json.gz",
+      "attempts": [
+        {
+          "status": "completed",
+          "reason": "initial_predeclared_run"
+        }
+      ],
+      "status": "completed",
+      "summary_path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-03-39\\runs\\sample-v1-d1ea8ebf3ff487f709e3_knn\\summary.json",
+      "elapsed_seconds": 0.9169277999999395
+    }
+  },
+  "execution_seconds_this_invocation": 3.982591499999671,
+  "declared_run_count": 2
+}
