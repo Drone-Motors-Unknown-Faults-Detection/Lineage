@@ -113,3 +113,6 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Independent output directories allow the two remaining studies to execute concurrently. Both execute the fixed 3d8b9f0 code/config; no adaptation to primary scores.
 - Hardened future checkpoint writes using flush/fsync and atomic replacement. A simulated interrupted write preserves the previous valid JSON checkpoint. This does not hot-patch the already-running processes or change fitting, prediction or thresholds.
 - Targeted matrix tests after checkpoint hardening: 5 passed. N=1 fault-only one-label confusion-matrix warnings are expected/non-failing; full matrices retain all declared label axes and errors.
+- Checkpoint hardening commit `a495c18d36eefa5c8aacd4d03c1bcc1c31a25992` pushed and remote SHA verified.
+- Full suite rerun at 19:48:20 with `MPLCONFIGDIR=output/fault_type_mplcache`: 137 passed, exit 0. Existing binary and PolarMap tests pass; no model/test-based changes were made.
+- Reproduction guide now explicitly uses the pre-registered full126 registry for Protocol A, balanced30/four-rotation registry for Protocol B, and a writable Matplotlib cache. README separates this campaign-held-out study from historical cold-start random-split numbers and documents the observed weak baseline rather than claiming an improvement.

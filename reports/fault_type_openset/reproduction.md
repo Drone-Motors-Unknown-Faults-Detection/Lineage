@@ -18,6 +18,7 @@ separate from this fixed-environment study.
 1. Run all tests:
 
    ```powershell
+   $env:MPLCONFIGDIR = Join-Path (Get-Location) 'output/fault_type_mplcache'
    .\venv\Scripts\python.exe -m unittest discover -s tests -q
    ```
 
@@ -36,14 +37,15 @@ separate from this fixed-environment study.
    ```
 
 4. Execute the frozen N=5 study, then the remaining sweep (N=9 separately
-   stratified as closed-set; unknown-positive metrics are null). The current
-   registry uses thirty balanced N=5 combinations; if timing warrants all126,
-   create and commit a NEW immutable registry with `--enumerate-n5` before
-   inspecting research results, and replace the registry path below.
+   stratified as closed-set; unknown-positive metrics are null). The actual
+   primary study uses the NEW full126 registry, committed before inspecting
+   research scores. Protocol B uses the earlier balanced30 registry, with four
+   distinct unknown-validation rotations, as predeclared in runtime_plan.md.
+   Do not substitute the balanced30 A registry when reproducing full126 N=5.
 
    ```powershell
-   .\venv\Scripts\python.exe -m experiments.fault_type_matrix --registry reports/fault_type_openset/manifests/class_roles_v1_6bdff74614f1d781.json --n 5
-   .\venv\Scripts\python.exe -m experiments.fault_type_matrix --registry reports/fault_type_openset/manifests/class_roles_v1_6bdff74614f1d781.json --n 1 2 3 4 6 7 8 9
+   .\venv\Scripts\python.exe -m experiments.fault_type_matrix --registry reports/fault_type_openset/manifests/class_roles_v1_40cb4312c2e92342.json --n 5
+   .\venv\Scripts\python.exe -m experiments.fault_type_matrix --registry reports/fault_type_openset/manifests/class_roles_v1_40cb4312c2e92342.json --n 1 2 3 4 6 7 8 9
    .\venv\Scripts\python.exe -m experiments.fault_type_matrix --registry reports/fault_type_openset/manifests/class_roles_v1_6bdff74614f1d781.json --n 5 --protocol B
    ```
 

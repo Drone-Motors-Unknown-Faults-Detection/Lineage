@@ -349,3 +349,38 @@ repo 保存——issue 討論串（#1–#60，缺陷成因與修正驗證）也�
 5. **衰退曲線外插未實作**：T1/T2/T3 三個壽命期資料可作為 run-to-failure 模板
    （similarity-based prognostics），為下一步方向。
 6. **單一測試台、單一故障機制**：結論外推到其他 PHM 任務需再驗證。
+
+---
+
+## 故障配置多類別／開放集研究（2026-09-30）
+
+新增獨立於既有健康冷啟動流程的研究入口
+`python -m experiments.fault_type_matrix`：healthy 加 N 個 known fault
+configurations，剩餘配置作 unknown，對照 Mahalanobis（Ledoit–Wolf）與
+逐類 k-NN。Mahalanobis 仍是預設；既有 binary detection 與 PolarMap 不變。
+
+正式資料稽核確認 90 個 clean CSV、28,910 筆 105 維特徵，九個 faulty labels
+是同一螺絲鬆動機制的數量／位置配置，不是九種已驗證物理故障原因，也不是
+經扭力量測校準的嚴重度。上文 cold-start 的 60/20/20 與歷史數字不等同於
+這個新增實驗；本研究採整個 campaign holdout，不能直接比較兩者的準確率。
+T1/T2/T3 的物理馬達／壽命意義未被充分驗證，不能據此宣稱跨馬達或
+run-to-failure 測試。
+
+目前只有三個 campaign，因此每類 test 只有一個 campaign，而且 validation
+與 calibration 共用；所有本次切分標為 **INCOMPLETE**，只能作探索性結果。
+N=5 全部 126 組已完成：已知分類 accuracy 25.744%，unknown AUROC
+0.52775（Mahalanobis）／0.52448（k-NN）；不能宣稱可靠未知配置拒絕。
+沒有依 test 分數修改 classifier、門檻、組合或 seed。
+
+- [資料與標籤稽核](reports/fault_type_openset/data_audit.md)
+- [切分完整性／洩漏規則](reports/fault_type_openset/split_validation.md)
+- [固定模型與 A/B protocols](reports/fault_type_openset/protocols.md)
+- [N=5 實際結果與限制](reports/fault_type_openset/primary_results.md)
+- [逐步重現指令與環境差異](reports/fault_type_openset/reproduction.md)
+- [執行、失敗、提交與 push 紀錄](reports/fault_type_openset/execution_log.md)
+
+完整逐樣本機率、不可變 manifest 與 fit-input audit 以校驗過的 ZIP64 保存在
+`D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-09-30\`；Git 只保存
+程式、設定、compact summaries、索引與日誌，不包含 raw data 或大型預測檔。
+實際依賴版本見 matrix 的 `environment.json`；本次執行 Python 3.14.6，尚未
+驗證專案設定所列的 Python 3.10.19，不能宣稱兩種環境已等價通過。
