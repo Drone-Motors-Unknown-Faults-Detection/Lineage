@@ -161,6 +161,9 @@ def main() -> None:
     log, paths = setup_run("fault_type_openset")
     result = run(FeatureStore(args.data_root), manifest=read_split_manifest(args.manifest),
                  openset_method=args.openset_method, allow_incomplete=args.allow_incomplete)
+    from experiments.fault_type_metrics import evaluate_fault_type_predictions
+    result["metrics"] = evaluate_fault_type_predictions(result["predictions"], healthy_label=result["healthy_label"],
+        known_labels=result["known_labels"], unknown_labels=result["unknown_labels"], known_fault_count=result["known_fault_count"])
     save_result(result, paths.output_dir)
     log.info("completed {} test predictions; scope={}; seconds={:.3f}", len(result["predictions"]), result["result_scope"], result["elapsed_seconds"])
 

@@ -55,3 +55,11 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Added fixed train-only balanced logistic classifier, exact fit-input audit, both factory detectors, probability-bearing per-sample artifacts and A/B separation. Unknown validation is diagnostic, not threshold fitting. Mahalanobis default and binary/PolarMap remain unchanged.
 - `venv\Scripts\python.exe -m unittest tests.test_fault_type_runner tests.test_openset -q` → 16 passed. Actual scaler and detector fit calls were checked against train/calibration-only matrices.
 - Broader test before stage-6 fixture correction: 127 tests, one failure (the documented FPR95 expected-value error); no other regressions. Invalid CLI usage is intentionally tested and prints argparse error while passing.
+
+## 2026-09-30 — Stage 6 metrics and aggregation
+
+- Stage 5 commit `3f49a40a40e9ceef7d1f9a553a9465f2c52f5f66` pushed and SHA verified.
+- Metrics include known and fault-only classification, unknown-positive ranking/rejection, healthy safety, per-unknown attraction, equal-run versus pooled summaries and same-manifest paired deltas. Intervals explicitly describe correlated configuration/campaign runs, not motor-population inference. N=9 unavailable unknown metrics and protocol mixing are checked.
+- Corrected FPR95 fixture expectation from .5 to 1.0 by direct ROC ordering; no algorithm or threshold was changed. Fixed a real reporting issue: faulty samples predicted healthy must remain in the fault-only confusion matrix.
+- `venv\Scripts\python.exe -m unittest tests.test_fault_type_metrics -q` → 7 passed.
+- `venv\Scripts\python.exe -m unittest discover -s tests -q` → 129 passed, exit 0 (including original binary and PolarMap tests). No formal experiment score has yet been inspected.
