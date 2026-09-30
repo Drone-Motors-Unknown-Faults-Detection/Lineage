@@ -3,7 +3,7 @@ import argparse
 import gzip
 import json
 from pathlib import Path
-from core.fault_type_final_guard import ingest, guard_final_test
+from core.fault_type_final_guard import ingest, guard_final_test, seal
 from core.fault_type_provenance import save_json
 from core.logger import setup_run
 
@@ -22,10 +22,16 @@ def main():
     parser.add_argument("--ledger", type=Path)
     parser.add_argument("--locked", type=Path)
     parser.add_argument("--claim", choices=("new_session", "new_motor"))
+    parser.add_argument("--seal-manifest", action="store_true", help="save checksum-bound copy to output only; not acquisition verification")
     args = parser.parse_args()
     if any([args.locked, args.ledger, args.claim]) and not all([args.locked, args.ledger, args.claim]):
         parser.error("final eligibility requires --locked, --ledger and --claim together")
     log, paths = setup_run("fault_type_ingest")
+    if args.seal_manifest:
+        if any([args.locked, args.ledger, args.claim]): parser.error("sealing is not final qualification")
+        save_json(paths.output_dir / "sealed_manifest.json", seal(json.loads(args.manifest.read_bytes()), "manifest_checksum"))
+        log.info("Sealed manifest COPY saved to output; no source edits, no acquisition qualification")
+        return
     ledger = json.loads(gzip.decompress(args.ledger.read_bytes())) if args.ledger else None
     locked = json.loads(args.locked.read_bytes()) if args.locked else None
     result = run(args.incoming_root, manifest=json.loads(args.manifest.read_bytes()), ledger=ledger, locked=locked, claim=args.claim)

@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 import pandas as pd
 from core.fault_type_final_guard import (FinalTestBlocked, guard_final_test, ingest,
-    seal, numeric_row_digest)
+    seal, numeric_row_digest, record_final_exposure)
 from core.formal_data import _sha256_file
 
 
@@ -25,16 +25,37 @@ def fixture():
 
 
 class GuardTests(unittest.TestCase):
+    def test_new_test_exposure_cannot_be_rebranded_fresh(self):
+        b, l, c = fixture()
+        updated = record_final_exposure(l, b, evaluation_id="actual-test")
+        c["exposure_ledger_checksum"] = updated["ledger_checksum"]
+        with self.assertRaises(FinalTestBlocked): self.evaluate(b, updated, c)
+        self.assertTrue(updated["evaluations"][0]["registered_before_prediction"])
+
+    def test_exposure_receipt_requires_id_and_sealed_inputs(self):
+        b, l, _ = fixture()
+        with self.assertRaises(FinalTestBlocked): record_final_exposure(l, b, evaluation_id="")
+        b["feature_version"] = "changed"
+        with self.assertRaises(FinalTestBlocked): record_final_exposure(l, b, evaluation_id="retry")
+
     def evaluate(self, bundle, ledger, locked, **kwargs):
         return guard_final_test(seal(bundle, "data_version_checksum"), ledger, seal(locked, "locked_checksum"), claim=kwargs.pop("claim", "new_motor"), **kwargs)
 
     def test_new_motor_and_new_session_different_claims(self):
         b, l, c = fixture()
         self.assertEqual(self.evaluate(b, l, c)["status"], "ELIGIBLE_WITH_ATTESTED_PROVENANCE")
-        b["records"][0]["motor_id"] = "T1"
+        for row in b["records"]: row["motor_id"] = "T1"
         with self.assertRaises(FinalTestBlocked):
             self.evaluate(b, l, c)
         self.assertEqual(self.evaluate(b, l, c, claim="new_session")["claim"], "new_session")
+
+    def test_same_recording_cannot_supply_fake_new_session(self):
+        b, l, c = fixture(); b["records"][1]["session_id"] = "fake-second-session"
+        with self.assertRaises(FinalTestBlocked): self.evaluate(b, l, c)
+
+    def test_same_run_cannot_cross_motor(self):
+        b, l, c = fixture(); b["records"][1]["motor_id"] = "T5"; b["records"][1]["raw_source_sha256"] = "different-raw"
+        with self.assertRaises(FinalTestBlocked): self.evaluate(b, l, c)
 
     def test_exposed_recording(self):
         b, l, c = fixture()

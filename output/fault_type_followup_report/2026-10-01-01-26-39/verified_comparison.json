@@ -1,0 +1,175 @@
+{
+  "all_original2490_runs_repeated": false,
+  "artifact_kind": "post_lock_exposed_test_reanalysis",
+  "classifiers": [
+    {
+      "accuracy": {
+        "equal_fold_mean": 0.30760538766064377,
+        "maximum": 0.32811719660396205,
+        "minimum": 0.2674875089221984
+      },
+      "balanced_accuracy": {
+        "equal_fold_mean": 0.31103322678781825,
+        "maximum": 0.3311838597152137,
+        "minimum": 0.2716913648695341
+      },
+      "classifier": "extra_trees",
+      "folds": [
+        {
+          "accuracy": 0.2674875089221984,
+          "balanced_accuracy": 0.2716913648695341,
+          "fold_id": "train1-valcal2-test3",
+          "macro_f1": 0.19377136866673048,
+          "seed": 42
+        },
+        {
+          "accuracy": 0.32721145745577085,
+          "balanced_accuracy": 0.3311838597152137,
+          "fold_id": "train2-valcal3-test1",
+          "macro_f1": 0.26752723150378027,
+          "seed": 123
+        },
+        {
+          "accuracy": 0.32811719660396205,
+          "balanced_accuracy": 0.330224455778707,
+          "fold_id": "train3-valcal1-test2",
+          "macro_f1": 0.29654076999505874,
+          "seed": 2026
+        }
+      ],
+      "macro_f1": {
+        "equal_fold_mean": 0.25261312338852315,
+        "maximum": 0.29654076999505874,
+        "minimum": 0.19377136866673048
+      }
+    },
+    {
+      "accuracy": {
+        "equal_fold_mean": 0.2963062201550291,
+        "maximum": 0.37455770850884584,
+        "minimum": 0.23206259364075246
+      },
+      "balanced_accuracy": {
+        "equal_fold_mean": 0.29737220719136376,
+        "maximum": 0.378134815874722,
+        "minimum": 0.235251756807326
+      },
+      "classifier": "linear_baseline",
+      "folds": [
+        {
+          "accuracy": 0.28229835831548894,
+          "balanced_accuracy": 0.2787300488920433,
+          "fold_id": "train1-valcal2-test3",
+          "macro_f1": 0.2535138163383054,
+          "seed": 42
+        },
+        {
+          "accuracy": 0.37455770850884584,
+          "balanced_accuracy": 0.378134815874722,
+          "fold_id": "train2-valcal3-test1",
+          "macro_f1": 0.31653637099919135,
+          "seed": 123
+        },
+        {
+          "accuracy": 0.23206259364075246,
+          "balanced_accuracy": 0.235251756807326,
+          "fold_id": "train3-valcal1-test2",
+          "macro_f1": 0.21597018115220887,
+          "seed": 2026
+        }
+      ],
+      "macro_f1": {
+        "equal_fold_mean": 0.2620067894965686,
+        "maximum": 0.31653637099919135,
+        "minimum": 0.21597018115220887
+      }
+    }
+  ],
+  "detectors": [
+    {
+      "healthy_false_positive_rate": 0.0,
+      "method": "mahalanobis",
+      "unknown_metrics_equal_fold_mean": {
+        "aupr_unknown_positive": 0.42812577656138223,
+        "auroc_unknown_positive": 0.5311184235776362,
+        "fpr_at_95_tpr": 0.9003933981632429,
+        "unknown_f1": 0.1683289168080677,
+        "unknown_precision": 0.22629807978122585,
+        "unknown_recall": 0.15070167411630828
+      }
+    },
+    {
+      "healthy_false_positive_rate": 0.0028218694885361554,
+      "method": "knn",
+      "unknown_metrics_equal_fold_mean": {
+        "aupr_unknown_positive": 0.40713487623704864,
+        "auroc_unknown_positive": 0.5046568135510631,
+        "fpr_at_95_tpr": 0.9838267025939871,
+        "unknown_f1": 0.06988006598934947,
+        "unknown_precision": 0.1682056648076432,
+        "unknown_recall": 0.04493858445077958
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "limitations": [
+    "Shared known validation/calibration and historically exposed development data.",
+    "Only3 motor folds; list folds/ranges, not window bootstrap population CIs.",
+    "Same scaler/reference/calibration makes detector scores unchanged between classifiers; classification improvement alone does not improve unknown AUROC.",
+    "Fresh data eligibility does not establish unverified physical compatibility of old training."
+  ],
+  "paired_detector_differences": [
+    {
+      "classifier": "extra_trees",
+      "direction": "knn minus mahalanobis",
+      "healthy_fpr_delta": 0.0,
+      "seed": 42,
+      "unknown_auroc_delta": -0.030075981345109637,
+      "unknown_recall_delta": -0.003523035230352304
+    },
+    {
+      "classifier": "extra_trees",
+      "direction": "knn minus mahalanobis",
+      "healthy_fpr_delta": 0.0,
+      "seed": 123,
+      "unknown_auroc_delta": 0.023822670985889693,
+      "unknown_recall_delta": 0.0
+    },
+    {
+      "classifier": "extra_trees",
+      "direction": "knn minus mahalanobis",
+      "healthy_fpr_delta": 0.008465608465608466,
+      "seed": 2026,
+      "unknown_auroc_delta": -0.07313151972049936,
+      "unknown_recall_delta": -0.31376623376623375
+    },
+    {
+      "classifier": "linear_baseline",
+      "direction": "knn minus mahalanobis",
+      "healthy_fpr_delta": 0.0,
+      "seed": 42,
+      "unknown_auroc_delta": -0.030075981345109637,
+      "unknown_recall_delta": -0.003523035230352304
+    },
+    {
+      "classifier": "linear_baseline",
+      "direction": "knn minus mahalanobis",
+      "healthy_fpr_delta": 0.0,
+      "seed": 123,
+      "unknown_auroc_delta": 0.023822670985889693,
+      "unknown_recall_delta": 0.0
+    },
+    {
+      "classifier": "linear_baseline",
+      "direction": "knn minus mahalanobis",
+      "healthy_fpr_delta": 0.008465608465608466,
+      "seed": 2026,
+      "unknown_auroc_delta": -0.07313151972049936,
+      "unknown_recall_delta": -0.31376623376623375
+    }
+  ],
+  "predictions_verified": 12,
+  "production_default_changed": false,
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "unknown_scores_improved_by_classifier_change": false
+}

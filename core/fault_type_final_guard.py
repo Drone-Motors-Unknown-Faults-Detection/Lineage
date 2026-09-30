@@ -56,6 +56,29 @@ def _safe_file(root: Path, name: str) -> Path:
     return path
 
 
+def record_final_exposure(ledger: dict, bundle: dict, *, evaluation_id: str) -> dict:
+    """Append history BEFORE prediction, even if evaluation later fails.
+
+    Caller must persist returned sealed ledger durably. A failed/retried test
+    remains exposed; it may be resumed as a recorded evaluation, never fresh.
+    """
+    verify_seal(ledger, "ledger_checksum"); verify_seal(bundle, "data_version_checksum")
+    if not evaluation_id:
+        raise FinalTestBlocked("evaluation ID required")
+    result = json.loads(json.dumps(ledger))
+    records = bundle["records"]
+    result["previous_ledger_checksum"] = ledger["ledger_checksum"]
+    for key, field in (("numeric_row_digests", "numeric_row_digest"), ("sample_ids", "sample_id"),
+                       ("motor_ids", "motor_id"), ("sessions", "session_id"), ("runs", "run_id"),
+                       ("raw_recording_sha256", "raw_source_sha256")):
+        result[key] = sorted(set(result.get(key, [])) | {str(r[field]) for r in records})
+    result.setdefault("files", {}).update({f"{evaluation_id}:{r.get('feature_source', r['sample_id'])}": r["source_sha256"] for r in records})
+    result.setdefault("evaluations", []).append({"evaluation_id": evaluation_id,
+        "data_version_checksum": bundle["data_version_checksum"], "registered_before_prediction": True,
+        "status": "exposed_even_if_later_evaluation_fails"})
+    return seal(result, "ledger_checksum")
+
+
 def ingest(root: Path | str, manifest: dict) -> dict:
     """Verify incoming files and row metadata; NEVER write/overwrite data.
 
@@ -137,7 +160,15 @@ def guard_final_test(bundle: dict, ledger: dict, locked: dict, *, claim: str,
     old_runs = set(ledger.get("runs", [])) | {str(r.get("run_id")) for r in training_records if r.get("run_id")}
     old_motors = set(ledger["motor_ids"]) | {str(r.get("motor_id")) for r in training_records if r.get("motor_id")}
     by_raw = {}
+    raw_owners, run_owners = {}, {}
     for row in bundle["records"]:
+        owner = (row["motor_id"], row["session_id"], row["run_id"])
+        raw_key, run_key = row["raw_source_sha256"], row["run_id"]
+        if raw_key in raw_owners and raw_owners[raw_key] != owner:
+            raise FinalTestBlocked("same recording cannot be relabeled as multiple motors/sessions/runs")
+        if run_key in run_owners and run_owners[run_key] != owner[:2]:
+            raise FinalTestBlocked("run crosses declared motor/session owners")
+        raw_owners[raw_key] = owner; run_owners[run_key] = owner[:2]
         if row["source_sha256"] in exposed_files or row["raw_source_sha256"] in exposed_files or row["numeric_row_digest"] in exposed_rows:
             raise FinalTestBlocked("previously exposed source / duplicate semantic feature row")
         if row["session_id"] in old_sessions or row["run_id"] in old_runs:

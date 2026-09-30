@@ -107,7 +107,8 @@ class FaultTypeManifestTests(unittest.TestCase):
         self.assertIn("1 test groups", " ".join(manifest["validator"]["details"]["TEST_INSUFFICIENT_GROUPS"]))
         self.assertTrue(manifest["shared_validation_calibration"])
         self.assertEqual(manifest["campaigns"]["test"], "3")
-        self.assertIn("not verified physical motor", " ".join(manifest["limitations"]))
+        self.assertIn("documented distinct motor IDs", " ".join(manifest["limitations"]))
+        self.assertIn("raw acquisition provenance is unverified", " ".join(manifest["limitations"]))
         self.assertEqual(validate_split_manifest(manifest)["status"], "INCOMPLETE")
 
     def test_embedded_validation_evidence_is_checksum_bound(self) -> None:

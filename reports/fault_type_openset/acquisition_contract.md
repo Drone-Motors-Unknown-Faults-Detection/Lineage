@@ -49,6 +49,13 @@ incoming root 保持唯讀，feature_files每個CSV須105 numeric columns。mani
 步驟：先由實際檔案建立JSON、用seal函式計算checksum，之後不可改內容不重簽。
 工具阻擋原始或特徵SHA失配、metadata漏列、路徑越界、缺必要physical事實。
 
+也可用下列copy入口計算checksum，輸出在output，不改incoming資料；該步驟只
+封存宣告，不證明宣告為真，也不填任何硬體未知facts。
+
+```powershell
+.\venv\Scripts\python.exe -m experiments.fault_type_ingest --incoming-root 'D:/YOUR_VERIFIED_INCOMING_ROOT' --manifest 'D:/YOUR_VERIFIED_INCOMING_ROOT/unsealed_manifest.json' --seal-manifest
+```
+
 ```powershell
 .\venv\Scripts\python.exe -m experiments.fault_type_ingest --incoming-root 'D:/YOUR_VERIFIED_INCOMING_ROOT' --manifest 'D:/YOUR_VERIFIED_INCOMING_ROOT/manifest.json'
 # 僅驗證ingest，不評估；locked/ledger/claim 三者齊全才啟動qualification gate
@@ -59,3 +66,10 @@ incoming root 保持唯讀，feature_files每個CSV須105 numeric columns。mani
 contract未知，未來可能必須在新verified資料重新train/val/cal或有bridge calibration，
 不能只靠incoming metadata就補證歷史物理相容性。原始DAQ samples的真實個數
 與物理單位仍需來源格式解析/人工紀錄交叉核對，宣告欄位不等於測量證明。
+
+Fresh評估API還要求durable exposure_sink：guard通過後、任何test prediction前
+保存record_final_exposure產生的sealed ledger（應atomic write+fsync）。即使後續
+評估失敗也不能把該批資料再稱fresh；回傳receipt綁定前一ledger。重試只能以
+明確recorded/resume protocol，不以重新建ledger繞過曝光史。CLI目前僅開放
+舊資料exploratory評估；真正fresh protocol須先凍結新group/physical橋接範圍，
+經ingest/guard後由API使用，不能用--exploratory冒充fresh。

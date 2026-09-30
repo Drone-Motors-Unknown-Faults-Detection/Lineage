@@ -101,7 +101,7 @@ def load_formal_catalog(data_root: Path | str) -> tuple[list[dict[str, object]],
         "sample_count": len(records),
         "feature_dim": 105,
         "group_key": "acquisition_stage_campaign; source_file subgroup",
-        "provenance_status": "physical motor, session, run, timestamp, raw interval and event unavailable",
+        "provenance_status": "documented motor IDs in evidence overlay; serial/session/run/timestamp/raw intervals/events unavailable",
         "files": files,
     }
     return records, summary
@@ -272,7 +272,7 @@ def generate_campaign_folds(
             },
             "excluded": excluded,
             "limitations": [
-                "T1/T2/T3 are path/stage codes, not verified physical motor identities.",
+                "T1/T2/T3 are documented distinct motor IDs; complete serial/session/raw acquisition provenance is unverified.",
                 "Each fold has only one campaign in test; two independent test campaigns per class are unavailable.",
                 "Validation and calibration reuse the same healthy/known samples and are statistically dependent.",
                 "Original source intervals and window overlap metadata are unavailable.",
