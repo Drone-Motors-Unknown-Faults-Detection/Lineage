@@ -148,3 +148,16 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Created https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9 using the saved evidence body, satisfying AGENT.md's issue/PR requirement. It tracks unresolved independent-data provenance, cross-stage feature semantics, efficacy and untested Python3.10 compatibility, not a claim that those items are fixed.
 - Final local status review: no modified tracked implementation files; existing 282 historical deletions remain unstaged. Untracked per-run prediction/manifests are intentionally not in Git and are retained in verified D-drive archives. Raw source files were not modified or uploaded.
 - Teacher recommendations are implemented and evaluated; trustworthy fault-type/generalization conclusions remain unsupported by the observed weak baseline and INCOMPLETE datasets. No additional threshold/model tuning is authorized or implied by reporting these limitations.
+
+## 2026-10-01 — Provenance follow-up, Stage 1
+
+- User explicitly authorized provenance/feature/known-validation work and staged commit+push, without rerunning2490 experiments.
+- Baseline full suite 137 passed at00:57; new evidence tests3 passed. Read pinned Git object afcfcc4 (lines218,230–231), verified90CSV path mappings/28910 rows using existing catalog.
+- Added non-mutating motor evidence overlay output/fault_type_provenance/2026-10-01-00-59-11/motor_evidence.json. Missing serials/hours remain null; frozen manifests/results unchanged.
+- Stage1 commit0dcd67b03d3d57016ed8038eda31fd7b8aa46e54 pushed; ls-remote returned exact SHA. Branch unchanged;282 deletions not staged.
+
+## 2026-10-01 — Source reconstruction, Stage 2
+
+- Three semantic row-mapping tests passed. Read-only CLI source audit started01:02:35, completed01:07:56, exit0; output/fault_type_source_audit/2026-10-01-01-02-35/source_audit.json.
+- Recovered19053 unique clean-to-unclean processed-feature row mappings for all60 Stage1/3 CSVs. These are processed-window ordinals, NOT original contiguous DAQ intervals.
+- Source/archive inventory and AST code evidence saved; scripts NEVER executed. Original acquisition boundaries and deletion masks remain unknown. Source/data bytes not changed.

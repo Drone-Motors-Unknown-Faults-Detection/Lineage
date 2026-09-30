@@ -40,3 +40,22 @@ $env:MPLCONFIGDIR = Join-Path (Get-Location) 'output/fault_type_mplcache'
 初始訊息停在「【5. 執行契約】」；詢問後已收到 Phase5–7、驗收與交付要求。
 依補充執行 final-test guard、exposure ledger、三候選模型與逐階段測試／push。
 硬體採集只提供規格，不宣稱完成；不主動聯絡學長、其他 task 或外部人員。
+
+## 來源／視窗重建
+
+read-only inventory 掃描兩個現有來源 root、三份 ZIP 的 nested csv/myfeature
+members，並保存原 ZIP SHA、member CRC/大小及 Step1/2 script SHA/AST/行號。
+所有 Stage1/3 共60個 clean CSV 與 ZIP bytes SHA 相符；19053 clean rows 全部
+取得唯一 unclean-feature row ordinal（105欄同時數值匹配，rtol1e-9/atol1e-10）。
+這恢復的是「clean feature→未清理特徵列」，不是 raw DAQ 連續樣本區間。
+重複或多重匹配會記 ambiguous，不杜撰唯一索引。清理的實際 mask 可由映射
+差集描述，但不能因此推定生成者的原始 IQR 程式版本。
+
+Step1 程式先 concat recordings、再各channel IQR=3刪點並切10000點窗。
+原採集檔名/時間被丟棄，刪點 mask 不在 processed channel CSV，故時間對齊
+與 source boundary 無法從這些 ordinals 單獨恢復。記為 code-observed risk，
+尚非已證明造成分類效能不足的因果。Stage2後續重算另記。
+
+```powershell
+.\venv\Scripts\python.exe -m experiments.fault_type_source_audit --data-root data/formal_local --source-root 'D:/schoolshit/fcu/專題/馬達研究/馬達研究' --source-root 'D:/schoolshit/專題/src/馬達研究/馬達研究'
+```
