@@ -43,3 +43,22 @@ motor/generalization可靠。detector仍由factory、known-onlycalibration/confi
 輸出selection_report、locked_config、fit/calibration audit gzip與3fold training
 joblib（大型衍生artifact存D槽archive，Git存SHA索引）。locked之後才可做已曝光
 test再分析；沒有合格freshfinal，正式独立驗證仍未完成。
+
+## 實際 known-validation 結果（01:19:31–01:19:37）
+
+| 模型 | 3fold macro-F1平均 | balanced accuracy平均 |
+|---|---:|---:|
+| 原linear | .188776 |22.5878%|
+| RBF SVM | .156778 |21.9895%|
+| ExtraTrees | .236452 |31.9710%|
+
+按預登錄criterion選ExtraTrees：macro-F1增加.047676，balanced accuracy
+增加9.3832百分點。三fold ExtraTrees的macro-F1為.285909/.201712/.221735，
+linear為.144396/.170760/.251172；最後一fold ExtraTrees反而較低。
+不是每fold改善，也不能把選擇集表現當unbiased final test。
+
+已保存3份selected/baseline classifier+scaler+2detectors的training joblib，
+實際參數與各input IDs、calibrationaudit、registry與checksum lock。
+Locked checksum c39437ab92b74ea31c94a220bfd2e3cbc83a91f3670c1a7246b45dc81493b5c5。
+未更改正式classifier/default detector；ExtraTrees只在獨立研究入口成為候選優勝，
+尚不是production升級。接續比較原test需明確exploratory opt-in，不能據結果重選。

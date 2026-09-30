@@ -1,0 +1,4 @@
+2026-10-01 01:19:31 | INFO    | Logger initialized: fault_type_model_selection
+2026-10-01 01:19:31 | INFO    | log_file=logs\fault_type_model_selection\2026-10-01-01-19-31.log
+2026-10-01 01:19:31 | INFO    | output_dir=output\fault_type_model_selection\2026-10-01-01-19-31
+2026-10-01 01:19:37 | INFO    | selected=extra_trees locked=c39437ab92b74ea31c94a220bfd2e3cbc83a91f3670c1a7246b45dc81493b5c5; known-validation only; final validation still pending

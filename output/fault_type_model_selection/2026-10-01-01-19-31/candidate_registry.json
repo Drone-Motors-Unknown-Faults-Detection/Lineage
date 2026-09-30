@@ -1,0 +1,87 @@
+{
+  "candidates": [
+    {
+      "complexity_rank": 0,
+      "name": "linear_baseline",
+      "parameters": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "max_iter": 1000,
+        "solver": "lbfgs",
+        "tol": 0.0001
+      },
+      "source": "unchanged existing fault_type_openset.CLASSIFIER_CONFIG"
+    },
+    {
+      "complexity_rank": 1,
+      "name": "rbf_svm",
+      "parameters": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "gamma": "scale",
+        "kernel": "rbf",
+        "probability": false
+      },
+      "source": "Cortes & Vapnik (1995), Support-vector networks, Machine Learning20:273–297; https://doi.org/10.1007/BF00994018"
+    },
+    {
+      "complexity_rank": 2,
+      "name": "extra_trees",
+      "parameters": {
+        "class_weight": "balanced",
+        "max_depth": 12,
+        "max_features": "sqrt",
+        "min_samples_leaf": 5,
+        "n_estimators": 200,
+        "n_jobs": 1
+      },
+      "source": "Geurts, Ernst & Wehenkel (2006), Extremely randomized trees, Machine Learning63:3–42; https://doi.org/10.1007/s10994-006-6226-1"
+    }
+  ],
+  "created_at": "2026-09-30T17:18:14.057266+00:00",
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "detectors": {
+    "confidence": 0.95,
+    "knn_neighbors": 5,
+    "mahalanobis_method": "ledoit_wolf"
+  },
+  "exposure_ledger_checksum": "4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc",
+  "feature_audit_sha256": "e2b285723ba92769bacb8945ccb09939e39bfd1dc7eae7162d6e2a5c77e27641",
+  "feature_version": "formal105_historical_v1_semantics_audited_20261001",
+  "features": "105 numeric positions only; paths/T-code/label encoding not features",
+  "fresh_final_test": false,
+  "historical_test_exposure": "all existing samples already exposed; search and future evaluation exploratory only",
+  "interpretability": "linear coefficients and tree importances are diagnostics; RBF nonlinear similarity is not causal explanation",
+  "manifest_paths": [
+    "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-05-42\\manifests\\sample-v1-4117c79b583bdef6bc4b_ade300cfeadc4b8b.json.gz",
+    "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-05-42\\manifests\\sample-v1-b3b11429ecce4501bff7_4e102a237cf9ac30.json.gz",
+    "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-05-42\\manifests\\sample-v1-29272b33f067dc0d91b4_69d0488c3f0dd20b.json.gz"
+  ],
+  "manifests": [
+    {
+      "fold_id": "train1-valcal2-test3",
+      "manifest_checksum": "ade300cfeadc4b8bc08d032fcaf5f2f8fae57b37e8b32df58f0e96d042fec840",
+      "seed": 42,
+      "split_id": "sample-v1-4117c79b583bdef6bc4b"
+    },
+    {
+      "fold_id": "train2-valcal3-test1",
+      "manifest_checksum": "4e102a237cf9ac3024f41d4e10ef120ed67c934a6b48591dfd7f085603b4cdb8",
+      "seed": 123,
+      "split_id": "sample-v1-b3b11429ecce4501bff7"
+    },
+    {
+      "fold_id": "train3-valcal1-test2",
+      "manifest_checksum": "69d0488c3f0dd20b9892a51a00e52bd96ecb5f855531f0dfafd6b8a843d97e5f",
+      "seed": 2026,
+      "split_id": "sample-v1-29272b33f067dc0d91b4"
+    }
+  ],
+  "planned_evaluation": "at most original3 folds x baseline/selected x2detectors after config lock; no new2490 matrix",
+  "protocol": "first original predeclared126 N5 combination, all3 original motor folds; no new class split/matrix",
+  "registry_checksum": "ecd25b8966aa1fdc3f5668b4ccf376903198a8ff8d23998104acec103c054f06",
+  "scaler": "train-only RobustScaler; no PCA/feature selector",
+  "schema_version": 1,
+  "selection_rule": "equal-fold mean known-validation macro-F1, then balanced accuracy, then lower complexity_rank; ties tolerance1e-12",
+  "shared_validation_calibration": true
+}
