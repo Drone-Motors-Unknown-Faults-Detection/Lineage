@@ -143,6 +143,27 @@ def summarize_matrix(root: Path, state: dict, log) -> dict:
     return index
 
 
+def annotate_pooled_task_count(root: Path, log) -> None:
+    """Migrate descriptive metadata only; numeric metrics/predictions unchanged."""
+    index = json.loads((root / "matrix_index.json").read_text(encoding="utf-8"))
+    changes = []
+    for stratum in index["strata"]:
+        path = Path(stratum["path"])
+        before_blob = path.read_bytes()
+        aggregate = json.loads(before_blob)
+        pooled = aggregate["pooled_sample"]["metrics"]
+        original_numeric = {k: v for k, v in pooled.items() if k not in {"known_fault_count", "known_fault_label_union_size", "known_fault_count_scope"}}
+        union_size = len(pooled["known_classification"]["labels"]) - 1
+        pooled.update(known_fault_count=stratum["N"], known_fault_label_union_size=union_size,
+            known_fault_count_scope="per-run task; classification labels are the union across tasks")
+        assert original_numeric == {k: v for k, v in pooled.items() if k not in {"known_fault_count", "known_fault_label_union_size", "known_fault_count_scope"}}
+        _write_json(path, aggregate)
+        changes.append({"path": str(path), "before_sha256": hashlib.sha256(before_blob).hexdigest(),
+            "after_sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "per_run_N": stratum["N"], "union_size": union_size})
+    _write_json(root / "pooled_metadata_migration.json", {"changes": changes, "numerical_metrics_changed": False, "raw_predictions_or_manifests_changed": False})
+    log.info("annotated {} pooled strata; no numerical metric changed", len(changes))
+
+
 def run_matrix(*, data_root: Path, plan: dict, root: Path, log, retry_failed: bool = False) -> dict:
     """Plan is written before the first feature/model/test evaluation."""
     root.mkdir(parents=True, exist_ok=True)
@@ -224,6 +245,8 @@ def main() -> None:
     parser.add_argument("--sample-cap-per-source", type=int)
     parser.add_argument("--resume", type=Path)
     parser.add_argument("--retry-failed", action="store_true")
+    parser.add_argument("--aggregate-only", action="store_true", help="rebuild derived summaries from completed artifacts; never refit")
+    parser.add_argument("--annotate-pooled-task-count-only", action="store_true", help="metadata-only migration; no model/metric recomputation")
     args = parser.parse_args()
     log, paths = setup_run("fault_type_matrix")
     if args.resume:
@@ -243,7 +266,22 @@ def main() -> None:
         root = paths.output_dir
         _write_json(root / "environment.json", {"python": platform.python_version(), "platform": platform.platform(),
             "packages": {p: importlib.metadata.version(p) for p in ("numpy", "pandas", "scipy", "scikit-learn", "threadpoolctl")}})
-    index = run_matrix(data_root=args.data_root, plan=plan, root=root, log=log, retry_failed=args.retry_failed)
+    if args.annotate_pooled_task_count_only:
+        if not args.resume or args.aggregate_only:
+            parser.error("metadata annotation requires --resume, without --aggregate-only")
+        annotate_pooled_task_count(root, log)
+        return
+    if args.aggregate_only:
+        if not args.resume:
+            parser.error("--aggregate-only requires --resume")
+        state = json.loads((root / "run_status.json").read_text(encoding="utf-8"))
+        for item in state["runs"].values():
+            if item["status"] == "completed":
+                summary = json.loads(Path(item["summary_path"]).read_text(encoding="utf-8"))
+                verify_saved(summary, read_split_manifest(item["manifest_path"]))
+        index = summarize_matrix(root, state, log)
+    else:
+        index = run_matrix(data_root=args.data_root, plan=plan, root=root, log=log, retry_failed=args.retry_failed)
     log.info("matrix finished: completed={} not_completed={} root={}", index["completed"], index["not_completed"], root.resolve())
 
 

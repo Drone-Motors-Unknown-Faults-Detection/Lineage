@@ -138,6 +138,21 @@ class FaultTypeMetricTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "does not match"):
             evaluate_fault_type_predictions(_predictions()[:4], healthy_label="healthy", known_fault_count=9)
 
+    def test_pooled_label_union_does_not_change_task_N(self):
+        first = _predictions()
+        second = copy.deepcopy(first)
+        exchange = {"fault-a": "fault-b", "fault-b": "fault-a"}
+        for r in second:
+            for field in ("true_label", "predicted_known_class", "nearest_known_class"):
+                r[field] = exchange.get(r[field], r[field])
+        metrics = evaluate_fault_type_predictions(second, healthy_label="healthy", known_fault_count=1)
+        runs = [
+            {"run_id": "first", "manifest_checksum": "first", "method": "mahalanobis", "healthy_label": "healthy", "metrics": _metrics(first), "predictions": first},
+            {"run_id": "second", "manifest_checksum": "second", "method": "mahalanobis", "healthy_label": "healthy", "metrics": metrics, "predictions": second}]
+        pooled = aggregate_fault_type_runs(runs)["pooled_sample"]["metrics"]
+        self.assertEqual(pooled["known_fault_count"], 1)
+        self.assertEqual(pooled["known_fault_label_union_size"], 2)
+
 
 if __name__ == "__main__":
     unittest.main()

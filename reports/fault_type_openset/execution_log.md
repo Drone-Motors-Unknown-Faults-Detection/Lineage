@@ -86,3 +86,12 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - `method_sources.md` cites Ledoit/Wolf (2004, J. Multivariate Analysis), Sun/Ming/Zhu/Li (2022, ICML/PMLR) and the actual scikit-learn classifier implementation. Our engineered-feature class-wise k-NN variant is not claimed to reproduce deep-kNN paper results.
 - Reporting fixture validates table/pair/plot creation and rejects duplicated strata; archive fixture validates exact content hashes, source preservation and no-overwrite behavior.
 - `venv\Scripts\python.exe -m unittest discover -s tests -q` → 135 passed, exit 0. Matplotlib cache was explicitly routed to writable `output/fault_type_mplcache`; single-class confusion warnings in synthetic fixtures are non-failing. N=5 still running at this support commit, without score-based adaptation.
+- Reporting/archive support commit `084e209aecb9a6e4002d793f502c9d69d69ae380` pushed and verified.
+
+## 2026-09-30 — Pooled task-count metadata guard
+
+- Code review while primary aggregates were being built found that pooling different known-class combinations can have a nine-label union even when every task has N=5. The old pooled descriptor inferred N from that union. Numerical metrics are unaffected.
+- Added explicit per-run task N versus union size, a regression test and a metadata-only migration command that asserts all numerical fields are unchanged and records before/after hashes. Original predictions, training settings, class combinations and immutable manifests are not changed.
+- Archiver now also requires a finished matrix aggregation index, rather than relying solely on completed per-run statuses.
+- Targeted metric tests: 8 passed. Primary 756 detector runs finished without failures; both-method aggregation is still in progress at this guard commit.
+- Full suite after this guard: 136 passed. Migration is also covered in the matrix resume fixture and preserves known-class numerical metrics.

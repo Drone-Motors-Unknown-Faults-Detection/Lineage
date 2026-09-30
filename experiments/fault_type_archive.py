@@ -36,6 +36,8 @@ def run(pools, *, destination: Path, paths, log) -> dict:
             raise ValueError(f"artifact root is missing: {root}")
         status_path = root / "run_status.json"
         if status_path.exists():
+            if not (root / "matrix_index.json").is_file():
+                raise ValueError("archive refuses a matrix whose aggregation is unfinished")
             state = json.loads(status_path.read_text(encoding="utf-8"))
             if len(state["runs"]) != state["declared_run_count"] or any(r["status"] not in {"completed", "failed", "skipped"} for r in state["runs"].values()):
                 raise ValueError("archive refuses active or incomplete run inventories")

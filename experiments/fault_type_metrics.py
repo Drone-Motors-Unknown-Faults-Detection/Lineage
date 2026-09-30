@@ -616,6 +616,13 @@ def aggregate_fault_type_runs(runs: Sequence[Mapping[str, Any]]) -> dict[str, An
         healthy_label=next(iter(healthy_labels)),
         require_unique_sample_ids=True,
     )
+    # Across combinations, all nine faulty labels can appear somewhere as
+    # known, even though each individual N=5 task has only five known faults.
+    # That union must not be mislabeled as an N=9 closed-set pooled task.
+    pooled["known_fault_label_union_size"] = pooled["known_fault_count"]
+    task_counts = {run["metrics"]["known_fault_count"] for run in completed}
+    pooled["known_fault_count"] = next(iter(task_counts)) if len(task_counts) == 1 else None
+    pooled["known_fault_count_scope"] = "per-run task; classification labels are the union across tasks"
 
     unknown_by_label: dict[str, list[Mapping[str, Any]]] = defaultdict(list)
     for run in completed:

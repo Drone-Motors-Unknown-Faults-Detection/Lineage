@@ -52,6 +52,11 @@ class FaultTypeMatrixTests(unittest.TestCase):
             with patch.object(matrix, "load_formal_catalog", return_value=(records, catalog)), patch.object(matrix, "FeatureStore", return_value=FixtureStore()):
                 first = matrix.run_matrix(data_root=root, plan=plan, root=root / "matrix", log=logger)
                 self.assertEqual(first["completed"], 2)
+                old = json.loads(Path(first["strata"][0]["path"]).read_text())
+                matrix.annotate_pooled_task_count(root / "matrix", logger)
+                updated = json.loads(Path(first["strata"][0]["path"]).read_text())
+                self.assertEqual(old["pooled_sample"]["metrics"]["known_classification"], updated["pooled_sample"]["metrics"]["known_classification"])
+                self.assertEqual(updated["pooled_sample"]["metrics"]["known_fault_count"], 1)
                 with patch.object(matrix, "run", side_effect=AssertionError("must not refit")):
                     second = matrix.run_matrix(data_root=root, plan=plan, root=root / "matrix", log=logger)
                 self.assertEqual(second["completed"], 2)
