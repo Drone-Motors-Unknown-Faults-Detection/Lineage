@@ -58,6 +58,11 @@ class FaultTypeMatrixTests(unittest.TestCase):
                 status = json.loads((root / "matrix" / "run_status.json").read_text())
                 summary_path = next(iter(status["runs"].values()))["summary_path"]
                 summary = json.loads(Path(summary_path).read_text())
+                summary["metrics"]["known_classification"]["accuracy"] = -1
+                manifest = matrix.read_split_manifest(next(iter(status["runs"].values()))["manifest_path"])
+                with self.assertRaisesRegex(ValueError, "metrics do not match"):
+                    matrix.verify_saved(summary, manifest)
+                summary = json.loads(Path(summary_path).read_text())
                 artifact = Path(summary["prediction_artifact"]["path"])
                 artifact.write_bytes(b"corrupt")
                 with self.assertRaisesRegex(ValueError, "resume checksum mismatch"):

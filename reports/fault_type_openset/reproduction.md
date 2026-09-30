@@ -57,3 +57,28 @@ The read-only feature root must be `data/formal_local` with the fingerprint in
    artifacts at their recorded absolute paths; Git does not contain their bytes.
    Check the exact staged files, commit with the Codex coauthor trailer, push
    the current branch and verify the remote SHA. Never stage unrelated deletions.
+
+7. Once a matrix finishes, create evidence tables/plots (repeat `--matrix` for
+   disjoint N/protocol strata only; never pass the same resumed matrix twice):
+
+   ```powershell
+   .\venv\Scripts\python.exe -m experiments.fault_type_report --matrix output/fault_type_matrix/REPLACE_WITH_TIMESTAMP
+   ```
+
+   The report includes SD/CI and pooled rates, protocol/N-specific paired deltas,
+   per-configuration recall/attraction and N=5 RPM/campaign condition analysis.
+   It labels all current data INCOMPLETE and refuses pilot matrices.
+
+8. The active worktree lives under Windows Temp and previously had unexplained
+   missing historical files. Preserve completed generated artifacts on D: using
+   the verified ZIP64 archiver (it does not change/remove sources):
+
+   ```powershell
+   .\venv\Scripts\python.exe -m experiments.fault_type_archive --output-root output/fault_type_matrix/REPLACE_WITH_TIMESTAMP --destination 'D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-09-30'
+   ```
+
+   It refuses active inventories and existing archives, verifies ZIP CRC and
+   archive SHA-256, and embeds a per-file SHA-256 BUNDLE_INDEX.json. Unzip to a
+   new directory to recover the timestamped output tree. Internal metadata
+   retains original worktree paths; consult the bundle index when reading a
+   portable copy. Raw/formal source data and credentials are not archived.

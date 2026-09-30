@@ -91,6 +91,18 @@ def verify_saved(summary: dict, manifest: dict) -> None:
         raise ValueError("resume test IDs mismatch")
     if any(r["manifest_checksum"] != manifest["manifest_checksum"] for r in rows):
         raise ValueError("resume prediction manifest mismatch")
+    by_id = {r["sample_id"]: r for r in manifest["records"]}
+    for row in rows:
+        source = by_id[row["sample_id"]]
+        if row["true_label"] != source["label"] or row["group_id"] != source["group_id"]:
+            raise ValueError("resume true label or group mismatch")
+        if row["threshold"] != 1.0 or row["is_unknown"] != (row["openset_score"] > 1.0):
+            raise ValueError("resume rejection decision mismatch")
+    recomputed = evaluate_fault_type_predictions(rows, healthy_label=summary["healthy_label"],
+        known_labels=summary["known_labels"], unknown_labels=summary["unknown_labels"],
+        known_fault_count=summary["known_fault_count"])
+    if recomputed != summary["metrics"]:
+        raise ValueError("resume metrics do not match actual predictions")
 
 
 def _slim_predictions(path: str) -> list[dict]:
