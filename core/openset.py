@@ -60,6 +60,8 @@ class OpenSetDetector(Protocol):
 
     def score_samples(self, X: np.ndarray) -> np.ndarray: ...
 
+    def nearest_known_class(self, X: np.ndarray) -> np.ndarray: ...
+
     def predict_known_class(self, X: np.ndarray) -> np.ndarray: ...
 
     def class_summaries(self) -> list[dict]: ...
@@ -179,6 +181,14 @@ class KNNOpenSetDetector:
         labels = np.array([self.models_[index].label for index in indices], dtype=int)
         labels[np.min(normalized, axis=1) > 1.0] = -1
         return labels
+
+    def nearest_known_class(self, X: np.ndarray) -> np.ndarray:
+        """Return the closest reference class even when the sample is rejected."""
+        normalized = self._normalized_scores(X)
+        if len(normalized) == 0:
+            return np.empty(0, dtype=int)
+        indices = np.argmin(normalized, axis=1)
+        return np.array([self.models_[index].label for index in indices], dtype=int)
 
     def class_summaries(self) -> list[dict]:
         return [

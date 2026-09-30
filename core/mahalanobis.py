@@ -167,6 +167,19 @@ class MahalanobisOpenSetDetector:
         labels[np.min(normalized, axis=1) > 1.0] = -1
         return labels
 
+    def nearest_known_class(self, X: np.ndarray) -> np.ndarray:
+        """Return the closest calibrated class without applying rejection."""
+        X_t = self._transform(X)
+        normalized = np.column_stack(
+            [
+                _distances(X_t, item.location, item.precision)
+                / max(item.threshold, np.finfo(float).eps)
+                for item in self.distributions_
+            ]
+        )
+        indices = np.argmin(normalized, axis=1)
+        return np.array([self.distributions_[index].label for index in indices], dtype=int)
+
     def class_summaries(self) -> list[dict]:
         """Return calibration metadata for the common Open Set detector API."""
         return [

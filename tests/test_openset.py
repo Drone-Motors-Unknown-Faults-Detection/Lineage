@@ -38,9 +38,12 @@ class KNNDetectorTests(unittest.TestCase):
         detector.fit(X_train, y_train, X_cal, y_cal)
         scores = detector.score_samples(np.array([[0.1, 0.1], [10.0, 10.0]]))
         predictions = detector.predict_known_class(np.array([[0.1, 0.1], [10.0, 10.0]]))
+        nearest = detector.nearest_known_class(np.array([[0.1, 0.1], [10.0, 10.0]]))
         self.assertLessEqual(scores[0], 1.0)
         self.assertGreater(scores[1], 1.0)
         self.assertEqual(predictions.tolist(), [0, -1])
+        self.assertEqual(nearest.shape, (2,))
+        self.assertNotEqual(nearest[1], -1)
 
     def test_threshold_boundary_is_known_and_larger_is_unknown(self):
         detector = KNNOpenSetDetector(confidence=0.95, n_neighbors=1).fit(

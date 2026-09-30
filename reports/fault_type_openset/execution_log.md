@@ -48,3 +48,10 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Actual CLI: `venv\Scripts\python.exe -m core.fault_type_manifest --data-root data/formal_local --registry reports/fault_type_openset/manifests/class_roles_v1_6bdff74614f1d781.json --git-commit 819c9d06b8cefa13d7b084838ea33b784536195e`.
 - Three gzip manifests were read back and checksum verified. Compact report: `output/fault_type_manifest/2026-09-30-18-43-30/validation_index.json`; all three are INCOMPLETE (`TEST_INSUFFICIENT_GROUPS`), not INVALID. Complete manifests remain local large artifacts; index and log are committed.
 - Additional metrics check found an incorrect synthetic FPR95 expectation (two negatives precede the fourth positive, so FPR95=1.0); correction belongs to stage 6. No measured formal score has yet been used to select combinations or methods.
+
+## 2026-09-30 — Stage 5 factory-based protocols
+
+- Stage 4 commit `7a8507bd07097b24528316c6d0cf437f39b384f4` pushed and remote SHA verified.
+- Added fixed train-only balanced logistic classifier, exact fit-input audit, both factory detectors, probability-bearing per-sample artifacts and A/B separation. Unknown validation is diagnostic, not threshold fitting. Mahalanobis default and binary/PolarMap remain unchanged.
+- `venv\Scripts\python.exe -m unittest tests.test_fault_type_runner tests.test_openset -q` → 16 passed. Actual scaler and detector fit calls were checked against train/calibration-only matrices.
+- Broader test before stage-6 fixture correction: 127 tests, one failure (the documented FPR95 expected-value error); no other regressions. Invalid CLI usage is intentionally tested and prints argparse error while passing.
