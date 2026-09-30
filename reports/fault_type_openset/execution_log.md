@@ -214,3 +214,9 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - All metadata/config/fit-cal audits/training models/115640exploratory predictions are preserved. Internal archived paths retain original roots; backups contain derived data only, not raw sources. This is one D-drive backup, not an off-device disaster-recovery guarantee.
 - Explicit staging excludes3joblib files,ignored*.gz prediction/audit/ledger and all282old deletions; these ignored artifacts are in verifiedD backups. No modified tracked implementation files left after staging, except this final journal/report change. No main merge/history rewrite.
 - New-data qualification is an engineering guard over available/checksummed/attested facts, not automatic physical authentication. MissingDAQ/time masks/actualsensorbridge/freshindependentfinal and Python3.10 remain externally unresolved; report does not claim reliable model completion.
+
+## 2026-10-01 — Resumed final Git delivery
+
+- Stage7 acceptance/backup commit197369fcf28f01f589a3ef6b5237e8642299e47b was preserved locally. The first push approval review failed due to the approval service usage limit; the action was NOT executed. No approval bypass, alternate credentials, or history rewrite was attempted.
+- User requested continuation. At07:42 Asia/Taipei, retried through the normal escalated permission workflow: `git push origin research-improvements-20260920` exit0, remote advanced8a9bec2→197369f. Subsequent `git ls-remote origin refs/heads/research-improvements-20260920` exit0 returned exact197369fcf28f01f589a3ef6b5237e8642299e47b.
+- This continuation only updates delivery documentation, not models, data, locked configuration or evaluation artifacts. The170-test acceptance and verified backups remain unchanged. Existing282 unrelated deletions are still not staged. Final journal commit is separately reported after its own push/SHA verification, avoiding a self-referential commit-SHA edit loop.

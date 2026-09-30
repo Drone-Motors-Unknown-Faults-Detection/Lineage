@@ -148,8 +148,8 @@ interval/stride/channelalignment、單位/校正/安裝/負載與配置確認，
 |8份ZIP SHA/CRC索引 |output/fault_type_archive/2026-10-01-01-27-55/archive_index.json|
 
 長期衍生備份：`D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01`，
-8份ZIP，全部SHA/CRC驗證，含3training joblib/fit-cal audit/12逐樣本預測/
-ledger/fullmetadata。原檔未刪，raw data未上傳。Git只stage本輪程式、reports、
+8份主要產物ZIP，全部wholeSHA/CRC及內部memberSHA驗證，含3training joblib/fit-cal audit/12逐樣本預測/
+ledger/fullmetadata；另2份成功／失敗驗收ZIP經SHA/CRC驗證，共10份。原檔未刪，raw data未上傳。Git只stage本輪程式、reports、
 config、metadata摘要/映射與indices；不stagejoblib/大型predictiongz或舊282deletions。
 
 ```powershell
@@ -193,7 +193,9 @@ pyproject要求3.10.19尚未測試；binary detection/PolarMap/factory包含在�
 |5a訓練前預登錄|d0daccd|
 |5b實際selection/lock，舊test之前|ba7e728|
 |6受控exploratory結果|8a9bec2|
+|7驗收與備份，已push核對|197369f|
 
-最終驗收／備份提交的生成SHA與push核對記於execution_log後續條目及最終回覆；
-不在commit生成前捏造自身SHA。Issue9已新增具體更新comment，保持OPEN：
+驗收提交完整SHA為197369fcf28f01f589a3ef6b5237e8642299e47b；初次push因審批服務用量限制未執行，
+於使用者要求繼續後，以正常權限流程成功push，ls-remote核對一致。實際失敗與重試均記於execution_log。
+本次交付紀錄的後續commit SHA另於最終回覆核對，不在commit生成前捏造自身SHA。Issue9已新增具體更新comment，保持OPEN：
 https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9#issuecomment-5916453179 。
