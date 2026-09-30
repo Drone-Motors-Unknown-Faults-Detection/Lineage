@@ -1,0 +1,20 @@
+{
+  "changes": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-05-42\\aggregate_A_n5_knn.json",
+      "before_sha256": "6998efde86a195a026fc4ca149d9feba037661208f828ceadc17e4171a6a7f62",
+      "after_sha256": "dae1b7e5d3131b2877a2ad4200e65f89db550f27e8c66c11e700cd8c7aeccc2b",
+      "per_run_N": 5,
+      "union_size": 9
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-05-42\\aggregate_A_n5_mahalanobis.json",
+      "before_sha256": "934e07674c03a64bea91d43bca699ac57dd631d5cc89c7e81e4f8d300b4c015d",
+      "after_sha256": "8a43bb4a6b50506ffb694f2507d1d146189e53fe7a9963fc0bee177265ad33c6",
+      "per_run_N": 5,
+      "union_size": 9
+    }
+  ],
+  "numerical_metrics_changed": false,
+  "raw_predictions_or_manifests_changed": false
+}

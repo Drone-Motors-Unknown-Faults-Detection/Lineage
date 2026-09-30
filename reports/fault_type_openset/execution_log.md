@@ -95,3 +95,12 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Archiver now also requires a finished matrix aggregation index, rather than relying solely on completed per-run statuses.
 - Targeted metric tests: 8 passed. Primary 756 detector runs finished without failures; both-method aggregation is still in progress at this guard commit.
 - Full suite after this guard: 136 passed. Migration is also covered in the matrix resume fixture and preserves known-class numerical metrics.
+
+## 2026-09-30 — Stage 8 primary N=5 completed
+
+- Guard commit `1cfdcb63e513a129f86f1a4054fd49108c53a775` pushed and verified.
+- Primary matrix finished 19:31:50: 756/756 completed, 0 failed; 126 combinations × 3 folds × 2 methods. Both methods have 3,642,660 predictions and 378 verified same-manifest pairs. Formal data fingerprint unchanged. All manifests are INCOMPLETE.
+- Descriptive label-union metadata migrated with `python -m experiments.fault_type_matrix --resume output/fault_type_matrix/2026-09-30-19-05-42 --annotate-pooled-task-count-only`; no numerical metric, prediction or immutable manifest changed. Before/after aggregate hashes saved.
+- `python -m experiments.fault_type_report --matrix output/fault_type_matrix/2026-09-30-19-05-42` completed; output `output/fault_type_report/2026-09-30-19-32-34`.
+- `python -m experiments.fault_type_archive --output-root output/fault_type_matrix/2026-09-30-19-05-42 --destination D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-09-30` completed. D-drive ZIP64: 3,712,231,384 bytes / 2654 files, CRC PASS, SHA-256 `25fc12c6982143f72fdf8c5534837dcd4767ba98ab106af39bdbb10eacb3d540`.
+- Actual findings: known accuracy .257437 both; unknown AUROC .527746 Mahalanobis / .524480 k-NN; unknown recall .149949 / .079434; healthy FPR .022593 / .012681. No reliable unseen-configuration rejection claim. Details/limitations in `primary_results.md`; no post-test threshold/model/seed changes.

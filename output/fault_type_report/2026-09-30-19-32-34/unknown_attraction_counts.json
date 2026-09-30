@@ -1,0 +1,213 @@
+[
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "unknown_attraction_counts": {
+      "4_146screws": {
+        "2screws": 17487,
+        "4screws": 35955,
+        "8screws": 56451,
+        "1screws": 5881,
+        "3_14screws": 1466,
+        "3screws": 15458,
+        "6screws": 25988,
+        "5screws": 6203,
+        "7screws": 927
+      },
+      "5screws": {
+        "2screws": 11038,
+        "4screws": 31563,
+        "3_14screws": 12385,
+        "1screws": 14184,
+        "8screws": 34620,
+        "4_146screws": 34226,
+        "3screws": 13505,
+        "6screws": 9694,
+        "7screws": 625
+      },
+      "6screws": {
+        "2screws": 15319,
+        "4screws": 32864,
+        "8screws": 30706,
+        "1screws": 12220,
+        "3_14screws": 12038,
+        "4_146screws": 36574,
+        "3screws": 14657,
+        "5screws": 6033,
+        "7screws": 645
+      },
+      "7screws": {
+        "2screws": 6204,
+        "4screws": 34211,
+        "3_14screws": 11398,
+        "8screws": 19472,
+        "1screws": 5509,
+        "4_146screws": 42754,
+        "3screws": 14689,
+        "6screws": 12540,
+        "5screws": 895
+      },
+      "4screws": {
+        "4_146screws": 33605,
+        "3screws": 34929,
+        "3_14screws": 7055,
+        "8screws": 46988,
+        "2screws": 11030,
+        "6screws": 12246,
+        "1screws": 8660,
+        "5screws": 1864,
+        "7screws": 591
+      },
+      "3_14screws": {
+        "4_146screws": 36121,
+        "4screws": 35718,
+        "1screws": 12248,
+        "2screws": 7971,
+        "8screws": 44751,
+        "6screws": 12993,
+        "7screws": 2264,
+        "3screws": 15632,
+        "5screws": 1478
+      },
+      "3screws": {
+        "4_146screws": 36131,
+        "4screws": 31675,
+        "3_14screws": 12962,
+        "8screws": 50436,
+        "2screws": 11006,
+        "6screws": 11112,
+        "1screws": 8020,
+        "5screws": 2252,
+        "7screws": 430
+      },
+      "2screws": {
+        "4_146screws": 35776,
+        "4screws": 33890,
+        "3screws": 15450,
+        "1screws": 17096,
+        "3_14screws": 5840,
+        "5screws": 7648,
+        "8screws": 38614,
+        "6screws": 12140,
+        "7screws": 706
+      },
+      "1screws": {
+        "4_146screws": 34991,
+        "4screws": 34924,
+        "3screws": 16776,
+        "3_14screws": 13953,
+        "8screws": 43494,
+        "2screws": 7229,
+        "6screws": 12234,
+        "7screws": 1491,
+        "5screws": 2124
+      }
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "unknown_attraction_counts": {
+      "4_146screws": {
+        "2screws": 26006,
+        "1screws": 25821,
+        "3screws": 38797,
+        "8screws": 30807,
+        "4screws": 13478,
+        "6screws": 7845,
+        "7screws": 22545,
+        "3_14screws": 492,
+        "5screws": 25
+      },
+      "5screws": {
+        "2screws": 18635,
+        "3screws": 30594,
+        "1screws": 33832,
+        "3_14screws": 14222,
+        "8screws": 938,
+        "4screws": 11884,
+        "4_146screws": 34676,
+        "6screws": 3023,
+        "7screws": 14036
+      },
+      "6screws": {
+        "2screws": 30949,
+        "3screws": 33646,
+        "3_14screws": 17617,
+        "1screws": 22810,
+        "4_146screws": 33281,
+        "7screws": 20526,
+        "8screws": 326,
+        "5screws": 6,
+        "4screws": 1895
+      },
+      "7screws": {
+        "2screws": 16876,
+        "3screws": 34353,
+        "1screws": 37837,
+        "3_14screws": 9820,
+        "4_146screws": 39352,
+        "6screws": 6575,
+        "8screws": 1253,
+        "4screws": 1596,
+        "5screws": 10
+      },
+      "4screws": {
+        "4_146screws": 29757,
+        "3screws": 36857,
+        "1screws": 19811,
+        "3_14screws": 5354,
+        "8screws": 790,
+        "2screws": 20253,
+        "5screws": 8181,
+        "6screws": 3346,
+        "7screws": 32619
+      },
+      "3_14screws": {
+        "4_146screws": 35515,
+        "3screws": 28405,
+        "1screws": 50751,
+        "2screws": 13939,
+        "6screws": 5191,
+        "7screws": 34532,
+        "5screws": 129,
+        "4screws": 714
+      },
+      "3screws": {
+        "4_146screws": 35474,
+        "1screws": 47224,
+        "2screws": 21022,
+        "3_14screws": 20266,
+        "6screws": 3157,
+        "4screws": 8073,
+        "8screws": 5,
+        "7screws": 28270,
+        "5screws": 533
+      },
+      "2screws": {
+        "4_146screws": 34528,
+        "3screws": 36561,
+        "3_14screws": 13017,
+        "1screws": 32793,
+        "8screws": 641,
+        "5screws": 4067,
+        "6screws": 10370,
+        "7screws": 30052,
+        "4screws": 5131
+      },
+      "1screws": {
+        "4_146screws": 57462,
+        "3screws": 36104,
+        "3_14screws": 12313,
+        "2screws": 20937,
+        "8screws": 5200,
+        "6screws": 2337,
+        "7screws": 30322,
+        "5screws": 324,
+        "4screws": 2217
+      }
+    }
+  }
+]

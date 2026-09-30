@@ -1,0 +1,272 @@
+[
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "label": "1screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.34879366673018075,
+      "standard_deviation": 0.12590088641317138,
+      "ci95_lower": 0.3316663484627276,
+      "ci95_upper": 0.3659209849976339,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "label": "2screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.0653671790205084,
+      "standard_deviation": 0.12053919672231228,
+      "ci95_lower": 0.0489692548693548,
+      "ci95_upper": 0.081765103171662,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "label": "3_14screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.14069729992523694,
+      "standard_deviation": 0.1432269651657284,
+      "ci95_lower": 0.12121297470115161,
+      "ci95_upper": 0.16018162514932227,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "label": "3screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.3570347160420421,
+      "standard_deviation": 0.29054909005431145,
+      "ci95_lower": 0.31750896781698046,
+      "ci95_upper": 0.3965604642671038,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "label": "4_146screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.36934610889604985,
+      "standard_deviation": 0.43898470870230427,
+      "ci95_lower": 0.30962746008673536,
+      "ci95_upper": 0.42906475770536434,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "label": "4screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.1482115567900874,
+      "standard_deviation": 0.1786274719694771,
+      "ci95_lower": 0.12391141363071617,
+      "ci95_upper": 0.17251169994945864,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "label": "5screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.21633719132046997,
+      "standard_deviation": 0.20707194201918805,
+      "ci95_lower": 0.18816751629861717,
+      "ci95_upper": 0.24450686634232277,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "label": "6screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.36679795030863227,
+      "standard_deviation": 0.29348156938092396,
+      "ci95_lower": 0.3268732731469244,
+      "ci95_upper": 0.40672262747034016,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "knn",
+    "label": "7screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.14091635325631585,
+      "standard_deviation": 0.21138699770088767,
+      "ci95_lower": 0.11215966622757602,
+      "ci95_upper": 0.16967304028505567,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "label": "1screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.34879366673018075,
+      "standard_deviation": 0.12590088641317138,
+      "ci95_lower": 0.3316663484627276,
+      "ci95_upper": 0.3659209849976339,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "label": "2screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.0653671790205084,
+      "standard_deviation": 0.12053919672231228,
+      "ci95_lower": 0.0489692548693548,
+      "ci95_upper": 0.081765103171662,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "label": "3_14screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.14069729992523694,
+      "standard_deviation": 0.1432269651657284,
+      "ci95_lower": 0.12121297470115161,
+      "ci95_upper": 0.16018162514932227,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "label": "3screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.3570347160420421,
+      "standard_deviation": 0.29054909005431145,
+      "ci95_lower": 0.31750896781698046,
+      "ci95_upper": 0.3965604642671038,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "label": "4_146screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.36934610889604985,
+      "standard_deviation": 0.43898470870230427,
+      "ci95_lower": 0.30962746008673536,
+      "ci95_upper": 0.42906475770536434,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "label": "4screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.1482115567900874,
+      "standard_deviation": 0.1786274719694771,
+      "ci95_lower": 0.12391141363071617,
+      "ci95_upper": 0.17251169994945864,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "label": "5screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.21633719132046997,
+      "standard_deviation": 0.20707194201918805,
+      "ci95_lower": 0.18816751629861717,
+      "ci95_upper": 0.24450686634232277,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "label": "6screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.36679795030863227,
+      "standard_deviation": 0.29348156938092396,
+      "ci95_lower": 0.3268732731469244,
+      "ci95_upper": 0.40672262747034016,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  },
+  {
+    "protocol": "A",
+    "N": 5,
+    "method": "mahalanobis",
+    "label": "7screws",
+    "recall": {
+      "status": "computed",
+      "n": 210,
+      "mean": 0.14091635325631585,
+      "standard_deviation": 0.21138699770088767,
+      "ci95_lower": 0.11215966622757602,
+      "ci95_upper": 0.16967304028505567,
+      "ci95_method": "student_t_two_sided_over_runs"
+    }
+  }
+]

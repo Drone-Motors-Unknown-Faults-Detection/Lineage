@@ -1,0 +1,104 @@
+{
+  "mahalanobis": {
+    "known": {
+      "protocol": "A",
+      "N": 5,
+      "method": "mahalanobis",
+      "label": "2screws",
+      "recall": {
+        "status": "computed",
+        "n": 210,
+        "mean": 0.0653671790205084,
+        "standard_deviation": 0.12053919672231228,
+        "ci95_lower": 0.0489692548693548,
+        "ci95_upper": 0.081765103171662,
+        "ci95_method": "student_t_two_sided_over_runs"
+      }
+    },
+    "unknown": {
+      "protocol": "A",
+      "N": 5,
+      "method": "mahalanobis",
+      "unknown_label": "4screws",
+      "runs_present": 168,
+      "recall": {
+        "status": "computed",
+        "n": 168,
+        "mean": 0.04216403108473977,
+        "standard_deviation": 0.09316102369335372,
+        "ci95_lower": 0.02797390128599808,
+        "ci95_upper": 0.056354160883481455,
+        "ci95_method": "student_t_two_sided_over_runs"
+      },
+      "mean_score": {
+        "status": "computed",
+        "n": 168,
+        "mean": 0.5007210948817744,
+        "standard_deviation": 0.22879277358983435,
+        "ci95_lower": 0.4658717659935444,
+        "ci95_upper": 0.5355704237700044,
+        "ci95_method": "student_t_two_sided_over_runs"
+      },
+      "most_attracted_share": {
+        "status": "computed",
+        "n": 168,
+        "mean": 0.832388314693828,
+        "standard_deviation": 0.19526578133503716,
+        "ci95_lower": 0.8026457606455026,
+        "ci95_upper": 0.8621308687421534,
+        "ci95_method": "student_t_two_sided_over_runs"
+      }
+    }
+  },
+  "knn": {
+    "known": {
+      "protocol": "A",
+      "N": 5,
+      "method": "knn",
+      "label": "2screws",
+      "recall": {
+        "status": "computed",
+        "n": 210,
+        "mean": 0.0653671790205084,
+        "standard_deviation": 0.12053919672231228,
+        "ci95_lower": 0.0489692548693548,
+        "ci95_upper": 0.081765103171662,
+        "ci95_method": "student_t_two_sided_over_runs"
+      }
+    },
+    "unknown": {
+      "protocol": "A",
+      "N": 5,
+      "method": "knn",
+      "unknown_label": "7screws",
+      "runs_present": 168,
+      "recall": {
+        "status": "computed",
+        "n": 168,
+        "mean": 0.015332271685027352,
+        "standard_deviation": 0.06624664199899695,
+        "ci95_lower": 0.005241695052993153,
+        "ci95_upper": 0.025422848317061552,
+        "ci95_method": "student_t_two_sided_over_runs"
+      },
+      "mean_score": {
+        "status": "computed",
+        "n": 168,
+        "mean": 0.5206184720818405,
+        "standard_deviation": 0.2037703029525279,
+        "ci95_lower": 0.48958052366316535,
+        "ci95_upper": 0.5516564205005157,
+        "ci95_method": "student_t_two_sided_over_runs"
+      },
+      "most_attracted_share": {
+        "status": "computed",
+        "n": 168,
+        "mean": 0.8807007186257658,
+        "standard_deviation": 0.19379470314409916,
+        "ci95_lower": 0.851182236723129,
+        "ci95_upper": 0.9102192005284027,
+        "ci95_method": "student_t_two_sided_over_runs"
+      }
+    }
+  }
+}

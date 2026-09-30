@@ -1,0 +1,4 @@
+2026-09-30 19:32:31 | INFO    | Logger initialized: fault_type_matrix
+2026-09-30 19:32:31 | INFO    | log_file=logs\fault_type_matrix\2026-09-30-19-32-31.log
+2026-09-30 19:32:31 | INFO    | output_dir=output\fault_type_matrix\2026-09-30-19-32-31
+2026-09-30 19:32:31 | INFO    | annotated 2 pooled strata; no numerical metric changed
