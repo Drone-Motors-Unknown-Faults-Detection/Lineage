@@ -161,3 +161,12 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Three semantic row-mapping tests passed. Read-only CLI source audit started01:02:35, completed01:07:56, exit0; output/fault_type_source_audit/2026-10-01-01-02-35/source_audit.json.
 - Recovered19053 unique clean-to-unclean processed-feature row mappings for all60 Stage1/3 CSVs. These are processed-window ordinals, NOT original contiguous DAQ intervals.
 - Source/archive inventory and AST code evidence saved; scripts NEVER executed. Original acquisition boundaries and deletion masks remain unknown. Source/data bytes not changed.
+
+- Stage2 commit a82b833fa0692e583e3dd57a708e9131ec756c85 pushed; exact remote SHA verified. Two roots' three archive SHAs identical;450 channel CSV members/root are copies, not900 recordings. Original DAQ candidates0 under bounded extension/header inventory, not proof files do not exist elsewhere.
+
+## 2026-10-01 — Cross-stage computational contract, Stage 3
+
+-3 feature-contract tests passed (signed statistical quirks, FFT amplitude/axis, nominal-vs-measured constants).
+- CLI feature audit01:04:50–01:14:09 exit0; output/fault_type_feature_audit/2026-10-01-01-04-50/feature_audit.json. Checks all30 Stage2 conditions and predeclared6 healthy Stage1/3 RPM probes using existing extracted files, independent numerical reference, fileSHAs.
+- Stage2's9857 clean rows uniquely matched recomputed105-D processed windows. Together with Stage1/3 mappings this recovers all28910 processed ordinals, zero original DAQ intervals. This is not900 independent recordings or a raw-time metadata recovery.
+- Historical statistics/FFT kept fixed: redundant clearance/impulse, signed max crest, RMS/MSA and std/variance redundancy, integer133/183Hz bases, nominal10kHz, Y/Z historical FFTnX text labels. Physical axes/units/calibration/load remain unknown.

@@ -1,0 +1,4 @@
+2026-10-01 01:04:50 | INFO    | Logger initialized: fault_type_feature_audit
+2026-10-01 01:04:50 | INFO    | log_file=logs\fault_type_feature_audit\2026-10-01-01-04-50.log
+2026-10-01 01:04:50 | INFO    | output_dir=output\fault_type_feature_audit\2026-10-01-01-04-50
+2026-10-01 01:14:09 | INFO    | 36 conditions checked; Stage2 9857 unique processed mappings; physical equivalence UNVERIFIED

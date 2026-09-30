@@ -59,3 +59,29 @@ Step1 程式先 concat recordings、再各channel IQR=3刪點並切10000點窗�
 ```powershell
 .\venv\Scripts\python.exe -m experiments.fault_type_source_audit --data-root data/formal_local --source-root 'D:/schoolshit/fcu/專題/馬達研究/馬達研究' --source-root 'D:/schoolshit/專題/src/馬達研究/馬達研究'
 ```
+
+## 105維跨階段契約
+
+新增 feature version `formal105_historical_v1_semantics_audited_20261001`，
+這是現有數值的語意/追溯版本，不改dataset fingerprint或重製data。
+36個condition重算：Stage2全部30配置、Stage1/3 healthy各3RPM；以獨立
+NumPy公式核對統計/FFT，保存所有來源SHA、channel寬度、NaN、截短列數。
+Stage2全部9857 clean rows恢復唯一processed-window ordinal。其他Stage1/3
+故障配置的原feature可追溯，但未宣稱其全部channel已数值重算。
+
+一致性分層：105個位置與程式公式可核對；非所有物理採樣語意已證明。
+Current15、X25、Y25、Z25、Delta_T15。Std/variance為ddof0、kurtosis為
+Pearson、FFT為2*abs(FFT)/n、10000Hz假設、10harmonics band maximum。
+8000/11000rpm基頻133/183是程式近似，不是實測133.333/183.333Hz。
+Y/Z的FFTnX文字後綴是舊header瑕疵，不代表用X軸數據替代Y/Z。
+
+歷史quirks：clearance與impulse相同、crest取abs(max)非max(abs)、MSA=RMS²、
+variance=std²。原則：不在本baseline偷偷修公式；未來若改成一般clearance
+定義、共同channel mask、按run切窗、實測RPM frequency或train-only清理，
+需新資料/feature版本與可回溯raw，重新鎖定protocol，再做公平對照。
+現有feature清理在各檔全量分布計算IQR，亦含持有該檔的歷史test分布資訊，
+非train-fitted的可部署cleaning。無法把已刪掉的資料補回後假稱新盲測。
+
+```powershell
+.\venv\Scripts\python.exe -m experiments.fault_type_feature_audit --data-root data/formal_local --source-root 'D:/schoolshit/fcu/專題/馬達研究/馬達研究' --extracted-root 'D:/schoolshit/專題/src/馬達研究/馬達研究'
+```
