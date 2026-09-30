@@ -1,0 +1,4365 @@
+{
+  "schema_version": 1,
+  "git_commit": "3d8b9f02269ad1eb030f45c34e3a20612b1d7f77",
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "registry_checksum": "6bdff74614f1d7818da90e5d0ac00c69746c9f98fa60e8afc56184f310d4f106",
+  "created_at": "2026-09-30T00:00:00Z",
+  "protocol": "B",
+  "n_values": [
+    5
+  ],
+  "roles": [
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-9200e00a906930de",
+      "split_id": "roles-v1-b-n5-fa45c578f22a216f",
+      "checksum": "fa45c578f22a216f1ea5bdbd2eda1f488863b6c5512b90a4a150d1bb9420673b"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-9200e00a906930de",
+      "split_id": "roles-v1-b-n5-c81b302b59c01f39",
+      "checksum": "c81b302b59c01f39c3e7eb1850c1cc40a608d54ed811d7eb568ec7cf333832c2"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-9200e00a906930de",
+      "split_id": "roles-v1-b-n5-6fc888b5709ea432",
+      "checksum": "6fc888b5709ea432f40dc38e66da1aaf737dc9e9f7f2b933b18f7808304d3d12"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-9200e00a906930de",
+      "split_id": "roles-v1-b-n5-ebfb15eee37a66cc",
+      "checksum": "ebfb15eee37a66ccc084a32294b8c72879ce436c657789d30cedee34b37a1211"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "4screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-77c294d65c3fb6f5",
+      "split_id": "roles-v1-b-n5-be6476afacd0d527",
+      "checksum": "be6476afacd0d527c3bfe3df2f00f5c595c178de6a9b2288efc2cba1ad8081dc"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "4screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-77c294d65c3fb6f5",
+      "split_id": "roles-v1-b-n5-019fb33829f24899",
+      "checksum": "019fb33829f24899333a82ce1ca706e5f516196df34d7d9281fea0a6d095cc4c"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "4screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-77c294d65c3fb6f5",
+      "split_id": "roles-v1-b-n5-a44bcf0bf0783d26",
+      "checksum": "a44bcf0bf0783d26191ff705f179513a526bab84417580b1bd427e606dfb3285"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "4screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-77c294d65c3fb6f5",
+      "split_id": "roles-v1-b-n5-2f173fba86b01b4d",
+      "checksum": "2f173fba86b01b4dd2fdd476e29f70fc7f9a9cdf503e53cc27a5ae63ae8f467b"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "4screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-a06b7f2b0be0b02f",
+      "split_id": "roles-v1-b-n5-ea0d2ccf5e6e39c3",
+      "checksum": "ea0d2ccf5e6e39c343ba471380cbd94f18e9fe83691967b9c9675289e1a50f67"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-a06b7f2b0be0b02f",
+      "split_id": "roles-v1-b-n5-a44c21db118cedfd",
+      "checksum": "a44c21db118cedfdf4459f9848255ffab555a1fa8285aa4c06a1808d622de0d8"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-a06b7f2b0be0b02f",
+      "split_id": "roles-v1-b-n5-e212bf3d402991fa",
+      "checksum": "e212bf3d402991faa3a6bfe68df4fc2ff0c88131c259e9028f3778b1e3d9dd89"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-a06b7f2b0be0b02f",
+      "split_id": "roles-v1-b-n5-08ee68188a1cc232",
+      "checksum": "08ee68188a1cc2322e8a291132adcb515a96d9e41e518ef26fbd569b61b238f6"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "4screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-262358e620abe5d2",
+      "split_id": "roles-v1-b-n5-fcfd10b31a5f13c9",
+      "checksum": "fcfd10b31a5f13c9d9ad65b124ea18fcfec2dcfb523ce2adaf7c7d9702f14bfe"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-262358e620abe5d2",
+      "split_id": "roles-v1-b-n5-61a721585e3a4376",
+      "checksum": "61a721585e3a4376e032b17d6785a93936b81cf7f525c8fb3a41f77dcbdc4b32"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-262358e620abe5d2",
+      "split_id": "roles-v1-b-n5-3cd5832eeac1ef7e",
+      "checksum": "3cd5832eeac1ef7e867429fe2c9242b95487e7a0cd20fcfdc06730b23d4e67af"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-262358e620abe5d2",
+      "split_id": "roles-v1-b-n5-3788fe79e460987d",
+      "checksum": "3788fe79e460987d3b7052602c27dcdef7f1753cc8ac046ef235c1bac29be468"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-ff55973c1e3052a2",
+      "split_id": "roles-v1-b-n5-5748955553dd7416",
+      "checksum": "5748955553dd741602f3ebc110994dad3a9fffe380d1f0b4344c8cdc4645f9e6"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-ff55973c1e3052a2",
+      "split_id": "roles-v1-b-n5-40ccdf2991622c48",
+      "checksum": "40ccdf2991622c48dd2e45653a10410a14d2b1bd263e80d3b1e6d5cbd8ca4659"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-ff55973c1e3052a2",
+      "split_id": "roles-v1-b-n5-d419957cd7b389b0",
+      "checksum": "d419957cd7b389b0ca01876ce4dbdd490884e1b068ad4d582ba68a1c86e500e7"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "5screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-ff55973c1e3052a2",
+      "split_id": "roles-v1-b-n5-e86a569c73c8edc3",
+      "checksum": "e86a569c73c8edc3cfaedc6326cae6db1b4fcf7544e7c0b176d9d6bfaca22daf"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "4screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-513eb91cb89c3d37",
+      "split_id": "roles-v1-b-n5-2e04e3f182838f6d",
+      "checksum": "2e04e3f182838f6dee8b699608926932fb0729a7d99228de30a44dee2bfee9b5"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-513eb91cb89c3d37",
+      "split_id": "roles-v1-b-n5-13f8547105cfcd7a",
+      "checksum": "13f8547105cfcd7a02b4bbd267adbb9398a517e7694ab5686db454e5d71f2b4e"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "4screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-513eb91cb89c3d37",
+      "split_id": "roles-v1-b-n5-80a39808507b2393",
+      "checksum": "80a39808507b2393082fe5d597181856f1ce8ccdee72209a3d5e9052095559c5"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-513eb91cb89c3d37",
+      "split_id": "roles-v1-b-n5-b0fafc999275890a",
+      "checksum": "b0fafc999275890af1608c8b0a7b5dce047dbd5ebd36075480857157edcaae98"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "4screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f4c73aa590a0ca2d",
+      "split_id": "roles-v1-b-n5-60c6bd90190886b1",
+      "checksum": "60c6bd90190886b1ab41ef042ab2fb78d6030606ba725623a8c36be42a2bcb4c"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "4screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f4c73aa590a0ca2d",
+      "split_id": "roles-v1-b-n5-e1d96b72931f462e",
+      "checksum": "e1d96b72931f462eed64078a50c38dde9f54f01ed322221311b59351a08830b9"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "4screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "3_14screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f4c73aa590a0ca2d",
+      "split_id": "roles-v1-b-n5-f0821ef023ad9fa6",
+      "checksum": "f0821ef023ad9fa637e23f407fad382f99a7a8d3954de1cabec6c5f78ae573ec"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "4screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "3_14screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f4c73aa590a0ca2d",
+      "split_id": "roles-v1-b-n5-0b8b95e191a18724",
+      "checksum": "0b8b95e191a1872491fc9d387d156edaf7096d568eb1f2344afbc9ad9ff6c179"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-eca79ba16157c372",
+      "split_id": "roles-v1-b-n5-72f2231e58e852dc",
+      "checksum": "72f2231e58e852dcef951ec030af48d1bcb382b8dc31ceece5372eaab81a4c4b"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "4screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-eca79ba16157c372",
+      "split_id": "roles-v1-b-n5-9747a2367073d3be",
+      "checksum": "9747a2367073d3bebdf6fe8897f8b142bb9cc82010611a720180b28c6c20d664"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "3_14screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-eca79ba16157c372",
+      "split_id": "roles-v1-b-n5-b138c51014c4234f",
+      "checksum": "b138c51014c4234f12f60e25c33ba956bdba750223a3e38319bd761f0ff7df48"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "3_14screws",
+        "4screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-eca79ba16157c372",
+      "split_id": "roles-v1-b-n5-daacc3bdcd91e36d",
+      "checksum": "daacc3bdcd91e36de022da8e9e3d003e83a813a2f7b4884408e825236c9e6737"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-2c6f213348952eed",
+      "split_id": "roles-v1-b-n5-d177301317180cc3",
+      "checksum": "d177301317180cc3dde533ab74a79ad4702b46e7e69a328fa4f1ac7c6c132035"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-2c6f213348952eed",
+      "split_id": "roles-v1-b-n5-5704f04b267016ed",
+      "checksum": "5704f04b267016ed40200f195d92a0104efb70276014098826576e1dbf64d5f2"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "3_14screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-2c6f213348952eed",
+      "split_id": "roles-v1-b-n5-789e75505605f2b2",
+      "checksum": "789e75505605f2b258f51ba54a776bd85abf3fc03f1ebb60f169aaca4be2815a"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "2screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "3_14screws",
+        "4screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-2c6f213348952eed",
+      "split_id": "roles-v1-b-n5-215387522ed04d2a",
+      "checksum": "215387522ed04d2a10e9e34c90abc45fb1f6e637765931235340b402bcb69332"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-7fc66d10ccc6b4bd",
+      "split_id": "roles-v1-b-n5-130e21f389d7f2fc",
+      "checksum": "130e21f389d7f2fc49670ced342495e2a10aa303fa3c7385f7be2015c0da55fe"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-7fc66d10ccc6b4bd",
+      "split_id": "roles-v1-b-n5-17027a7a0e123015",
+      "checksum": "17027a7a0e123015b6dc46445188ff295a7b9ca197bd31536428290e312bb3f3"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-7fc66d10ccc6b4bd",
+      "split_id": "roles-v1-b-n5-6cc8c1b62c9192d7",
+      "checksum": "6cc8c1b62c9192d7d156a4abc758e35df4aeb87a25e90ba56ba9f28d176bcd2d"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-7fc66d10ccc6b4bd",
+      "split_id": "roles-v1-b-n5-037b13df1c2670d9",
+      "checksum": "037b13df1c2670d911125da0646f5b15347b2ad5024a475c66f52ea0e269c717"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-1a71c6871bc6032c",
+      "split_id": "roles-v1-b-n5-dc8729299f7d7e35",
+      "checksum": "dc8729299f7d7e353db4c25c554bb02a78a6f95599ac45b021855d50fad09963"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-1a71c6871bc6032c",
+      "split_id": "roles-v1-b-n5-0129999356ebda5c",
+      "checksum": "0129999356ebda5c568a21f7451f4203f9f2a47d86eba8597c48b5fe33cd6c83"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-1a71c6871bc6032c",
+      "split_id": "roles-v1-b-n5-099919c1705c6a64",
+      "checksum": "099919c1705c6a64d7ca5320e989020ca166692061c866623d7a2a954b5dc2d3"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-1a71c6871bc6032c",
+      "split_id": "roles-v1-b-n5-75d3575bc2501960",
+      "checksum": "75d3575bc2501960183482728fb9f624021c80e7496f2a8442a26b9602d831dd"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-e01245db4628be1a",
+      "split_id": "roles-v1-b-n5-89588c20ec2c30e5",
+      "checksum": "89588c20ec2c30e506a8280fff8b6b221ad2a91a1ee7667970042ef3d5d00f33"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "5screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-e01245db4628be1a",
+      "split_id": "roles-v1-b-n5-5717ce36fafa118e",
+      "checksum": "5717ce36fafa118e88df2baf9f2386f8677c4d21fde8cef472443103459547c6"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-e01245db4628be1a",
+      "split_id": "roles-v1-b-n5-5489f78f10f80a8c",
+      "checksum": "5489f78f10f80a8c14edb565c3cd69d64c9e426b8b28c2dc5fc773e1c588d8a0"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-e01245db4628be1a",
+      "split_id": "roles-v1-b-n5-aa86bd93e44924f4",
+      "checksum": "aa86bd93e44924f4e434f519e6a1b9ef9a13d1f32528b87f9a466c827102c0e8"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-d7d4a6d868e562a3",
+      "split_id": "roles-v1-b-n5-f855a18de34d8d0e",
+      "checksum": "f855a18de34d8d0e6fdfe8be7fb5d85946ce51dddda8c1fe03ed5afc073baf23"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-d7d4a6d868e562a3",
+      "split_id": "roles-v1-b-n5-e6d2db558d16e8ff",
+      "checksum": "e6d2db558d16e8ffcd517d62a2cd3b98f65581419d22c6961b1fed031539f968"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3_14screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-d7d4a6d868e562a3",
+      "split_id": "roles-v1-b-n5-bbed3d4c476c7f43",
+      "checksum": "bbed3d4c476c7f4351f7cdc29ba4f07274572e47abcfb8acfb57d4caeb0c1e2e"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3_14screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-d7d4a6d868e562a3",
+      "split_id": "roles-v1-b-n5-cf15c86fa6704659",
+      "checksum": "cf15c86fa67046598cd9a0ecba08b7ef1d7aeb3cce6878144e8649173ef959c0"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "4screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f8f05d8d86f21f0c",
+      "split_id": "roles-v1-b-n5-6ec66603610a9b55",
+      "checksum": "6ec66603610a9b55d8e174a62c4ba36533767523ef52a3c07cff25a8bbf3a525"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f8f05d8d86f21f0c",
+      "split_id": "roles-v1-b-n5-c1fd83e004c669e4",
+      "checksum": "c1fd83e004c669e47927778f609be8b03d136c5786d6fa8df2bd1546c5108970"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3_14screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f8f05d8d86f21f0c",
+      "split_id": "roles-v1-b-n5-1918f93d1b51a18e",
+      "checksum": "1918f93d1b51a18e73bcc12cee3f6216c555d4e6af5854a133d11d5694a6de8d"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3_14screws",
+        "4screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f8f05d8d86f21f0c",
+      "split_id": "roles-v1-b-n5-ceb8c9dcc31a4fec",
+      "checksum": "ceb8c9dcc31a4fec6ba8ee34d4cf690e33323a4b4e8cc9fd60a0b28492d10c13"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "4screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f7bc08fbc5178eed",
+      "split_id": "roles-v1-b-n5-4bd4aa5b266f5190",
+      "checksum": "4bd4aa5b266f51901a495f55e5b8d32b382c8dd697b910effd58182a2b68f481"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f7bc08fbc5178eed",
+      "split_id": "roles-v1-b-n5-a1f34bb7f229b1b5",
+      "checksum": "a1f34bb7f229b1b5f99920ddf2fd06967dd09feda5d17ae01779c447a69f40c7"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f7bc08fbc5178eed",
+      "split_id": "roles-v1-b-n5-d8affad4eadfec1b",
+      "checksum": "d8affad4eadfec1b04cd1f7fccd87df2bb2c9aaf5eea719c0e5f317b401924d5"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3screws",
+        "4screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-f7bc08fbc5178eed",
+      "split_id": "roles-v1-b-n5-aef376f92ae9342d",
+      "checksum": "aef376f92ae9342d8c0bdd11b5904446c05b8ee4f5344b65bfb2ee665aa34161"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "4screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-3d72751c35191340",
+      "split_id": "roles-v1-b-n5-5e092060876a6815",
+      "checksum": "5e092060876a68152e1725ecd9604618f602d57cf7a61a270011c24ab05fa44c"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-3d72751c35191340",
+      "split_id": "roles-v1-b-n5-f721a5eee5a0fa79",
+      "checksum": "f721a5eee5a0fa7980845706c90f63adc503a3afd55143ecf2f539ecd88a966a"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-3d72751c35191340",
+      "split_id": "roles-v1-b-n5-633439aa0930ceb1",
+      "checksum": "633439aa0930ceb195b42975e57fc6240af0008b1377a0e1062adad73280cef1"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3screws",
+        "4screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-3d72751c35191340",
+      "split_id": "roles-v1-b-n5-e179591cf8ec1b36",
+      "checksum": "e179591cf8ec1b367ab3c65d7baa83d23e9050a7336f1d52f2ab76a5169eafc1"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "4screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "3_14screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-396896bfeba003dc",
+      "split_id": "roles-v1-b-n5-6a703b399ec791c9",
+      "checksum": "6a703b399ec791c9885eb30b8bd7783b35087130e374d960a5de5d60f72d7286"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "4screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3_14screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-396896bfeba003dc",
+      "split_id": "roles-v1-b-n5-548f865a7ed9f819",
+      "checksum": "548f865a7ed9f819d75da5705b48fdab4a96fb96301fd9c680ba003b39c7dc3a"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "4screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-396896bfeba003dc",
+      "split_id": "roles-v1-b-n5-982ed24fc7382e48",
+      "checksum": "982ed24fc7382e48ac545881adf8f1f5236d39fea81071303760565d8eceacde"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "1screws",
+        "4screws",
+        "4_146screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-396896bfeba003dc",
+      "split_id": "roles-v1-b-n5-4cc0a61d79d7e6cc",
+      "checksum": "4cc0a61d79d7e6cc013f2527d69a75f5622e1deab4a7a49e3b349241cb37c880"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "4screws",
+        "5screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-b808d0ab1894988f",
+      "split_id": "roles-v1-b-n5-3d68c188dd01e74a",
+      "checksum": "3d68c188dd01e74abf1b5e86879b5d9e64b684b8804492f8cc4a9261ffa50e12"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "5screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-b808d0ab1894988f",
+      "split_id": "roles-v1-b-n5-1faf217e35563d7c",
+      "checksum": "1faf217e35563d7c8344dbdab85de06e65bab599211edb4450251c227262664b"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-b808d0ab1894988f",
+      "split_id": "roles-v1-b-n5-290dbe3226e1c52e",
+      "checksum": "290dbe3226e1c52e63b0276fedd67f62d3528aaf3664ebab2b99f6a2f5292b99"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-b808d0ab1894988f",
+      "split_id": "roles-v1-b-n5-0e9bbcc366c00050",
+      "checksum": "0e9bbcc366c00050ac01456a6a4beb186f226a7e5cf49ceef3af5a00bf4c4be4"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "4screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-27c6d68af5085982",
+      "split_id": "roles-v1-b-n5-1e802a96af4c2ba3",
+      "checksum": "1e802a96af4c2ba3634f2cd8e1cc998ef61bf62a88397486e2180d1534b375cc"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-27c6d68af5085982",
+      "split_id": "roles-v1-b-n5-2372ae932259fcc2",
+      "checksum": "2372ae932259fcc240a66224b8ac82e1b2b7e5c64b556f0ba819de9cae0c8c7b"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-27c6d68af5085982",
+      "split_id": "roles-v1-b-n5-74e723ad23707511",
+      "checksum": "74e723ad23707511fe6de19f84de8dd785ed10eae9e35da02e25b2194b2b2ca8"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-27c6d68af5085982",
+      "split_id": "roles-v1-b-n5-999e7a4361eb0da0",
+      "checksum": "999e7a4361eb0da04d924ba00d3a8bbe96055aecf078baeefc166b0ad810b6c0"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "4screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-2c9b123c6f06bd02",
+      "split_id": "roles-v1-b-n5-a7370e6e4833ae12",
+      "checksum": "a7370e6e4833ae1210aea40a737c1be9a12fd59e1fcfdd74caf080f7c9a90432"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-2c9b123c6f06bd02",
+      "split_id": "roles-v1-b-n5-af607e9e4c2eadaf",
+      "checksum": "af607e9e4c2eadafae1a791d35b27e1d7dad8e4441076972f812bafe85be7795"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-2c9b123c6f06bd02",
+      "split_id": "roles-v1-b-n5-f489b57584577d2e",
+      "checksum": "f489b57584577d2ea3fc66718b3cb7421f25b02cae98a42f227422f0f5e5cbd2"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-2c9b123c6f06bd02",
+      "split_id": "roles-v1-b-n5-7b83f4801dd514b7",
+      "checksum": "7b83f4801dd514b7d1717213408c846e50bb04640ff4508b7645ce580312cd7d"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "3_14screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-68a21d15b1ee1c7d",
+      "split_id": "roles-v1-b-n5-b94d230be65b64fd",
+      "checksum": "b94d230be65b64fd36c466775c4067f9e67b6de2498b2203e70a029cedce247c"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "6screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-68a21d15b1ee1c7d",
+      "split_id": "roles-v1-b-n5-0e2e82cd097cc9b8",
+      "checksum": "0e2e82cd097cc9b8524cbab9dcca6916f43f975734be3875412938c3cbac110c"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3_14screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-68a21d15b1ee1c7d",
+      "split_id": "roles-v1-b-n5-922ee8aee0713ceb",
+      "checksum": "922ee8aee0713ceb8bb27523e8448d74abc24ebdd843929ad17ebbea8d2b550c"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3_14screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-68a21d15b1ee1c7d",
+      "split_id": "roles-v1-b-n5-413dd201291d01a1",
+      "checksum": "413dd201291d01a1640ac396e354e6878e80e4e6c4ade73911b817fd6972c0a8"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-ffec1860ad74bc5a",
+      "split_id": "roles-v1-b-n5-395c08bdb37282e1",
+      "checksum": "395c08bdb37282e1b066375aa17c5a8ec745e495018289a87768bbc0a35509a1"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "5screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-ffec1860ad74bc5a",
+      "split_id": "roles-v1-b-n5-4761d30bd4f4458e",
+      "checksum": "4761d30bd4f4458ef50bd56303faa99374a3862100fa2212a3e55cbbc0658d82"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-ffec1860ad74bc5a",
+      "split_id": "roles-v1-b-n5-a963fa382b6e1e59",
+      "checksum": "a963fa382b6e1e597e22d87fdd3fb1381b374549e871bb0388740df553c21d15"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-ffec1860ad74bc5a",
+      "split_id": "roles-v1-b-n5-f01e0d2fd2f32892",
+      "checksum": "f01e0d2fd2f32892ee073d21ec7918449c8a07403d78f8ea0765e186e1332017"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "5screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-13b80ff98633641a",
+      "split_id": "roles-v1-b-n5-006d2613a0fcbc46",
+      "checksum": "006d2613a0fcbc46a41f9fffcfb7e7058a3374a74d4bc13847fd262f6030c17c"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "5screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-13b80ff98633641a",
+      "split_id": "roles-v1-b-n5-8aa9e6bacc2b4d43",
+      "checksum": "8aa9e6bacc2b4d43dc83a4a93b366cb14c566ddb7fa9b8b3da7ba5ffa95c8ea9"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "5screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-13b80ff98633641a",
+      "split_id": "roles-v1-b-n5-7d6916c85e642128",
+      "checksum": "7d6916c85e64212865d12db30e10638d46a7cec985f08fa4a42613d9f21e22e8"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "5screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-13b80ff98633641a",
+      "split_id": "roles-v1-b-n5-f507bbe994dbdb56",
+      "checksum": "f507bbe994dbdb56736a1a26d2d0252e4d36faba5b050927ffca64e4c173a089"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "4screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-780eb3c81df6807c",
+      "split_id": "roles-v1-b-n5-3ec4bb2a55813c8f",
+      "checksum": "3ec4bb2a55813c8f1725345fcfdcec8f112ff2cd2cbc4f4d8e95f391291668fa"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-780eb3c81df6807c",
+      "split_id": "roles-v1-b-n5-209439729692af4e",
+      "checksum": "209439729692af4ef23d59bd2b9120f9088653a99e3060dd6afcb98bb0463bfa"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-780eb3c81df6807c",
+      "split_id": "roles-v1-b-n5-c72d3d9be75be6b3",
+      "checksum": "c72d3d9be75be6b33acccae75b723e9cf1c41dae36f29a49d436ef0b8b9c70de"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "4screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-780eb3c81df6807c",
+      "split_id": "roles-v1-b-n5-5de56eefb6b20ed9",
+      "checksum": "5de56eefb6b20ed982ad0eaba7fbbbd00a83de45c116d46ffea64553bbed4d4d"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "3screws",
+        "3_14screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-562c381844a66642",
+      "split_id": "roles-v1-b-n5-c3a50811924fef99",
+      "checksum": "c3a50811924fef9997f40e88446aadc49c824d6f555277f410f249d48e2e31d8"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-562c381844a66642",
+      "split_id": "roles-v1-b-n5-c23a22905ffbaba0",
+      "checksum": "c23a22905ffbaba08086a442278ba87f5e0a8359978c30a5de0b7c654231a715"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-562c381844a66642",
+      "split_id": "roles-v1-b-n5-7e09940d94fffcf6",
+      "checksum": "7e09940d94fffcf628b5b4aade8bf3c40367c7858d14f9f9987a849193fd5c56"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "2screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "3_14screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-562c381844a66642",
+      "split_id": "roles-v1-b-n5-170a22c3f3f62db5",
+      "checksum": "170a22c3f3f62db53b3d5b4a4423f9dd11342cc844d96fd4beb5b3e8e0962e1e"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "4screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-162385af2793b517",
+      "split_id": "roles-v1-b-n5-12ec850620bdd9a8",
+      "checksum": "12ec850620bdd9a84233d8796dcdab898248f10ed27524389b70a22f627f1f16"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "4screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-162385af2793b517",
+      "split_id": "roles-v1-b-n5-535bff7ae4eef61e",
+      "checksum": "535bff7ae4eef61e66342b3d195aff304d5e7f28a42f3718fe8d5ba95b868c04"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "4screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-162385af2793b517",
+      "split_id": "roles-v1-b-n5-5116894ccc99374e",
+      "checksum": "5116894ccc99374ec45be2fb246cfaeaabadb60286394dcd76cf491e098e4340"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "3_14screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "4screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-162385af2793b517",
+      "split_id": "roles-v1-b-n5-ca5f748103e92f67",
+      "checksum": "ca5f748103e92f67681d9e4aaed46fe38d87e0892f99eb15683c44cf7fd632f5"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3_14screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-7364aadf39d1969d",
+      "split_id": "roles-v1-b-n5-be7c7fc5c93eef15",
+      "checksum": "be7c7fc5c93eef1553dcb9de12343aba10215c65f6833d3ac5dec0e59162bca1"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3_14screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-7364aadf39d1969d",
+      "split_id": "roles-v1-b-n5-e0643951fc7f8dde",
+      "checksum": "e0643951fc7f8dde2c5833cf46bf7f96a1ff13a04ac769ffeb9bf48c1a8729e5"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "6screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-7364aadf39d1969d",
+      "split_id": "roles-v1-b-n5-bec32bf7ac6a70b9",
+      "checksum": "bec32bf7ac6a70b924a5c11e72041d687fcd279285090690670ca9896928b05e"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "6screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-7364aadf39d1969d",
+      "split_id": "roles-v1-b-n5-411daca39375779b",
+      "checksum": "411daca39375779bb6e07ba8e1e7689afe83935429798a9e85b6d97970b3291f"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3_14screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-a472af3af128c590",
+      "split_id": "roles-v1-b-n5-f8147fe5846671d9",
+      "checksum": "f8147fe5846671d962a55d6e017dfc6f1a24d4643b52852c54cab3a06bc0e856"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3_14screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-a472af3af128c590",
+      "split_id": "roles-v1-b-n5-5c90f63b365fdddf",
+      "checksum": "5c90f63b365fdddff76dd3560723468ab9708d611d6ec855f19157fdab2737f9"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3_14screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-a472af3af128c590",
+      "split_id": "roles-v1-b-n5-e7ae42f83f777f38",
+      "checksum": "e7ae42f83f777f3861b836edb34bcb1672997189c9eaa716b1d484c7ff69ce3e"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "3_14screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-a472af3af128c590",
+      "split_id": "roles-v1-b-n5-9f71e57bdbb9b7a0",
+      "checksum": "9f71e57bdbb9b7a0f9115cdb5aefa50950e74acb2d0ac75dc2de959fbf632809"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-746433cf13aabc4b",
+      "split_id": "roles-v1-b-n5-1c2d1ace39f9c55a",
+      "checksum": "1c2d1ace39f9c55ab28b2d10981df4ba7f5c1f92f91df9b7fa4ad7e2a9143426"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-746433cf13aabc4b",
+      "split_id": "roles-v1-b-n5-30a4b4d7b0b70cc6",
+      "checksum": "30a4b4d7b0b70cc60f4c95538ea22aed6685a19057dfd5910fbcfb4dd69bd15a"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "7screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-746433cf13aabc4b",
+      "split_id": "roles-v1-b-n5-111532fa80ae6d5d",
+      "checksum": "111532fa80ae6d5d7ab486e28916bbd9e8e83367f84fd256a4a3b1c220f6977e"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws"
+      ],
+      "unknown_validation_labels": [
+        "7screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "3screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-746433cf13aabc4b",
+      "split_id": "roles-v1-b-n5-107d93984c0cbe09",
+      "checksum": "107d93984c0cbe099293e45507b6d07bd58780d9185a3ee39b392fc66b3b1312"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3_14screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "1screws"
+      ],
+      "unknown_test_labels": [
+        "2screws",
+        "3screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-5c13113f9239448c",
+      "split_id": "roles-v1-b-n5-166c0950790b5221",
+      "checksum": "166c0950790b522115e54ccbc9a67c26f94a695f6a7c4c2f27f4f6d596546944"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3_14screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "2screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "3screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-5c13113f9239448c",
+      "split_id": "roles-v1-b-n5-394ac0f49bc9e2a7",
+      "checksum": "394ac0f49bc9e2a73ffe76a412cee0d20a919aa7a16029c506353d07864a62f8"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3_14screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "3screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "4_146screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-5c13113f9239448c",
+      "split_id": "roles-v1-b-n5-4c4ba77a184032fe",
+      "checksum": "4c4ba77a184032fe11ef08c7981ccd55d99582f17cd661d1ef08ccea06518a96"
+    },
+    {
+      "schema_version": 1,
+      "protocol": "B",
+      "healthy_label": "8screws",
+      "faulty_label_universe": [
+        "1screws",
+        "2screws",
+        "3screws",
+        "3_14screws",
+        "4screws",
+        "4_146screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "known_fault_labels": [
+        "3_14screws",
+        "4screws",
+        "5screws",
+        "6screws",
+        "7screws"
+      ],
+      "unknown_validation_labels": [
+        "4_146screws"
+      ],
+      "unknown_test_labels": [
+        "1screws",
+        "2screws",
+        "3screws"
+      ],
+      "n_known_faults": 5,
+      "class_combination_seed": 42,
+      "class_combination_id": "combo-5c13113f9239448c",
+      "split_id": "roles-v1-b-n5-cf543dd39d850b4c",
+      "checksum": "cf543dd39d850b4ce729c680def30bd7aa4677f178e0fb102f6137cb7908bafc"
+    }
+  ],
+  "sample_split_seeds": [
+    42,
+    123,
+    2026
+  ],
+  "fold_indices": [
+    0,
+    1,
+    2
+  ],
+  "methods": [
+    "mahalanobis",
+    "knn"
+  ],
+  "pilot": false,
+  "sample_cap_per_source": null,
+  "scope": "exploratory_incomplete_campaign_holdout",
+  "classifier": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "tol": 0.0001
+  },
+  "detector": {
+    "confidence": 0.95,
+    "mahalanobis_method": "ledoit_wolf",
+    "knn_neighbors": 5
+  },
+  "unknown_validation_used_for_selection": false,
+  "test_used_for_selection": false,
+  "plan_checksum": "62cffdf786336e1076b6a9d592933885af0ceb45350ad6ffc067fd642e3ce733"
+}

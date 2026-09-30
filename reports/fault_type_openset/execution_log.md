@@ -116,3 +116,11 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Checkpoint hardening commit `a495c18d36eefa5c8aacd4d03c1bcc1c31a25992` pushed and remote SHA verified.
 - Full suite rerun at 19:48:20 with `MPLCONFIGDIR=output/fault_type_mplcache`: 137 passed, exit 0. Existing binary and PolarMap tests pass; no model/test-based changes were made.
 - Reproduction guide now explicitly uses the pre-registered full126 registry for Protocol A, balanced30/four-rotation registry for Protocol B, and a writable Matplotlib cache. README separates this campaign-held-out study from historical cold-start random-split numbers and documents the observed weak baseline rather than claiming an improvement.
+
+## 2026-09-30 — Protocol B complete and preserved
+
+- Documentation clarification commit `2104fec172e1b71d4047ee201cd080b5164e450d` pushed and remote SHA verified.
+- Protocol B matrix `2026-09-30-19-37-39` finished at 20:03:50, exit 0: 720 completed, 0 failed/pending, 360 matched detector pairs, unmatched=0. Every manifest is INCOMPLETE; no score-based tuning or retries.
+- Each method has 3,121,529 repeated-source predictions. Known accuracy .252623; unknown AUROC .528838 Mahalanobis / .522188 k-NN; unknown recall .145357 / .073827; healthy FPR .027208 / .010274. Separate report `protocol_b_results.md` explains why A/B means are not a tuning improvement.
+- Actual archive command: `python -m experiments.fault_type_archive --output-root output/fault_type_matrix/2026-09-30-19-37-39 --destination D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-09-30` → exit 0 at 20:05:49. Index `output/fault_type_archive/2026-09-30-20-05-02/archive_index.json` records 3,375,246,908 bytes, 2527 files, CRC PASS and SHA `24ec1e80346dcbc2d8244dfaa9c0cc2188788ae8eed0530d2fde3671b1e38f8f`.
+- Read-only SHA-256 recheck of all 90 formal CSVs against formal_materialization_manifest: 90 checked, zero mismatches. No source data changed. Latest full test evidence remains 137 passed; B counts/strata/pairing were additionally checked before this results commit.

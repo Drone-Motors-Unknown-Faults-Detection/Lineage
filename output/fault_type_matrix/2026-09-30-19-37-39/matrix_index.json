@@ -1,0 +1,357 @@
+{
+  "completed": 720,
+  "not_completed": 0,
+  "failed_or_pending": [],
+  "plan_checksum": "62cffdf786336e1076b6a9d592933885af0ceb45350ad6ffc067fd642e3ce733",
+  "strata": [
+    {
+      "protocol": "B",
+      "N": 5,
+      "method": "knn",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-37-39\\aggregate_B_n5_knn.json",
+      "runs": 360,
+      "metrics": {
+        "known_classification.accuracy": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.25262312757685806,
+          "standard_deviation": 0.06944091786931675,
+          "ci95_lower": 0.2454256735689986,
+          "ci95_upper": 0.2598205815847175,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_classification.balanced_accuracy": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.25315377368177805,
+          "standard_deviation": 0.07039759645947823,
+          "ci95_lower": 0.24585716127618615,
+          "ci95_upper": 0.2604503860873699,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_classification.macro_f1": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.19887145209652005,
+          "standard_deviation": 0.06993595591837748,
+          "ci95_lower": 0.19162268808730146,
+          "ci95_upper": 0.20612021610573864,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_fault_classification.accuracy": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.22930350001018646,
+          "standard_deviation": 0.08197975675818246,
+          "ci95_lower": 0.22080641288998235,
+          "ci95_upper": 0.23780058713039057,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_fault_classification.balanced_accuracy": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.23136266725193763,
+          "standard_deviation": 0.08087558614219861,
+          "ci95_lower": 0.22298002587164048,
+          "ci95_upper": 0.23974530863223478,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_fault_classification.macro_f1": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.19672137835033696,
+          "standard_deviation": 0.08529508103610534,
+          "ci95_lower": 0.1878806625059792,
+          "ci95_upper": 0.2055620941946947,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.auroc_unknown_positive": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.5221879066525962,
+          "standard_deviation": 0.08409213500666225,
+          "ci95_lower": 0.51347187448159,
+          "ci95_upper": 0.5309039388236023,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.aupr_unknown_positive": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.37830821229392747,
+          "standard_deviation": 0.0881383278722668,
+          "ci95_lower": 0.36917279789194446,
+          "ci95_upper": 0.3874436266959105,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.fpr_at_95_tpr": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.9149631778252221,
+          "standard_deviation": 0.08050750580456115,
+          "ci95_lower": 0.906618687457075,
+          "ci95_upper": 0.9233076681933692,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "lower_is_better"
+        },
+        "unknown_rejection.unknown_precision": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.24472142716923237,
+          "standard_deviation": 0.3127190813708664,
+          "ci95_lower": 0.21230853179560422,
+          "ci95_upper": 0.2771343225428605,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.unknown_recall": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.07382726234492562,
+          "standard_deviation": 0.12102883643539682,
+          "ci95_lower": 0.06128279273541001,
+          "ci95_upper": 0.08637173195444123,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.unknown_f1": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.1003422017951522,
+          "standard_deviation": 0.1483405675625603,
+          "ci95_lower": 0.08496690945612251,
+          "ci95_upper": 0.11571749413418189,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_acceptance_rate": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.9390813462167219,
+          "standard_deviation": 0.07487412726652223,
+          "ci95_lower": 0.9313207476544507,
+          "ci95_upper": 0.9468419447789931,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "open_set_classification_rate": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.23395676096927281,
+          "standard_deviation": 0.06970019882918094,
+          "ci95_lower": 0.22673243285258823,
+          "ci95_upper": 0.2411810890859574,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "healthy_safety.false_positive_rate": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.010273602931972705,
+          "standard_deviation": 0.02630483571214491,
+          "ci95_lower": 0.00754714350384757,
+          "ci95_upper": 0.01300006236009784,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "lower_is_better"
+        },
+        "healthy_safety.acceptance_rate": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.9897263970680272,
+          "standard_deviation": 0.0263048357121449,
+          "ci95_lower": 0.9869999376399021,
+          "ci95_upper": 0.9924528564961523,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        }
+      },
+      "validator_statuses": {
+        "INCOMPLETE": 360
+      }
+    },
+    {
+      "protocol": "B",
+      "N": 5,
+      "method": "mahalanobis",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-37-39\\aggregate_B_n5_mahalanobis.json",
+      "runs": 360,
+      "metrics": {
+        "known_classification.accuracy": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.25262312757685806,
+          "standard_deviation": 0.06944091786931675,
+          "ci95_lower": 0.2454256735689986,
+          "ci95_upper": 0.2598205815847175,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_classification.balanced_accuracy": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.25315377368177805,
+          "standard_deviation": 0.07039759645947823,
+          "ci95_lower": 0.24585716127618615,
+          "ci95_upper": 0.2604503860873699,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_classification.macro_f1": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.19887145209652005,
+          "standard_deviation": 0.06993595591837748,
+          "ci95_lower": 0.19162268808730146,
+          "ci95_upper": 0.20612021610573864,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_fault_classification.accuracy": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.22930350001018646,
+          "standard_deviation": 0.08197975675818246,
+          "ci95_lower": 0.22080641288998235,
+          "ci95_upper": 0.23780058713039057,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_fault_classification.balanced_accuracy": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.23136266725193763,
+          "standard_deviation": 0.08087558614219861,
+          "ci95_lower": 0.22298002587164048,
+          "ci95_upper": 0.23974530863223478,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_fault_classification.macro_f1": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.19672137835033696,
+          "standard_deviation": 0.08529508103610534,
+          "ci95_lower": 0.1878806625059792,
+          "ci95_upper": 0.2055620941946947,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.auroc_unknown_positive": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.5288376293490837,
+          "standard_deviation": 0.07271918887578896,
+          "ci95_lower": 0.5213003871368289,
+          "ci95_upper": 0.5363748715613386,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.aupr_unknown_positive": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.3855948194506976,
+          "standard_deviation": 0.08431156094161249,
+          "ci95_lower": 0.3768560440884522,
+          "ci95_upper": 0.39433359481294306,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.fpr_at_95_tpr": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.9028590341654656,
+          "standard_deviation": 0.08702255358579208,
+          "ci95_lower": 0.8938392682076055,
+          "ci95_upper": 0.9118788001233258,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "lower_is_better"
+        },
+        "unknown_rejection.unknown_precision": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.24354474964705375,
+          "standard_deviation": 0.2989881297024967,
+          "ci95_lower": 0.2125550482079185,
+          "ci95_upper": 0.27453445108618896,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.unknown_recall": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.145357217523506,
+          "standard_deviation": 0.19568757532732592,
+          "ci95_lower": 0.125074474055475,
+          "ci95_upper": 0.165639960991537,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "unknown_rejection.unknown_f1": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.15352738318405143,
+          "standard_deviation": 0.19221154562848775,
+          "ci95_lower": 0.13360492533226798,
+          "ci95_upper": 0.17344984103583488,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "known_acceptance_rate": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.879532219193341,
+          "standard_deviation": 0.1418130531942202,
+          "ci95_lower": 0.8648334945883408,
+          "ci95_upper": 0.8942309437983412,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "open_set_classification_rate": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.21583869115717333,
+          "standard_deviation": 0.06953721518391233,
+          "ci95_lower": 0.20863125606735025,
+          "ci95_upper": 0.2230461262469964,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        },
+        "healthy_safety.false_positive_rate": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.027207796464356067,
+          "standard_deviation": 0.08847960081851183,
+          "ci95_lower": 0.01803700959884443,
+          "ci95_upper": 0.03637858332986771,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "lower_is_better"
+        },
+        "healthy_safety.acceptance_rate": {
+          "status": "computed",
+          "n": 360,
+          "mean": 0.972792203535644,
+          "standard_deviation": 0.08847960081851182,
+          "ci95_lower": 0.9636214166701323,
+          "ci95_upper": 0.9819629904011556,
+          "ci95_method": "student_t_two_sided_over_runs",
+          "metric_direction": "higher_is_better"
+        }
+      },
+      "validator_statuses": {
+        "INCOMPLETE": 360
+      }
+    }
+  ],
+  "feature_ablation": {
+    "status": "skipped",
+    "reason": "no usable neural embedding pipeline/artifact in current Lineage; only formal 105D features"
+  },
+  "paired_comparison": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-37-39\\paired_comparison.json"
+}

@@ -1,0 +1,3799 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "declared_runs": 360,
+  "completed_runs": 360,
+  "failed_runs": [],
+  "uncertainty_scope": "descriptive across overlapping class combinations and campaign folds; not independent physical motors",
+  "macro_over_splits": {
+    "weighting": "each completed run has equal weight",
+    "metrics": {
+      "known_classification.accuracy": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.25262312757685806,
+        "standard_deviation": 0.06944091786931675,
+        "ci95_lower": 0.2454256735689986,
+        "ci95_upper": 0.2598205815847175,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_classification.balanced_accuracy": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.25315377368177805,
+        "standard_deviation": 0.07039759645947823,
+        "ci95_lower": 0.24585716127618615,
+        "ci95_upper": 0.2604503860873699,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_classification.macro_f1": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.19887145209652005,
+        "standard_deviation": 0.06993595591837748,
+        "ci95_lower": 0.19162268808730146,
+        "ci95_upper": 0.20612021610573864,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_fault_classification.accuracy": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.22930350001018646,
+        "standard_deviation": 0.08197975675818246,
+        "ci95_lower": 0.22080641288998235,
+        "ci95_upper": 0.23780058713039057,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_fault_classification.balanced_accuracy": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.23136266725193763,
+        "standard_deviation": 0.08087558614219861,
+        "ci95_lower": 0.22298002587164048,
+        "ci95_upper": 0.23974530863223478,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_fault_classification.macro_f1": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.19672137835033696,
+        "standard_deviation": 0.08529508103610534,
+        "ci95_lower": 0.1878806625059792,
+        "ci95_upper": 0.2055620941946947,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.auroc_unknown_positive": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.5288376293490837,
+        "standard_deviation": 0.07271918887578896,
+        "ci95_lower": 0.5213003871368289,
+        "ci95_upper": 0.5363748715613386,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.aupr_unknown_positive": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.3855948194506976,
+        "standard_deviation": 0.08431156094161249,
+        "ci95_lower": 0.3768560440884522,
+        "ci95_upper": 0.39433359481294306,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.fpr_at_95_tpr": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.9028590341654656,
+        "standard_deviation": 0.08702255358579208,
+        "ci95_lower": 0.8938392682076055,
+        "ci95_upper": 0.9118788001233258,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better"
+      },
+      "unknown_rejection.unknown_precision": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.24354474964705375,
+        "standard_deviation": 0.2989881297024967,
+        "ci95_lower": 0.2125550482079185,
+        "ci95_upper": 0.27453445108618896,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.unknown_recall": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.145357217523506,
+        "standard_deviation": 0.19568757532732592,
+        "ci95_lower": 0.125074474055475,
+        "ci95_upper": 0.165639960991537,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.unknown_f1": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.15352738318405143,
+        "standard_deviation": 0.19221154562848775,
+        "ci95_lower": 0.13360492533226798,
+        "ci95_upper": 0.17344984103583488,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_acceptance_rate": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.879532219193341,
+        "standard_deviation": 0.1418130531942202,
+        "ci95_lower": 0.8648334945883408,
+        "ci95_upper": 0.8942309437983412,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "open_set_classification_rate": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.21583869115717333,
+        "standard_deviation": 0.06953721518391233,
+        "ci95_lower": 0.20863125606735025,
+        "ci95_upper": 0.2230461262469964,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "healthy_safety.false_positive_rate": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.027207796464356067,
+        "standard_deviation": 0.08847960081851183,
+        "ci95_lower": 0.01803700959884443,
+        "ci95_upper": 0.03637858332986771,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better"
+      },
+      "healthy_safety.acceptance_rate": {
+        "status": "computed",
+        "n": 360,
+        "mean": 0.972792203535644,
+        "standard_deviation": 0.08847960081851182,
+        "ci95_lower": 0.9636214166701323,
+        "ci95_upper": 0.9819629904011556,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      }
+    },
+    "per_unknown_label": [
+      {
+        "unknown_label": "1screws",
+        "runs_present": 117,
+        "recall": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.1444995752253116,
+          "standard_deviation": 0.21126567381182526,
+          "ci95_lower": 0.1058149419094355,
+          "ci95_upper": 0.1831842085411877,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.5950502536242781,
+          "standard_deviation": 0.30657470549948207,
+          "ci95_lower": 0.5389136846673465,
+          "ci95_upper": 0.6511868225812097,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.8033045314081941,
+          "standard_deviation": 0.17735291629814193,
+          "ci95_lower": 0.7708296271291116,
+          "ci95_upper": 0.8357794356872766,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "2screws",
+        "runs_present": 117,
+        "recall": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.24907450159551003,
+          "standard_deviation": 0.32261912126375863,
+          "ci95_lower": 0.19000005669588577,
+          "ci95_upper": 0.3081489464951343,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.6612473702190768,
+          "standard_deviation": 0.42673779606843804,
+          "ci95_lower": 0.5831078652768943,
+          "ci95_upper": 0.7393868751612592,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.8386135164725789,
+          "standard_deviation": 0.20922539144389182,
+          "ci95_lower": 0.8003024770957478,
+          "ci95_upper": 0.87692455584941,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "3_14screws",
+        "runs_present": 117,
+        "recall": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.08615325680191016,
+          "standard_deviation": 0.1710980151138766,
+          "ci95_lower": 0.054823680840365284,
+          "ci95_upper": 0.11748283276345503,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.5056498660731165,
+          "standard_deviation": 0.2561929395468677,
+          "ci95_lower": 0.45873864880970766,
+          "ci95_upper": 0.5525610833365252,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.8498251146412641,
+          "standard_deviation": 0.15869002077322694,
+          "ci95_lower": 0.8207675533548577,
+          "ci95_upper": 0.8788826759276704,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "3screws",
+        "runs_present": 126,
+        "recall": {
+          "status": "computed",
+          "n": 126,
+          "mean": 0.12988825821651237,
+          "standard_deviation": 0.17366166472008196,
+          "ci95_lower": 0.09926920788647285,
+          "ci95_upper": 0.16050730854655187,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 126,
+          "mean": 0.5574229934018324,
+          "standard_deviation": 0.2827072403649153,
+          "ci95_lower": 0.507577639014884,
+          "ci95_upper": 0.6072683477887809,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 126,
+          "mean": 0.8307849754958951,
+          "standard_deviation": 0.18547097660823497,
+          "ci95_lower": 0.7980837735542762,
+          "ci95_upper": 0.8634861774375141,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "4_146screws",
+        "runs_present": 126,
+        "recall": {
+          "status": "computed",
+          "n": 126,
+          "mean": 0.16349504487786545,
+          "standard_deviation": 0.18318730922609103,
+          "ci95_lower": 0.13119648635570028,
+          "ci95_upper": 0.19579360340003063,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 126,
+          "mean": 1.097245769449352,
+          "standard_deviation": 0.8169178713973497,
+          "ci95_lower": 0.9532113939863388,
+          "ci95_upper": 1.2412801449123654,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 126,
+          "mean": 0.7310957211108436,
+          "standard_deviation": 0.1969298771345076,
+          "ci95_lower": 0.6963741501228586,
+          "ci95_upper": 0.7658172920988287,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "4screws",
+        "runs_present": 117,
+        "recall": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.038180884919412794,
+          "standard_deviation": 0.07955147181022254,
+          "ci95_lower": 0.023614299344049634,
+          "ci95_upper": 0.052747470494775954,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.5042988732081247,
+          "standard_deviation": 0.22355113794198,
+          "ci95_lower": 0.46336466159391276,
+          "ci95_upper": 0.5452330848223367,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.8282235931909779,
+          "standard_deviation": 0.18128767332567616,
+          "ci95_lower": 0.7950281997285329,
+          "ci95_upper": 0.861418986653423,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "5screws",
+        "runs_present": 117,
+        "recall": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.21503926577727317,
+          "standard_deviation": 0.3072667647730984,
+          "ci95_lower": 0.15877597458123063,
+          "ci95_upper": 0.27130255697331573,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.5569909720217874,
+          "standard_deviation": 0.3373481532597742,
+          "ci95_lower": 0.49521950970526285,
+          "ci95_upper": 0.6187624343383119,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.8206991876249327,
+          "standard_deviation": 0.21669309822717686,
+          "ci95_lower": 0.7810207443844754,
+          "ci95_upper": 0.8603776308653899,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "6screws",
+        "runs_present": 117,
+        "recall": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.20272298315882475,
+          "standard_deviation": 0.2861754427659711,
+          "ci95_lower": 0.1503217015513324,
+          "ci95_upper": 0.2551242647663171,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.5710281215372948,
+          "standard_deviation": 0.38379091558936124,
+          "ci95_lower": 0.5007525743002037,
+          "ci95_upper": 0.6413036687743858,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 117,
+          "mean": 0.8177322544404169,
+          "standard_deviation": 0.23200867305908973,
+          "ci95_lower": 0.7752493925468749,
+          "ci95_upper": 0.8602151163339589,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "7screws",
+        "runs_present": 126,
+        "recall": {
+          "status": "computed",
+          "n": 126,
+          "mean": 0.06267342322579388,
+          "standard_deviation": 0.12281651804486511,
+          "ci95_lower": 0.04101910387190903,
+          "ci95_upper": 0.08432774257967872,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 126,
+          "mean": 0.5254136200923183,
+          "standard_deviation": 0.2861550776779175,
+          "ci95_lower": 0.4749603623757157,
+          "ci95_upper": 0.5758668778089209,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 126,
+          "mean": 0.9286340945487047,
+          "standard_deviation": 0.13927971162160596,
+          "ci95_lower": 0.904077077276244,
+          "ci95_upper": 0.9531911118211654,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      }
+    ]
+  },
+  "pooled_sample": {
+    "weighting": "each final-test prediction has equal weight; larger splits contribute more; reused source samples across combinations are repeated, not independent observations",
+    "metrics": {
+      "schema_version": 1,
+      "status": "completed",
+      "n_test_samples": 3121529,
+      "known_fault_count": 5,
+      "known_classification": {
+        "status": "computed",
+        "n_samples": 2078516,
+        "labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws",
+          "8screws"
+        ],
+        "accuracy": 0.2539330945732436,
+        "balanced_accuracy": 0.24456646666545429,
+        "macro_f1": 0.23690626192857028,
+        "per_class": [
+          {
+            "label": "1screws",
+            "precision": 0.3511876578282828,
+            "recall": 0.3506757022969938,
+            "f1": 0.3509314933464761,
+            "support": 203048
+          },
+          {
+            "label": "2screws",
+            "precision": 0.14862898712926692,
+            "recall": 0.05234013203271258,
+            "f1": 0.07741747431319683,
+            "support": 202980
+          },
+          {
+            "label": "3_14screws",
+            "precision": 0.25749860376490685,
+            "recall": 0.1526179488677298,
+            "f1": 0.19164751332583502,
+            "support": 205428
+          },
+          {
+            "label": "3screws",
+            "precision": 0.17485283510551664,
+            "recall": 0.32071526118129057,
+            "f1": 0.22631792925870714,
+            "support": 187456
+          },
+          {
+            "label": "4_146screws",
+            "precision": 0.38880613856917173,
+            "recall": 0.36364403917595406,
+            "f1": 0.3758043758043758,
+            "support": 189504
+          },
+          {
+            "label": "4screws",
+            "precision": 0.22959893533361564,
+            "recall": 0.1593041069442404,
+            "f1": 0.1880985714816696,
+            "support": 190604
+          },
+          {
+            "label": "5screws",
+            "precision": 0.18717015832400447,
+            "recall": 0.19057602279666191,
+            "f1": 0.18885773645037013,
+            "support": 196520
+          },
+          {
+            "label": "6screws",
+            "precision": 0.19391445881182748,
+            "recall": 0.35089585208214025,
+            "f1": 0.24978888209428962,
+            "support": 195568
+          },
+          {
+            "label": "7screws",
+            "precision": 0.14373972530094925,
+            "recall": 0.12848407281001137,
+            "f1": 0.13568442920431506,
+            "support": 168768
+          },
+          {
+            "label": "8screws",
+            "precision": 0.3929734129137276,
+            "recall": 0.3764115284668084,
+            "f1": 0.3845142140064675,
+            "support": 338640
+          }
+        ],
+        "confusion_matrix": [
+          [
+            71204,
+            5360,
+            244,
+            36312,
+            4232,
+            11128,
+            16080,
+            20956,
+            19096,
+            18436
+          ],
+          [
+            17836,
+            10624,
+            12136,
+            24872,
+            14092,
+            11620,
+            14796,
+            40304,
+            22140,
+            34560
+          ],
+          [
+            38000,
+            4060,
+            31352,
+            30732,
+            6428,
+            8164,
+            7832,
+            32992,
+            24568,
+            21300
+          ],
+          [
+            6952,
+            7996,
+            10520,
+            60120,
+            5172,
+            4980,
+            28488,
+            30360,
+            15736,
+            17132
+          ],
+          [
+            14756,
+            1000,
+            4292,
+            28040,
+            68912,
+            8172,
+            7156,
+            16388,
+            2232,
+            38556
+          ],
+          [
+            6800,
+            656,
+            9640,
+            28056,
+            4812,
+            30364,
+            36804,
+            55012,
+            7448,
+            11012
+          ],
+          [
+            7132,
+            25068,
+            14084,
+            29376,
+            1588,
+            26248,
+            37452,
+            35488,
+            6696,
+            13388
+          ],
+          [
+            18776,
+            10036,
+            22192,
+            39228,
+            6996,
+            11432,
+            7448,
+            68624,
+            4136,
+            6700
+          ],
+          [
+            14296,
+            4132,
+            11096,
+            35104,
+            7528,
+            6408,
+            12300,
+            20404,
+            21684,
+            35816
+          ],
+          [
+            7000,
+            2548,
+            6200,
+            31992,
+            57480,
+            13732,
+            31740,
+            33360,
+            27120,
+            127468
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws",
+          "8screws"
+        ],
+        "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class"
+      },
+      "known_fault_classification": {
+        "status": "computed",
+        "n_samples": 1739876,
+        "labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws"
+        ],
+        "accuracy": 0.230094558462787,
+        "balanced_accuracy": 0.2299170153541927,
+        "macro_f1": 0.23699938642849386,
+        "per_class": [
+          {
+            "label": "1screws",
+            "precision": 0.36374596428133554,
+            "recall": 0.3506757022969938,
+            "f1": 0.3570912738214644,
+            "support": 203048
+          },
+          {
+            "label": "2screws",
+            "precision": 0.15412290373121337,
+            "recall": 0.05234013203271258,
+            "f1": 0.07814292859454529,
+            "support": 202980
+          },
+          {
+            "label": "3_14screws",
+            "precision": 0.27131434109868807,
+            "recall": 0.1526179488677298,
+            "f1": 0.19534930089973332,
+            "support": 205428
+          },
+          {
+            "label": "3screws",
+            "precision": 0.19279117496151874,
+            "recall": 0.32071526118129057,
+            "f1": 0.24081907325514323,
+            "support": 187456
+          },
+          {
+            "label": "4_146screws",
+            "precision": 0.5754175016700067,
+            "recall": 0.36364403917595406,
+            "f1": 0.4456516115681101,
+            "support": 189504
+          },
+          {
+            "label": "4screws",
+            "precision": 0.2562016942860036,
+            "recall": 0.1593041069442404,
+            "f1": 0.1964544513457557,
+            "support": 190604
+          },
+          {
+            "label": "5screws",
+            "precision": 0.22245717408348975,
+            "recall": 0.19057602279666191,
+            "f1": 0.20528617941437638,
+            "support": 196520
+          },
+          {
+            "label": "6screws",
+            "precision": 0.21409674037837567,
+            "recall": 0.35089585208214025,
+            "f1": 0.2659350198412698,
+            "support": 195568
+          },
+          {
+            "label": "7screws",
+            "precision": 0.17524406801577552,
+            "recall": 0.12848407281001137,
+            "f1": 0.1482646391160463,
+            "support": 168768
+          }
+        ],
+        "confusion_matrix": [
+          [
+            71204,
+            5360,
+            244,
+            36312,
+            4232,
+            11128,
+            16080,
+            20956,
+            19096,
+            18436
+          ],
+          [
+            17836,
+            10624,
+            12136,
+            24872,
+            14092,
+            11620,
+            14796,
+            40304,
+            22140,
+            34560
+          ],
+          [
+            38000,
+            4060,
+            31352,
+            30732,
+            6428,
+            8164,
+            7832,
+            32992,
+            24568,
+            21300
+          ],
+          [
+            6952,
+            7996,
+            10520,
+            60120,
+            5172,
+            4980,
+            28488,
+            30360,
+            15736,
+            17132
+          ],
+          [
+            14756,
+            1000,
+            4292,
+            28040,
+            68912,
+            8172,
+            7156,
+            16388,
+            2232,
+            38556
+          ],
+          [
+            6800,
+            656,
+            9640,
+            28056,
+            4812,
+            30364,
+            36804,
+            55012,
+            7448,
+            11012
+          ],
+          [
+            7132,
+            25068,
+            14084,
+            29376,
+            1588,
+            26248,
+            37452,
+            35488,
+            6696,
+            13388
+          ],
+          [
+            18776,
+            10036,
+            22192,
+            39228,
+            6996,
+            11432,
+            7448,
+            68624,
+            4136,
+            6700
+          ],
+          [
+            14296,
+            4132,
+            11096,
+            35104,
+            7528,
+            6408,
+            12300,
+            20404,
+            21684,
+            35816
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws",
+          "8screws"
+        ],
+        "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class"
+      },
+      "unknown_rejection": {
+        "status": "computed",
+        "positive_class": "unknown",
+        "score_direction": "higher_is_more_unknown",
+        "n_known": 2078516,
+        "n_unknown": 1043013,
+        "auroc_unknown_positive": 0.5265628228942716,
+        "aupr_unknown_positive": 0.3681421289852085,
+        "fpr_at_95_tpr": 0.9449588071489466,
+        "fpr_at_95_tpr_status": "computed",
+        "fpr_at_95_tpr_interpolation": "linear_between_adjacent_empirical_roc_points",
+        "unknown_precision": 0.37860415245150597,
+        "unknown_recall": 0.14895691616499507,
+        "unknown_f1": 0.21379783441690467
+      },
+      "known_acceptance_rate": 0.8773182405139052,
+      "open_set_classification_rate": 0.2165429566094271,
+      "open_set_classification_rate_formula": "count(known samples with is_unknown=false and predicted_known_class=true_label) / count(known samples)",
+      "healthy_safety": {
+        "status": "computed",
+        "n_healthy": 338640,
+        "false_positive_rate": 0.028549492085991023,
+        "acceptance_rate": 0.971450507914009
+      },
+      "per_unknown_label": [
+        {
+          "unknown_label": "1screws",
+          "n_samples": 116454,
+          "recall": 0.14555103302591582,
+          "score_distribution": {
+            "n": 116454,
+            "mean": 0.6021074676650918,
+            "standard_deviation": 0.37031637693084546,
+            "minimum": 0.01391156722797177,
+            "q05": 0.06005109074609285,
+            "q25": 0.33547308481890237,
+            "median": 0.6120097926078854,
+            "q75": 0.8778999175992503,
+            "q95": 1.1889157888182493,
+            "maximum": 2.0143361478977373
+          },
+          "most_attracted_known_class": "4_146screws",
+          "most_attracted_count": 39360,
+          "most_attracted_share": 0.33798753155752487,
+          "attraction_counts": [
+            {
+              "known_class": "4_146screws",
+              "count": 39360
+            },
+            {
+              "known_class": "7screws",
+              "count": 25299
+            },
+            {
+              "known_class": "3screws",
+              "count": 21588
+            },
+            {
+              "known_class": "2screws",
+              "count": 13689
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 9798
+            },
+            {
+              "known_class": "8screws",
+              "count": 3504
+            },
+            {
+              "known_class": "4screws",
+              "count": 2127
+            },
+            {
+              "known_class": "5screws",
+              "count": 552
+            },
+            {
+              "known_class": "6screws",
+              "count": 537
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "2screws",
+          "n_samples": 116415,
+          "recall": 0.2545290555340807,
+          "score_distribution": {
+            "n": 116415,
+            "mean": 0.6675823057652726,
+            "standard_deviation": 0.5216990665013616,
+            "minimum": 0.01856183069376281,
+            "q05": 0.06025119987579613,
+            "q25": 0.2793048197705575,
+            "median": 0.5443536116855702,
+            "q75": 1.1365406855686022,
+            "q95": 1.639498817278648,
+            "maximum": 2.1959943471463927
+          },
+          "most_attracted_known_class": "3screws",
+          "most_attracted_count": 26214,
+          "most_attracted_share": 0.22517716789073572,
+          "attraction_counts": [
+            {
+              "known_class": "3screws",
+              "count": 26214
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 23670
+            },
+            {
+              "known_class": "1screws",
+              "count": 20802
+            },
+            {
+              "known_class": "7screws",
+              "count": 19389
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 8805
+            },
+            {
+              "known_class": "6screws",
+              "count": 7428
+            },
+            {
+              "known_class": "4screws",
+              "count": 6006
+            },
+            {
+              "known_class": "5screws",
+              "count": 2184
+            },
+            {
+              "known_class": "8screws",
+              "count": 1917
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "3_14screws",
+          "n_samples": 117819,
+          "recall": 0.08934891655844983,
+          "score_distribution": {
+            "n": 117819,
+            "mean": 0.5155825222410377,
+            "standard_deviation": 0.3240119764402522,
+            "minimum": 0.02482026034802351,
+            "q05": 0.058350298100466005,
+            "q25": 0.2949499100795021,
+            "median": 0.4840342079079398,
+            "q75": 0.7461335486892877,
+            "q95": 1.1360503089680702,
+            "maximum": 2.2612731279955773
+          },
+          "most_attracted_known_class": "1screws",
+          "most_attracted_count": 39540,
+          "most_attracted_share": 0.3355995212996206,
+          "attraction_counts": [
+            {
+              "known_class": "1screws",
+              "count": 39540
+            },
+            {
+              "known_class": "7screws",
+              "count": 22923
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 21477
+            },
+            {
+              "known_class": "3screws",
+              "count": 18684
+            },
+            {
+              "known_class": "2screws",
+              "count": 12468
+            },
+            {
+              "known_class": "6screws",
+              "count": 2352
+            },
+            {
+              "known_class": "5screws",
+              "count": 375
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "3screws",
+          "n_samples": 123018,
+          "recall": 0.13663854070136078,
+          "score_distribution": {
+            "n": 123018,
+            "mean": 0.5601447628136319,
+            "standard_deviation": 0.38085312044286834,
+            "minimum": 0.02416586295871636,
+            "q05": 0.05453745955778126,
+            "q25": 0.2642236227528827,
+            "median": 0.5324020118283779,
+            "q75": 0.7159890339271716,
+            "q95": 1.3464418725728544,
+            "maximum": 1.5095219986976312
+          },
+          "most_attracted_known_class": "1screws",
+          "most_attracted_count": 28722,
+          "most_attracted_share": 0.23347802760571623,
+          "attraction_counts": [
+            {
+              "known_class": "1screws",
+              "count": 28722
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 27195
+            },
+            {
+              "known_class": "7screws",
+              "count": 22641
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 19458
+            },
+            {
+              "known_class": "2screws",
+              "count": 17010
+            },
+            {
+              "known_class": "4screws",
+              "count": 7899
+            },
+            {
+              "known_class": "5screws",
+              "count": 51
+            },
+            {
+              "known_class": "6screws",
+              "count": 42
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "4_146screws",
+          "n_samples": 124362,
+          "recall": 0.16500217108119844,
+          "score_distribution": {
+            "n": 124362,
+            "mean": 1.1103617210689654,
+            "standard_deviation": 1.555577322354859,
+            "minimum": 0.09156123330958171,
+            "q05": 0.20913888863932023,
+            "q25": 0.3779143303334636,
+            "median": 0.5394459207034271,
+            "q75": 0.8873042870823306,
+            "q95": 5.206358481558837,
+            "maximum": 7.150579163115068
+          },
+          "most_attracted_known_class": "3screws",
+          "most_attracted_count": 29295,
+          "most_attracted_share": 0.23556231003039513,
+          "attraction_counts": [
+            {
+              "known_class": "3screws",
+              "count": 29295
+            },
+            {
+              "known_class": "8screws",
+              "count": 23526
+            },
+            {
+              "known_class": "2screws",
+              "count": 20433
+            },
+            {
+              "known_class": "1screws",
+              "count": 17886
+            },
+            {
+              "known_class": "7screws",
+              "count": 16680
+            },
+            {
+              "known_class": "4screws",
+              "count": 11949
+            },
+            {
+              "known_class": "6screws",
+              "count": 3366
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 1194
+            },
+            {
+              "known_class": "5screws",
+              "count": 33
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "4screws",
+          "n_samples": 109317,
+          "recall": 0.0362523669694558,
+          "score_distribution": {
+            "n": 109317,
+            "mean": 0.5118107856325308,
+            "standard_deviation": 0.27364828897730337,
+            "minimum": 0.021547987019858876,
+            "q05": 0.06750638811497464,
+            "q25": 0.2981221348479141,
+            "median": 0.552845709438188,
+            "q75": 0.6777327840389561,
+            "q95": 0.9557329232578109,
+            "maximum": 1.3752137191592404
+          },
+          "most_attracted_known_class": "3screws",
+          "most_attracted_count": 22446,
+          "most_attracted_share": 0.20532945470512362,
+          "attraction_counts": [
+            {
+              "known_class": "3screws",
+              "count": 22446
+            },
+            {
+              "known_class": "7screws",
+              "count": 21753
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 20412
+            },
+            {
+              "known_class": "1screws",
+              "count": 18540
+            },
+            {
+              "known_class": "2screws",
+              "count": 15735
+            },
+            {
+              "known_class": "5screws",
+              "count": 4677
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 3633
+            },
+            {
+              "known_class": "6screws",
+              "count": 1359
+            },
+            {
+              "known_class": "8screws",
+              "count": 762
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "5screws",
+          "n_samples": 112710,
+          "recall": 0.24197498003726378,
+          "score_distribution": {
+            "n": 112710,
+            "mean": 0.580460724951031,
+            "standard_deviation": 0.4047065729363684,
+            "minimum": 0.018231022483376155,
+            "q05": 0.047877856329991905,
+            "q25": 0.30755363761452764,
+            "median": 0.4946646846716928,
+            "q75": 0.9502060526105985,
+            "q95": 1.289886103868913,
+            "maximum": 1.5232087973188226
+          },
+          "most_attracted_known_class": "1screws",
+          "most_attracted_count": 27201,
+          "most_attracted_share": 0.24133617247804098,
+          "attraction_counts": [
+            {
+              "known_class": "1screws",
+              "count": 27201
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 24024
+            },
+            {
+              "known_class": "3screws",
+              "count": 20976
+            },
+            {
+              "known_class": "2screws",
+              "count": 11730
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 10842
+            },
+            {
+              "known_class": "7screws",
+              "count": 6801
+            },
+            {
+              "known_class": "4screws",
+              "count": 6588
+            },
+            {
+              "known_class": "6screws",
+              "count": 3342
+            },
+            {
+              "known_class": "8screws",
+              "count": 1206
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "6screws",
+          "n_samples": 112164,
+          "recall": 0.20971969615919547,
+          "score_distribution": {
+            "n": 112164,
+            "mean": 0.5795374803248529,
+            "standard_deviation": 0.4722627213077783,
+            "minimum": 0.015988061422986404,
+            "q05": 0.04505253467297687,
+            "q25": 0.2852731525254554,
+            "median": 0.4941010921611525,
+            "q75": 0.6810353598332687,
+            "q95": 1.4594765218571213,
+            "maximum": 3.05115443665085
+          },
+          "most_attracted_known_class": "2screws",
+          "most_attracted_count": 24711,
+          "most_attracted_share": 0.22031132983845084,
+          "attraction_counts": [
+            {
+              "known_class": "2screws",
+              "count": 24711
+            },
+            {
+              "known_class": "3screws",
+              "count": 23691
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 20859
+            },
+            {
+              "known_class": "1screws",
+              "count": 17088
+            },
+            {
+              "known_class": "7screws",
+              "count": 14334
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 9978
+            },
+            {
+              "known_class": "8screws",
+              "count": 978
+            },
+            {
+              "known_class": "4screws",
+              "count": 513
+            },
+            {
+              "known_class": "5screws",
+              "count": 12
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "7screws",
+          "n_samples": 110754,
+          "recall": 0.05569099084457446,
+          "score_distribution": {
+            "n": 110754,
+            "mean": 0.5064256148023759,
+            "standard_deviation": 0.30392453783795714,
+            "minimum": 0.026678874351278328,
+            "q05": 0.07068116508422967,
+            "q25": 0.30374385391849185,
+            "median": 0.43517452981129845,
+            "q75": 0.7370946490878532,
+            "q95": 1.0066812818778978,
+            "maximum": 1.704497931611938
+          },
+          "most_attracted_known_class": "4_146screws",
+          "most_attracted_count": 31350,
+          "most_attracted_share": 0.28305975404951517,
+          "attraction_counts": [
+            {
+              "known_class": "4_146screws",
+              "count": 31350
+            },
+            {
+              "known_class": "3screws",
+              "count": 26325
+            },
+            {
+              "known_class": "1screws",
+              "count": 24369
+            },
+            {
+              "known_class": "2screws",
+              "count": 14385
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 6318
+            },
+            {
+              "known_class": "4screws",
+              "count": 2961
+            },
+            {
+              "known_class": "6screws",
+              "count": 2553
+            },
+            {
+              "known_class": "8screws",
+              "count": 2493
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        }
+      ],
+      "known_fault_label_union_size": 9,
+      "known_fault_count_scope": "per-run task; classification labels are the union across tasks"
+    }
+  },
+  "paired_detector_comparison": {
+    "status": "unavailable_no_shared_manifest_checksum",
+    "pairing_key": "manifest_checksum",
+    "same_test_sample_ids_verified_when_predictions_present": true,
+    "n_pairs": 0,
+    "pairs": [],
+    "aggregate": {
+      "known_classification.accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_classification.balanced_accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_classification.macro_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_fault_classification.accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_fault_classification.balanced_accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_fault_classification.macro_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.auroc_unknown_positive": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.aupr_unknown_positive": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.fpr_at_95_tpr": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.unknown_precision": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.unknown_recall": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.unknown_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_acceptance_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "open_set_classification_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "healthy_safety.false_positive_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "healthy_safety.acceptance_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      }
+    },
+    "unmatched_manifests": [
+      {
+        "manifest_checksum": "0016384cf66b954fea5f5680281d59fb283db168374152674047c5a3dea9cdde",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0168e2f33a08a63951134852c5f183f828b9463a3ac05c94473e5d7d50d82033",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "021d5d685931f6b8511a5a3b1b00acb3342354334265ba38ac18de589f7239fd",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "039a102f8d9a8ed048b6698f00996e6c9f61094d7692ee2f5961dc4d8b228a9d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "03aa78983027a19beab91208cbe9598ecebd53f49eeb6209d63e48713457c88d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "04c1e741c6f88ba59d5b3c8970013e71b881c8a44d9c160af94814a5f32ebc25",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "05635549863e3ae268c93b6d54e729bf90b031601da6f3038a2a5d8ff36ff3b9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "06fa62b1ff64ae4eb5d12167a0285eb83e8a280eede81991dbed8b4f627ada23",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0754c45f0199fedefdbc9dc73fd285443ad883fb6118e6793a8cca321e3c400d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "075d0834b5496b8a4ffb38eec8500a7d0d950e9228363ff2bc88513ad4b4541e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "096809bec0c0e1cc4a98c433ed22a385b49fa1c7d417a29fda3f2185b7f02f5b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "09907972353dfd376d39e31f2f7a15f6fa2b94c10abf97fa53f1c5860fd4ae63",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0a263ed3148773b371517c58c07e2ef44180b2a775d53e21923b316591ca6fbe",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0a29d89b162d94d17fa2500ad580e216c85bc16859676290358d65987b84fa8b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0a404b5a2e864257e20e0c0e25be85f365982b803f6b65205fa62c615ace3e7e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0a465af0df80453bd3cfaf342ba1adbb47db003057b063136ffc0a6e6ff9f8f2",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0a5e78aafcfed9eaa2526b81869ff5506aa5600a1add1b46579a29afaf6704b9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0b141fca80af1eef3b58e1154a673eac677aa39c9ba873f6deba668482bf82f5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0b44e2c21961bc5f60761a84ddf2025483138e04d65199fcafa09f350416137f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0bed2e6232beff05a644793bd206716740796e9f2fe269277290c41480dd0a14",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0c6b716fda2fa13572a42f8a9a189bc99eb4060fe004c6f6b0a1f552627523b0",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0cb23e865782c30347ab66ff04b66d89aa91addd3acc03d3f0737780ee904f52",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0cef4ce965cc34370569b51e9d571b9ce890f639f8af25b489317507c4d90de0",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0cf94015e71861a973793c6677c9986acc9f6fcd6a870e7e34cd6551e80611f1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0d77bd0e491eeb2e19617b8f1abccd5514e32ab7c691dc5a8ed69fc85684ecf7",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "0e53d730739010a978c2e9b8c545c45544d7be734922145d0ed52dff2f5c75a2",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "100797168e26704d9e04e179fd9bb35927180f4e57fbaef7ec1cf6e07201bb90",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "1060d3bfcaf9ff96ef6a680b5be1701d02d7971cec96408b7d6fe91c4662e57b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "106f68eaf8bd4cd2409fb7005f3bcc1b232d6866771b1500d497eb8eb9234f10",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "10896adcd0e13efc67783a94201d1aa54e340530ac19582824b6e7bff7ecf40f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "11122c950b0283d9878c5ce3ae7eae1f264e95ee58cbb0a2c240a79012d49d7c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "13726a59ebe21ca8804e679cc90497cc5dfebb8339b60d76f1f5e0400a9402b4",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "14099516fe3b78e62e099db079b58d545a7921237b376340f1a00fa7f12da721",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "166b1f48845d1a4f17c7f171f6e8a1d7ae99c6a70545ba2e87be96d921887b8f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "17472bb6a399ceda20216a9da59fa58b04deaa25aa71f63a3057c7473ca0d75e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "198eb0fa5e6b758735299edd03c8a3e10fb447c6db0b68ac917e2318d17b1d81",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "19fd37f982b31a0ce775525dc340bfbd46e0d09a79ac13686b98c7d7b8d8f5c1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "1a2c6e51c50f199950dd97ce64e98e237062cad29804a5300d7013b32a72af2e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "1aaa0382e510660d2b5d5b4134a95644a5208e4f1eebeb6ffb2f7c8458fa3184",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "1c09ade314825d844d9a56a05d81bf49b36834e49f245a4e563300ca035e4f33",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "1f57d2999f91baba6a6ed227dde96ed66d234f4cec859e7e9ab2a6f6f2766fc1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "1f6a270a221edb9df7967c3d1486848b384302bb16b54758686bfab2db40ece9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "1fe6dbb6b18b3e063e47f753fae8eb6c54544a7372dd48d94ee410f2873d1aa1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2030bee8cd241d19f4aa1c6da69ed2f4a345fc11d05f6448dda8134253a3848b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "203404cb38354fe54b1d3f79c17019732d4941c5e8ae481e478b8c77c48bf647",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "20c6421411e66a1a8155b7de3ed4afa0a8801b18c17984295f363d5a371fca40",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "20c73a7ad893ecb5f39506056632716c1ca9222d6f9b92f1043bff94d819ab36",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "22129f2d02da6de6e71981b741f4e8bd7774d1a49408e676984e255a9e08ae6a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "230bf2d2654450c6e517a9fbb7b6d8311e73c1fe5453a84f7ee9387818b97f5c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2422c3aaf3db47c610c0c5c3d6461a7b9455e0d309e893c36110ed5fa2c73310",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "25d306691b19e293c1327dbc62dd22a40ee58df228c7a27bac44dc5f13d24a22",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2679d70b40076e77447061c2fafa51b4895f82c036ff91f752482665ebd4d59e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "26da22b5eb0c31110220c9188aa3fc9010b2bb39b988a1967e470941c8ad5e12",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "285ca975e8fe082ee5d35941ed0a1e09718a75f7b0d299da2988f6e297402a1f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2a0c5e723dbb2faa4a5039b47037e7b0f4470575f6691cdbf78823091d47bfc0",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2a12f446ca0dc44e80846a10e5fe39e78f6c55fc7e6022bf2f7f5468b5722388",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2a84be7c1fc8f0dfc9ced055891438f9f9fee71c28a17e61913ae30ef941f57c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2a876908d6fca6946213cf82556f1553e553d932463eed13ff0c08b9755921e5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2b2213923126e3e1e7bda0ba3c8b0d0e9a4b36b3d7f6e55dd4e2236c78f53e25",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2d19df5186a01f90449e6215fb1d56f01e7600032442b58d4889826c40643a9e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2da68f56f0760bf11a5f85eb8ab8322f796814cf799771cd0473d99708057c20",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2df9a6fc34186a6909dd093cb229f6f73520a7e311edf8e10c9ab769b3c5c747",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "30009720fa04bfb5abae6eddd4f4045fc9b41f8b16c9991ffd10b2ed62c5741e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "303c12314b8f4bb0a08afa3fe8ff2cf404a71ddcdce620539dafd31ded983566",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "30e3e3bb9a154360b165e33b49f4c121955754b2f3ec1f86ee1a00040628ea87",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "313417fdc55f8ffe13d30967e6e96fcffa14a3bce5eccdbda931eaf0d957a0f7",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "3199ea92bc52d9613b2590afe8d7773e73124a4f3dfd15eac1bd7b378b317088",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "31fbac6a71061edf96c6dde4cbd2ee1fa54ea86d4408d775fc45e262f82a1e9b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "32045bb2410afc9228b1280393f234990fa0bfa7c183bde539199d620486d577",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "322cf8b682da4c83c6053987b791ead66b2418d5a4ce460f8091b1dd9f6025be",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "3571952314e409a382308420dffa777e08d410a96a293699cf9e823c85b8cb8f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "35f16024939eb6ad73448ea2ae23c33db40bee8528daf41790e8fc47fe713cf5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "362e82437cef09b82e1797341c49b8b2231993476a68d822872af19961c5c48c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "39a7e801216f751f9a4dee412705f09c0fc1969d0d429ffdf418b858e6ca6ba3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "3b825fcb24c336f88cd9e3fcd37b20f3ee59e2a5611fed57e943d68ce426e00b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "3b8e78e65175422844ae34b299a7f904f91216ac82c0b86268bf7631d971be16",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "3c492459bcc0fcda5d7c69cb089b72ae7a051691bd17e0133a212d0cacb6e36e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "3efe6e250cc69b54a31362fdbdce431a65116ee17fa21882f6fd3474a9fcd758",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "433659a09f86869a9f0814ce14c5be27cf5bfb5b20918bccc0779f2ca376d1a1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "447500a50d546577fdafc52ea24dac0c4d808bf9da0174241953baf11a09a68c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "45249517e1ad92b05d75d6a3bce2733bf746cf494aefaa7fea117448fea0c93d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "454617e156bbaba330d2ca0359ef3d43226f6b61cc160c4c5350a4505a07a5f1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "474d50885decc02f5b81d14a939a4b78e900917c83c76468b980ff903a1219e5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "48ac7a8326ddd4940e1d5d482ccf4c5dc4165da57d65c39c97be28c05a0adade",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4ae2d346f9df373f639560515c24cd679918a355b44daded89783bfcfb2c6ff1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4c142a0da62a13b62966993d0128712d7e311ba8b9a37ab31cd439fd69511073",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4c19e74fce12f60a0240e12e38166907beef86ed8a60db333d67179995ed1fe1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4c500878ff2be216cf18bf65c97fcf27b2612a16818d66e39f1ab338a0118de5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4cf32293eb134010df82db7fcd1c643110bf9ccf8fe27aae2e0b77110fa11783",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4d053ff29a122d8cc324b95a13f8b63466f1926deb3bcb1ff425a9829470e771",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4d1b97e018df74c70a43fa7cff2672304d6118d46bba75a1cbe2c249ed2d3a00",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4de1c1056a46db183eb6ab48022aa8671c733a84cee98d2e3af7c483bd2ac1e9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4de54021120ab7c3dedc4e83458c9c156e8f915c85b9995e22d7eff88cd992a9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4ef4203987a1a6131b8def0551fd6db65f93ec958c1f137b28d42701d0f9d3f3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4f2dcc7bdb5cde4efc6dcf380af41bfa32357205c67a5cc37401ade1c59aef17",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "4f69e982b42f1abfd78267dab1b9ebed4f8017830455e32e904f291d2e26fe89",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "502c88cd47e2a44ab170790a94c3f29473642c868aebae9236d609b11d73309f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "50a3c5f55fad713b3e9a89345f9696794e94f6f619e402ad28ded05cf7ff516f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5104888c69060412ac4e5b0fc9b22f6de50ae009a907ccd01f344694b0b88c07",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5176f2ff99ba32e9dbdaa00752521388e2b5365bbbb476871b86221ae794bf80",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "51894b1e403fb6386a5f6c013f0818ada0adc3d6944c1a0cce761779537ca1c9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "51bd0291777316f91d81949bd6546bdac8cc3a08beb3b51af2ed23d7cfa8369b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5401dc1e6c1b9fa8a89a7fc1790f1e2bdd00bfcac627bc1193ebeb756f5d9c27",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "573e02bdb4e150443a6f8e882265acc60f40305885f6a1c4cb6ee10bd3220f46",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5786d4c2037036320037298aa7846b237c41888ad7e435919d1b5101a45726e3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "587af3627f21fa28d61f6f329687596d95444562f22e6b8d9b8a8018e4a8bd80",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "59b191547ed5401942b141e0f8d0546ef3b636a78a3afdd8a73040aa9365240b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5a3d0f7897be034de079c1cb7e2e68f433e6933de4c1f86dbd020152c958840d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5afa6926c25d877a3114cae671a26c17d22d234c6a3c405de6347a668ead4a85",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5b65b545b1cebe22bb929ac640c60d1525a903733b671b2eb1bcba5bace6a493",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5baa8639783056d23526f90030d05980ebad48cf73fe37769097d0080aa5b37b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5c131b59bf846fb377930154040923598c264af3899ab658cc7cc73edf4fae21",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5c4422338d7ad3604f319c2af0cd2b666bdcd6c24cfb9e26c93314a3f908bbf7",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5c56ebcdb2aa504069251ab47bd4f2515d4b246d10e7b9c84f30bd869b7e96d5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5cd0ae3351f3aefb3da4a5ac881fa7752ab7c6f60d87770c64d83b27f81c0e6c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5d05faf3ca79a0dcfedaeda353afdba7507be9187c80d3b3c3e696d233370be5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5d7217d820537da651bdb24f9a17838f1f8654262051fd92dac2e5ac9b89fd2f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5d851d49618e78564fa0da8f508d5c1d24527cfa144723db378e9a29c623c0c9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5e0b6f2542ea0c173c4f0c172707b929568dc09c9668cf6ada0f9696468055f4",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5e1b28b2206958156ef1641b2c30c1b4df2c37aa10ba8a74754ff99e80a02945",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5e9bcdb89c19a6a00a7880ff44c8744abb6a374263ba015d2df149e6b2fe9ab0",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5eb5cc40f0420ecdeb73426f3e57b28d069fa8466f860e09c88f189604b23159",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5f2df2a711876df7c193c021c36a37b8ae9b0badbefe347289dcad449333f07f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "615b813bd70976e5098ad6360c0a56b42e8e72e48571d3fcb5c4db7ee4f6160d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6187de0f8b6ba862b168f14b95691d216bd8e98ea1f7bb44cfb682945d65713c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "618e061a8512f01b9d7ec1ba4a05bf4f7be64b14d0092553f6824fe734e6ba51",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "618fd79a2777cf304c1a22678120060784d2dc95877d65c98b100b426eb1db29",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "62241391e3af0bc6168a2f32d9d8567b368c9df0b0194416350204c3819e0cb2",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "625e62f4df3b9e90e7a5b9e3bdd93017e8f27bb4e21a11c35a7c75355b00ec0d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6444dfaefc16abd743ec5d7c169d9f2e3cb2d8f22cbdd32a4dba3a58d68516a3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "645a3f95feb459a1beb3c41ee1322c2ca3d971e476e55efa3409ec66f717d1a6",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "64d9070ea1dfd46b83663bfee3e804786d6aa76d11026b6e5c21c8ddabd8868e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "659dc4f594a73c0718285f60e4c37e0911d3e34aee3ca95c5be381b5024c9e7a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6618c38d36dfb9f160d197962fe419a98a84419ff5b1e81b9ece8976378885b1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "669214af8ff8c44de4761591c100ace87069aef8e33f7370e997a0995f42e4f4",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "681571dc42001a37a9ae1bc88e9b0a61e814fed23bb6208fc0b1e7c278a39760",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "69a0031db6ba58db22f2bfcc3350b8ac7ed859db09a8d70714e4e0666225f519",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "69b8acaf965bbde594d23e14e96f589744b7e700f31a5073d03583cfe80afb52",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "69f3def917324e4105615b09f66243f2760a275ec87be5936b95c8ef559af71b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6a4a1425a1a204145564d3adab34e52f04bb0dda4236705f9906b77e831c5916",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6b4c1df1cfb6a1d8ccdcdf0c6a784ed3f3aa68713497ef0e5fcc028eb4232a4d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6c8a0e58bcd01d11318e0eb2fc402f4a5e53f362d9b13f3ed9a9f519cc61bde2",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6de1a5b43b793501c41a20b84164f8ef8f86ab7f5e9273586614a5848b28b8ca",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6e2756786517cea922f76febe660427142af9c4071877f49d860bc64297bada2",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6fcc048581871ec2dd8e85abab0fdbca6e23ecfc0565936df320b2ebab1ce659",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "6fd715b57b5450e35350c55d6d26bc0decaca0fbcb297f7d05eadd9d63eec7c1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "70f45ce1a9d7536a6ff708d08a1ddf9f3dbdc2ef946c4486c66c0cecf28b1c6a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "71628c08c474493f869a8d685fc83111feddbfb2f96e7a2ba18afd4072e6d7ba",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "71d608adc972ead49c2ee7d2c01cc9ec77aa47c2548bb61994c9206e3176f41a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "737d06ef33fec6f108af98af82d144b1ca54a259656435946e19977f78486ab3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "738b25178f5173e83a1b05803cfb9bdb610f8731cb834ed5eb2f37542c74ac1e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "74bb99ef8acbeebd3f7a35a509b9700528eafa791132d711a16a9013b8a707c1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7573a7433362663368565552200c20075b2c5427f3d3ac97ab47cbcbd28a1393",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7697cf56d8d648a14d7ef8d081b7a1a29cc9e1672c09ccd9019ddcb4b42d7e85",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "77868186edc2e1d89b53d6ff4324dc3634b2a33efa976f366a4483077956e8bc",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "785e0edc6539a50da8831caf2937892e6c9c1ff0f4684852f2b7d5166e1283a5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "789b42e6b3abffe4066f458844fc7ecdd9debe1745213c1c147db1a4f7ab8b4c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "78e8de822962f0e055c29c335229f7eade349b86aa57f65b65b85e2376ea9847",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "79457584bb80095ac277685997038a418008e0d732ac1b9cf2179caf6a012a58",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "79856106a3eb87dda07c44dc6c66491f894ec2d50a448955a5fc9ea7eb3265b0",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7a2739d9fefecbba1b8f525bc139d3c83a15e6cefbbfdff1ba24fd609b8ade0e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7a2fb644b0d387b822829a44cc869e0e3760bf5d59f0cdd7725bafa270711205",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7b69a583b7911c45f2011fcb4d38f90020fe28e80f033c8ec56bf3ede787c62f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7c277903876d85dfa430de54f22cf59d8b8f2d66b1aeb000f54f618cc5ed76cc",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7c5511787aad18628ee4757bf9110df261166f62e6e9d88bc35e39904f6bbdef",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7dac752ec0ab10fd9ac454735e012f6e854efc8f2b619e54ba1456e3923c1100",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7daddb0c9a6854e7208411580550624e230d40fdc6d0b642c1f3ca52349f8103",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7fa04379747ea8ec766901b87808a768128b5e75b9edc512c944f7798a31789b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "80002942c487c528a2cc220d0a63dfeee921295ff7176f47f097032e3d994ef7",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8064fa525ebda49e685df1ee035fc27f3d3a2deda21435e57e53c424c56e75d1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "80a76277340f66501e59a8e0b38dddfb7c4465fe7c25411cd37189676d542628",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "81ad7f1c172ffde0267ae36fc1ec1ee660e6bd022bc690ed23c60fee7e6d132a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "826214fbe550aaf108898b6498269851ef76a5b4b3712232756cfb4c117538f3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "82ffa7dbe8598e4dc4c0e0b94cbe0ad72ffd7b9e584f18e9adb8845f79666ad5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "833316bc86329c3117ac6a9e7d6f32ca3d7082ff4012110166ebcc4b3d231139",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "834e3190504a522dd2c2ec36cb8ad2acc811cd528e69c833f38f47970855b2a9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "849d75cda7b05252056db73c4a7a069a93c4addef1a4a4b99f444e362b3bf698",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "851908c0b9d5f578e51bf3a0d31922eb42d01098ba7afa649f967d677b87be39",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "85dd53e52f44041cd79c280402fccb0ec067702f9bb9e798e6390590aa53db12",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "88206f0176c59def9c73bbe7b0d29ec772efa0c9f402f59bbee1e3c299a27ccd",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "88f279c8627a39cfb8c92662e07f8615c711586d1092f57cdf74b631731e928b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "88f5e28358b07b73f5a385acb272795cec5985092818da238e1a93083bcb4701",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "898a5756c49d3625a6694711a6faa040b83f3354cc86c74f50b65906d23c0365",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "89d72ecbeb1e92fd25b224a80b90b5c3cd62d137cb8f993bcbdadcd3ee4e723c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8b493552e80a6b86985c4f6b32d4807f87caab2064bed8bf7df872e27b2df652",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8bce74f83263cd94ed062e18ac89f2ea44bea14b2c5923bde1cf5acb6bd9c0bf",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8dbc728de0ddd4c0836360d246eb91851806ae6e02a773b9f67156392d827739",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8e4f219b3e9ab1ef3609068ade3198208c9e17d949256c8b0452d2b9594cf9f3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8e7a5bcfd6a496a2efc751c18ef9be4b365dedfa7aed0f6e28fcb78e4f7d6f94",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8f2736d852008f811165c4b5ab25217c85773426ca3b5b5c4e5ddb871e4caa0b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8f79233a737f2b8d38f1ddb2b0060804dc47f021363e56ce293768c7332ee85c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8f97c59343d9855f0d315e63bfcbc33ff2cabf7f07e6d63c96d4fc9c7b3196d2",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9001011e5e06ebafba573c08af342854851e530c3d09463735e72a8c2ec51f1a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "900a894833fc94e1c4904db944c7f513810b6f8dcccf4ce3f664a7fa6b8747d7",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "902551b4f49656db3c85b64e843429a10a17e4eff601fa545bb16e3195f74a7e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "918d57dfd3daeeea521a7f5a08bfde940c6fbe93e63693cc7dd960936008d258",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "937220e613cbdbbd822fa0ef97269dd7af9eb8e71f764d61f233529cad106818",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "93d30fa866f8e02208deb5e1d2777823969dbcf0b8e0b2de0931986d81d36b7b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "93e554749033389b93146db40cc4fe8af82389817170d27b4862e7e4ddf1b37a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "94e31228e16a93e0c721a97c5a20bbf07891347c18b9e82b765129c15b70a0e9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9505238c55b9e43bf7d7eb93ef38aa30159ea64bc31c734de9fcc232d1424856",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "951c7bbc9a90a7b0926f7d62caff0230c7b0b369b4cce522ed6d2ddfc3d8635a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "976d4b5cb7ac7958e1b0b43a830091bd6a94f0f887696f0fba4164c2f4953b73",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "97a01d6077ab843f283c80f571fce8f50300aa07471c46ba3886c5c6230a2544",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "998bf96fa4e8af2f368c117032ba62217215f45ffe8de5c4dc982221a941d305",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9a9f62a799fdcd07e2a1d2d54812374a18a8ccacec35a921de7faed8f96ddade",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9af39185110387cba87592105be2f2799f5e4c24af6bc291a690e12bccea3ff3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9b6f12ffb85de210e904badd965f360581707fcc8dc8775bfcfcb5c7642fd933",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9bebbd20083592ad3a267397a4c7c429945141afe20e89624f7ab77df2a5603e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9c7447b34228942ea64575e469104f85738a6fe4ab71684063307e7e555d8e23",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9cb998520704d9d3658b88ae6b3479e1377f7ee843dc43de098156bed7b0e913",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9d7bf5d8acbb0a207e5e03ba11fe9102733ebcbd90d498647f7848119cf907c2",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "9efb624e9882d815aca854a4ecfe518480b40cfabe1d2046820e3eb0b16ed7d6",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a08b6329d80aa71868979da127db9ce164ed45cbd7c3b07f04414fcdeb4507fb",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a0a94e5e30f26320661e87af9c7b544d24ca3be8b53619a45f36d78c2a3e57a1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a2497ceb7fa50940d55c3461f6e82acb912aa4df073a1810724d6e911d1e99d8",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a377e57821dbcb8b4e3ed3a74bc55bbad004a77fd5e80c4ea527e9d50d313a34",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a3b664a1a7920eb487ab75b53ce88623dc62c4898035bc83990cf6468ef15ba3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a3cc2da83d33d25a362b5cd86e342ee95193793a505c4bfa9c4a5db2858919a3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a44fd2c5f6a77429930b12075b9d2af55f0ff7d3cc1f8398a7544b7ab70ccbb9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a458cf627ffd43dd97bddeef1d3dea0e315314c64897c9e88c128c1d729bb4a5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a4feef2e65b38b8487773191ae7e3dbc200527d5470a4791989b8ddb56621303",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a542cc6c0696dd22d887685183c6847bf6f7c5c3eac8427d36bc6a917b7f6fb3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a637fc1021421e317a01fd7437a2a0b4ab204aac9060ed7ef682854af0c78399",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a660fa574d271d0f418909d612e4f542150bcc74b45313c16557f0867a0dfd40",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a7345970e472e3d76269b9f3ebb31dd1931b4bb47069a32c91f8087d1196ec4e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a738b955da3a3e5578b85f323a9b0c30f67b6ddfd27e2bf921f53403edfbc9d6",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a74a493924825487af1d22a84ac61d30b46a4cb16c7066caec63ab2848543ded",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a773eced70a11aa7a783976fba7715f7c08af88abd0aef921a69a803c0decc2c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a7d9dbcfea7c219fe3b027f2b16cb83172aefdcd499b007498cb5f117140f07c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a8d5d74ea47b8f6c695a952bc33184b8775b8c35b48b0bbe059de79241642da6",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ad7dc27f45021839e8c15d36762530c7c546b45d2affd25b68874ab3556d5d7e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b02d8969574e9c843a4b77bfc8c07b7fb20cb6357ff64d4e8bcc9cb1c0df1268",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b0552ed5ccb37866a083623170af0e0f9d6dde66cec1404c4bf8d4b59ad3297c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b315bc593caf257f4ebd4f83d349c6dfa1baa31fb5395456e4bddc70c3a3b520",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b45cac5f7315a3fd5d0caeda1897f1976db3456f8530084e3a8f18ce0c0a1ff5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b4b0a0cdcd45baa0d5de394439a637cff33921711b9cfbfa5efdd7f21a2ac5eb",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b4be352d8fcb54eabe798d07767a5d89df21da7d9e200550d3ff4d03cca27337",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b528025df72f9125953f788011f53b52f177718ad20a3c5e6c0798f9c18bce7a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b625742837d1a2f22f0fa8f35caa3c2f3037a42411b6d1d2f3f1346c772524f3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b6ab29a37712b5c88d99f8cec5649a5ef9a6a0449ed868b4e3ed0bf39a21861e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b6e0fe98bef96bba515305b9e9ab0dbeb956d2d4a308d21cc899e4b61d29c613",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b778203d066a5337bfcc90a28ce3d3c8c25f6e02fa7e67fdc66fe4d6d8bab903",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b7f3545f6930dc4450efdce84059066fca32a78575482927130afbbb0789600d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b809f7159baeff9f1e1fca0a7228c512dadc4055330f5b915346fca55db52df8",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b8b810e97e06a8adf4e1401129852030c285cb3e4138e53fa6ce1f402e804c08",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b96e666b480a908adb0ff7ae0cddf31754dc92a28e6cff6c6012f6ce07a9e4e2",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "b9f0e2a56278d17ca94dec631c5c6c56cbe43e9963b325440a81693b3ae58942",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ba03864d847c9d29e5f7051a588b5dcea834902cc945bdb762613e53543095a1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ba13ed2722e121357cb26628490f856b8780c166845d7778b41dc3ae865c02ed",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ba1a32b636d86813cc93f123ab32cc3c1d7bf6b17518f313061ba8e97d18ccd9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ba4bc006dec473ecd69d96b0146ab6b205693e48ea15c32869b31b83000e6514",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ba7dd67fa3e91330252966a3866dbac0ed617e5174aaccefe1d718204e59f847",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bb46727821fc506ade8e4e31d4cf414611aa30b22c5182533c2b8fd06e7edcbb",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bbf761ad5124c155a759e48949cc68eed452cc614615058bea8f7718b3de34b5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bd59a8c5976af03c405a34f08ce85ceff2a19dd54e00e63261d0dec85d549056",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bda95948dfc259a1ab5bf0677f2d8c945c720be06543f570b4334008c0125a50",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bdb0d8125dfb53eafabf36555a2b30e1414b5c7d52060b2591d92d629cb6ddab",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bdf5374f349d992b407eb653493b882f722c511df8da5aac3af2720ee9e8537e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "be5105f6664862e705c33d0e9054806478fa5f8588cd942a9141ec70f636c577",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bec8b1c036d7d0d5745c4a028f20e1f12b4fca01da24d7db453ed3265551151b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bf2aba4ea6a3fe696f2fb933676880e48c4511cf7342053bf71f8a8c6582d8ff",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bfa8bf39885ac77f7af99bc4c600f53c04594d1c04df5dda8d42ee19537808b6",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c044be7afe681dce036c880b93da76334d0a1851f1b815968f2efa6abfe490a3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c0d2e936dc34ac7138a1b35f4e6f1d92f34c7d5d2ae91e7811fbf023ac983a3c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c1969a0fbb1e81585a2470b0eb692052ef085e40dcac71e3cb04e0152e147be7",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c28ecb2d6151b4cd20c1606e715a1bbb9df33556c7019ce00838ff170f8418a4",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c2f5c0e57ad9dce928047a6cf2e2752156d7f6541b06d84536e4fa181bd9c51f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c39ab477822b179e6bc0c598329475abd42ba1eb2b3d73563f335c8fe66d4e3a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c3e665cc67c042b374919acf57a26156f788d8234005fcefdb67f02118c0996d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c46e42d071af5f677bad6ec2db67d2dcb3fd2f1245667665725be7d1550f9c91",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c5096347beb826d62a6d04eafbfc959a474e93dd52bd08c2a6bf8481a28113c5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c52693b172dc6a61d09a42ec584798ac2ec32169d1862512f7407af1e5a742ed",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c81c95ed98006a01217344cb119c25b61ea196fe726da35059f19cb67a6cd391",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c82846ba276fad8aceed1a992442abd57ac47a6fa0b938bd399580b56333768b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c900c54f106bd4154cd767342edbf07f4eecb6d3dbc1d6f3efe2acfae356cfce",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ca345fca04e6f912204e96534c743631bbc4a69dcbed2d75daa8f1fccf984bfd",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "cc8da1a25237a2d170557dfd2872363d2245cf061e2c732d69a1faa34833de49",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "cd4911fb2bcbf4693cd8b01d33ffd667cef58adb44ac9367a16528ac4a61747f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ce030ef7b6c7aaa4225d76d589c6a903b9a9789231b2f096bed9dc5f29cec066",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ce83c63ed2a0b83b79e997c288398bf73fb440913f2af4348540f2a6e5595065",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ced04efb9d47272e25a1af59cefba575f6494fbc239cf276ea9c18b0a2eb8a4e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "cf6781d8799d4860cbe6dad051c59323fe7dbd30a65012b52450e87f8a44ba27",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "cfc8aed89aeb1ac52f3d755e0ec6e11f9fadeec90a6abe40381a10540e920951",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d07bac779500918f4fa6db9c9874528e6e02ab86c9989de5bfe170dff75e9897",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d2365ad09c634cf2dac9e558a1c312d983a55c4eb88f518a58dd7ca28e711ae7",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d393123ff67a51476ba0caffc8a24e49c7727942124e51402b6825067cc4e3b2",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d39f4c6cb216f259fd06b54785e809ffeb91296967a83ca70ca6fb15105aafe3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d407b72fbe1dc5ce87bede9dedade96f655ca20770ad0195967371d8d1f12383",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d473c04a856e73dc2e17945978ff204b0963896b7dfb16e1a7762b881fc1708f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d47d65dd9294c18a8c6d4f9e1ab1fe1ec1dedb1149c329d449def199596745eb",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d4b705ec0605e6aa1eb41cf452dde022e4a97fb0ea65d633e5f388eb62bf8faf",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d5451d51184816e3061293976b26c4159c65f3bcba43b899166843ff08e234ce",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d59c972f87480f2cff8785f2c7f8b382ac5b1595c90d72e972fe276d18fb27cb",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d5c6faf1b28abc82e1e9964c2a24842b601e8e8f75e6af85f95a1b8eab3be561",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d691f7738a920f9b78f2da6e5c7d5237d4c1b54bb4425f408c92715a39c11225",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d8710456fa2f64308b66b78ccfa5c95330fc749fe318f1502629a128e9b70317",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "da7c76c9c2632a4cc7fef98aebbfb45f4ba2af9c95b09f85cb0008022888d26d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "da9723a20d3a7a9bef889c8b6f82d8729faa1bce2284ee357adc4e4574fe383a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "db1639555b42b0dc16f36d5f7a74c96a6e617ef842a871345ff73cd83558981b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "db2e6ad7c81789ec01c2f75f1c9858e0713450df885a6b2ace15b055d05b0479",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "dc885fc122004ffafb12481763339db74b35dda00d84d5f9cfda76539b51d064",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "dcfedc16acba0ac1b2c19a0d774402465bac1747b682290b4ab1473a8e5af49d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "dd282ab1dbb667dd0903934680192c9a5bb9aa16109b58271827b7cb3b54dd7e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "dd5b8e2eadd984cf9f7a8deee0d73a83ca4ac1ea8d0a324765155a3d7455ccfc",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "dd8568450d998f4c45aadfeaaf0979cce8701f665e24c994a19e4a6bb4777c42",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "dda17aba7025ef274f9c383f8ccaea93cdba8c4cb076beb7ef0e0195c93a2dc0",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "dde7ceec062c98b950d92083b070c556a393d4bc53db3ddbf48be075644c9f2c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "dfbd2c950f45339e90466bbb071d63c02d1bd16bd73222207f780933ca3fc43c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "dfefaf787688d26fc5e5a305e84102af17138bccd7a4bf3df562433c6945a75f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e03cf4e3f30720e38c566d83d751bd2b3e08948bfd36846b74d1029d4f635164",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e0ba6940adf0ae0e995df93919e1c74a381937af81daaeebe8f72272c438b77e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e1813cdacb3b4731acf938d25401aaffced0a5b65e2a204c0b8bcdb621b2d07c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e30b2f6addb9e1f5ca72c2eb25952cb1abff1f1e9c00ecea69ac5459279016a0",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e475574b426fbd5cf0647a3632ab69cfb776b295e44db43abbb803d04c1e141c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e59633934aa6406c366b9e97ef9f65752fb00621285ff44be479397859951136",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e634e92ce888838f56446cc2c9c7f5f73db9b0aee08cf18ecd6d4d5a0cf131cb",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e6c248dadc0e4508b6ef5d882e8a56f2d7027986faf98012d89631151454c718",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e706194ccba88275efc32f21cd72384901608acb6f66dad65d4f7c35c13f1211",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e7579aeaa816d3e74c7dd26607eae93643eecc3a6c538245557a9b80c3756483",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e87f436d967b81ad9d8f73ec6ab565b1000ff120f7155064a3fe1f989302eb68",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e88951bf8ea56dfe9476c5918ac12acf13db2036895ee8fc33fb476d0b26fbe6",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e91bb2993fc25fea2de28a4382becb784089d6b88fc87acec81d42e64e29eec1",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e9230e15032640e2fd55f4fe30b21d272f939cb2c15443f0b4cf55b2b3cad6ee",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e93578eec110a916b760d625565a77f99476f216af34d82e30e558901c662630",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e95c9e3cff4bbc352a67f9bcb8104f177516ef8032f1f8b88d97839b3f16c8ef",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "eac2707b48cbd5f8ec59dc0a258f561aac1d91eb853c3624ace064f8c750330f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "eb57381b421433110d3104179b930c69e3ff6b5ab477a16ebac6daca580ab24a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "eb754042b19536645c89d2352aad6b77d868c29e904029a2888c3a7ae0149d1f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ebc965abc3e3cb570dab3cc00287e4b502d1525a9b2845f8f9abb0f57737845a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ec651e36aa504897ebac1baf0367b5c63002a0adbebdd10ae1f65fb893c5cd06",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "edbacb7d96273eb379a63596dccf221a99f62b50877d87496053fcd452add86a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ede916325aeb7c1cc8be7e6d27ccd7f160d0f06e8e8969ae96d4ead92a6cf505",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ee217d5c221eca3b8ae069aaa770924894876289b1fee676b0047b374229215d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f01d91697dbfe89fbd6262f78b8a2bed5eabdb0b7675d705b14d89b0ca3ab94a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f09dd196a186edca8a02226495febd06b6d31eb8736291c6030e15af012d7a4e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f14a07aa930baa1b183ffc38ef9a2543d44f246728d8fa1a43921bae9bee7d4c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f16a98e0655027abff9436e64203d14f9292c7021654ae591180650bc45b576b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f2583d4a9a71c45292aea12808425aad5cd00427849dacc042633cc64b3d5f27",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f3cce67d969c70c63390dcab1dc79f7502520f5cb2618670d0eaea694acdcb6a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f48b3bdd19e43a453a57e130b92efff0d01a9e66bc0769b913c8a8163ed6d118",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f5353057ec051e5e6b6e20a7287944fb3b95fca17bd9cd1bb5f579e8748374cc",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f5e2a9e1c6f0eb5e73119371b33f6c648be8b8f6ad1c21e8fc0cc4e7311757eb",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f717976a73cfa8a6bcd6cd7501198101ce6dfa8a96fcaccad277ae5eca8d567e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f7dc825af87a276e7e22067125f3d962359c3c91381b02a77b032c990f3c90b7",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f7ff7b68f6ab2aee3bbc6f57f18799edcee466b1922347094a240febf6853547",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f86e3e45d2b2fd1ee18f9287f4eafc9614e4d038f9578f6c55cae3c9ea387f75",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f9755a7d0b2905b26df825224bec76e53f5cbe4916da55f95c3991bdbde66807",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f9bccf1316900de78381da83ff462a15f483f879f4452183334624b33a02567d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "f9df501bb9c780089be0a4974ef982dd6d653d54670e022486dbc53d0e47683f",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "fa3cde7efb448ec30b9c26537ce87b2268e89d82296450f81313f76f6ec7ca73",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "fb7212db2dc7d8fce47a399d79dedb9e25a76f6c04ad2c533e03d4b9be103529",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "fbb58586f94bbc2861286d3cfbf54b687fca42846c13ab2d611c3cdac27eb2a9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "fc0296ab8e0c13dfd61b4b5f4f1ec0e9b018fde593bd766f0265214f03d83bd4",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "fc047ec60d515568ff42d72b17ae2a883089ac93ce145b3e62674fc7a39a8ccc",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "fc0c9cfbf5fc28dac633624217f6f4715054a4ae2c9ba3860050310ca825218a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "fd783d7270e0871388074585bf7220f1b743fd9c8bdde09164141a9b744705b8",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "fe5281919bae98adb831cbb17fed63371ab9254ae862b0de9d91b2f93d0076c8",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "fed7613c8aab39bc11002f255488847db2e0c8f4a9599e0e83f6014b1133128b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ff0c6651495803f9be074450690bb70e76be636807c19e0df44c0ef3930970f5",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      }
+    ],
+    "ignored_runs": []
+  },
+  "result_scope": "exploratory_incomplete_not_main_independent_test_conclusion"
+}
