@@ -1,0 +1,4 @@
+2026-10-01 01:18:13 | INFO    | Logger initialized: fault_type_model_selection
+2026-10-01 01:18:13 | INFO    | log_file=logs\fault_type_model_selection\2026-10-01-01-18-13.log
+2026-10-01 01:18:13 | INFO    | output_dir=output\fault_type_model_selection\2026-10-01-01-18-13
+2026-10-01 01:18:14 | INFO    | Predeclared3 candidates; no models fitted; commit registry before training

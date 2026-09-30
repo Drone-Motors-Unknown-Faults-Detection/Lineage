@@ -179,3 +179,12 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Three completed N9 frozen test manifests cover all28910 unique catalog IDs. Saved ledger output/fault_type_exposure/2026-10-01-01-10-40/exposure_ledger.json.gz checksum4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc.
 - Added read-only ingest/data-version verification and final eligibility gate: exposed bytes/numeric-row copies, same acquisition, overlapping windows, new-session-vs-new-motor claims, unlocked configs, coverage, and sealed histories.12 new semantic tests passed. No fresh independent final test found in the inspected sources.
 - acquisition_contract.md gives minimum real acquisition facts and executable CLI. No hardware collection performed or external messages sent. Eligibility is conditional on attested physical provenance, not automatic reliabilityPASS.
+
+- Stage4 commit616aa9b441818626f38fa0e9fa3ead5ab1e4158c pushed, exact remote SHA verified. Ledger gzip ignored by existing*.gz rule, retained locally and will be included in verified D-drive follow-up backup; Git index binds its byteSHA.
+
+## 2026-10-01 — Known-validation preregistration, Stage 5a
+
+- Prepared exactly3 candidates: unchanged balanced logistic C1, RBF SVM C1/gamma scale/balanced, ExtraTrees200/depth12/minleaf5/sqrt/balanced. Train-only RobustScaler; no PCA/feature selection/unknown selection.
+- Original first126 registry N5 class combination, all3 original folds chosen by prior order, NOT performance. Scores use equal-fold known-validation macro-F1, balanced accuracy secondary, simpler-model ties. Historical exposure/sharedval-cal limitations explicit.
+- Initial prepare-only01:17:10 failed KeyError class_split_id: role registry field is split_id, while manifest field is class_split_id. Fixed adapter field reference, no model ran and no data/results altered. Successful prepare-only01:18:13 exit0 produced candidate_registry.json before actual training.
+-4 new selection tests passed: pool spy forbids test loading, unknown validation rejected beforefit, deterministic scores, tie rule, modified candidate set rejected. Training artifacts use joblib generated locally; do not load arbitrary untrusted pickle/joblib files.
