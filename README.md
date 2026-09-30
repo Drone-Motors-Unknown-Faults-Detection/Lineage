@@ -376,6 +376,10 @@ N=5 全部 126 組已完成：已知分類 accuracy 25.744%，unknown AUROC
 - [切分完整性／洩漏規則](reports/fault_type_openset/split_validation.md)
 - [固定模型與 A/B protocols](reports/fault_type_openset/protocols.md)
 - [N=5 實際結果與限制](reports/fault_type_openset/primary_results.md)
+- [老師建議完成度／完整13項結論](reports/fault_type_openset/final_findings.md)
+- [全部 N-sweep 趨勢](reports/fault_type_openset/n_sweep_results.md)
+- [Protocol B 次要結果](reports/fault_type_openset/protocol_b_results.md)
+- [完整 artifacts 路徑與校验](reports/fault_type_openset/artifact_paths.md)
 - [逐步重現指令與環境差異](reports/fault_type_openset/reproduction.md)
 - [執行、失敗、提交與 push 紀錄](reports/fault_type_openset/execution_log.md)
 
@@ -384,3 +388,7 @@ N=5 全部 126 組已完成：已知分類 accuracy 25.744%，unknown AUROC
 程式、設定、compact summaries、索引與日誌，不包含 raw data 或大型預測檔。
 實際依賴版本見 matrix 的 `environment.json`；本次執行 Python 3.14.6，尚未
 驗證專案設定所列的 Python 3.10.19，不能宣稱兩種環境已等價通過。
+
+N=5、remaining N-sweep 與 B 輪替三組已合計完成2490/2490次、0失敗、
+1245組detector配對；完整測試137項通過。研究運算完成不等於可信模型
+或完整獨立測試已成立；資料來源限制仍由validator與上述報告明確保留。

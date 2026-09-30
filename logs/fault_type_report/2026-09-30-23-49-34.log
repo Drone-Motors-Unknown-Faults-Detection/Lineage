@@ -1,0 +1,5 @@
+2026-09-30 23:49:34 | INFO    | Logger initialized: fault_type_report
+2026-09-30 23:49:34 | INFO    | log_file=logs\fault_type_report\2026-09-30-23-49-34.log
+2026-09-30 23:49:34 | INFO    | output_dir=output\fault_type_report\2026-09-30-23-49-34
+2026-09-30 23:51:08 | INFO    | 圖表已儲存：output\fault_type_report\2026-09-30-23-49-34\known_fault_sweep.png
+2026-09-30 23:51:08 | INFO    | report created: C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\output\fault_type_report\2026-09-30-23-49-34\report.md

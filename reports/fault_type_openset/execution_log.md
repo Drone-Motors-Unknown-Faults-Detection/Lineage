@@ -133,3 +133,11 @@ Subsequent entries record commands, seed sets, data/manifest fingerprints, test 
 - Combined report command: `python -m experiments.fault_type_report --matrix output/fault_type_matrix/2026-09-30-19-05-42 --matrix output/fault_type_matrix/2026-09-30-19-37-27 --matrix output/fault_type_matrix/2026-09-30-19-37-39` → exit 0 at 23:51:08; output `output/fault_type_report/2026-09-30-23-49-34`. Plot visually checked; A/B and N=9 unavailable values remain separate.
 - Sweep archive command: `python -m experiments.fault_type_archive --output-root output/fault_type_matrix/2026-09-30-19-37-27 --destination D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-09-30` → exit 0 at 23:50:50. Index `output/fault_type_archive/2026-09-30-23-49-43/archive_index.json`: 4,691,045,317 bytes, 3570 files, CRC PASS, SHA `64ad06dac8625e838a6df251b247d7bc295837f602a3a7f9c2d98ceeea36377b`.
 - `n_sweep_results.md` records the actual trend and why varying class counts/configurations/fit distributions prevents a simple causal interpretation. No settings/thresholds/default detector were changed from these results.
+
+## 2026-09-30 — Final evidence and teacher-recommendation audit
+
+- N-sweep results commit `686cb38a1392e3da536a6e45e5e2d291014cd516` pushed and remote SHA verified.
+- Full suite rerun after all matrices/reports: 137 passed, exit 0 at 23:54:18; original binary/PolarMap checks pass. No formal run failed and no post-test model adaptation was made.
+- Combined report archived using `python -m experiments.fault_type_archive --output-root output/fault_type_report/2026-09-30-23-49-34 --destination D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-09-30`: exit 0, 2,176,346 bytes, 10 files, CRC PASS, SHA `414532b03e8dbc3a7e13b22daef2934c5771bdfbddcdcfb35f4cae80108df047`. Index `output/fault_type_archive/2026-09-30-23-53-04/archive_index.json`.
+- Final teacher audit distinguishes completed engineering/2490-run evaluation from unresolved reliable classification/rejection and external independent-data provenance. Full 13-section report, artifact full paths, reproduction commands and explicit limitations are saved. Existing 282 historical tracked deletions remain untouched and unstaged.
+- Tracking issue search returned no existing open matching issue; its evidence body is saved for creation after the final report is pushed, as required by AGENT.md.

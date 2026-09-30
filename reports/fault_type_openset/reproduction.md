@@ -4,6 +4,12 @@ Run from the Lineage worktree root, on `research-improvements-20260920`.
 The read-only feature root must be `data/formal_local` with the fingerprint in
 `data_audit.json`. This workflow never runs raw feature extraction or edits data.
 
+This host's actual worktree (replace only when using another verified checkout):
+
+```powershell
+Set-Location -LiteralPath 'C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree'
+```
+
 Environment caveat: this execution used the existing repaired Windows Python
 3.14.6 venv, not the Python 3.10.19 declared in pyproject.toml. Exact scientific
 versions are saved per matrix in environment.json. Do not assume numerical or
@@ -81,6 +87,17 @@ separate from this fixed-environment study.
    The report includes SD/CI and pooled rates, protocol/N-specific paired deltas,
    per-configuration recall/attraction and N=5 RPM/campaign condition analysis.
    It labels all current data INCOMPLETE and refuses pilot matrices.
+
+   Actual completed source roots for the final report (2490 runs, no pilots):
+
+   ```powershell
+   .\venv\Scripts\python.exe -m experiments.fault_type_report --matrix output/fault_type_matrix/2026-09-30-19-05-42 --matrix output/fault_type_matrix/2026-09-30-19-37-27 --matrix output/fault_type_matrix/2026-09-30-19-37-39
+   ```
+
+   Verified output is `output/fault_type_report/2026-09-30-23-49-34`; rerunning
+   creates a new timestamp. Model/manifest code commits are dd7f679 for N=5 and
+   3d8b9f0 for the remaining matrices. Consult final_findings.md for full SHAs,
+   actual findings and limitations, and artifact_paths.md for full storage paths.
 
 8. The active worktree lives under Windows Temp and previously had unexplained
    missing historical files. Preserve completed generated artifacts on D: using
