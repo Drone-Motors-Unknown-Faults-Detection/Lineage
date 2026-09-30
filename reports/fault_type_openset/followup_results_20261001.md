@@ -175,3 +175,25 @@ pyproject要求3.10.19尚未測試；binary detection/PolarMap/factory包含在�
 文件支持的motorID加raw provenance unknown，保留INCOMPLETE與group門檻檢查。
 完整170tests通過；驗收證據在output/fault_type_followup_acceptance/
 2026-10-01-01-35-02/acceptance.json及full_suite.txt。Python3.10仍未驗證。
+
+最後另將成功／失敗驗收證據各保存ZIP（索引output/fault_type_archive/
+2026-10-01-01-37-47/archive_index.json），本輪共10份D槽ZIP。失敗記錄未丟棄。
+
+## 8. 逐phase Git交付
+
+研究branch維持research-improvements-20260920；下列均有Codex Co-Author，
+每phase push後以ls-remote核對完整SHA，不合併main：
+
+| Phase | Commit（完整SHA見execution_log） |
+|---|---|
+|1文件身分/overlay|0dcd67b|
+|2來源/processed row追溯|a82b833|
+|3feature語意/重算|27927a2|
+|4exposure/ingest/guard|616aa9b|
+|5a訓練前預登錄|d0daccd|
+|5b實際selection/lock，舊test之前|ba7e728|
+|6受控exploratory結果|8a9bec2|
+
+最終驗收／備份提交的生成SHA與push核對記於execution_log後續條目及最終回覆；
+不在commit生成前捏造自身SHA。Issue9已新增具體更新comment，保持OPEN：
+https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9#issuecomment-5916453179 。

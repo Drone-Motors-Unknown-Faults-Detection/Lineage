@@ -1,0 +1,22 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-01\\fault_type_2026-10-01-01-35-02.zip",
+      "sha256": "1a47b5773e8f1f8e2ea437ffc8f8cf81622405099941a8c34a981f23bc8b808f",
+      "bytes": 15597,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_followup_acceptance\\2026-10-01-01-35-02",
+      "source_files": 2,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-01\\fault_type_2026-10-01-01-34-31.zip",
+      "sha256": "d59b1f17ab342055c4ee71ae6b840df988ec769feb1e40f77f26ccddb5b1f539",
+      "bytes": 11640,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_followup_acceptance\\2026-10-01-01-34-31",
+      "source_files": 1,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false
+}
