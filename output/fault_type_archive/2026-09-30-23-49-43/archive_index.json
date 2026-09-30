@@ -1,0 +1,14 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-09-30\\fault_type_2026-09-30-19-37-27.zip",
+      "sha256": "64ad06dac8625e838a6df251b247d7bc295837f602a3a7f9c2d98ceeea36377b",
+      "bytes": 4691045317,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-37-27",
+      "source_files": 3570,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false
+}

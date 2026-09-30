@@ -1,0 +1,1677 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "declared_runs": 27,
+  "completed_runs": 27,
+  "failed_runs": [],
+  "uncertainty_scope": "descriptive across overlapping class combinations and campaign folds; not independent physical motors",
+  "macro_over_splits": {
+    "weighting": "each completed run has equal weight",
+    "metrics": {
+      "known_classification.accuracy": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.18537921456000378,
+        "standard_deviation": 0.058431585068879195,
+        "ci95_lower": 0.1622644493481928,
+        "ci95_upper": 0.20849397977181475,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_classification.balanced_accuracy": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.1845935923911549,
+        "standard_deviation": 0.060064708725219886,
+        "ci95_lower": 0.16083278497744796,
+        "ci95_upper": 0.2083543998048618,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_classification.macro_f1": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.13818339173749467,
+        "standard_deviation": 0.05129369715165112,
+        "ci95_lower": 0.11789228094341783,
+        "ci95_upper": 0.1584745025315715,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_fault_classification.accuracy": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.17477340955007956,
+        "standard_deviation": 0.06104786614246676,
+        "ci95_lower": 0.150623678015298,
+        "ci95_upper": 0.19892314108486112,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_fault_classification.balanced_accuracy": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.17486665884076777,
+        "standard_deviation": 0.0614555240324236,
+        "ci95_lower": 0.15055566321564898,
+        "ci95_upper": 0.19917765446588656,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_fault_classification.macro_f1": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.13677405588553318,
+        "standard_deviation": 0.06749802457224206,
+        "ci95_lower": 0.11007272665735535,
+        "ci95_upper": 0.163475385113711,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.auroc_unknown_positive": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.5192857484507661,
+        "standard_deviation": 0.10050833239213976,
+        "ci95_lower": 0.47952597636283895,
+        "ci95_upper": 0.5590455205386933,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.aupr_unknown_positive": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.14871268278584313,
+        "standard_deviation": 0.10572907880637063,
+        "ci95_lower": 0.10688765220025415,
+        "ci95_upper": 0.1905377133714321,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.fpr_at_95_tpr": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.8452281339096173,
+        "standard_deviation": 0.13605055815114545,
+        "ci95_lower": 0.7914083255834783,
+        "ci95_upper": 0.8990479422357562,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better"
+      },
+      "unknown_rejection.unknown_precision": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.04256910786046956,
+        "standard_deviation": 0.08081337067860091,
+        "ci95_lower": 0.010600403143509879,
+        "ci95_upper": 0.07453781257742924,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.unknown_recall": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.10806670741349177,
+        "standard_deviation": 0.21792852204192845,
+        "ci95_lower": 0.021857055321766086,
+        "ci95_upper": 0.19427635950521743,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.unknown_f1": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.058697627185791273,
+        "standard_deviation": 0.1170410180444769,
+        "ci95_lower": 0.012397742473433802,
+        "ci95_upper": 0.10499751189814874,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_acceptance_rate": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.9038210875252621,
+        "standard_deviation": 0.13522540517535855,
+        "ci95_lower": 0.8503276988448791,
+        "ci95_upper": 0.9573144762056451,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "open_set_classification_rate": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.16491958277061655,
+        "standard_deviation": 0.04922110881461312,
+        "ci95_lower": 0.14544836061613248,
+        "ci95_upper": 0.18439080492510063,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "healthy_safety.false_positive_rate": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.00011212019284673168,
+        "standard_deviation": 0.0005825936116948797,
+        "ci95_lower": -0.00011834616421604144,
+        "ci95_upper": 0.0003425865499095048,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better"
+      },
+      "healthy_safety.acceptance_rate": {
+        "status": "computed",
+        "n": 27,
+        "mean": 0.9998878798071532,
+        "standard_deviation": 0.0005825936116948702,
+        "ci95_lower": 0.9996574134500904,
+        "ci95_upper": 1.000118346164216,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      }
+    },
+    "per_unknown_label": [
+      {
+        "unknown_label": "1screws",
+        "runs_present": 3,
+        "recall": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.07211698238617481,
+          "standard_deviation": 0.12491027758140458,
+          "ci95_lower": -0.2381773487389941,
+          "ci95_upper": 0.3824113135113437,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.4850568572384624,
+          "standard_deviation": 0.3582684566278453,
+          "ci95_lower": -0.40493132680135563,
+          "ci95_upper": 1.3750450412782804,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.8784545782382062,
+          "standard_deviation": 0.20303155598288677,
+          "ci95_lower": 0.3740962333457688,
+          "ci95_upper": 1.3828129231306434,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "2screws",
+        "runs_present": 3,
+        "recall": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.22908496732026143,
+          "standard_deviation": 0.3967868026489487,
+          "ci95_lower": -0.7565880926648278,
+          "ci95_upper": 1.2147580273053507,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.5704729542675525,
+          "standard_deviation": 0.5091088491121026,
+          "ci95_lower": -0.6942235371976303,
+          "ci95_upper": 1.8351694457327352,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.8049019607843136,
+          "standard_deviation": 0.3379197163786339,
+          "ci95_lower": -0.03453715021582637,
+          "ci95_upper": 1.6443410717844538,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "3_14screws",
+        "runs_present": 3,
+        "recall": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.002530044275774826,
+          "standard_deviation": 0.004382165231040803,
+          "ci95_lower": -0.008355857633774732,
+          "ci95_upper": 0.013415946185324382,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.3929496492492148,
+          "standard_deviation": 0.2771988034744564,
+          "ci95_lower": -0.2956503521137507,
+          "ci95_upper": 1.0815496506121804,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.7791812707744782,
+          "standard_deviation": 0.193056084514991,
+          "ci95_lower": 0.2996033707479301,
+          "ci95_upper": 1.2587591708010262,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "3screws",
+        "runs_present": 3,
+        "recall": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.12427184466019418,
+          "standard_deviation": 0.21524514890176338,
+          "ci95_lower": -0.41042674699799137,
+          "ci95_upper": 0.6589704363183797,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.4859259376288825,
+          "standard_deviation": 0.3711342432308072,
+          "ci95_lower": -0.4360226321026853,
+          "ci95_upper": 1.4078745073604502,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.8236120796009226,
+          "standard_deviation": 0.284719849144678,
+          "ci95_lower": 0.11632876505676304,
+          "ci95_upper": 1.5308953941450822,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "4_146screws",
+        "runs_present": 3,
+        "recall": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.13345097239951514,
+          "standard_deviation": 0.2081281339871099,
+          "ci95_lower": -0.3835679741140901,
+          "ci95_upper": 0.6504699189131204,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 3,
+          "mean": 1.0020310702393096,
+          "standard_deviation": 0.8901153449750207,
+          "ci95_lower": -1.2091380260207938,
+          "ci95_upper": 3.213200166499413,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.5553509434227925,
+          "standard_deviation": 0.10285144974779901,
+          "ci95_lower": 0.29985377839609095,
+          "ci95_upper": 0.810848108449494,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "4screws",
+        "runs_present": 3,
+        "recall": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.0,
+          "standard_deviation": 0.0,
+          "ci95_lower": 0.0,
+          "ci95_upper": 0.0,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.4036580986335274,
+          "standard_deviation": 0.27108188694417434,
+          "ci95_lower": -0.26974663969693546,
+          "ci95_upper": 1.0770628369639903,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.9109947643979058,
+          "standard_deviation": 0.15416159020246553,
+          "ci95_lower": 0.528036144472561,
+          "ci95_upper": 1.2939533843232507,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "5screws",
+        "runs_present": 3,
+        "recall": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.2109471094710947,
+          "standard_deviation": 0.3653711113137299,
+          "ci95_lower": -0.6966850469274695,
+          "ci95_upper": 1.118579265869659,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.4759987186008845,
+          "standard_deviation": 0.4237826327531248,
+          "ci95_lower": -0.5767357010059935,
+          "ci95_upper": 1.5287331382077625,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.8834563345633457,
+          "standard_deviation": 0.20185954983659424,
+          "ci95_lower": 0.38200941433731683,
+          "ci95_upper": 1.3849032547893745,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "6screws",
+        "runs_present": 3,
+        "recall": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.19758064516129034,
+          "standard_deviation": 0.3422197160115927,
+          "ci95_lower": -0.6525402570875953,
+          "ci95_upper": 1.047701547410176,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.47705282811303373,
+          "standard_deviation": 0.4435337172377041,
+          "ci95_lower": -0.6247460053099543,
+          "ci95_upper": 1.5788516615360217,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.7876344086021505,
+          "standard_deviation": 0.3678279940804874,
+          "ci95_lower": -0.1261009829306654,
+          "ci95_upper": 1.7013698001349664,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      },
+      {
+        "unknown_label": "7screws",
+        "runs_present": 3,
+        "recall": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.0026178010471204186,
+          "standard_deviation": 0.0045341644177195745,
+          "ci95_lower": -0.008645687774213253,
+          "ci95_upper": 0.01388128986845409,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "mean_score": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.4262998648993854,
+          "standard_deviation": 0.3492378841351382,
+          "ci95_lower": -0.44125513345260364,
+          "ci95_upper": 1.2938548632513744,
+          "ci95_method": "student_t_two_sided_over_runs"
+        },
+        "most_attracted_share": {
+          "status": "computed",
+          "n": 3,
+          "mean": 0.9713951255723652,
+          "standard_deviation": 0.04778502358562704,
+          "ci95_lower": 0.85269054642643,
+          "ci95_upper": 1.0900997047183003,
+          "ci95_method": "student_t_two_sided_over_runs"
+        }
+      }
+    ]
+  },
+  "pooled_sample": {
+    "weighting": "each final-test prediction has equal weight; larger splits contribute more; reused source samples across combinations are repeated, not independent observations",
+    "metrics": {
+      "schema_version": 1,
+      "status": "completed",
+      "n_test_samples": 260190,
+      "known_fault_count": 8,
+      "known_classification": {
+        "status": "computed",
+        "n_samples": 234102,
+        "labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws",
+          "8screws"
+        ],
+        "accuracy": 0.1867134838660071,
+        "balanced_accuracy": 0.18442669689083013,
+        "macro_f1": 0.1797598734572003,
+        "per_class": [
+          {
+            "label": "1screws",
+            "precision": 0.4152325155620652,
+            "recall": 0.3323007367716008,
+            "f1": 0.3691663760027904,
+            "support": 23888
+          },
+          {
+            "label": "2screws",
+            "precision": 0.027637807298824247,
+            "recall": 0.007579564489112228,
+            "f1": 0.011896546058036741,
+            "support": 23880
+          },
+          {
+            "label": "3_14screws",
+            "precision": 0.32343632253202714,
+            "recall": 0.08879510095994704,
+            "f1": 0.13933707755738078,
+            "support": 24168
+          },
+          {
+            "label": "3screws",
+            "precision": 0.09299469366546474,
+            "recall": 0.25204848071013997,
+            "f1": 0.13586225141187702,
+            "support": 23432
+          },
+          {
+            "label": "4_146screws",
+            "precision": 0.42299711523862543,
+            "recall": 0.3528368794326241,
+            "f1": 0.3847446313899694,
+            "support": 23688
+          },
+          {
+            "label": "4screws",
+            "precision": 0.11371980676328503,
+            "recall": 0.052488405280057084,
+            "f1": 0.07182522731433454,
+            "support": 22424
+          },
+          {
+            "label": "5screws",
+            "precision": 0.0674721924227881,
+            "recall": 0.051686851211072665,
+            "f1": 0.05853395704244324,
+            "support": 23120
+          },
+          {
+            "label": "6screws",
+            "precision": 0.1376529831718511,
+            "recall": 0.3754346314325452,
+            "f1": 0.20144589552238806,
+            "support": 23008
+          },
+          {
+            "label": "7screws",
+            "precision": 0.08327985739750446,
+            "recall": 0.05536594615092909,
+            "f1": 0.06651291250249139,
+            "support": 21096
+          },
+          {
+            "label": "8screws",
+            "precision": 0.5113545089448704,
+            "recall": 0.27573037247027327,
+            "f1": 0.35827385977029136,
+            "support": 25398
+          }
+        ],
+        "confusion_matrix": [
+          [
+            7938,
+            217,
+            2,
+            6307,
+            265,
+            1266,
+            1116,
+            3985,
+            2578,
+            214
+          ],
+          [
+            1198,
+            181,
+            374,
+            6094,
+            1539,
+            387,
+            2434,
+            8565,
+            1931,
+            1177
+          ],
+          [
+            3958,
+            360,
+            2146,
+            6296,
+            149,
+            580,
+            468,
+            7128,
+            2362,
+            721
+          ],
+          [
+            105,
+            907,
+            1015,
+            5906,
+            164,
+            1635,
+            4105,
+            6949,
+            2228,
+            418
+          ],
+          [
+            608,
+            0,
+            12,
+            7384,
+            8358,
+            337,
+            515,
+            2716,
+            176,
+            3582
+          ],
+          [
+            1,
+            0,
+            350,
+            3925,
+            191,
+            1177,
+            6091,
+            10370,
+            318,
+            1
+          ],
+          [
+            32,
+            3654,
+            699,
+            4424,
+            8,
+            4310,
+            1195,
+            8475,
+            116,
+            207
+          ],
+          [
+            3229,
+            651,
+            1074,
+            6952,
+            875,
+            432,
+            724,
+            8638,
+            412,
+            21
+          ],
+          [
+            1858,
+            438,
+            927,
+            11019,
+            1625,
+            224,
+            439,
+            3047,
+            1168,
+            351
+          ],
+          [
+            190,
+            141,
+            36,
+            5202,
+            6585,
+            2,
+            624,
+            2879,
+            2736,
+            7003
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws",
+          "8screws"
+        ],
+        "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class"
+      },
+      "known_fault_classification": {
+        "status": "computed",
+        "n_samples": 208704,
+        "labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws"
+        ],
+        "accuracy": 0.17588067310640906,
+        "balanced_accuracy": 0.17428184404866978,
+        "macro_f1": 0.17023201314711212,
+        "per_class": [
+          {
+            "label": "1screws",
+            "precision": 0.4194008559201141,
+            "recall": 0.3323007367716008,
+            "f1": 0.3708046245474717,
+            "support": 23888
+          },
+          {
+            "label": "2screws",
+            "precision": 0.028245942571785268,
+            "recall": 0.007579564489112228,
+            "f1": 0.011951928156365556,
+            "support": 23880
+          },
+          {
+            "label": "3_14screws",
+            "precision": 0.32520078799818153,
+            "recall": 0.08879510095994704,
+            "f1": 0.13950011375824747,
+            "support": 24168
+          },
+          {
+            "label": "3screws",
+            "precision": 0.10129144013583274,
+            "recall": 0.25204848071013997,
+            "f1": 0.14450874123735305,
+            "support": 23432
+          },
+          {
+            "label": "4_146screws",
+            "precision": 0.6344314558979809,
+            "recall": 0.3528368794326241,
+            "f1": 0.453475123433346,
+            "support": 23688
+          },
+          {
+            "label": "4screws",
+            "precision": 0.11374178585233861,
+            "recall": 0.052488405280057084,
+            "f1": 0.07182961064323203,
+            "support": 22424
+          },
+          {
+            "label": "5screws",
+            "precision": 0.06993620881371804,
+            "recall": 0.051686851211072665,
+            "f1": 0.05944238565423931,
+            "support": 23120
+          },
+          {
+            "label": "6screws",
+            "precision": 0.14427204248993702,
+            "recall": 0.3754346314325452,
+            "f1": 0.20844343094315948,
+            "support": 23008
+          },
+          {
+            "label": "7screws",
+            "precision": 0.1034635485871202,
+            "recall": 0.05536594615092909,
+            "f1": 0.07213215995059441,
+            "support": 21096
+          }
+        ],
+        "confusion_matrix": [
+          [
+            7938,
+            217,
+            2,
+            6307,
+            265,
+            1266,
+            1116,
+            3985,
+            2578,
+            214
+          ],
+          [
+            1198,
+            181,
+            374,
+            6094,
+            1539,
+            387,
+            2434,
+            8565,
+            1931,
+            1177
+          ],
+          [
+            3958,
+            360,
+            2146,
+            6296,
+            149,
+            580,
+            468,
+            7128,
+            2362,
+            721
+          ],
+          [
+            105,
+            907,
+            1015,
+            5906,
+            164,
+            1635,
+            4105,
+            6949,
+            2228,
+            418
+          ],
+          [
+            608,
+            0,
+            12,
+            7384,
+            8358,
+            337,
+            515,
+            2716,
+            176,
+            3582
+          ],
+          [
+            1,
+            0,
+            350,
+            3925,
+            191,
+            1177,
+            6091,
+            10370,
+            318,
+            1
+          ],
+          [
+            32,
+            3654,
+            699,
+            4424,
+            8,
+            4310,
+            1195,
+            8475,
+            116,
+            207
+          ],
+          [
+            3229,
+            651,
+            1074,
+            6952,
+            875,
+            432,
+            724,
+            8638,
+            412,
+            21
+          ],
+          [
+            1858,
+            438,
+            927,
+            11019,
+            1625,
+            224,
+            439,
+            3047,
+            1168,
+            351
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws",
+          "8screws"
+        ],
+        "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class"
+      },
+      "unknown_rejection": {
+        "status": "computed",
+        "positive_class": "unknown",
+        "score_direction": "higher_is_more_unknown",
+        "n_known": 234102,
+        "n_unknown": 26088,
+        "auroc_unknown_positive": 0.5175853165771989,
+        "aupr_unknown_positive": 0.12102994152361175,
+        "fpr_at_95_tpr": 0.9458782923682839,
+        "fpr_at_95_tpr_status": "computed",
+        "fpr_at_95_tpr_interpolation": "linear_between_adjacent_empirical_roc_points",
+        "unknown_precision": 0.11505479715439339,
+        "unknown_recall": 0.114688745783502,
+        "unknown_f1": 0.11487147985333922
+      },
+      "known_acceptance_rate": 0.9016966963118641,
+      "open_set_classification_rate": 0.16579098000017087,
+      "open_set_classification_rate_formula": "count(known samples with is_unknown=false and predicted_known_class=true_label) / count(known samples)",
+      "healthy_safety": {
+        "status": "computed",
+        "n_healthy": 25398,
+        "false_positive_rate": 0.00011811953697141507,
+        "acceptance_rate": 0.9998818804630286
+      },
+      "per_unknown_label": [
+        {
+          "unknown_label": "1screws",
+          "n_samples": 2986,
+          "recall": 0.07267247153382451,
+          "score_distribution": {
+            "n": 2986,
+            "mean": 0.4926593798207524,
+            "standard_deviation": 0.3360795332235926,
+            "minimum": 0.02663331965648658,
+            "q05": 0.07075734545303977,
+            "q25": 0.13464344094699443,
+            "median": 0.41018243556172324,
+            "q75": 0.782582356767565,
+            "q95": 1.0189127597536825,
+            "maximum": 1.1231737652675837
+          },
+          "most_attracted_known_class": "4_146screws",
+          "most_attracted_count": 1595,
+          "most_attracted_share": 0.5341594105827193,
+          "attraction_counts": [
+            {
+              "known_class": "4_146screws",
+              "count": 1595
+            },
+            {
+              "known_class": "3screws",
+              "count": 1025
+            },
+            {
+              "known_class": "7screws",
+              "count": 366
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "2screws",
+          "n_samples": 2985,
+          "recall": 0.23484087102177553,
+          "score_distribution": {
+            "n": 2985,
+            "mean": 0.57678366971501,
+            "standard_deviation": 0.5043686079129897,
+            "minimum": 0.030213118214012475,
+            "q05": 0.06888675919602327,
+            "q25": 0.10548925124573737,
+            "median": 0.3254137388487922,
+            "q75": 0.879598209287435,
+            "q95": 1.5458697351460684,
+            "maximum": 1.779200220229698
+          },
+          "most_attracted_known_class": "4_146screws",
+          "most_attracted_count": 985,
+          "most_attracted_share": 0.32998324958123953,
+          "attraction_counts": [
+            {
+              "known_class": "4_146screws",
+              "count": 985
+            },
+            {
+              "known_class": "3screws",
+              "count": 980
+            },
+            {
+              "known_class": "7screws",
+              "count": 423
+            },
+            {
+              "known_class": "1screws",
+              "count": 326
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 271
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "3_14screws",
+          "n_samples": 3021,
+          "recall": 0.0026481297583581596,
+          "score_distribution": {
+            "n": 3021,
+            "mean": 0.4037850342042393,
+            "standard_deviation": 0.2701377944493912,
+            "minimum": 0.035083562209316084,
+            "q05": 0.058633160554885606,
+            "q25": 0.12696212215624617,
+            "median": 0.3328954737847945,
+            "q75": 0.6655018438463349,
+            "q95": 0.8311180629538647,
+            "maximum": 1.085618421089159
+          },
+          "most_attracted_known_class": "1screws",
+          "most_attracted_count": 990,
+          "most_attracted_share": 0.32770605759682225,
+          "attraction_counts": [
+            {
+              "known_class": "1screws",
+              "count": 990
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 940
+            },
+            {
+              "known_class": "3screws",
+              "count": 714
+            },
+            {
+              "known_class": "7screws",
+              "count": 377
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "3screws",
+          "n_samples": 2929,
+          "recall": 0.13110276544895869,
+          "score_distribution": {
+            "n": 2929,
+            "mean": 0.4892652562789947,
+            "standard_deviation": 0.3879119210040586,
+            "minimum": 0.03735219748989318,
+            "q05": 0.05762844850635866,
+            "q25": 0.15429985940730245,
+            "median": 0.4404470737220095,
+            "q75": 0.6192211488817846,
+            "q95": 1.3200804235961352,
+            "maximum": 1.4048677187941032
+          },
+          "most_attracted_known_class": "1screws",
+          "most_attracted_count": 1132,
+          "most_attracted_share": 0.3864800273130761,
+          "attraction_counts": [
+            {
+              "known_class": "1screws",
+              "count": 1132
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 994
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 510
+            },
+            {
+              "known_class": "7screws",
+              "count": 267
+            },
+            {
+              "known_class": "2screws",
+              "count": 23
+            },
+            {
+              "known_class": "5screws",
+              "count": 3
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "4_146screws",
+          "n_samples": 2961,
+          "recall": 0.13576494427558258,
+          "score_distribution": {
+            "n": 2961,
+            "mean": 1.0134439945626135,
+            "standard_deviation": 1.392043409535298,
+            "minimum": 0.09428480411737508,
+            "q05": 0.1949735928670835,
+            "q25": 0.3701416022548613,
+            "median": 0.4519955546542329,
+            "q75": 0.8663493691330431,
+            "q95": 4.722066343070554,
+            "maximum": 5.347361652116662
+          },
+          "most_attracted_known_class": "3screws",
+          "most_attracted_count": 629,
+          "most_attracted_share": 0.21242823370482944,
+          "attraction_counts": [
+            {
+              "known_class": "3screws",
+              "count": 629
+            },
+            {
+              "known_class": "1screws",
+              "count": 602
+            },
+            {
+              "known_class": "7screws",
+              "count": 570
+            },
+            {
+              "known_class": "8screws",
+              "count": 441
+            },
+            {
+              "known_class": "4screws",
+              "count": 374
+            },
+            {
+              "known_class": "2screws",
+              "count": 302
+            },
+            {
+              "known_class": "6screws",
+              "count": 43
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "4screws",
+          "n_samples": 2803,
+          "recall": 0.0,
+          "score_distribution": {
+            "n": 2803,
+            "mean": 0.41371866028572757,
+            "standard_deviation": 0.24284427272884343,
+            "minimum": 0.031489715714439745,
+            "q05": 0.06069775446275248,
+            "q25": 0.22507310311434944,
+            "median": 0.341917106659748,
+            "q75": 0.5797378016019543,
+            "q95": 0.8494811815379426,
+            "maximum": 0.9766911769566496
+          },
+          "most_attracted_known_class": "3screws",
+          "most_attracted_count": 1000,
+          "most_attracted_share": 0.35676061362825545,
+          "attraction_counts": [
+            {
+              "known_class": "3screws",
+              "count": 1000
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 850
+            },
+            {
+              "known_class": "7screws",
+              "count": 700
+            },
+            {
+              "known_class": "5screws",
+              "count": 244
+            },
+            {
+              "known_class": "2screws",
+              "count": 9
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "5screws",
+          "n_samples": 2890,
+          "recall": 0.23737024221453287,
+          "score_distribution": {
+            "n": 2890,
+            "mean": 0.5012227813087523,
+            "standard_deviation": 0.41565622392610924,
+            "minimum": 0.028292435048544753,
+            "q05": 0.04274279011771589,
+            "q25": 0.1323623922570749,
+            "median": 0.3400685853372595,
+            "q75": 0.9664576924541789,
+            "q95": 1.254712459292625,
+            "maximum": 1.3836536742278467
+          },
+          "most_attracted_known_class": "4_146screws",
+          "most_attracted_count": 932,
+          "most_attracted_share": 0.32249134948096886,
+          "attraction_counts": [
+            {
+              "known_class": "4_146screws",
+              "count": 932
+            },
+            {
+              "known_class": "3screws",
+              "count": 874
+            },
+            {
+              "known_class": "1screws",
+              "count": 705
+            },
+            {
+              "known_class": "4screws",
+              "count": 211
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 154
+            },
+            {
+              "known_class": "2screws",
+              "count": 14
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "6screws",
+          "n_samples": 2876,
+          "recall": 0.20445062586926285,
+          "score_distribution": {
+            "n": 2876,
+            "mean": 0.4856389223355822,
+            "standard_deviation": 0.42672319370595935,
+            "minimum": 0.02738008888046677,
+            "q05": 0.051581056944486114,
+            "q25": 0.1230807612651426,
+            "median": 0.3320013259927397,
+            "q75": 0.5369639110668016,
+            "q95": 1.3327552280355865,
+            "maximum": 1.477131161485528
+          },
+          "most_attracted_known_class": "3screws",
+          "most_attracted_count": 944,
+          "most_attracted_share": 0.3282336578581363,
+          "attraction_counts": [
+            {
+              "known_class": "3screws",
+              "count": 944
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 940
+            },
+            {
+              "known_class": "7screws",
+              "count": 360
+            },
+            {
+              "known_class": "2screws",
+              "count": 352
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 274
+            },
+            {
+              "known_class": "1screws",
+              "count": 6
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        },
+        {
+          "unknown_label": "7screws",
+          "n_samples": 2637,
+          "recall": 0.0022753128555176336,
+          "score_distribution": {
+            "n": 2637,
+            "mean": 0.40648765754929334,
+            "standard_deviation": 0.2863619505838509,
+            "minimum": 0.04164700984152033,
+            "q05": 0.06052418746689009,
+            "q25": 0.14340293923553418,
+            "median": 0.3813895158541219,
+            "q75": 0.6313135669004979,
+            "q95": 0.9392445734809822,
+            "maximum": 1.0205625853388427
+          },
+          "most_attracted_known_class": "3screws",
+          "most_attracted_count": 976,
+          "most_attracted_share": 0.3701175578308684,
+          "attraction_counts": [
+            {
+              "known_class": "3screws",
+              "count": 976
+            },
+            {
+              "known_class": "4_146screws",
+              "count": 934
+            },
+            {
+              "known_class": "1screws",
+              "count": 702
+            },
+            {
+              "known_class": "3_14screws",
+              "count": 25
+            }
+          ],
+          "attraction_source": "nearest_known_class_else_predicted_known_class"
+        }
+      ],
+      "known_fault_label_union_size": 9,
+      "known_fault_count_scope": "per-run task; classification labels are the union across tasks"
+    }
+  },
+  "paired_detector_comparison": {
+    "status": "unavailable_no_shared_manifest_checksum",
+    "pairing_key": "manifest_checksum",
+    "same_test_sample_ids_verified_when_predictions_present": true,
+    "n_pairs": 0,
+    "pairs": [],
+    "aggregate": {
+      "known_classification.accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_classification.balanced_accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_classification.macro_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_fault_classification.accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_fault_classification.balanced_accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_fault_classification.macro_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.auroc_unknown_positive": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.aupr_unknown_positive": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.fpr_at_95_tpr": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.unknown_precision": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.unknown_recall": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.unknown_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_acceptance_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "open_set_classification_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "healthy_safety.false_positive_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "healthy_safety.acceptance_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      }
+    },
+    "unmatched_manifests": [
+      {
+        "manifest_checksum": "0343b31aaa4ab6d63af1ae1c3cbcfb3fb89dba09a989d1efbc6a295d5cd64e07",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "103cee7e9470afa1f3c7c0d18efa2dfafd76455c01bf20d91168bf4761989a36",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "10bc7db79d2297db58e0d02ddebfc93cd47aa3501f502149164deebf648227c7",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "173430868562606b04b520e1be9f0e5758fad0ba28fffb966499be6564326a31",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "18cb920a18bffebc7ee57f5f8dd34a119d862174bbc27bd97b33f776a0f1e514",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "2edfff794122b20504a705f226292cbca027e9b24c5bc0c569dabde28a460c31",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "3e9356d4304c5f8962e3f8d0775473d1427391f862a60102fdfdc28ea393bba0",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "54739211fcfde0b71fc22c72639dbfc7674286a898aa81acaf3f6531f4c8f151",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5cd4df416a4ec42b45c739f374d82e55cedf62699c5576dac5ffbdd61ffcf7cc",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "66b74b3f05885f3339d47e3920a6b7aa6eb906fc6a8e51b931caef2459899be3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "71d37576c03c8cb6535364b18a05096bc440f3b9ecbcdbbe5e60f20e708ce30a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "7ca7331080cde6cfc75c7843ac746a43634f3ca61523c114638aadfc82653833",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "80c4017e10afeb18f65c3f584c29bcd1ba37429e40cf594e136eb01f5be1e66b",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8158d82a0cd9f03df7071d98bc49863c5518e4f840f7ea044f23ef3941fd0309",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "8c2b9c066473eae7716ed4192f511d10af1adb8c178e09b00e32580fb10087f9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "91bd283367351b115c5bf2eff298d97a4f5824740fb3f557d50e32dba221c715",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "997d3b7a7c2345ec2edb80365c20dc174309ae02d5bc5190193fae21a5b43a3c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "a401d5a1c76f931474a16ac02281552b510d6fffb59ac376c217376031ae301d",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ab86e26c1bed97ec285f3186eca90ebbdf03d3d525cfc46da887ff612bce5a9a",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ac211401b5b0968cde2b8cde4780d70167af489b05fd678e613e229f96aed564",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "ad9077e936aa792bcff26eceab52a9ec84d8164257b26c7967b16d5a10c116fb",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "bcff1c26c969031f6328eba13cccaaed4795b83f40bda0ac032576ba24872223",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c20b1fd14de3c1640a59847601a6a7c4f0d3fe8c1ab10d6e2b953568ed489bd9",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "c35e498bc81cba5fc306afb804ee4b63333692c0c564e39fa5913cb51ed8d913",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "cf865d6762424b4d4eea7fe40d8cce0a3d3952dc3fb4bc9f16dd841bc82f0195",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "d051ac627a160a2f4cf516fa5f17a752d16d0ce81e332e20695965ddac62f635",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "e4e3483773cfd1aeee5b6dce2db71cd442c34e78fdb91685353fceac41e52fd3",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      }
+    ],
+    "ignored_runs": []
+  },
+  "result_scope": "exploratory_incomplete_not_main_independent_test_conclusion"
+}

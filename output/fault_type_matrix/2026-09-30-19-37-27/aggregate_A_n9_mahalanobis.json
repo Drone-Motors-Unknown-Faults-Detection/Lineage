@@ -1,0 +1,861 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "declared_runs": 3,
+  "completed_runs": 3,
+  "failed_runs": [],
+  "uncertainty_scope": "descriptive across overlapping class combinations and campaign folds; not independent physical motors",
+  "macro_over_splits": {
+    "weighting": "each completed run has equal weight",
+    "metrics": {
+      "known_classification.accuracy": {
+        "status": "computed",
+        "n": 3,
+        "mean": 0.1644459050835774,
+        "standard_deviation": 0.05711596929507625,
+        "ci95_lower": 0.02256197181450456,
+        "ci95_upper": 0.30632983835265026,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_classification.balanced_accuracy": {
+        "status": "computed",
+        "n": 3,
+        "mean": 0.162601600310416,
+        "standard_deviation": 0.058595662437469595,
+        "ci95_lower": 0.017041905504505517,
+        "ci95_upper": 0.3081612951163265,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_classification.macro_f1": {
+        "status": "computed",
+        "n": 3,
+        "mean": 0.12430213098478347,
+        "standard_deviation": 0.054890773754460206,
+        "ci95_lower": -0.01205411012582637,
+        "ci95_upper": 0.26065837209539333,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_fault_classification.accuracy": {
+        "status": "computed",
+        "n": 3,
+        "mean": 0.1550527318082073,
+        "standard_deviation": 0.07096488433255649,
+        "ci95_lower": -0.021233813572296395,
+        "ci95_upper": 0.33133927718871103,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_fault_classification.balanced_accuracy": {
+        "status": "computed",
+        "n": 3,
+        "mean": 0.15390909209659778,
+        "standard_deviation": 0.07148633417229239,
+        "ci95_lower": -0.02367280649558004,
+        "ci95_upper": 0.33149099068877563,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_fault_classification.macro_f1": {
+        "status": "computed",
+        "n": 3,
+        "mean": 0.12304056503267251,
+        "standard_deviation": 0.0798290151664061,
+        "ci95_lower": -0.07526570203408593,
+        "ci95_upper": 0.32134683209943093,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.auroc_unknown_positive": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.aupr_unknown_positive": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.fpr_at_95_tpr": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better"
+      },
+      "unknown_rejection.unknown_precision": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.unknown_recall": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "unknown_rejection.unknown_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "known_acceptance_rate": {
+        "status": "computed",
+        "n": 3,
+        "mean": 0.9074092861249197,
+        "standard_deviation": 0.16037182074071174,
+        "ci95_lower": 0.509023598320854,
+        "ci95_upper": 1.3057949739289854,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "open_set_classification_rate": {
+        "status": "computed",
+        "n": 3,
+        "mean": 0.14784179971006955,
+        "standard_deviation": 0.04009700057420529,
+        "ci95_lower": 0.048235328455611556,
+        "ci95_upper": 0.24744827096452754,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      },
+      "healthy_safety.false_positive_rate": {
+        "status": "computed",
+        "n": 3,
+        "mean": 0.0,
+        "standard_deviation": 0.0,
+        "ci95_lower": 0.0,
+        "ci95_upper": 0.0,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better"
+      },
+      "healthy_safety.acceptance_rate": {
+        "status": "computed",
+        "n": 3,
+        "mean": 1.0,
+        "standard_deviation": 0.0,
+        "ci95_lower": 1.0,
+        "ci95_upper": 1.0,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better"
+      }
+    },
+    "per_unknown_label": []
+  },
+  "pooled_sample": {
+    "weighting": "each final-test prediction has equal weight; larger splits contribute more; reused source samples across combinations are repeated, not independent observations",
+    "metrics": {
+      "schema_version": 1,
+      "status": "completed",
+      "n_test_samples": 28910,
+      "known_fault_count": 9,
+      "known_classification": {
+        "status": "computed",
+        "n_samples": 28910,
+        "labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws",
+          "8screws"
+        ],
+        "accuracy": 0.16561743341404359,
+        "balanced_accuracy": 0.16423958284716916,
+        "macro_f1": 0.16352122827189336,
+        "per_class": [
+          {
+            "label": "1screws",
+            "precision": 0.4575578756241489,
+            "recall": 0.3375753516409913,
+            "f1": 0.38851416457891697,
+            "support": 2986
+          },
+          {
+            "label": "2screws",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2985
+          },
+          {
+            "label": "3_14screws",
+            "precision": 0.5645514223194749,
+            "recall": 0.08540218470705065,
+            "f1": 0.14836112708453134,
+            "support": 3021
+          },
+          {
+            "label": "3screws",
+            "precision": 0.07096625057790107,
+            "recall": 0.2096278593376579,
+            "f1": 0.10603574820827218,
+            "support": 2929
+          },
+          {
+            "label": "4_146screws",
+            "precision": 0.423265306122449,
+            "recall": 0.3502195204322864,
+            "f1": 0.3832932914433561,
+            "support": 2961
+          },
+          {
+            "label": "4screws",
+            "precision": 0.0947176684881603,
+            "recall": 0.03710310381733856,
+            "f1": 0.0533196616252243,
+            "support": 2803
+          },
+          {
+            "label": "5screws",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2890
+          },
+          {
+            "label": "6screws",
+            "precision": 0.10857339607483071,
+            "recall": 0.3289290681502086,
+            "f1": 0.16325826214513764,
+            "support": 2876
+          },
+          {
+            "label": "7screws",
+            "precision": 0.05922165820642978,
+            "recall": 0.03981797497155859,
+            "f1": 0.047619047619047616,
+            "support": 2637
+          },
+          {
+            "label": "8screws",
+            "precision": 0.5379413974455297,
+            "recall": 0.2537207654145996,
+            "f1": 0.3448109800144474,
+            "support": 2822
+          }
+        ],
+        "confusion_matrix": [
+          [
+            1008,
+            21,
+            0,
+            769,
+            0,
+            176,
+            112,
+            579,
+            321,
+            0
+          ],
+          [
+            38,
+            0,
+            0,
+            1146,
+            255,
+            10,
+            76,
+            1185,
+            272,
+            3
+          ],
+          [
+            394,
+            26,
+            258,
+            841,
+            10,
+            16,
+            31,
+            1118,
+            300,
+            27
+          ],
+          [
+            0,
+            48,
+            105,
+            614,
+            0,
+            279,
+            486,
+            1101,
+            292,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            943,
+            1037,
+            0,
+            0,
+            400,
+            0,
+            581
+          ],
+          [
+            0,
+            0,
+            0,
+            522,
+            0,
+            104,
+            731,
+            1444,
+            2,
+            0
+          ],
+          [
+            0,
+            547,
+            35,
+            529,
+            0,
+            513,
+            0,
+            1266,
+            0,
+            0
+          ],
+          [
+            496,
+            3,
+            3,
+            1129,
+            101,
+            0,
+            91,
+            946,
+            107,
+            0
+          ],
+          [
+            267,
+            29,
+            56,
+            1493,
+            258,
+            0,
+            1,
+            428,
+            105,
+            0
+          ],
+          [
+            0,
+            31,
+            0,
+            666,
+            789,
+            0,
+            0,
+            246,
+            374,
+            716
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws",
+          "8screws"
+        ],
+        "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class"
+      },
+      "known_fault_classification": {
+        "status": "computed",
+        "n_samples": 26088,
+        "labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws"
+        ],
+        "accuracy": 0.15608708984973935,
+        "balanced_accuracy": 0.15429722922856576,
+        "macro_f1": 0.15225053300659053,
+        "per_class": [
+          {
+            "label": "1screws",
+            "precision": 0.4575578756241489,
+            "recall": 0.3375753516409913,
+            "f1": 0.38851416457891697,
+            "support": 2986
+          },
+          {
+            "label": "2screws",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2985
+          },
+          {
+            "label": "3_14screws",
+            "precision": 0.5645514223194749,
+            "recall": 0.08540218470705065,
+            "f1": 0.14836112708453134,
+            "support": 3021
+          },
+          {
+            "label": "3screws",
+            "precision": 0.07688454795892813,
+            "recall": 0.2096278593376579,
+            "f1": 0.11250572606504809,
+            "support": 2929
+          },
+          {
+            "label": "4_146screws",
+            "precision": 0.6243226971703792,
+            "recall": 0.3502195204322864,
+            "f1": 0.44872349632193853,
+            "support": 2961
+          },
+          {
+            "label": "4screws",
+            "precision": 0.0947176684881603,
+            "recall": 0.03710310381733856,
+            "f1": 0.0533196616252243,
+            "support": 2803
+          },
+          {
+            "label": "5screws",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2890
+          },
+          {
+            "label": "6screws",
+            "precision": 0.11172788472894768,
+            "recall": 0.3289290681502086,
+            "f1": 0.16679890681477563,
+            "support": 2876
+          },
+          {
+            "label": "7screws",
+            "precision": 0.07505360972122944,
+            "recall": 0.03981797497155859,
+            "f1": 0.05203171456888008,
+            "support": 2637
+          }
+        ],
+        "confusion_matrix": [
+          [
+            1008,
+            21,
+            0,
+            769,
+            0,
+            176,
+            112,
+            579,
+            321,
+            0
+          ],
+          [
+            38,
+            0,
+            0,
+            1146,
+            255,
+            10,
+            76,
+            1185,
+            272,
+            3
+          ],
+          [
+            394,
+            26,
+            258,
+            841,
+            10,
+            16,
+            31,
+            1118,
+            300,
+            27
+          ],
+          [
+            0,
+            48,
+            105,
+            614,
+            0,
+            279,
+            486,
+            1101,
+            292,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            943,
+            1037,
+            0,
+            0,
+            400,
+            0,
+            581
+          ],
+          [
+            0,
+            0,
+            0,
+            522,
+            0,
+            104,
+            731,
+            1444,
+            2,
+            0
+          ],
+          [
+            0,
+            547,
+            35,
+            529,
+            0,
+            513,
+            0,
+            1266,
+            0,
+            0
+          ],
+          [
+            496,
+            3,
+            3,
+            1129,
+            101,
+            0,
+            91,
+            946,
+            107,
+            0
+          ],
+          [
+            267,
+            29,
+            56,
+            1493,
+            258,
+            0,
+            1,
+            428,
+            105,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "confusion_matrix_labels": [
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4_146screws",
+          "4screws",
+          "5screws",
+          "6screws",
+          "7screws",
+          "8screws"
+        ],
+        "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class"
+      },
+      "unknown_rejection": {
+        "status": "unavailable_no_unknown_positives",
+        "positive_class": "unknown",
+        "score_direction": "higher_is_more_unknown",
+        "n_known": 28910,
+        "n_unknown": 0,
+        "auroc_unknown_positive": null,
+        "aupr_unknown_positive": null,
+        "fpr_at_95_tpr": null,
+        "fpr_at_95_tpr_status": "unavailable_no_unknown_positives",
+        "fpr_at_95_tpr_interpolation": "linear_between_adjacent_empirical_roc_points",
+        "unknown_precision": null,
+        "unknown_recall": null,
+        "unknown_f1": null
+      },
+      "known_acceptance_rate": 0.9052922864060878,
+      "open_set_classification_rate": 0.14863369076444136,
+      "open_set_classification_rate_formula": "count(known samples with is_unknown=false and predicted_known_class=true_label) / count(known samples)",
+      "healthy_safety": {
+        "status": "computed",
+        "n_healthy": 2822,
+        "false_positive_rate": 0.0,
+        "acceptance_rate": 1.0
+      },
+      "per_unknown_label": [],
+      "known_fault_label_union_size": 9,
+      "known_fault_count_scope": "per-run task; classification labels are the union across tasks"
+    }
+  },
+  "paired_detector_comparison": {
+    "status": "unavailable_no_shared_manifest_checksum",
+    "pairing_key": "manifest_checksum",
+    "same_test_sample_ids_verified_when_predictions_present": true,
+    "n_pairs": 0,
+    "pairs": [],
+    "aggregate": {
+      "known_classification.accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_classification.balanced_accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_classification.macro_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_fault_classification.accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_fault_classification.balanced_accuracy": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_fault_classification.macro_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.auroc_unknown_positive": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.aupr_unknown_positive": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.fpr_at_95_tpr": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.unknown_precision": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.unknown_recall": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "unknown_rejection.unknown_f1": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "known_acceptance_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "open_set_classification_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "healthy_safety.false_positive_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "lower_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      },
+      "healthy_safety.acceptance_rate": {
+        "status": "unavailable_no_computable_runs",
+        "n": 0,
+        "mean": null,
+        "standard_deviation": null,
+        "ci95_lower": null,
+        "ci95_upper": null,
+        "ci95_method": "student_t_two_sided_over_runs",
+        "metric_direction": "higher_is_better",
+        "difference_direction": "knn_minus_mahalanobis"
+      }
+    },
+    "unmatched_manifests": [
+      {
+        "manifest_checksum": "4c20260b184753678cd2200c2dcd124901edfbc49ccdb85392debef814af523c",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "5ebbb13e28b6ce2fb951c7eeb177a3e01489f145e329dc7c18c52312a9cd116e",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      },
+      {
+        "manifest_checksum": "805a18354afc3f5518f1bf318155b15b48394ec1d8e1f75bb56035818a7ad3fd",
+        "available_methods": [
+          "mahalanobis"
+        ]
+      }
+    ],
+    "ignored_runs": []
+  },
+  "result_scope": "exploratory_incomplete_not_main_independent_test_conclusion"
+}
