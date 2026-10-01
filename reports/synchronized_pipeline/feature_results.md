@@ -4,6 +4,10 @@
 
 預登錄known validation選出vibration75，不是看test挑選。探索性test的分類與Mahalanobis
 ranking／recall有改善，但依然不足以稱可靠模型。正式105CSV、linear/LW預設不更換。
+2026-10-01後續獨立性稽核補充：以上「不是看test」僅指每個fold未載入自己的test。
+共同表示是依三fold validation平均選出，而其17,546個known selection IDs均在某個outer test中。
+因此selected-vs-baseline的三fold差值不是無偏独立final改善；原預測與分數不重寫。
+詳見 `reports/data_independence/audit_20261001.md` 與新audit JSON的global_selection_dependence。
 本輪只變表示，固定原balanced LogisticRegression與factory設定，沒有重新跑2490。
 真正historical-vs-aligned raw對照沒有執行：仍無可驗證原DAQ時間。
 

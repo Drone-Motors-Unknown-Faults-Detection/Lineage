@@ -61,6 +61,9 @@ fixture為300非重疊windows、10labels、2synthetic groups、3RPM，模型只f
 Synthetic可用明確fixture seed，報告永遠不是real final。現行歷史model lock沒有training physical契約，fresh CLI會拒絕，
 必須用可追溯新train/val/cal或獨立bridge預先重訓鎖定；final不能用作bridge。
 joblib只從使用者明確信任的本機產物root載入，checksum不是pickle安全保證。
+2026-10-01獨立性稽核補充：real locked training_records每row必須包含合法64hex的
+source_sha256/raw_source_sha256/numeric_row_digest。缺失保持unknown且阻擋，不以status字串代替；
+原guard會將training/calibration/selection的來源bytes、numeric copies與IDs一併排除於final。
 跨Python/sklearn直接拒絕，對應環境重新訓練。
 
 ## 交易／失敗與resume

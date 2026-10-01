@@ -3,6 +3,9 @@
 日期：2026-10-01，Asia/Taipei。分支：`research-improvements-20260920`。
 
 工程驗收 **ENGINEERING_ACCEPTANCE_PASS**；真實新資料的獨立研究驗證 **BLOCKED_NO_ELIGIBLE_DATA**。
+後續現有資料獨立性稽核及guard修正見 `reports/data_independence/audit_20261001.md`。
+共同三fold validation selector重用outer-test known rows，不能把選定者差值視為無偏final改善；
+本報告原204tests是當時快照，新增獨立性回歸後的完整217tests證據見上述報告／execution log。
 完整程式與 synthetic 端到端測試已完成，但沒有替使用者採集硬體資料、沒有證明模型已可靠。
 正式資料、原 classifier/Mahalanobis-LW 預設不換；所有本輪真實資料結果只標 exploratory。
 

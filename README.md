@@ -409,3 +409,12 @@ synthetic工程可跑通，真實研究仍為BLOCKED_NO_ELIGIBLE_DATA。
 
 上文「3.10未測試」為原研究交付時狀態；本輪已在獨立3.10.19環境執行相容性測試，
 不把不同runtime的研究模型joblib混用，不改寫原研究數據或歷史限制。
+
+## 現有資料獨立性／洩漏稽核（2026-10-01）
+
+全90CSV／28910筆沒有發現同bytes或105維數值副本；同折test未進fit，但仍不能宣稱採集獨立。
+共同三fold validation selector重用17546個outer-test known IDs，validation/calibration亦共享，
+已曝光及raw/session缺口仍在。guard修正不提升模型分數、不將INCOMPLETE轉PASS，正式預設不換。
+
+- [已驗證／未通過／無法確認、相同條件比較與指令](reports/data_independence/audit_20261001.md)
+- [修正、red→green測試、commit/push與備份紀錄](reports/data_independence/execution_log.md)

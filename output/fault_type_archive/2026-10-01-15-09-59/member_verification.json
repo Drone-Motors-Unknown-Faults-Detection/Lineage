@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checked_archives": 3,
+  "checked_members": 16,
+  "method": "Whole ZIP SHA256 and each BUNDLE_INDEX member SHA256/byte length independently recomputed; archive CLI recorded CRC PASS.",
+  "index_sha256": "df533fbcc179d28ed04916a741f1bbcb804075dca4467aed4d0b1bf67d8acba7",
+  "zip_sha256": [
+    "fbc18fc5c5e58949c372842add039b678d0f78390e372af2ce70c51723da5fba",
+    "c322907fee2c424e5ef8c1125ca57524742d1a779395b8cc94f45c5519e9cce3",
+    "c2a87a219a0d9d4bfa6a340a4835316d72a1bf75cfb9019801070afc2d6089e5"
+  ],
+  "source_files_removed": false
+}

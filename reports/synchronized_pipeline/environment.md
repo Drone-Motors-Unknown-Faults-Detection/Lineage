@@ -41,3 +41,11 @@ VS Code：Ctrl+Shift+P → Python: Select Interpreter → Enter interpreter path
 所有Python命令可直接使用完整interpreter路徑，不需要activate。
 fresh joblib須同Python/sklearn版本且可信本機來源；跨環境須重新訓練，不直接載入歷史3.14模型。
 本repo沒有既有`.github` CI，本輪提供可重現本機check，不聲稱雲端CI已測試。
+
+## 後續獨立性修正驗收（2026-10-01 下午）
+
+上方204tests為同步管線交付快照。新增13項獨立性／來源副本回歸後，
+Python3.10.19與3.14.6各 **217完整tests PASS**，最終環境／stdout保存於
+`output/synchronized_compatibility/2026-10-01-15-07-32/`、`2026-10-01-15-08-51/`。
+中途216 checkpoint保留但不取代最後證據。原venv未改，研究模型沒有重新fit。
+修正與資料资格限制詳見 `reports/data_independence/audit_20261001.md`。

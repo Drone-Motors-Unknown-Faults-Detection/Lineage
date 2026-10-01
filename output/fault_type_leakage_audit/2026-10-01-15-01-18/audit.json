@@ -1,0 +1,455 @@
+{
+  "cannot_confirm": [
+    "Raw-window overlap and session/run independence: metadata missing",
+    "Actual fs/shared clock/units/orientation/calibration/mount/load",
+    "No acquisition leakage from absence of identical numeric vectors",
+    "Train-only deployable cleaning: historical per-file cleaning used full file distributions; deleted DAQ cannot be recovered here"
+  ],
+  "comparison": {
+    "detectors": [
+      {
+        "healthy_fpr_baseline": 0.0,
+        "healthy_fpr_selected": 0.0,
+        "method": "mahalanobis",
+        "metrics": [
+          {
+            "baseline105": 0.5311184235776362,
+            "difference": 0.04346946533990825,
+            "metric": "auroc_unknown_positive",
+            "selected": 0.5745878889175444
+          },
+          {
+            "baseline105": 0.15070167411630828,
+            "difference": 0.03366557561679512,
+            "metric": "unknown_recall",
+            "selected": 0.1843672497331034
+          },
+          {
+            "baseline105": 0.1683289168080677,
+            "difference": 0.043630341414898854,
+            "metric": "unknown_f1",
+            "selected": 0.21195925822296655
+          },
+          {
+            "baseline105": 0.9003933981632429,
+            "difference": -0.036371561132668706,
+            "metric": "fpr_at_95_tpr",
+            "selected": 0.8640218370305742
+          }
+        ]
+      },
+      {
+        "healthy_fpr_baseline": 0.0028218694885361554,
+        "healthy_fpr_selected": 0.007407407407407408,
+        "method": "knn",
+        "metrics": [
+          {
+            "baseline105": 0.5046568135510631,
+            "difference": 0.06639602071044726,
+            "metric": "auroc_unknown_positive",
+            "selected": 0.5710528342615103
+          },
+          {
+            "baseline105": 0.04493858445077958,
+            "difference": 0.00958786470981593,
+            "metric": "unknown_recall",
+            "selected": 0.05452644916059551
+          },
+          {
+            "baseline105": 0.06988006598934947,
+            "difference": 0.012547099123481162,
+            "metric": "unknown_f1",
+            "selected": 0.08242716511283063
+          },
+          {
+            "baseline105": 0.9838267025939871,
+            "difference": -0.13605414033102292,
+            "metric": "fpr_at_95_tpr",
+            "selected": 0.8477725622629642
+          }
+        ]
+      }
+    ],
+    "guard_only_fix_performance_change": 0.0,
+    "known_metrics": [
+      {
+        "baseline105": 0.2963062201550291,
+        "difference": 0.04522575416117236,
+        "metric": "accuracy",
+        "selected": 0.34153197431620147
+      },
+      {
+        "baseline105": 0.29737220719136376,
+        "difference": 0.047656488474300596,
+        "metric": "balanced_accuracy",
+        "selected": 0.34502869566566435
+      },
+      {
+        "baseline105": 0.2620067894965686,
+        "difference": 0.04078396596655853,
+        "metric": "macro_f1",
+        "selected": 0.3027907554631271
+      }
+    ],
+    "limitation": "Cross-fold global selection depends on known rows of outer test; selected-vs-baseline difference is descriptive, not unbiased final improvement.",
+    "same_condition_pairing_verified": true,
+    "scope": "EXPLORATORY; saved predictions recomputed, no model refit/reselection or new test exposure",
+    "selected": "vibration75"
+  },
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "file_byte_alias_groups": [],
+  "file_count": 90,
+  "fit_input_audit": {
+    "checks": [
+      {
+        "fold_id": "train1-valcal2-test3",
+        "problems": [],
+        "representation": "baseline105",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train1-valcal2-test3",
+        "problems": [],
+        "representation": "vibration75",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train1-valcal2-test3",
+        "problems": [],
+        "representation": "current15",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train1-valcal2-test3",
+        "problems": [],
+        "representation": "delta_t15",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train1-valcal2-test3",
+        "problems": [],
+        "representation": "vibration_current90",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train1-valcal2-test3",
+        "problems": [],
+        "representation": "train_pca20",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train2-valcal3-test1",
+        "problems": [],
+        "representation": "baseline105",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train2-valcal3-test1",
+        "problems": [],
+        "representation": "vibration75",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train2-valcal3-test1",
+        "problems": [],
+        "representation": "current15",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train2-valcal3-test1",
+        "problems": [],
+        "representation": "delta_t15",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train2-valcal3-test1",
+        "problems": [],
+        "representation": "vibration_current90",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train2-valcal3-test1",
+        "problems": [],
+        "representation": "train_pca20",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train3-valcal1-test2",
+        "problems": [],
+        "representation": "baseline105",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train3-valcal1-test2",
+        "problems": [],
+        "representation": "vibration75",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train3-valcal1-test2",
+        "problems": [],
+        "representation": "current15",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train3-valcal1-test2",
+        "problems": [],
+        "representation": "delta_t15",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train3-valcal1-test2",
+        "problems": [],
+        "representation": "vibration_current90",
+        "status": "PASS"
+      },
+      {
+        "fold_id": "train3-valcal1-test2",
+        "problems": [],
+        "representation": "train_pca20",
+        "status": "PASS"
+      }
+    ],
+    "complete_18_fit_inventory": true,
+    "evidence_level": "saved_execution_ID_audit_and_current_code_flow; not independent instrumentation of historical execution",
+    "status": "PASS"
+  },
+  "folds": [
+    {
+      "copy_groups_checksum": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fold_id": "train1-valcal2-test3",
+      "manifest_checksum": "ade300cfeadc4b8bc08d032fcaf5f2f8fae57b37e8b32df58f0e96d042fec840",
+      "potential_cross_partition_12g_copy_groups": 0,
+      "seed_is_fold_identifier": 42,
+      "shared_validation_calibration_rows": 6007,
+      "test_fit_input_id_overlap": 0,
+      "validator": {
+        "details": {
+          "TEST_INSUFFICIENT_GROUPS": [
+            "1screws: 1 test groups; minimum 2",
+            "2screws: 1 test groups; minimum 2",
+            "3_14screws: 1 test groups; minimum 2",
+            "3screws: 1 test groups; minimum 2",
+            "4_146screws: 1 test groups; minimum 2",
+            "4screws: 1 test groups; minimum 2",
+            "5screws: 1 test groups; minimum 2",
+            "6screws: 1 test groups; minimum 2",
+            "7screws: 1 test groups; minimum 2",
+            "8screws: 1 test groups; minimum 2",
+            "validation and calibration are explicitly shared; independent four-way split unavailable"
+          ]
+        },
+        "error_codes": [
+          "TEST_INSUFFICIENT_GROUPS"
+        ],
+        "status": "INCOMPLETE",
+        "test_group_count": 30,
+        "test_sample_count": 9294,
+        "warnings": [
+          "source intervals unavailable for some samples; overlap cannot be excluded beyond group boundaries"
+        ]
+      }
+    },
+    {
+      "copy_groups_checksum": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fold_id": "train2-valcal3-test1",
+      "manifest_checksum": "4e102a237cf9ac3024f41d4e10ef120ed67c934a6b48591dfd7f085603b4cdb8",
+      "potential_cross_partition_12g_copy_groups": 0,
+      "seed_is_fold_identifier": 123,
+      "shared_validation_calibration_rows": 5604,
+      "test_fit_input_id_overlap": 0,
+      "validator": {
+        "details": {
+          "TEST_INSUFFICIENT_GROUPS": [
+            "1screws: 1 test groups; minimum 2",
+            "2screws: 1 test groups; minimum 2",
+            "3_14screws: 1 test groups; minimum 2",
+            "3screws: 1 test groups; minimum 2",
+            "4_146screws: 1 test groups; minimum 2",
+            "4screws: 1 test groups; minimum 2",
+            "5screws: 1 test groups; minimum 2",
+            "6screws: 1 test groups; minimum 2",
+            "7screws: 1 test groups; minimum 2",
+            "8screws: 1 test groups; minimum 2",
+            "validation and calibration are explicitly shared; independent four-way split unavailable"
+          ]
+        },
+        "error_codes": [
+          "TEST_INSUFFICIENT_GROUPS"
+        ],
+        "status": "INCOMPLETE",
+        "test_group_count": 30,
+        "test_sample_count": 9759,
+        "warnings": [
+          "source intervals unavailable for some samples; overlap cannot be excluded beyond group boundaries"
+        ]
+      }
+    },
+    {
+      "copy_groups_checksum": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fold_id": "train3-valcal1-test2",
+      "manifest_checksum": "69d0488c3f0dd20b9892a51a00e52bd96ecb5f855531f0dfafd6b8a843d97e5f",
+      "potential_cross_partition_12g_copy_groups": 0,
+      "seed_is_fold_identifier": 2026,
+      "shared_validation_calibration_rows": 5935,
+      "test_fit_input_id_overlap": 0,
+      "validator": {
+        "details": {
+          "TEST_INSUFFICIENT_GROUPS": [
+            "1screws: 1 test groups; minimum 2",
+            "2screws: 1 test groups; minimum 2",
+            "3_14screws: 1 test groups; minimum 2",
+            "3screws: 1 test groups; minimum 2",
+            "4_146screws: 1 test groups; minimum 2",
+            "4screws: 1 test groups; minimum 2",
+            "5screws: 1 test groups; minimum 2",
+            "6screws: 1 test groups; minimum 2",
+            "7screws: 1 test groups; minimum 2",
+            "8screws: 1 test groups; minimum 2",
+            "validation and calibration are explicitly shared; independent four-way split unavailable"
+          ]
+        },
+        "error_codes": [
+          "TEST_INSUFFICIENT_GROUPS"
+        ],
+        "status": "INCOMPLETE",
+        "test_group_count": 30,
+        "test_sample_count": 9857,
+        "warnings": [
+          "source intervals unavailable for some samples; overlap cannot be excluded beyond group boundaries"
+        ]
+      }
+    }
+  ],
+  "formal_sources_modified": false,
+  "fresh_final_test": false,
+  "frozen_artifacts_policy": "Overlay findings only; prior manifests, audits, predictions and locks remain unchanged.",
+  "global_selection_dependence": {
+    "folds": [
+      {
+        "effective_selection_test_overlap": 5604,
+        "fold_id": "train1-valcal2-test3",
+        "overlap_examples": [
+          "0023c88f9ca3532cde5f186f5ac8c4314911701c6072728237041af9c2d6e814",
+          "0024fc2c04b9945c84c8a3f9691f21feaa003ae35dbab33dda88eddd83355f0d",
+          "00269c14415232cf23723f4ed07f1c7346e44db43b5163aabd2b96f0a01760da",
+          "002e162ec61a5545bcb78a8824392cc85a0efbbde8579984bcf0fdb74f5938f7",
+          "002e19201fcd8fa4fecb7a79472efa22c3aaf04e4c625fcc22845e9d18755860"
+        ],
+        "overlap_ids_checksum": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b",
+        "own_fold_selection_overlap": 0,
+        "test_count": 9294
+      },
+      {
+        "effective_selection_test_overlap": 5935,
+        "fold_id": "train2-valcal3-test1",
+        "overlap_examples": [
+          "00064fd0f5c2e77be5b8550527b379a3171a44f5329f256ec09a26dbe11ad334",
+          "003baf6b462947f369605af4a1c5842d1e57353513d004ba7de5a9f58827bf9f",
+          "00400c4a7952db16c4236e9bab408e9ab34f211743c38e66fe3c4eba9ef7f582",
+          "0077e8d1555d268f5e836be168a57a534926195bad6e0fd3aefee97d5b9a1620",
+          "0093449ede14a5954ac9abb38994c0809025be1cdfb185f628b2f33806d8f31f"
+        ],
+        "overlap_ids_checksum": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470",
+        "own_fold_selection_overlap": 0,
+        "test_count": 9759
+      },
+      {
+        "effective_selection_test_overlap": 6007,
+        "fold_id": "train3-valcal1-test2",
+        "overlap_examples": [
+          "00057c4071ab75219207634d905f560e43a7da5dd756d5258e71228fd922a9a8",
+          "0015dd62b8596cb09be27aaa8bfab33e162aae2df4a5ce5ae74a822a10b0f332",
+          "001e4e25a31b04d8ef1b41294bc2917f9683bc6471731dc4b0fd21506f6b5ac0",
+          "004512f81959fb57cc8bbb363c0b721b9cca5904ce2caf113f6922f844be648f",
+          "0046175d0f72e154abe15aacd354097b3ba615e267be32b230a5ce2bda75f4ff"
+        ],
+        "overlap_ids_checksum": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933",
+        "own_fold_selection_overlap": 0,
+        "test_count": 9857
+      }
+    ],
+    "limitation": "No-ID-overlap is not proof of session, raw-window or acquisition independence.",
+    "selection_ids": 17546,
+    "selection_ids_checksum": "ea3f8da2fdc8597f0bf1408a7c187279297454e5527c4251ea7e674c5c7af8a2",
+    "selector": "global_choice_from_all_fold_validation",
+    "status": "NOT_INDEPENDENT_FOR_GLOBAL_SELECTION"
+  },
+  "historical_final_exposure_rows": 28910,
+  "input_artifacts": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_exposure\\2026-10-01-01-10-40\\exposure_ledger.json.gz",
+      "sha256": "9e6d7b1a4171cf6f863adff146accfb00e95ab964d2abc6c02563116b5725332"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_representations\\2026-10-01-08-38-17\\fit_audits.json.gz",
+      "sha256": "5bdeaf003501bbc112c9437788612dbfb5d06030b9e80ca494a76e295246ccd4"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_representations\\2026-10-01-08-38-59\\evaluation_report.json",
+      "sha256": "c7d21b3f9e8c7a73a969ddeb0613ccd850f585bfd941ee41127ead827b61e5c5"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_representations\\2026-10-01-08-38-17\\locked_config.json",
+      "sha256": "0d2849667b719ec476e709124b85a922d882fb94021106147dd2cda9d6ae1f4b"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-05-42\\manifests\\sample-v1-4117c79b583bdef6bc4b_ade300cfeadc4b8b.json.gz",
+      "sha256": "1958efc1fda11748a0d1519443a4d70f4d52b5801bfeda17dee34a1ef3589081"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-05-42\\manifests\\sample-v1-b3b11429ecce4501bff7_4e102a237cf9ac30.json.gz",
+      "sha256": "040b827a4440e7fdc58499e7a24b48159c391e1d2cbd5fd2aec63ca08244697d"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_matrix\\2026-09-30-19-05-42\\manifests\\sample-v1-29272b33f067dc0d91b4_69d0488c3f0dd20b.json.gz",
+      "sha256": "f6a7d9de2de289a43f77f5cb92480b5e9cc65f557dd197f26ed350fedd34973e"
+    }
+  ],
+  "missing_provenance_counts": {
+    "acquisition_timestamp": 28910,
+    "raw_source_file": 28910,
+    "run_id": 28910,
+    "session_id": 28910,
+    "source_interval": 28910
+  },
+  "not_passed": [
+    "Independent final-test eligibility: all historical samples exposed",
+    "Global selected model independent outer-test claim: cross-fold validation reuse",
+    "Independent validation/calibration claim: same known rows shared",
+    "At least2independent test motor groups/class: only1 documented motor per fold"
+  ],
+  "numeric_duplicates": {
+    "exact_numeric": {
+      "cross_label_groups": 0,
+      "cross_motor_groups": 0,
+      "duplicate_groups": 0,
+      "examples": [],
+      "rows_in_duplicate_groups": 0,
+      "unique_digests": 28910
+    },
+    "limitation": "Equal105-vectors flag possible copies, not proof of the same physical acquisition; no near-copy/transform exclusion guarantee.",
+    "semantic_12g": {
+      "cross_label_groups": 0,
+      "cross_motor_groups": 0,
+      "duplicate_groups": 0,
+      "examples": [],
+      "rows_in_duplicate_groups": 0,
+      "unique_digests": 28910
+    }
+  },
+  "production_default_changed": false,
+  "sample_count": 28910,
+  "saved_prediction_verification": {
+    "rows": 346920,
+    "runs": 36
+  },
+  "scope": "Entire formal catalog; first preregistered N5/all3 frozen motor folds/18fit audits/36saved predictions. No2490rerun.",
+  "seconds": 20.80939760000183,
+  "status": "AUDIT_COMPLETED_WITH_LIMITATIONS",
+  "verified": [
+    "Actual90file/105D/row fingerprint and exposure source binding checked",
+    "Saved36predictions SHA/IDs/metrics and paired manifests verified without refitting",
+    "Within-fold fit/reference/selection/calibration ID audits inspected"
+  ]
+}

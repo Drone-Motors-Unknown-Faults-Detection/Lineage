@@ -31,3 +31,17 @@
 - Synthetic model branch保留工程fixture契約，永遠real final=false；沒有替training/採集填未知checksum，沒有將operator status字串當物理認證。
 - `test_fresh_data_cli.py` 全15tests PASS（23.545秒），包含新缺欄位拒絕、未曝光副本、durable crash/concurrency及CLI validate/evaluate/resume既有測試。
 - 最終舊204＋新增13＝217tests，兩runtime完整驗收接續執行。採集未知、INCOMPLETE及global selector依賴不因guard修正自動轉PASS。
+
+- Phase1b `1ad5db339157afe047fc89fb43b31a31a18649d2` commit/push成功，remote完整SHA一致。
+
+## Phase 2：結果、完整驗收與備份
+
+- 最後frozen code：Python3.10.19完整217tests/pip check/4CLI help PASS，`output/synchronized_compatibility/2026-10-01-15-07-32/`（15:08:08完成）；Python3.14.6亦217tests PASS，`.../2026-10-01-15-08-51/`（15:09:32完成）。原venv/requires-python未改，不宣稱跨runtime pickle、其他OS或雲端CI。
+- 前面的216checkpoint保留，不冒充最終217。兩最終environment.json與command_1.txt保存實際完整stdout/stderr；factory/Maha預設/kNN/binary/PolarMap均由整套regression覆蓋。
+- Global selector依賴實際ID：T3test9294中5604known、T1test9759中5935known、T2test9857中6007known被別foldvalidation用於共同選擇。Union17546。這不等於同折estimator偷fit test；舊結果只能exploratory，不能將其升為獨立final。
+- Shared val/cal6007/5604/5935；每fold一motor；全部28910已曝光。五項session/run/time/raw-source/interval欄位每項28910缺失，保留unknown，不藉metadata或檔數達成獨立group標準。
+- 重新核對舊36runs的metrics是同條件描述性對照；修guard本身沒有prediction/model變更，保存預測數值差異0。振動75相對同N5 baseline accuracy+4.5226pp/F1+.040784、MahaAUROC+.043469，但T1unknown recall0、kNNhealthyFPR變差；不更換正式預設。
+- 更新feature_results/model_selection_followup/final_delivery中的選擇範圍文字，指出「同折未載入test」不等於「共同選擇與全部outer test獨立」。不改舊locks/metrics/predictions，不重選候選，不重跑2490。
+- 15:09:59–15:10:01 `experiments.fault_type_archive`三個明確output roots保存到 `D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\data_independence`，audit58727bytes/2files、3.10env21598/7files、3.14env21945/7files；CRC/wholeSHA PASS。
+- PowerShell再逐ZIP核對16members SHA/length PASS，保存 `output/fault_type_archive/2026-10-01-15-09-59/member_verification.json`。未刪來源、沒有raw/formal/模型檔上傳；這是單一D槽備份，不冒稱異地災備。
+- Phase2只stage報告／compact audit/source-checksums／environment stdout／archive索引與日誌；用Co-author、diff --check、commit/push及ls-remote核對交付，实际SHA成功後記錄。使用者先前僅授權那一份issue9摘要，不把本次commit/push請求解讀為再次發文；本輪沒有新增issue留言或對人/其他task發訊息。

@@ -5,6 +5,10 @@
 1screws、2screws、3screws、3_14screws、4screws；其餘4類unknown。
 沿用3份原frozen manifests與seed42/123/2026，seed是fold識別，不是新採集。
 每個fold只載入known train及known validation；unknown/test不進選擇。
+此句僅指同折的輸入範圍，不代表共同global selector獨立於全部outer tests。
+2026-10-01後續ID稽核確認三fold validation union為17,546個known rows，全部也在某outer test出現。
+ExtraTrees的共同三fold選擇同樣依賴outer-test known rows，test改善只能描述性exploratory。
+不改舊locks/predictions；完整相依數量見 `reports/data_independence/audit_20261001.md`。
 
 候選集在實際訓練前保存並提交：
 
