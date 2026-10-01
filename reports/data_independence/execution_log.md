@@ -45,3 +45,6 @@
 - 15:09:59–15:10:01 `experiments.fault_type_archive`三個明確output roots保存到 `D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\data_independence`，audit58727bytes/2files、3.10env21598/7files、3.14env21945/7files；CRC/wholeSHA PASS。
 - PowerShell再逐ZIP核對16members SHA/length PASS，保存 `output/fault_type_archive/2026-10-01-15-09-59/member_verification.json`。未刪來源、沒有raw/formal/模型檔上傳；這是單一D槽備份，不冒稱異地災備。
 - Phase2只stage報告／compact audit/source-checksums／environment stdout／archive索引與日誌；用Co-author、diff --check、commit/push及ls-remote核對交付，实际SHA成功後記錄。使用者先前僅授權那一份issue9摘要，不把本次commit/push請求解讀為再次發文；本輪沒有新增issue留言或對人/其他task發訊息。
+
+- Phase2 `4de42fdeaa4458c002e8924edd9061ebfa9e16bf` commit/push成功，remote SHA一致。30個compact證據／文件檔案，0 source data／raw／ZIP／joblib；282既有deletions仍unstaged。
+- 最後bookkeeping僅記上述已驗證SHA與狀態，不改程式/資料/科學artifacts；再commit/push並核對remote。此bookkeeping自身SHA以Git歷史與最終對話回覆為準，避免無限自我記錄commit。
