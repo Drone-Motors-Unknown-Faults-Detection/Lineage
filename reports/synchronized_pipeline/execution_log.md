@@ -67,3 +67,13 @@
 - 08:38:17–25 Python3.10.19 fit exit0，6representations×3folds全部18fits及36factory detector fits完成，沒有讀test或unknown選擇。
 - 依預登錄known validation規則選vibration75。保存所有候選scores/folds、18同環境joblibs與fit/cal ID audits，不更新production default。
 - locked_config/selection_report位於output/fault_type_representations/2026-10-01-08-38-17，接著先commit/push lock再探索性test。
+
+- P5b `8866c356703d9f97de0a353f986aebcfea00ca0d` push/remote一致，lock checksum bdf471c8e6f86223d61e8fb2c5f134156c01cc24de8148e84c59bcacc9b271c3。
+
+## P5c — 探索性結果與逐樣本核對
+
+- 08:38:59–08:39:33 evaluate exit0，36/36 completed、0failed。346920prediction records重用28910舊sample IDs，不是新採集。
+- 08:41:08–17 report exit0：全部36gzip SHA/count/IDs/lock/metrics重新核對；相同seed跨12runs test一致。
+- 選定vibration75 accuracy29.6306→34.1532%、BA29.7372→34.5029%、F1.262007→.302791；MahaAUROC.531118→.574588、recall15.0702→18.4367%。三fold分類均提高，但T1 unknown recall仍0。
+- kNN healthyFPR.2822→.7407%，unknown recall仍5.4526%；PCA test AUROC較高但沒有依test改選PCA。所有候選與motor/RPM/config strata保留，production不換。
+- 原105baseline本輪新3.10 fit數值與上一輪此固定組合一致，非全量／跨pickle相容保證。

@@ -1,0 +1,4 @@
+2026-10-01 08:38:59 | INFO    | Logger initialized: fault_type_representations
+2026-10-01 08:38:59 | INFO    | log_file=logs\fault_type_representations\2026-10-01-08-38-59.log
+2026-10-01 08:38:59 | INFO    | output_dir=output\fault_type_representations\2026-10-01-08-38-59
+2026-10-01 08:39:33 | INFO    | 36 exploratory runs complete
