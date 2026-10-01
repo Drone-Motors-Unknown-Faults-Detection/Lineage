@@ -72,6 +72,13 @@ class FreshTests(unittest.TestCase):
         for key,value in [("fresh_protocol","other"),("column_order",[]),("minimum_test_groups_per_class",1),("serialization_environment",{})]:
             c=copy.deepcopy(self.c); c[key]=value
             with self.assertRaises(FinalTestBlocked): load_models(seal(c,"locked_checksum"),self.root/"models",self.bundle)
+    def test_real_training_checksum_evidence_cannot_be_omitted(self):
+        # Exercise only the real-model preflight branch; NOT a real acquisition.
+        c=copy.deepcopy(self.c); bundle=copy.deepcopy(self.bundle)
+        c["synthetic"]=False; bundle["synthetic"]=False
+        c["training_provenance_status"]="operator_attested_complete"
+        with self.assertRaisesRegex(FinalTestBlocked,"training.*checksum"):
+            load_models(seal(c,"locked_checksum"),self.root/"models",bundle)
     def test_real_canonical_path_and_empty_seed_cannot_reset_history(self):
         folder,path=self.setup_run("real-history")
         with self.assertRaises(FinalTestBlocked): validate_history_scope({"synthetic":False},self.c,path)

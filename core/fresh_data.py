@@ -110,6 +110,14 @@ def load_models(locked: dict, artifact_root: Path, bundle: dict):
     training_by_id={r["sample_id"]:r for r in locked["training_records"]}
     if len(training_by_id)!=len(locked["training_records"]) or set(locked["selection_input_ids"])-set(training_by_id):
         raise FinalTestBlocked("selection/training ID provenance incomplete")
+    if not bundle["synthetic"]:
+        # A status string alone must not disable the guard's training-copy
+        # checks. Unknown evidence stays unknown and blocks REAL eligibility.
+        for record in training_by_id.values():
+            for field in ("source_sha256", "raw_source_sha256", "numeric_row_digest"):
+                value=record.get(field)
+                if not isinstance(value,str) or len(value)!=64 or any(c not in "0123456789abcdef" for c in value):
+                    raise FinalTestBlocked(f"real training checksum evidence missing/invalid: {field}")
     if set(locked.get("bridge_input_ids",[])) & {r["sample_id"] for r in bundle["records"]}: raise FinalTestBlocked("final data cannot be bridge calibration")
     if locked.get("column_order") != FEATURE_NAMES or locked.get("pipeline_id") != bundle.get("pipeline_id"): raise FinalTestBlocked("model extractor/column contract mismatch")
     environment={"python":platform.python_version(),"sklearn":sklearn.__version__}
