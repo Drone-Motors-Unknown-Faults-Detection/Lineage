@@ -24,6 +24,7 @@ from loguru import logger
 
 from core.data import discover_datasets
 from core.logger import setup_run
+from core.runner import add_openset_args
 from web.live import LiveDemo
 
 STATIC_DIR = Path(__file__).parent / "static"
@@ -32,11 +33,20 @@ STATIC_DIR = Path(__file__).parent / "static"
 class Hub:
     """連線集合 + 串流節拍器 + 重任務執行緒池。"""
 
-    def __init__(self, demo: LiveDemo, datasets: list[dict], rate: int, seed: int, out_dir=None):
+    def __init__(
+        self,
+        demo: LiveDemo,
+        datasets: list[dict],
+        rate: int,
+        seed: int,
+        out_dir=None,
+        detector_options: dict | None = None,
+    ):
         self.demo = demo
         self.datasets = datasets
         self.seed = seed
         self.out_dir = out_dir
+        self.detector_options = detector_options or {}
         self.clients: set[tornado.websocket.WebSocketHandler] = set()
         self.running = False
         self.busy = False
@@ -198,7 +208,12 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         for ds in HUB.datasets:
             if ds["motor"] == motor and ds["rpm"] == rpm:
                 HUB.demo.close()
-                HUB.demo = LiveDemo(ds, seed=HUB.seed, out_dir=HUB.out_dir)
+                HUB.demo = LiveDemo(
+                    ds,
+                    seed=HUB.seed,
+                    out_dir=HUB.out_dir,
+                    **HUB.detector_options,
+                )
                 HUB.running = False
                 return f"已載入資料集 {motor}/{rpm}，回到階段 0"
         raise KeyError(f"{motor}/{rpm}")
@@ -212,6 +227,7 @@ def main() -> None:
     parser.add_argument("--port", type=int, default=8600)
     parser.add_argument("--rate", type=int, default=4, help="每秒樣本數（1-10）")
     parser.add_argument("--seed", type=int, default=42)
+    add_openset_args(parser)
     args = parser.parse_args()
 
     log, paths = setup_run("web_server")
@@ -226,11 +242,19 @@ def main() -> None:
     )
 
     global HUB
+    detector_options = {
+        "openset_method": args.openset_method,
+        "mahalanobis_method": args.method,
+        "confidence": args.confidence,
+        "knn_neighbors": args.knn_neighbors,
+    }
     log.info(f"載入資料集 {chosen['motor']}/{chosen['rpm']} 並擬合健康基準…")
+    log.info(f"Open Set method={args.openset_method}（Mahalanobis estimator={args.method}）")
     log.info(f"session 紀錄（逐筆樣本 + 模型快照）→ {paths.output_dir}")
     HUB = Hub(
-        LiveDemo(chosen, seed=args.seed, out_dir=paths.output_dir),
+        LiveDemo(chosen, seed=args.seed, out_dir=paths.output_dir, **detector_options),
         datasets, args.rate, args.seed, out_dir=paths.output_dir,
+        detector_options=detector_options,
     )
 
     app = tornado.web.Application([(r"/", IndexHandler), (r"/ws", WSHandler)])

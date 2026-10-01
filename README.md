@@ -223,6 +223,46 @@ venv/bin/python -m experiments.exp6_osr_benchmark
 ③ 主線續用 LW 馬氏合理：誤報僅差最佳者 1 個百分點，卻保有參數化模型才有的
 幾何地圖（實驗四）、逐類擴張與可解釋性。
 
+### Open Set 方法切換與公平比較
+
+所有實驗及 Web server 都可用同一個 CLI 介面切換 detector：
+
+```bash
+# 既有方法（預設）：逐類 Ledoit–Wolf Mahalanobis
+venv/bin/python -m experiments.exp1_cold_start --openset-method mahalanobis --method ledoit_wolf
+
+# 新方法：逐類 k-NN 平均歐氏距離
+venv/bin/python -m experiments.exp1_cold_start --openset-method knn --knn-neighbors 5
+
+# 兩者使用相同 seed、60/20/20 split、known/unknown 定義與指標
+venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn
+```
+
+`k-NN` 不需要分類 logits 或神經網路 embedding，直接使用本專案既有、經
+`RobustScaler` 處理的 105 維特徵。對每個已知類別計算「查詢樣本到該類 training
+split 的 k 個最近鄰平均歐氏距離」，再除以該類 calibration split 距離的第 95
+百分位；跨類取最小值，正規化分數嚴格大於 1 判為 unknown。分數越大代表越不像
+任何已知類別。此方法的鄰近性基礎源自
+[Cover & Hart (1967)](https://doi.org/10.1109/TIT.1967.1053964)，以近鄰距離作異常分數
+的依據可追溯至
+[Ramaswamy, Rastogi & Shim (2000)](https://doi.org/10.1145/342009.335437)。
+
+公平比較輸出到 `logs/openset_comparison/` 與 `output/openset_comparison/`，包含
+`summary.csv/json`、逐配置 `details.csv` 與比較圖；unknown 為正類，紀錄 AUROC、
+AUPR、FPR@95TPR、Open Set accuracy、known-class accuracy、unknown precision／
+recall／F1、正規化 threshold、每類原始 threshold、校準策略、split 與 seed。
+unknown/test 樣本不參與 threshold 選擇。
+
+正式版矩陣（`exp6_formal_benchmark` + `exp6_matrix` + `aggregate_exp6`）以 9 工況 ×
+3 seed（42/123/2026）比較 Mahalanobis 與 k-NN，並記錄資料指紋、commit 等 provenance：
+
+```bash
+venv/bin/python -m experiments.exp6_matrix
+```
+
+結果見 `output/exp6_formal_matrix/aggregate/aggregate.md`；兩方法 AUROC 皆 1.0、Open Set
+accuracy 差異 < 0.00001。健康指數延伸流程見 [docs/health_monitoring_workflow.md](docs/health_monitoring_workflow.md)。
+
 ### 實驗說明手冊
 
 六個實驗的設計理念、方法、預期與結果的**小白友善版**完整說明：
@@ -303,9 +343,11 @@ Lineage/
 ├── core/                        # 共用零件
 │   ├── data.py                  #   資料池載入、60/20/20 切分、循環抽樣
 │   ├── mahalanobis.py           #   開集馬氏偵測器（複製自論文版程式碼，含來源註記）
+│   ├── openset.py               #   detector 共用介面、工廠與 k-NN 距離拒絕法
 │   ├── monitor.py               #   OpenSetMonitor：健康冷啟動 + add_class 量尺擴張
 │   ├── geometry.py              #   PolarMap：白化空間、故障射線、方向熟悉度、嚴重度
 │   ├── detectors.py             #   實驗六的七種偵測器（統一 fit/score 介面）
+│   ├── formal_data.py           #   正式原始資料 → Lineage 資料格式的 materialization
 │   ├── trend.py                 #   TrendMonitor：EWMA 異常密度 + CUSUM + 漸進/突發判別
 │   ├── logger.py                #   loguru 執行期日誌 + logs/ + output/ 慣例
 │   └── runner.py                #   實驗 CLI 共用參數與 JSON 儲存
@@ -315,7 +357,15 @@ Lineage/
 │   ├── exp3_trend.py            #   實驗三：漸進 vs 突發（含 SCENARIOS 劇本定義）
 │   ├── exp4_polar_map.py        #   實驗四：極座標健康地圖（射線結構/方向熟悉度/嚴重度）
 │   ├── exp5_cross_condition.py  #   實驗五：跨工況泛化（9×9 矩陣/策略/老化漂移）
-│   └── exp6_osr_benchmark.py    #   實驗六：OSR 方法基準比較
+│   ├── exp6_osr_benchmark.py    #   實驗六：OSR 方法基準比較（七種偵測器）
+│   ├── exp6_formal_benchmark.py #   實驗六正式版：Mahalanobis vs k-NN（含 provenance）
+│   ├── exp6_matrix.py           #   正式版 9 工況 × 3 seed × 2 方法矩陣
+│   ├── aggregate_exp6.py        #   正式矩陣彙整
+│   ├── health_index_*.py        #   健康指數 benchmark／matrix
+│   ├── health_monitor.py        #   健康監測 CLI
+│   └── compare_openset.py       #   相同 split/指標公平比較 Mahalanobis 與 k-NN
+├── health/                      # 健康指數、校準、嚴重度、趨勢/告警、軌跡、診斷
+├── tests/                       # unittest（venv/bin/python -m unittest discover -s tests -t .）
 ├── web/                         # 即時展示（只做編排與視覺化，不含實驗邏輯）
 │   ├── live.py                  #   LiveDemo：把三個實驗模組串成互動串流
 │   ├── server.py                #   Tornado + WebSocket 伺服器
@@ -385,6 +435,7 @@ output/{program}/{YYYY-MM-DD-HH-MM-SS}/       # results.csv / summary.json / *.p
 | 階段 0 健康基準 | 健康分布 + 馬氏距離的單類監測 | Taguchi & Jugulum (2002) *The Mahalanobis–Taguchi Strategy*；綜述：Pimentel et al. (2014) *Signal Processing*；對照法：Schölkopf et al. (2001) OC-SVM、Tax & Duin (2004) SVDD |
 | 開集判定 | 逐類高斯 + 馬氏距離、校準分位數閾值 | 學長論文（本資料集與基礎流程）；K. Lee et al. (2018) *NeurIPS*（深度特徵逐類馬氏）；開集理論：Scheirer et al. (2013) *TPAMI*、Bendale & Boult (2016) *CVPR* OpenMax |
 | 共變異數估計 | Ledoit–Wolf 收縮（高維小樣本可逆、良態）| Ledoit & Wolf (2004) *J. Multivariate Analysis*；替代：Chen et al. (2010) OAS |
+| 非參數開集對照 | 逐類 k-NN 平均歐氏距離 + known-only 校準分位數 | [Cover & Hart (1967)](https://doi.org/10.1109/TIT.1967.1053964) *IEEE Transactions on Information Theory*；[Ramaswamy, Rastogi & Shim (2000)](https://doi.org/10.1145/342009.335437) *SIGMOD* |
 | 新故障分群 | HDBSCAN（自動叢集數、雜訊點標記）| Campello, Moulavi & Sander (2013) |
 | 變化點偵測 | EWMA 管制圖 + CUSUM | Roberts (1959) *Technometrics*；Page (1954) *Biometrika* |
 | 持續學習 | 全資料重擬合（= 完整 rehearsal，迴避災難性遺忘）| Kirkpatrick et al. (2017) *PNAS* EWC；Rebuffi et al. (2017) *CVPR* iCaRL |

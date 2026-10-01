@@ -21,9 +21,12 @@
 ## 目錄結構
 
 ```
-core/            共用零件：data / mahalanobis / monitor / geometry / detectors / trend / logger / runner
+core/            共用零件：data / mahalanobis / openset / monitor / geometry / detectors / formal_data /
+                 trend / logger / runner
+health/          健康指數、校準、嚴重度分級、趨勢/告警、軌跡與診斷（見 docs/health_monitoring_workflow.md）
 experiments/     實驗模組（exp1 冷啟動、exp2 量尺擴張、exp3 趨勢、exp4 極座標、
-                 exp5 跨工況、exp6 OSR 基準）；設計說明見 docs/Experiments_Guide.md
+                 exp5 跨工況、exp6 OSR 基準＋正式矩陣、compare_openset、health_index_*）；
+                 設計說明見 docs/Experiments_Guide.md
 web/             即時展示（live.py 編排、server.py Tornado+WS、static/index.html）
 docs/            論文版技術文件快照 + Lineage 時期研究文件（歷史參考，見 docs/README.md；
                  內文的程式路徑不對應現行架構，勿據以改碼）
@@ -63,8 +66,10 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
 |---|---|---|
 | 已知類別切分 | train/cal/holdout = 60/20/20 | `core.data.make_split` |
 | 共變異數估計 | Ledoit–Wolf（逐類）| `core.monitor.OpenSetMonitor` |
+| Open Set 方法 | Mahalanobis（預設）或逐類 k-NN 距離 | `--openset-method` / `core.openset` |
+| k-NN 鄰居數 | 5 | `--knn-neighbors` |
 | 校準信心水準 | 0.95（校準距離分位數）| `--confidence` |
-| 開集判定 | 正規化分數 > 1 = 未知 | `core.mahalanobis` |
+| 開集判定 | 正規化分數 > 1 = 未知 | `core.openset` / `core.mahalanobis` |
 | HDBSCAN | (25,3)，自適應階梯：隔離區 ≥75 加試 (15,3)、≥100 加試 (10,2)；候選仍需叢 ≥25 筆 | `experiments.exp2_scale_growth` |
 | 重分群節流 | 每 10 筆新未知樣本試一次 | 同上 `recluster_every` |
 | 隔離線 | 分數 > 2.0 才進隔離區（偵測線仍為 1.0）| 同上 `quarantine_margin` |
@@ -85,6 +90,9 @@ venv/bin/python -m experiments.exp3_trend --trials 40
 venv/bin/python -m experiments.exp4_polar_map --part abc
 venv/bin/python -m experiments.exp5_cross_condition        # 9 組資料集全跑
 venv/bin/python -m experiments.exp6_osr_benchmark          # 七種偵測器 × 9 組
+venv/bin/python -m experiments.exp6_formal_benchmark --openset-method knn   # 正式版 Mahalanobis vs k-NN
+venv/bin/python -m experiments.exp6_matrix                # 正式版 9 工況 × 3 seed × 2 方法
+venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn
 
 # 即時展示（http://localhost:8600）
 ./run_web.sh

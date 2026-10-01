@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "experiment": "health_index_benchmark",
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "methods": [
+    "knn",
+    "mahalanobis"
+  ],
+  "runs": 6,
+  "rows": 54,
+  "dataset_fingerprint": "81c9192476ecd1e23a17b3ed5a343dcd50cdc2e5b7e0cc5466e9162941898228",
+  "overall": {
+    "knn": {
+      "health_gap_known_minus_unknown": {
+        "mean": 0.601657,
+        "std": 0.071637
+      },
+      "open_set_accuracy": {
+        "mean": 0.998842,
+        "std": 0.000937
+      },
+      "auroc": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "unknown_recall": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "unknown_f1": {
+        "mean": 0.999409,
+        "std": 0.000478
+      },
+      "known_health_mean": {
+        "mean": 0.601657,
+        "std": 0.071637
+      },
+      "unknown_health_mean": {
+        "mean": 0.0,
+        "std": 0.0
+      }
+    },
+    "mahalanobis": {
+      "health_gap_known_minus_unknown": {
+        "mean": 0.583144,
+        "std": 0.073301
+      },
+      "open_set_accuracy": {
+        "mean": 0.998849,
+        "std": 0.000887
+      },
+      "auroc": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "unknown_recall": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "unknown_f1": {
+        "mean": 0.999412,
+        "std": 0.000453
+      },
+      "known_health_mean": {
+        "mean": 0.583144,
+        "std": 0.073301
+      },
+      "unknown_health_mean": {
+        "mean": 0.0,
+        "std": 0.0
+      }
+    }
+  },
+  "difference_knn_minus_mahalanobis": {
+    "health_gap_known_minus_unknown": 0.018513,
+    "open_set_accuracy": -7e-06,
+    "auroc": 0.0,
+    "unknown_recall": 0.0,
+    "unknown_f1": -3e-06,
+    "known_health_mean": 0.018513,
+    "unknown_health_mean": 0.0
+  }
+}
