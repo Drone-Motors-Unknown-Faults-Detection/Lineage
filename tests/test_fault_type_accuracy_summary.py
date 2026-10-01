@@ -1,5 +1,5 @@
 import unittest
-from experiments.fault_type_accuracy_summary import pareto, AXES, run_entry
+from experiments.fault_type_accuracy_summary import pareto, AXES, run_entry, save_summary
 
 
 class SummaryTests(unittest.TestCase):
@@ -22,3 +22,12 @@ class SummaryTests(unittest.TestCase):
         r={'arm_id':'A0','score_id':'knn','fold_id':'f','seed':0,'test_ids_checksum':'sha','prediction_artifact':{'rows':7}}
         self.assertEqual(run_entry(r)['samples'],7)
         with self.assertRaises(ValueError):run_entry(dict(r,samples=8))
+
+    def test_lossless_compact_summary_roundtrip(self):
+        import tempfile, gzip, json
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp);result={'metrics':[.123456789,None],'selection_policy':'none'}
+            save_summary(p,result)
+            self.assertEqual(json.loads(gzip.decompress((p/'summary.json.gz').read_bytes())),result)
+            self.assertEqual(json.loads((p/'summary.json').read_text(encoding='utf-8')),result)

@@ -1,0 +1,5 @@
+2026-10-02 01:02:00 | INFO    | Logger initialized: fault_type_archive
+2026-10-02 01:02:00 | INFO    | log_file=logs\fault_type_archive\2026-10-02-01-02-00.log
+2026-10-02 01:02:00 | INFO    | output_dir=output\fault_type_archive\2026-10-02-01-02-00
+2026-10-02 01:02:01 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\fault_type_accuracy_study\fault_type_2026-10-02-00-57-33.zip bytes=4419302 files=1
+2026-10-02 01:02:01 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\fault_type_accuracy_study\fault_type_2026-10-02-01-01-35.zip bytes=17687380 files=2

@@ -1,6 +1,7 @@
 """Compact delivery views of all fixed methods; descriptive Pareto, not selector."""
 from __future__ import annotations
 import argparse
+import gzip
 import json
 from pathlib import Path
 from core.fault_type_final_guard import verify_seal, seal
@@ -9,6 +10,12 @@ from core.formal_data import _sha256_file
 from core.logger import setup_run
 
 AXES={'known_fault_classification.balanced_accuracy':1,'unknown_rejection.unknown_recall':1,'healthy_safety.false_positive_rate':-1}
+
+
+def save_summary(output, result):
+    save_json(output/'summary.json',result)
+    # Git keeps the lossless compact summary; readable JSON lives in the archive.
+    (output/'summary.json.gz').write_bytes(gzip.compress(json.dumps(result,sort_keys=True,allow_nan=False).encode(),mtime=0))
 
 
 def run_entry(run):
@@ -56,7 +63,7 @@ def main():
     for key in ['verified','locked','registry','diagnosis']:p.add_argument('--'+key,type=Path,required=True)
     a=p.parse_args();log,paths=setup_run('fault_type_accuracy_summary')
     result=run(None,verified_path=a.verified,locked_path=a.locked,registry_path=a.registry,diagnosis_path=a.diagnosis)
-    save_json(paths.output_dir/'summary.json',result)
+    save_summary(paths.output_dir,result)
     log.info('{} fixed method views; descriptive Pareto only',len(result['methods']))
 
 

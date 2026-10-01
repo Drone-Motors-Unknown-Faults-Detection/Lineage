@@ -1,0 +1,12 @@
+usage: python.exe -m experiments.fault_type_accuracy_summary
+       [-h] --verified VERIFIED --locked LOCKED --registry REGISTRY
+       --diagnosis DIAGNOSIS
+
+Compact delivery views of all fixed methods; descriptive Pareto, not selector.
+
+options:
+  -h, --help            show this help message and exit
+  --verified VERIFIED
+  --locked LOCKED
+  --registry REGISTRY
+  --diagnosis DIAGNOSIS
