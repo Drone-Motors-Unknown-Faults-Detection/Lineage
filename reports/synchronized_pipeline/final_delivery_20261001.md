@@ -176,9 +176,13 @@ Selection lock checksum：`bdf471c8e6f86223d61e8fb2c5f134156c01cc24de8148e84c59b
 |P5鎖定|`8866c356703d9f97de0a353f986aebcfea00ca0d`|
 |P5結果|`ec469826a126dd3a601a1d07869ac2a284d94386`|
 |P6最終邊界／204tests|`914cb889b66b9e3a84ad0256b62cda70ce867148`|
+|P6最終報告／驗收／13備份證據|`aff0338bc3da703b3dec9e466e0a82bee2c06d65`|
 
 各階段Co-authored-by Codex且push/remoteSHA一致。最終文件/驗收commit及issue9跟進記入execution_log，
 避免在尚未commit的文件預填自身SHA。未merge main、未新建PR；使用既有研究缺口issue9。
+本輪 issue9 外部留言被 auto-review 拒絕（具體發文授權不足），**沒有發布**；
+`issue9_followup_20261001.md` 是已保存草稿，不是已發布留言。需使用者明確批准後才能發文，沒有改走其他管道繞過。
+工程交付與研究分支push已完成，僅issue跟進待授權。最後bookkeeping commit自身SHA見Git歷史/最終對話回覆。
 
 ## 9. 使用者真正需提供的最小資料與下一步
 

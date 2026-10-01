@@ -101,3 +101,7 @@
 - 共13 ZIP 位於 `D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline`。沒有刪除來源；生成的 synthetic raw 明確標記，沒有真實 DAQ／私有文件上傳。這是單一 D 槽備份，不宣稱異地災備。
 - 最終報告區分 ENGINEERING_ACCEPTANCE_PASS 與 BLOCKED_NO_ELIGIBLE_DATA，列出最小原檔/採集事實、fresh training/bridge 契約及可複製 CLI。formal/manifests/predictions 舊版本未覆寫，282 既有 deletions 不 stage。
 - 本階段僅增補報告及 compact 驗收證據；程式碼自 P6a 完整測試後不變。提交後另記實際 SHA、push 與 issue9 連結，不預填成功。
+
+- P6b `aff0338bc3da703b3dec9e466e0a82bee2c06d65` commit/push 成功，ls-remote SHA 完全一致。43個相關檔案stage，0 raw/ZIP/joblib，282既有deletions保持unstaged。
+- 嘗試 `gh issue comment 9 --repo Drone-Motors-Unknown-Faults-Detection/Lineage --body-file reports/synchronized_pipeline/issue9_followup_20261001.md` 被 auto-review 拒絕：對GitHub issue外部發文的具體授權不足。命令未執行、留言未發布；不改走API/瀏覽器繞過。草稿已在P6b commit保存，若使用者明確授權issue發文再處理。
+- 最後交付bookkeeping僅更新本log與final report，不改程式/科學artifacts，使用Co-author footer後push研究分支並核對remote SHA。該commit自身SHA以Git歷史及最終對話回覆為準，避免為記錄自身SHA無限產生commit。
