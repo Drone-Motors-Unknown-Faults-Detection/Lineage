@@ -8,7 +8,7 @@ import joblib
 import numpy as np
 from sklearn.preprocessing import RobustScaler
 from core.fault_type_fixed_calibration import fixed_manifests
-from core.fault_type_final_guard import digest
+from core.fault_type_final_guard import digest, seal
 from core.fault_type_accuracy_pipeline import records_for, validate_node_audit
 from experiments.fault_type_fixed_smoke import fixture
 from experiments.fault_type_fixed_calibration import build_protocol, load_bound_model
@@ -24,7 +24,7 @@ class AccuracyRunnerTests(unittest.TestCase):
         priors,ledger=fixture(cls.root/'fixture');p=build_protocol(priors,ledger)
         cls.manifests=fixed_manifests(priors,p)
         known=[p['healthy_label'],*sorted(p['known_fault_labels'])]
-        cls.registry={'arms':[ARMS[0],ARMS[1],ARMS[5]],'known_labels':known,'seeds':[0],
+        cls.registry={'arms':[ARMS[0],ARMS[1],ARMS[5]],'known_labels':known,'unknown_labels':p['unknown_test_labels'],'seeds':[0],
             'expected_rpms':p['expected_rpms'],'rules':{'minimum_reference_per_class':5,'conformal_alpha':.05},'score_arms':SCORES,
             'registry_checksum':'synthetic','dataset_fingerprint':p['dataset_fingerprint'],
             'scaler_resolved':RobustScaler().get_params(),'detectors':DETECTOR_CONFIG,
@@ -96,6 +96,79 @@ class AccuracyRunnerTests(unittest.TestCase):
             for node in model['nodes'].values():
                 self.assertTrue(node['pooled'].covariance.assume_centered)
                 self.assertEqual(node['pooled'].train_rows,72)
+
+    def test_registry_JSON_roundtrip_and_tampered_parameters(self):
+        from experiments.fault_type_accuracy_registry import build_registry, check_registry
+        priors,ledger=fixture(self.root/'roundtrip_fixture');p=build_protocol(priors,ledger)
+        path=self.root/'roundtrip_protocol.json';path.write_text(json.dumps(p),encoding='utf-8')
+        baseline=seal({'baseline_index':{'paths':{'protocol':str(path)}}},'baseline_checksum')
+        bp=self.root/'roundtrip_baseline.json';bp.write_text(json.dumps(baseline),encoding='utf-8')
+        registry=build_registry(baseline,bp)
+        loaded=json.loads(json.dumps(registry))
+        self.assertEqual(check_registry(loaded),baseline)
+        loaded['rules']['quantile']=.9;loaded=seal(loaded,'registry_checksum')
+        with self.assertRaises(ValueError):check_registry(loaded)
+
+    def _lock(self):
+        import gzip, platform, sklearn
+        from core.formal_data import _sha256_file
+        from experiments.fault_type_accuracy_study import IMPLEMENTATIONS
+        path=self.root/'audits.json.gz';path.write_bytes(gzip.compress(json.dumps(self.audits+self.b_audits).encode()))
+        return seal({'registry_checksum':self.registry['registry_checksum'],'selection_policy':'none','selection_sample_ids':[],
+            'shared_validation_calibration':False,'environment':{'python':platform.python_version(),'sklearn':sklearn.__version__},
+            'implementation_artifacts':[{'path':s,'sha256':_sha256_file(Path(s))} for s in IMPLEMENTATIONS],
+            'artifacts':self.artifacts+self.b_artifacts,'failures':[],
+            'audit_artifact':{'path':str(path),'sha256':_sha256_file(path)}},'locked_checksum')
+
+    def test_lock_runtime_inventory_and_selection_guards(self):
+        from experiments.fault_type_accuracy_study import validate_lock
+        locked=self._lock();self.assertEqual(len(validate_lock(locked,self.registry,self.manifests)),27)
+        for field,value in [('selection_sample_ids',['test']),('shared_validation_calibration',True),('implementation_artifacts',[]),('artifacts',self.artifacts)]:
+            bad=seal(dict(locked,**{field:value}),'locked_checksum')
+            with self.assertRaises(ValueError):validate_lock(bad,self.registry,self.manifests)
+
+    def test_resolved_shared_model_and_saved_SHA_guards(self):
+        from experiments.fault_type_accuracy_study import validate_lock, resolved_model
+        locked=self._lock();audits=validate_lock(locked,self.registry,self.manifests)
+        for artifact in [self.artifacts[1],self.b_artifacts[0]]:
+            model=resolved_model(artifact,locked,self.registry,self.manifests,audits,self.root)
+            self.assertIsNotNone(model['resolved_reference_model'])
+        bad=dict(self.artifacts[0],sha256='0'*64)
+        with self.assertRaises(ValueError):resolved_model(bad,locked,self.registry,self.manifests,audits,self.root)
+        changed=copy.deepcopy(audits);key=next(iter(changed));changed[key]['classifier_fit_ids']=['test']
+        with self.assertRaises(ValueError):resolved_model(self.artifacts[0],locked,self.registry,self.manifests,changed,self.root)
+
+    def test_prediction_recompute_conformal_truth_and_binding_tamper(self):
+        from core.fault_type_accuracy import study_metrics
+        from experiments.fault_type_accuracy_study import validate_lock, resolved_model
+        from experiments.fault_type_accuracy_report import verify_rows
+        locked=self._lock();audits=validate_lock(locked,self.registry,self.manifests)
+        artifact=self.b_artifacts[0];model=resolved_model(artifact,locked,self.registry,self.manifests,audits,self.root)
+        m=self.manifests[0];known=self.registry['known_labels'];unknown=self.registry['unknown_labels'];rows=[]
+        for record in records_for(m,'test'):
+            raw=np.ones((1,len(known)));d=model['nodes'][record['rpm']]['scores']['B5'].details(raw)
+            reject=bool(d['reject'][0])
+            rows.append({'sample_id':record['sample_id'],'true_label':record['label'],'motor_id':record['t_code'],'rpm':record['rpm'],
+                'source_file':record['source_file'],'source_sha256':record['source_sha256'],
+                'true_role':'unknown_test' if record['label'] in unknown else 'healthy' if record['label']==known[0] else 'known_fault',
+                'predicted_known_class':known[0],'arm_id':'B5','score_id':'B5','seed':0,'fold_id':m['fold_id'],
+                'registry_checksum':self.registry['registry_checksum'],'locked_checksum':locked['locked_checksum'],
+                'manifest_checksum':m['manifest_checksum'],'model_sha256':artifact['sha256'],'historical_test_exposed':True,
+                'classifier_model_sha256':model['reference_artifact']['sha256'],'reference_model_sha256':model['reference_artifact']['sha256'],
+                'raw_class_scores':dict(zip(known,raw[0].tolist())),'openset_score':float(d['score'][0]),'is_unknown':reject,
+                'accepted':not reject,'threshold':d['threshold'],'final_class':'unknown' if reject else known[0],
+                'nearest_known_class':known[int(d['nearest'][0])],'class_thresholds':None,'normalized_class_scores':None,
+                'class_p_values':dict(zip(known,d['p_values'][0].tolist())),'candidate_set_size':int(d['candidate_size'][0])})
+        run={'test_ids_checksum':digest(m['sample_ids']['test']),'arm_id':'B5','score_id':'B5','seed':0,
+            'model_artifact':artifact,'metrics':study_metrics(rows,known,unknown),'rpm_metrics':[],'configuration_metrics':[]}
+        self.assertIn('prediction_value_checksum',verify_rows(rows,run,m,self.registry,locked,model))
+        for field,value in [('source_sha256','0'*64),('true_role','healthy'),('is_unknown',not rows[0]['is_unknown']),
+                            ('candidate_set_size',99),('classifier_model_sha256','0'*64),('openset_score',2.)]:
+            bad=copy.deepcopy(rows);bad[0][field]=value
+            if field=='true_role':bad[-1][field]=value
+            with self.assertRaises(ValueError):verify_rows(bad,run,m,self.registry,locked,model)
+        bad=copy.deepcopy(rows);bad[0]['class_p_values'][known[0]]=.12345
+        with self.assertRaises(ValueError):verify_rows(bad,run,m,self.registry,locked,model)
 
 
 if __name__=='__main__':unittest.main()

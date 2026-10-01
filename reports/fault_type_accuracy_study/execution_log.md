@@ -31,3 +31,13 @@
 - 共同中心／covariance來源僅同RPM train，assume_centered=True；cal僅存nonconformity/quantiles。B組共用A1 transformer/references/classifier，以artifact SHA綁定。
 - 18新tests（含P0/P1/P2）涵蓋精確distances平方根、global而非own-class校準、>= ties、p=.05拒絕邊界、空/單例/多類集合、小樣本解析度、zero threshold finite及單調global校準不改AUROC。
 - 雙環境全套Python3.10.19/3.14.6各264tests PASS，pip check/12CLI help PASS。完整輸出各在 output/fault_type_accuracy_acceptance_py3_10_19/2026-10-01-21-06-40、output/fault_type_accuracy_acceptance_py3_14_6/2026-10-01-21-06-40；不同runtime專用program目錄避免timestamp碰撞。不載入跨runtime joblib。
+
+## P4：封存、逐樣本評估與獨立重算
+
+- P3 commit a0f2a4aeb3af4490f7ee756c456fb65ffac1f5c5 已push並核remote。
+- 首次端到端synthetic CLI在registry重新載入時拒絕：RobustScaler quantile_range tuple經JSON變list。先前in-memory檢查沒有覆蓋roundtrip；新roundtrip測試重現並修補。舊registry保留，不做真實fit；新版 fault_type_accuracy_study_v2_json_contract 使用JSON canonical list，建立sklearn scaler時還原tuple。科學方法、參數、198預算均不變。
+- 21:11:58與00:29:23/34失敗synthetic工程輸出完整保留；00:30:45 Python3.10合成198評估端到端PASS（非研究成績），實際198 classifier/180 factory reference/27 pooled reference/90 transform/162 score calibration；原始synthetic資料不stage。
+- 新evaluator先查lock seal、runtime、implementation SHA、完整模型inventory、所有fit/cal IDs與joblib SHA；test只推論，逐筆保存raw距離、class thresholds/p值、final label、來源與模型SHA。reporter重算score公式、分類與拒絕指標、配對IDs，沒有selector/winner。
+- 新測試覆蓋JSON roundtrip、改參、漏implementation、selector、共用val/cal、reference SHA/來源、prediction truth/score/p值/集合/模型SHA。完整tests與雙runtime smoke狀態依後續實際輸出更新。
+- 新版real registry checksum 8418b7539670a3b4fd952e4a087b83bc18cb1870fbc4ef5eb4f44530b9523e5a，output/fault_type_accuracy_registry/2026-10-02-00-32-58/registry.json。Python3.10.19/3.14.6各268 tests、pip check與14 CLI help PASS；完整stdout在output/fault_type_accuracy_acceptance_py3_10_19/2026-10-02-00-31-49與output/fault_type_accuracy_acceptance_py3_14_6/2026-10-02-00-32-00。
+- 雙環境各自合成CLI完整198組／71,280筆預測重算PASS：output/fault_type_accuracy_smoke/2026-10-02-00-30-45與00-32-59。版本各自build/fit/load，不跨runtime載入joblib。T1 diagnosis合成38個score/node亦只讀核對PASS，output/fault_type_accuracy_diagnosis/2026-10-02-00-34-07。所有synthetic結果僅工程驗收。

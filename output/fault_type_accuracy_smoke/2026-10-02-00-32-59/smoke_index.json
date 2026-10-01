@@ -1,0 +1,91 @@
+{
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_baseline",
+        "--index",
+        "output\\fault_type_accuracy_smoke\\2026-10-02-00-32-59\\index.json",
+        "--data-root",
+        "output\\fault_type_accuracy_smoke\\2026-10-02-00-32-59\\synthetic_features",
+        "--code-head",
+        "synthetic"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_registry",
+        "--baseline",
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_baseline\\2026-10-02-00-33-09/baseline_index.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_study",
+        "fit",
+        "--registry",
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_registry\\2026-10-02-00-33-16/registry.json",
+        "--data-root",
+        "output\\fault_type_accuracy_smoke\\2026-10-02-00-32-59\\synthetic_features",
+        "--code-head",
+        "synthetic"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_study",
+        "evaluate",
+        "--registry",
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_registry\\2026-10-02-00-33-16/registry.json",
+        "--data-root",
+        "output\\fault_type_accuracy_smoke\\2026-10-02-00-32-59\\synthetic_features",
+        "--code-head",
+        "synthetic",
+        "--locked",
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-33-18/locked_study.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_report",
+        "--registry",
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_registry\\2026-10-02-00-33-16/registry.json",
+        "--locked",
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-33-18/locked_study.json",
+        "--evaluation",
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-33-41/evaluation_report.json"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "fit_counts": {
+    "classifier_fits": 198,
+    "factory_reference_fits": 180,
+    "new_score_calibrations": 162,
+    "pooled_reference_fits": 27,
+    "representation_fits": 90
+  },
+  "new_evaluations": 198,
+  "outputs": [
+    "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_baseline\\2026-10-02-00-33-09",
+    "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_registry\\2026-10-02-00-33-16",
+    "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-33-18",
+    "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-33-41",
+    "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_report\\2026-10-02-00-34-09"
+  ],
+  "scope": "SYNTHETIC_ENGINEERING_ONLY_NOT_RESEARCH",
+  "status": "PASS"
+}

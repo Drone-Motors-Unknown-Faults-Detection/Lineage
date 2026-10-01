@@ -21,7 +21,9 @@ class StudyRepresentation:
         raw = X[:, self.arm['indices']]
         self.signed_scale = np.maximum(np.median(np.abs(raw), axis=0), 1e-12) if self.arm['signed_log'] else None
         values = self._signed(raw)
-        self.scaler = RobustScaler(**self.scaler_params).fit(values)
+        params = dict(self.scaler_params)
+        params['quantile_range'] = tuple(params['quantile_range'])
+        self.scaler = RobustScaler(**params).fit(values)
         self.transform_checksum = self.checksum()
         return self
 

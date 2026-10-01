@@ -1,0 +1,6 @@
+usage: fault_type_accuracy_smoke.py [-h]
+
+End-to-end synthetic198 CLI fixture. NEVER a motor research result.
+
+options:
+  -h, --help  show this help message and exit

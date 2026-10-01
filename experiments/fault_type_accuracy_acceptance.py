@@ -11,7 +11,7 @@ from experiments.fault_type_fixed_acceptance import run as fixed_acceptance
 
 def run(pools, *, output):
     result=fixed_acceptance(pools,output=output)
-    for module in ['fault_type_accuracy_baseline','fault_type_accuracy_registry','fault_type_accuracy_study']:
+    for module in ['fault_type_accuracy_baseline','fault_type_accuracy_registry','fault_type_accuracy_study','fault_type_accuracy_report','fault_type_accuracy_smoke']:
         command=[sys.executable,'-m','experiments.'+module,'--help']
         r=subprocess.run(command,capture_output=True,text=True,encoding='utf-8',env=dict(os.environ,PYTHONIOENCODING='utf-8'))
         path=output/(module+'_help.txt');path.write_text(r.stdout+r.stderr,encoding='utf-8')

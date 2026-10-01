@@ -17,7 +17,7 @@ from core.formal_data import _sha256_file, FEATURE_NAMES
 from core.logger import setup_run
 from experiments.fault_type_openset import CLASSIFIER_CONFIG, DETECTOR_CONFIG
 
-PROTOCOL = 'fault_type_accuracy_study_v1'
+PROTOCOL = 'fault_type_accuracy_study_v2_json_contract'
 SEEDS = [0,1,2]
 RPMS = ['6000rpm','8000rpm','11000rpm']
 ARMS = [
@@ -65,7 +65,7 @@ def build_registry(baseline, baseline_path):
         'baseline_index':old,'dataset_fingerprint':p['dataset_fingerprint'],'baseline_protocol_checksum':p['protocol_checksum'],
         'exposure_ledger_checksum':p['exposure_ledger_checksum'],'known_labels':[p['healthy_label'],*sorted(p['known_fault_labels'])],
         'unknown_labels':p['unknown_test_labels'],'folds':p['folds'],'seeds':SEEDS,'expected_rpms':RPMS,
-        'arms':ARMS,'score_arms':SCORES,'classifier_resolved':params,'scaler_resolved':RobustScaler().get_params(),'detectors':DETECTOR_CONFIG,
+        'arms':ARMS,'score_arms':SCORES,'classifier_resolved':params,'scaler_resolved':json.loads(json.dumps(RobustScaler().get_params())),'detectors':DETECTOR_CONFIG,
         'removed_features':[{'zero_based':i,'canonical_name':FEATURE_NAMES[i]} for i in REMOVED],
         'feature_mapping':{a['id']:[{'zero_based':i,'canonical_name':FEATURE_NAMES[i]} for i in a['indices']] for a in ARMS},
         'redundancy_tolerance':{'rtol':RELATION_RTOL,'atol':RELATION_ATOL},
