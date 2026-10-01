@@ -59,3 +59,11 @@
 - 6固定候選：105baseline、vibration75、current15、delta_t15、vibration+current90、train-only PCA20。known validation macro-F1/BA/tie_rank；no unknown/test selection；保存所有候選。
 - 3tests PASS：子集位置／train-only PCA、pool拒絕test load、unknown或變更候選拒絕、全部18fit artifacts。測試資料為synthetic，非本輪研究fit。
 - prepare初稿08:34:27尚未commit/fit；增加implementation SHA綁定後重新prepare，再提交最終registry。raw-alignment真實對照因無可驗證raw未執行，不將processed channels標成同步。
+
+- P5a最終registry08:37:53與程式 `568c99e94a3da6d82f6f32827520449d69110456` 已push/remote核對，正式fit在此之後。
+
+## P5b — Known-validation鎖定
+
+- 08:38:17–25 Python3.10.19 fit exit0，6representations×3folds全部18fits及36factory detector fits完成，沒有讀test或unknown選擇。
+- 依預登錄known validation規則選vibration75。保存所有候選scores/folds、18同環境joblibs與fit/cal ID audits，不更新production default。
+- locked_config/selection_report位於output/fault_type_representations/2026-10-01-08-38-17，接著先commit/push lock再探索性test。
