@@ -22,6 +22,8 @@ from core.openset import create_openset_detector
 from experiments.fault_type_accuracy_registry import check_registry, classifier
 from experiments.fault_type_accuracy_baseline import context
 from experiments.fault_type_fixed_calibration import verify_sources, load_bound_model
+from experiments.fault_type_fixed_calibration import raw_class_scores
+from core.fault_type_accuracy_scores import PooledWithinLW, ResearchScore
 
 
 def fit_classifier(arm, seed, registry, X, y):
@@ -97,6 +99,10 @@ def run(pools, *, registry, output, code_head):
     before=verify_sources(pools.root,manifests[0])
     output.mkdir(parents=True,exist_ok=True)
     artifacts,audits,failures,counts=fit_a(pools,registry=registry,manifests=manifests,output=output,code_head=code_head)
+    b_artifacts,b_audits,b_failures=fit_b(pools,registry=registry,manifests=manifests,a_artifacts=artifacts,output=output,code_head=code_head)
+    counts['pooled_reference_fits']=sum(a['node_count'] for a in b_artifacts)
+    counts['new_score_calibrations']=sum(a['node_count']*6 for a in b_artifacts)
+    artifacts+=b_artifacts;audits+=b_audits;failures+=b_failures
     audit_path=output/'fit_audits.json.gz'
     audit_path.write_bytes(gzip.compress(json.dumps(audits,sort_keys=True,allow_nan=False).encode(),mtime=0))
     after=verify_sources(pools.root,manifests[0])
@@ -108,6 +114,40 @@ def run(pools, *, registry, output, code_head):
         'scope':registry['scope'],'fresh_final_test':False,'independent_validation_status':'INCOMPLETE'},'locked_checksum')
     save_json(output/'locked_study.json',result)
     return result
+
+
+def fit_b(pools, *, registry, manifests, a_artifacts, output, code_head):
+    artifacts=[];audits=[];failures=[];known=registry['known_labels']
+    with threadpool_limits(limits=1):
+        for m in manifests:
+            for seed in registry['seeds']:
+                base_artifact=next(a for a in a_artifacts if (a['arm_id'],a['fold_id'],a['seed'])==('A1',m['fold_id'],seed))
+                base=load_bound_model(base_artifact,output.parent);nodes={};start=time.perf_counter()
+                for rpm in registry['expected_rpms']:
+                    if rpm not in base['nodes']:
+                        failures.append({'arm_id':'B1-B6','fold_id':m['fold_id'],'seed':seed,'rpm':rpm,'status':'INCOMPLETE','reason':'A1 unavailable'});continue
+                    train=records_for(m,'train',rpm);cal=records_for(m,'calibration',rpm)
+                    trans=base['nodes'][rpm]['transformer']
+                    X,C=trans.transform(pools.load(train)),trans.transform(pools.load(cal))
+                    y=np.array([known.index(r['label']) for r in train]);cy=np.array([known.index(r['label']) for r in cal])
+                    pooled=PooledWithinLW().fit(X,y,len(known))
+                    raw={'pooled_within_lw':pooled.raw_scores(C),
+                         'class_mahalanobis':raw_class_scores(base['nodes'][rpm]['detectors']['mahalanobis'],C)[0],
+                         'class_knn':raw_class_scores(base['nodes'][rpm]['detectors']['knn'],C)[0]}
+                    scores={s['id']:ResearchScore(s,registry['rules']['conformal_alpha']).calibrate(raw[s['reference']],cy) for s in registry['score_arms']}
+                    audit={'arm_id':'B','fold_id':m['fold_id'],'seed':seed,'rpm':rpm,'registry_checksum':registry['registry_checksum'],
+                        'manifest_checksum':m['manifest_checksum'],'motor_roles':m['motor_roles'],'selection_policy':'none','selection_sample_ids':[],
+                        'shared_validation_calibration':False,'reference_fit_ids':[r['sample_id'] for r in train],
+                        'pooled_covariance_fit_ids':[r['sample_id'] for r in train],'calibration_sample_ids':[r['sample_id'] for r in cal],
+                        'base_A1_artifact':base_artifact,'pooled_formula':'train own-class residuals; LedoitWolf assume_centered=True; sqrt distance',
+                        'calibration_summaries':{k:v.summaries() for k,v in scores.items()},'code_head':code_head}
+                    audits.append(audit);nodes[rpm]={'pooled':pooled,'scores':scores,'audit_checksum':digest(audit)}
+                model={'arm_id':'B','fold_id':m['fold_id'],'seed':seed,'registry_checksum':registry['registry_checksum'],
+                    'manifest_checksum':m['manifest_checksum'],'labels':known,'nodes':nodes,'reference_artifact':base_artifact}
+                path=output/f"B_{m['fold_id']}_seed{seed}.joblib";joblib.dump(model,path,compress=3)
+                artifacts.append({'arm_id':'B','fold_id':m['fold_id'],'seed':seed,'manifest_checksum':m['manifest_checksum'],
+                    'path':str(path.resolve()),'sha256':_sha256_file(path),'node_count':len(nodes),'seconds':time.perf_counter()-start})
+    return artifacts,audits,failures
 
 
 def main():

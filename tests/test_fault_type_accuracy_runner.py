@@ -12,9 +12,9 @@ from core.fault_type_final_guard import digest
 from core.fault_type_accuracy_pipeline import records_for, validate_node_audit
 from experiments.fault_type_fixed_smoke import fixture
 from experiments.fault_type_fixed_calibration import build_protocol, load_bound_model
-from experiments.fault_type_accuracy_registry import ARMS, classifier
+from experiments.fault_type_accuracy_registry import ARMS, SCORES, classifier
 from experiments.fault_type_openset import DETECTOR_CONFIG
-from experiments.fault_type_accuracy_study import fit_a
+from experiments.fault_type_accuracy_study import fit_a, fit_b
 
 
 class AccuracyRunnerTests(unittest.TestCase):
@@ -25,7 +25,7 @@ class AccuracyRunnerTests(unittest.TestCase):
         cls.manifests=fixed_manifests(priors,p)
         known=[p['healthy_label'],*sorted(p['known_fault_labels'])]
         cls.registry={'arms':[ARMS[0],ARMS[1],ARMS[5]],'known_labels':known,'seeds':[0],
-            'expected_rpms':p['expected_rpms'],'rules':{'minimum_reference_per_class':5},
+            'expected_rpms':p['expected_rpms'],'rules':{'minimum_reference_per_class':5,'conformal_alpha':.05},'score_arms':SCORES,
             'registry_checksum':'synthetic','dataset_fingerprint':p['dataset_fingerprint'],
             'scaler_resolved':RobustScaler().get_params(),'detectors':DETECTOR_CONFIG,
             'classifier_resolved':{name:{'0':classifier(name,0,6).get_params()} for name in ['linear','extra_trees']}}
@@ -40,12 +40,14 @@ class AccuracyRunnerTests(unittest.TestCase):
                 return X
         cls.output=cls.root/'models';cls.output.mkdir()
         cls.artifacts,cls.audits,cls.failures,cls.counts=fit_a(Spy(),registry=cls.registry,manifests=cls.manifests,output=cls.output,code_head='synthetic')
+        cls.a_calls=len(cls.calls)
+        cls.b_artifacts,cls.b_audits,cls.b_failures=fit_b(Spy(),registry=cls.registry,manifests=cls.manifests,a_artifacts=cls.artifacts,output=cls.output,code_head='synthetic')
 
     @classmethod
     def tearDownClass(cls):cls.temp.cleanup()
 
     def test_routing_exact_ids_and_no_unknown(self):
-        self.assertEqual(len(self.calls),36)
+        self.assertEqual(self.a_calls,36)
         self.assertEqual(len(self.audits),18)
         for a in self.audits:
             m=next(m for m in self.manifests if m['fold_id']==a['fold_id'])
@@ -77,6 +79,23 @@ class AccuracyRunnerTests(unittest.TestCase):
     def test_bound_model_SHA_tamper(self):
         bad=dict(self.artifacts[0],sha256='0'*64)
         with self.assertRaises(ValueError):load_bound_model(bad,self.root)
+
+    def test_B_only_train_residual_and_exact_calibration_sources(self):
+        self.assertEqual(len(self.b_audits),9)
+        self.assertFalse(self.b_failures)
+        for audit in self.b_audits:
+            m=next(m for m in self.manifests if m['fold_id']==audit['fold_id'])
+            expected=[r['sample_id'] for r in records_for(m,'train',audit['rpm'])]
+            self.assertEqual(audit['pooled_covariance_fit_ids'],expected)
+            self.assertEqual(audit['reference_fit_ids'],expected)
+            self.assertEqual(audit['calibration_sample_ids'],[r['sample_id'] for r in records_for(m,'calibration',audit['rpm'])])
+            self.assertEqual(set(audit['calibration_summaries']),{s['id'] for s in SCORES})
+        for artifact in self.b_artifacts:
+            model=load_bound_model(artifact,self.root)
+            self.assertEqual(len(model['nodes']),3)
+            for node in model['nodes'].values():
+                self.assertTrue(node['pooled'].covariance.assume_centered)
+                self.assertEqual(node['pooled'].train_rows,72)
 
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,16 @@
+usage: python.exe -m experiments.fault_type_accuracy_study [-h]
+                                                           --registry REGISTRY
+                                                           --data-root DATA_ROOT
+                                                           --code-head CODE_HEAD
+                                                           {fit}
+
+Registry-driven bounded study. No implicit defaults or global selection.
+
+positional arguments:
+  {fit}
+
+options:
+  -h, --help            show this help message and exit
+  --registry REGISTRY
+  --data-root DATA_ROOT
+  --code-head CODE_HEAD

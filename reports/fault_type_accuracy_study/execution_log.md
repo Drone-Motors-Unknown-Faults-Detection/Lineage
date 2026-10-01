@@ -23,3 +23,11 @@
 - 新runner各cell保存實際train/cal IDs、class-frequency來源、模型與transform checksum；A5–A8僅fit新classifier，reference綁A1模型artifact SHA，不重fitdetector。
 - 11項新helper/runner tests PASS。首次signed-log fixture把RMS改0卻保留MSA1，contract checker正確拒絕；修正synthetic fixture的MSA=0後通過，未改正式資料或放寬容差。
 - 全套Python3.10.19/3.14.6各257tests PASS、pip check及12CLI help PASS，產物 output/fault_type_accuracy_acceptance_py3_10_19/2026-10-01-21-02-56 和 output/fault_type_accuracy_acceptance_py3_14_6/2026-10-01-21-02-57。指令：兩環境各`-m experiments.fault_type_accuracy_acceptance`，完整stdout/exit code/environment保留。原default/PolarMap/binary與最新SHA/alias guards測試未回退。
+
+## P3：新score／共同covariance／Conformal
+
+- P2 commit 793fbe7870cd844371374c0dc97828c761331b64，push核remote一致。
+- 新score類型獨立於factory：B1/B4 global min-raw q95；B2/B3 RPM內train own-class residual的共同LW covariance；B5/B6真值class-conditional calibration p值。原factory Maha/kNN公式與default未改。
+- 共同中心／covariance來源僅同RPM train，assume_centered=True；cal僅存nonconformity/quantiles。B組共用A1 transformer/references/classifier，以artifact SHA綁定。
+- 18新tests（含P0/P1/P2）涵蓋精確distances平方根、global而非own-class校準、>= ties、p=.05拒絕邊界、空/單例/多類集合、小樣本解析度、zero threshold finite及單調global校準不改AUROC。
+- 雙環境全套Python3.10.19/3.14.6各264tests PASS，pip check/12CLI help PASS。完整輸出各在 output/fault_type_accuracy_acceptance_py3_10_19/2026-10-01-21-06-40、output/fault_type_accuracy_acceptance_py3_14_6/2026-10-01-21-06-40；不同runtime專用program目錄避免timestamp碰撞。不載入跨runtime joblib。
