@@ -1,0 +1,12 @@
+{
+  "baseline_head": "97a4434b97549851b9bae41b8b7dd5836b974f04",
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "artifacts": [
+    {"path":"output/fault_type_matrix/2026-09-30-19-05-42/run_plan.json","sha256":"985ce4189cb21f39d471827eba33583f95e6ed77b46d7e6b11f622961092d50f"},
+    {"path":"output/fault_type_matrix/2026-09-30-19-05-42/run_status.json","sha256":"6d2de4dd6ab0f512acfecb6e23e30cbd32ed11e4949ac41b2d4d13d2b6e70483"},
+    {"path":"output/fault_type_representations/2026-10-01-08-38-17/fit_audits.json.gz","sha256":"5bdeaf003501bbc112c9437788612dbfb5d06030b9e80ca494a76e295246ccd4"},
+    {"path":"output/fault_type_representations/2026-10-01-08-38-17/locked_config.json","sha256":"0d2849667b719ec476e709124b85a922d882fb94021106147dd2cda9d6ae1f4b"},
+    {"path":"output/fault_type_representations/2026-10-01-08-38-59/evaluation_report.json","sha256":"c7d21b3f9e8c7a73a969ddeb0613ccd850f585bfd941ee41127ead827b61e5c5"},
+    {"path":"output/fault_type_exposure/2026-10-01-01-10-40/exposure_ledger.json.gz","sha256":"9e6d7b1a4171cf6f863adff146accfb00e95ab964d2abc6c02563116b5725332"}
+  ]
+}
