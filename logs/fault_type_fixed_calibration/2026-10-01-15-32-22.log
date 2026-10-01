@@ -1,0 +1,4 @@
+2026-10-01 15:32:22 | INFO    | Logger initialized: fault_type_fixed_calibration
+2026-10-01 15:32:22 | INFO    | log_file=logs\fault_type_fixed_calibration\2026-10-01-15-32-22.log
+2026-10-01 15:32:22 | INFO    | output_dir=output\fault_type_fixed_calibration\2026-10-01-15-32-22
+2026-10-01 15:32:23 | INFO    | protocol=fixed_methods_motor_calibration_v1 checksum=3b6cde9f5c19e627c0694f7488660b783228ae2354e96b8fa25b9dd1085edf1e; no fit, commit before execution
