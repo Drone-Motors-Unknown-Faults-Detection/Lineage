@@ -49,7 +49,8 @@
     "P4_engine_and_v2_registry": "5082df46fd2b605ec2d6aa56c331be943c94b4e5",
     "P4_model_lock_before_test": "0a08a3b57173eb9de46f710c14c7d1069af34643",
     "P5_formatter_fix": "2431ef62e5d664aadb20da4a9a96b9812c04113b",
-    "P4_verified_results": "9bcd4e735655d3d46f9d9531643699840780f037"
+    "P4_verified_results": "9bcd4e735655d3d46f9d9531643699840780f037",
+    "P5_report_delivery": "8a69b2cbd1b5a26faee6e68e11074b100e51c321"
   },
   "paths": {
     "formal_data": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/data/formal_local",

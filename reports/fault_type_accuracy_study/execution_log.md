@@ -61,3 +61,4 @@
 - final_report.md列全24方法、純fault與healthy+known、selective/coverage、三motor及九工況、T1所有score/RPM、zero-class recall、來源限制與描述性Pareto。result_index.json提供完整絕對路徑、seal/checksum、各phase checkpoints與備份索引；limitations.md對照老師兩個問題，methods_sources.md附原始作者/論文/API，reproduction.md提供實際PowerShell入口。
 - 結果：A7純fault accuracy26.61→30.91%（+4.30pp），但T1 34.67→25.10%，healthy+known34.15→32.17%，未取得全面可靠升級。A4/K的T1 recall75.60%伴healthy FPR63.87%；B1/B2/B3部分改善T1操作點/排序，分類器依然弱。沒有將test觀察再寫回本輪方法，也没有P6新實作或126/N-sweep新全量執行。
 - P5交付核對腳本確認所有index路徑存在、summary gzip SHA/seal/JSON無損、198/216new+baseline inventory、24方法、28,910 IDs／1,908,060新predictions、兩runtime272tests及5ZIP／286members一致PASS。最後git diff --check PASS；原282 tracked deletions再次確認保留且未stage。
+- P5成果commit 8a69b2cbd1b5a26faee6e68e11074b100e51c321已push，remote research-improvements-20260920 SHA一致。本收據只補記已驗證commit/狀態，不更改模型/資料/結果；收據本身SHA以Git最後commit及最終remote核對辨識，不以自我引用hash無限提交。P0–P5 bounded工程／實驗／報告交付完成；研究可靠性依舊INCOMPLETE，P6沒有執行。
