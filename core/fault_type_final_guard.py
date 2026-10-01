@@ -156,6 +156,15 @@ def guard_final_test(bundle: dict, ledger: dict, locked: dict, *, claim: str,
         raise FinalTestBlocked("independence claim must be explicit")
     exposed_files = set(ledger["files"].values()) | set(ledger.get("raw_recording_sha256", []))
     exposed_rows = set(ledger["numeric_row_digests"])
+    # A fit/cal/selection sample need not have appeared in a prior final ledger.
+    # Check bound training provenance as well: changed names/CSV serialization
+    # cannot turn those inputs into an independent final test.
+    training_files = {str(r[field]) for r in training_records for field in
+                      ("source_sha256", "raw_source_sha256") if r.get(field)}
+    training_rows = {str(r["numeric_row_digest"]) for r in training_records if r.get("numeric_row_digest")}
+    training_ids = {str(r["sample_id"]) for r in training_records if r.get("sample_id")}
+    selection_ids = {str(sid) for sid in locked["selection_input_ids"]}
+    protected_ids = training_ids | selection_ids
     old_sessions = set(ledger.get("sessions", [])) | {str(r.get("session_id")) for r in training_records if r.get("session_id")}
     old_runs = set(ledger.get("runs", [])) | {str(r.get("run_id")) for r in training_records if r.get("run_id")}
     old_motors = set(ledger["motor_ids"]) | {str(r.get("motor_id")) for r in training_records if r.get("motor_id")}
@@ -169,6 +178,11 @@ def guard_final_test(bundle: dict, ledger: dict, locked: dict, *, claim: str,
         if run_key in run_owners and run_owners[run_key] != owner[:2]:
             raise FinalTestBlocked("run crosses declared motor/session owners")
         raw_owners[raw_key] = owner; run_owners[run_key] = owner[:2]
+        if (str(row.get("sample_id")) in protected_ids
+                or row["source_sha256"] in training_files
+                or row["raw_source_sha256"] in training_files
+                or row["numeric_row_digest"] in training_rows):
+            raise FinalTestBlocked("training/selection source or duplicate feature row enters final test")
         if row["source_sha256"] in exposed_files or row["raw_source_sha256"] in exposed_files or row["numeric_row_digest"] in exposed_rows:
             raise FinalTestBlocked("previously exposed source / duplicate semantic feature row")
         if row["session_id"] in old_sessions or row["run_id"] in old_runs:

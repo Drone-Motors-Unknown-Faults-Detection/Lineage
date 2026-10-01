@@ -242,6 +242,39 @@ class FaultTypeValidatorTests(unittest.TestCase):
         manifest["records"][0]["source_interval"] = [0, float("inf")]
         self.assertIn("TEST_NOT_REPRODUCIBLE", validate_split_manifest(manifest)["error_codes"])
 
+    def test_renamed_identical_source_bytes_cannot_cross_partitions(self) -> None:
+        manifest = _make_complete_manifest()
+        train = _record(manifest, manifest["sample_ids"]["train"][0])
+        test = _record(manifest, manifest["sample_ids"]["test"][0])
+        inventory = {item["source_file"]: item for item in manifest["source_files"]}
+        inventory[test["source_file"]]["source_sha256"] = inventory[train["source_file"]]["source_sha256"]
+        report = validate_split_manifest(_seal(manifest))
+        self.assertEqual(report["status"], "INVALID")
+        self.assertIn("TEST_GROUP_LEAKAGE", report["error_codes"])
+
+    def test_record_source_checksum_must_match_inventory(self) -> None:
+        manifest = _make_complete_manifest()
+        manifest["records"][0]["source_sha256"] = "0" * 64
+        self.assertIn("TEST_NOT_REPRODUCIBLE", validate_split_manifest(_seal(manifest))["error_codes"])
+
+    def test_raw_digest_aliases_cannot_hide_overlapping_windows(self) -> None:
+        manifest = _make_complete_manifest()
+        train = _record(manifest, manifest["sample_ids"]["train"][0])
+        test = _record(manifest, manifest["sample_ids"]["test"][0])
+        train.update(raw_source_id="original-name", raw_source_sha256="a" * 64, source_interval=[0, 10])
+        test.update(raw_source_id="renamed-copy", raw_source_sha256="a" * 64, source_interval=[5, 15])
+        self.assertIn("TEST_WINDOW_OVERLAP_LEAKAGE", validate_split_manifest(_seal(manifest))["error_codes"])
+
+    def test_same_raw_recording_nonoverlap_is_not_independent(self) -> None:
+        manifest = _make_complete_manifest()
+        train = _record(manifest, manifest["sample_ids"]["train"][0])
+        test = _record(manifest, manifest["sample_ids"]["test"][0])
+        train.update(raw_source_id="recording-a", source_interval=[0, 10])
+        test.update(raw_source_id="recording-a", source_interval=[10, 20])
+        report = validate_split_manifest(_seal(manifest))
+        self.assertIn("TEST_GROUP_LEAKAGE", report["error_codes"])
+        self.assertNotIn("TEST_WINDOW_OVERLAP_LEAKAGE", report["error_codes"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -178,6 +178,7 @@ def validate_split_manifest(
         add("TEST_EXCLUSION_UNDECLARED", f"inventory has {expected_total} samples but selected+declared-excluded has {len(selected_ids | excluded_ids)}")
 
     source_files = list(manifest.get("source_files") or ())
+    source_digests: dict[str, str] = {}
     if not source_files:
         add("TEST_NOT_REPRODUCIBLE", "source_files inventory is missing")
     else:
@@ -197,11 +198,17 @@ def validate_split_manifest(
             digest = str(item.get("source_sha256", ""))
             if len(digest) != 64 or any(c not in "0123456789abcdef" for c in digest):
                 add("TEST_NOT_REPRODUCIBLE", f"source checksum missing or malformed: {source_name}")
+            else:
+                source_digests[source_name] = digest
         if isinstance(expected_total, int) and source_count != expected_total:
             add("TEST_NOT_REPRODUCIBLE", f"source file row sum {source_count} differs from dataset_sample_count {expected_total}")
         unlisted = {str(record.get("source_file")) for record in records.values()} - source_names
         if unlisted:
             add("TEST_NOT_REPRODUCIBLE", f"{len(unlisted)} selected source files absent from inventory")
+        for sample_id, record in records.items():
+            declared = record.get("source_sha256")
+            if declared is not None and declared != source_digests.get(str(record.get("source_file"))):
+                add("TEST_NOT_REPRODUCIBLE", f"{sample_id}: record source checksum differs from inventory")
 
     record_splits: dict[str, set[str]] = defaultdict(set)
     for split, ids in split_sets.items():
@@ -210,6 +217,8 @@ def validate_split_manifest(
     group_splits: dict[str, set[str]] = defaultdict(set)
     campaign_splits: dict[str, set[str]] = defaultdict(set)
     source_splits: dict[str, set[str]] = defaultdict(set)
+    source_digest_splits: dict[str, set[str]] = defaultdict(set)
+    raw_identity_splits: dict[str, set[str]] = defaultdict(set)
     intervals: dict[str, list[tuple[float, float, str, str]]] = defaultdict(list)
     for sample_id, record in records.items():
         for split in record_splits.get(sample_id, ()):
@@ -217,15 +226,26 @@ def validate_split_manifest(
             if record.get("stage") is not None:
                 campaign_splits[str(record["stage"])].add(split)
             source_splits[str(record.get("source_file"))].add(split)
+            source_digest = source_digests.get(str(record.get("source_file")))
+            if source_digest:
+                source_digest_splits[source_digest].add(split)
+            # Check all known aliases, not just the first name. Equal SHA binds
+            # renamed recordings; equal IDs still bind records missing a SHA.
+            raw_keys = [f"{field}:{record[field]}" for field in
+                        ("raw_source_sha256", "raw_source_id", "raw_source_file") if record.get(field)]
+            for raw_key in raw_keys:
+                raw_identity_splits[raw_key].add(split)
             try:
                 bounds = _interval(record.get("source_interval"))
             except (TypeError, ValueError, OverflowError) as error:
                 add("TEST_NOT_REPRODUCIBLE", f"{sample_id}: {error}")
                 bounds = None
             if bounds is not None:
-                raw_source = str(record.get("raw_source_id") or record.get("raw_source_file") or record.get("source_file"))
-                intervals[raw_source].append((bounds[0], bounds[1], split, sample_id))
-    assignments_to_check = [("group", group_splits), ("source_file", source_splits)]
+                interval_keys = raw_keys or [f"source:{source_digest or record.get('source_file')}"]
+                for raw_key in interval_keys:
+                    intervals[raw_key].append((bounds[0], bounds[1], split, sample_id))
+    assignments_to_check = [("group", group_splits), ("source_file", source_splits),
+                            ("source_sha256", source_digest_splits), ("raw_identity", raw_identity_splits)]
     if manifest.get("group_key") == "acquisition_stage_campaign":
         assignments_to_check.append(("campaign", campaign_splits))
     for kind, assignments in assignments_to_check:

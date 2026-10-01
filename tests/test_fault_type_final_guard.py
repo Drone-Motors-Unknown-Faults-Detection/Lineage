@@ -106,6 +106,29 @@ class GuardTests(unittest.TestCase):
         b, l, c = fixture(); c["feature_version"] = "v2"
         with self.assertRaises(FinalTestBlocked): self.evaluate(b, l, c)
 
+    def test_unexposed_training_numeric_copy_still_rejected(self):
+        b, l, c = fixture()
+        # Renaming acquisition metadata does not make a known train vector fresh.
+        c["training_records"] = [{"numeric_row_digest": "fresh-row0", "motor_id": "T2",
+            "session_id": "training-session", "raw_source_sha256": "training-raw",
+            "source_interval": [0, 10000]}]
+        with self.assertRaisesRegex(FinalTestBlocked, "training.*duplicate|duplicate.*training"):
+            self.evaluate(b, l, c)
+
+    def test_unexposed_training_feature_bytes_still_rejected(self):
+        b, l, c = fixture()
+        with self.assertRaises(FinalTestBlocked):
+            self.evaluate(b, l, c, training_records=[{"source_sha256": "fresh-sha"}])
+
+    def test_training_sample_id_cannot_enter_final(self):
+        b, l, c = fixture()
+        with self.assertRaises(FinalTestBlocked):
+            self.evaluate(b, l, c, training_records=[{"sample_id": "0"}])
+
+    def test_selection_id_cannot_enter_final(self):
+        b, l, c = fixture(); c["selection_input_ids"] = ["0"]
+        with self.assertRaises(FinalTestBlocked): self.evaluate(b, l, c)
+
     def test_ingest_real_files_and_reject_false_claim(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
