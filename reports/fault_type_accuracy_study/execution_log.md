@@ -53,3 +53,11 @@
 - 00:57:33–01:00:20只讀T1診斷38個score/node，source before/after一致，train/cal/test actual-model scores吻合saved predictions；diagnosis checksum d940baa61f0fccc83c4e6bfa7b15000ad38e9a29d963ee8032a3b0048f33116c。沒有threshold search、test fit、反向分數、刪寬類或硬體主張。
 - 真實24方法摘要於01:01:35生成，checksum d72ae718b04dac97ba5ad3c2b1ba25b1515d7afbe31efaa4bcc63174880767e7，完整JSON17,259,960 bytes、lossless gzip426,342 bytes（Git保存gzip＋索引）。新增gzip roundtrip test後最後兩環境各272tests、pip check／16 CLI help PASS，完整stdout在output/fault_type_accuracy_acceptance_py3_10_19/2026-10-02-00-58-31及output/fault_type_accuracy_acceptance_py3_14_6/2026-10-02-00-58-42。
 - diagnosis與summary新包index output/fault_type_archive/2026-10-02-01-02-00；所有新包位於D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/fault_type_accuracy_study，保留來源、不覆蓋舊包。完整最後whole/member SHA驗收依下一筆輸出。
+
+## P5：報告與交付
+
+- P4 verified-results checkpoint 9bcd4e735655d3d46f9d9531643699840780f037 已push/remote核對一致。首次scoped add受全域*.gz ignore中止；只用`git add -f -- output/fault_type_accuracy_summary/2026-10-02-01-01-35/summary.json.gz`加入已驗證426KB摘要。沒有force push，沒有stage大型pred/model／raw／formal，沒有改ignore規則。
+- 最後delivery output/fault_type_fixed_delivery/2026-10-02-01-02-41确认5新ZIP／286members的whole SHA、CRC、逐member SHA全PASS；沒有刪來源、沒有覆蓋歷史包。
+- final_report.md列全24方法、純fault與healthy+known、selective/coverage、三motor及九工況、T1所有score/RPM、zero-class recall、來源限制與描述性Pareto。result_index.json提供完整絕對路徑、seal/checksum、各phase checkpoints與備份索引；limitations.md對照老師兩個問題，methods_sources.md附原始作者/論文/API，reproduction.md提供實際PowerShell入口。
+- 結果：A7純fault accuracy26.61→30.91%（+4.30pp），但T1 34.67→25.10%，healthy+known34.15→32.17%，未取得全面可靠升級。A4/K的T1 recall75.60%伴healthy FPR63.87%；B1/B2/B3部分改善T1操作點/排序，分類器依然弱。沒有將test觀察再寫回本輪方法，也没有P6新實作或126/N-sweep新全量執行。
+- P5交付核對腳本確認所有index路徑存在、summary gzip SHA/seal/JSON無損、198/216new+baseline inventory、24方法、28,910 IDs／1,908,060新predictions、兩runtime272tests及5ZIP／286members一致PASS。最後git diff --check PASS；原282 tracked deletions再次確認保留且未stage。
