@@ -1,0 +1,14 @@
+{
+  "version": "acquisition_evidence_20261001_v1",
+  "authenticated_read": true,
+  "private_source_policy": "Only compact pointers and factual summaries; no private document or acquisition copies committed.",
+  "sources": [
+    {"url": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor/blob/1ef4a891ae02dc95910f747a5163bb2edd608f28/論文全文.md#L250-L284", "git_blob": "328d0243b12302104f9b32f7b67020bbaad4758c", "level": "documented", "facts": {"nominal_fs_hz": 10000, "configured_rpms": [6000, 8000, 11000], "synchronous_measurement_claim": true, "sensor_models_as_written": ["TM-500", "PCB 356A32", "PT100", "IC-900"], "equipment_text": ["KTP-3906", "V2", "TH-3203", "MT-1", "RM-1501"]}, "limitations": ["Equipment role descriptions differ between prose and figure; not reconciled as verified hardware.", "Sensor nomenclature is retained as document wording, not independently authenticated."]},
+    {"url": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor/blob/1ef4a891ae02dc95910f747a5163bb2edd608f28/docs/Step1_Data_Preprocessing.md#L65-L118", "git_blob": "a32d6051fd66dcf6a2e03bdb16fa1038bc37c511", "level": "documented", "facts": {"delimiter": "tab", "columns": ["Acceleration_X", "Acceleration_Y", "Acceleration_Z", "Current", "Temp_C", "Temp_room", "X_Value", "Comment"], "delta_t": "Temp_C - Temp_room"}, "limitations": ["X_Value meaning is not established by field name.", "Header row must be explicitly confirmed on actual file."]},
+    {"url": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor/issues/15", "level": "documented", "facts": {"header_conflict": "skiprows=21 versus pandas header=22 (zero based)"}}
+  ],
+  "evidence_levels": ["documented", "code_setting", "file_verified", "operator_attested", "unknown"],
+  "unknown": ["actual per-recording fs", "clock alignment", "units", "orientation", "calibration", "mounting", "load", "motor/session/run boundaries", "absolute time", "independent acquisition counts"],
+  "search_scope": "Questions authenticated main/original/releases/issues search: no original uncleaned unwindowed acquisition found in inspected scope; not a global absence claim.",
+  "current_status": "BLOCKED_NO_ELIGIBLE_DATA"
+}
