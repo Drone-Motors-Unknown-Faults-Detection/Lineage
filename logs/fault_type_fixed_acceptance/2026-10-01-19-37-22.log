@@ -1,0 +1,4 @@
+2026-10-01 19:37:22 | INFO    | Logger initialized: fault_type_fixed_acceptance
+2026-10-01 19:37:22 | INFO    | log_file=logs\fault_type_fixed_acceptance\2026-10-01-19-37-22.log
+2026-10-01 19:37:22 | INFO    | output_dir=output\fault_type_fixed_acceptance\2026-10-01-19-37-22
+2026-10-01 19:38:13 | INFO    | Python3.10.19 244 tests PASS

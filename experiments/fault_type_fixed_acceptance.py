@@ -11,7 +11,7 @@ from experiments.synchronized_compatibility import run as compatible
 
 def run(pools, *, output):
     result=compatible(pools,output=output)
-    for module in ['fault_type_fixed_calibration','fault_type_fixed_smoke']:
+    for module in ['fault_type_fixed_calibration','fault_type_fixed_smoke','fault_type_fixed_report','fault_type_fixed_diagnosis']:
         command=[sys.executable,'-m','experiments.'+module,'--help']
         process=subprocess.run(command,capture_output=True,text=True,encoding='utf-8',
             env=dict(os.environ,PYTHONIOENCODING='utf-8'))

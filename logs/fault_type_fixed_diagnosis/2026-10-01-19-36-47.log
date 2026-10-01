@@ -1,0 +1,8 @@
+2026-10-01 19:36:47 | INFO    | Logger initialized: fault_type_fixed_diagnosis
+2026-10-01 19:36:47 | INFO    | log_file=logs\fault_type_fixed_diagnosis\2026-10-01-19-36-47.log
+2026-10-01 19:36:47 | INFO    | output_dir=output\fault_type_fixed_diagnosis\2026-10-01-19-36-47
+2026-10-01 19:36:55 | INFO    | 圖表已儲存：output\fault_type_fixed_diagnosis\2026-10-01-19-36-47\baseline105_mahalanobis_scores.png
+2026-10-01 19:36:58 | INFO    | 圖表已儲存：output\fault_type_fixed_diagnosis\2026-10-01-19-36-47\baseline105_knn_scores.png
+2026-10-01 19:37:00 | INFO    | 圖表已儲存：output\fault_type_fixed_diagnosis\2026-10-01-19-36-47\vibration75_mahalanobis_scores.png
+2026-10-01 19:37:03 | INFO    | 圖表已儲存：output\fault_type_fixed_diagnosis\2026-10-01-19-36-47\vibration75_knn_scores.png
+2026-10-01 19:37:03 | INFO    | 4 read-only diagnostics complete; no fit/no threshold search

@@ -1,0 +1,31 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-36-47.zip",
+      "sha256": "8253dee5e9a3ccb4f9ed1e2bc23a20cce72d5faec8a1739a331dcdf0cc2ca750",
+      "bytes": 3762964,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_diagnosis\\2026-10-01-19-36-47",
+      "source_files": 6,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-37-22.zip",
+      "sha256": "99db9c7c8b349c7d59336b29a0926e7acbba93320380bc8aed723bafab260ab5",
+      "bytes": 27622,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_acceptance\\2026-10-01-19-37-22",
+      "source_files": 11,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-37-33.zip",
+      "sha256": "cb25fe99586c96dd129102bdfbf3d3be209ca90b99ee146431411794fbfa469f",
+      "bytes": 27966,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_acceptance\\2026-10-01-19-37-33",
+      "source_files": 11,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

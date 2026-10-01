@@ -50,3 +50,13 @@
 - 每固定method/motor的3seeds預測值完全相同；seed SD0是決定性演算法結果，不是motor母體不確定性為0。沒有method winner；descriptor只有各motor及平均/範圍。
 - 與原同N5同fold同fit/cal方法相比12配對所有classifier/reject變動0，score最大絕對差0、accuracy/recall差0。本輪取消globalselector/shared選参角色改变解釋與流程，不必然改變同樣fit/cal的分數。
 - T1四方法unknown recall0、healthyFPR0。維持失敗，不重新挑seed/threshold，未重跑126 combinations或2490舊run。
+
+- P3 `4044600dea9dd2c899ed529955fc7298434db9ac` commit/push，remote相符。evaluate38files ZIP79953456bytes、verifiedreport ZIP702576bytes，CRC/wholeSHA通過。逐樣本與模型大型包留在D槽新目錄。
+
+## P4：T1只讀診斷
+
+- 3新增helpers tests PASS；19:36:47–19:37:03實際完成4固定方法T1診斷，3seeds相同所以不把重複seed當獨立證據。每方法3,824 unknown / 5,935 known / 991 healthy。
+- 僅load sealed models，未fit/改threshold；model SHA和90source before/after不變。真值/方向/NaN/分位數/保存模型score一致，排除覆蓋範圍內工程報表錯誤。
+- 分布JSON涵蓋train/cal/test每label每RPM，raw distance及threshold ratio拆開；四ECDF人工視覺核對，無投影圖因果推論。
+- 特徵/score重疊、跨motor分布差異、寬鬆calibration class接受區支持，但物理原因UNKNOWN。Maha75 unknown最大.595545、AUROC.507380；kNN75最大.660435、AUROC.584985；均未達1。細節與反證見t1_failure_analysis.md。
+- Python3.10.19與3.14.6最終此phase各244tests/pip check/8CLI help PASS：`output/fault_type_fixed_acceptance/2026-10-01-19-37-22`、`.../2026-10-01-19-37-33`。27新增測試，舊217無未解釋退步。原moments/single-labelwarnings與negativeCLI stderr保留，exit0。
