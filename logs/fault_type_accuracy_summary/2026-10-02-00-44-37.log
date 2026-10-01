@@ -1,0 +1,4 @@
+2026-10-02 00:44:37 | INFO    | Logger initialized: fault_type_accuracy_summary
+2026-10-02 00:44:37 | INFO    | log_file=logs\fault_type_accuracy_summary\2026-10-02-00-44-37.log
+2026-10-02 00:44:37 | INFO    | output_dir=output\fault_type_accuracy_summary\2026-10-02-00-44-37
+2026-10-02 00:44:38 | INFO    | 24 fixed method views; descriptive Pareto only

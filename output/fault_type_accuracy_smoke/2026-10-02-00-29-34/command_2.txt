@@ -1,0 +1,18 @@
+[32m00:29:51[0m | [1mINFO   [0m | Logger initialized: fault_type_accuracy_study
+[32m00:29:51[0m | [1mINFO   [0m | log_file=logs\fault_type_accuracy_study\2026-10-02-00-29-51.log
+[32m00:29:51[0m | [1mINFO   [0m | output_dir=output\fault_type_accuracy_study\2026-10-02-00-29-51
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\experiments\fault_type_accuracy_study.py", line 320, in <module>
+    if __name__=='__main__': main()
+                             ~~~~^^
+  File "C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\experiments\fault_type_accuracy_study.py", line 168, in main
+    result=run(FeatureStore(args.data_root),registry=registry,output=paths.output_dir,code_head=args.code_head)
+  File "C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\experiments\fault_type_accuracy_study.py", line 105, in run
+    artifacts,audits,failures,counts=fit_a(pools,registry=registry,manifests=manifests,output=output,code_head=code_head)
+                                     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\experiments\fault_type_accuracy_study.py", line 64, in fit_a
+    if a1 is None or key not in a1['nodes']: raise ValueError('A1 reference unavailable')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: A1 reference unavailable

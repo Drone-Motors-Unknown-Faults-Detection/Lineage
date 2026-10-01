@@ -1,0 +1,17 @@
+[32m21:12:18[0m | [1mINFO   [0m | Logger initialized: fault_type_accuracy_study
+[32m21:12:18[0m | [1mINFO   [0m | log_file=logs\fault_type_accuracy_study\2026-10-01-21-12-18.log
+[32m21:12:18[0m | [1mINFO   [0m | output_dir=output\fault_type_accuracy_study\2026-10-01-21-12-18
+Traceback (most recent call last):
+  File "C:\Users\andy0\AppData\Roaming\uv\python\cpython-3.10.19-windows-x86_64-none\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\andy0\AppData\Roaming\uv\python\cpython-3.10.19-windows-x86_64-none\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\experiments\fault_type_accuracy_study.py", line 320, in <module>
+    if __name__=='__main__': main()
+  File "C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\experiments\fault_type_accuracy_study.py", line 168, in main
+    result=run(FeatureStore(args.data_root),registry=registry,output=paths.output_dir,code_head=args.code_head)
+  File "C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\experiments\fault_type_accuracy_study.py", line 101, in run
+    baseline=check_registry(registry)
+  File "C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\experiments\fault_type_accuracy_registry.py", line 109, in check_registry
+    if expected!=registry: raise ValueError('registry differs from fixed formulas/runtime/source')
+ValueError: registry differs from fixed formulas/runtime/source

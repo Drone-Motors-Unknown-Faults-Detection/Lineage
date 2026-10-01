@@ -11,6 +11,13 @@ from core.logger import setup_run
 AXES={'known_fault_classification.balanced_accuracy':1,'unknown_rejection.unknown_recall':1,'healthy_safety.false_positive_rate':-1}
 
 
+def run_entry(run):
+    entry={k:run[k] for k in ['arm_id','score_id','fold_id','seed','test_ids_checksum','prediction_artifact']}
+    entry['samples']=run.get('samples',run['prediction_artifact']['rows'])
+    if entry['samples']!=run['prediction_artifact']['rows']:raise ValueError('prediction count differs')
+    return entry
+
+
 def pareto(methods):
     """All non-dominated descriptive points, NOT a deployed/selected method."""
     points={m['arm_id']+'/'+m['score_id']:tuple(m['equal_motor_descriptive'].get(k,{}).get('mean') for k in AXES) for m in methods}
@@ -38,7 +45,7 @@ def run(pools, *, verified_path, locked_path, registry_path, diagnosis_path):
         'new_prediction_records':verified['new_prediction_records'],'unique_test_ids':verified['unique_test_ids'],
         'fit_counts':verified['fit_counts'],'methods':verified['methods'],'paired_differences':verified['paired_differences'],
         'descriptive_pareto':pareto(verified['methods']),
-        'run_index':[ {k:r[k] for k in ['arm_id','score_id','fold_id','seed','samples','test_ids_checksum','prediction_artifact']} for r in verified['runs']],
+        'run_index':[run_entry(r) for r in verified['runs']],
         'physical_model_fit_seconds':sum(a['seconds'] for a in locked['artifacts']),
         'cost_note':'fit seconds sum includes physical bundle work only; eval fields share work and must not be naively summed; not streaming latency',
         'selection_policy':'none','fresh_final_test':False,'independent_validation_status':'INCOMPLETE'},'summary_checksum')
