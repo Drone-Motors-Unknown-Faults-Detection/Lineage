@@ -1,0 +1,160 @@
+{
+  "accepted_windows": [
+    {
+      "bad_point_count": 0,
+      "original_line_first_1_based": 2,
+      "physical_time_alignment_verified": true,
+      "quality_checksum": "2a1984a93256e038432467510ad4ab3632f7a05ac15528658abfee23140bdacb",
+      "raw_sample_count": 5120,
+      "raw_source_sha256": "7cddf3e589b32d1a8fab3fc19d830e90889c0a7b8d614cf59dfc87b77851009a",
+      "relative_start_seconds": 0.0,
+      "sample_index_first": 0,
+      "sample_rate_hz": 10000,
+      "source_interval": [
+        0,
+        1024
+      ],
+      "synthetic": true,
+      "time_scope": "recorded_relative_seconds",
+      "window_id": "49521d343ef0066c01c42f5c26caad2e6457cb3c7f238ee1504887977ac9cb37",
+      "window_settings": {
+        "bad_point_rule": "reject",
+        "gap_rule": "reject",
+        "length": 1024,
+        "stride": 1024
+      }
+    },
+    {
+      "bad_point_count": 0,
+      "original_line_first_1_based": 1026,
+      "physical_time_alignment_verified": true,
+      "quality_checksum": "2a1984a93256e038432467510ad4ab3632f7a05ac15528658abfee23140bdacb",
+      "raw_sample_count": 5120,
+      "raw_source_sha256": "7cddf3e589b32d1a8fab3fc19d830e90889c0a7b8d614cf59dfc87b77851009a",
+      "relative_start_seconds": 0.1024,
+      "sample_index_first": 1024,
+      "sample_rate_hz": 10000,
+      "source_interval": [
+        1024,
+        2048
+      ],
+      "synthetic": true,
+      "time_scope": "recorded_relative_seconds",
+      "window_id": "42f0fbd7a3882297fdb3f4ef64d59027be6e515e43823e18f81bae005aabe5c6",
+      "window_settings": {
+        "bad_point_rule": "reject",
+        "gap_rule": "reject",
+        "length": 1024,
+        "stride": 1024
+      }
+    },
+    {
+      "bad_point_count": 0,
+      "original_line_first_1_based": 2050,
+      "physical_time_alignment_verified": true,
+      "quality_checksum": "2a1984a93256e038432467510ad4ab3632f7a05ac15528658abfee23140bdacb",
+      "raw_sample_count": 5120,
+      "raw_source_sha256": "7cddf3e589b32d1a8fab3fc19d830e90889c0a7b8d614cf59dfc87b77851009a",
+      "relative_start_seconds": 0.2048,
+      "sample_index_first": 2048,
+      "sample_rate_hz": 10000,
+      "source_interval": [
+        2048,
+        3072
+      ],
+      "synthetic": true,
+      "time_scope": "recorded_relative_seconds",
+      "window_id": "7d3e6314338d08b7492b389acdf088769f042c42f40023df08e137e1a8cf03a6",
+      "window_settings": {
+        "bad_point_rule": "reject",
+        "gap_rule": "reject",
+        "length": 1024,
+        "stride": 1024
+      }
+    },
+    {
+      "bad_point_count": 0,
+      "original_line_first_1_based": 3074,
+      "physical_time_alignment_verified": true,
+      "quality_checksum": "2a1984a93256e038432467510ad4ab3632f7a05ac15528658abfee23140bdacb",
+      "raw_sample_count": 5120,
+      "raw_source_sha256": "7cddf3e589b32d1a8fab3fc19d830e90889c0a7b8d614cf59dfc87b77851009a",
+      "relative_start_seconds": 0.3072,
+      "sample_index_first": 3072,
+      "sample_rate_hz": 10000,
+      "source_interval": [
+        3072,
+        4096
+      ],
+      "synthetic": true,
+      "time_scope": "recorded_relative_seconds",
+      "window_id": "55d71e058a408ffcaabae2ebb7256ffe57c604d506503db20900ee2abddab377",
+      "window_settings": {
+        "bad_point_rule": "reject",
+        "gap_rule": "reject",
+        "length": 1024,
+        "stride": 1024
+      }
+    },
+    {
+      "bad_point_count": 0,
+      "original_line_first_1_based": 4098,
+      "physical_time_alignment_verified": true,
+      "quality_checksum": "2a1984a93256e038432467510ad4ab3632f7a05ac15528658abfee23140bdacb",
+      "raw_sample_count": 5120,
+      "raw_source_sha256": "7cddf3e589b32d1a8fab3fc19d830e90889c0a7b8d614cf59dfc87b77851009a",
+      "relative_start_seconds": 0.4096,
+      "sample_index_first": 4096,
+      "sample_rate_hz": 10000,
+      "source_interval": [
+        4096,
+        5120
+      ],
+      "synthetic": true,
+      "time_scope": "recorded_relative_seconds",
+      "window_id": "d8f26bb15a083564edb5a72108abd8c40250c97bf597e3303cb14f577c85370c",
+      "window_settings": {
+        "bad_point_rule": "reject",
+        "gap_rule": "reject",
+        "length": 1024,
+        "stride": 1024
+      }
+    }
+  ],
+  "audit": {
+    "absolute_acquisition_time_verified": false,
+    "alignment_evidence": {
+      "level": "fixture_attested",
+      "reference": "synthetic generator"
+    },
+    "bad_edge_indices": [],
+    "fs_evidence": {
+      "level": "fixture_attested",
+      "reference": "synthetic generator"
+    },
+    "fs_hz": 10000,
+    "limitations": [
+      "Shared rows plus attestations do not independently authenticate DAQ hardware.",
+      "No interpolation, resampling, channel truncation or inter-recording concatenation."
+    ],
+    "max_relative_jitter": 1.000088900582341e-12,
+    "physical_time_alignment_verified": true,
+    "raw_sha256": "7cddf3e589b32d1a8fab3fc19d830e90889c0a7b8d614cf59dfc87b77851009a",
+    "sample_count_actual": 5120,
+    "scope": "synthetic_engineering",
+    "status": "ATTESTED_SHARED_ROW_ALIGNMENT",
+    "time_scope": "recorded_relative_seconds",
+    "timestamp_duplicates": 0,
+    "timestamp_reversals": 0,
+    "uniform_sampling_attested": true
+  },
+  "quality": {
+    "bad_points": {
+      "fixed_bounds": [],
+      "nonfinite": []
+    },
+    "checksum": "2a1984a93256e038432467510ad4ab3632f7a05ac15528658abfee23140bdacb"
+  },
+  "rejected_windows": [],
+  "research_status": "BLOCKED_NO_ELIGIBLE_DATA"
+}

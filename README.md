@@ -394,3 +394,18 @@ N=5、remaining N-sweep 與 B 輪替三組已合計完成2490/2490次、0失敗�
 1245組detector配對；完整測試137項通過。研究運算完成不等於可信模型
 或完整獨立測試已成立；資料來源限制仍由validator與上述報告明確保留。
 剩餘資料追溯與模型可信度條件記錄於 [研究追蹤 issue #9](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9)。
+
+## 同步原始訊號／新版特徵／新資料入口（2026-10-01）
+
+新增獨立raw→共同時間窗→版本化105D流程，保留原index、錄製邊界與quality mask；
+不改正式CSV，不把文件同步聲明當逐run驗證。fresh CLI提供validate/evaluate/resume與
+canonical曝光交易，但舊training的physical契約未知，不能靠新incoming metadata補證。
+synthetic工程可跑通，真實研究仍為BLOCKED_NO_ELIGIBLE_DATA。
+
+- [契約與可複製CLI](reports/synchronized_pipeline/reproduction.md)
+- [實測Python3.10.19／Windows環境](reports/synchronized_pipeline/environment.md)
+- [認證採集文件證據](reports/synchronized_pipeline/evidence_registry.json)
+- [本輪日誌](reports/synchronized_pipeline/execution_log.md)
+
+上文「3.10未測試」為原研究交付時狀態；本輪已在獨立3.10.19環境執行相容性測試，
+不把不同runtime的研究模型joblib混用，不改寫原研究數據或歷史限制。

@@ -1,0 +1,10 @@
+{
+  "claim": "new_motor",
+  "data_version_checksum": "a0ad4d7047333707a1b2b65b1d37ed9654cca11276e82713b7dee47fa66237a4",
+  "evaluation_id": "synthetic-engineering-310-001",
+  "journal_sequence": 1,
+  "locked_checksum": "871d895e6800d90f72be8412b4888f61381eaf64d32d9fa0aed993237a1871f3",
+  "previous_ledger_checksum": "9d208687928c03f0f3bf59adbf5881e1654faf8bb1821787d583b2de60d6abf2",
+  "receipt_checksum": "9e94cc75ea184ee82f6bab2c8167424e1350edbc0658aa29d8786f78092ee97c",
+  "registered_before_prediction": true
+}

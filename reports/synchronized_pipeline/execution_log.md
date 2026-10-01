@@ -40,3 +40,13 @@
 - 300windows/2groups/3RPM synthetic generator及獨立known-only fitting用於工程測試，非真實效能。
 - 初次CLI test遇Windows預設cp950讀UTF8報告；修成明確UTF8。加強preflight時一處縮排錯誤由import test立即捕捉並修復。相關9tests已PASS，另增SHA/physical與rollback測試；失敗不隱去。
 - 加強後11fresh/transaction tests與2既有controlled eval測試PASS。所有新scope與序列化contract測試不使用真實final。Python3.10完整第一輪195tests PASS（後續新增測試會再完整驗收）。
+
+- P3 `18b405f29240346775805b7bf3bce02f7716e1b6` push成功，remote一致。
+
+## P4 — 實測Python3.10.19
+
+- 找到既有`.../uv/python/cpython-3.10.19-windows-x86_64-none/python.exe`，正常權限建立獨立`.venv310`並安裝24實際解析依賴；pip check PASS。原venv不修改。
+- 正常網路權限`pip install -e . --no-deps`成功，沒有改requires-python。記錄constraints、環境inventory/fingerprint與Windows build/interpreter指引。
+- compatibility CLI完整195tests後197tests PASS、4新CLI help PASS、pip check PASS；完整stdout/stderr與versions在output/synchronized_compatibility/08-32-32與08-35-28（完整日期2026-10-01）。
+- 實際synthetic generator08:34:56產生300windows/3本環境models；raw CLI08:35:22、canonical init08:35:24、fresh evaluate08:35:25–27六配對runs完成。sythentic=true且real_final=false；不是硬體採集或可信研究驗證。
+- 原3.14相關測試已PASS，最終會再執行兩個runtime完整suite。沒有既有CI，不宣稱雲端CI或跨pickle相容。

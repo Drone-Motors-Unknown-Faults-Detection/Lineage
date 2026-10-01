@@ -154,6 +154,9 @@ activemq-data/
 .env
 .envrc
 .venv
+.venv310/
+*.joblib
+output/synchronized_fixture/**/*.raw.csv
 env/
 venv/
 ENV/

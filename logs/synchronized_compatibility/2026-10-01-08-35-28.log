@@ -1,0 +1,4 @@
+2026-10-01 08:35:28 | INFO    | Logger initialized: synchronized_compatibility
+2026-10-01 08:35:28 | INFO    | log_file=logs\synchronized_compatibility\2026-10-01-08-35-28.log
+2026-10-01 08:35:28 | INFO    | output_dir=output\synchronized_compatibility\2026-10-01-08-35-28
+2026-10-01 08:35:57 | INFO    | Python3.10.19 197tests compatible

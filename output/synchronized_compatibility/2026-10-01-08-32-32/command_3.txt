@@ -1,0 +1,13 @@
+usage: synchronized_features.py [-h] --raw-file RAW_FILE --config CONFIG
+                                --incoming-root INCOMING_ROOT --variant
+                                {historical105,aligned_only,corrected_formulas,exact_nominal_rpm}
+
+Raw→shared windows→new105 CSV/sidecar, without copying raw or changing formal
+data.
+
+options:
+  -h, --help            show this help message and exit
+  --raw-file RAW_FILE
+  --config CONFIG
+  --incoming-root INCOMING_ROOT
+  --variant {historical105,aligned_only,corrected_formulas,exact_nominal_rpm}
