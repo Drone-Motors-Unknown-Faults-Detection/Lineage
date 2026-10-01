@@ -50,3 +50,12 @@
 - compatibility CLI完整195tests後197tests PASS、4新CLI help PASS、pip check PASS；完整stdout/stderr與versions在output/synchronized_compatibility/08-32-32與08-35-28（完整日期2026-10-01）。
 - 實際synthetic generator08:34:56產生300windows/3本環境models；raw CLI08:35:22、canonical init08:35:24、fresh evaluate08:35:25–27六配對runs完成。sythentic=true且real_final=false；不是硬體採集或可信研究驗證。
 - 原3.14相關測試已PASS，最終會再執行兩個runtime完整suite。沒有既有CI，不宣稱雲端CI或跨pickle相容。
+
+- P4 `0d9e1aa913804815c81a8281a09fa0632d6d6ec8` push成功，remote一致。
+
+## P5a — 表示研究預登錄
+
+- 原第一個N5 class role、全部3原motor folds，固定balanced linear classifier和factory Mahalanobis/kNN，只改表示。
+- 6固定候選：105baseline、vibration75、current15、delta_t15、vibration+current90、train-only PCA20。known validation macro-F1/BA/tie_rank；no unknown/test selection；保存所有候選。
+- 3tests PASS：子集位置／train-only PCA、pool拒絕test load、unknown或變更候選拒絕、全部18fit artifacts。測試資料為synthetic，非本輪研究fit。
+- prepare初稿08:34:27尚未commit/fit；增加implementation SHA綁定後重新prepare，再提交最終registry。raw-alignment真實對照因無可驗證raw未執行，不將processed channels標成同步。
