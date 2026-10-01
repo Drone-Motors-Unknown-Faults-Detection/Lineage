@@ -1,0 +1,19 @@
+{
+  "archive_count": 1,
+  "archives": [
+    {
+      "bytes": 230670782,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\fault_type_accuracy_study\\fault_type_2026-10-02-00-35-14.zip",
+      "sha256": "7f0b17c7697e1f81bc46a002b93134d159c80b2cfa6784198f069a8d5dc155a0",
+      "source_files": 83,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14",
+      "whole_sha_status": "PASS"
+    }
+  ],
+  "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+  "source_files_removed": false,
+  "status": "PASS",
+  "verified_members": 83
+}

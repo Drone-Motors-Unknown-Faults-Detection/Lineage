@@ -1,4 +1,6 @@
-# fault_type_accuracy_study_v1：事前固定有限消融
+# fault_type_accuracy_study_v2_json_contract：事前固定有限消融
+
+v1 registry完整保留。v2只修正JSON roundtrip的RobustScaler參數容器：封存為list、呼叫sklearn時還原tuple，值仍[25,75]。沒有修改研究arms、參數、預算、class roles或test可見範圍；checksum為8418b7539670a3b4fd952e4a087b83bc18cb1870fbc4ef5eb4f44530b9523e5a，真實fit前已於5082df46fd2b605ec2d6aa56c331be943c94b4e5推送。
 
 P0 3737fc216f002cc98ef1155967db46bae2ab8f08 已push並核remote一致。正式90CSV/28910rows指紋不變；原baseline不重fit。
 

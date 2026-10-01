@@ -1,0 +1,14 @@
+usage: python.exe -m experiments.fault_type_fixed_diagnosis
+       [-h] --matrix MATRIX --protocol PROTOCOL --ledger LEDGER
+       --locked LOCKED --evaluation EVALUATION --data-root DATA_ROOT
+
+Post-seal T1 failure diagnostics. Read-only, no fitting/threshold search.
+
+options:
+  -h, --help            show this help message and exit
+  --matrix MATRIX
+  --protocol PROTOCOL
+  --ledger LEDGER
+  --locked LOCKED
+  --evaluation EVALUATION
+  --data-root DATA_ROOT

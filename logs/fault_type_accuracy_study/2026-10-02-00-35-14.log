@@ -1,0 +1,4 @@
+2026-10-02 00:35:14 | INFO    | Logger initialized: fault_type_accuracy_study
+2026-10-02 00:35:14 | INFO    | log_file=logs\fault_type_accuracy_study\2026-10-02-00-35-14.log
+2026-10-02 00:35:14 | INFO    | output_dir=output\fault_type_accuracy_study\2026-10-02-00-35-14
+2026-10-02 00:40:13 | INFO    | fixed fits sealed {'classifier_fits': 198, 'factory_reference_fits': 180, 'pooled_reference_fits': 27, 'representation_fits': 90, 'new_score_calibrations': 162} output=output\fault_type_accuracy_study\2026-10-02-00-35-14

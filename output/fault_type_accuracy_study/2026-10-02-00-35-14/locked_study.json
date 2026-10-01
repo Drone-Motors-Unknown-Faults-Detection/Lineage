@@ -1,0 +1,868 @@
+{
+  "artifacts": [
+    {
+      "arm_id": "A1",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A1_fixed-fold0_seed0.joblib",
+      "seconds": 3.8491156000018236,
+      "seed": 0,
+      "sha256": "e61321f53d36c5ce94cd90372d0c8e96cd467cec3a8b47f0482e2e147a6a6c28"
+    },
+    {
+      "arm_id": "A2",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 1,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A2_fixed-fold0_seed0.joblib",
+      "seconds": 1.3301035999975284,
+      "seed": 0,
+      "sha256": "c049d50d4d656eb8428387689fc2173cf8e0b8bcf826b8643a1581b0f4e247d2"
+    },
+    {
+      "arm_id": "A3",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A3_fixed-fold0_seed0.joblib",
+      "seconds": 3.4937226999973063,
+      "seed": 0,
+      "sha256": "8e5ba64a9ca980c118ec652b974bad3822fce4fc641d963c4f8f7a543f25be82"
+    },
+    {
+      "arm_id": "A4",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A4_fixed-fold0_seed0.joblib",
+      "seconds": 3.6442559999995865,
+      "seed": 0,
+      "sha256": "efc283fd2b14305f73a64851ea3c6008896c1d26e5ae1308e9893579ef0f9427"
+    },
+    {
+      "arm_id": "A5",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A5_fixed-fold0_seed0.joblib",
+      "seconds": 3.9110019999934593,
+      "seed": 0,
+      "sha256": "3a074a29233bbe877a7e4e8b4dc79db3c075ae5f2b1332424e4aa6cf8c201d73"
+    },
+    {
+      "arm_id": "A6",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A6_fixed-fold0_seed0.joblib",
+      "seconds": 6.2820223000016995,
+      "seed": 0,
+      "sha256": "a216a54a5b9b348aa064f8e3b51c1dc412db47a562559ee23f99f4ac2f782929"
+    },
+    {
+      "arm_id": "A7",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A7_fixed-fold0_seed0.joblib",
+      "seconds": 3.1864945999986958,
+      "seed": 0,
+      "sha256": "144143a6f40c257942a706ebfe501a85547c58b41cfd45f381ac77fe435370f1"
+    },
+    {
+      "arm_id": "A8",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A8_fixed-fold0_seed0.joblib",
+      "seconds": 3.201914899997064,
+      "seed": 0,
+      "sha256": "d855539f4e2efbac1c5cce6d3acbd91cab000307c9a259475298201dc0efea6c"
+    },
+    {
+      "arm_id": "A1",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A1_fixed-fold0_seed1.joblib",
+      "seconds": 3.575170700001763,
+      "seed": 1,
+      "sha256": "b02c2d7be19010b9f46817d9759134016273fa83705778d7313d222f97d2ccb1"
+    },
+    {
+      "arm_id": "A2",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 1,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A2_fixed-fold0_seed1.joblib",
+      "seconds": 1.2773330999989412,
+      "seed": 1,
+      "sha256": "07281bf2cd84ee04c1b978f8c953520f9d9e1e326803bb891b13df574749daa5"
+    },
+    {
+      "arm_id": "A3",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A3_fixed-fold0_seed1.joblib",
+      "seconds": 3.32643050000479,
+      "seed": 1,
+      "sha256": "f1c3905bc2fcdbb1b1c5e2e4a70b4e25656c68e1e36cdb1d0574bb82e204d332"
+    },
+    {
+      "arm_id": "A4",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A4_fixed-fold0_seed1.joblib",
+      "seconds": 3.4022983000031672,
+      "seed": 1,
+      "sha256": "2b2d6c8c63e451dbd736bb16d0ff0d50fafd414f2eb802d16738c179c8c40a35"
+    },
+    {
+      "arm_id": "A5",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A5_fixed-fold0_seed1.joblib",
+      "seconds": 3.7382101000039256,
+      "seed": 1,
+      "sha256": "5a659f383db12aba2d6360d1cec02cd063ade7d9d3475d8beba40ae5dcece837"
+    },
+    {
+      "arm_id": "A6",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A6_fixed-fold0_seed1.joblib",
+      "seconds": 6.128886899998179,
+      "seed": 1,
+      "sha256": "59ba5eb9e9584008cca47a2cce6a47b6abd359979c99c50173eafa2ab70de3ed"
+    },
+    {
+      "arm_id": "A7",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A7_fixed-fold0_seed1.joblib",
+      "seconds": 3.2611682999995537,
+      "seed": 1,
+      "sha256": "a5d798170f6c7366bf44ba3e242db0be2dc961497415488e70e0c32f1c6d0b15"
+    },
+    {
+      "arm_id": "A8",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A8_fixed-fold0_seed1.joblib",
+      "seconds": 3.273922799999127,
+      "seed": 1,
+      "sha256": "0ea4d585c0eb11c417b7d068261bfc5e08e98c741516ff730b5cc019c70a0428"
+    },
+    {
+      "arm_id": "A1",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A1_fixed-fold0_seed2.joblib",
+      "seconds": 3.4577778999955626,
+      "seed": 2,
+      "sha256": "c1b5e0c0d39e91028b6cd4b36ae3adf8baf8aa7fa0f6b5dd8f571a0f2630b44a"
+    },
+    {
+      "arm_id": "A2",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 1,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A2_fixed-fold0_seed2.joblib",
+      "seconds": 1.3199305000016466,
+      "seed": 2,
+      "sha256": "f383d025e46d5d5f9bc7a310460f0ad6c3f2015a1c19e7a4d3258a657200bf36"
+    },
+    {
+      "arm_id": "A3",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A3_fixed-fold0_seed2.joblib",
+      "seconds": 3.680621700004849,
+      "seed": 2,
+      "sha256": "cac16c1856150119f7b17a8d6809b4aa525d977f1d4f5a4018ceda3082fe4da1"
+    },
+    {
+      "arm_id": "A4",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A4_fixed-fold0_seed2.joblib",
+      "seconds": 3.552246200000809,
+      "seed": 2,
+      "sha256": "0a71ad18d7fec272fa716107ef73913a7742904628bfa1dfc2364cbd90a5a68b"
+    },
+    {
+      "arm_id": "A5",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A5_fixed-fold0_seed2.joblib",
+      "seconds": 3.931813199997123,
+      "seed": 2,
+      "sha256": "506c278478905aea4c9598e0da927c32edbe1e37ac11e9becb8fa38f6dcd4b58"
+    },
+    {
+      "arm_id": "A6",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A6_fixed-fold0_seed2.joblib",
+      "seconds": 6.202814500000386,
+      "seed": 2,
+      "sha256": "921a6e89ad834480b68b1bc8b10739841a3e7b0762dc7957632293bb135e3fa9"
+    },
+    {
+      "arm_id": "A7",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A7_fixed-fold0_seed2.joblib",
+      "seconds": 3.2268020999981673,
+      "seed": 2,
+      "sha256": "3cba988d6861b62e492f59d99072fd49cabd1d05c3f0c457e459986be7e5fcac"
+    },
+    {
+      "arm_id": "A8",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A8_fixed-fold0_seed2.joblib",
+      "seconds": 3.2234383999966667,
+      "seed": 2,
+      "sha256": "deb31c2111b2a6f5dd5bb0e6a3ab1f6c19c3014f2f21aebee1416edf9c295056"
+    },
+    {
+      "arm_id": "A1",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A1_fixed-fold1_seed0.joblib",
+      "seconds": 3.477588800000376,
+      "seed": 0,
+      "sha256": "c4b996d64a7ee73d7350a1db488ecafe4840bf5b0fa6fe663150aaedc21e36b0"
+    },
+    {
+      "arm_id": "A2",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 1,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A2_fixed-fold1_seed0.joblib",
+      "seconds": 1.43139230000088,
+      "seed": 0,
+      "sha256": "15d403ad903e33b79a5ed533872cf492adfd1e3cc3015eec79b590ccfcc627b3"
+    },
+    {
+      "arm_id": "A3",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A3_fixed-fold1_seed0.joblib",
+      "seconds": 3.553139600000577,
+      "seed": 0,
+      "sha256": "2cfa779ba9089ae197f1c3bb9ff1ab3af247c5a4484739abd83917ad2d00a87c"
+    },
+    {
+      "arm_id": "A4",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A4_fixed-fold1_seed0.joblib",
+      "seconds": 3.4756153999987873,
+      "seed": 0,
+      "sha256": "9604c2a050341e050fd44419515da85d216b0fd780769b733ff9f24c37979a44"
+    },
+    {
+      "arm_id": "A5",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A5_fixed-fold1_seed0.joblib",
+      "seconds": 4.0616498999952455,
+      "seed": 0,
+      "sha256": "ac697c47c8f87f7a27566338547529dd78d742037662f59fc42d4ca4dd2a96a5"
+    },
+    {
+      "arm_id": "A6",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A6_fixed-fold1_seed0.joblib",
+      "seconds": 6.157427899997856,
+      "seed": 0,
+      "sha256": "8613a2cb8e9c86394da20868a5ca8e596f00e937231741f9b1ce0c24103ada0a"
+    },
+    {
+      "arm_id": "A7",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A7_fixed-fold1_seed0.joblib",
+      "seconds": 3.2665124000050128,
+      "seed": 0,
+      "sha256": "75483979c614e7bf6e0fb0b2e0343c9574f3f593bc13efbf9b3d96d5a9aa4777"
+    },
+    {
+      "arm_id": "A8",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A8_fixed-fold1_seed0.joblib",
+      "seconds": 3.2869381999989855,
+      "seed": 0,
+      "sha256": "f33dba42db4a5f96d8eb8a8ad9691ab4c432e1f28cffd0813b596824096f336c"
+    },
+    {
+      "arm_id": "A1",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A1_fixed-fold1_seed1.joblib",
+      "seconds": 3.4917086999994353,
+      "seed": 1,
+      "sha256": "5b7435dcb9a0dad79d923f71463f967a3a27019b856d066b4dd26a6ce5dec7ba"
+    },
+    {
+      "arm_id": "A2",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 1,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A2_fixed-fold1_seed1.joblib",
+      "seconds": 1.3128522000042722,
+      "seed": 1,
+      "sha256": "0fb2fca58107c7b4c748329e652d2ce0672a2b2520372ec9959168bf2b7722fc"
+    },
+    {
+      "arm_id": "A3",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A3_fixed-fold1_seed1.joblib",
+      "seconds": 3.4037261999983457,
+      "seed": 1,
+      "sha256": "ce341ff7101b0062cba2ae0e64fa264b37beb7fb4cd53326ac90c12449b38bc7"
+    },
+    {
+      "arm_id": "A4",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A4_fixed-fold1_seed1.joblib",
+      "seconds": 3.4479326000000583,
+      "seed": 1,
+      "sha256": "01e27d4f328927eb964e26d9c029ac8cadca09325d954b2c522428f0c966029a"
+    },
+    {
+      "arm_id": "A5",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A5_fixed-fold1_seed1.joblib",
+      "seconds": 3.864284299997962,
+      "seed": 1,
+      "sha256": "93294f00ad8a251da63770aa57ce92d14e7605b6a85a0e39154968b21c85bded"
+    },
+    {
+      "arm_id": "A6",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A6_fixed-fold1_seed1.joblib",
+      "seconds": 6.525989599998866,
+      "seed": 1,
+      "sha256": "791b98a5cb2325fbbd080770e67bea66cf59df1498041cdaa8da7afc2021e69e"
+    },
+    {
+      "arm_id": "A7",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A7_fixed-fold1_seed1.joblib",
+      "seconds": 3.40840329999628,
+      "seed": 1,
+      "sha256": "183c09d76d9fe71afe6b9a7b0174013c4d258bc767ee2bc2bb58aaa5b3ec5847"
+    },
+    {
+      "arm_id": "A8",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A8_fixed-fold1_seed1.joblib",
+      "seconds": 3.2585519999993267,
+      "seed": 1,
+      "sha256": "c64da5612c39d4cebb1438db28f962d20d4d6f79b2e499faf34c27c03a59300c"
+    },
+    {
+      "arm_id": "A1",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A1_fixed-fold1_seed2.joblib",
+      "seconds": 3.496709599996393,
+      "seed": 2,
+      "sha256": "9f65b9e2eaa67163db9e845982ef5e9e88bda017d81bd5e226b2ea17afd03472"
+    },
+    {
+      "arm_id": "A2",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 1,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A2_fixed-fold1_seed2.joblib",
+      "seconds": 1.3740918000039528,
+      "seed": 2,
+      "sha256": "ab74eb19a13a857084c01faa633510b535dc90c343c7ac583f5fef31eff9726b"
+    },
+    {
+      "arm_id": "A3",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A3_fixed-fold1_seed2.joblib",
+      "seconds": 3.827813800002332,
+      "seed": 2,
+      "sha256": "a1d1f718273267b1e7eb54c3b91c4fb59b68248e0c14aa0f9585e8cae526fb33"
+    },
+    {
+      "arm_id": "A4",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A4_fixed-fold1_seed2.joblib",
+      "seconds": 3.8194683000037912,
+      "seed": 2,
+      "sha256": "dbd73a65136cd3a228a487bae5d41421a2e31022da26e44f1ed7d533a2a6df17"
+    },
+    {
+      "arm_id": "A5",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A5_fixed-fold1_seed2.joblib",
+      "seconds": 4.125484900003357,
+      "seed": 2,
+      "sha256": "275d6f3440b0a9426beff2a1e12d59aaa2fad728f7052c5697f2cea52e1ca6f0"
+    },
+    {
+      "arm_id": "A6",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A6_fixed-fold1_seed2.joblib",
+      "seconds": 7.22553699999844,
+      "seed": 2,
+      "sha256": "98aa17a9e0f4593ac0cc2cf4e786e28ff313f4e5987bf6e7f620fd7b8daa36e2"
+    },
+    {
+      "arm_id": "A7",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A7_fixed-fold1_seed2.joblib",
+      "seconds": 3.744186299998546,
+      "seed": 2,
+      "sha256": "a8890baee2a664c43e8ef6d5ed85f8dc86917cf4a75a6a654a4e15fb8e60721e"
+    },
+    {
+      "arm_id": "A8",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A8_fixed-fold1_seed2.joblib",
+      "seconds": 3.81514320000133,
+      "seed": 2,
+      "sha256": "2eb650c185a6a06115911950550403dc702995306b7c7cfb680c0eb2e31d673e"
+    },
+    {
+      "arm_id": "A1",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A1_fixed-fold2_seed0.joblib",
+      "seconds": 3.994270900002448,
+      "seed": 0,
+      "sha256": "8955cdc9d834c86b6c37d7f0a3c6ea2139a2e1e9f0cbfd84ac19f1f9c67058a0"
+    },
+    {
+      "arm_id": "A2",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 1,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A2_fixed-fold2_seed0.joblib",
+      "seconds": 1.5503217000004952,
+      "seed": 0,
+      "sha256": "424311274ad288adbd41e72d186ad86be8119fafbbc1894c4e96279b95e65b68"
+    },
+    {
+      "arm_id": "A3",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A3_fixed-fold2_seed0.joblib",
+      "seconds": 4.145951099999365,
+      "seed": 0,
+      "sha256": "10f81e2778eb0b4d49dd4c540ac11f1e230625920a48c090307e8ec078f5b0d6"
+    },
+    {
+      "arm_id": "A4",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A4_fixed-fold2_seed0.joblib",
+      "seconds": 4.158923900002264,
+      "seed": 0,
+      "sha256": "0325b0edb36668916dd8e019960ee98b655694fcad1b228c720a54fec3e40c60"
+    },
+    {
+      "arm_id": "A5",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A5_fixed-fold2_seed0.joblib",
+      "seconds": 4.629417800002557,
+      "seed": 0,
+      "sha256": "2896be3efd328b1e6ef205af35a019bc080a5cea48134d4815d35bdc92395900"
+    },
+    {
+      "arm_id": "A6",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A6_fixed-fold2_seed0.joblib",
+      "seconds": 7.355727399997704,
+      "seed": 0,
+      "sha256": "e4bbcdf32be8d1a4e2483dfcfa9ccfcf68f764b6f38f2e3fa48556e5df114fe7"
+    },
+    {
+      "arm_id": "A7",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A7_fixed-fold2_seed0.joblib",
+      "seconds": 4.015347500004282,
+      "seed": 0,
+      "sha256": "6611a519d9194e0e0d24f8a007bf5823b547621ab2da5e64cba9f06671bd1396"
+    },
+    {
+      "arm_id": "A8",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A8_fixed-fold2_seed0.joblib",
+      "seconds": 4.169370299998263,
+      "seed": 0,
+      "sha256": "48ed0af8bb87b9c1ac89b8a4ae08a5d346ab7e44d82f0a6b2d510a2f21839a91"
+    },
+    {
+      "arm_id": "A1",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A1_fixed-fold2_seed1.joblib",
+      "seconds": 4.226968700000725,
+      "seed": 1,
+      "sha256": "dcdf42e39de008635cdacfebc93e76fa5fac2bcaab7738ab4ab9b47adc1b16ef"
+    },
+    {
+      "arm_id": "A2",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 1,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A2_fixed-fold2_seed1.joblib",
+      "seconds": 1.5882894999958808,
+      "seed": 1,
+      "sha256": "669944052712293119798448ad0ac65765e16feddf09168954e3cfc29da9bfcd"
+    },
+    {
+      "arm_id": "A3",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A3_fixed-fold2_seed1.joblib",
+      "seconds": 4.384233199998562,
+      "seed": 1,
+      "sha256": "d9fd2b897f5559c8eb735e77315d78ac1fa0c86e8ed21f690e54b262b477241d"
+    },
+    {
+      "arm_id": "A4",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A4_fixed-fold2_seed1.joblib",
+      "seconds": 4.257674400003452,
+      "seed": 1,
+      "sha256": "1ba40a090ac61d74b74aac52fa142282f1ec172bd4d4f9894ab09c59fa5481f4"
+    },
+    {
+      "arm_id": "A5",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A5_fixed-fold2_seed1.joblib",
+      "seconds": 4.565293399995426,
+      "seed": 1,
+      "sha256": "9b1bbceb686e1063585058baaa20ccb180286ec31068a68bedf570af01c74186"
+    },
+    {
+      "arm_id": "A6",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A6_fixed-fold2_seed1.joblib",
+      "seconds": 7.096168099997158,
+      "seed": 1,
+      "sha256": "99f26516ea7d87e6792cdf7bdb564d1891d6b3ef0c007cdea07a62dbb6ca283f"
+    },
+    {
+      "arm_id": "A7",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A7_fixed-fold2_seed1.joblib",
+      "seconds": 3.645530500005407,
+      "seed": 1,
+      "sha256": "3d1aadbd41c4f1bcfc1b76f8605206e3f1263b135d6b04e4dd704b9d778bf9f7"
+    },
+    {
+      "arm_id": "A8",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A8_fixed-fold2_seed1.joblib",
+      "seconds": 3.6000006000031135,
+      "seed": 1,
+      "sha256": "5ae1dc1f153175ef1f687ccf26a98de14c8f8e6945b64c8241754d2a778bc75c"
+    },
+    {
+      "arm_id": "A1",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A1_fixed-fold2_seed2.joblib",
+      "seconds": 3.5045071999993525,
+      "seed": 2,
+      "sha256": "c6e940a383b47701ae8ef91bc94199bcdfe748e35afdb70a982441b510da4dfe"
+    },
+    {
+      "arm_id": "A2",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 1,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A2_fixed-fold2_seed2.joblib",
+      "seconds": 1.387415900004271,
+      "seed": 2,
+      "sha256": "7bfd89dd502cc65cba9ed4e9524779bb4c1bcfdd76859c5cb79ed02c133a5c5f"
+    },
+    {
+      "arm_id": "A3",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A3_fixed-fold2_seed2.joblib",
+      "seconds": 3.514757400000235,
+      "seed": 2,
+      "sha256": "14f44228940192e1b08f01e85e17a76cec1fc04cd2c67c90c1bea43c1bfeda3b"
+    },
+    {
+      "arm_id": "A4",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A4_fixed-fold2_seed2.joblib",
+      "seconds": 3.4906515999973635,
+      "seed": 2,
+      "sha256": "a7c71eb4bdb755cf195bcd40b0194a454e62cc65e0ff4fbea7ed6b0f738945a7"
+    },
+    {
+      "arm_id": "A5",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A5_fixed-fold2_seed2.joblib",
+      "seconds": 3.8776053999972646,
+      "seed": 2,
+      "sha256": "d042d8bcd70195701227ea3e914e8354f5aeaa213a1905cd6cb651c3682b4e6e"
+    },
+    {
+      "arm_id": "A6",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A6_fixed-fold2_seed2.joblib",
+      "seconds": 6.500381400001061,
+      "seed": 2,
+      "sha256": "f67f0c8079f1bb663cf3d30a9f1a94cb3f0ac7db1d9810d3b004c4f2c9fca583"
+    },
+    {
+      "arm_id": "A7",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A7_fixed-fold2_seed2.joblib",
+      "seconds": 3.3585831000018516,
+      "seed": 2,
+      "sha256": "f79cd9389c0a263cdd2c70770c918897912cdc1ec420c88cb7de2232b7cdddf2"
+    },
+    {
+      "arm_id": "A8",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\A8_fixed-fold2_seed2.joblib",
+      "seconds": 3.276249299997289,
+      "seed": 2,
+      "sha256": "6461f84c60326e5c3f425f9ff8cdacad20249075f6519e8838328814735682d4"
+    },
+    {
+      "arm_id": "B",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\B_fixed-fold0_seed0.joblib",
+      "seconds": 1.8812309999993886,
+      "seed": 0,
+      "sha256": "9ba57493d3ecea64291997b0bc7bcf2dfd1dad8e7089c16ce2a7e9077d5488cc"
+    },
+    {
+      "arm_id": "B",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\B_fixed-fold0_seed1.joblib",
+      "seconds": 1.87482280000404,
+      "seed": 1,
+      "sha256": "f956beb23202287d3f462545c4b1f4a86b6b7e1e74189f2774e8c93fce491bdb"
+    },
+    {
+      "arm_id": "B",
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\B_fixed-fold0_seed2.joblib",
+      "seconds": 1.868520299998636,
+      "seed": 2,
+      "sha256": "141b81a920a97697e68b28d707a783868918ba2371c116a3000c439e74808822"
+    },
+    {
+      "arm_id": "B",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\B_fixed-fold1_seed0.joblib",
+      "seconds": 1.845431899993855,
+      "seed": 0,
+      "sha256": "2d8318d002de274f1ff2589bc95d1af26218cfbfcd20245f3336a257930ad025"
+    },
+    {
+      "arm_id": "B",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\B_fixed-fold1_seed1.joblib",
+      "seconds": 1.8143813999995473,
+      "seed": 1,
+      "sha256": "a7d72f84234418c20636e4eb976c36ae2799a492e2f089784ee16b408c467adf"
+    },
+    {
+      "arm_id": "B",
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\B_fixed-fold1_seed2.joblib",
+      "seconds": 1.9649855000025127,
+      "seed": 2,
+      "sha256": "0ccad5ac7180733513c1d4d3c78cef2a197b14bd32c11243e41daecd20bcb082"
+    },
+    {
+      "arm_id": "B",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\B_fixed-fold2_seed0.joblib",
+      "seconds": 1.8811198999974295,
+      "seed": 0,
+      "sha256": "1259ef88d2db2485798ca469884c29e99579893f65badbe72ad38ee1575a7340"
+    },
+    {
+      "arm_id": "B",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\B_fixed-fold2_seed1.joblib",
+      "seconds": 2.0017668000000413,
+      "seed": 1,
+      "sha256": "8582c1099bf865d2f357a1775ad738a87ac59e7f2a1452b7e9785b93084a524b"
+    },
+    {
+      "arm_id": "B",
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "node_count": 3,
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\B_fixed-fold2_seed2.joblib",
+      "seconds": 1.902820100003737,
+      "seed": 2,
+      "sha256": "b15e0638d60466e37842d77c422567da18a0487c4171851b663e20b17cd79280"
+    }
+  ],
+  "audit_artifact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_study\\2026-10-02-00-35-14\\fit_audits.json.gz",
+    "sha256": "65f9a171a8c366db8f665f498f9ad05646f98680b365776c309c8636b63fc4a7"
+  },
+  "code_head": "5082df46fd2b605ec2d6aa56c331be943c94b4e5",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "failures": [],
+  "fit_counts": {
+    "classifier_fits": 198,
+    "factory_reference_fits": 180,
+    "new_score_calibrations": 162,
+    "pooled_reference_fits": 27,
+    "representation_fits": 90
+  },
+  "fresh_final_test": false,
+  "implementation_artifacts": [
+    {
+      "path": "core/fault_type_accuracy.py",
+      "sha256": "757d860ad8245e3e7458f48bc7940a27466e9f6124ebaa9f81c0271875cfc6d1"
+    },
+    {
+      "path": "core/fault_type_accuracy_pipeline.py",
+      "sha256": "8f9710d181b6d2ca2fb49e286f9d7755d98c72056b7f35006c597ebb4715b9a3"
+    },
+    {
+      "path": "core/fault_type_accuracy_scores.py",
+      "sha256": "ff5fda482a810586ba2f2819592f4686507a961165ff866903dc712f6d913c9d"
+    },
+    {
+      "path": "experiments/fault_type_accuracy_study.py",
+      "sha256": "20eedd560d569db3417cc7649fe75bef1518e2d2d463aacfcbf38da1d231279c"
+    }
+  ],
+  "independent_validation_status": "INCOMPLETE",
+  "locked_checksum": "6cac7419a437779ed4e2e83300ea40895a16a96694720c869b4fffe8906f25a7",
+  "registry_checksum": "8418b7539670a3b4fd952e4a087b83bc18cb1870fbc4ef5eb4f44530b9523e5a",
+  "schema_version": 1,
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "shared_validation_calibration": false,
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  }
+}

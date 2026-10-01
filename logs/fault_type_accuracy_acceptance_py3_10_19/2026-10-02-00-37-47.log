@@ -1,0 +1,4 @@
+2026-10-02 00:37:47 | INFO    | Logger initialized: fault_type_accuracy_acceptance_py3_10_19
+2026-10-02 00:37:47 | INFO    | log_file=logs\fault_type_accuracy_acceptance_py3_10_19\2026-10-02-00-37-47.log
+2026-10-02 00:37:47 | INFO    | output_dir=output\fault_type_accuracy_acceptance_py3_10_19\2026-10-02-00-37-47
+2026-10-02 00:39:02 | INFO    | Python3.10.19 270 tests PASS output=output\fault_type_accuracy_acceptance_py3_10_19\2026-10-02-00-37-47

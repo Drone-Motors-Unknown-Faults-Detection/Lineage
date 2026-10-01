@@ -1,0 +1,10 @@
+usage: fault_type_accuracy_baseline.py [-h] [--index INDEX] --data-root
+                                       DATA_ROOT --code-head CODE_HEAD
+
+Verify saved baseline and train-only feature relations; never refit baseline.
+
+options:
+  -h, --help            show this help message and exit
+  --index INDEX
+  --data-root DATA_ROOT
+  --code-head CODE_HEAD
