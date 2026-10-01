@@ -1,0 +1,4 @@
+2026-10-01 08:48:53 | INFO    | Logger initialized: synchronized_features
+2026-10-01 08:48:53 | INFO    | log_file=logs\synchronized_features\2026-10-01-08-48-53.log
+2026-10-01 08:48:53 | INFO    | output_dir=output\synchronized_features\2026-10-01-08-48-53
+2026-10-01 08:48:53 | INFO    | rows=5 version=aligned105_corrected_formulas_daea2db24e68786d (not model validation)

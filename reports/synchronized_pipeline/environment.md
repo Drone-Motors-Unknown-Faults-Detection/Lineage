@@ -10,7 +10,25 @@ NumPy2.2.6、pandas2.3.3、SciPy1.15.3、sklearn1.7.2、hdbscan0.8.44、matplotl
 含binary/PolarMap/factory及synthetic subprocess validate/evaluate/resume、同環境fit/joblib round trip。
 實際fixture `output/synchronized_fixture/2026-10-01-08-34-56/`；raw CLI 5windows PASS，
 fresh synthetic評估 `output/fault_type_fresh/2026-10-01-08-35-25/` 6runs完成，real final=false。
-這些是工程相容性，不是馬達模型效能證明。後續新增P5測試將再次完整驗收。
+這些是當時的工程相容性，不是馬達模型效能證明；以下最終驗收取代初次測試數量。
+
+## 最終驗收（2026-10-01，Asia/Taipei）
+
+Python **3.10.19 與 3.14.6 各 204 項完整測試通過**，不是只有 CLI help。
+最終完整 stdout/stderr、pip check、四個新入口 help 與套件清單分別位於：
+
+- `output/synchronized_compatibility/2026-10-01-08-52-27/`（3.10.19）。
+- `output/synchronized_compatibility/2026-10-01-08-52-59/`（3.14.6）。
+
+原 170 tests + 新 34 tests（raw 10、feature 7、fresh/transaction 14、representation 3）。
+既有 binary detection、PolarMap、Mahalanobis 預設及 k-NN factory regression 包含在完整 suite 中。
+最新 fixture `output/synchronized_fixture/2026-10-01-08-46-08/` 在 3.10.19 重新 fit/load；
+evaluate `output/fault_type_fresh/2026-10-01-08-48-55/` 與 resume `.../2026-10-01-08-50-35/`
+各完成六個工程 runs，共用一筆 exposure，real final=false。舊 fixture 不冒充最新 extractor。
+
+aligned_only 版本 `aligned105_aligned_only_17b69e9fc20a1905`；corrected CLI 的五窗版本
+`aligned105_corrected_formulas_daea2db24e68786d`。兩者都不是實測 DAQ。
+最終驗收 JSON 與兩套 runtime 輸出另已封存 D 槽；archive/member 核對見最終交付報告。
 
 ```powershell
 # 在研究worktree根目錄；首次建立需要正常網路安裝權限

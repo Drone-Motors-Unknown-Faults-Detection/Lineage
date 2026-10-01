@@ -13,7 +13,13 @@ ranking／recall有改善，但依然不足以稱可靠模型。正式105CSV、l
 全3 documented motor folds，seed42/123/2026只是fold標識。RobustScaler/PCA/prototypes/reference只fit train；
 known calibration設.95 threshold，kNN k5、Mahalanobis LW。Validation/calibration共用的相依仍在。
 每候選一個固定classifier，PCA20/full SVD；選equal-fold macro-F1、再BA、最後預定tie rank。
+Classifier固定參數：C=1.0、class_weight=balanced、solver=lbfgs、max_iter=1000、tol=1e-4；沒有以test搜尋超參數。
 Registry 568c99e先push；fit18classifier/36detectors完成後lock8866c35先push，再test。
+
+PCA的歷史來源：Karl Pearson（1901），〈LIII. On lines and planes of closest fit to systems of points in space〉，
+[原始論文典藏與DOI](https://zenodo.org/records/1430636)。本輪實作為train-only、20components、full SVD，
+API定義見 [scikit-learn 1.7.2 PCA文件](https://scikit-learn.org/1.7/modules/generated/sklearn.decomposition.PCA.html)。
+特徵子集是本專案預登錄ablation，不宣稱為新學者演算法。
 
 | 表示 | Validation macro-F1 | Validation BA |
 |---|---:|---:|

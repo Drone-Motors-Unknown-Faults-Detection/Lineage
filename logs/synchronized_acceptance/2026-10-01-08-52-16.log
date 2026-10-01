@@ -1,0 +1,14 @@
+2026-10-01 08:52:16 | INFO    | Logger initialized: synchronized_acceptance
+2026-10-01 08:52:16 | INFO    | log_file=logs\synchronized_acceptance\2026-10-01-08-52-16.log
+2026-10-01 08:52:16 | INFO    | output_dir=output\synchronized_acceptance\2026-10-01-08-52-16
+2026-10-01 08:52:16 | INFO    | 1 original artifact bytes checked
+2026-10-01 08:52:28 | INFO    | 1001 original artifact bytes checked
+2026-10-01 08:52:39 | INFO    | 2001 original artifact bytes checked
+2026-10-01 08:52:46 | INFO    | 2655 original artifact bytes checked
+2026-10-01 08:52:59 | INFO    | 3655 original artifact bytes checked
+2026-10-01 08:53:10 | INFO    | 4655 original artifact bytes checked
+2026-10-01 08:53:21 | INFO    | 5655 original artifact bytes checked
+2026-10-01 08:53:28 | INFO    | 6225 original artifact bytes checked
+2026-10-01 08:53:40 | INFO    | 7225 original artifact bytes checked
+2026-10-01 08:53:51 | INFO    | 8225 original artifact bytes checked
+2026-10-01 08:53:57 | INFO    | engineering acceptance PASS; real independent final still NOT completed

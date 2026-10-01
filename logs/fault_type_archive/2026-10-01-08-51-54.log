@@ -1,0 +1,13 @@
+2026-10-01 08:51:54 | INFO    | Logger initialized: fault_type_archive
+2026-10-01 08:51:54 | INFO    | log_file=logs\fault_type_archive\2026-10-01-08-51-54.log
+2026-10-01 08:51:54 | INFO    | output_dir=output\fault_type_archive\2026-10-01-08-51-54
+2026-10-01 08:51:56 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-37-53.zip bytes=9829 files=1
+2026-10-01 08:51:56 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-38-17.zip bytes=67000630 files=21
+2026-10-01 08:51:57 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-38-59.zip bytes=48090770 files=37
+2026-10-01 08:51:57 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-41-08.zip bytes=493767 files=1
+2026-10-01 08:51:57 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-46-08.zip bytes=35025954 files=76
+2026-10-01 08:51:57 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-48-53.zip bytes=37842 files=4
+2026-10-01 08:51:57 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-48-55.zip bytes=537603 files=9
+2026-10-01 08:51:57 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-50-35.zip bytes=536897 files=9
+2026-10-01 08:51:57 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-46-12.zip bytes=21598 files=7
+2026-10-01 08:51:57 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline\fault_type_2026-10-01-08-46-44.zip bytes=21945 files=7

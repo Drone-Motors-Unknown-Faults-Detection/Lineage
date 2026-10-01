@@ -1,0 +1,5142 @@
+{
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "evaluation_id": "synthetic-final-engineering-001",
+  "exposure_receipt": {
+    "claim": "new_motor",
+    "data_version_checksum": "d8bc1b0769cafad8bf6e8e1edf6c2823356161a1baad9e4dbfe96acacb3c2a81",
+    "evaluation_id": "synthetic-final-engineering-001",
+    "journal_sequence": 1,
+    "locked_checksum": "f0f142a032435055b3402504dce633b31d890f096dcecad78dc86737d9540bb9",
+    "previous_ledger_checksum": "9d208687928c03f0f3bf59adbf5881e1654faf8bb1821787d583b2de60d6abf2",
+    "receipt_checksum": "e24bbd6834358fcae8f89c86e06161827682b2414f839815768b3b3683bfa3ea",
+    "registered_before_prediction": true
+  },
+  "failed_runs": [],
+  "final_independent_validation_completed": false,
+  "fresh_evaluation_started_this_invocation": false,
+  "limitations": [
+    "Hardware facts remain externally attested.",
+    "Eligibility/execution/performance are separate; synthetic scores are not motor evidence.",
+    "Repeated folds share incoming samples; no independent sample multiplication."
+  ],
+  "locked_checksum": "f0f142a032435055b3402504dce633b31d890f096dcecad78dc86737d9540bb9",
+  "model_reliability": "NOT_ESTABLISHED",
+  "qualification": {
+    "claim": "new_motor",
+    "fresh_final_test": false,
+    "status": "RESUME_PREVIOUSLY_EXPOSED_EVALUATION"
+  },
+  "runs": [
+    {
+      "classifier": "linear_baseline",
+      "fold_id": "fixture-fold-0",
+      "manifest_checksum": "f30c4ac0f3176b2b3264ffb1a32e7b2952e3b5076b1cda540ce68b66d6ebc292",
+      "method": "mahalanobis",
+      "metrics": {
+        "healthy_safety": {
+          "acceptance_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "n_healthy": 30,
+          "status": "computed"
+        },
+        "known_acceptance_rate": 0.0,
+        "known_classification": {
+          "accuracy": 0.16666666666666666,
+          "balanced_accuracy": 0.16666666666666666,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.047619047619047616,
+          "n_samples": 180,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "8screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "2screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.2857142857142857,
+              "label": "3screws",
+              "precision": 0.16666666666666666,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_classification": {
+          "accuracy": 0.2,
+          "balanced_accuracy": 0.2,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.06666666666666667,
+          "n_samples": 150,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "2screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.3333333333333333,
+              "label": "3screws",
+              "precision": 0.2,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_count": 5,
+        "n_test_samples": 300,
+        "open_set_classification_rate": 0.0,
+        "open_set_classification_rate_formula": "count(known samples with is_unknown=false and predicted_known_class=true_label) / count(known samples)",
+        "per_unknown_label": [
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.967176691648066,
+              "mean": 1.949042782291555,
+              "median": 1.9473556034631485,
+              "minimum": 1.9357947107267832,
+              "n": 30,
+              "q05": 1.938138509194621,
+              "q25": 1.942725978740173,
+              "q75": 1.951691717338457,
+              "q95": 1.9662298861985377,
+              "standard_deviation": 0.00893780447539548
+            },
+            "unknown_label": "4_146screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.98143939076579,
+              "mean": 1.9638097081522767,
+              "median": 1.9624940065966419,
+              "minimum": 1.9521850446506448,
+              "n": 30,
+              "q05": 1.9535654712472421,
+              "q25": 1.9573490431930365,
+              "q75": 1.9662350875451935,
+              "q95": 1.9804970607719414,
+              "standard_deviation": 0.008734450963532014
+            },
+            "unknown_label": "5screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.995890381133902,
+              "mean": 1.9788524450531153,
+              "median": 1.9766105604423956,
+              "minimum": 1.9667535859489518,
+              "n": 30,
+              "q05": 1.9673055921652203,
+              "q25": 1.9726639866700715,
+              "q75": 1.9821538270110342,
+              "q95": 1.9957137836749024,
+              "standard_deviation": 0.009050032829115753
+            },
+            "unknown_label": "6screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 2.0134559384382023,
+              "mean": 1.9949648713272898,
+              "median": 1.9937011192279026,
+              "minimum": 1.9804885740196554,
+              "n": 30,
+              "q05": 1.9811165934430839,
+              "q25": 1.9887217321911799,
+              "q75": 1.9995269579836346,
+              "q95": 2.0113900143769463,
+              "standard_deviation": 0.009546554318230527
+            },
+            "unknown_label": "7screws"
+          }
+        ],
+        "schema_version": 1,
+        "status": "completed",
+        "unknown_rejection": {
+          "aupr_unknown_positive": 0.9918469734113338,
+          "auroc_unknown_positive": 0.9945833333333333,
+          "fpr_at_95_tpr": 0.03333333333333333,
+          "fpr_at_95_tpr_interpolation": "linear_between_adjacent_empirical_roc_points",
+          "fpr_at_95_tpr_status": "computed",
+          "n_known": 180,
+          "n_unknown": 120,
+          "positive_class": "unknown",
+          "score_direction": "higher_is_more_unknown",
+          "status": "computed",
+          "unknown_f1": 0.5714285714285714,
+          "unknown_precision": 0.4,
+          "unknown_recall": 1.0
+        }
+      },
+      "prediction_artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fresh\\2026-10-01-08-50-35\\42_linear_baseline_mahalanobis_predictions.jsonl.gz",
+        "rows": 300,
+        "sha256": "bc39ad32bd9b53edcef1eee00148f3c138be24a90da45e4837b885779313306b"
+      },
+      "run_id": "42_linear_baseline_mahalanobis",
+      "seed": 42,
+      "status": "completed",
+      "strata": [
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        }
+      ],
+      "test_ids_checksum": "60e1dd7104b33954a63e2f0c685576c732b6c4cbe3264ba6ecd8f7b6e4a50b09"
+    },
+    {
+      "classifier": "linear_baseline",
+      "fold_id": "fixture-fold-0",
+      "manifest_checksum": "f30c4ac0f3176b2b3264ffb1a32e7b2952e3b5076b1cda540ce68b66d6ebc292",
+      "method": "knn",
+      "metrics": {
+        "healthy_safety": {
+          "acceptance_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "n_healthy": 30,
+          "status": "computed"
+        },
+        "known_acceptance_rate": 0.0,
+        "known_classification": {
+          "accuracy": 0.16666666666666666,
+          "balanced_accuracy": 0.16666666666666666,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.047619047619047616,
+          "n_samples": 180,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "8screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "2screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.2857142857142857,
+              "label": "3screws",
+              "precision": 0.16666666666666666,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_classification": {
+          "accuracy": 0.2,
+          "balanced_accuracy": 0.2,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.06666666666666667,
+          "n_samples": 150,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "2screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.3333333333333333,
+              "label": "3screws",
+              "precision": 0.2,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_count": 5,
+        "n_test_samples": 300,
+        "open_set_classification_rate": 0.0,
+        "open_set_classification_rate_formula": "count(known samples with is_unknown=false and predicted_known_class=true_label) / count(known samples)",
+        "per_unknown_label": [
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3_14screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3_14screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.65663452574201,
+              "mean": 1.6429983727678652,
+              "median": 1.6430647048129907,
+              "minimum": 1.6305569000126672,
+              "n": 30,
+              "q05": 1.6332100187412253,
+              "q25": 1.6379809360722937,
+              "q75": 1.6457862640999903,
+              "q95": 1.655522300064329,
+              "standard_deviation": 0.006635531264845082
+            },
+            "unknown_label": "4_146screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3_14screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3_14screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.6632216669278703,
+              "mean": 1.6495998588337681,
+              "median": 1.6492289241225713,
+              "minimum": 1.637595318110159,
+              "n": 30,
+              "q05": 1.6397761516080722,
+              "q25": 1.6449384441257415,
+              "q75": 1.6531831564041115,
+              "q95": 1.662102194960252,
+              "standard_deviation": 0.00677250824112864
+            },
+            "unknown_label": "5screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3_14screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3_14screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.6695201915226554,
+              "mean": 1.6566516267223659,
+              "median": 1.6563930252895478,
+              "minimum": 1.6444049804828218,
+              "n": 30,
+              "q05": 1.6471019107291194,
+              "q25": 1.6510882962355866,
+              "q75": 1.6608245872693324,
+              "q95": 1.6690559007070784,
+              "standard_deviation": 0.006951210136224054
+            },
+            "unknown_label": "6screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3_14screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3_14screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.6791341960767052,
+              "mean": 1.664554876451062,
+              "median": 1.664390148903627,
+              "minimum": 1.651535140652572,
+              "n": 30,
+              "q05": 1.6534585560671178,
+              "q25": 1.6595570737583278,
+              "q75": 1.6680487610217536,
+              "q95": 1.6770319660855386,
+              "standard_deviation": 0.007241118248278508
+            },
+            "unknown_label": "7screws"
+          }
+        ],
+        "schema_version": 1,
+        "status": "completed",
+        "unknown_rejection": {
+          "aupr_unknown_positive": 0.9698947617911073,
+          "auroc_unknown_positive": 0.9789814814814815,
+          "fpr_at_95_tpr": 0.11666666666666667,
+          "fpr_at_95_tpr_interpolation": "linear_between_adjacent_empirical_roc_points",
+          "fpr_at_95_tpr_status": "computed",
+          "n_known": 180,
+          "n_unknown": 120,
+          "positive_class": "unknown",
+          "score_direction": "higher_is_more_unknown",
+          "status": "computed",
+          "unknown_f1": 0.5714285714285714,
+          "unknown_precision": 0.4,
+          "unknown_recall": 1.0
+        }
+      },
+      "prediction_artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fresh\\2026-10-01-08-50-35\\42_linear_baseline_knn_predictions.jsonl.gz",
+        "rows": 300,
+        "sha256": "60e7a3f74e964d48e030e9d2799155ea4728c6c8a7b1fec684dd3d60ca1b4428"
+      },
+      "run_id": "42_linear_baseline_knn",
+      "seed": 42,
+      "status": "completed",
+      "strata": [
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        }
+      ],
+      "test_ids_checksum": "60e1dd7104b33954a63e2f0c685576c732b6c4cbe3264ba6ecd8f7b6e4a50b09"
+    },
+    {
+      "classifier": "linear_baseline",
+      "fold_id": "fixture-fold-1",
+      "manifest_checksum": "fea509fbb403e99293f484c3a4bcde8820af623e3d87e72893645c0b47b57b22",
+      "method": "mahalanobis",
+      "metrics": {
+        "healthy_safety": {
+          "acceptance_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "n_healthy": 30,
+          "status": "computed"
+        },
+        "known_acceptance_rate": 0.0,
+        "known_classification": {
+          "accuracy": 0.16666666666666666,
+          "balanced_accuracy": 0.16666666666666666,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.047619047619047616,
+          "n_samples": 180,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "8screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.2857142857142857,
+              "label": "2screws",
+              "precision": 0.16666666666666666,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_classification": {
+          "accuracy": 0.2,
+          "balanced_accuracy": 0.2,
+          "confusion_matrix": [
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.06666666666666667,
+          "n_samples": 150,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.3333333333333333,
+              "label": "2screws",
+              "precision": 0.2,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_count": 5,
+        "n_test_samples": 300,
+        "open_set_classification_rate": 0.0,
+        "open_set_classification_rate_formula": "count(known samples with is_unknown=false and predicted_known_class=true_label) / count(known samples)",
+        "per_unknown_label": [
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.9168553580121883,
+              "mean": 1.8998305753974687,
+              "median": 1.8988468686478677,
+              "minimum": 1.885700999956078,
+              "n": 30,
+              "q05": 1.8875415592773068,
+              "q25": 1.8935698106384016,
+              "q75": 1.9036024864555587,
+              "q95": 1.9157833320563689,
+              "standard_deviation": 0.008770049505398576
+            },
+            "unknown_label": "4_146screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.9289147226547796,
+              "mean": 1.9111024249722794,
+              "median": 1.9103690788881944,
+              "minimum": 1.8982042601141946,
+              "n": 30,
+              "q05": 1.8992914161704726,
+              "q25": 1.9045521019298988,
+              "q75": 1.9150679465411815,
+              "q95": 1.9269892053324118,
+              "standard_deviation": 0.008790733613875583
+            },
+            "unknown_label": "5screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.9397017017228577,
+              "mean": 1.9228648622978606,
+              "median": 1.920955126485599,
+              "minimum": 1.9092832471805512,
+              "n": 30,
+              "q05": 1.9101866708754938,
+              "q25": 1.9164597585744825,
+              "q75": 1.9278652330043433,
+              "q95": 1.9387916388925055,
+              "standard_deviation": 0.009013513488845786
+            },
+            "unknown_label": "6screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.954309312843228,
+              "mean": 1.9356000074003465,
+              "median": 1.9346025590606666,
+              "minimum": 1.9204892053835545,
+              "n": 30,
+              "q05": 1.9211082307144653,
+              "q25": 1.9287661067335409,
+              "q75": 1.9401398838430994,
+              "q95": 1.9512320081972603,
+              "standard_deviation": 0.009510536549634878
+            },
+            "unknown_label": "7screws"
+          }
+        ],
+        "schema_version": 1,
+        "status": "completed",
+        "unknown_rejection": {
+          "aupr_unknown_positive": 0.9843062012336417,
+          "auroc_unknown_positive": 0.9893055555555557,
+          "fpr_at_95_tpr": 0.05555555555555555,
+          "fpr_at_95_tpr_interpolation": "linear_between_adjacent_empirical_roc_points",
+          "fpr_at_95_tpr_status": "computed",
+          "n_known": 180,
+          "n_unknown": 120,
+          "positive_class": "unknown",
+          "score_direction": "higher_is_more_unknown",
+          "status": "computed",
+          "unknown_f1": 0.5714285714285714,
+          "unknown_precision": 0.4,
+          "unknown_recall": 1.0
+        }
+      },
+      "prediction_artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fresh\\2026-10-01-08-50-35\\123_linear_baseline_mahalanobis_predictions.jsonl.gz",
+        "rows": 300,
+        "sha256": "2455c841a77f9c1400715474df0b0bb9f66c3fee406ef2df8f57dfae3cc27b04"
+      },
+      "run_id": "123_linear_baseline_mahalanobis",
+      "seed": 123,
+      "status": "completed",
+      "strata": [
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        }
+      ],
+      "test_ids_checksum": "60e1dd7104b33954a63e2f0c685576c732b6c4cbe3264ba6ecd8f7b6e4a50b09"
+    },
+    {
+      "classifier": "linear_baseline",
+      "fold_id": "fixture-fold-1",
+      "manifest_checksum": "fea509fbb403e99293f484c3a4bcde8820af623e3d87e72893645c0b47b57b22",
+      "method": "knn",
+      "metrics": {
+        "healthy_safety": {
+          "acceptance_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "n_healthy": 30,
+          "status": "computed"
+        },
+        "known_acceptance_rate": 0.0,
+        "known_classification": {
+          "accuracy": 0.16666666666666666,
+          "balanced_accuracy": 0.16666666666666666,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.047619047619047616,
+          "n_samples": 180,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "8screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.2857142857142857,
+              "label": "2screws",
+              "precision": 0.16666666666666666,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_classification": {
+          "accuracy": 0.2,
+          "balanced_accuracy": 0.2,
+          "confusion_matrix": [
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.06666666666666667,
+          "n_samples": 150,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.3333333333333333,
+              "label": "2screws",
+              "precision": 0.2,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_count": 5,
+        "n_test_samples": 300,
+        "open_set_classification_rate": 0.0,
+        "open_set_classification_rate_formula": "count(known samples with is_unknown=false and predicted_known_class=true_label) / count(known samples)",
+        "per_unknown_label": [
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.6207298068365092,
+              "mean": 1.6082682051778643,
+              "median": 1.6074030195954032,
+              "minimum": 1.5980737903515816,
+              "n": 30,
+              "q05": 1.5992901055392104,
+              "q25": 1.604479907777617,
+              "q75": 1.6109812489535305,
+              "q95": 1.6196204790960258,
+              "standard_deviation": 0.0064100695077926595
+            },
+            "unknown_label": "4_146screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.6294996682645577,
+              "mean": 1.6167589888587641,
+              "median": 1.6159959861660402,
+              "minimum": 1.6077123542179168,
+              "n": 30,
+              "q05": 1.6080565749179083,
+              "q25": 1.6116784632616978,
+              "q75": 1.6193160792102725,
+              "q95": 1.628304732759141,
+              "standard_deviation": 0.006473320508722933
+            },
+            "unknown_label": "5screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.6379063990384528,
+              "mean": 1.6256302660289417,
+              "median": 1.6244771473337436,
+              "minimum": 1.615818250999392,
+              "n": 30,
+              "q05": 1.6164484517058053,
+              "q25": 1.621496099003127,
+              "q75": 1.6288064032173806,
+              "q95": 1.6369675384157414,
+              "standard_deviation": 0.006594431530770728
+            },
+            "unknown_label": "6screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "3screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "3screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.6489134682240367,
+              "mean": 1.6352767601333646,
+              "median": 1.6349590244961556,
+              "minimum": 1.623982329533767,
+              "n": 30,
+              "q05": 1.6247401943276785,
+              "q25": 1.6301933667049004,
+              "q75": 1.6382410236213432,
+              "q95": 1.6469971293052472,
+              "standard_deviation": 0.007053859832407432
+            },
+            "unknown_label": "7screws"
+          }
+        ],
+        "schema_version": 1,
+        "status": "completed",
+        "unknown_rejection": {
+          "aupr_unknown_positive": 0.9849741657526416,
+          "auroc_unknown_positive": 0.9897685185185185,
+          "fpr_at_95_tpr": 0.05555555555555555,
+          "fpr_at_95_tpr_interpolation": "linear_between_adjacent_empirical_roc_points",
+          "fpr_at_95_tpr_status": "computed",
+          "n_known": 180,
+          "n_unknown": 120,
+          "positive_class": "unknown",
+          "score_direction": "higher_is_more_unknown",
+          "status": "computed",
+          "unknown_f1": 0.5714285714285714,
+          "unknown_precision": 0.4,
+          "unknown_recall": 1.0
+        }
+      },
+      "prediction_artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fresh\\2026-10-01-08-50-35\\123_linear_baseline_knn_predictions.jsonl.gz",
+        "rows": 300,
+        "sha256": "29ff15d153a063af086af0d8dcda8739bb649443d46919b6c0e3ee880923b9d8"
+      },
+      "run_id": "123_linear_baseline_knn",
+      "seed": 123,
+      "status": "completed",
+      "strata": [
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        }
+      ],
+      "test_ids_checksum": "60e1dd7104b33954a63e2f0c685576c732b6c4cbe3264ba6ecd8f7b6e4a50b09"
+    },
+    {
+      "classifier": "linear_baseline",
+      "fold_id": "fixture-fold-2",
+      "manifest_checksum": "a7cc5a63adde0a61e468bc9520a8411a7e88ff77cc17c121e7c12e6ae552da9b",
+      "method": "mahalanobis",
+      "metrics": {
+        "healthy_safety": {
+          "acceptance_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "n_healthy": 30,
+          "status": "computed"
+        },
+        "known_acceptance_rate": 0.0,
+        "known_classification": {
+          "accuracy": 0.16666666666666666,
+          "balanced_accuracy": 0.16666666666666666,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.047619047619047616,
+          "n_samples": 180,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "8screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "2screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.2857142857142857,
+              "label": "3screws",
+              "precision": 0.16666666666666666,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_classification": {
+          "accuracy": 0.2,
+          "balanced_accuracy": 0.2,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.06666666666666667,
+          "n_samples": 150,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "2screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.3333333333333333,
+              "label": "3screws",
+              "precision": 0.2,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_count": 5,
+        "n_test_samples": 300,
+        "open_set_classification_rate": 0.0,
+        "open_set_classification_rate_formula": "count(known samples with is_unknown=false and predicted_known_class=true_label) / count(known samples)",
+        "per_unknown_label": [
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 2.003287260623711,
+              "mean": 1.9861025622602093,
+              "median": 1.9861684490953015,
+              "minimum": 1.972259070508838,
+              "n": 30,
+              "q05": 1.974309654076044,
+              "q25": 1.9790330773122378,
+              "q75": 1.990377934091916,
+              "q95": 2.0022787879243777,
+              "standard_deviation": 0.009296735994404136
+            },
+            "unknown_label": "4_146screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 2.0175416427893085,
+              "mean": 2.0007707427328216,
+              "median": 2.0014868632463223,
+              "minimum": 1.9885771621885047,
+              "n": 30,
+              "q05": 1.989303627937742,
+              "q25": 1.9923551857033075,
+              "q75": 2.004541090478566,
+              "q95": 2.0165330570775035,
+              "standard_deviation": 0.009142787674750057
+            },
+            "unknown_label": "5screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 2.0318546178145067,
+              "mean": 2.015593501346417,
+              "median": 2.0152358709750837,
+              "minimum": 2.002407220857529,
+              "n": 30,
+              "q05": 2.0032107675912765,
+              "q25": 2.008319571947739,
+              "q75": 2.0202812283094684,
+              "q95": 2.031515318946116,
+              "standard_deviation": 0.00942306164988175
+            },
+            "unknown_label": "6screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 2.0489923849646545,
+              "mean": 2.0316893751777654,
+              "median": 2.0323523667361356,
+              "minimum": 2.0165504141143606,
+              "n": 30,
+              "q05": 2.01676147773711,
+              "q25": 2.023439925607594,
+              "q75": 2.0383814693146722,
+              "q95": 2.0472286047021684,
+              "standard_deviation": 0.01001003500410256
+            },
+            "unknown_label": "7screws"
+          }
+        ],
+        "schema_version": 1,
+        "status": "completed",
+        "unknown_rejection": {
+          "aupr_unknown_positive": 0.9912649238055639,
+          "auroc_unknown_positive": 0.9939814814814815,
+          "fpr_at_95_tpr": 0.044444444444444446,
+          "fpr_at_95_tpr_interpolation": "linear_between_adjacent_empirical_roc_points",
+          "fpr_at_95_tpr_status": "computed",
+          "n_known": 180,
+          "n_unknown": 120,
+          "positive_class": "unknown",
+          "score_direction": "higher_is_more_unknown",
+          "status": "computed",
+          "unknown_f1": 0.5714285714285714,
+          "unknown_precision": 0.4,
+          "unknown_recall": 1.0
+        }
+      },
+      "prediction_artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fresh\\2026-10-01-08-50-35\\2026_linear_baseline_mahalanobis_predictions.jsonl.gz",
+        "rows": 300,
+        "sha256": "012261cade2fa427d63d6f61b76632f9f2793654ff06a5deb5d76be980fc680b"
+      },
+      "run_id": "2026_linear_baseline_mahalanobis",
+      "seed": 2026,
+      "status": "completed",
+      "strata": [
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        }
+      ],
+      "test_ids_checksum": "60e1dd7104b33954a63e2f0c685576c732b6c4cbe3264ba6ecd8f7b6e4a50b09"
+    },
+    {
+      "classifier": "linear_baseline",
+      "fold_id": "fixture-fold-2",
+      "manifest_checksum": "a7cc5a63adde0a61e468bc9520a8411a7e88ff77cc17c121e7c12e6ae552da9b",
+      "method": "knn",
+      "metrics": {
+        "healthy_safety": {
+          "acceptance_rate": 0.0,
+          "false_positive_rate": 1.0,
+          "n_healthy": 30,
+          "status": "computed"
+        },
+        "known_acceptance_rate": 0.0,
+        "known_classification": {
+          "accuracy": 0.16666666666666666,
+          "balanced_accuracy": 0.16666666666666666,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.047619047619047616,
+          "n_samples": 180,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "8screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "2screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.2857142857142857,
+              "label": "3screws",
+              "precision": 0.16666666666666666,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_classification": {
+          "accuracy": 0.2,
+          "balanced_accuracy": 0.2,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": "rows=true_label, columns=predicted_known_class",
+          "confusion_matrix_labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "labels": [
+            "1screws",
+            "2screws",
+            "3screws",
+            "3_14screws",
+            "4screws"
+          ],
+          "macro_f1": 0.06666666666666667,
+          "n_samples": 150,
+          "per_class": [
+            {
+              "f1": 0.0,
+              "label": "1screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "2screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.3333333333333333,
+              "label": "3screws",
+              "precision": 0.2,
+              "recall": 1.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "3_14screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            },
+            {
+              "f1": 0.0,
+              "label": "4screws",
+              "precision": 0.0,
+              "recall": 0.0,
+              "support": 30
+            }
+          ],
+          "status": "computed"
+        },
+        "known_fault_count": 5,
+        "n_test_samples": 300,
+        "open_set_classification_rate": 0.0,
+        "open_set_classification_rate_formula": "count(known samples with is_unknown=false and predicted_known_class=true_label) / count(known samples)",
+        "per_unknown_label": [
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.6927241724455844,
+              "mean": 1.679228139043076,
+              "median": 1.678942680603141,
+              "minimum": 1.6686464239297925,
+              "n": 30,
+              "q05": 1.6700890636833186,
+              "q25": 1.6736984364268501,
+              "q75": 1.6824962127444831,
+              "q95": 1.6921011756146989,
+              "standard_deviation": 0.007273723662486742
+            },
+            "unknown_label": "4_146screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.7038015801610658,
+              "mean": 1.690549700756396,
+              "median": 1.6905664420542554,
+              "minimum": 1.6812577444773367,
+              "n": 30,
+              "q05": 1.6817311334149216,
+              "q25": 1.6839545520939925,
+              "q75": 1.6935690890106203,
+              "q95": 1.7030475897356883,
+              "standard_deviation": 0.007197252869345269
+            },
+            "unknown_label": "5screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.7150113298800174,
+              "mean": 1.7021293657769538,
+              "median": 1.701717196453632,
+              "minimum": 1.6918556435646575,
+              "n": 30,
+              "q05": 1.6927106916210013,
+              "q25": 1.696388470995206,
+              "q75": 1.705812642170931,
+              "q95": 1.7148554412927373,
+              "standard_deviation": 0.007404016796668693
+            },
+            "unknown_label": "6screws"
+          },
+          {
+            "attraction_counts": [
+              {
+                "count": 30,
+                "known_class": "2screws"
+              }
+            ],
+            "attraction_source": "nearest_known_class_else_predicted_known_class",
+            "most_attracted_count": 30,
+            "most_attracted_known_class": "2screws",
+            "most_attracted_share": 1.0,
+            "n_samples": 30,
+            "recall": 1.0,
+            "score_distribution": {
+              "maximum": 1.728443225924977,
+              "mean": 1.7146343475793198,
+              "median": 1.7148628198848699,
+              "minimum": 1.7027771428389815,
+              "n": 30,
+              "q05": 1.703231812940221,
+              "q25": 1.7081588321453713,
+              "q75": 1.719668976488818,
+              "q95": 1.7271743001475703,
+              "standard_deviation": 0.007895872760549191
+            },
+            "unknown_label": "7screws"
+          }
+        ],
+        "schema_version": 1,
+        "status": "completed",
+        "unknown_rejection": {
+          "aupr_unknown_positive": 0.9910822529779558,
+          "auroc_unknown_positive": 0.9938888888888889,
+          "fpr_at_95_tpr": 0.044444444444444446,
+          "fpr_at_95_tpr_interpolation": "linear_between_adjacent_empirical_roc_points",
+          "fpr_at_95_tpr_status": "computed",
+          "n_known": 180,
+          "n_unknown": 120,
+          "positive_class": "unknown",
+          "score_direction": "higher_is_more_unknown",
+          "status": "computed",
+          "unknown_f1": 0.5714285714285714,
+          "unknown_precision": 0.4,
+          "unknown_recall": 1.0
+        }
+      },
+      "prediction_artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fresh\\2026-10-01-08-50-35\\2026_linear_baseline_knn_predictions.jsonl.gz",
+        "rows": 300,
+        "sha256": "897af6ad33689bebdc7667df6a720ba04f964291aa1a65b3baecaa1f3fdf6a09"
+      },
+      "run_id": "2026_linear_baseline_knn",
+      "seed": 2026,
+      "status": "completed",
+      "strata": [
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M0",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "11000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "6000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "1screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "2screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "3_14screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 1.0,
+          "configuration": "3screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "4_146screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "4screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "5screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "6screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": null,
+          "configuration": "7screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        },
+        {
+          "classification_accuracy": 0.0,
+          "configuration": "8screws",
+          "motor_id": "fixture-M1",
+          "rpm": "8000rpm",
+          "samples": 5,
+          "unknown_rejection_rate": 1.0
+        }
+      ],
+      "test_ids_checksum": "60e1dd7104b33954a63e2f0c685576c732b6c4cbe3264ba6ecd8f7b6e4a50b09"
+    }
+  ],
+  "status": "EXECUTION_COMPLETE",
+  "synthetic_engineering": true
+}

@@ -1,0 +1,4 @@
+2026-10-01 08:46:08 | INFO    | Logger initialized: synchronized_fixture
+2026-10-01 08:46:08 | INFO    | log_file=logs\synchronized_fixture\2026-10-01-08-46-08.log
+2026-10-01 08:46:08 | INFO    | output_dir=output\synchronized_fixture\2026-10-01-08-46-08
+2026-10-01 08:46:11 | INFO    | fixture created at output\synchronized_fixture\2026-10-01-08-46-08; never real motor evidence

@@ -89,3 +89,15 @@
 - Full suite Python3.10.19與3.14.6各204tests PASS（08:46:12、08:46:44）；原venv維持。Raw→corrected feature CLI08:48:53五windows完成；fresh synthetic evaluate08:48:55及resume08:50:35各6runs完成、只有1ledger exposure，real final=false。
 - Raw schema／未填事實模板與執行範例完成。兩次無效文件patch因多餘空hunk被工具拒絕，未修改檔案；修正後成功，不繞過工具或权限。
 - Archive index顯式標明synthetic raw fixtures，沒有真實DAQ／私人repo資料。接續backup及原2490 artifacts逐byte核對，不重跑研究。
+
+- P6a `914cb889b66b9e3a84ad0256b62cda70ce867148` commit/push 成功，remote 完整 SHA 一致。
+
+## P6b — 完整性、備份與交付文件
+
+- `experiments.synchronized_acceptance` 08:52:16 exit0：90 正式 CSV 未改；三個歷史 ZIP 的 8,751 個來源檔、11,774,540,137 bytes 全部逐檔 SHA/length 相同。既有 756+1014+720=2,490 runs 不重跑、不重寫。
+- 主備份索引 `output/fault_type_archive/2026-10-01-08-51-54/archive_index.json` 保存十個新產物 ZIP；acceptance JSON 逐 ZIP SHA、CRC、member SHA 全通過。
+- 最後凍結程式再跑 `experiments.synchronized_compatibility`，Python3.10.19 08:52:27、3.14.6 08:52:59 各204tests PASS，pip check/help 均 exit0，沒有改舊 venv。
+- 補備份 `output/fault_type_archive/2026-10-01-08-54-20/archive_index.json` 三 ZIP：acceptance、兩套 final runtime。PowerShell 再核對3全檔SHA＋15 members SHA/byte length PASS，結果保存 member_verification.json。
+- 共13 ZIP 位於 `D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\synchronized_pipeline`。沒有刪除來源；生成的 synthetic raw 明確標記，沒有真實 DAQ／私有文件上傳。這是單一 D 槽備份，不宣稱異地災備。
+- 最終報告區分 ENGINEERING_ACCEPTANCE_PASS 與 BLOCKED_NO_ELIGIBLE_DATA，列出最小原檔/採集事實、fresh training/bridge 契約及可複製 CLI。formal/manifests/predictions 舊版本未覆寫，282 既有 deletions 不 stage。
+- 本階段僅增補報告及 compact 驗收證據；程式碼自 P6a 完整測試後不變。提交後另記實際 SHA、push 與 issue9 連結，不預填成功。

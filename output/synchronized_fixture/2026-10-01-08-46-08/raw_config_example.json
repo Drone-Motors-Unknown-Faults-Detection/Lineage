@@ -1,0 +1,59 @@
+{
+  "acquisition_timestamp": "2026-10-01T08:00:00+08:00",
+  "attestation": "fixture_attested: generated, never real hardware",
+  "evidence": {
+    "alignment": {
+      "level": "fixture_attested",
+      "reference": "synthetic generator"
+    },
+    "sample_rate": {
+      "level": "fixture_attested",
+      "reference": "synthetic generator"
+    }
+  },
+  "label": "8screws",
+  "motor_id": "fixture-M0",
+  "parser": {
+    "channels": {
+      "current": "current",
+      "delta_t": "delta_t",
+      "x": "x",
+      "y": "y",
+      "z": "z"
+    },
+    "delimiter": ",",
+    "expected_columns": [
+      "time",
+      "current",
+      "x",
+      "y",
+      "z",
+      "delta_t"
+    ],
+    "header_row_0_based": 0,
+    "layout": "single_file_shared_rows",
+    "time_column": "time",
+    "time_semantics": "relative_seconds"
+  },
+  "physical_contract": {
+    "calibration": "fixture_attested:synthetic only",
+    "load": "fixture_attested:synthetic only",
+    "mounting": "fixture_attested:synthetic only",
+    "orientation": "fixture_attested:synthetic only",
+    "sensor_units": "fixture_attested:synthetic only"
+  },
+  "quality": {},
+  "raw_sample_count": 5120,
+  "recording_id": "fixture-0-0-6000rpm",
+  "rpm": "6000rpm",
+  "run_id": "fixture-0-0-6000rpm",
+  "sample_rate_hz": 10000,
+  "session_id": "fixture-S0",
+  "synthetic": true,
+  "windows": {
+    "bad_point_rule": "reject",
+    "gap_rule": "reject",
+    "length": 1024,
+    "stride": 1024
+  }
+}

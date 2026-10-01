@@ -1,0 +1,119 @@
+{
+  "backups": [
+    {
+      "bytes": 9829,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-37-53.zip",
+      "sha256": "0b491701576487e2c6ee7b094fff561f258121949eb57c30df2acc06f212becd",
+      "source_files": 1,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_representations\\2026-10-01-08-37-53"
+    },
+    {
+      "bytes": 67000630,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-38-17.zip",
+      "sha256": "352aa2c90eeb1f7a95da179b911f4d4c6d5c4641f67aa927f66e7f3faaf69181",
+      "source_files": 21,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_representations\\2026-10-01-08-38-17"
+    },
+    {
+      "bytes": 48090770,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-38-59.zip",
+      "sha256": "4869e4dcca50b99473f188c570f0103f707aad92e97a6dee0fc9205a17aa44e4",
+      "source_files": 37,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_representations\\2026-10-01-08-38-59"
+    },
+    {
+      "bytes": 493767,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-41-08.zip",
+      "sha256": "4039eca57288b0b543b09775a3988003cb543cd8d930bd76bf43e960083f02be",
+      "source_files": 1,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_representation_report\\2026-10-01-08-41-08"
+    },
+    {
+      "bytes": 35025954,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-46-08.zip",
+      "sha256": "cb017ca7673a3b26081a77a0335a264eb0a6670861efe2b89322fbf1a03c1e1f",
+      "source_files": 76,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\synchronized_fixture\\2026-10-01-08-46-08"
+    },
+    {
+      "bytes": 37842,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-48-53.zip",
+      "sha256": "131eaf03d98fcc76928ad157e3042b70672fa6927b4dfccfac5c71d9d73a4579",
+      "source_files": 4,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\synchronized_features\\2026-10-01-08-48-53"
+    },
+    {
+      "bytes": 537603,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-48-55.zip",
+      "sha256": "5e7e3c6234c93bbbaa9fb4140a892da3614f3b7816d8e601f454b26e1063d405",
+      "source_files": 9,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fresh\\2026-10-01-08-48-55"
+    },
+    {
+      "bytes": 536897,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-50-35.zip",
+      "sha256": "87d2be7a71664b261d9ded3f75837a0ee25e41646503c8e62574290da73c5d9e",
+      "source_files": 9,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fresh\\2026-10-01-08-50-35"
+    },
+    {
+      "bytes": 21598,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-46-12.zip",
+      "sha256": "74a678d769837face93b681402ed4bc4e7f8ca31771b5e0101d3a9303678fb06",
+      "source_files": 7,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\synchronized_compatibility\\2026-10-01-08-46-12"
+    },
+    {
+      "bytes": 21945,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\synchronized_pipeline\\fault_type_2026-10-01-08-46-44.zip",
+      "sha256": "03a56c0968193e53809f0675a74dee987e1c633052433a517fd34f75b6d0462e",
+      "source_files": 7,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\synchronized_compatibility\\2026-10-01-08-46-44"
+    }
+  ],
+  "default_classifier_detector_changed": false,
+  "environments": [
+    {
+      "fingerprint": "2c4a380809e89d9a627e0e362994e500d2a601e3f4227b2d45050b00f8d34637",
+      "python": "3.10.19",
+      "tests_passed": 204
+    },
+    {
+      "fingerprint": "dd8a32a3a6945e7964e531483cde74fcdeeee55f18a761659f987d3f9d64efea",
+      "python": "3.14.6",
+      "tests_passed": 204
+    }
+  ],
+  "formal_files_unchanged": 90,
+  "historical_bytes_verified": 11774540137,
+  "historical_files_byte_sha_verified": 8751,
+  "historical_matrix_counts": [
+    756,
+    1014,
+    720
+  ],
+  "raw_data_uploaded": false,
+  "real_hardware_acquisition_performed": false,
+  "research_status": "BLOCKED_NO_ELIGIBLE_DATA",
+  "status": "ENGINEERING_ACCEPTANCE_PASS"
+}
