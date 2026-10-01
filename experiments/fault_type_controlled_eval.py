@@ -30,6 +30,8 @@ def _check_locked(locked, ledger):
 
 def run(pools, *, manifests, locked, ledger, fitted, exploratory=False, incoming_bundle=None, claim=None, exposure_sink=None):
     _check_locked(locked, ledger)
+    if incoming_bundle is not None:
+        raise FinalTestBlocked("legacy fresh API lacks verified raw loader/physical bridge; use experiments.fault_type_fresh.run/CLI")
     if incoming_bundle is None and not exploratory:
         raise FinalTestBlocked("existing previously exposed test requires explicit exploratory flag")
     qualification = guard_final_test(incoming_bundle, ledger, locked, claim=claim) if incoming_bundle is not None else {
@@ -43,6 +45,12 @@ def run(pools, *, manifests, locked, ledger, fitted, exploratory=False, incoming
         updated = record_final_exposure(ledger, incoming_bundle, evaluation_id=locked["locked_checksum"]+":"+incoming_bundle["data_version_checksum"])
         exposure_sink(updated)  # Failure must block prediction, not be ignored.
         exposure_receipt = {"ledger_checksum": updated["ledger_checksum"], "registered_before_prediction": True}
+    return paired_predictions(pools, manifests=manifests, locked=locked, fitted=fitted,
+        qualification=qualification, incoming_bundle=incoming_bundle, exposure_receipt=exposure_receipt)
+
+
+def paired_predictions(pools, *, manifests, locked, fitted, qualification, incoming_bundle=None, exposure_receipt=None):
+    """Shared computation only. Fresh callers must complete durable preflight first."""
     results, prediction_sets = [], {}
     for manifest, model in zip(manifests, fitted, strict=True):
         artifact = next(a for a in locked["training_artifacts"] if a["fold_id"] == manifest["fold_id"])

@@ -28,3 +28,15 @@
 - extractor四份程式SHA、settings、quality/window契約參與pipeline identity。未知physical可preview，但ingest／fresh仍阻擋；historical非finite特徵明確拒收，不改舊CSV。
 - 7tests PASS：historical數值reference、正弦幅度/DC/constant/負峰、axis隔離、只變宣告positions、sidecar與版本變化、FFT不足拒絕。常數legacy moment警告保留，corrected定義明確。
 - 獨立`.venv310`安裝進行中，原venv不改動。
+
+- P2 `c1ceb0bc2d458a926e438c0ed02a1ef05a5e187a` push成功／remote一致。
+
+## P3 — Fresh CLI／durable exposure
+
+- init-ledger/validate/evaluate/resume/receipt/recover-ledger完整CLI，既有ingest/guard/record_final_exposure為唯一資格邏輯；IncomingStore讀incoming root，不誤用formal FeatureStore。
+- raw再讀count/time/quality/windows並重算features，schema2/column/extractorSHA/pipeline一致；synthetic不得改標真實。模型必須綁3distinct folds、N5、known-only fit/cal ID、physical訓練契約、scaler/classifier/detector參數與維度、joblibSHA及同Python/sklearn。
+- 舊fresh API缺raw/physical前置核對改為拒絕，explicit exploratory CLI沿用；shared paired computation不重建原matrix。
+- OS鎖＋CAS＋順序sealed journal/fsync/atomic head，receipt在predict前；第二程序stale ledger拒絕，預測失敗exposure保留；head寫入失敗需recover，不重置／删除history。
+- 300windows/2groups/3RPM synthetic generator及獨立known-only fitting用於工程測試，非真實效能。
+- 初次CLI test遇Windows預設cp950讀UTF8報告；修成明確UTF8。加強preflight時一處縮排錯誤由import test立即捕捉並修復。相關9tests已PASS，另增SHA/physical與rollback測試；失敗不隱去。
+- 加強後11fresh/transaction tests與2既有controlled eval測試PASS。所有新scope與序列化contract測試不使用真實final。Python3.10完整第一輪195tests PASS（後續新增測試會再完整驗收）。
