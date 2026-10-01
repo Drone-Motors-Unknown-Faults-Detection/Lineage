@@ -1,0 +1,4 @@
+2026-10-01 20:57:02 | INFO    | Logger initialized: fault_type_accuracy_baseline
+2026-10-01 20:57:02 | INFO    | log_file=logs\fault_type_accuracy_baseline\2026-10-01-20-57-02.log
+2026-10-01 20:57:02 | INFO    | output_dir=output\fault_type_accuracy_baseline\2026-10-01-20-57-02
+2026-10-01 20:57:50 | INFO    | baseline verified, no new fit; output=output\fault_type_accuracy_baseline\2026-10-01-20-57-02
