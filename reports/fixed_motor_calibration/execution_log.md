@@ -16,3 +16,22 @@
 ## 提交記錄規則
 
 每階段驗證後 scoped stage / diff --check / Co-author commit / 非 force push / remote SHA 核對。階段 commit 寫入下一次紀錄，避免自我引用 SHA。
+
+## P1 封存
+
+- `c24584b9a0898c430ecead5186d1694f283dcfd1` commit/push；remote SHA相符。
+- `output/fault_type_fixed_calibration/2026-10-01-15-32-22/protocol.json`；protocol checksum `3b6cde9f5c19e627c0694f7488660b783228ae2354e96b8fa25b9dd1085edf1e`。準備過程未fit任何模型；真實資料正式fit尚未開始。
+
+## P2 工程路徑
+
+- 小型新core overlay、fit用途稽核與no-selector dependency，重用原 immutable manifest/Representation/LogisticRegression/core.openset factory。舊manifest及原表示法module未改，原registry SHA仍有效。
+- 新run/main/setup_run：prepare→fit（只load train/cal）→evaluate（讀封存模型、test），來源90SHA每次before/after實查，不以FeatureStore cache當作不變證据。CLI可指定三份既有N/class manifests，不需要重建class split/matrix。
+- schema2 + protocol_version精確匹配才接受空validation；其他歷史protocol空validation仍INVALID。single-fold用途重疊、wrong motor、unknown、fit/reference混入cal、shared-valcal、global winner拒絕；舊source SHA/raw alias guards保留。
+- 壓縮fit audits綁train/scaler/classifier/covariance/neighbor reference/cal IDs、資料與config checksums、transform checksum、class thresholds、耗時；lock明列18fits、模型SHA、manifestSHA及exposure ledger。沒有selected_representation/global_winner。
+- 保存predict的逐類raw distance / class thresholds / ratios，原factory score再次一致核對。reporter核對gzipSHA、IDs/真值/RPM/class role、>1符號、零門檻epsilon、metrics重算與detector配對；摘要只有固定方法motor平均/範圍與seed SD，不輸出CI/winner。
+- targeted最初20tests PASS；首次完整雙Python各237tests PASS。加入saved prediction tamper/metrics/grid regression後最終數接續核對；中間237不是最終數。
+- Synthetic兩環境CLI prepare/fit/evaluate已通過（各36 engineering evaluations）；不是正式資料研究成績。最後新來源before/after檢查版本也執行smoke。
+- 未改Maha/openset/PolarMap/default105/linear/正式data。既有282tracked deletions仍未stage。
+- 19:26:43/54 的兩環境241測試有1個negative fixture失敗：第一列本來就是unknown，test寫成改為unknown等於未修改；不是檢查器放過真實篡改。修fixture使role必然相反，並加subTest。保存這兩次FAILED stdout，不冒充PASS；接續重新全套驗收。
+- 修fixture後19:28:20/31雙環境241tests PASS。之後再加入lock→labels/exposure與model→parameters/transform/threshold audit的綁定檢查，最終驗收為19:29:26/37，均241tests及pip check/6 CLI help PASS。24項新增測試（217→241）；無來源資料/正式預設變更。
+- 最新source-checked synthetic CLI smoke：Python3.10 `output/fault_type_fixed_smoke/2026-10-01-19-27-27/smoke_index.json`、Python3.14 `.../2026-10-01-19-27-38/smoke_index.json`，各36 engineering evaluations；直接新增完整suite亦每環境在自身interpreter內fit/load模型並36評估、重算SHA/指標和重跑決定性，不跨runtime載入joblib。

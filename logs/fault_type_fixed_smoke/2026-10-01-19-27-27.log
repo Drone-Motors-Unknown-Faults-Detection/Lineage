@@ -1,0 +1,4 @@
+2026-10-01 19:27:27 | INFO    | Logger initialized: fault_type_fixed_smoke
+2026-10-01 19:27:27 | INFO    | log_file=logs\fault_type_fixed_smoke\2026-10-01-19-27-27.log
+2026-10-01 19:27:27 | INFO    | output_dir=output\fault_type_fixed_smoke\2026-10-01-19-27-27
+2026-10-01 19:27:40 | INFO    | {'scope': 'SYNTHETIC_ENGINEERING_ONLY_NOT_RESEARCH', 'status': 'PASS', 'completed_cli_evaluations': 36, 'cli_output_roots': ['C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-27-30', 'C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-27-31', 'C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-27-35']}

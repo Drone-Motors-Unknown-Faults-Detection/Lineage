@@ -135,6 +135,24 @@ def validate_split_manifest(
             add("TEST_NOT_REPRODUCIBLE", f"duplicate sample IDs within {split}")
         split_sets[split] = {str(value) for value in values}
     shared_val_cal = bool(manifest.get("shared_validation_calibration", False))
+    fixed_none = (manifest.get("schema_version") == 2 and
+                  manifest.get("protocol_version") == "fixed_methods_motor_calibration_v1")
+    if fixed_none:
+        if (manifest.get("selection_policy") != "none" or split_sets["validation"] or
+                manifest.get("selection_sample_ids") != [] or shared_val_cal or
+                manifest.get("unknown_validation_labels") or "global_winner" in manifest or
+                "selected_representation" in manifest):
+            add("TEST_USED_FOR_SELECTION", "fixed no-selection requires empty validation/selection and no shared role/winner")
+        motors = manifest.get("motor_roles", {})
+        if set(motors) != {"train", "calibration", "test"} or len(set(motors.values())) != 3:
+            add("TEST_GROUP_LEAKAGE", "fixed protocol requires three distinct motor roles")
+        for split in ("train", "calibration", "test"):
+            assigned = set(sample_ids.get(split, ()))
+            if any(r.get("t_code") != motors.get(split) for r in manifest.get("records", ())
+                   if r.get("sample_id") in assigned):
+                add("TEST_GROUP_LEAKAGE", f"{split} record motor differs from fixed motor role")
+    elif not split_sets["validation"]:
+        add("TEST_NOT_REPRODUCIBLE", "legacy selection protocol requires validation; only explicit fixed v1 is N/A")
     for left_index, left in enumerate(SPLITS):
         for right in SPLITS[left_index + 1 :]:
             common = split_sets[left] & split_sets[right]
