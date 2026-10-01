@@ -4,6 +4,18 @@ from core.fault_type_accuracy import verify_redundancy, VIBRATION66, study_metri
 
 
 class AccuracyHelpersTests(unittest.TestCase):
+    def test_preregistered_budget_and_classifier_parameters(self):
+        from experiments.fault_type_accuracy_registry import ARMS, SCORES, classifier
+        self.assertEqual((len(ARMS)-1)*3*3*2+len(SCORES)*3*3,198)
+        hgb=classifier('hist_gradient',2,6).get_params()
+        self.assertIs(hgb['early_stopping'],False)
+        self.assertEqual(hgb['random_state'],2)
+        self.assertEqual(hgb['class_weight'],'balanced')
+        lda=classifier('shrinkage_lda',2,6).get_params()
+        self.assertEqual(lda['solver'],'lsqr')
+        self.assertEqual(lda['priors'],[1/6]*6)
+        self.assertIs(classifier('rbf_svm',2,6).get_params()['probability'],False)
+
     def test_fixed_66_mapping_and_train_relations(self):
         X = np.ones((5,105))
         self.assertEqual(len(VIBRATION66),66)

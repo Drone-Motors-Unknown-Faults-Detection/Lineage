@@ -1,0 +1,4 @@
+2026-10-01 20:59:27 | INFO    | Logger initialized: fault_type_accuracy_registry
+2026-10-01 20:59:27 | INFO    | log_file=logs\fault_type_accuracy_registry\2026-10-01-20-59-27.log
+2026-10-01 20:59:27 | INFO    | output_dir=output\fault_type_accuracy_registry\2026-10-01-20-59-27
+2026-10-01 20:59:27 | INFO    | registry=e705ca32f119b3cc2f7a9254e4263e22d56c0be0937ebe9d7d0ab1d7d9238869 expected198 new evaluations; no fit. Commit/push first. output=output\fault_type_accuracy_registry\2026-10-01-20-59-27
