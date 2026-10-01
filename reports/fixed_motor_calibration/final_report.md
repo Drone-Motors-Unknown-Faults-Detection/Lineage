@@ -103,7 +103,7 @@ T1/T2/T3是文件支持的不同馬達，T1新、T2/T3老；沒有序號不代�
 
 ## 6. 驗證、Git與artifact位置
 
-P0起始97a4434；P0 08aa1d5，P1 c24584b（協定先push），P2 414c30f（241tests雙runtime），fit checkpoint b1eec1b，P3 4044600，P4 341e763（244tests雙runtime）均非force push、remote SHA核對相符。P5含ZIP逐member校驗與最终完整驗收；實際SHA见execution_log與Git。
+P0起始97a4434；P0 08aa1d5，P1 c24584b（協定先push），P2 414c30f（241tests雙runtime），fit checkpoint b1eec1b，P3 4044600，P4 341e763（244tests雙runtime），P5 1b803a5（246tests雙runtime及完整ZIP校驗）均非force push、remote SHA核對相符。最後紀錄提交只補記交付SHA，不改程式或研究結果；獨立final研究驗證仍INCOMPLETE。
 
 最後完整驗收：`.\.venv310\Scripts\python.exe -m experiments.fault_type_fixed_acceptance`（3.10.19，19:41:26），`.\venv\Scripts\python.exe -m experiments.fault_type_fixed_acceptance`（3.14.6，19:41:37），**每環境246 tests PASS、0失敗，pip check與9 CLI help PASS**。共新增29tests；2個member-SHA tests驗證valid-CRC篡改也會拒絕。完整指令、Python套件版本、stdout/stderr、test count在各timestamp environment.json與command_1.txt；不宣稱其他runtime/OS或cross-runtime joblib相容。
 

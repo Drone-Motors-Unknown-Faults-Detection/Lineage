@@ -74,3 +74,6 @@
 - 最後再次唯讀掃描正式90CSV/28910/105D fingerprint相同。Git diff基線到HEAD的openset/Maha/monitor/fault_type_openset/Representation均空；282tracked deletions仍未stage。未修改正式default、PolarMap、binary與kNN factory。
 - P5只stage自身文件/新verifier/兩tests/驗收outputs/compact索引/log，不stageraw、formalCSV、largeZIP/joblib或別人的刪除。正常commit+push/remoteSHA核對；成功後追加實際SHA，不預填。
 - 完整備份核驗19:46:09–10，11ZIP/131members wholeSHA/CRC/memberSHA/length全部PASS；包含8個本輪新正式研究/驗收包與3個原稽核包。output/fault_type_fixed_delivery/2026-10-01-19-46-09/member_verification.json保存所有ZIP的SHA、bytes、source_root、member count。原三包wholeSHA仍與舊index一致；未extract/移動/刪除任何material資料。
+
+- P5 `1b803a595770263da8d8b024c3de7cb2e62e76c0` 已成功 commit/push；remote SHA與local一致。40個本輪相關檔案提交，未納入正式CSV、raw/大型ZIP、joblib或282個既有刪除。
+- 最後交付紀錄提交只補記上述已驗證SHA，不變更程式、模型、協定或指標；該紀錄提交的SHA以Git歷史及最終回覆為準，避免自我引用。
