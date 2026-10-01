@@ -166,3 +166,10 @@ class MahalanobisOpenSetDetector:
         labels = np.array([self.distributions_[index].label for index in indices], dtype=int)
         labels[np.min(normalized, axis=1) > 1.0] = -1
         return labels
+
+    def class_summaries(self) -> list[dict]:
+        """Return calibration metadata for the common Open Set detector API."""
+        return [
+            {"label": int(item.label), "threshold": float(item.threshold)}
+            for item in self.distributions_
+        ]

@@ -1,0 +1,9 @@
+comparison,metric,n_pairs,mean_difference,std_difference,knn_better_pairs,mahalanobis_better_pairs,ties
+knn_minus_mahalanobis,known_accuracy,27,-0.000531,0.042887,10,15,2
+knn_minus_mahalanobis,open_set_accuracy,27,-7e-06,0.000954,10,15,2
+knn_minus_mahalanobis,auroc,27,0.0,0.0,0,0,27
+knn_minus_mahalanobis,aupr_unknown_positive,27,0.0,0.0,0,0,27
+knn_minus_mahalanobis,fpr_at_tpr95,27,0.0,0.0,0,0,27
+knn_minus_mahalanobis,unknown_precision,27,-7e-06,0.000972,10,15,2
+knn_minus_mahalanobis,unknown_recall,27,0.0,0.0,0,0,27
+knn_minus_mahalanobis,unknown_f1,27,-3e-06,0.000487,10,15,2
