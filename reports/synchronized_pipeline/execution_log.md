@@ -105,3 +105,10 @@
 - P6b `aff0338bc3da703b3dec9e466e0a82bee2c06d65` commit/push 成功，ls-remote SHA 完全一致。43個相關檔案stage，0 raw/ZIP/joblib，282既有deletions保持unstaged。
 - 嘗試 `gh issue comment 9 --repo Drone-Motors-Unknown-Faults-Detection/Lineage --body-file reports/synchronized_pipeline/issue9_followup_20261001.md` 被 auto-review 拒絕：對GitHub issue外部發文的具體授權不足。命令未執行、留言未發布；不改走API/瀏覽器繞過。草稿已在P6b commit保存，若使用者明確授權issue發文再處理。
 - 最後交付bookkeeping僅更新本log與final report，不改程式/科學artifacts，使用Co-author footer後push研究分支並核對remote SHA。該commit自身SHA以Git歷史及最終對話回覆為準，避免為記錄自身SHA無限產生commit。
+
+## Issue9 — 使用者明確授權後發布
+
+- 使用者後續明確回覆「同意將這份研究摘要發布到 GitHub issue #9」。正常權限重試原 `gh issue comment 9 --repo Drone-Motors-Unknown-Faults-Detection/Lineage --body-file reports/synchronized_pipeline/issue9_followup_20261001.md`，exit0，沒有修改已批准的摘要內容。
+- 留言ID `5926198841`，建立時間 `2026-10-01T06:45:52Z`（Asia/Taipei 14:45:52）；URL：https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9#issuecomment-5926198841。
+- 唯讀 `gh api repos/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/comments/5926198841` exit0；只正規化CRLF/LF及尾端空白後，published body與本機批准稿完全一致。不重複發文。
+- 僅更新這份log與final report的交付狀態，程式/模型/資料/科學結果未變；diff --check及API內容比對為本次相稱驗證，不重跑研究。commit/push使用既有研究分支及Co-author；自身SHA以Git歷史及最終回覆為準。

@@ -180,9 +180,11 @@ Selection lock checksum：`bdf471c8e6f86223d61e8fb2c5f134156c01cc24de8148e84c59b
 
 各階段Co-authored-by Codex且push/remoteSHA一致。最終文件/驗收commit及issue9跟進記入execution_log，
 避免在尚未commit的文件預填自身SHA。未merge main、未新建PR；使用既有研究缺口issue9。
-本輪 issue9 外部留言被 auto-review 拒絕（具體發文授權不足），**沒有發布**；
-`issue9_followup_20261001.md` 是已保存草稿，不是已發布留言。需使用者明確批准後才能發文，沒有改走其他管道繞過。
-工程交付與研究分支push已完成，僅issue跟進待授權。最後bookkeeping commit自身SHA見Git歷史/最終對話回覆。
+首次 issue9 外部留言因具體發文授權不足被 auto-review 拒絕，當時沒有發布，亦未改走其他管道繞過。
+使用者後續明確同意發布已保存摘要；2026-10-01 14:45:52 Asia/Taipei 已成功發布
+[issue9 研究摘要](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9#issuecomment-5926198841)。
+唯讀 GitHub API 核對留言內容與 `issue9_followup_20261001.md` 一致（只正規化換行與尾端空白）。
+issue 跟進已完成，不更動程式、資料或研究結論。最後bookkeeping commit自身SHA見Git歷史/最終對話回覆。
 
 ## 9. 使用者真正需提供的最小資料與下一步
 
