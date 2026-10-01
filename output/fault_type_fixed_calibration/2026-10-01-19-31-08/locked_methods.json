@@ -1,0 +1,232 @@
+{
+  "code_head": "414c30f24c31bb7441432400862303040bea4e5c",
+  "dependency": {
+    "cross_fold_role_rotation": "allowed for fixed-method CV; not a global selector",
+    "folds": [
+      {
+        "effective_selection_test_overlap": 0,
+        "fold_id": "fixed-fold0",
+        "overlap_examples": [],
+        "overlap_ids_checksum": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "own_fold_selection_overlap": 0,
+        "test_count": 9294
+      },
+      {
+        "effective_selection_test_overlap": 0,
+        "fold_id": "fixed-fold1",
+        "overlap_examples": [],
+        "overlap_ids_checksum": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "own_fold_selection_overlap": 0,
+        "test_count": 9759
+      },
+      {
+        "effective_selection_test_overlap": 0,
+        "fold_id": "fixed-fold2",
+        "overlap_examples": [],
+        "overlap_ids_checksum": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "own_fold_selection_overlap": 0,
+        "test_count": 9857
+      }
+    ],
+    "historical_test_exposed": true,
+    "limitation": "No-ID-overlap is not proof of session, raw-window or acquisition independence.",
+    "selection_ids": 0,
+    "selection_ids_checksum": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "selector": "none",
+    "status": "NO_RECORDED_SELECTION_TEST_ID_OVERLAP"
+  },
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "exposure_ledger_checksum": "4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc",
+  "feature_version": "formal105_historical_v1_semantics_audited_20261001",
+  "fit_audit_artifact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fit_audits.json.gz",
+    "sha256": "d7a78e6d59d8ab808bf2b5048ff0bcb85f0b21bd28b92ab89c76f272d0a53204"
+  },
+  "fresh_final_test": false,
+  "known_labels": [
+    "8screws",
+    "1screws",
+    "2screws",
+    "3_14screws",
+    "3screws",
+    "4screws"
+  ],
+  "locked_checksum": "1ef5aaf7e57cc2492594700d2dc999aac83042e335f264bbc69ab9ade7bafa11",
+  "manifest_artifacts": [
+    {
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\manifests\\fixed-v1-7e15d3b0cbeabb523f80_1bbc605a31dc634d.json.gz",
+      "sha256": "0576471f67aa1095db7cf831ab506a2ae4ce5cc814dc4f7aeab20d8b8ff23bea"
+    },
+    {
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\manifests\\fixed-v1-59dc7388d0062efebc92_e6de00d97ee80d5a.json.gz",
+      "sha256": "b5aed12b706115d3656d696758d42d2005848f70b7254c7153342858412d4384"
+    },
+    {
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\manifests\\fixed-v1-358fa7555ac90c59eb51_c8d141c649736513.json.gz",
+      "sha256": "749d3f5f49aa2e8dcef31cc47b2aa29a454b65f2840b6c74da384a8d5ca2bfde"
+    }
+  ],
+  "protocol_checksum": "3b6cde9f5c19e627c0694f7488660b783228ae2354e96b8fa25b9dd1085edf1e",
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "shared_validation_calibration": false,
+  "status": "locked",
+  "training_artifacts": [
+    {
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold0_baseline105_seed0.joblib",
+      "representation": "baseline105",
+      "seed": 0,
+      "sha256": "e5530e8acbb8fc4ab5e7bc653d3276554d8445189df74a14e426962488ef7f6f"
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold0_vibration75_seed0.joblib",
+      "representation": "vibration75",
+      "seed": 0,
+      "sha256": "5511f93626a5f0bc274c1e2275a25741e4e36b492024694a2f5b8f57ee1569b3"
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold0_baseline105_seed1.joblib",
+      "representation": "baseline105",
+      "seed": 1,
+      "sha256": "48483284839169dcbe1fe32ee213af3324f80ec10aaba57cc882b12f3bf22f2b"
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold0_vibration75_seed1.joblib",
+      "representation": "vibration75",
+      "seed": 1,
+      "sha256": "5c94ae1582b87f167692bf52b8a13a49485339579ccd4de3bbf05babe5270fa6"
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold0_baseline105_seed2.joblib",
+      "representation": "baseline105",
+      "seed": 2,
+      "sha256": "4c5e4dd91af1888a1ea7454ca5ed7fd62335251327710acf0da1c23605412bbf"
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold0_vibration75_seed2.joblib",
+      "representation": "vibration75",
+      "seed": 2,
+      "sha256": "e4c3efb51bc184e27acc83fccc48eb00bcc0f34164935958cf7c27c4575f3cce"
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold1_baseline105_seed0.joblib",
+      "representation": "baseline105",
+      "seed": 0,
+      "sha256": "9341d028b0bbd529e62b9ad4d9d332dadbbf7201ed920bea6299d3b57a5e8e0a"
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold1_vibration75_seed0.joblib",
+      "representation": "vibration75",
+      "seed": 0,
+      "sha256": "b6590b66f843749ea999aa1861fe419893d12f664d35cdb8748ba2ea51a839b2"
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold1_baseline105_seed1.joblib",
+      "representation": "baseline105",
+      "seed": 1,
+      "sha256": "1bf65c3e2c4b971f8a86828918b8c60c355be9fd35a1a4bc3ff13d508625841f"
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold1_vibration75_seed1.joblib",
+      "representation": "vibration75",
+      "seed": 1,
+      "sha256": "f27c2bba7f725c4a181f0ddb393a9f51f0581ba858b77479969b9fd5af1bf9f7"
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold1_baseline105_seed2.joblib",
+      "representation": "baseline105",
+      "seed": 2,
+      "sha256": "d7a10ee82d85cfb3432445dddd459f913b360b4977607000b3326f51257ba9ae"
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold1_vibration75_seed2.joblib",
+      "representation": "vibration75",
+      "seed": 2,
+      "sha256": "26e667e365a72c6581986a1d61af23ca6d2a1bb4757fc317814e5e7e5092b565"
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold2_baseline105_seed0.joblib",
+      "representation": "baseline105",
+      "seed": 0,
+      "sha256": "a0290e06c432103d2fd3cab939dbf377e2eff6d235db3cba3020d871395d6fcc"
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold2_vibration75_seed0.joblib",
+      "representation": "vibration75",
+      "seed": 0,
+      "sha256": "765a3163a5cdea6ec625891d763e35b10eb4c71db7f3030c7548b4314ac5970e"
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold2_baseline105_seed1.joblib",
+      "representation": "baseline105",
+      "seed": 1,
+      "sha256": "8890328ed19dd2db9713101c886b617acd86f8f7668c54cc43ccec4e023bca75"
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold2_vibration75_seed1.joblib",
+      "representation": "vibration75",
+      "seed": 1,
+      "sha256": "8f7361f6d5e39daffde5f93be07ce541df6473df047fc75b785864586fd0721b"
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold2_baseline105_seed2.joblib",
+      "representation": "baseline105",
+      "seed": 2,
+      "sha256": "5e8cd27b1ad63da5aa3ad982fd50107d937d0d80d90c6d741a8e6e536a1f7ea2"
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08\\fixed-fold2_vibration75_seed2.joblib",
+      "representation": "vibration75",
+      "seed": 2,
+      "sha256": "5bd823c736622c06d0c8ef5777bb9de33a10e8807736a9e7a4f8a1e1efb830cc"
+    }
+  ],
+  "unknown_labels": [
+    "4_146screws",
+    "5screws",
+    "6screws",
+    "7screws"
+  ]
+}

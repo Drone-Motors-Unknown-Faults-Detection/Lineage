@@ -1,0 +1,4 @@
+2026-10-01 19:31:56 | INFO    | Logger initialized: fault_type_archive
+2026-10-01 19:31:56 | INFO    | log_file=logs\fault_type_archive\2026-10-01-19-31-56.log
+2026-10-01 19:31:56 | INFO    | output_dir=output\fault_type_archive\2026-10-01-19-31-56
+2026-10-01 19:31:58 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-01\fixed_motor_calibration\fault_type_2026-10-01-19-31-08.zip bytes=113656368 files=24

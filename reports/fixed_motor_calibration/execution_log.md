@@ -35,3 +35,11 @@
 - 19:26:43/54 的兩環境241測試有1個negative fixture失敗：第一列本來就是unknown，test寫成改為unknown等於未修改；不是檢查器放過真實篡改。修fixture使role必然相反，並加subTest。保存這兩次FAILED stdout，不冒充PASS；接續重新全套驗收。
 - 修fixture後19:28:20/31雙環境241tests PASS。之後再加入lock→labels/exposure與model→parameters/transform/threshold audit的綁定檢查，最終驗收為19:29:26/37，均241tests及pip check/6 CLI help PASS。24項新增測試（217→241）；無來源資料/正式預設變更。
 - 最新source-checked synthetic CLI smoke：Python3.10 `output/fault_type_fixed_smoke/2026-10-01-19-27-27/smoke_index.json`、Python3.14 `.../2026-10-01-19-27-38/smoke_index.json`，各36 engineering evaluations；直接新增完整suite亦每環境在自身interpreter內fit/load模型並36評估、重算SHA/指標和重跑決定性，不跨runtime載入joblib。
+
+- P2 `414c30f24c31bb7441432400862303040bea4e5c` commit/push，remote一致。正式資料fit始於此提交之後。
+
+## P3：現有正式資料的新探索性比較
+
+- Python3.10.19：19:31:08–19:31:38 fit 完成，18固定分類器/36detector模型；無validation/test features被fit入口load、無selector。output `fault_type_fixed_calibration/2026-10-01-19-31-08`。
+- 90來源檔案before/after SHA fingerprint相同；source_verification.json記錄。3 manifests 明列validation=[]，train/cal/test motor角色分開；INCOMPLETE保留。
+- locked_methods.json綁定模型/manifest/audit SHA、protocol SHA、程式HEAD與環境；fit_audits.json.gz約27.9MB、18joblib共約75MB屬大型衍生證據，以既有archive工具D槽新目錄保存，不放Github。封存模型lock及backup索引先提交，再評估。
