@@ -18,3 +18,13 @@
 - 分通道檔案沒有clock bridge則拒絕；不裁最短、不跨錄製、不插值。NaN／固定界限保留原index與per-channel原因，estimated quality model要求train-only audit。
 - 9項單元測試：邊界、壞點、clock、header、sample count、relative time、缺實測證據、決定論。
 - 初次Tab fixture因Windows文字寫入換行重複形成空行而失敗；修正fixture寫入newline，parser亦明確拒絕空行／多行／ragged rows避免虛構原行號。沒有放寬實際sample count條件。
+
+- P1 9tests PASS，`8e240d09f4d020ba79ac37c5e5ae34f68df876b5` push成功／remote一致。
+
+## P2 — 獨立105維版本
+
+- historical105保留已稽核公式版本；aligned_only只更換共同視窗來源；corrected_formulas獨立修正crest/clearance與零分母／退化moments；exact_nominal_rpm獨立改用configured RPM/60，不冒稱measured order tracking。
+- 每row綁rawSHA、actualcount、原[start,end)、原行號、quality/time evidence、feature_row_id與physical contract；manifest保存raw parser configs，可重讀核對而非只信declared count。
+- extractor四份程式SHA、settings、quality/window契約參與pipeline identity。未知physical可preview，但ingest／fresh仍阻擋；historical非finite特徵明確拒收，不改舊CSV。
+- 7tests PASS：historical數值reference、正弦幅度/DC/constant/負峰、axis隔離、只變宣告positions、sidecar與版本變化、FFT不足拒絕。常數legacy moment警告保留，corrected定義明確。
+- 獨立`.venv310`安裝進行中，原venv不改動。
