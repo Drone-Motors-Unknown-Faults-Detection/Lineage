@@ -1,0 +1,99 @@
+{
+  "archive_count": 9,
+  "archives": [
+    {
+      "bytes": 113656368,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-31-08.zip",
+      "sha256": "6f83539156d4e3c2da824a376cee86bb43ba261c7bc4c658d868e7b8c167efaf",
+      "source_files": 24,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-31-08",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 79953456,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-32-25.zip",
+      "sha256": "d91a81947b3f8a577da94b9bc86aa5ae0e40edd48d2618716bccdc0e49900590",
+      "source_files": 38,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-32-25",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 702576,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-34-14.zip",
+      "sha256": "52d11ebe397fa85217faec3c53cc6e5e983f6abb7517eed27c0fde54048f3028",
+      "source_files": 1,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_report\\2026-10-01-19-34-14",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 3762964,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-36-47.zip",
+      "sha256": "8253dee5e9a3ccb4f9ed1e2bc23a20cce72d5faec8a1739a331dcdf0cc2ca750",
+      "source_files": 6,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_diagnosis\\2026-10-01-19-36-47",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 27622,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-37-22.zip",
+      "sha256": "99db9c7c8b349c7d59336b29a0926e7acbba93320380bc8aed723bafab260ab5",
+      "source_files": 11,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_acceptance\\2026-10-01-19-37-22",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 27966,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-37-33.zip",
+      "sha256": "cb25fe99586c96dd129102bdfbf3d3be209ca90b99ee146431411794fbfa469f",
+      "source_files": 11,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_acceptance\\2026-10-01-19-37-33",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 58727,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\data_independence\\fault_type_2026-10-01-15-01-18.zip",
+      "sha256": "fbc18fc5c5e58949c372842add039b678d0f78390e372af2ce70c51723da5fba",
+      "source_files": 2,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_leakage_audit\\2026-10-01-15-01-18",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 21598,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\data_independence\\fault_type_2026-10-01-15-07-32.zip",
+      "sha256": "c322907fee2c424e5ef8c1125ca57524742d1a779395b8cc94f45c5519e9cce3",
+      "source_files": 7,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\synchronized_compatibility\\2026-10-01-15-07-32",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 21945,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-01\\data_independence\\fault_type_2026-10-01-15-08-51.zip",
+      "sha256": "c2a87a219a0d9d4bfa6a340a4835316d72a1bf75cfb9019801070afc2d6089e5",
+      "source_files": 7,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\synchronized_compatibility\\2026-10-01-15-08-51",
+      "whole_sha_status": "PASS"
+    }
+  ],
+  "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+  "source_files_removed": false,
+  "status": "PASS",
+  "verified_members": 107
+}
