@@ -1,0 +1,23 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-32-25.zip",
+      "sha256": "d91a81947b3f8a577da94b9bc86aa5ae0e40edd48d2618716bccdc0e49900590",
+      "bytes": 79953456,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_calibration\\2026-10-01-19-32-25",
+      "source_files": 38,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-01\\fixed_motor_calibration\\fault_type_2026-10-01-19-34-14.zip",
+      "sha256": "52d11ebe397fa85217faec3c53cc6e5e983f6abb7517eed27c0fde54048f3028",
+      "bytes": 702576,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_report\\2026-10-01-19-34-14",
+      "source_files": 1,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

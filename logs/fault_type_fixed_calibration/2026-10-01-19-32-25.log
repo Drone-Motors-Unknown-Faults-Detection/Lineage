@@ -1,0 +1,4 @@
+2026-10-01 19:32:25 | INFO    | Logger initialized: fault_type_fixed_calibration
+2026-10-01 19:32:25 | INFO    | log_file=logs\fault_type_fixed_calibration\2026-10-01-19-32-25.log
+2026-10-01 19:32:25 | INFO    | output_dir=output\fault_type_fixed_calibration\2026-10-01-19-32-25
+2026-10-01 19:33:43 | INFO    | 36 paired exploratory evaluations complete; no fresh claim

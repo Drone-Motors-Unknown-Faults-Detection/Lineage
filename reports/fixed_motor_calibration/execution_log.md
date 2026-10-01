@@ -43,3 +43,10 @@
 - Python3.10.19：19:31:08–19:31:38 fit 完成，18固定分類器/36detector模型；無validation/test features被fit入口load、無selector。output `fault_type_fixed_calibration/2026-10-01-19-31-08`。
 - 90來源檔案before/after SHA fingerprint相同；source_verification.json記錄。3 manifests 明列validation=[]，train/cal/test motor角色分開；INCOMPLETE保留。
 - locked_methods.json綁定模型/manifest/audit SHA、protocol SHA、程式HEAD與環境；fit_audits.json.gz約27.9MB、18joblib共約75MB屬大型衍生證據，以既有archive工具D槽新目錄保存，不放Github。封存模型lock及backup索引先提交，再評估。
+- fit checkpoint `b1eec1b2a3c110b05108570617a6d15cdd28a96a` commit/push remote一致；只有lock/來源校驗/113656368-byte ZIP索引/log，不提交joblib或raw。fit ZIP24files/CRC/wholeSHA通過。
+- 19:32:25–19:33:43 真實正式資料探索性 evaluate 完成36/36，0失敗。18classifier共享，每樣本12次predict；346920 records但unique test IDs仍28910，不是346920獨立受試。code實作SHA为414c30f，執行當時HEAD为文件/lock checkpoint b1eec1b。
+- evaluator `output/fault_type_fixed_calibration/2026-10-01-19-32-25/evaluation_report.json`與36 gzip predictions，來源before/after fingerprint不變。T3/T1/T2 test rows9294/9759/9857；known5604/5935/6007；unknown3690/3824/3850。
+- 19:34:14–19:34:51 reporter完成36runs/346920rows SHA、IDs/truth/score/threshold/metrics/RPM、配對及12歷史對照；`output/fault_type_fixed_report/2026-10-01-19-34-14/verified_results.json`。
+- 每固定method/motor的3seeds預測值完全相同；seed SD0是決定性演算法結果，不是motor母體不確定性為0。沒有method winner；descriptor只有各motor及平均/範圍。
+- 與原同N5同fold同fit/cal方法相比12配對所有classifier/reject變動0，score最大絕對差0、accuracy/recall差0。本輪取消globalselector/shared選参角色改变解釋與流程，不必然改變同樣fit/cal的分數。
+- T1四方法unknown recall0、healthyFPR0。維持失敗，不重新挑seed/threshold，未重跑126 combinations或2490舊run。
