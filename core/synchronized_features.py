@@ -8,10 +8,11 @@ from __future__ import annotations
 from pathlib import Path
 import numpy as np
 import pandas as pd
+import scipy
 from core.synchronized_raw import CHANNELS, read_recording, audit_timebase, quality_mask, make_windows
 from core.fault_type_feature_contract import FEATURE_VERSION, reference_statistics
 from core.formal_data import FEATURE_NAMES, BASE_FREQUENCY, HARMONIC_BANDWIDTHS, _sha256_file
-from core.fault_type_final_guard import digest, seal
+from core.fault_type_final_guard import digest, seal, numeric_row_digest
 from core.fault_type_provenance import save_json
 
 VARIANTS = ("historical105", "aligned_only", "corrected_formulas", "exact_nominal_rpm")
@@ -23,10 +24,11 @@ def version_registry(settings: dict) -> dict:
     source = {name: _sha256_file(Path(__file__).with_name(name)) for name in
               ("synchronized_features.py", "synchronized_raw.py", "fault_type_feature_contract.py", "formal_data.py")}
     code_sha = digest(source)
-    pipeline_id = digest({"extractor": code_sha, "settings": settings})
+    environment={"numpy":np.__version__,"scipy":scipy.__version__}
+    pipeline_id = digest({"extractor": code_sha, "settings": settings,"numerical_environment":environment})
     return {"variant": variant, "feature_version": FEATURE_VERSION if variant == "historical105" else f"aligned105_{variant}_{pipeline_id[:16]}",
         "pipeline_id": pipeline_id, "extractor_sha256": code_sha, "source_checksums": source,
-        "settings_checksum": digest(settings), "settings": settings, "columns": FEATURE_NAMES,
+        "settings_checksum": digest(settings), "settings": settings, "columns": FEATURE_NAMES,"numerical_environment":environment,
         "semantics": {"statistics": "legacy" if variant != "corrected_formulas" else "maxabs crest; squared-mean-sqrt clearance; degenerate moments/ratios zero",
             "frequency": "configured RPM/60 (NOT measured)" if variant == "exact_nominal_rpm" else "historical integer100/133/183 Hz",
             "fft": "2*abs(FFT)/n, no detrending/window function; first n//2 bins; declared harmonic bandwidths",
@@ -73,6 +75,8 @@ def generate(recordings: list[tuple[Path,dict]], *, settings: dict, output: Path
     if incoming_root not in output.parents: raise ValueError("output must be within explicit incoming-root; raw never copied")
     output.mkdir(parents=True, exist_ok=True)
     if (output/"features.csv").exists(): raise ValueError("refuse feature overwrite")
+    if not recordings: raise ValueError("at least one independent recording required")
+    settings={**settings,**{key:settings.get(key,recordings[0][1][key]) for key in ("quality","windows")}}
     registry = version_registry(settings)
     rows, vectors, rejected, audits = [], [], [], []
     contracts, raw_configs = [], []
@@ -92,7 +96,7 @@ def generate(recordings: list[tuple[Path,dict]], *, settings: dict, output: Path
             row = {**window.metadata, **{k:cfg.get(k) for k in ("recording_id","motor_id","session_id","run_id","label","rpm","acquisition_timestamp","attestation")},
                 "row_index":len(vectors), "raw_source_file":raw.path.relative_to(incoming_root).as_posix(),
                 "fs_evidence":audit.summary["fs_evidence"], "alignment_evidence":audit.summary["alignment_evidence"],
-                "feature_row_id":digest([window.window_id,registry["pipeline_id"],vector.tolist()]),
+                "feature_row_id":digest([window.window_id,registry["pipeline_id"],numeric_row_digest(vector)]),
                 "physical_contract":cfg.get("physical_contract",{})}
             vectors.append(vector); rows.append(row)
     if not vectors: raise ValueError("no eligible feature windows; inspect quality/time/degenerate semantics")

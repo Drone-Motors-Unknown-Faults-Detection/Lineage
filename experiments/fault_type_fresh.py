@@ -19,6 +19,17 @@ from core.fault_type_provenance import save_json
 from core.logger import setup_run
 from experiments.fault_type_controlled_eval import paired_predictions
 
+BASELINE_EXPOSURE_CHECKSUM="4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc"
+
+
+def validate_history_scope(bundle,locked,ledger_path):
+    if not bundle["synthetic"]:
+        if locked.get("canonical_ledger_path") != str(ledger_path.resolve()):
+            raise FinalTestBlocked("real locked protocol must bind one canonical ledger path; changing files cannot reset exposure")
+        genesis=ledger_path.with_name(ledger_path.name+".history")/"00000000.json"
+        if json.loads(genesis.read_text(encoding="utf-8")).get("ledger_checksum") != BASELINE_EXPOSURE_CHECKSUM:
+            raise FinalTestBlocked("real history must extend the verified28910-row historical exposure, not an empty replacement ledger")
+
 
 def run(pools, *, manifest, registry, locked, artifact_root, ledger_path, claim, evaluation_id,
         action="validate", receipt=None, output=None):
@@ -26,6 +37,7 @@ def run(pools, *, manifest, registry, locked, artifact_root, ledger_path, claim,
     bundle=prepare_bundle(root,manifest,registry)
     fitted,manifests=load_models(locked,artifact_root,bundle)
     ledger=durable_exposure.read(ledger_path)
+    validate_history_scope(bundle,locked,ledger_path)
     if action == "resume":
         qualification=durable_exposure.validate_resume(ledger_path,receipt,bundle,locked,evaluation_id=evaluation_id,claim=claim)
     else: qualification=guard_final_test(bundle,ledger,locked,claim=claim)
@@ -48,7 +60,7 @@ def run(pools, *, manifest, registry, locked, artifact_root, ledger_path, claim,
                 path=output/f"{run_id}_predictions.jsonl.gz"; path.write_bytes(packed)
                 next(r for r in result["runs"] if r["run_id"]==run_id)["prediction_artifact"]={"path":str(path.resolve()),"sha256":hashlib.sha256(packed).hexdigest(),"rows":len(rows)}
             result.update(status="EXECUTION_COMPLETE",evaluation_id=evaluation_id,synthetic_engineering=bundle["synthetic"],
-                final_independent_validation_completed=not bundle["synthetic"] and action=="evaluate",
+                final_independent_validation_completed=not bundle["synthetic"],fresh_evaluation_started_this_invocation=action=="evaluate",
                 model_reliability="NOT_ESTABLISHED",environment={"python":platform.python_version(),"sklearn":sklearn.__version__},
                 limitations=["Hardware facts remain externally attested.","Eligibility/execution/performance are separate; synthetic scores are not motor evidence.",
                              "Repeated folds share incoming samples; no independent sample multiplication."])
@@ -76,7 +88,10 @@ def main():
             if not args.seed_ledger: p.error("init-ledger requires --seed-ledger")
             data=args.seed_ledger.read_bytes()
             if args.seed_ledger.suffix==".gz": data=gzip.decompress(data)
-            durable_exposure.initialize(args.ledger,json.loads(data)); result={"status":"LEDGER_INITIALIZED_NO_PREDICTION"}
+            seed=json.loads(data)
+            if seed.get("ledger_checksum")!=BASELINE_EXPOSURE_CHECKSUM and seed.get("evidence")!=["synthetic empty history"]:
+                raise FinalTestBlocked("initialize requires verified historical seed or explicitly synthetic fixture seed")
+            durable_exposure.initialize(args.ledger,seed); result={"status":"LEDGER_INITIALIZED_NO_PREDICTION"}
         elif args.action == "recover-ledger":
             head=durable_exposure.recover(args.ledger); result={"status":"HEAD_RECOVERED_EXPOSURE_RETAINED","ledger_checksum":head["ledger_checksum"]}
         elif args.action == "receipt":

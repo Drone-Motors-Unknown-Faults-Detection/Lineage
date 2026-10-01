@@ -9,9 +9,9 @@ from pathlib import Path
 from unittest.mock import patch
 from core import durable_exposure as durable
 from core.fault_type_final_guard import seal,FinalTestBlocked
-from core.fresh_data import prepare_bundle,IncomingStore,load_models
+from core.fresh_data import prepare_bundle,IncomingStore,load_models,validate_physical_contract
 from experiments.synchronized_fixture import run as make_fixture
-from experiments.fault_type_fresh import run
+from experiments.fault_type_fresh import run,validate_history_scope
 from test_fault_type_final_guard import fixture
 
 
@@ -72,6 +72,13 @@ class FreshTests(unittest.TestCase):
         for key,value in [("fresh_protocol","other"),("column_order",[]),("minimum_test_groups_per_class",1),("serialization_environment",{})]:
             c=copy.deepcopy(self.c); c[key]=value
             with self.assertRaises(FinalTestBlocked): load_models(seal(c,"locked_checksum"),self.root/"models",self.bundle)
+    def test_real_canonical_path_and_empty_seed_cannot_reset_history(self):
+        folder,path=self.setup_run("real-history")
+        with self.assertRaises(FinalTestBlocked): validate_history_scope({"synthetic":False},self.c,path)
+        with self.assertRaises(FinalTestBlocked): validate_history_scope({"synthetic":False},{"canonical_ledger_path":str(path.resolve())},path)
+    def test_documented_or_unknown_physical_strings_not_verified(self):
+        for value in ["unknown",{"value":"documented axis","level":"documented","reference":"paper"},{"value":"unknown","level":"operator_attested","reference":"operator"}]:
+            with self.assertRaises(FinalTestBlocked): validate_physical_contract({k:value for k in ["sensor_units","orientation","calibration","mounting","load"]},synthetic=False)
     def test_sha_and_missing_physical_block_before_load(self):
         with patch("core.fresh_data._sha256_file",return_value="changed"):
             with self.assertRaises(FinalTestBlocked): load_models(self.c,self.root/"models",self.bundle)
@@ -81,6 +88,9 @@ class FreshTests(unittest.TestCase):
         m=copy.deepcopy(self.m); m["raw_recordings"][0]["config"]["raw_sample_count"]+=1
         with self.assertRaises(ValueError): prepare_bundle(self.root,seal(m,"manifest_checksum"),self.r)
         m=copy.deepcopy(self.m); m["synthetic"]=False
+        with self.assertRaises(FinalTestBlocked): prepare_bundle(self.root,seal(m,"manifest_checksum"),self.r)
+    def test_missing_row_mapping_reject(self):
+        m=copy.deepcopy(self.m); m["feature_files"][0]["windows"][0].pop("feature_row_id")
         with self.assertRaises(FinalTestBlocked): prepare_bundle(self.root,seal(m,"manifest_checksum"),self.r)
     def test_persist_failure_no_prediction(self):
         folder,path=self.setup_run("persist")

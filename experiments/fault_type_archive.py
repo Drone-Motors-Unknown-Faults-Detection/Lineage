@@ -75,7 +75,8 @@ def run(pools, *, destination: Path, paths, log) -> dict:
             "source_root": str(root), "source_files": len(entries), "crc_status": "PASS"}
         manifests.append(result)
         log.info("verified archive {} bytes={} files={}", archive, result["bytes"], len(entries))
-    index = {"archives": manifests, "source_files_removed": False, "contains_raw_data": False}
+    index = {"archives": manifests, "source_files_removed": False, "contains_raw_data": False,
+             "contains_synthetic_raw_fixtures": any((root / "fixture_index.json").is_file() for root in roots)}
     (paths.output_dir / "archive_index.json").write_text(json.dumps(index, indent=2), encoding="utf-8")
     return index
 

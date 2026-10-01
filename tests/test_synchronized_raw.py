@@ -69,6 +69,12 @@ class RawTests(unittest.TestCase):
         self.assertEqual(quality_mask(r,{}).reasons["nonfinite"],[[5,2]])
         r.sample_indices[8:]+=1
         self.assertIn(7,audit_timebase(r).summary["bad_edge_indices"])
+    def test_saturation_and_fixed_offset_are_quality_not_fault(self):
+        r=self.read(); q=quality_mask(r,{"saturation_bounds":{"x":[-1,.5]}})
+        self.assertEqual(q.reasons["saturation"][0],[0,1])
+        q=quality_mask(r,{"window_mean_bounds":{"x":[-.1,.1]}})
+        w,b=make_windows(r,audit_timebase(r),q,self.cfg["windows"])
+        self.assertFalse(w); self.assertIn("window_mean_offset:x",b[0]["reasons"])
     def test_tab_header_explicit(self):
         self.path.write_text("preamble\n"+self.frame.to_csv(index=False,sep="\t"),encoding="utf-8",newline="")
         self.cfg["parser"].update(delimiter="\t",header_row_0_based=1)

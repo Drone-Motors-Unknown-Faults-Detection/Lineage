@@ -5,7 +5,7 @@ No legacy code is imported; physical claims remain attested, not authenticated.
 Separate channel files are deliberately unsupported without a clock bridge.
 """
 from __future__ import annotations
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 import csv
 import numpy as np
@@ -39,6 +39,7 @@ class QualityMask:
     bad: np.ndarray
     reasons: dict
     config_checksum: str
+    window_mean_bounds: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -51,6 +52,8 @@ class AlignedWindow:
 
 def read_recording(path: Path | str, config: dict) -> RawRecording:
     path = Path(path).resolve()
+    count=config.get("raw_sample_count")
+    if isinstance(count,bool) or not isinstance(count,int) or count<=0: raise ValueError("raw_sample_count must be a positive integer")
     parser = config["parser"]
     if parser.get("layout") != "single_file_shared_rows":
         raise ValueError("separate-channel files require a verified clock/offset bridge; truncation is forbidden")
@@ -94,7 +97,7 @@ def read_recording(path: Path | str, config: dict) -> RawRecording:
             raise ValueError("time field meaning must be confirmed; X_Value is not assumed time")
         timestamps = pd.to_numeric(frame[time_col], errors="raise").to_numpy(float)
     for key in ("recording_id", "motor_id", "session_id", "run_id"):
-        if not config.get(key):
+        if not isinstance(config.get(key),str) or not config[key].strip():
             raise ValueError(f"missing recording identity: {key}")
     return RawRecording(path, _sha256_file(path), config, np.column_stack(columns), indices,
                         timestamps, np.arange(len(frame)) + header + 2)
@@ -103,7 +106,7 @@ def read_recording(path: Path | str, config: dict) -> RawRecording:
 def audit_timebase(recording: RawRecording, *, relative_tolerance: float = .001) -> TimebaseAudit:
     cfg = recording.config
     fs = cfg.get("sample_rate_hz")
-    if fs is not None and (not np.isfinite(fs) or fs <= 0):
+    if fs is not None and (isinstance(fs,bool) or not np.isfinite(fs) or fs <= 0):
         raise ValueError("invalid sample rate")
     index_edges = np.diff(recording.sample_indices)
     bad = index_edges != 1
@@ -137,15 +140,16 @@ def audit_timebase(recording: RawRecording, *, relative_tolerance: float = .001)
 def quality_mask(recording: RawRecording, config: dict, *, trained_quality_model: dict | None = None) -> QualityMask:
     x = recording.values
     reasons = {"nonfinite": ~np.isfinite(x)}
-    bounds = config.get("absolute_bounds", {})
-    bound_bad = np.zeros(x.shape, bool)
-    for j, name in enumerate(CHANNELS):
-        if name in bounds:
-            lower, upper = bounds[name]
-            if lower >= upper:
-                raise ValueError("invalid configured absolute bound")
-            bound_bad[:, j] = (x[:, j] < lower) | (x[:, j] > upper)
-    reasons["fixed_bounds"] = bound_bad
+    for option,reason in (("absolute_bounds","fixed_bounds"),("saturation_bounds","saturation")):
+        bounds = config.get(option, {})
+        bound_bad = np.zeros(x.shape, bool)
+        for j, name in enumerate(CHANNELS):
+            if name in bounds:
+                lower, upper = bounds[name]
+                if not np.isfinite([lower,upper]).all() or lower >= upper:
+                    raise ValueError("invalid configured absolute bound")
+                bound_bad[:, j] = (x[:, j] < lower) | (x[:, j] > upper)
+        reasons[reason] = bound_bad
     if trained_quality_model is not None:
         if trained_quality_model.get("fit_partition") != "train" or not trained_quality_model.get("fit_ids"):
             raise ValueError("estimated quality thresholds require train-only fit audit")
@@ -156,7 +160,7 @@ def quality_mask(recording: RawRecording, config: dict, *, trained_quality_model
         reasons["train_fitted_bounds"] = (x < lower) | (x > upper)
     bad = np.logical_or.reduce(list(reasons.values()))
     return QualityMask(bad, {name: np.argwhere(mask).tolist() for name, mask in reasons.items()},
-                       digest({"rules": config, "trained_quality_model": trained_quality_model}))
+                       digest({"rules": config, "trained_quality_model": trained_quality_model}),config.get("window_mean_bounds",{}))
 
 
 def make_windows(recording: RawRecording, audit: TimebaseAudit, quality: QualityMask, settings: dict) -> tuple[list[AlignedWindow], list[dict]]:
@@ -171,6 +175,12 @@ def make_windows(recording: RawRecording, audit: TimebaseAudit, quality: Quality
         reason = []
         if np.any(audit.bad_edges[start:end-1]): reason.append("time_gap_or_clock_error")
         if np.any(quality.bad[start:end]): reason.append("bad_point")
+        for j,name in enumerate(CHANNELS):
+            if name in quality.window_mean_bounds:
+                lower,upper=quality.window_mean_bounds[name]
+                if not np.isfinite([lower,upper]).all() or lower>=upper: raise ValueError("invalid fixed mean-offset bounds")
+                mean=np.mean(recording.values[start:end,j])
+                if np.isfinite(mean) and not lower<=mean<=upper: reason.append(f"window_mean_offset:{name}")
         window_id = digest([recording.sha256, recording.config["recording_id"], start, end, settings, quality.config_checksum])
         meta = {"window_id": window_id, "source_interval": [start, end], "sample_index_first": int(recording.sample_indices[start]),
             "original_line_first_1_based": int(recording.original_lines_1_based[start]),
@@ -178,6 +188,7 @@ def make_windows(recording: RawRecording, audit: TimebaseAudit, quality: Quality
             "physical_time_alignment_verified": audit.summary["physical_time_alignment_verified"],
             "sample_rate_hz": audit.summary["fs_hz"], "time_scope": audit.summary["time_scope"],
             "relative_start_seconds": float(recording.timestamps[start]) if recording.timestamps is not None and np.isfinite(recording.timestamps[start]) else start/audit.summary["fs_hz"] if audit.summary["physical_time_alignment_verified"] else None,
+            "relative_end_seconds": (float(recording.timestamps[end-1])+1/audit.summary["fs_hz"] if recording.timestamps is not None else end/audit.summary["fs_hz"]) if audit.summary["physical_time_alignment_verified"] else None,
             "quality_checksum": quality.config_checksum, "window_settings": settings, "bad_point_count": int(quality.bad[start:end].sum()),
             "synthetic": bool(recording.config.get("synthetic"))}
         if reason: rejected.append({**meta, "reasons": reason})

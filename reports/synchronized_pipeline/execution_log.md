@@ -77,3 +77,15 @@
 - 選定vibration75 accuracy29.6306→34.1532%、BA29.7372→34.5029%、F1.262007→.302791；MahaAUROC.531118→.574588、recall15.0702→18.4367%。三fold分類均提高，但T1 unknown recall仍0。
 - kNN healthyFPR.2822→.7407%，unknown recall仍5.4526%；PCA test AUROC較高但沒有依test改選PCA。所有候選與motor/RPM/config strata保留，production不換。
 - 原105baseline本輪新3.10 fit數值與上一輪此固定組合一致，非全量／跨pickle相容保證。
+
+- P5c `ec469826a126dd3a601a1d07869ac2a284d94386` push/remote一致。
+
+## P6a — 最終邊界稽核／加強
+
+- Real lock必須綁一個canonical ledger path，genesis須為已驗證4cb30f0...歷史ledger，避免另建空檔抹除曝光；synthetic seed明確隔離。新增測試。
+- Physical contract非空字串unknown不是證據：真實五項都要求value/attested-level/reference；documented不能替代。Sidecar時間/index/quality/window ID/feature-row ID重新核對，少mapping直接拒絕。
+- 修正API僅傳variant時quality/window沒有進version identity的缺口：生成器從config綁設定並檢查每錄製一致；numpy/scipy亦入pipeline identity。固定saturation／mean-offset原因、relative_end_time與strict count/id type補齊，不fit final閾值。
+- 上述是工程版本改進，不重寫baseline。舊synthetic fixture版本保留，產生新的08:46:08 fixture，不能用改版code偽裝舊extractor。
+- Full suite Python3.10.19與3.14.6各204tests PASS（08:46:12、08:46:44）；原venv維持。Raw→corrected feature CLI08:48:53五windows完成；fresh synthetic evaluate08:48:55及resume08:50:35各6runs完成、只有1ledger exposure，real final=false。
+- Raw schema／未填事實模板與執行範例完成。兩次無效文件patch因多餘空hunk被工具拒絕，未修改檔案；修正後成功，不繞過工具或权限。
+- Archive index顯式標明synthetic raw fixtures，沒有真實DAQ／私人repo資料。接續backup及原2490 artifacts逐byte核對，不重跑研究。

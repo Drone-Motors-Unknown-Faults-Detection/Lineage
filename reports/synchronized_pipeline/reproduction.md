@@ -15,6 +15,11 @@ operator_attested/file_verified須有真實證據引用；fixture_attested永遠
 quality固定absolute_bounds（單位對應），windows正整数length/stride、gap_rule=reject、bad_point_rule=reject。
 目前拒絕多行CSV記錄、空行、ragged rows與分檔channel，避免假原index／沒有clock bridge卻truncate。
 quality不是motor故障標籤；不刪點、不補零、不插值、不跨recording。
+機器可讀格式見docs/synchronized_raw_schema.json，人工填寫起點見examples/raw_config.template.json。
+模板null必須依真實檔案／操作者事實填寫，不能直接當完成採集；serial/hours可保留null。
+正式physical_contract五項須各為`{value:..., level:operator_attested或file_verified, reference:...}`，
+literal unknown、僅documented或沒有引用皆阻擋。這是外部attestation資格，不是電腦替硬體驗證。
+quality亦可固定saturation_bounds與window_mean_bounds記錄saturation/DC offset原因，不由final全檔估計。
 
 ```powershell
 $env:PYTHONIOENCODING='utf-8'
@@ -31,6 +36,8 @@ corrected_formulas只修crest/clearance與degenerate moments，exact_nominal_rpm
 105順序Current15/X25/Y25/Z25/Delta_T15；scaling 2|FFT|/n、無detrending/window、10諧波既有bandwidth，
 頻率bin不足直接拒絕，不聲稱真正order tracking。每row保留rawSHA/interval/time/quality與physical契約。
 version registry綁extractor四份程式SHA/settings；新features不寫入formal_local。
+Quality/window設定由raw config納入版本；數值numpy/scipy版本亦綁定pipeline ID。
+feature_row_id與window時間／原index／quality sidecar會在fresh preflight重算核對，不只看有沒有欄位。
 
 ## 可複製synthetic工程端到端
 
@@ -49,7 +56,9 @@ $eval=(Get-ChildItem output/fault_type_fresh -Directory | Sort-Object Name | Sel
 fixture為300非重疊windows、10labels、2synthetic groups、3RPM，模型只fit獨立synthetic known train/cal。
 不是三顆新真實馬達，不代表任何真实健康／故障效能。N5三fold是CLI v1明確範圍，其餘拒絕。
 真實canonical ledger應在長期可寫local disk（例如D槽artifacts），初始歷史使用先前exposure ledger。
-不得換一個空ledger繞過歷史。現行歷史model lock沒有training physical契約，fresh CLI會拒絕，
+不得換一個空ledger繞過歷史。真實lock必須綁定canonical_ledger_path，genesis必須為已驗證的
+4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc歷史ledger；CLI拒絕空白真實seed。
+Synthetic可用明確fixture seed，報告永遠不是real final。現行歷史model lock沒有training physical契約，fresh CLI會拒絕，
 必須用可追溯新train/val/cal或獨立bridge預先重訓鎖定；final不能用作bridge。
 joblib只從使用者明確信任的本機產物root載入，checksum不是pickle安全保證。
 跨Python/sklearn直接拒絕，對應環境重新訓練。
@@ -64,6 +73,8 @@ Windows文件fsync＋local atomic replace，無可攜directory fsync；不保證
 journal已寫而head未完成會block；recover-ledger只前推head保留曝光，不删除history。
 receipt可由`receipt --ledger ... --evaluation-id ...`取回，resume必須相同bundle/lock/claim/evaluation ID。
 qualification／EXECUTION_COMPLETE／model_reliability分開；eligible不等於可靠性PASS。
+resume仍是同一已登錄評估，fresh_evaluation_started_this_invocation=false；若真實且原資格成立，
+成功resume可完成該次final execution，不能重新稱一批fresh資料。Synthetic永遠real final=false。
 舊`fault_type_controlled_eval --exploratory`保持相容；舊fresh API因缺raw/physical preflight改為拒絕。
 
 最少需真實一份未刪點未切窗raw及上述確認欄位；一份parser樣例不等於final coverage。

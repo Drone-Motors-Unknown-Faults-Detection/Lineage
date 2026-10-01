@@ -43,7 +43,17 @@ def model_contract_checksum(model):
                      "knn":{"confidence":knn.confidence,"k":knn.n_neighbors}}})
 
 
+def validate_physical_contract(contract, *, synthetic):
+    for key in ("sensor_units","orientation","calibration","mounting","load"):
+        fact=contract.get(key)
+        if synthetic:
+            if not isinstance(fact,str) or not fact.startswith("fixture_attested:"): raise FinalTestBlocked("synthetic physical fields must explicitly say fixture_attested")
+        elif not isinstance(fact,dict) or fact.get("level") not in {"operator_attested","file_verified"} or not isinstance(fact.get("reference"),str) or not fact["reference"].strip() or not fact.get("value") or str(fact["value"]).lower() in {"unknown","null","n/a","tbd"}:
+            raise FinalTestBlocked(f"physical fact {key} missing/unknown/documented only; actual attestation/reference required")
+
+
 def prepare_bundle(root: Path, manifest: dict, registry: dict):
+    validate_physical_contract(manifest.get("physical_contract",{}),synthetic=bool(manifest.get("synthetic")))
     if manifest.get("schema_version") != 2 or not manifest.get("raw_recordings"): raise FinalTestBlocked("fresh requires raw parser/count/window verification schema2")
     actual_registry=version_registry(registry["settings"])
     if actual_registry != registry or manifest.get("pipeline_id") != registry["pipeline_id"]: raise FinalTestBlocked("extractor/settings version mismatch")
@@ -72,12 +82,14 @@ def prepare_bundle(root: Path, manifest: dict, registry: dict):
         recording,windows=raw_by_sha[row["raw_source_sha256"]]
         interval=tuple(row["source_interval"])
         if interval not in windows or row["raw_sample_count"] != len(recording.values): raise FinalTestBlocked("window metadata/count not in actual raw audit")
+        if any(row.get(key)!=value for key,value in windows[interval].metadata.items()): raise FinalTestBlocked("sidecar time/index/quality mapping differs from raw audit")
         for key in ("motor_id","session_id","run_id","label","rpm","acquisition_timestamp","attestation"):
             if row[key] != recording.config.get(key): raise FinalTestBlocked("row acquisition identity differs from raw contract")
         if row["sample_rate_hz"] != recording.config["sample_rate_hz"] or row["synthetic"] != bool(recording.config.get("synthetic")):
             raise FinalTestBlocked("window rate/synthetic scope differs from actual raw parser audit")
         expected=extract_window(windows[interval].values,fs=recording.config["sample_rate_hz"],rpm=row["rpm"],settings=registry["settings"])
         if not np.allclose(expected,vector,rtol=1e-10,atol=1e-10): raise FinalTestBlocked("raw→feature values do not reproduce")
+        if row.get("feature_row_id")!=digest([windows[interval].window_id,registry["pipeline_id"],numeric_row_digest(expected)]): raise FinalTestBlocked("feature row ID mapping mismatch")
     # Bind provenance distinctions omitted by historical schema1 ingest.
     from core.fault_type_final_guard import seal
     return seal({**bundle,"synthetic":bool(manifest.get("synthetic")),"pipeline_id":manifest["pipeline_id"],"column_order":FEATURE_NAMES},"data_version_checksum")

@@ -50,6 +50,7 @@ class FeatureTests(unittest.TestCase):
             row=result["manifest"]["feature_files"][0]["windows"][0]
             self.assertEqual(row["source_interval"],[0,10000]); self.assertEqual(row["raw_source_sha256"],read_recording(path,cfg).sha256)
             self.assertEqual(len(result["registry"]["columns"]),105)
+            self.assertEqual(result["registry"]["settings"]["windows"],cfg["windows"])
     def test_invalid_fft_and_fs_reject(self):
         with self.assertRaises(ValueError): extract_window(self.x,fs=8000,rpm="6000rpm",settings=self.settings)
         with self.assertRaises(ValueError): extract_window(self.x[:2],fs=10000,rpm="6000rpm",settings={"variant":"aligned_only"})

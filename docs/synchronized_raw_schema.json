@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lineage raw recording v1 (physical unknowns allowed for preview only)",
+  "type": "object",
+  "required": ["recording_id", "motor_id", "session_id", "run_id", "raw_sample_count", "parser", "quality", "windows"],
+  "properties": {
+    "recording_id": {"type": "string", "minLength": 1}, "motor_id": {"type": "string", "minLength": 1},
+    "session_id": {"type": "string", "minLength": 1}, "run_id": {"type": "string", "minLength": 1},
+    "raw_sample_count": {"type": "integer", "minimum": 1},
+    "sample_rate_hz": {"type": ["number", "null"], "exclusiveMinimum": 0}, "synthetic": {"type": "boolean"},
+    "parser": {"type": "object", "required": ["layout", "delimiter", "header_row_0_based", "expected_columns", "channels"], "properties": {
+      "layout": {"const": "single_file_shared_rows"}, "delimiter": {"enum": [",", "\t"]},
+      "header_row_0_based": {"type": "integer", "minimum": 0},
+      "expected_columns": {"type": "array", "items": {"type": "string"}, "minItems": 5, "uniqueItems": true},
+      "time_semantics": {"enum": ["relative_seconds", null]},
+      "channels": {"type": "object", "required": ["current", "x", "y", "z"]}
+    }},
+    "quality": {"type": "object", "description": "fixed physical bounds only; estimated model requires independent train fit audit"},
+    "windows": {"type": "object", "required": ["length", "stride", "gap_rule", "bad_point_rule"], "properties": {
+      "length": {"type": "integer", "minimum": 1}, "stride": {"type": "integer", "minimum": 1},
+      "gap_rule": {"const": "reject"}, "bad_point_rule": {"const": "reject"}
+    }}
+  },
+  "description": "Configured parser implements required checks; schema is not evidence of hardware truth. Confirm delta_t or both temperatures. Fresh physical contract requires five value/level/reference facts, actual fs/alignment evidence and timezone acquisition timestamp."
+}

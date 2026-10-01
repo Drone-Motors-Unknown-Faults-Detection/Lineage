@@ -1,0 +1,20 @@
+{
+  "recording_id": null, "motor_id": null, "session_id": null, "run_id": null,
+  "serial_number": null, "operating_hours": null, "synthetic": false,
+  "raw_sample_count": null, "sample_rate_hz": null, "documented_nominal_fs_hz": 10000,
+  "rpm": null, "rpm_source": "configured nominal, not measured tachometer",
+  "label": null, "acquisition_timestamp": null, "attestation": null,
+  "parser": {
+    "layout": "single_file_shared_rows", "delimiter": "\t", "encoding": "utf-8-sig",
+    "header_row_0_based": null, "expected_columns": [], "sample_index_column": null,
+    "time_column": null, "time_semantics": null,
+    "channels": {"current": "Current", "x": "Acceleration_X", "y": "Acceleration_Y", "z": "Acceleration_Z", "motor_temp": "Temp_C", "room_temp": "Temp_room"}
+  },
+  "evidence": {
+    "sample_rate": {"level": "unknown", "reference": null},
+    "alignment": {"level": "documented", "reference": "Ancestor 1ef4a891 thesis: design claim only; replace with recording evidence for formal qualification"}
+  },
+  "physical_contract": {"sensor_units": null, "orientation": null, "calibration": null, "mounting": null, "load": null},
+  "quality": {"absolute_bounds": {}, "saturation_bounds": {}, "window_mean_bounds": {}},
+  "windows": {"length": 10000, "stride": 10000, "gap_rule": "reject", "bad_point_rule": "reject"}
+}
