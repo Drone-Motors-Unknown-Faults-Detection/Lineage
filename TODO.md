@@ -39,9 +39,9 @@
   - [ ] 經 `core.logger.setup_run` / `save_plot()` 輸出；README 或 `docs/Experiments_Guide.md` 引用
   - [ ] #15 完成後加 legacy vs LW 混淆矩陣並排圖
 
-## 4. 其他 open issues
+## 4. 資料來源與分支文件
 
-兩者都屬於 `research-improvements-20260920` 分支，尚未併入 main。
+兩項都屬於 `research-improvements-20260920` 分支；#11 文件已在研究分支完成，尚未併入 main。#9 的資料來源與可靠度缺口仍開啟。
 
 - [ ] [#9](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9) 故障配置評估：獨立資料來源與可靠度未解
   - 現況：campaign-group 切分下 N=5 已知準確率 25.744%，unknown AUROC 0.528 / 0.524（Mahalanobis / k-NN），未證明能拒絕未見配置
@@ -50,17 +50,18 @@
   - [ ] 稽核跨階段 105 維特徵語意與感測器方向（Stage2 為重建）
   - [ ] 預先登錄新的 train/validation 比較與新的 final test，不回頭調這次的 test
   - [ ] 另外驗證宣告的 Python 3.10 環境（本次以 3.14.6 執行）
-- [ ] [#11](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/11) `research-improvements-20260920` 分支文件
-  - [ ] 在 `docs/` 新增一份 md 說明這個分支做了什麼
-  - [ ] 更新 `README.md`、`docs/README.md`
+- [x] [#11](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/11) `research-improvements-20260920` 分支文件
+  - [x] 在 `docs/` 新增一份 md 說明這個分支做了什麼
+  - [x] 更新 `README.md`、`docs/README.md`
+  - 已push研究分支 commit `2f15c797d2adb43b0103629783c7dd4baba03138`；見 [分支說明](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/2f15c797d2adb43b0103629783c7dd4baba03138/docs/research_improvements_20260920.md)。
 
 ## 5. Andy：持續研究與分支文件（2026-10-02）
 
 工作分支：`research-improvements-20260920`。依 main 的 AGENT.md（blob `f3b92347582bceff98ede6513f06458cdefdeac5`）先寫實驗手冊，再修改方法。相關來源問題保留在 [#9](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9)。
 
 - [ ] [#22](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22) 持續研究：局部距離學習、幅值比值與配對驗證
-  - [ ] 完成 [#11](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/11)：分支總覽、README 與 docs 索引；補充同步 raw schema 的實際用途與限制。
-  - [ ] 補齊現行 continuous_research 各模組手冊；已有程式的手冊註明補寫日期，後續改動先寫手冊。
+  - [x] 完成 [#11](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/11)：分支總覽、README 與 docs 索引；補充同步 raw schema 的實際用途與限制。
+  - [x] 補齊現行 continuous_research 各模組手冊；已有程式的手冊註明補寫日期，後續改動先寫手冊。
   - [ ] 核對已封存 Q01–Q08 配對評估：72 格預定；12 格因訓練最佳化未收斂而 INCOMPLETE，不補零、不換參數填回。
   - [ ] 重推論、重算指標，核對來源 SHA、fit/cal/test IDs 與健康總誤報；保存全部成功與失敗格。
   - [ ] 封存本批結果、雙 Python 測試與 D 槽備份；記錄相對 C02/C17/C24/D01 的配對差異。
