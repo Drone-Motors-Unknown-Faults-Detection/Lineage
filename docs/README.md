@@ -1,16 +1,28 @@
 # docs/ 文件索引
 
-本目錄是**論文版管線時期的技術文件快照**（對應本 repo git 歷史 `dda8910` 時的版本，
-2026-09-17 放回）。文中描述的 Step 1–6 程式碼、notebook 與 `scripts/` 模組現存於
+本目錄包含現行研究手冊、健康監測與同步 raw 規格，以及**論文版管線時期的技術文件快照**（對應本 repo git 歷史 `dda8910` 時的版本，
+2026-09-17 放回）。下列歷史快照描述的 Step 1–6 程式碼、notebook 與 `scripts/` 模組現存於
 [Ancestor repo](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor)，
-**不對應**目前的 `core/ experiments/ web/` 架構；每份文件頂部都有歷史標記。
+**不對應**目前的 `core/ experiments/ web/` 架構；歷史快照頂部有歷史標記，現行手冊另列。
 新專案（冷啟動 PHM）的說明見根目錄 [README.md](../README.md)。
 
-## 現行健康監測工作流程
+## 現行文件
 
 | 文件 | 內容 |
 |---|---|
 | [health_monitoring_workflow](health_monitoring_workflow.md) | Level A 資料能力、Health Index、趨勢/告警、正式 9×3×2 結果、限制與 CLI |
+| [研究分支說明](research_improvements_20260920.md) | 分支範圍、成果入口、資料／motor roles、性能與未知限制（Docs #11） |
+| [同步 raw schema 用途](synchronized_raw_schema.md) | config 欄位、實際 parser、preview／fresh 差別與 CLI |
+| [實驗手冊索引](experiments/README.md) | 本次 continuous Q 與同步 raw 手冊；後續先寫手冊再改程式 |
+| [fault_type_continuous_study](experiments/fault_type_continuous_study.md) | 對應 experiments/fault_type_continuous_study.py：方法、來源、预期、程式範圍與 CLI |
+| [synchronized_raw](experiments/synchronized_raw.md) | 對應 experiments/synchronized_raw.py：方法、來源、预期、程式範圍與 CLI |
+| [synchronized_features](experiments/synchronized_features.md) | 對應 experiments/synchronized_features.py：方法、來源、预期、程式範圍與 CLI |
+| [fault_type_continuous_inventory](experiments/fault_type_continuous_inventory.md) | 對應 experiments/fault_type_continuous_inventory.py：方法、來源、预期、程式範圍與 CLI |
+| [fault_type_continuous_registry](experiments/fault_type_continuous_registry.md) | 對應 experiments/fault_type_continuous_registry.py：方法、來源、预期、程式範圍與 CLI |
+| [fault_type_continuous_report](experiments/fault_type_continuous_report.md) | 對應 experiments/fault_type_continuous_report.py：方法、來源、预期、程式範圍與 CLI |
+| [fault_type_continuous_report_v2](experiments/fault_type_continuous_report_v2.md) | 對應 experiments/fault_type_continuous_report_v2.py：方法、來源、预期、程式範圍與 CLI |
+| [fault_type_continuous_smoke](experiments/fault_type_continuous_smoke.md) | 對應 experiments/fault_type_continuous_smoke.py：方法、來源、预期、程式範圍與 CLI |
+| [fault_type_continuous_acceptance](experiments/fault_type_continuous_acceptance.md) | 對應 experiments/fault_type_continuous_acceptance.py：方法、來源、预期、程式範圍與 CLI |
 
 ## 論文版管線文件（程式碼在 Ancestor）
 

@@ -1,11 +1,16 @@
 {
   "version": "continuous_state_v1",
-  "phase": "Q implemented/tested; protocol ready for commit BEFORE fit",
-  "head": "f610cce4fa9f5dd04d2231d949925ad36e5031c5",
+  "phase": "Q evaluation aggregate saved; Docs #11/TODO #22 prioritized; verify/report pending",
+  "head": "e35abd12c4f257da8173f1a750dedb10d99b0ab7",
   "inventory": "output/fault_type_continuous_inventory/2026-10-02-18-33-25/inventory.json",
-  "last_success": "Python3.10/3.14 each376 full tests PASS; eight-arm native smoke PASS",
+  "last_success": "Q evaluate aggregate:60 completed/12 INCOMPLETE,576144 records; Docs native19 tests and9 CLI checks per runtime PASS",
   "protocol": "output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json",
-  "next": ".venv310/Scripts/python.exe -m experiments.fault_type_continuous_study fit --protocol output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json --data-root data/formal_local",
+  "lock": "output/fault_type_continuous_fit/2026-10-02-18-42-53/locked_study.json",
+  "evaluation": "output/fault_type_continuous_evaluate/2026-10-02-18-47-45/evaluation.json",
+  "evaluation_checksum": "b4ef4ce09bc85969f90d81158acb4bcfd0c5c2f1492feb6530e0386558abf2de",
+  "next": ".venv310/Scripts/python.exe -m experiments.fault_type_continuous_study verify --protocol output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json --data-root data/formal_local --lock output/fault_type_continuous_fit/2026-10-02-18-42-53/locked_study.json --evaluation output/fault_type_continuous_evaluate/2026-10-02-18-47-45/evaluation.json",
+  "current_issue": 22,
+  "goal_runtime_status": "usageLimited observed; not marked complete or paused",
   "known_blockers": [
     "fresh independent test unavailable",
     "raw provenance UNKNOWN"

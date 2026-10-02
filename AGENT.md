@@ -21,11 +21,16 @@
 ## 目錄結構
 
 ```
-core/            共用零件：data / mahalanobis / openset / monitor / trend / logger / runner
-experiments/     三個實驗模組（exp1_cold_start、exp2_scale_growth、exp3_trend）
+core/            共用零件：data / mahalanobis / openset / monitor / geometry / detectors / formal_data /
+                 trend / logger / runner
+health/          健康指數、校準、嚴重度分級、趨勢/告警、軌跡與診斷（見 docs/health_monitoring_workflow.md）
+experiments/     實驗模組（exp1 冷啟動、exp2 量尺擴張、exp3 趨勢、exp4 極座標、
+                 exp5 跨工況、exp6 OSR 基準＋正式矩陣、compare_openset、health_index_*）；
+                 總覽見 docs/Experiments_Guide.md；技術報告在 docs/experiments/
 web/             即時展示（live.py 編排、server.py Tornado+WS、static/index.html）
-docs/            論文版技術文件快照 + Lineage 時期研究文件（歷史參考，見 docs/README.md；
-                 內文的程式路徑不對應現行架構，勿據以改碼）
+docs/            實驗技術報告在 docs/experiments/（每個 experiments/*.py 一份 .md）
+                 ＋論文版技術文件快照與 Lineage 研究文件。
+                 歷史快照見 docs/README.md；快照裡的程式路徑不對應現行架構，勿據以改碼
 data/            特徵資料（git 忽略；由論文版管線產出，本專案唯讀）
 logs/ output/    每次執行的日誌與結果（納入版控）
 run_web.sh       啟動展示伺服器
@@ -56,6 +61,31 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
 
 ---
 
+## 實驗手冊
+
+任何實驗都要在 `docs/experiments/` 放一份 Markdown 技術報告，再改程式。範圍包含新的 `experiments/` 模組，以及既有實驗改了方法、資料切分或指標。檔名用模組名，例如 `docs/experiments/exp7_foo.md`。完成後在 `docs/experiments/README.md` 與 `docs/README.md` 的現行文件表各加一列。
+
+手冊至少寫這四項：
+
+1. **實驗方法**：資料從哪來、怎麼切、用哪個模型或統計程序、seed 與關鍵參數、怎麼跑（CLI）。
+2. **參考論文出處**：方法所依的論文，寫作者、年份、篇名、出處，以及 DOI 或穩定網址。沒有文獻依據的步驟，寫明是本專案的操作約定。
+3. **預期成果**：跑完應該看到什麼數字、圖或判定；什麼結果算支持假設，什麼結果算假設不成立。預期與事後實測分開寫，不要把已經跑出來的數字回填成預期。
+4. **影響程式碼範圍**：表列會讀或會改的路徑，例如 `experiments/exp7_foo.py`、`core/openset.py`。路徑必須對得上當時的程式，不要沿用論文版快照的舊路徑。
+
+---
+
+## 寫作
+
+撰寫文件、註解、commit 說明與對使用者的回覆前，先讀李思萱，〈「AI味」具體是指什麼？一個老編輯示範，這64個字為什麼能感動你？〉，《數位時代》，2026-04-22：<https://www.bnext.com.tw/article/90761/how-to-fix-ai-writing-style>。依該文的五個辨識點寫：
+
+1. 直接寫那件事是什麼。看到「不是 X，而是 Y」這類對仗，改成一句帶具體脈絡的話。
+2. 寫能對上檔案、數字、步驟的句子。拍不成畫面的抽象金句刪掉。
+3. 句子長短依內容決定。不要為了節奏湊成三段排比。
+4. 動作留在動詞上。少把事情收成「○○感」「○○性」「○○化」。
+5. 錨在具體座標：路徑、函數名、seed、日期、工況。能寫 `core/openset.py` 就不要寫「某個模組」。
+
+---
+
 ## 關鍵參數（預設值）
 
 | 參數 | 值 | 所在 |
@@ -79,10 +109,15 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
 ## 常用指令
 
 ```bash
-# 三個實驗（在專案根目錄執行；輸出到 logs/ 與 output/）
+# 實驗（在專案根目錄執行；輸出到 logs/ 與 output/）
 venv/bin/python -m experiments.exp1_cold_start --motor T1 --rpm 8000rpm
 venv/bin/python -m experiments.exp2_scale_growth --sequence 5screws 3_14screws
 venv/bin/python -m experiments.exp3_trend --trials 40
+venv/bin/python -m experiments.exp4_polar_map --part abc
+venv/bin/python -m experiments.exp5_cross_condition        # 9 組資料集全跑
+venv/bin/python -m experiments.exp6_osr_benchmark          # 七種偵測器 × 9 組
+venv/bin/python -m experiments.exp6_formal_benchmark --openset-method knn   # 正式版 Mahalanobis vs k-NN
+venv/bin/python -m experiments.exp6_matrix                # 正式版 9 工況 × 3 seed × 2 方法
 venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn
 
 # 即時展示（http://localhost:8600）
@@ -114,8 +149,9 @@ venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn
 4. **量尺擴張後 PCA 投影會變**：web 前端在已知類別數改變時清空散佈圖，這是刻意行為。
 5. **目錄名陷阱**：螺絲配置目錄可能是 `1screw` 或 `1screws`（既有資料兩種都出現過），
    `core.data` 以掃描目錄迴避硬編碼——不要寫死配置清單去讀資料。
-6. **T2（Step-2）資料不全**：備份僅含部分特徵檔；`discover_datasets` 只列出實際
-   存在 clean CSV 的 (motor, rpm) 組合，以掃描結果為準。
+6. **資料集以掃描為準**：目前 9 組（T1/T2/T3 × 3 轉速）皆有完整 10 配置、各約
+   3000 筆（早期「T2 不全」的狀況已補齊）；`discover_datasets` 動態列出，
+   勿硬編碼組合清單。
 7. **venv 相容性**：現有 venv 是舊依賴集（含 TF）建的超集，可直接跑新專案；
    重建才會套用新 `pyproject.toml`。伺服器用的 Tornado 由 Jupyter 附帶或新依賴提供。
 

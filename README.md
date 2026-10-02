@@ -1,5 +1,9 @@
 # Capstone Project — 馬達故障診斷與持續學習系統
 
+本頁位於 `research-improvements-20260920` 研究分支。分支的資料追溯、跨馬達配置分類、未知識別、同步 raw 入口與未解決限制，先讀 [分支說明](docs/research_improvements_20260920.md)。後續工作見 [#22](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22)，實驗手冊見 [docs/experiments](docs/experiments/README.md)。
+
+2026-10-02 接續狀態：Q01–Q08 預定72格，aggregate 已完成60格、12格訓練未收斂；獨立 verify/report 尚待完成。正式105維／linear／Mahalanobis–Ledoit–Wolf與 PolarMap未替換；k-NN仍可切換。全部舊資料已曝光，沒有合格真實 fresh final test。下方冷啟動結果與歷史協定結果請依其資料切分解讀，不能當跨馬達 fault-type 的可靠性證明。
+
 **冷啟動 PHM（Cold-start Prognostics and Health Management）**：只用「健康」資料起步的馬達未知故障即時偵測、健康量尺自動擴張與持續學習。
 
 ---
