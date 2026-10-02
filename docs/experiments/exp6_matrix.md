@@ -19,7 +19,7 @@ venv/bin/python -m experiments.exp6_matrix
 venv/bin/python -m experiments.exp6_matrix --data-root data/formal_local --output-root output/exp6_formal_matrix
 ```
 
-`--no-resume` 會重算已完成的格。彙總另跑 [aggregate_exp6.md](aggregate_exp6.md)，本檔不計算平均。
+`--no-resume` 會重算已完成的格。彙總另跑 [exp6_aggregate.md](exp6_aggregate.md)，本檔不計算平均。
 
 ## 理論
 
@@ -58,3 +58,9 @@ venv/bin/python -m experiments.exp6_matrix --data-root data/formal_local --outpu
 - `runs/{run_id}/run.log`
 
 本程式不呼叫 `setup_run`，所以不會另開 `logs/exp6_matrix/`。
+
+### 散在其他位置的相關檔案
+
+- 測試：`tests/test_exp6_matrix.py`。
+- 已提交紀錄：`output/exp6_formal_matrix/`（`matrix_manifest.json`、`runs/`、`aggregate/`）。
+- 進度紀錄：`reports/exp6_ancestor_openset_progress.md` P9。

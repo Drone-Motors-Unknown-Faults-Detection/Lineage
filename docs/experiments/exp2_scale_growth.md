@@ -58,3 +58,10 @@ venv/bin/python -m experiments.exp2_scale_growth --sequence 5screws 3_14screws
 - `logs/exp2_scale_growth/{時間戳}.log`
 - `output/exp2_scale_growth/{時間戳}/stages.csv`
 - `output/exp2_scale_growth/{時間戳}/summary.json`
+
+### 散在其他位置的相關檔案
+
+- 測試：沒有專屬測試；擴張後重建的 `PolarMap` 由 `tests/test_geometry.py` 涵蓋。
+- Web：`web/live.py`、`web/server.py`（`confirm` 指令）、`web/static/index.html` 的「未知故障處理流程」與候選卡。
+- 已提交紀錄：`logs/exp2_scale_growth/`、`output/exp2_scale_growth/`（7 次執行）；展示時的擴張紀錄在 `output/web_server/`。
+- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 3 節。

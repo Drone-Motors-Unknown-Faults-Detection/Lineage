@@ -12,29 +12,29 @@
 
 ## 現行實驗技術報告
 
-`experiments/` 的每一支程式各有一份，目錄在 [experiments/README.md](experiments/README.md)。白話版仍是 [Experiments_Guide.md](Experiments_Guide.md)。
+`experiments/` 的每一支程式各有一份，目錄與各實驗散在 `core/`、`health/`、`web/`、`tests/`、`reports/` 的檔案位置在 [experiments/README.md](experiments/README.md)。白話版仍是 [Experiments_Guide.md](Experiments_Guide.md)。
 
-| 文件 | 程式 |
-|---|---|
-| [exp1_cold_start](experiments/exp1_cold_start.md) | `experiments/exp1_cold_start.py` |
-| [exp2_scale_growth](experiments/exp2_scale_growth.md) | `experiments/exp2_scale_growth.py` |
-| [exp3_trend](experiments/exp3_trend.md) | `experiments/exp3_trend.py` |
-| [exp4_polar_map](experiments/exp4_polar_map.md) | `experiments/exp4_polar_map.py` |
-| [exp5_cross_condition](experiments/exp5_cross_condition.md) | `experiments/exp5_cross_condition.py` |
-| [exp6_osr_benchmark](experiments/exp6_osr_benchmark.md) | `experiments/exp6_osr_benchmark.py` |
-| [exp6_formal_benchmark](experiments/exp6_formal_benchmark.md) | `experiments/exp6_formal_benchmark.py` |
-| [exp6_matrix](experiments/exp6_matrix.md) | `experiments/exp6_matrix.py` |
-| [aggregate_exp6](experiments/aggregate_exp6.md) | `experiments/aggregate_exp6.py` |
-| [compare_openset](experiments/compare_openset.md) | `experiments/compare_openset.py` |
-| [health_index_benchmark](experiments/health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
-| [health_index_matrix](experiments/health_index_matrix.md) | `experiments/health_index_matrix.py` |
-| [health_monitor](experiments/health_monitor.md) | `experiments/health_monitor.py` |
+| 編號 | 文件 | 程式 |
+|---|---|---|
+| 實驗一 | [exp1_cold_start](experiments/exp1_cold_start.md) | `experiments/exp1_cold_start.py` |
+| 實驗二 | [exp2_scale_growth](experiments/exp2_scale_growth.md) | `experiments/exp2_scale_growth.py` |
+| 實驗三 | [exp3_trend](experiments/exp3_trend.md) | `experiments/exp3_trend.py` |
+| 實驗四 | [exp4_polar_map](experiments/exp4_polar_map.md) | `experiments/exp4_polar_map.py` |
+| 實驗五 | [exp5_cross_condition](experiments/exp5_cross_condition.md) | `experiments/exp5_cross_condition.py` |
+| 實驗六 | [exp6_osr_benchmark](experiments/exp6_osr_benchmark.md) | `experiments/exp6_osr_benchmark.py` |
+| 實驗六 | [exp6_formal_benchmark](experiments/exp6_formal_benchmark.md) | `experiments/exp6_formal_benchmark.py` |
+| 實驗六 | [exp6_matrix](experiments/exp6_matrix.md) | `experiments/exp6_matrix.py` |
+| 實驗六 | [exp6_aggregate](experiments/exp6_aggregate.md) | `experiments/aggregate_exp6.py` |
+| 實驗七 | [exp7_compare_openset](experiments/exp7_compare_openset.md) | `experiments/compare_openset.py` |
+| 實驗八 | [exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
+| 實驗八 | [exp8_health_index_matrix](experiments/exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` |
+| 實驗八 | [exp8_health_monitor](experiments/exp8_health_monitor.md) | `experiments/health_monitor.py` |
 
 ## 現行健康監測工作流程
 
 | 文件 | 內容 |
 |---|---|
-| [health_monitoring_workflow](health_monitoring_workflow.md) | Level A 資料能力、Health Index、趨勢/告警、正式 9×3×2 結果、限制與 CLI |
+| [exp8_health_monitoring_workflow](exp8_health_monitoring_workflow.md) | 實驗八總覽：Level A 資料能力、Health Index、趨勢/告警、正式 9×3×2 結果、限制與 CLI |
 | [health_and_reports](health_and_reports.md) | `health/` 各模組與呼叫端、兩套趨勢邏輯的差別、`reports/` 各子目錄的來源與現況 |
 
 ## 論文版管線文件（程式碼在 Ancestor）

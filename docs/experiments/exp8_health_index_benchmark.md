@@ -1,8 +1,8 @@
-# 健康指數 benchmark
+# 實驗八：健康指數 benchmark
 
 程式：`experiments/health_index_benchmark.py`。它在正式版 Open Set 的分數上再套一層 `CalibratedHealthIndex`，多報相對健康指數與 known−unknown 的健康差距。
 
-單次 `run()` 只跑一種方法、一個 seed，涵蓋資料根裡的九個工況。六次呼叫的寫檔在 [health_index_matrix.md](health_index_matrix.md)。逐窗串流在 [health_monitor.md](health_monitor.md)。
+單次 `run()` 只跑一種方法、一個 seed，涵蓋資料根裡的九個工況。六次呼叫的寫檔在 [exp8_health_index_matrix.md](exp8_health_index_matrix.md)。逐窗串流在 [exp8_health_monitor.md](exp8_health_monitor.md)。
 
 ## 實驗方法
 
@@ -31,7 +31,7 @@ Open Set 分數已經能拒絕未知。健康指數是把這份分數壓進 `[0,
 
 - 馬氏距離、Ledoit–Wolf、k 近鄰出處同 [exp1_cold_start.md](exp1_cold_start.md)。
 - 分數到 `[0, 1]` 的分位數錨點、第 10 與第 95 百分位、`degradation_score = 1 - health_index`：本專案操作約定，寫在 `health/calibration.py` 的 `HealthIndexCalibrator`。
-- 不能把指數說成物理損傷或 RUL：資料能力寫在 [health_monitoring_workflow.md](../health_monitoring_workflow.md) 與 `reports/health_monitoring_data_capability.md`。
+- 不能把指數說成物理損傷或 RUL：資料能力寫在 [exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md) 與 `reports/exp8_health_monitoring_data_capability.md`。
 
 ## 預期成果
 
@@ -41,7 +41,7 @@ Open Set 分數已經能拒絕未知。健康指數是把這份分數壓進 `[0,
 
 ## 已記錄的實測
 
-`reports/health_index_results/README.md` 對 9 工況 × 3 seed 的平均：
+`reports/exp8_health_index_results/README.md` 對 9 工況 × 3 seed 的平均：
 
 | method | health gap known−unknown | open-set accuracy | AUROC | unknown recall |
 |---|---:|---:|---:|---:|
@@ -63,4 +63,12 @@ k-NN 的健康差距高 0.018513。Mahalanobis 的 accuracy 高 0.000007。同�
 | `core/openset.py` | 偵測器工廠 |
 | `core/data.py` | 載入與 `make_split` |
 
-單次 CLI 不寫 `output/`。矩陣寫到 `reports/health_index_results/seed_{seed}/{method}.json` 與同名 CSV。
+單次 CLI 不寫 `output/`。矩陣寫到 `reports/exp8_health_index_results/seed_{seed}/{method}.json` 與同名 CSV。
+
+### 散在其他位置的相關檔案
+
+- 套件：`health/` 全部模組，對照表見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
+- 測試：`tests/test_health_benchmark.py`，以及 `tests/test_health_{calibration,diagnosis,evaluation,index,schema,severity}.py`。
+- 結果：`reports/exp8_health_index_results/`。
+- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`。
+- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。

@@ -1,4 +1,6 @@
-# Lineage 健康監測工作流程
+# 實驗八：健康監測工作流程
+
+> 實驗八（exp8）的總覽。程式在 `experiments/health_index_benchmark.py`、`experiments/health_index_matrix.py`、`experiments/health_monitor.py` 與 `health/` 套件；逐支技術報告在 `docs/experiments/exp8_*.md`，全部檔案位置見 [experiments/README.md](experiments/README.md#各實驗的檔案位置)。
 
 ## 資料能力與層級
 
@@ -44,7 +46,7 @@ k-NN 的相對 health gap 高 `0.018513`，Mahalanobis accuracy 高 `0.000007`�
 表示分得開，不表示已學會物理劣化排序。沒有 event labels/timebase，所以 event-level
 recall、false alarms/hour、detection delay 只能回報 unavailable。
 
-結果檔在 `reports/health_index_results/`：每個 seed 的 JSON/CSV、`matrix_manifest.json`、
+結果檔在 `reports/exp8_health_index_results/`：每個 seed 的 JSON/CSV、`matrix_manifest.json`、
 `aggregate_summary.json` 與 `aggregate_by_condition.csv`。
 
 ## 方法來源

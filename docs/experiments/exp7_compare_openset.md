@@ -1,4 +1,4 @@
-# 單工況 Open Set 對照
+# 實驗七：單工況 Open Set 對照
 
 程式：`experiments/compare_openset.py`。在一個工況、同一組健康切分上，把 `core.openset` 允許的方法各跑一次。
 
@@ -55,3 +55,10 @@ venv/bin/python -m experiments.compare_openset --motor T1 --rpm 8000rpm --opense
 - `output/openset_comparison/{時間戳}/details.csv`
 - `output/openset_comparison/{時間戳}/summary.json`
 - `output/openset_comparison/{時間戳}/method_comparison.png`
+
+### 散在其他位置的相關檔案
+
+- 測試：`tests/test_openset.py` 匯入 `experiments.compare_openset.run`。
+- 已提交紀錄：沒有。`logs/openset_comparison/`、`output/openset_comparison/` 目前不在 repo；目錄名沿用 `setup_run("openset_comparison")`，沒有帶實驗編號。
+- 正式版 9 工況比較在實驗六：[exp6_formal_benchmark](exp6_formal_benchmark.md)。
+- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 8 節。

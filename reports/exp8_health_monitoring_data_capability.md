@@ -1,4 +1,6 @@
-# Health Monitoring 資料能力稽核
+# 實驗八前置：Health Monitoring 資料能力稽核
+
+> 實驗八（exp8，`health/` 與 `experiments/health_*.py`）的輸出限制依據本檔。2026-10-03 由 `reports/health_monitoring_data_capability.md` 改名。
 
 ## 稽核範圍與結論
 

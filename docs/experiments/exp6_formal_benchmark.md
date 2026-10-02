@@ -73,3 +73,10 @@ venv/bin/python -m experiments.exp6_formal_benchmark --openset-method knn --seed
 - `output/exp6_formal_benchmark/{時間戳}/osr_benchmark.png`
 
 摘要裡的 `output_dir` 另外記成相對路徑 `output/exp6_formal_benchmark/{時間戳}`。
+
+### 散在其他位置的相關檔案
+
+- 測試：`tests/test_exp6_benchmark.py`；偵測器工廠 `tests/test_openset.py`。
+- 正式資料物化：`core/formal_data.py`（`tests/test_formal_data.py`），把 raw ZIP 轉成 `data/formal_local/`。
+- 進度紀錄：`reports/exp6_ancestor_openset_progress.md`；資料來源稽核 `reports/raw_data_audit/`、`reports/github_data_audit/`。
+- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 7 節。

@@ -1,4 +1,4 @@
-"""Aggregate the completed formal exp6 matrix without inventing missing evidence."""
+"""實驗六彙總：Aggregate the completed formal exp6 matrix without inventing missing evidence."""
 
 from __future__ import annotations
 

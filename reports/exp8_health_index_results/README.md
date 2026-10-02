@@ -1,4 +1,6 @@
-# Formal health-index benchmark
+# Experiment 8 (exp8): Formal health-index benchmark
+
+> 由 `experiments/health_index_matrix.py` 寫入（逐次呼叫 `experiments/health_index_benchmark.py` 的 `run()`）。技術報告 `docs/experiments/exp8_health_index_matrix.md`。2026-10-03 由 `reports/health_index_results/` 改名。
 
 ## Protocol
 
@@ -39,6 +41,6 @@ healthy very strongly but does not provide enough labelled progression to rank
 unknown samples by physical severity. There are no motor IDs, session IDs,
 timestamps, failure endpoints or cause labels, so event delay, true trend,
 ordinal severity and RUL remain unavailable. See
-`reports/health_monitoring_data_capability.md` and
-`reports/fault_type_data_requirements.md` before making those claims.
+`reports/exp8_health_monitoring_data_capability.md` and
+`reports/exp8_fault_type_data_requirements.md` before making those claims.
 

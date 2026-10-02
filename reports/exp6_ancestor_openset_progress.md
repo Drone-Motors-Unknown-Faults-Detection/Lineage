@@ -1,4 +1,6 @@
-# `ancester` Open Set / exp6 任務進度
+# 實驗六（exp6）：`Ancestor` 正式資料接入與 Open Set 矩陣進度
+
+> 2026-10-03 由 `reports/ancester_openset_exp6_progress.md` 改名。內文保留原紀錄；任務名稱原本拼成 `ancester`。
 
 ## P1 — Git 與 repository 基線
 

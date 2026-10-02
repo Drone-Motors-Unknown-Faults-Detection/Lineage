@@ -223,8 +223,9 @@ venv/bin/python -m experiments.exp6_osr_benchmark
 ③ 主線續用 LW 馬氏合理：誤報僅差最佳者 1 個百分點，卻保有參數化模型才有的
 幾何地圖（實驗四）、逐類擴張與可解釋性。
 
-### Open Set 方法切換與公平比較
+### 實驗七：Open Set 方法切換與單工況公平比較（`compare_openset`）
 
+程式 `experiments/compare_openset.py`，技術報告 [docs/experiments/exp7_compare_openset.md](docs/experiments/exp7_compare_openset.md)。
 所有實驗及 Web server 都可用同一個 CLI 介面切換 detector：
 
 ```bash
@@ -235,7 +236,7 @@ venv/bin/python -m experiments.exp1_cold_start --openset-method mahalanobis --me
 venv/bin/python -m experiments.exp1_cold_start --openset-method knn --knn-neighbors 5
 
 # 兩者使用相同 seed、60/20/20 split、known/unknown 定義與指標
-venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn
+venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn   # 實驗七
 ```
 
 `k-NN` 不需要分類 logits 或神經網路 embedding，直接使用本專案既有、經
@@ -253,7 +254,7 @@ AUPR、FPR@95TPR、Open Set accuracy、known-class accuracy、unknown precision�
 recall／F1、正規化 threshold、每類原始 threshold、校準策略、split 與 seed。
 unknown/test 樣本不參與 threshold 選擇。
 
-正式版矩陣（`exp6_formal_benchmark` + `exp6_matrix` + `aggregate_exp6`）以 9 工況 ×
+實驗六正式版矩陣（`exp6_formal_benchmark` + `exp6_matrix` + `aggregate_exp6`）以 9 工況 ×
 3 seed（42/123/2026）比較 Mahalanobis 與 k-NN，並記錄資料指紋、commit 等 provenance：
 
 ```bash
@@ -261,11 +262,27 @@ venv/bin/python -m experiments.exp6_matrix
 ```
 
 結果見 `output/exp6_formal_matrix/aggregate/aggregate.md`；兩方法 AUROC 皆 1.0、Open Set
-accuracy 差異 < 0.00001。健康指數延伸流程見 [docs/health_monitoring_workflow.md](docs/health_monitoring_workflow.md)。
+accuracy 差異 < 0.00001。
+
+### 實驗八：相對健康指數與健康監測（`health_index_*`、`health_monitor`）
+
+程式 `experiments/health_index_benchmark.py`、`experiments/health_index_matrix.py`、
+`experiments/health_monitor.py`，邏輯在 `health/`。把開集分數依 `8screws` 校準分數的
+第 10／95 百分位映成 0～1 的相對健康指數，再分四段嚴重度、逐 session 追蹤趨勢告警。
+
+```bash
+venv/bin/python -m experiments.health_index_matrix --data-root data/formal_local --seed 42 --seed 123 --seed 2026 --method mahalanobis --method knn
+```
+
+9 工況 × 3 seed × 2 方法：known−unknown 健康差距 0.583（Mahalanobis）／0.602（k-NN），
+AUROC 皆 1.0；所有 unknown 的健康指數都是 0.0，分得開但排不出輕重。現有資料沒有馬達
+編號、時間戳與真實損傷標記，不能把它當成損壞百分比或 RUL。結果在
+`reports/exp8_health_index_results/`，總覽見
+[docs/exp8_health_monitoring_workflow.md](docs/exp8_health_monitoring_workflow.md)。
 
 ### 實驗說明手冊
 
-六個實驗的設計理念、方法、預期與結果的**小白友善版**完整說明：
+八個實驗的設計理念、方法、預期與結果的**小白友善版**完整說明：
 [docs/Experiments_Guide.md](docs/Experiments_Guide.md)。
 
 ---
@@ -359,11 +376,11 @@ Lineage/
 │   ├── exp5_cross_condition.py  #   實驗五：跨工況泛化（9×9 矩陣/策略/老化漂移）
 │   ├── exp6_osr_benchmark.py    #   實驗六：OSR 方法基準比較（七種偵測器）
 │   ├── exp6_formal_benchmark.py #   實驗六正式版：Mahalanobis vs k-NN（含 provenance）
-│   ├── exp6_matrix.py           #   正式版 9 工況 × 3 seed × 2 方法矩陣
-│   ├── aggregate_exp6.py        #   正式矩陣彙整
-│   ├── health_index_*.py        #   健康指數 benchmark／matrix
-│   ├── health_monitor.py        #   健康監測 CLI
-│   └── compare_openset.py       #   相同 split/指標公平比較 Mahalanobis 與 k-NN
+│   ├── exp6_matrix.py           #   實驗六：正式版 9 工況 × 3 seed × 2 方法矩陣
+│   ├── aggregate_exp6.py        #   實驗六：正式矩陣彙整
+│   ├── compare_openset.py       #   實驗七：單工況相同 split 比較 Mahalanobis 與 k-NN
+│   ├── health_index_*.py        #   實驗八：健康指數 benchmark／matrix
+│   └── health_monitor.py        #   實驗八：健康監測 CLI
 ├── health/                      # 健康指數、校準、嚴重度、趨勢/告警、軌跡、診斷（見 docs/health_and_reports.md）
 ├── reports/                     # 資料來源與程式碼稽核紀錄、資料規格、health index 正式結果（見 reports/README.md）
 ├── tests/                       # unittest（venv/bin/python -m unittest discover -s tests -t .）

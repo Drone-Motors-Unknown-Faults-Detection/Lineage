@@ -1,4 +1,4 @@
-"""CLI for calibrated window inference and optional session health streaming."""
+"""實驗八串流：CLI for calibrated window inference and optional session health streaming."""
 
 from __future__ import annotations
 

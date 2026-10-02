@@ -1,4 +1,4 @@
-# exp6 矩陣彙總
+# 實驗六彙總：exp6 矩陣彙總
 
 程式：`experiments/aggregate_exp6.py`。它不打分、不重新切資料。它讀已經完成的 `matrix_manifest.json`，把每一格的 `summary.json` 收成平均、標準差與成對差。
 
@@ -46,3 +46,9 @@ venv/bin/python -m experiments.aggregate_exp6 --manifest output/exp6_formal_matr
 | `output/exp6_formal_matrix/aggregate/paired_differences.csv` | k-NN 減 Mahalanobis |
 
 沒有 `logs/aggregate_exp6/`。錯誤用例外訊息退出。
+
+### 散在其他位置的相關檔案
+
+- 測試：`tests/test_aggregate_exp6.py`。
+- 已提交紀錄：`output/exp6_formal_matrix/aggregate/`。
+- 進度紀錄：`reports/exp6_ancestor_openset_progress.md` P10。

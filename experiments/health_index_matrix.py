@@ -1,4 +1,4 @@
-"""Resumable 9-condition × seed × method health-index result writer."""
+"""實驗八矩陣：Resumable 9-condition × seed × method health-index result writer."""
 
 from __future__ import annotations
 
@@ -46,7 +46,7 @@ def expected_run_ids(seeds: Sequence[int] = DEFAULT_SEEDS, methods: Sequence[str
 
 def run_matrix(
     data_root: Path | str = "data",
-    output_root: Path | str = "reports/health_index_results",
+    output_root: Path | str = "reports/exp8_health_index_results",
     *,
     seeds: Sequence[int] = DEFAULT_SEEDS,
     methods: Sequence[str] = DEFAULT_METHODS,
@@ -116,7 +116,7 @@ def run_matrix(
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-root", default="data")
-    parser.add_argument("--output-root", default="reports/health_index_results")
+    parser.add_argument("--output-root", default="reports/exp8_health_index_results")
     parser.add_argument("--seed", action="append", type=int, dest="seeds")
     parser.add_argument("--method", action="append", dest="methods")
     parser.add_argument("--no-resume", action="store_true")

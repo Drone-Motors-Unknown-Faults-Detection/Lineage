@@ -1,4 +1,6 @@
-# Fault type data requirements
+# Experiment 8 (exp8): Fault type data requirements
+
+> 實驗八的 `fault_type` 輸出規則依據本檔，實作在 `health/diagnosis.py`。2026-10-03 由 `reports/fault_type_data_requirements.md` 改名。
 
 ## Current decision
 

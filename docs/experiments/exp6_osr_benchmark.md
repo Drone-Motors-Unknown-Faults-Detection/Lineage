@@ -4,7 +4,7 @@
 
 問題：健康-only、同一套 60/20/20、同一套「校準集第 95 百分位 = 1」之下，Ledoit–Wolf 馬氏距離的健康誤報與故障偵測，相對於另外六種單類方法站在哪。
 
-這支程式不產生 `reports/health_index_results/`。正式版只比 Mahalanobis 與 k-NN、且走 `core.openset` 的那次，見 [exp6_formal_benchmark.md](exp6_formal_benchmark.md)。
+這支程式不產生 `reports/exp8_health_index_results/`。正式版只比 Mahalanobis 與 k-NN、且走 `core.openset` 的那次，見 [exp6_formal_benchmark.md](exp6_formal_benchmark.md)。
 
 ## 實驗方法
 
@@ -72,3 +72,10 @@ FPR@TPR95 的實作是：取故障分數的第 5 百分位當門檻（讓約 95%
 - `output/exp6_osr_benchmark/{時間戳}/results.csv`
 - `output/exp6_osr_benchmark/{時間戳}/summary.json`
 - `output/exp6_osr_benchmark/{時間戳}/osr_benchmark.png`
+
+### 散在其他位置的相關檔案
+
+- 測試：沒有專屬測試；`core/detectors.py` 沒有直接測試。
+- 已提交紀錄：`logs/exp6_osr_benchmark/`、`output/exp6_osr_benchmark/`（5 次執行，其中 2026-09-19 的出自改名前的 `exp6_formal_benchmark`）。
+- 同屬實驗六：[exp6_formal_benchmark](exp6_formal_benchmark.md)、[exp6_matrix](exp6_matrix.md)、[exp6_aggregate](exp6_aggregate.md)。
+- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 7 節。

@@ -58,3 +58,10 @@ Mahalanobis 距離用類別平均與共變異數。105 維、單類、訓練筆�
 - `output/exp1_cold_start/{時間戳}/results.csv`
 - `output/exp1_cold_start/{時間戳}/summary.json`
 - `output/exp1_cold_start/{時間戳}/detect_rates.png`
+
+### 散在其他位置的相關檔案
+
+- 測試：沒有專屬測試；共用的 `core/openset.py`、`core/mahalanobis.py` 由 `tests/test_openset.py` 涵蓋。
+- Web：`web/live.py` 的開集分數串流圖、偵測統計表；`web/static/index.html` 對應畫面。
+- 已提交紀錄：`logs/exp1_cold_start/`、`output/exp1_cold_start/`（3 次執行）。
+- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 2 節。
