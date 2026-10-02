@@ -51,13 +51,13 @@ const details = (title, html) => `<details><summary>${esc(title)}</summary>${htm
 const modelLine = m => m ? `<div class="mini">模型：${esc(m.openset_method)}${m.openset_method === "knn" ? `（k=${m.knn_neighbors}）` : `（${esc(m.method)}）`}；閾值策略 ${esc(m.threshold_strategy)}；seed ${esc(m.random_seed)}</div>` : "";
 
 /* ---------- 各實驗的結果呈現 ---------- */
+const exp1Table = rows => table([["display", "配置"], ["kind", "類型"], ["n", "樣本數"], ["detect_rate", "判未知比例", v => pct(v)],
+  ["detect_rate", "", (v, row) => bar(v, 1, row.kind.startsWith("healthy") ? "var(--green)" : "var(--red)")],
+  ["auroc", "AUROC", v => num(v, 4)], ["median_score", "分數中位數", v => num(v, 2)]], rows);
 const RENDER = {
   exp1(r){
     return kpis([["健康誤報率（holdout）", pct(r.healthy_fp_rate)], ["故障平均偵測率", pct(r.macro_detect_rate)], ["故障平均 AUROC", num(r.macro_auroc, 4)]])
-      + modelLine(r.model)
-      + table([["display", "配置"], ["kind", "類型"], ["n", "樣本數"], ["detect_rate", "判未知比例", v => pct(v)],
-               ["detect_rate", "", (v, row) => bar(v, 1, row.kind.startsWith("healthy") ? "var(--green)" : "var(--red)")],
-               ["auroc", "AUROC", v => num(v, 4)], ["median_score", "分數中位數", v => num(v, 2)]], r.rows);
+      + modelLine(r.model) + exp1Table(r.rows);
   },
   exp2(r){
     const found = r.stages.filter(s => s.discovered).length;
@@ -222,6 +222,140 @@ function drawLines(root){
   });
 }
 
+/* ---------- 邊跑邊畫 ---------- */
+let ACTIVE = null;   // {id, es}
+
+function canvasSetup(cv, hpx){
+  const dpr = devicePixelRatio, W = cv.width = cv.clientWidth * dpr, H = cv.height = hpx * dpr;
+  const ctx = cv.getContext("2d"); ctx.clearRect(0, 0, W, H);
+  ctx.font = `${11 * dpr}px monospace`;
+  return {ctx, W, H, dpr};
+}
+// 分數軸用平方根刻度，與即時展示一致；虛線 = 未知判定線 1.0
+function drawScoreStrip(cv, pts, opts = {}){
+  const {ctx, W, H, dpr} = canvasSetup(cv, opts.h || 220);
+  if (!W || !pts.length) return;
+  const pad = 30 * dpr, n = opts.n || pts.length;
+  const maxS = Math.max(4, ...pts.map(p => p.s));
+  const X = i => pad + (n <= 1 ? 0 : i / (n - 1)) * (W - pad * 1.3);
+  const Y = s => H - pad - Math.sqrt(Math.max(s, 0)) / Math.sqrt(maxS) * (H - pad * 1.6);
+  ctx.fillStyle = "#64748b"; ctx.strokeStyle = "#1e293b"; ctx.lineWidth = dpr;
+  for (const g of [1, 10, Math.round(maxS)]){ if (g > maxS) continue;
+    ctx.beginPath(); ctx.moveTo(pad, Y(g)); ctx.lineTo(W, Y(g)); ctx.stroke(); ctx.fillText(String(g), 4 * dpr, Y(g) + 4 * dpr); }
+  ctx.strokeStyle = "#94a3b8"; ctx.setLineDash([6 * dpr, 5 * dpr]);
+  ctx.beginPath(); ctx.moveTo(pad, Y(1)); ctx.lineTo(W, Y(1)); ctx.stroke(); ctx.setLineDash([]);
+  for (const m of opts.marks || []){
+    ctx.strokeStyle = m.color || "#475569"; ctx.beginPath(); ctx.moveTo(X(m.i), pad * 0.3); ctx.lineTo(X(m.i), H - pad); ctx.stroke();
+    if (m.label){ ctx.fillStyle = "#cbd5e1"; ctx.fillText(m.label, X(m.i) + 3 * dpr, pad * 0.3 + 10 * dpr); }
+  }
+  pts.forEach((p, i) => { ctx.fillStyle = p.color || (p.s > 1 ? "#ef4444" : "#22c55e");
+    ctx.beginPath(); ctx.arc(X(i), Y(p.s), 2 * dpr, 0, 7); ctx.fill(); });
+  if (opts.line){   // 第二軸 0～1（EWMA），警報線 0.5
+    const Y2 = v => H - pad - v * (H - pad * 1.6);
+    ctx.strokeStyle = "#eab30899"; ctx.setLineDash([3 * dpr, 3 * dpr]);
+    ctx.beginPath(); ctx.moveTo(pad, Y2(0.5)); ctx.lineTo(W, Y2(0.5)); ctx.stroke(); ctx.setLineDash([]);
+    ctx.strokeStyle = "#eab308"; ctx.lineWidth = 2 * dpr; ctx.beginPath();
+    opts.line.forEach((v, i) => i ? ctx.lineTo(X(i), Y2(v)) : ctx.moveTo(X(i), Y2(v))); ctx.stroke();
+  }
+}
+let rafPending = false;
+function scheduleDraw(fn){ if (rafPending) return; rafPending = true; requestAnimationFrame(() => { rafPending = false; fn(); }); }
+
+const LIVE = {
+  exp1: {
+    init: () => ({pts: [], marks: [], rows: []}),
+    html: () => `<canvas class="live-canvas" height="220"></canvas>
+      <div class="mini">每點一筆樣本的開集分數（綠 ≤ 1 判健康、紅 > 1 判未知）；直線分隔配置。先播健康 holdout，再逐一播九種故障。</div>
+      <div class="live-rows" style="margin-top:8px"></div>`,
+    on(st, f, el){
+      if (f.event === "scores"){
+        if (f.offset === 0) st.marks.push({i: st.pts.length, label: f.config});
+        for (const s of f.scores) st.pts.push({s});
+        scheduleDraw(() => drawScoreStrip(el.querySelector(".live-canvas"), st.pts, {marks: st.marks, n: Math.max(st.pts.length, 200)}));
+      } else if (f.event === "row"){
+        st.rows.push(f.row); el.querySelector(".live-rows").innerHTML = exp1Table(st.rows);
+      }
+    },
+  },
+  exp3: {
+    init: () => ({cur: {}, trials: []}),
+    html: () => ["A", "B"].map(k => `<h3>劇本 ${k}（第 1 次重複逐筆播放）</h3><canvas class="live-${k}" height="180"></canvas>`).join("")
+      + `<div class="mini">點 = 開集分數（紅 = 當下注入故障、綠 = 健康）；黃線 = EWMA 異常比例（右軸 0～1，虛線 0.5 觸發警報）；直線 = 故障開始、⚠ = 警報。其餘重複直接計算，只列結果。</div>
+         <div class="live-trials" style="margin-top:8px"></div>`,
+    on(st, f, el){
+      if (f.event === "tick"){
+        const c = st.cur[f.scenario] = st.cur[f.scenario] || {pts: [], line: [], marks: [{i: f.onset, label: "故障開始", color: "#a78bfa"}]};
+        c.pts.push({s: f.score, color: f.truth === "8screws" ? "#22c55e" : "#ef4444"}); c.line.push(f.ewma);
+        if (f.alarm_now) c.marks.push({i: c.pts.length - 1, label: "⚠ " + (f.kind === "gradual" ? "漸進" : "突發"), color: "#eab308"});
+        const k = f.scenario;
+        scheduleDraw(() => drawScoreStrip(el.querySelector(".live-" + k), c.pts, {h: 180, line: c.line, marks: c.marks, n: Math.max(c.pts.length, 160)}));
+      } else if (f.event === "trial"){
+        st.trials.push(f.trial);
+        el.querySelector(".live-trials").innerHTML = table([["scenario", "劇本"], ["trial", "#"], ["expected", "應判"], ["verdict", "判為"],
+          ["correct", "正確", bool], ["latency", "延遲", int], ["transition", "中間帶停留", int]], st.trials.slice(-12))
+          + `<div class="mini">已完成 ${st.trials.length} 次，正確 ${st.trials.filter(x => x.correct).length} 次（表只列最近 12 次）</div>`;
+      }
+    },
+  },
+  exp4: {
+    init: () => ({res: {}, status: {geometry: "等待", direction: "等待", severity: "等待"}}),
+    html: () => `<div class="live-status mini"></div><div class="live-parts"></div>`,
+    on(st, f, el){
+      const label = {geometry: "(a) 射線結構", direction: "(b) 方向熟悉度", severity: "(c) 嚴重度回復"};
+      if (f.event === "part_start") st.status[f.name] = "⚙ 擬合中…";
+      if (f.event === "part"){ st.status[f.name] = "✔ 完成"; st.res[f.name] = f.data;
+        el.querySelector(".live-parts").innerHTML = RENDER.exp4(st.res); }
+      el.querySelector(".live-status").textContent = Object.entries(st.status).map(([k, v]) => `${label[k]}：${v}`).join("　");
+    },
+  },
+  exp8_monitor: {
+    init: () => ({rows: []}),
+    html: () => `<canvas class="exp-line" height="220" data-series="[]"></canvas>
+      <div class="mini"><span style="color:#94a3b8">●</span> raw 健康度 <span style="color:var(--blue)">━</span> 平滑健康度；底色 = 告警（黃 warning、紅 critical）；虛線 = 0.5 / 0.2</div>
+      <div class="live-kv" style="margin-top:6px"></div>`,
+    on(st, f, el){
+      if (f.event !== "window") return;
+      const w = f.window; st.rows.push(w);
+      const cv = el.querySelector(".exp-line");
+      cv.dataset.series = JSON.stringify(st.rows.map(x => [x.raw_health_index, x.smoothed_health_index, x.alarm_state]));
+      scheduleDraw(() => drawLines(el));
+      el.querySelector(".live-kv").innerHTML = kpis([["窗口", `#${w.window_index}`], ["開集分數", num(w.openset_score, 2)], ["健康度", num(w.health_index, 3)],
+        ["平滑", num(w.smoothed_health_index, 3)], ["分段", esc(w.severity_stage)], ["趨勢", esc(w.trend)], ["告警", esc(w.alarm_state)]]);
+    },
+  },
+};
+
+function stopStream(){
+  if (ACTIVE){ ACTIVE.es.close(); const b = $(`stop-${ACTIVE.id}`); if (b) b.hidden = true;
+    const s = $(`stream-${ACTIVE.id}`); if (s) s.disabled = false; ACTIVE = null; }
+}
+
+function streamExp(e){
+  stopStream();
+  const params = collectParams(e);
+  const rate = $(`rate-${e.id}`).value;
+  const live = $(`live-${e.id}`), st = $(`status-${e.id}`), view = LIVE[e.id];
+  live.innerHTML = view.html(); $(`out-${e.id}`).innerHTML = "";
+  const state = view.init();
+  const url = `/api/experiments/${e.id}/stream?params=${encodeURIComponent(JSON.stringify(params))}&rate=${rate}`;
+  const es = new EventSource(url);
+  ACTIVE = {id: e.id, es};
+  $(`stream-${e.id}`).disabled = true; $(`stop-${e.id}`).hidden = false;
+  st.className = "mini"; st.textContent = "⚙ 擬合模型中…";
+  es.onmessage = msg => {
+    const f = JSON.parse(msg.data);
+    if (f.event === "fitted") st.textContent = "⏵ 播放中…";
+    else if (f.event === "error"){ st.className = "mini err"; st.textContent = "✗ " + f.error; stopStream(); }
+    else if (f.event === "done"){
+      LAST[e.id] = f.payload; stopStream();
+      st.textContent = `✔ 完成（${f.payload.seconds} 秒，含播放時間）`;
+      if (e.id === "exp4") live.innerHTML = "";
+      showResult(e, f.payload);
+    } else view.on(state, f, live);
+  };
+  es.onerror = () => { if (ACTIVE && ACTIVE.es === es){ st.className = "mini err"; st.textContent = "✗ 串流中斷"; stopStream(); } };
+}
+
 /* ---------- 頁面 ---------- */
 function groups(){
   const g = [];
@@ -255,7 +389,10 @@ function cardHtml(e){
         模型只在這次執行的記憶體裡，跑完即丟，不保存；只存結果 JSON 到 <code>output/web_server/{ts}/experiments/</code>。同 seed 重跑結果相同。</div></div>
     <div class="form">${e.params.map(p => fieldHtml(e, p)).join("")}
       <button class="primary" id="run-${e.id}">▶ 執行</button>
+      ${e.stream ? `<label>播放速度<select id="rate-${e.id}"><option value="20">慢（20 筆/秒）</option><option value="80" selected>中（80 筆/秒）</option><option value="400">快（400 筆/秒）</option></select></label>
+      <button id="stream-${e.id}">⏵ 邊跑邊畫</button><button id="stop-${e.id}" class="warn" hidden>■ 停止</button>` : ""}
       <span class="mini" id="status-${e.id}"></span></div>
+    ${e.stream ? `<div id="live-${e.id}" style="margin-top:10px"></div>` : ""}
     <div id="out-${e.id}" style="margin-top:10px"></div>
   </div>
   ${e.committed ? `<div class="panel"><div class="exp-head"><h2>${esc(e.no)}${e.committed_sub ? " " + esc(e.committed_sub) : ""}：${esc(e.committed_title || "已提交的正式結果")}</h2>
@@ -273,12 +410,18 @@ function showResult(e, payload){
   drawLines(out);
 }
 
-async function runExp(e){
+function collectParams(e){
   const params = {};
   for (const p of e.params){
     const v = $(`f-${e.id}-${p.name}`).value;
     params[p.name] = p.type === "int" ? Number(v) : v;
   }
+  return params;
+}
+
+async function runExp(e){
+  stopStream();
+  const params = collectParams(e);
   const btn = $(`run-${e.id}`), st = $(`status-${e.id}`);
   btn.disabled = true; st.className = "mini"; st.textContent = "⚙ 執行中…（多工況的實驗約需數秒到十幾秒）";
   try {
@@ -316,8 +459,11 @@ function renderPage(key){
   const grp = groups().find(g => g.key === key);
   if (!grp) return false;
   $("expRoot").innerHTML = grp.items.map(cardHtml).join("");
+  stopStream();
   for (const e of grp.items){
     $(`run-${e.id}`).onclick = () => runExp(e);
+    if (e.stream){ $(`stream-${e.id}`).onclick = () => streamExp(e); $(`stop-${e.id}`).onclick = () => {
+      stopStream(); $(`status-${e.id}`).textContent = "■ 已停止（伺服器端同步中止）"; }; }
     if (LAST[e.id]) showResult(e, LAST[e.id]);
     if (e.committed) loadCommitted(e.committed);
   }
@@ -330,7 +476,7 @@ function route(){
   $("page-live").hidden = !!isExp;
   $("page-exp").hidden = !isExp;
   document.querySelectorAll("#tabs a").forEach(a => a.classList.toggle("active", a.dataset.page === (isExp ? key : "live")));
-  if (!isExp) window.dispatchEvent(new Event("resize"));   // 讓即時展示的 canvas 依可見寬度重畫
+  window.dispatchEvent(new Event("resize"));   // 依可見頁面重畫即時展示的 canvas（主圖或小窗）
 }
 
 async function init(){

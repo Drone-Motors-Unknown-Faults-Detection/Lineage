@@ -12,6 +12,7 @@ experiments/ 與 core/（AGENT.md 鐵則 2）。
 from __future__ import annotations
 
 import csv
+import importlib
 import json
 import math
 import time
@@ -41,6 +42,7 @@ CATALOG: list[dict] = [
         "doc": "docs/experiments/exp1_cold_start.md",
         "fits": "8screws 的 RobustScaler 與開集偵測器（Mahalanobis 為逐類 Ledoit–Wolf 共變異數、k-NN 為參考樣本近鄰索引），再用校準集定閾值",
         "seconds": 0.3,
+        "stream": True,
         "params": [_DATASET, _OPENSET, _SEED],
     },
     {
@@ -59,6 +61,7 @@ CATALOG: list[dict] = [
         "doc": "docs/experiments/exp3_trend.md",
         "fits": "8screws 的 RobustScaler 與開集偵測器（Mahalanobis 為逐類 Ledoit–Wolf 共變異數、k-NN 為參考樣本近鄰索引），再用校準集定閾值",
         "seconds": 0.6,
+        "stream": True,
         "params": [_DATASET, _OPENSET, _SEED,
                    {"name": "n_trials", "label": "每劇本次數", "type": "int",
                     "default": 20, "min": 1, "max": 100}],
@@ -70,6 +73,7 @@ CATALOG: list[dict] = [
         "doc": "docs/experiments/exp4_polar_map.md",
         "fits": "監測器（同實驗一）與極座標健康地圖 PolarMap，並逐步加入故障射線重擬合",
         "seconds": 10,
+        "stream": True,
         "params": [_DATASET, _SEED],
     },
     {
@@ -134,6 +138,7 @@ CATALOG: list[dict] = [
         "doc": "docs/experiments/exp8_health_monitor.md",
         "fits": "單一工況的開集偵測器與健康指數刻度；逐窗趨勢狀態只存在這次執行",
         "seconds": 0.2,
+        "stream": True,
         "params": [_DATASET, _OPENSET, _SEED,
                    {"name": "config", "label": "注入配置", "type": "config", "default": HEALTHY},
                    {"name": "max_windows", "label": "最多窗口數", "type": "int",
@@ -141,6 +146,7 @@ CATALOG: list[dict] = [
     },
 ]
 _BY_ID = {e["id"]: e for e in CATALOG}
+SCORE_CHUNK = 4  # 實驗一每個 frame 送幾筆分數
 
 
 def jsonable(value: Any) -> Any:
@@ -242,7 +248,8 @@ class ExperimentRunner:
         payload["saved"] = self._save(exp_id, payload)
         return payload
 
-    def _dispatch(self, exp_id: str, p: dict) -> Any:
+    def _dispatch(self, exp_id: str, p: dict, entry: str = "run") -> Any:
+        """呼叫實驗模組的 run()；entry="iter_run" 時改呼叫逐步產生事件的版本。"""
         opts = dict(self.detector_options)
         mahal = opts.get("mahalanobis_method", "ledoit_wolf")
         conf = opts.get("confidence", 0.95)
@@ -250,42 +257,42 @@ class ExperimentRunner:
         seed = p["seed"]
         method = p.get("openset_method", "mahalanobis")
         if exp_id == "exp1":
-            from experiments.exp1_cold_start import run
+            run = getattr(importlib.import_module("experiments.exp1_cold_start"), entry)
             return run(self._pools(p["dataset"]), seed=seed, confidence=conf, method=mahal,
                        openset_method=method, knn_neighbors=k)
         if exp_id == "exp2":
-            from experiments.exp2_scale_growth import run
+            run = getattr(importlib.import_module("experiments.exp2_scale_growth"), entry)
             return run(self._pools(p["dataset"]), seed=seed, confidence=conf, method=mahal,
                        openset_method=method, knn_neighbors=k)
         if exp_id == "exp3":
-            from experiments.exp3_trend import run
+            run = getattr(importlib.import_module("experiments.exp3_trend"), entry)
             return run(self._pools(p["dataset"]), n_trials=p["n_trials"], seed=seed,
                        confidence=conf, method=mahal, openset_method=method, knn_neighbors=k)
         if exp_id == "exp4":
-            from experiments.exp4_polar_map import run
+            run = getattr(importlib.import_module("experiments.exp4_polar_map"), entry)
             return run(self._pools(p["dataset"]), seed=seed)
         if exp_id == "exp5":
-            from experiments.exp5_cross_condition import run
+            run = getattr(importlib.import_module("experiments.exp5_cross_condition"), entry)
             return run(self.data_root, seed=seed, confidence=conf, method=mahal)
         if exp_id == "exp6":
-            from experiments.exp6_osr_benchmark import run
+            run = getattr(importlib.import_module("experiments.exp6_osr_benchmark"), entry)
             return run(self.data_root, seed=seed, confidence=conf)
         if exp_id == "exp6_formal":
-            from experiments.exp6_formal_benchmark import run
+            run = getattr(importlib.import_module("experiments.exp6_formal_benchmark"), entry)
             return run(self.data_root, seed=seed, confidence=conf, openset_method=method,
                        mahalanobis_method="ledoit_wolf" if mahal == "legacy" else mahal,
                        knn_neighbors=k, require_nine=False)
         if exp_id == "exp7":
-            from experiments.compare_openset import run
+            run = getattr(importlib.import_module("experiments.compare_openset"), entry)
             return run(self._pools(p["dataset"]), seed=seed, confidence=conf,
                        mahalanobis_method=mahal, knn_neighbors=k)
         if exp_id == "exp8":
-            from experiments.health_index_benchmark import run
+            run = getattr(importlib.import_module("experiments.health_index_benchmark"), entry)
             return run(self.data_root, seed=seed, openset_method=method,
                        mahalanobis_method=mahal, confidence=conf, knn_neighbors=k,
                        require_nine=False)
         if exp_id == "exp8_monitor":
-            from experiments.health_monitor import run
+            run = getattr(importlib.import_module("experiments.health_monitor"), entry)
             ds = self._find_dataset(p["dataset"])
             if p["config"] not in self._pools(p["dataset"]):
                 raise ValueError(f"資料集 {p['dataset']} 沒有配置 {p['config']}")
@@ -294,6 +301,55 @@ class ExperimentRunner:
                        motor_id="web-demo", session_id=f"{p['dataset']}-{p['config']}",
                        max_windows=p["max_windows"], require_identity=True)
         raise ValueError(f"未知實驗：{exp_id}")
+
+    def stream(self, exp_id: str, raw_params: dict):
+        """邊跑邊畫：逐步產生 (frame, units)。
+
+        frame 直接送給前端；units 是這個 frame 含的樣本數，伺服器依此控制播放速度
+        （units=0 的 frame 不等待）。計算走實驗模組的 iter_run()，數字與 run() 相同。
+        最後一個 frame 是 done，內容與 run() 的回傳值同格式，並已存檔。
+        """
+        spec = _BY_ID.get(exp_id)
+        if spec is None or not spec.get("stream"):
+            raise ValueError(f"{exp_id} 不支援邊跑邊畫")
+        params = self._clean(spec, raw_params or {})
+        t0 = time.time()
+        yield {"event": "start", "params": params}, 0
+        result: Any = None
+        windows: list[dict] = []
+        for event in self._dispatch(exp_id, params, entry="iter_run"):
+            event = jsonable(event)
+            kind = event["event"]
+            if kind == "result":
+                result = event["result"]
+            elif kind == "scores":
+                scores = event.pop("scores")
+                for i in range(0, len(scores), SCORE_CHUNK):
+                    chunk = scores[i:i + SCORE_CHUNK]
+                    yield {**event, "offset": i, "scores": chunk}, len(chunk)
+            elif kind == "tick":
+                # 每個劇本只播第一次重複；其餘重複照算，只送 trial 結果
+                if event["trial"] == 0:
+                    yield event, 1
+            elif kind == "window":
+                windows.append(event["window"])
+                yield event, 1
+            else:
+                yield event, 0
+        if exp_id == "exp8_monitor":
+            result = windows
+        payload = {
+            "experiment": exp_id,
+            "no": spec["no"],
+            "code": spec["code"],
+            "params": params,
+            "seconds": round(time.time() - t0, 2),
+            "finished_at": datetime.now().isoformat(timespec="seconds"),
+            "result": result,
+            "streamed": True,
+        }
+        payload["saved"] = self._save(exp_id, payload)
+        yield {"event": "done", "payload": payload}, 0
 
     def _save(self, exp_id: str, payload: dict) -> str | None:
         if self.out_dir is None:
