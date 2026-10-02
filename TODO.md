@@ -62,8 +62,12 @@
 - [ ] [#22](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22) 持續研究：局部距離學習、幅值比值與配對驗證
   - [x] 完成 [#11](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/11)：分支總覽、README 與 docs 索引；補充同步 raw schema 的實際用途與限制。
   - [x] 補齊現行 continuous_research 各模組手冊；已有程式的手冊註明補寫日期，後續改動先寫手冊。
-  - [ ] 核對已封存 Q01–Q08 配對評估：72 格預定；12 格因訓練最佳化未收斂而 INCOMPLETE，不補零、不換參數填回。
-  - [ ] 重推論、重算指標，核對來源 SHA、fit/cal/test IDs 與健康總誤報；保存全部成功與失敗格。
-  - [ ] 封存本批結果、雙 Python 測試與 D 槽備份；記錄相對 C02/C17/C24/D01 的配對差異。
-  - [ ] 依未收斂／跨馬達失敗證據，先登錄下一批有限改編，再實作與消融；保留 formal105、LW、k-NN factory 與 PolarMap 正式預設。
+  - [x] 核對已封存 Q01–Q08 配對評估：72 格預定；12 格因訓練最佳化未收斂而 INCOMPLETE，不補零、不換參數填回。
+  - [x] 重推論、重算指標，核對來源 SHA、fit/cal/test IDs 與健康總誤報；保存全部成功與失敗格。
+  - [x] 封存本批結果、雙 Python 測試與 D 槽備份；記錄相對 C02/C17/C24/D01 的配對差異。
+  - [x] 依未收斂／跨馬達失敗證據，先登錄下一批有限改編，再實作與消融；保留 formal105、LW、k-NN factory 與 PolarMap 正式預設。
   - 已有 28,910 筆資料全部有 test 曝露歷史。新比較皆為 exploratory；來源未知與獨立 test groups 不足不改成 PASS。此項不依賴重新採集，也不宣稱可靠模型已完成。
+  - 2026-10-03接續：Q 60格／576,144筆重推論與配對報告完成，六完整方法均未通過可靠性門檻；原12格INCOMPLETE保留。
+  - train-only solver診斷27fits：hard150 3/9、smooth150 5/9、hard600 9/9收斂；27loss/gradient重算及原Q三成功weights exact。兩Python各396tests/37CLI/pip check PASS。
+  - [ ] 新協定hard600 subset/all-train kNN完整outer配對比較尚未實作／執行，訓練收斂不等於accuracy改善。
+  - 研究結果commit8bd6d14042e61a40548e37e989a1f2db2d7a4fbb已push；[Q報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/final_findings.md)、[solver報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/solver_findings.md)。#22維持OPEN；未合併研究分支到main。
