@@ -1,0 +1,13 @@
+2026-10-02 17:46:12 | INFO    | Logger initialized: fault_type_mechanism_fit
+2026-10-02 17:46:12 | INFO    | log_file=logs\fault_type_mechanism_fit\2026-10-02-17-46-12.log
+2026-10-02 17:46:12 | INFO    | output_dir=output\fault_type_mechanism_fit\2026-10-02-17-46-12
+2026-10-02 17:46:33 | INFO    | fit/sealed fixed-fold0_seed0 elapsed=4.8s
+2026-10-02 17:46:42 | INFO    | fit/sealed fixed-fold0_seed1 elapsed=4.5s
+2026-10-02 17:46:51 | INFO    | fit/sealed fixed-fold0_seed2 elapsed=4.5s
+2026-10-02 17:47:00 | INFO    | fit/sealed fixed-fold1_seed0 elapsed=4.6s
+2026-10-02 17:47:09 | INFO    | fit/sealed fixed-fold1_seed1 elapsed=4.6s
+2026-10-02 17:47:19 | INFO    | fit/sealed fixed-fold1_seed2 elapsed=4.8s
+2026-10-02 17:47:28 | INFO    | fit/sealed fixed-fold2_seed0 elapsed=4.7s
+2026-10-02 17:47:37 | INFO    | fit/sealed fixed-fold2_seed1 elapsed=4.6s
+2026-10-02 17:47:47 | INFO    | fit/sealed fixed-fold2_seed2 elapsed=4.8s
+2026-10-02 17:47:47 | INFO    | fit completed=9 output=output\fault_type_mechanism_fit\2026-10-02-17-46-12

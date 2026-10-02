@@ -1,5 +1,9 @@
 # 已鎖定的單輪協定（評估前提交）
 
+**目前執行版**：`output/fault_type_mechanism_registry/2026-10-02-17-49-29/protocol.json`，seal `ff6ddc29ca101f73c8a3ca6f818147dc4f6cd81032581966757b5f72087e1b91`。
+僅修正resume總索引immutable保存，九arm公式/參數/角色/預算均未變。13:10版與17:46 pre-evaluation lock保留但不作正式新評估入口；沒有舊outer結果需要重跑。
+新35相關測試（19 mechanisms）、另3 report cases PASS；最後完整acceptance會重新計數。
+
 `mechanisms_v2_fixed_no_selection`，9 complete arms、81格，沒有selector或global winner。
 seal `4db05bc722e49ecb6421beaa072f21216ab795d8b180c3fcb441d0d7fe230743`。
 檔案 `output/fault_type_mechanism_registry/2026-10-02-13-10-15/protocol.json`。

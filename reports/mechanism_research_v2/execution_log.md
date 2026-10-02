@@ -16,4 +16,10 @@ P3 commit b55a5b913d831dcbded263328d4771672c10764e 已 push，remote exact。
 P4/5/6工程：新增9arms train-only數值類、來源綁定registry、分離fit/cal/infer、逐格SHA checkpoint與reinfer。直接相關34新cases（13 metric+3 diagnosis+18 mechanisms），預算81。合成smoke兩runtime PASS，不算研究。protocol seal 4db05bc722e49ecb6421beaa072f21216ab795d8b180c3fcb441d0d7fe230743，未執行新outertest。完整acceptance實際測試數另依產物記錄。
 
 完整acceptance：Python3.10.19與3.14.6各344 tests PASS、pip check PASS、27 CLI help PASS。產物2026-10-02-13-09-31/13-09-43；synthetic13-09-54/13-09-56兩native runtime PASS。未跨sklearn載joblib。
+
+P4初次提交被auto-review額度限制拒絕，指令未執行；使用者繼續後正常重試，d2548fa811b69f5b64329bc2bfbe938f6043f542已push/remote exact。
+17:46-17:47完成pre-evaluation9 fit bundles、27新P classifier/9 geometry、0 warnings，peak process 1,987,735,552 bytes（含大型parent）；lock 88a15375583b25512d11f7fc715a2c420dfa2f4a3cad5a4e4ada7b4cf6b67ffc。尚未評估outertest。
+發現resume aggregate會重寫sealed總索引（checkpoint本身正常），新增save_immutable＋重現測試；舊protocol/lock完整保留，不覆寫。需要新source SHA協定後重新fit，不算新增arm，不新增test評估；正式81格仍尚未執行。
+
+修補驗證：science相關35 PASS、3.14 mechanisms19 PASS、report3 PASS。新protocol17:49:29/ff6ddc29ca101f73c8a3ca6f818147dc4f6cd81032581966757b5f72087e1b91已生成，未看新outertest。新版report以within-fold AUROC/AP作sample-weighted平均，不混跨模型raw score排名。
 P2 只讀診斷 exit0；3 個 seed0 parent models，formal source 前後一致，無 fit/threshold 修改。兩圖檢視，2screws train=100%/test=0%；R17 真實 cal 各類足量但 predicted routes 空。形成 H-D/H-P/H-G，未知採集事實不補造。

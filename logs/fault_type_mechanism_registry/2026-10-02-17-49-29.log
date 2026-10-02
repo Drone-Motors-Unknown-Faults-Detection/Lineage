@@ -1,0 +1,4 @@
+2026-10-02 17:49:29 | INFO    | Logger initialized: fault_type_mechanism_registry
+2026-10-02 17:49:29 | INFO    | log_file=logs\fault_type_mechanism_registry\2026-10-02-17-49-29.log
+2026-10-02 17:49:29 | INFO    | output_dir=output\fault_type_mechanism_registry\2026-10-02-17-49-29
+2026-10-02 17:49:51 | INFO    | protocol=ff6ddc29ca101f73c8a3ca6f818147dc4f6cd81032581966757b5f72087e1b91 81 cells; commit BEFORE fit/evaluate

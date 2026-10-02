@@ -9,7 +9,7 @@ from core.fault_type_mechanisms import RPMPartialPooling,BlockGeometry,calibrate
 from core.fault_type_final_guard import seal,verify_seal
 from experiments.fault_type_mechanism_registry import ARMS
 from experiments.fault_type_mechanism_smoke import fixture
-from experiments.fault_type_mechanism_study import infer,check_audit,load_new,fit
+from experiments.fault_type_mechanism_study import infer,check_audit,load_new,fit,save_immutable
 from core.fault_type_provenance import save_json
 from experiments.fault_type_fixed_smoke import fixture as metadata_fixture
 from experiments.fault_type_fixed_calibration import build_protocol
@@ -113,6 +113,16 @@ class MechanismTests(unittest.TestCase):
             with patch('experiments.fault_type_mechanism_study.check',return_value=({},[m],{'artifacts':[{'fold_id':'f','seed':0}]},[])),patch('experiments.fault_type_mechanism_study.verify_sources',return_value='same'):
                 class Pools:root=folder
                 with self.assertRaisesRegex(ValueError,'resume protocol'):fit(Pools(),p={'protocol_checksum':'right'},output=Path(folder))
+
+    def test_sealed_aggregate_replay_never_overwrites(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/'lock.json';a=seal({'protocol':'p','ids':['a'],'seconds':1.,'code_head':'old'},'checksum')
+            save_immutable(path,a,'checksum');raw=path.read_bytes()
+            b=seal({'protocol':'p','ids':['a'],'seconds':2.,'code_head':'new'},'checksum')
+            self.assertEqual(save_immutable(path,b,'checksum'),a);self.assertEqual(path.read_bytes(),raw)
+            b=seal({'protocol':'p','ids':['test'],'seconds':2.},'checksum')
+            with self.assertRaisesRegex(ValueError,'sealed aggregate'):save_immutable(path,b,'checksum')
+            self.assertEqual(path.read_bytes(),raw)
 
     def test_actual_manifest_audit_rejects_cal_fit(self):
         with tempfile.TemporaryDirectory() as folder:

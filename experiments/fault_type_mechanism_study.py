@@ -37,6 +37,16 @@ def check_audit(a,m,p):
     return True
 
 
+def save_immutable(path,result,key):
+    """Replay may change elapsed time/commit, not sealed evidence or files."""
+    if path.exists():
+        previous=read(path);verify_seal(previous,key)
+        stable=lambda x:{k:v for k,v in x.items() if k not in [key,'seconds','code_head']}
+        if stable(previous)!=stable(result):raise ValueError('sealed aggregate changed; use a new run path')
+        return previous
+    save_json(path,result);return result
+
+
 def transforms(parent):
     return {key:ref['transformer'].transform_checksum for key,ref in parent['references'].items() if key in
         ['base75/mixed','harmonic69/mixed',*['base75/'+r for r in ['6000rpm','8000rpm','11000rpm']]]}
@@ -113,7 +123,7 @@ def fit(pools,*,p,output):
         'artifacts':artifacts,'failures':failures,'selection_policy':'none','selection_sample_ids':[],
         'new_classifier_fits':len(artifacts)*3,'new_geometry_fits':len(artifacts),'parent_fits_reused':True,
         'code_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()},'locked_checksum')
-    save_json(output/'locked_study.json',lock);return lock
+    return save_immutable(output/'locked_study.json',lock,'locked_checksum')
 
 
 def infer(parent,new,p,X,rpms):
@@ -220,7 +230,12 @@ def evaluate(pools,*,p,lock,output,verify=False,evaluation=None):
         'planned_runs':81,'completed_runs':len(runs),'prediction_records':verified if verify else sum(r['samples'] for r in runs),
         'unique_samples':len(unique),'source_before':before,'source_after':after,'seconds':time.perf_counter()-start,
         'scope':p['scope'],'fresh_final_test':False,'selection_policy':'none'},'verification_checksum' if verify else 'evaluation_checksum')
-    name='verified' if verify else 'evaluation';save_json(output/(name+'.json'),result);write_gzip(output/(name+'.json.gz'),result);return result
+    name='verified' if verify else 'evaluation';result=save_immutable(output/(name+'.json'),result,'verification_checksum' if verify else 'evaluation_checksum')
+    compact=output/(name+'.json.gz')
+    if compact.exists():
+        if read_gzip(compact)!=result:raise ValueError('sealed compact aggregate changed')
+    else:write_gzip(compact,result)
+    return result
 
 
 def run(pools,*,action,p,output,lock=None,evaluation=None):
