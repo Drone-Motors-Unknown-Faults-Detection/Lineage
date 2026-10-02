@@ -240,13 +240,15 @@ function cardHtml(e){
   return `<div class="panel" id="card-${e.id}">
     <div class="exp-head"><h2>${esc(e.no)}：${esc(e.title)}</h2>
       <div class="q">${esc(e.question)}</div>
-      <div class="mini">程式 <code>${esc(e.code)}</code>　技術報告 <code>${esc(e.doc)}</code></div></div>
+      <div class="mini">程式 <code>${esc(e.code)}</code>　技術報告 <code>${esc(e.doc)}</code></div>
+      <div class="mini" style="margin-top:4px">⚙ 每次按「執行」都會從頭擬合：${esc(e.fits)}。本機約 ${e.seconds < 1 ? "不到 1" : esc(e.seconds)} 秒。
+        模型只在這次執行的記憶體裡，跑完即丟，不保存；只存結果 JSON 到 <code>output/web_server/{ts}/experiments/</code>。同 seed 重跑結果相同。</div></div>
     <div class="form">${e.params.map(p => fieldHtml(e, p)).join("")}
       <button class="primary" id="run-${e.id}">▶ 執行</button>
       <span class="mini" id="status-${e.id}"></span></div>
     <div id="out-${e.id}" style="margin-top:10px"></div>
   </div>
-  ${e.committed ? `<div class="panel"><h2>已提交的正式結果（唯讀，不從網頁重跑）</h2><div id="committed-${e.committed}" class="mini">載入中…</div></div>` : ""}`;
+  ${e.committed ? `<div class="panel"><h2>已提交的正式結果（唯讀，讀現成檔案，不擬合、不從網頁重跑）</h2><div id="committed-${e.committed}" class="mini">載入中…</div></div>` : ""}`;
 }
 
 function showResult(e, payload){

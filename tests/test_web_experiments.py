@@ -21,6 +21,13 @@ class CatalogTests(unittest.TestCase):
                 self.assertTrue((ROOT / entry["doc"]).is_file(), entry["doc"])
                 self.assertTrue(entry["no"].startswith("實驗"))
 
+    def test_every_entry_states_what_it_fits(self):
+        for entry in CATALOG:
+            with self.subTest(entry=entry["id"]):
+                self.assertTrue(entry["fits"].strip())
+                self.assertIsInstance(entry["seconds"], (int, float))
+                self.assertGreater(entry["seconds"], 0)
+
     def test_ids_are_unique(self):
         ids = [entry["id"] for entry in CATALOG]
         self.assertEqual(len(ids), len(set(ids)))

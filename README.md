@@ -315,7 +315,8 @@ AUROC 皆 1.0；所有 unknown 的健康指數都是 0.0，分得開但排不出
   伺服器呼叫該實驗模組的 `run()`，結果畫成表格、熱圖與線圖。實驗六、八另外顯示已提交的
   正式矩陣結果（`output/exp6_formal_matrix/aggregate/`、`reports/exp8_health_index_results/`），
   唯讀、不從網頁重跑。每次執行的完整結果存到 `output/web_server/{ts}/experiments/{實驗}_{時間}.json`。
-  實驗在另一個執行緒池跑，一次一個；跑實驗時即時展示照常串流。
+  實驗在另一個執行緒池跑，一次一個；跑實驗時即時展示照常串流。每次按「執行」都會從頭擬合該實驗的
+  模型（統計擬合，不用 GPU）；模型跑完即丟、不保存，同 seed 重跑結果相同。每頁會寫出這次擬合哪些模型、約需幾秒。
 
 ```bash
 ./run_web.sh                      # 預設 T1/8000rpm、http://localhost:8600
