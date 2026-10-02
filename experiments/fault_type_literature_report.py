@@ -19,6 +19,22 @@ def metric(m,k):return value(m,k)
 def read(p):return json.loads(gzip.decompress(p.read_bytes())) if p.suffix=='.gz' else json.loads(p.read_text(encoding='utf-8'))
 
 
+def historical_comparison(current, historic, new, old, score):
+    differences={k:value(current,k)-value(historic,k) for k in METRICS
+                 if value(current,k) is not None and value(historic,k) is not None}
+    classification={k:d for k,d in differences.items()
+                    if k.startswith('known_classification.') or k.startswith('known_fault_classification.')}
+    return {'new':new+'/'+score, 'historical':old+'/'+score, 'mean_differences':differences,
+            'matches':bool(differences) and all(abs(d)<1e-12 for d in differences.values()),
+            'classification_matches':bool(classification) and all(abs(d)<1e-12 for d in classification.values()),
+            'expected_entire_method_match':new=='C02',
+            'reference_scope_note':'C02 and A0 both mixed-RPM references' if new=='C02' else
+                'C24 separately fits/calibrates RPM references; historical A7 only separated classifiers '
+                'and shared the mixed-RPM A1 reference. Only closed-set classification is an exact control; '
+                'detector differences are pipeline-scope differences, not an isolated classifier effect.',
+            'scope':'saved historical summaries; not refit historical study'}
+
+
 def run(pools,*,protocol,lock,verified,prior,output,inputs):
     for data,key in [(protocol,'protocol_checksum'),(lock,'locked_checksum'),(verified,'report_checksum'),(prior,'summary_checksum')]:verify_seal(data,key)
     if verified['protocol_checksum']!=protocol['protocol_checksum'] or verified['locked_checksum']!=lock['locked_checksum']:raise ValueError('report binding')
@@ -29,9 +45,7 @@ def run(pools,*,protocol,lock,verified,prior,output,inputs):
     for new,old in [('C02','A0'),('C24','A7')]:
         for score in ['mahalanobis','knn']:
             current=mapping[new+'/'+score];historic=next(m for m in prior['methods'] if (m['arm_id'],m['score_id'])==(old,score))
-            differences={k:value(current,k)-value(historic,k) for k in METRICS if value(current,k) is not None and value(historic,k) is not None}
-            checks.append({'new':new+'/'+score,'historical':old+'/'+score,'mean_differences':differences,
-                'matches':all(abs(d)<1e-12 for d in differences.values()),'scope':'saved historical summaries; not refit historical study'})
+            checks.append(historical_comparison(current,historic,new,old,score))
     keys=['known_fault_classification.accuracy','known_fault_classification.balanced_accuracy','known_classification.accuracy',
         'unknown_rejection.auroc_unknown_positive','unknown_rejection.unknown_recall','final_open_set_classification.accuracy']
     descriptive=[]
@@ -86,8 +100,9 @@ def run(pools,*,protocol,lock,verified,prior,output,inputs):
         '- 老師healthy＋5known／4unknown與按motor群組切分：本輪實際執行主固定配置。其他N／全部126組本輪未重跑，歷史2490次只讀。',
         '- 每fold僅1個test motor，guard每類至少2 test groups要求仍INCOMPLETE；來源session、raw overlap、IQR mask與物理一致性仍UNKNOWN。不能將seeds、RPM、windows當作獨立馬達；無IID窗CI、無RUL、無量化老化。',
         '- 無新的fresh final test，模型選擇／可靠部署未驗證；健康FPR零只是此資料觀察，不是固定5%保證。',
-        '', '## 原始來源與改編定位', '', '28项文獻與實測／未測範圍：[sources.md](sources.md)。C/R ID參數逐项見封存protocol。自訂表示法、RDA-inspired混合、RMD係數、預測類別cal、融合在core/fault_type_literature.py有函數级来源；不是聲稱新原創已發表方法。',
+        '', '## 原始來源與改編定位', '', '28項封存來源加3項補充來源，共31項書目；見repository的reports/literature_expansion/sources.md與sources_addendum.md。部分只作範圍依據，不是31套新演算法已實測。C/R ID參數逐項見封存protocol。自訂表示法、RDA-inspired混合、RMD係數、預測類別cal、融合在core/fault_type_literature.py有函數級來源；不是聲稱新原創已發表方法。',
         '', '## 歷史控制與成本','',f"{json.dumps(checks,ensure_ascii=False)}",'',
+        'C02/A0檢查完整混合RPM方法；C24/A7只檢查closed-set分類。C24的detector也依RPM分開fit/cal，而歷史A7共用mixed-RPM A1 reference，因此其開集數字不應被宣稱為完全相同流程的重現。三fold／seeds／test IDs仍相同；不改已鎖定本輪方法來追求歷史分數一致。','',
         f"physical bundle fit seconds={result['physical_bundle_fit_seconds']:.3f}; fit counts={result['fit_counts']}. 各邏輯run共享模型／參照，不把630組當630個獨立訓練或受試馬達。"]
     (output/'report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     return result

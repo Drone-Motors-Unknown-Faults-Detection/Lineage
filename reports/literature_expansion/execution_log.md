@@ -37,3 +37,13 @@ P2 lock commit acf8c7e771546f658f72b5b4d8463c06dc3f2eca，push成功，local=rem
 新增非封存方法範圍的只讀診斷模組fault_type_literature_diagnosis，固定比較C01/C02/C17、R01–04/R18–20的train／cal／test分數分布，不fit、不掃閾值、不新增方法評估。新增四項工程測試檢查signed/zero門檻、真值僅報表分組與非有限值。首次import路徑誤写experiments而非core導致1個loader error，修正後4/4通過；正式evaluate不引用此模組，未影響研究程式／protocol SHA。完整相容性验收加入第五個新CLI後重跑，最終測試實數以新environment.json為準。
 
 新診斷工程驗收：3.10.19於12:11:25、3.14.6於12:13:16各307 passed/0failed，pip check及21 CLI help PASS。診斷metadata再加入data_scope／自身source SHA，四項相關單元測試再次通過，12:15:03 synthetic診斷CLI成功，351個分布集合（13固定方法×9bundles×train/cal/test），models_refit=false、thresholds_modified=false。不是351次新研究評估。8MB診斷JSON留外部archive，Git留索引output/fault_type_archive/2026-10-02-12-15-21/archive_index.json；不把synthetic分數當馬達研究成績。診斷初版12:12:53仍保留、不覆寫，交付引用data_scope明確的新版本。
+
+診斷程式commit994505391a0c201a010a5624223fcb1333bd8f34，push成功local=remote。追加metadata後全套驗收12:16:09（3.10）及12:19:45（3.14）仍各307 PASS。
+
+## P3：正式評估與逐筆重推論驗證
+
+evaluate於12:09:14–12:16:07完成624/630，六格缺失均有封存R17 fit理由；6,013,647筆預測，unique test仍28,910。evaluation checksum294a41c2a6c870c89e77c957402ce3764ddc96a1a126d24eeeeb1067f10cf0cb。來源90CSV前後SHA／指紋相同；無selector或test調參。output/fault_type_literature_evaluate/2026-10-02-12-09-14/evaluation.json，39MB完整逐run來源索引與625檔保存預測於D槽新ZIP：554478066 bytes，CRC PASS，索引output/fault_type_archive/2026-10-02-12-16-43/archive_index.json。verify於12:16:33開始，用封存模型重推論所有保存樣本，不僅重算summary；完成狀態後續追加。
+
+核對歷史控制範圍：C02/A0為同混合RPM完整pipeline。C24/A7分類器／表示法／train相同；但歷史A7只按RPM分classifier，共用mixed-RPM A1 detector reference；本輪事前寫定的C24也按RPM分detector reference與cal。不能期待所有開集指標一致，也不能用該差異宣稱純分類器效果。報告新增classification_matches與expected_entire_method_match，把實際差異全部保留；此為報告解讀修正，不改方法或重跑挑分。新增三項報告範圍測試全部通過（完整測試應為310，依最新驗收实數確認）。sources.md與protocol保持封存原文，新增说明不冒充事前資訊。
+
+報告解讀修正後最终完整驗收：3.10.19（12:21:11）、3.14.6（12:22:05）各310 passed/0failed，pip check与21 CLI help PASS。新科學方法／協定程式已封存且未變；310比原272多38項工程測試。本階段提交報告檢查程式與測試、完整驗收、已完成evaluate日誌及D槽索引；不stage39MB evaluation或625份大型預測，全部可由archive index恢復驗SHA。

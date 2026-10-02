@@ -1,0 +1,4 @@
+2026-10-02 12:22:05 | INFO    | Logger initialized: fault_type_literature_acceptance_py3_14_6
+2026-10-02 12:22:05 | INFO    | log_file=logs\fault_type_literature_acceptance_py3_14_6\2026-10-02-12-22-05.log
+2026-10-02 12:22:05 | INFO    | output_dir=output\fault_type_literature_acceptance_py3_14_6\2026-10-02-12-22-05
+2026-10-02 12:23:34 | INFO    | Python3.14.6 tests=310 status=PASS

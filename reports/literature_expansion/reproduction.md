@@ -30,6 +30,7 @@ $studyPython = Join-Path $studyRepo '.venv310/Scripts/python.exe'
 & $studyPython -m experiments.fault_type_literature_study --help
 & $studyPython -m experiments.fault_type_literature_report --help
 & $studyPython -m experiments.fault_type_literature_smoke --help
+& $studyPython -m experiments.fault_type_literature_diagnosis --help
 ```
 
 正式完成後 `result_index.json` 收錄所有絕對路徑，使用其封存protocol與lock：
@@ -38,6 +39,7 @@ $studyPython = Join-Path $studyRepo '.venv310/Scripts/python.exe'
 $studyIndex = Get-Content -LiteralPath 'reports/literature_expansion/result_index.json' -Raw | ConvertFrom-Json
 & $studyPython -m experiments.fault_type_literature_study verify --protocol $studyIndex.paths.protocol --locked $studyIndex.paths.locked --evaluation $studyIndex.paths.evaluation --data-root $studyIndex.paths.data_root
 & $studyPython -m experiments.fault_type_literature_report --protocol $studyIndex.paths.protocol --locked $studyIndex.paths.locked --verified $studyIndex.paths.verified --prior $studyIndex.paths.prior_summary
+& $studyPython -m experiments.fault_type_literature_diagnosis --protocol $studyIndex.paths.protocol --locked $studyIndex.paths.locked --verified $studyIndex.paths.verified --data-root $studyIndex.paths.data_root
 ```
 
 若要另跑而非驗證，先確認目前code與protocol記錄的source SHA/依賴版本相同，再 `fit` 到setup_run新timestamp目錄，commit該lock後才 `evaluate --locked <新的locked_study.json>`；`verify` 必須同一protocol/lock/evaluation。不要用當前HEAD冒充原fit HEAD；不要改歷史lock或模型路徑來繞過SHA guard。新run只能exploratory，不能因另存路徑、新seed或洗牌變fresh。
@@ -56,3 +58,7 @@ $studyIndex = Get-Content -LiteralPath 'reports/literature_expansion/result_inde
 logs/output依AGENT慣例；大型joblib、逐樣本jsonl.gz、full verified與readable summary保存D槽新版本archive，Git保留compact summary、protocol、lock與SHA索引。恢復先用既有 `experiments.fault_type_fixed_delivery --index <archive_index.json>` 驗whole ZIP SHA、CRC及member SHA；不覆蓋data或舊output。封存路徑保持原绝對位置；改路径需新的明示artifact移轉契約，不手改sealed lock。D槽同機備份不是異地備援。
 
 所有最高分是posthoc描述性比較；3motor、未知window依賴不支持窄逐窗IID CI、部署泛化、5%固定誤報、退化百分比或RUL。
+
+## 歷史控制的可比範圍
+
+C02與A0為同混合RPM完整pipeline，可比較所有保存指標。C24與A7只在closed-set分類器／表示法／train／test角色相同：A7共用mixed-RPM A1 reference，C24從事前protocol起就是classifier與detector均按RPM分fit/cal。報告保留所有實際差異，但不能把其開集差異說成完全相同流程的重現或純classifier效應。這項事後解读澄清不改已封存protocol、不改門檻，不覆寫舊A7；新runner只讀正式CSV。
