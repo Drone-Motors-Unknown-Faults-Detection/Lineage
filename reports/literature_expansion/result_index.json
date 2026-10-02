@@ -1,0 +1,826 @@
+{
+  "version": "literature_expansion_delivery_v1",
+  "date": "2026-10-02",
+  "timezone": "Asia/Taipei",
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "repository": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree",
+  "branch": "research-improvements-20260920",
+  "remote": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage.git",
+  "evidence_commit_local_remote_verified": "686dd9aaf46b015164ddd3a9fe52ec9cb53cf393",
+  "delivery_commit_note": "The subsequent commit containing this index/final findings is the delivery commit; verify git rev-parse HEAD and git ls-remote, not a self-referential SHA.",
+  "paths": {
+    "protocol": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_registry\\2026-10-02-01-26-16\\protocol.json",
+    "locked": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\locked_study.json",
+    "evaluation": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14\\evaluation.json",
+    "verified": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json",
+    "verified_compact": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json.gz",
+    "summary": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json",
+    "summary_compact": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json.gz",
+    "all_method_report": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\report.md",
+    "diagnosis": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42\\diagnosis.json",
+    "prior_summary": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_summary\\2026-10-02-01-01-35\\summary.json.gz",
+    "sources": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources.md",
+    "sources_addendum": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources_addendum.md",
+    "final_findings": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\final_findings.md",
+    "reproduction": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\reproduction.md",
+    "backup_verification": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-12-27-43\\member_verification.json",
+    "acceptance_310": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_10_19\\2026-10-02-12-26-34\\environment.json",
+    "acceptance_314": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_14_6\\2026-10-02-12-26-34\\environment.json",
+    "data_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\data\\formal_local",
+    "exposure_ledger": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_exposure\\2026-10-01-01-10-40\\exposure_ledger.json.gz"
+  },
+  "artifacts": {
+    "protocol": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_registry\\2026-10-02-01-26-16\\protocol.json",
+      "sha256": "baff959b4aa05ef61945dee538ae19e4f3a2bcaa92b21617a35c3af6b4a9d9fa",
+      "bytes": 46733
+    },
+    "locked": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\locked_study.json",
+      "sha256": "75efe200f00f05af8c978a5084bf94b10e3024712c5868bf6d2d0a36f0c7b669",
+      "bytes": 6297
+    },
+    "evaluation": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14\\evaluation.json",
+      "sha256": "0b45185884ae4e30ccfd25bd98b8cf4f3acd4bb3692caa90e25be2cfb48a1535",
+      "bytes": 39037049
+    },
+    "verified": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json",
+      "sha256": "299c609588c40588c310612d9b36d176bef248c39c55f022ba55eaecafae7097",
+      "bytes": 89495295
+    },
+    "verified_compact": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json.gz",
+      "sha256": "4ca299a35ab8668ceb674132e590e783fe8f9eddf2eee7a658cecceeefa68f92",
+      "bytes": 3201122
+    },
+    "summary": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json",
+      "sha256": "198409bcb3cde6c94719d1a4de54cd4ef191567d52df0a5e3301eac23afdc008",
+      "bytes": 50437596
+    },
+    "summary_compact": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json.gz",
+      "sha256": "31038fdb1006f37cc12980fc10eb64012b6e135ec16b39c5bf0a61fa69c9514d",
+      "bytes": 1311860
+    },
+    "all_method_report": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\report.md",
+      "sha256": "f168b4df71bb6c3c803b097d543d36fb9f8394fe4639e87e4b3f98575da6fb68",
+      "bytes": 26224
+    },
+    "diagnosis": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42\\diagnosis.json",
+      "sha256": "fbfe60d64b101270153da13d43db6bcbb2adb4804f61cb0397f253c4321b5ee0",
+      "bytes": 8120887
+    },
+    "prior_summary": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_summary\\2026-10-02-01-01-35\\summary.json.gz",
+      "sha256": "fb047d6fa0672252a20433ecdb153eaac579f46f58227ba780c34fce4f9d760f",
+      "bytes": 426342
+    },
+    "sources": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources.md",
+      "sha256": "3278220fc6089499fde3f2fcd497899df1d11fb95b66d35710562965eaae74c0",
+      "bytes": 11977
+    },
+    "sources_addendum": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources_addendum.md",
+      "sha256": "7de3f471711d11df680e90459c9b89842c32a67a7faa385eea832ac5a0c7ef49",
+      "bytes": 2379
+    },
+    "final_findings": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\final_findings.md",
+      "sha256": "5915d278a4fa5dd4c7819b890aff04c2e9e7db7d1bf358cff970bb3ae5e703f3",
+      "bytes": 18237
+    },
+    "reproduction": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\reproduction.md",
+      "sha256": "db6732b11183ca091f5ae9224a0da3520eaf730e88b133cb30a1992aaff014f1",
+      "bytes": 5147
+    },
+    "backup_verification": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-12-27-43\\member_verification.json",
+      "sha256": "6a494eade5e40c8f05f4ee1244786c7b71499bbcce0971574d332055c94314b5",
+      "bytes": 4989
+    },
+    "acceptance_310": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_10_19\\2026-10-02-12-26-34\\environment.json",
+      "sha256": "8482b25bb26826fe7747919576be06cb811aac3a0657dc0e121fab84b56ad47f",
+      "bytes": 14931
+    },
+    "acceptance_314": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_14_6\\2026-10-02-12-26-34\\environment.json",
+      "sha256": "8c7fa73adcfb3d8948e060ac880e08a13fc54f7c56f37386f7273e31af846f40",
+      "bytes": 14677
+    }
+  },
+  "dataset": {
+    "fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "files": 90,
+    "unique_rows": 28910,
+    "input_dimensions": 105,
+    "all_historically_test_exposed": true,
+    "fresh_final_test": false,
+    "physical_independence": "UNKNOWN",
+    "documented_motor_identity": "T1/T2/T3 are different motors; T1 new, T2/T3 old; age and identity confounded"
+  },
+  "protocol": {
+    "version": "literature_expansion_v1_fixed_no_selection",
+    "checksum": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+    "known_labels": [
+      "8screws",
+      "1screws",
+      "2screws",
+      "3_14screws",
+      "3screws",
+      "4screws"
+    ],
+    "unknown_labels": [
+      "4_146screws",
+      "5screws",
+      "6screws",
+      "7screws"
+    ],
+    "folds": [
+      {
+        "counts": {
+          "calibration": 6007,
+          "test": 9294,
+          "train": 5935
+        },
+        "fold": 0,
+        "motors": {
+          "calibration": "T2",
+          "test": "T3",
+          "train": "T1"
+        },
+        "partition_id_checksums": {
+          "calibration": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933",
+          "test": "0a21e58997eedf0964d214ba412ca3bc56ef17e5ff200341ce2592f3d6b54bd2",
+          "train": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470"
+        },
+        "prior_manifest_checksum": "ade300cfeadc4b8bc08d032fcaf5f2f8fae57b37e8b32df58f0e96d042fec840"
+      },
+      {
+        "counts": {
+          "calibration": 5604,
+          "test": 9759,
+          "train": 6007
+        },
+        "fold": 1,
+        "motors": {
+          "calibration": "T3",
+          "test": "T1",
+          "train": "T2"
+        },
+        "partition_id_checksums": {
+          "calibration": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b",
+          "test": "b6ffa3400d7c679caf826e1cd872857ad46b01e2fad9e76e7086e6854d7febc5",
+          "train": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933"
+        },
+        "prior_manifest_checksum": "4e102a237cf9ac3024f41d4e10ef120ed67c934a6b48591dfd7f085603b4cdb8"
+      },
+      {
+        "counts": {
+          "calibration": 5935,
+          "test": 9857,
+          "train": 5604
+        },
+        "fold": 2,
+        "motors": {
+          "calibration": "T1",
+          "test": "T2",
+          "train": "T3"
+        },
+        "partition_id_checksums": {
+          "calibration": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470",
+          "test": "9e4e17a36e1a1f5cb7b1b6b44c9a75742fb9d9699bfa8d4aa023ff9d7e51498b",
+          "train": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b"
+        },
+        "prior_manifest_checksum": "69d0488c3f0dd20b9892a51a00e52bd96ecb5f855531f0dfafd6b8a843d97e5f"
+      }
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "rpms": [
+      "6000rpm",
+      "8000rpm",
+      "11000rpm"
+    ],
+    "selection_policy": "none",
+    "selection_ids": [],
+    "validation_ids": [],
+    "shared_validation_calibration": false
+  },
+  "seals": {
+    "protocol": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+    "locked": "48ba96ab8c3eb8b2a4a25e8a17a95b5083e2e6f6318aba6bdd6e08b1b9be44da",
+    "evaluation": "294a41c2a6c870c89e77c957402ce3764ddc96a1a126d24eeeeb1067f10cf0cb",
+    "verified": "efb92da2c9fa1007829c83c9c3aedb41b390046bfa3ef65b5366f8d7c97928be",
+    "summary": "be1ae2f68ace1e9420b69e2d8269be6d1821d881ff8654aea4c175367db06f49",
+    "diagnosis": "a02a8068515e8057ac0129bd4c16381c6d640c5b178f4a69b8fe6e5c2efcb5da"
+  },
+  "results": {
+    "planned_evaluations": 630,
+    "completed_evaluations": 624,
+    "incomplete_evaluations": [
+      {
+        "arm_id": "R17",
+        "fit_reasons": [
+          {
+            "arm_id": "R17",
+            "fold_id": "fixed-fold0",
+            "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+            "rpm": "mixed",
+            "seed": 0,
+            "status": "INCOMPLETE"
+          }
+        ],
+        "fold_id": "fixed-fold0",
+        "score_id": "R17",
+        "seed": 0,
+        "status": "INCOMPLETE"
+      },
+      {
+        "arm_id": "R17",
+        "fit_reasons": [
+          {
+            "arm_id": "R17",
+            "fold_id": "fixed-fold0",
+            "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+            "rpm": "mixed",
+            "seed": 1,
+            "status": "INCOMPLETE"
+          }
+        ],
+        "fold_id": "fixed-fold0",
+        "score_id": "R17",
+        "seed": 1,
+        "status": "INCOMPLETE"
+      },
+      {
+        "arm_id": "R17",
+        "fit_reasons": [
+          {
+            "arm_id": "R17",
+            "fold_id": "fixed-fold0",
+            "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+            "rpm": "mixed",
+            "seed": 2,
+            "status": "INCOMPLETE"
+          }
+        ],
+        "fold_id": "fixed-fold0",
+        "score_id": "R17",
+        "seed": 2,
+        "status": "INCOMPLETE"
+      },
+      {
+        "arm_id": "R17",
+        "fit_reasons": [
+          {
+            "arm_id": "R17",
+            "fold_id": "fixed-fold2",
+            "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+            "rpm": "mixed",
+            "seed": 0,
+            "status": "INCOMPLETE"
+          }
+        ],
+        "fold_id": "fixed-fold2",
+        "score_id": "R17",
+        "seed": 0,
+        "status": "INCOMPLETE"
+      },
+      {
+        "arm_id": "R17",
+        "fit_reasons": [
+          {
+            "arm_id": "R17",
+            "fold_id": "fixed-fold2",
+            "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+            "rpm": "mixed",
+            "seed": 1,
+            "status": "INCOMPLETE"
+          }
+        ],
+        "fold_id": "fixed-fold2",
+        "score_id": "R17",
+        "seed": 1,
+        "status": "INCOMPLETE"
+      },
+      {
+        "arm_id": "R17",
+        "fit_reasons": [
+          {
+            "arm_id": "R17",
+            "fold_id": "fixed-fold2",
+            "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+            "rpm": "mixed",
+            "seed": 2,
+            "status": "INCOMPLETE"
+          }
+        ],
+        "fold_id": "fixed-fold2",
+        "score_id": "R17",
+        "seed": 2,
+        "status": "INCOMPLETE"
+      }
+    ],
+    "prediction_records": 6013647,
+    "unique_test_rows": 28910,
+    "classifier_pipelines": 24,
+    "additional_score_variants": 22,
+    "composite_methods": 70,
+    "fit_counts": {
+      "classifier_fits": 234,
+      "factory_reference_fits": 180,
+      "novelty_reference_fits": 174,
+      "representation_fits": 81
+    },
+    "fit_bundle_seconds": 169.7478382999834,
+    "historical_control_checks": [
+      {
+        "classification_matches": true,
+        "expected_entire_method_match": true,
+        "historical": "A0/mahalanobis",
+        "matches": true,
+        "mean_differences": {
+          "final_open_set_classification.accuracy": 0,
+          "healthy_safety.false_positive_rate": 0,
+          "known_classification.accuracy": 0,
+          "known_classification.balanced_accuracy": 0,
+          "known_classification.macro_f1": 0,
+          "known_fault_classification.accuracy": 0,
+          "known_fault_classification.balanced_accuracy": 0,
+          "known_fault_classification.macro_f1": 0,
+          "known_rejection_rate": 0,
+          "open_set_classification_rate": 0,
+          "selective.accuracy_all_accepted": 0,
+          "selective.coverage": 0,
+          "unknown_rejection.aupr_unknown_positive": 0,
+          "unknown_rejection.auroc_unknown_positive": 0,
+          "unknown_rejection.fpr_at_95_tpr": 0,
+          "unknown_rejection.unknown_f1": 0,
+          "unknown_rejection.unknown_precision": 0,
+          "unknown_rejection.unknown_recall": 0
+        },
+        "new": "C02/mahalanobis",
+        "reference_scope_note": "C02 and A0 both mixed-RPM references",
+        "scope": "saved historical summaries; not refit historical study"
+      },
+      {
+        "classification_matches": true,
+        "expected_entire_method_match": true,
+        "historical": "A0/knn",
+        "matches": true,
+        "mean_differences": {
+          "final_open_set_classification.accuracy": 0,
+          "healthy_safety.false_positive_rate": 0,
+          "known_classification.accuracy": 0,
+          "known_classification.balanced_accuracy": 0,
+          "known_classification.macro_f1": 0,
+          "known_fault_classification.accuracy": 0,
+          "known_fault_classification.balanced_accuracy": 0,
+          "known_fault_classification.macro_f1": 0,
+          "known_rejection_rate": 0,
+          "open_set_classification_rate": 0,
+          "selective.accuracy_all_accepted": 0,
+          "selective.coverage": 0,
+          "unknown_rejection.aupr_unknown_positive": 0,
+          "unknown_rejection.auroc_unknown_positive": 0,
+          "unknown_rejection.fpr_at_95_tpr": 0,
+          "unknown_rejection.unknown_f1": 0,
+          "unknown_rejection.unknown_precision": 0,
+          "unknown_rejection.unknown_recall": 0
+        },
+        "new": "C02/knn",
+        "reference_scope_note": "C02 and A0 both mixed-RPM references",
+        "scope": "saved historical summaries; not refit historical study"
+      },
+      {
+        "classification_matches": true,
+        "expected_entire_method_match": true,
+        "historical": "A7/mahalanobis",
+        "matches": true,
+        "mean_differences": {
+          "final_open_set_classification.accuracy": 0,
+          "healthy_safety.false_positive_rate": 0,
+          "known_classification.accuracy": 0,
+          "known_classification.balanced_accuracy": 0,
+          "known_classification.macro_f1": 0,
+          "known_fault_classification.accuracy": 0,
+          "known_fault_classification.balanced_accuracy": 0,
+          "known_fault_classification.macro_f1": 0,
+          "known_rejection_rate": 0,
+          "open_set_classification_rate": 0,
+          "selective.accuracy_all_accepted": 0,
+          "selective.coverage": 0,
+          "unknown_rejection.aupr_unknown_positive": 0,
+          "unknown_rejection.auroc_unknown_positive": 0,
+          "unknown_rejection.fpr_at_95_tpr": 0,
+          "unknown_rejection.unknown_f1": 0,
+          "unknown_rejection.unknown_precision": 0,
+          "unknown_rejection.unknown_recall": 0
+        },
+        "new": "C24/mahalanobis",
+        "reference_scope_note": "C24 separately fits/calibrates RPM references; historical A7 shared the per-RPM A1 reference (A1 rpm_strategy=separate). Classifier and detector scopes are both identical; sharing a fitted reference does not mean pooling RPMs. Full metrics should reproduce.",
+        "scope": "saved historical summaries; not refit historical study"
+      },
+      {
+        "classification_matches": true,
+        "expected_entire_method_match": true,
+        "historical": "A7/knn",
+        "matches": true,
+        "mean_differences": {
+          "final_open_set_classification.accuracy": 0,
+          "healthy_safety.false_positive_rate": 0,
+          "known_classification.accuracy": 0,
+          "known_classification.balanced_accuracy": 0,
+          "known_classification.macro_f1": 0,
+          "known_fault_classification.accuracy": 0,
+          "known_fault_classification.balanced_accuracy": 0,
+          "known_fault_classification.macro_f1": 0,
+          "known_rejection_rate": 0,
+          "open_set_classification_rate": 0,
+          "selective.accuracy_all_accepted": 0,
+          "selective.coverage": 0,
+          "unknown_rejection.aupr_unknown_positive": 0,
+          "unknown_rejection.auroc_unknown_positive": 0,
+          "unknown_rejection.fpr_at_95_tpr": 0,
+          "unknown_rejection.unknown_f1": 0,
+          "unknown_rejection.unknown_precision": 0,
+          "unknown_rejection.unknown_recall": 0
+        },
+        "new": "C24/knn",
+        "reference_scope_note": "C24 separately fits/calibrates RPM references; historical A7 shared the per-RPM A1 reference (A1 rpm_strategy=separate). Classifier and detector scopes are both identical; sharing a fitted reference does not mean pooling RPMs. Full metrics should reproduce.",
+        "scope": "saved historical summaries; not refit historical study"
+      }
+    ],
+    "descriptive_highlights_not_selection": [
+      {
+        "method_id": "C02/mahalanobis",
+        "equal_motor_means": {
+          "final_open_set_classification.accuracy": 0.24845580853926685,
+          "healthy_safety.false_positive_rate": 0,
+          "known_classification.accuracy": 0.34153197431620147,
+          "known_classification.balanced_accuracy": 0.34502869566566435,
+          "known_classification.macro_f1": 0.3027907554631271,
+          "known_fault_classification.accuracy": 0.26612557155218064,
+          "known_fault_classification.balanced_accuracy": 0.26777506352379615,
+          "known_fault_classification.macro_f1": 0.2404009640093674,
+          "known_rejection_rate": 0.12821246177975962,
+          "open_set_classification_rate": 0.2903602625599789,
+          "selective.accuracy_all_accepted": 0.20128039193807482,
+          "selective.coverage": 0.8499697674449237,
+          "unknown_rejection.aupr_unknown_positive": 0.4396753223698475,
+          "unknown_rejection.auroc_unknown_positive": 0.5745878889175445,
+          "unknown_rejection.fpr_at_95_tpr": 0.8640218370305742,
+          "unknown_rejection.unknown_f1": 0.21195925822296655,
+          "unknown_rejection.unknown_precision": 0.27853651344770847,
+          "unknown_rejection.unknown_recall": 0.18436724973310337
+        }
+      },
+      {
+        "method_id": "C17/mahalanobis",
+        "equal_motor_means": {
+          "final_open_set_classification.accuracy": 0.27144552117863024,
+          "healthy_safety.false_positive_rate": 0,
+          "known_classification.accuracy": 0.3928628023985816,
+          "known_classification.balanced_accuracy": 0.39979442840052487,
+          "known_classification.macro_f1": 0.3792675812798332,
+          "known_fault_classification.accuracy": 0.30431489352487695,
+          "known_fault_classification.balanced_accuracy": 0.3080052534930132,
+          "known_fault_classification.macro_f1": 0.28519080183679363,
+          "known_rejection_rate": 0.049382301265543105,
+          "open_set_classification_rate": 0.39262487710712307,
+          "selective.accuracy_all_accepted": 0.2550178823301143,
+          "selective.coverage": 0.9369150395014244,
+          "unknown_rejection.aupr_unknown_positive": 0.4498242340907814,
+          "unknown_rejection.auroc_unknown_positive": 0.5756499496047137,
+          "unknown_rejection.fpr_at_95_tpr": 0.9082244447144575,
+          "unknown_rejection.unknown_f1": 0.13634313098216946,
+          "unknown_rejection.unknown_precision": 0.36150975752391773,
+          "unknown_rejection.unknown_recall": 0.08435833362662631
+        }
+      },
+      {
+        "method_id": "C24/mahalanobis",
+        "equal_motor_means": {
+          "final_open_set_classification.accuracy": 0.24042026923585139,
+          "healthy_safety.false_positive_rate": 0.08994708994708994,
+          "known_classification.accuracy": 0.321677580666541,
+          "known_classification.balanced_accuracy": 0.3244100398037442,
+          "known_classification.macro_f1": 0.29130168484573166,
+          "known_fault_classification.accuracy": 0.30909077348934916,
+          "known_fault_classification.balanced_accuracy": 0.3120848727840252,
+          "known_fault_classification.macro_f1": 0.2866434331384656,
+          "known_rejection_rate": 0.1873307376622745,
+          "open_set_classification_rate": 0.25982459972246746,
+          "selective.accuracy_all_accepted": 0.214724533234226,
+          "selective.coverage": 0.8034532033456813,
+          "unknown_rejection.aupr_unknown_positive": 0.4197033138245359,
+          "unknown_rejection.auroc_unknown_positive": 0.538823773312093,
+          "unknown_rejection.fpr_at_95_tpr": 0.8808263736934104,
+          "unknown_rejection.unknown_f1": 0.22396487485556107,
+          "unknown_rejection.unknown_precision": 0.2913240652958084,
+          "unknown_rejection.unknown_recall": 0.21071504827602391
+        }
+      },
+      {
+        "method_id": "R02/R02",
+        "equal_motor_means": {
+          "final_open_set_classification.accuracy": 0.18733413126040901,
+          "healthy_safety.false_positive_rate": 0,
+          "known_classification.accuracy": 0.22977605597892062,
+          "known_classification.balanced_accuracy": 0.23415172263169728,
+          "known_classification.macro_f1": 0.19585928991594106,
+          "known_fault_classification.accuracy": 0.16251130988327098,
+          "known_fault_classification.balanced_accuracy": 0.16467272018217194,
+          "known_fault_classification.macro_f1": 0.14254094915480767,
+          "known_rejection_rate": 0.1355843631986882,
+          "open_set_classification_rate": 0.21475041236294526,
+          "selective.accuracy_all_accepted": 0.15144422026796533,
+          "selective.coverage": 0.8607059672860012,
+          "unknown_rejection.aupr_unknown_positive": 0.46681258587942276,
+          "unknown_rejection.auroc_unknown_positive": 0.5900507716750024,
+          "unknown_rejection.fpr_at_95_tpr": 0.8933926858410857,
+          "unknown_rejection.unknown_f1": 0.21390387733556102,
+          "unknown_rejection.unknown_precision": 0.40891313029785925,
+          "unknown_rejection.unknown_recall": 0.1450831731021036
+        }
+      },
+      {
+        "method_id": "R09/R09",
+        "equal_motor_means": {
+          "final_open_set_classification.accuracy": 0.19000841155989087,
+          "healthy_safety.false_positive_rate": 0.08912404467960022,
+          "known_classification.accuracy": 0.22977605597892062,
+          "known_classification.balanced_accuracy": 0.23415172263169728,
+          "known_classification.macro_f1": 0.19585928991594106,
+          "known_fault_classification.accuracy": 0.16251130988327098,
+          "known_fault_classification.balanced_accuracy": 0.16467272018217194,
+          "known_fault_classification.macro_f1": 0.14254094915480767,
+          "known_rejection_rate": 0.05508272838375583,
+          "open_set_classification_rate": 0.21886286211250552,
+          "selective.accuracy_all_accepted": 0.14101473477083445,
+          "selective.coverage": 0.9092047154446306,
+          "unknown_rejection.aupr_unknown_positive": 0.525833507950098,
+          "unknown_rejection.auroc_unknown_positive": 0.6042514122502155,
+          "unknown_rejection.fpr_at_95_tpr": 0.8825084033007959,
+          "unknown_rejection.unknown_f1": 0.1740566108031513,
+          "unknown_rejection.unknown_precision": 0.2481165214185085,
+          "unknown_rejection.unknown_recall": 0.14656499176824378
+        }
+      },
+      {
+        "method_id": "R18/R18",
+        "equal_motor_means": {
+          "final_open_set_classification.accuracy": 0.30622456186699804,
+          "healthy_safety.false_positive_rate": 0.09494062058906381,
+          "known_classification.accuracy": 0.3928628023985816,
+          "known_classification.balanced_accuracy": 0.39979442840052487,
+          "known_classification.macro_f1": 0.3792675812798332,
+          "known_fault_classification.accuracy": 0.30431489352487695,
+          "known_fault_classification.balanced_accuracy": 0.3080052534930132,
+          "known_fault_classification.macro_f1": 0.28519080183679363,
+          "known_rejection_rate": 0.12082761320443274,
+          "open_set_classification_rate": 0.35711743377373156,
+          "selective.accuracy_all_accepted": 0.26131857160820915,
+          "selective.coverage": 0.8372574567364853,
+          "unknown_rejection.aupr_unknown_positive": 0.47860477919325745,
+          "unknown_rejection.auroc_unknown_positive": 0.5714226932360901,
+          "unknown_rejection.fpr_at_95_tpr": 0.9296434500669236,
+          "unknown_rejection.unknown_f1": 0.303474111660669,
+          "unknown_rejection.unknown_precision": 0.6529051691886941,
+          "unknown_rejection.unknown_recall": 0.22679330333351153
+        }
+      }
+    ],
+    "all_saved_predictions_reinferred": true,
+    "shared_samples_are_not_independent_trials": true,
+    "diagnosis_distribution_sets": 351,
+    "diagnosis_models_refit": false,
+    "diagnosis_thresholds_modified": false
+  },
+  "acceptance": [
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_10_19\\2026-10-02-12-26-34\\environment.json",
+        "sha256": "8482b25bb26826fe7747919576be06cb811aac3a0657dc0e121fab84b56ad47f",
+        "bytes": 14931
+      },
+      "python": "3.10.19",
+      "status": "PASS",
+      "tests_passed": 310,
+      "tests_failed": 0,
+      "cli_help_count": 21,
+      "all_command_exit_codes_zero": true
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_14_6\\2026-10-02-12-26-34\\environment.json",
+        "sha256": "8c7fa73adcfb3d8948e060ac880e08a13fc54f7c56f37386f7273e31af846f40",
+        "bytes": 14677
+      },
+      "python": "3.14.6",
+      "status": "PASS",
+      "tests_passed": 310,
+      "tests_failed": 0,
+      "cli_help_count": 21,
+      "all_command_exit_codes_zero": true
+    }
+  ],
+  "backup": {
+    "destination": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/literature_expansion",
+    "archive_indices": [
+      {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-03-16\\archive_index.json",
+        "sha256": "86e9af4ce47b078b091589c2efdb2eec954772d3f60ecdd8eafab54d0e4440b4"
+      },
+      {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-07-35\\archive_index.json",
+        "sha256": "83ea8a8b66ae414442e94930138077b0d6a4e54701463459567c55696c2df153"
+      },
+      {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-15-21\\archive_index.json",
+        "sha256": "6ea0993f617de1703fbd9355a3102b29b1989c7e08e5bdaf8012dd58d95fc52f"
+      },
+      {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-16-43\\archive_index.json",
+        "sha256": "868e20bd000d18ef5c6469eecc644cd6b176123fe65202c6a1d02ce7a60adc7c"
+      },
+      {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-24-52\\archive_index.json",
+        "sha256": "5d29de38a8ea464450d3569fda4e2aa31bee09718e826970232b35f80d2cec1d"
+      },
+      {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-27-10\\archive_index.json",
+        "sha256": "2973de4977158fd587df6c3d87c766eb3ac52573334538db35f667fc2e5471da"
+      }
+    ],
+    "verification": {
+      "archive_count": 8,
+      "archives": [
+        {
+          "bytes": 219837952,
+          "crc_status": "PASS",
+          "member_sha_status": "PASS",
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-01-23-17.zip",
+          "sha256": "9c6c7a9c737d4a0b448101c865a72cc1b5570b8290d52412e84b32f80d30a243",
+          "source_files": 646,
+          "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_smoke_py3_10_19\\2026-10-02-01-23-17",
+          "whole_sha_status": "PASS"
+        },
+        {
+          "bytes": 216511421,
+          "crc_status": "PASS",
+          "member_sha_status": "PASS",
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-11-57-36.zip",
+          "sha256": "2e0e59771ce88e856b10a596fa6cf86b443ba1af90553b5cf90778027d7dad85",
+          "source_files": 646,
+          "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_smoke_py3_14_6\\2026-10-02-11-57-36",
+          "whole_sha_status": "PASS"
+        },
+        {
+          "bytes": 628817824,
+          "crc_status": "PASS",
+          "member_sha_status": "PASS",
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-01-19.zip",
+          "sha256": "11020258e95624ec392144359c4ea553380939c8a808dd8c9ab96b0a2223f159",
+          "source_files": 11,
+          "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19",
+          "whole_sha_status": "PASS"
+        },
+        {
+          "bytes": 8147440,
+          "crc_status": "PASS",
+          "member_sha_status": "PASS",
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-15-03.zip",
+          "sha256": "123f68bee928a41db9a18cc9992cbb0a9c70fd2d478ce81a4a53f2ecb64ddf4e",
+          "source_files": 1,
+          "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-15-03",
+          "whole_sha_status": "PASS"
+        },
+        {
+          "bytes": 554478066,
+          "crc_status": "PASS",
+          "member_sha_status": "PASS",
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-09-14.zip",
+          "sha256": "0ab4b22fb55899d51c51f178714b3232003094b58074cf2367762cbf32ae5109",
+          "source_files": 625,
+          "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14",
+          "whole_sha_status": "PASS"
+        },
+        {
+          "bytes": 92697503,
+          "crc_status": "PASS",
+          "member_sha_status": "PASS",
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-16-33.zip",
+          "sha256": "175f9555f6266e9d1f3f865bf0a2873f25f0d6d1cc2d789342fbe182c28536ae",
+          "source_files": 2,
+          "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33",
+          "whole_sha_status": "PASS"
+        },
+        {
+          "bytes": 51777051,
+          "crc_status": "PASS",
+          "member_sha_status": "PASS",
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-26-09.zip",
+          "sha256": "4649c36c1bfe0a56b9396755225e424a1d9d731581965282998699bd2adaf399",
+          "source_files": 3,
+          "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09",
+          "whole_sha_status": "PASS"
+        },
+        {
+          "bytes": 8121664,
+          "crc_status": "PASS",
+          "member_sha_status": "PASS",
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-24-42.zip",
+          "sha256": "f5280525bd6522bbbc2c3dbc756c7beeeba66ca977a1a28765f35ac9d6926842",
+          "source_files": 1,
+          "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42",
+          "whole_sha_status": "PASS"
+        }
+      ],
+      "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+      "source_files_removed": false,
+      "status": "PASS",
+      "verified_members": 1935
+    },
+    "not_offsite": true,
+    "source_removed": false
+  },
+  "defaults": {
+    "modified": false,
+    "formal": "105 dimensions / linear / Mahalanobis Ledoit-Wolf",
+    "knn_factory_switch_preserved": true,
+    "binary_and_polarmap_preserved": true,
+    "protected_files_unchanged_in_commits": [
+      "core/openset.py",
+      "core/mahalanobis.py",
+      "core/monitor.py",
+      "core/runner.py",
+      "web/static/index.html",
+      "experiments/fault_type_openset.py"
+    ]
+  },
+  "existing_dirty_state": {
+    "tracked_deletions_preserved_not_staged": 282
+  },
+  "conclusions": {
+    "VERIFIED": [
+      "fixed known-only fitting; dedicated motor calibration; no shared/global selector",
+      "source bytes and paired IDs; sealed model re-inference and saved metrics",
+      "bounded actual execution, runtime tests, CRC/member backups"
+    ],
+    "FAILED_OR_INCOMPLETE": [
+      "weak fault classification; class/RPM zeros",
+      "six predicted-calibration group failures",
+      "one test motor/fold below >=2 groups requirement",
+      "all historical exposure; no fresh final test"
+    ],
+    "UNKNOWN": [
+      "independent session/run; raw boundaries/overlap; removal masks/IQR; physical units/mount/load/rate/timing"
+    ]
+  },
+  "superseded_interpretation_report": "output/fault_type_literature_report/2026-10-02-12-24-31; values unchanged but A1 mixed-RPM annotation incorrect; use 12-26-09",
+  "phase_commits": [
+    {
+      "phase": "literature scope",
+      "sha": "25f05965b9d7e7ba68d01bfd6f4f198f7de5fa5c",
+      "push": "VERIFIED_REMOTE_MATCH"
+    },
+    {
+      "phase": "engine and preregistered protocol",
+      "sha": "94487305f9ba648705e195cfb69bfa70d08b880b",
+      "push": "VERIFIED_REMOTE_MATCH"
+    },
+    {
+      "phase": "model lock before test",
+      "sha": "acf8c7e771546f658f72b5b4d8463c06dc3f2eca",
+      "push": "VERIFIED_REMOTE_MATCH"
+    },
+    {
+      "phase": "readonly diagnosis",
+      "sha": "994505391a0c201a010a5624223fcb1333bd8f34",
+      "push": "VERIFIED_REMOTE_MATCH"
+    },
+    {
+      "phase": "control report engineering, annotation superseded",
+      "sha": "71787fe394ef8a77e034a56357298815ddea7ac8",
+      "push": "VERIFIED_REMOTE_MATCH"
+    },
+    {
+      "phase": "verified results and corrected per-RPM interpretation",
+      "sha": "686dd9aaf46b015164ddd3a9fe52ec9cb53cf393",
+      "push": "VERIFIED_REMOTE_MATCH"
+    }
+  ],
+  "delivery_index_checksum": "438c92c4e8b9bb6f42a7289ff7e389f89b8cb7aa4cc227df97db8510bf1e72aa"
+}

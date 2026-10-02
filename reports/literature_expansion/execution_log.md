@@ -65,3 +65,7 @@ evaluate於12:09:14–12:16:07完成624/630，六格缺失均有封存R17 fit理
 12:27:43執行fault_type_fixed_delivery，8archives／1935member的whole SHA、CRC與所有來源member SHA PASS，沒有刪除來源。member_verification.json保存output/fault_type_fixed_delivery/2026-10-02-12-27-43。新ZIP全部位於D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/literature_expansion，不覆寫舊ZIP，不將同機D槽副本說成異地備份。
 
 數值結論：C17 healthy+known accuracy39.2863% vs C02 34.1532%（+5.1331pp）、fault-only30.4315% vs26.6126%（+3.8189pp），未超過歷史C24/A7 fault-only30.9091%。R09 AUROC .604251最高但T1 recall0、T2/11000健康拒絕100%；R18 recall22.6793%／healthy unknown-FPR9.4941%，不能只報召回改善。C17/M健康unknown-FPR0不包含healthy被classifier誤分known fault（T1該錯誤31.5843%）。所有弱結果與失敗均保留，正式default不替換。
+
+P4完整驗證及正確RPM控制結果commit686dd9aaf46b015164ddd3a9fe52ec9cb53cf393，push成功且local/remote SHA相同。交付前已實際核對result_index seal 438c92c4e8b9bb6f42a7289ff7e389f89b8cb7aa4cc227df97db8510bf1e72aa、17個引用artifact的bytes/SHA、frozen protocol source/runtime、四組完整歷史控制、624/6 inventory與各motor三seeds／九個RPM工況coverage，PASS。backup index SHAs與8份逐member verification一致；282個tracked deletions仍保留且未stage，protected defaults files從基線eb324595到研究結果commit沒有變動。
+
+最終交付final_findings.md與result_index.json記錄VERIFIED／FAILED或INCOMPLETE／UNKNOWN，重現入口在reproduction.md。index包含已推送evidence commit，不能把自身未來commit SHA寫成自參照；包含此index的後續delivery commit以git rev-parse HEAD與git ls-remote比對為準。最後只提交这份报告、索引與本紀錄，不新增模型選擇、不更換default、不發布新的issue留言。
