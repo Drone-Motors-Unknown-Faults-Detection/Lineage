@@ -1,7 +1,7 @@
 import unittest
 
-from health.config import HealthMonitorConfig
-from health.schema import HealthMonitoringResult
+from experiments.health.config import HealthMonitorConfig
+from experiments.health.schema import HealthMonitoringResult
 
 
 def _result(**overrides):

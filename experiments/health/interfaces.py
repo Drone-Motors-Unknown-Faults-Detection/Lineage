@@ -7,7 +7,7 @@ from typing import Protocol, Sequence
 
 import numpy as np
 
-from health.schema import HealthMonitoringResult
+from experiments.health.schema import HealthMonitoringResult
 
 
 class WindowHealthPredictor(Protocol):

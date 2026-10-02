@@ -69,5 +69,5 @@ CUSUM 累積 `(score - 1)` 的正偏移，欄位給展示看，不參與 `kind` 
 - 測試：沒有專屬測試。
 - Web：`web/live.py` 用 `TrendMonitor` 與 `SCENARIOS`；`web/static/index.html` 的「變化點分析（實驗三）」卡。
 - 已提交紀錄：`logs/exp3_trend/`、`output/exp3_trend/`（3 次執行）。
-- 另一套趨勢邏輯 `health/trajectory.py` 屬於實驗八，兩者差別見 [health_and_reports.md](../health_and_reports.md) 第 1.3 節。
+- 另一套趨勢邏輯 `experiments/health/trajectory.py` 屬於實驗八，兩者差別見 [health_and_reports.md](../health_and_reports.md) 第 1.3 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 4 節。

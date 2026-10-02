@@ -15,8 +15,8 @@ import pandas as pd
 
 from core.data import HEALTHY, discover_datasets, load_pools, make_split
 from core.openset import canonical_openset_method
-from health.evaluation import evaluate_open_set
-from health.index import CalibratedHealthIndex
+from experiments.health.evaluation import evaluate_open_set
+from experiments.health.index import CalibratedHealthIndex
 
 
 FORMAL_CONDITION_COUNT = 9

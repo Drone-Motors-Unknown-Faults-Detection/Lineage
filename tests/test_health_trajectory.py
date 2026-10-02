@@ -2,8 +2,8 @@ import unittest
 
 import numpy as np
 
-from health.schema import HealthMonitoringResult
-from health.trajectory import SessionTrajectoryMonitor, TrajectoryConfig
+from experiments.health.schema import HealthMonitoringResult
+from experiments.health.trajectory import SessionTrajectoryMonitor, TrajectoryConfig
 
 
 def _result(health: float, timestamp: str) -> HealthMonitoringResult:

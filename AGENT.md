@@ -23,13 +23,12 @@
 ```
 core/            共用零件：data / mahalanobis / openset / monitor / geometry / detectors / formal_data /
                  trend / logger / runner
-health/          健康指數、校準、嚴重度分級、趨勢/告警、軌跡與診斷（見 docs/exp8_health_monitoring_workflow.md、
-                 docs/health_and_reports.md）
 reports/         2026-09 的資料來源／程式碼稽核紀錄、資料規格與 health index 正式結果（見 reports/README.md）；
                  一般實驗輸出不放這裡
 experiments/     實驗模組（exp1 冷啟動、exp2 量尺擴張、exp3 趨勢、exp4 極座標、
                  exp5 跨工況、exp6 OSR 基準＋正式矩陣、exp7 compare_openset、
-                 exp8 health_index_* / health_monitor）；
+                 exp8 health_index_* / health_monitor，邏輯在 experiments/health/：健康指數、校準、
+                 嚴重度、趨勢/告警、軌跡與診斷，見 docs/health_and_reports.md）；
                  總覽見 docs/Experiments_Guide.md；技術報告在 docs/experiments/
 web/             即時展示（live.py 編排、server.py Tornado+WS、static/index.html）
 docs/            實驗技術報告在 docs/experiments/（每個 experiments/*.py 一份 .md）
@@ -67,7 +66,7 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
 
 ## 實驗手冊
 
-任何實驗都要在 `docs/experiments/` 放一份 Markdown 技術報告，再改程式。範圍包含新的 `experiments/` 模組，以及既有實驗改了方法、資料切分或指標。每個實驗都有編號 `expN`（實驗N），新實驗取下一個未用的編號（目前已用到 exp8，exp9–exp12 已預留給 TODO.md 的規劃）。報告檔名以 `expN_` 開頭，例如 `docs/experiments/exp13_foo.md`；程式檔名不必帶編號，但報告的「程式碼與輸出」節要列出這個實驗用到的所有路徑：`experiments/` 入口、`core/` 與 `health/` 的邏輯、`web/` 的展示、`tests/`、`logs/` 與 `output/` 的紀錄、`reports/` 的結果與規格。同一實驗的其他文件（`docs/`、`reports/` 下的 Markdown）檔名也以 `expN_` 開頭。完成後在 `docs/experiments/README.md` 的實驗表與「各實驗的檔案位置」表、`docs/README.md` 的現行文件表各加一列。
+任何實驗都要在 `docs/experiments/` 放一份 Markdown 技術報告，再改程式。範圍包含新的 `experiments/` 模組，以及既有實驗改了方法、資料切分或指標。每個實驗都有編號 `expN`（實驗N），新實驗取下一個未用的編號（目前已用到 exp8，exp9–exp12 已預留給 TODO.md 的規劃）。報告檔名以 `expN_` 開頭，例如 `docs/experiments/exp13_foo.md`；程式檔名不必帶編號，但報告的「程式碼與輸出」節要列出這個實驗用到的所有路徑：`experiments/` 入口、`core/` 與 `experiments/health/` 的邏輯、`web/` 的展示、`tests/`、`logs/` 與 `output/` 的紀錄、`reports/` 的結果與規格。同一實驗的其他文件（`docs/`、`reports/` 下的 Markdown）檔名也以 `expN_` 開頭。完成後在 `docs/experiments/README.md` 的實驗表與「各實驗的檔案位置」表、`docs/README.md` 的現行文件表各加一列。
 
 手冊至少寫這四項：
 

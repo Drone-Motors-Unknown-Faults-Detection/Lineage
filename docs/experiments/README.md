@@ -24,7 +24,7 @@
 
 ## 各實驗的檔案位置
 
-一個實驗的程式常分散在 `experiments/`、`core/`、`health/`、`web/`、`tests/` 與 `reports/`。下表列出每個實驗用到的全部位置；各報告的「程式碼與輸出」節有逐函式說明。
+一個實驗的程式常分散在 `experiments/`、`core/`、`experiments/health/`、`web/`、`tests/` 與 `reports/`。下表列出每個實驗用到的全部位置；各報告的「程式碼與輸出」節有逐函式說明。
 
 | 編號 | 入口 | 邏輯 | 測試 | Web | 已提交的紀錄與結果 | 其他文件 |
 |---|---|---|---|---|---|---|
@@ -35,7 +35,7 @@
 | 實驗五 | `experiments/exp5_cross_condition.py` | `core/data.py`、`core/monitor.py` | 無專屬 | `web/static/index.html` 資料集下拉 | `logs/`、`output/exp5_cross_condition/` | `docs/Experiments_Guide.md` §6 |
 | 實驗六 | `experiments/exp6_osr_benchmark.py`、`exp6_formal_benchmark.py`、`exp6_matrix.py`、`aggregate_exp6.py` | `core/detectors.py`、`core/openset.py`、`core/formal_data.py` | `tests/test_exp6_benchmark.py`、`test_exp6_matrix.py`、`test_aggregate_exp6.py`、`test_formal_data.py`、`test_openset.py` | 無 | `logs/`、`output/exp6_osr_benchmark/`；`output/exp6_formal_matrix/` | `docs/Experiments_Guide.md` §7；`reports/exp6_ancestor_openset_progress.md`、`reports/raw_data_audit/`、`reports/github_data_audit/` |
 | 實驗七 | `experiments/compare_openset.py` | `core/monitor.py`、`core/openset.py`、`core/mahalanobis.py` | `tests/test_openset.py` | 無 | 無（輸出目錄名是 `openset_comparison`） | `docs/Experiments_Guide.md` §8 |
-| 實驗八 | `experiments/health_index_benchmark.py`、`health_index_matrix.py`、`health_monitor.py` | `health/` 全部模組、`core/openset.py` | `tests/test_health_*.py`（9 檔） | 無 | `reports/exp8_health_index_results/` | `docs/exp8_health_monitoring_workflow.md`、`docs/health_and_reports.md`、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`、`docs/Experiments_Guide.md` §9 |
+| 實驗八 | `experiments/health_index_benchmark.py`、`health_index_matrix.py`、`health_monitor.py` | `experiments/health/` 全部模組、`core/openset.py` | `tests/test_health_*.py`（9 檔） | 無 | `reports/exp8_health_index_results/` | `docs/exp8_health_monitoring_workflow.md`、`docs/health_and_reports.md`、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`、`docs/Experiments_Guide.md` §9 |
 
 不屬於任何編號實驗的檔案：`web/server.py` 與 `output/web_server/` 是展示本身；`logs/session_analysis/`、`output/session_analysis/`（2026-08-26）是一次 Web session 的事後分析圖，產生它的腳本不在 repo。
 

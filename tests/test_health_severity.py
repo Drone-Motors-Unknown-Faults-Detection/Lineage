@@ -1,6 +1,6 @@
 import unittest
 
-from health.severity import RelativeSeverityPolicy
+from experiments.health.severity import RelativeSeverityPolicy
 
 
 class RelativeSeverityTests(unittest.TestCase):
