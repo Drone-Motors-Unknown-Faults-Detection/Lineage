@@ -364,7 +364,8 @@ Lineage/
 │   ├── health_index_*.py        #   健康指數 benchmark／matrix
 │   ├── health_monitor.py        #   健康監測 CLI
 │   └── compare_openset.py       #   相同 split/指標公平比較 Mahalanobis 與 k-NN
-├── health/                      # 健康指數、校準、嚴重度、趨勢/告警、軌跡、診斷
+├── health/                      # 健康指數、校準、嚴重度、趨勢/告警、軌跡、診斷（見 docs/health_and_reports.md）
+├── reports/                     # 資料來源與程式碼稽核紀錄、資料規格、health index 正式結果（見 reports/README.md）
 ├── tests/                       # unittest（venv/bin/python -m unittest discover -s tests -t .）
 ├── web/                         # 即時展示（只做編排與視覺化，不含實驗邏輯）
 │   ├── live.py                  #   LiveDemo：把三個實驗模組串成互動串流
