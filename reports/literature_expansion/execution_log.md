@@ -31,3 +31,9 @@ P0文獻／界線文件commit25f05965b9d7e7ba68d01bfd6f4f198f7de5fa5c，push成�
 大型正式fit已備份至D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/literature_expansion/fault_type_2026-10-02-12-01-19.zip，628817824 bytes、11個來源檔，archive index位於output/fault_type_archive/2026-10-02-12-07-35/archive_index.json。兩份synthetic630也保存到同目錄不同名稱，未覆寫舊研究備份；封存CRC通過，最終交付將再次逐member驗SHA。
 
 補充Cox、Shannon、MacQueen與官方scaler來源列入sources_addendum.md；不修改已封存sources.md，不改protocol或係數；追加書目本身不構成新實驗。此階段提交並push模型lock與工程驗收後，才開始正式test推論。
+
+P2 lock commit acf8c7e771546f658f72b5b4d8463c06dc3f2eca，push成功，local=remote；protocol+lock與234個fit audits額外驗證PASS後，於12:09:14啟動正式evaluate。封存模型和方法程式未更改。
+
+新增非封存方法範圍的只讀診斷模組fault_type_literature_diagnosis，固定比較C01/C02/C17、R01–04/R18–20的train／cal／test分數分布，不fit、不掃閾值、不新增方法評估。新增四項工程測試檢查signed/zero門檻、真值僅報表分組與非有限值。首次import路徑誤写experiments而非core導致1個loader error，修正後4/4通過；正式evaluate不引用此模組，未影響研究程式／protocol SHA。完整相容性验收加入第五個新CLI後重跑，最終測試實數以新environment.json為準。
+
+新診斷工程驗收：3.10.19於12:11:25、3.14.6於12:13:16各307 passed/0failed，pip check及21 CLI help PASS。診斷metadata再加入data_scope／自身source SHA，四項相關單元測試再次通過，12:15:03 synthetic診斷CLI成功，351個分布集合（13固定方法×9bundles×train/cal/test），models_refit=false、thresholds_modified=false。不是351次新研究評估。8MB診斷JSON留外部archive，Git留索引output/fault_type_archive/2026-10-02-12-15-21/archive_index.json；不把synthetic分數當馬達研究成績。診斷初版12:12:53仍保留、不覆寫，交付引用data_scope明確的新版本。

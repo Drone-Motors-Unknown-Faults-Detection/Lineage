@@ -1,0 +1,17 @@
+usage: python.exe -m experiments.fault_type_literature_study
+       [-h] --protocol PROTOCOL --data-root DATA_ROOT [--locked LOCKED]
+       [--evaluation EVALUATION] [--code-head CODE_HEAD]
+       {fit,evaluate,verify}
+
+Fit/seal/evaluate/verify the fixed literature study, without a selector.
+
+positional arguments:
+  {fit,evaluate,verify}
+
+options:
+  -h, --help            show this help message and exit
+  --protocol PROTOCOL
+  --data-root DATA_ROOT
+  --locked LOCKED
+  --evaluation EVALUATION
+  --code-head CODE_HEAD

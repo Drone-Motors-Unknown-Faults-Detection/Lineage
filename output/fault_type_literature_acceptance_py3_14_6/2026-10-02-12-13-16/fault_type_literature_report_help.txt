@@ -1,0 +1,12 @@
+usage: python.exe -m experiments.fault_type_literature_report
+       [-h] --protocol PROTOCOL --locked LOCKED --verified VERIFIED
+       --prior PRIOR
+
+All-method markdown and compact indices; descriptive bests, never deployment.
+
+options:
+  -h, --help           show this help message and exit
+  --protocol PROTOCOL
+  --locked LOCKED
+  --verified VERIFIED
+  --prior PRIOR
