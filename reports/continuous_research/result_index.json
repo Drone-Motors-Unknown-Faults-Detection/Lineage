@@ -1,0 +1,31 @@
+{
+  "version": "continuous_Q_delivery_v1",
+  "repo": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree",
+  "branch": "research-improvements-20260920",
+  "completed": 60,
+  "incomplete": 12,
+  "predictions": 576144,
+  "unique_samples": 28910,
+  "paths": {
+    "protocol": "output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json",
+    "locked": "output/fault_type_continuous_fit/2026-10-02-18-42-53/locked_study.json",
+    "evaluation": "output/fault_type_continuous_evaluate/2026-10-02-18-47-45/evaluation.json",
+    "verification": "output/fault_type_continuous_verify/2026-10-02-23-26-52/verified.json",
+    "summary": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/summary.json.gz",
+    "summary_index": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/result_index.json",
+    "archive_index": "output/fault_type_archive/2026-10-02-23-36-18/archive_index.json",
+    "member_verification": "output/fault_type_fixed_delivery/2026-10-02-23-36-43/member_verification.json"
+  },
+  "seals": {
+    "protocol": "b7870298906f8255340ef30cbbf96d424ff76fa67925377b8ea3a62d77e5364d",
+    "locked": "564796435099fa7d85657f0ea3c907fa8dcff57d732ab47c68496eb2a6b7ea09",
+    "evaluation": "b4ef4ce09bc85969f90d81158acb4bcfd0c5c2f1492feb6530e0386558abf2de",
+    "verification": "9592116f9bcc9bb389dd13f7e9f80e6fd051e090f2f9ce6d5de15bfa60868112",
+    "report": "88d34b9ef3e25a3e6e0376da6ede26e20dfdb399a38741704aa1001898e88ab9"
+  },
+  "backup": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/continuous_research",
+  "parent_dependencies": ["reports/literature_expansion/result_index.json", "reports/mechanism_research_v2/result_index.json"],
+  "self_contained_without_parents": false,
+  "fresh_final_test": false,
+  "production_replaced": false
+}

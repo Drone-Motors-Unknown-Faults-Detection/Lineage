@@ -83,4 +83,3 @@ def main():
     kwargs={k:read(getattr(a,k)) for k in ['protocol','evaluation','verification','baseline','previous']}
     r=run(None,output=paths.output_dir,**kwargs);log.info('report={} complete={} gates={}',r['report_checksum'],r['completed_runs'],{k:x['main_screen'] for k,x in r['reliability'].items()})
 if __name__=='__main__':main()
-

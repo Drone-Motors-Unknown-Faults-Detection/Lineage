@@ -60,4 +60,4 @@ setup_run 為各 action 建 logs/output；保存逐 sample predictions、模型�
 
 讀/執行：`experiments/fault_type_continuous_study.py`、`experiments/fault_type_continuous_registry.py`、`core/fault_type_continuous.py`、`core/fault_type_reliability.py`、`core/openset.py`、`core/fault_type_metrics_v2.py`；父來源 `experiments/fault_type_literature_study.py`、`experiments/fault_type_mechanism_study.py`。本文件未修改這些 scientific code。
 
-2026-10-02 aggregate：72 planned、60 completed、12 INCOMPLETE；576,144 records、28,910 unique。T2/T3 train metric 達迭代上限，Q02/Q04 各只3 runs。verify/report 尚待完成；不計缺失 fold 平均，不回填0。
+2026-10-02 aggregate：72 planned、60 completed、12 INCOMPLETE；576,144 records、28,910 unique。T2/T3 train metric 達迭代上限，Q02/Q04 各只3 runs。23:26:52重推論驗證及23:30:52配對報告完成；六完整方法均FAILED，不計缺失 fold 平均，不回填0。結果與備份見 reports/continuous_research/final_findings.md 及 result_index.json。

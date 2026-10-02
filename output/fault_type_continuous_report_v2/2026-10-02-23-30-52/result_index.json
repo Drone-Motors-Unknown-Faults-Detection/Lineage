@@ -1,0 +1,15 @@
+{
+  "compact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_report_v2\\2026-10-02-23-30-52\\summary.json.gz",
+    "sha256": "b242c0262d85192ccd47ca2d158aec759a507e35daa04322d0e4950d405021f2"
+  },
+  "report_checksum": "88d34b9ef3e25a3e6e0376da6ede26e20dfdb399a38741704aa1001898e88ab9",
+  "summary": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_report_v2\\2026-10-02-23-30-52\\summary.json",
+    "sha256": "e84fd3935ab3ffe35b07df16930df2df00f12df6537f337a9e91aa39d3ef99d7"
+  },
+  "tradeoff": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_report_v2\\2026-10-02-23-30-52\\tradeoff.csv",
+    "sha256": "33733395a9e626416d7bbe8793fbb703d0a3245370af1c5fcf2ab6149790c1a7"
+  }
+}

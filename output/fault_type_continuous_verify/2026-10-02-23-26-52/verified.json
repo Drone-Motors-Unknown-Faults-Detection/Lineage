@@ -1,0 +1,447 @@
+{
+  "completed_runs": 60,
+  "failed_runs": [
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q02_fixed-fold1_seed0",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q04_fixed-fold1_seed0",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q02_fixed-fold1_seed1",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q04_fixed-fold1_seed1",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q02_fixed-fold1_seed2",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q04_fixed-fold1_seed2",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q02_fixed-fold2_seed0",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q04_fixed-fold2_seed0",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q02_fixed-fold2_seed1",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q04_fixed-fold2_seed1",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q02_fixed-fold2_seed2",
+      "status": "INCOMPLETE"
+    },
+    {
+      "reason": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "run_id": "Q04_fixed-fold2_seed2",
+      "status": "INCOMPLETE"
+    }
+  ],
+  "fresh_final_test": false,
+  "locked_checksum": "564796435099fa7d85657f0ea3c907fa8dcff57d732ab47c68496eb2a6b7ea09",
+  "planned_runs": 72,
+  "prediction_records": 576144,
+  "protocol_checksum": "b7870298906f8255340ef30cbbf96d424ff76fa67925377b8ea3a62d77e5364d",
+  "runs": [
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q01_fixed-fold0_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q02_fixed-fold0_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q03_fixed-fold0_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q04_fixed-fold0_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q05_fixed-fold0_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q06_fixed-fold0_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q07_fixed-fold0_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q08_fixed-fold0_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q01_fixed-fold0_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q02_fixed-fold0_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q03_fixed-fold0_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q04_fixed-fold0_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q05_fixed-fold0_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q06_fixed-fold0_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q07_fixed-fold0_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q08_fixed-fold0_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q01_fixed-fold0_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q02_fixed-fold0_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q03_fixed-fold0_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q04_fixed-fold0_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q05_fixed-fold0_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q06_fixed-fold0_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q07_fixed-fold0_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9294,
+      "run_id": "Q08_fixed-fold0_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q01_fixed-fold1_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q03_fixed-fold1_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q05_fixed-fold1_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q06_fixed-fold1_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q07_fixed-fold1_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q08_fixed-fold1_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q01_fixed-fold1_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q03_fixed-fold1_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q05_fixed-fold1_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q06_fixed-fold1_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q07_fixed-fold1_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q08_fixed-fold1_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q01_fixed-fold1_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q03_fixed-fold1_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q05_fixed-fold1_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q06_fixed-fold1_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q07_fixed-fold1_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9759,
+      "run_id": "Q08_fixed-fold1_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q01_fixed-fold2_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q03_fixed-fold2_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q05_fixed-fold2_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q06_fixed-fold2_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q07_fixed-fold2_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q08_fixed-fold2_seed0",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q01_fixed-fold2_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q03_fixed-fold2_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q05_fixed-fold2_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q06_fixed-fold2_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q07_fixed-fold2_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q08_fixed-fold2_seed1",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q01_fixed-fold2_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q03_fixed-fold2_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q05_fixed-fold2_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q06_fixed-fold2_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q07_fixed-fold2_seed2",
+      "truth_mutation_invariant": true
+    },
+    {
+      "reinference_exact": true,
+      "rows": 9857,
+      "run_id": "Q08_fixed-fold2_seed2",
+      "truth_mutation_invariant": true
+    }
+  ],
+  "scope": "ADAPTIVE_EXPLORATORY_ALL_OLD_TEST_EXPOSED",
+  "seconds": 177.64865839999402,
+  "selection_policy": "none",
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "unique_samples": 28910,
+  "verification_checksum": "9592116f9bcc9bb389dd13f7e9f80e6fd051e090f2f9ce6d5de15bfa60868112"
+}

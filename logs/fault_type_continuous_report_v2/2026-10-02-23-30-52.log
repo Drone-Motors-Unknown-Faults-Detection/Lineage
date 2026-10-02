@@ -1,0 +1,4 @@
+2026-10-02 23:30:52 | INFO    | Logger initialized: fault_type_continuous_report_v2
+2026-10-02 23:30:52 | INFO    | log_file=logs\fault_type_continuous_report_v2\2026-10-02-23-30-52.log
+2026-10-02 23:30:52 | INFO    | output_dir=output\fault_type_continuous_report_v2\2026-10-02-23-30-52
+2026-10-02 23:34:17 | INFO    | report=88d34b9ef3e25a3e6e0376da6ede26e20dfdb399a38741704aa1001898e88ab9 complete=60 gates={'Q01': 'FAILED', 'Q02': 'INCOMPLETE', 'Q03': 'FAILED', 'Q04': 'INCOMPLETE', 'Q05': 'FAILED', 'Q06': 'FAILED', 'Q07': 'FAILED', 'Q08': 'FAILED'}

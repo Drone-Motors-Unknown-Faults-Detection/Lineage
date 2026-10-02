@@ -1,0 +1,13 @@
+2026-10-02 23:26:52 | INFO    | Logger initialized: fault_type_continuous_verify
+2026-10-02 23:26:52 | INFO    | log_file=logs\fault_type_continuous_verify\2026-10-02-23-26-52.log
+2026-10-02 23:26:52 | INFO    | output_dir=output\fault_type_continuous_verify\2026-10-02-23-26-52
+2026-10-02 23:27:36 | INFO    | verify fold=fixed-fold0 seed=0 arms=8 incomplete=0
+2026-10-02 23:27:57 | INFO    | verify fold=fixed-fold0 seed=1 arms=8 incomplete=0
+2026-10-02 23:28:19 | INFO    | verify fold=fixed-fold0 seed=2 arms=8 incomplete=0
+2026-10-02 23:28:36 | INFO    | verify fold=fixed-fold1 seed=0 arms=6 incomplete=2
+2026-10-02 23:28:53 | INFO    | verify fold=fixed-fold1 seed=1 arms=6 incomplete=2
+2026-10-02 23:29:11 | INFO    | verify fold=fixed-fold1 seed=2 arms=6 incomplete=2
+2026-10-02 23:29:29 | INFO    | verify fold=fixed-fold2 seed=0 arms=6 incomplete=2
+2026-10-02 23:29:46 | INFO    | verify fold=fixed-fold2 seed=1 arms=6 incomplete=2
+2026-10-02 23:30:10 | INFO    | verify fold=fixed-fold2 seed=2 arms=6 incomplete=2
+2026-10-02 23:30:10 | INFO    | verify completed=60 output=output\fault_type_continuous_verify\2026-10-02-23-26-52

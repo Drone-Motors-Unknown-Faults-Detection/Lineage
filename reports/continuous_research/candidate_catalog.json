@@ -12,8 +12,10 @@
       "Q07",
       "Q08"
     ],
-    "status": "DESIGNED_NOT_IMPLEMENTED_OR_EVALUATED",
-    "planned_evaluations": 72
+    "status": "VERIFIED_EXPLORATORY; six complete arms FAILED, Q02/Q04 INCOMPLETE",
+    "planned_evaluations": 72,
+    "completed_evaluations": 60,
+    "incomplete_evaluations": 12
   },
   "prior_indices": [
     "reports/literature_expansion/result_index.json",
@@ -32,7 +34,7 @@
   ],
   "requires_authority": "major installation/paid resources",
   "raw_signal_methods": "DATA_UNQUALIFIED",
-  "queued_after_Q": "train-only robust class-margin/RPM experts, only with new falsifiable evidence",
+  "queued_after_Q": "train-only hard150/smooth150/hard600 solver diagnosis,27 training fits; no outer accuracy claim",
   "historical_exposure": true,
   "fresh_final_test": false
 }

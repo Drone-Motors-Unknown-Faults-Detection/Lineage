@@ -1,0 +1,11 @@
+2026-10-02 23:36:18 | INFO    | Logger initialized: fault_type_archive
+2026-10-02 23:36:18 | INFO    | log_file=logs\fault_type_archive\2026-10-02-23-36-18.log
+2026-10-02 23:36:18 | INFO    | output_dir=output\fault_type_archive\2026-10-02-23-36-18
+2026-10-02 23:36:20 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_research\fault_type_2026-10-02-18-33-25.zip bytes=32111 files=2
+2026-10-02 23:36:20 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_research\fault_type_2026-10-02-18-40-41.zip bytes=51338 files=1
+2026-10-02 23:36:22 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_research\fault_type_2026-10-02-18-42-53.zip bytes=118712208 files=28
+2026-10-02 23:36:24 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_research\fault_type_2026-10-02-18-47-45.zip bytes=58846499 files=122
+2026-10-02 23:36:24 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_research\fault_type_2026-10-02-23-26-52.zip bytes=14130 files=2
+2026-10-02 23:36:24 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_research\fault_type_2026-10-02-23-30-52.zip bytes=4668636 files=4
+2026-10-02 23:36:25 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_research\fault_type_2026-10-02-23-27-20.zip bytes=68141 files=37
+2026-10-02 23:36:26 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_research\fault_type_2026-10-02-23-27-18.zip bytes=69288 files=37
