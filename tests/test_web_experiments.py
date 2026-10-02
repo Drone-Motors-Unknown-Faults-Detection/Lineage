@@ -21,6 +21,20 @@ class CatalogTests(unittest.TestCase):
                 self.assertTrue((ROOT / entry["doc"]).is_file(), entry["doc"])
                 self.assertTrue(entry["no"].startswith("實驗"))
 
+    def test_every_entry_states_what_it_fits(self):
+        for entry in CATALOG:
+            with self.subTest(entry=entry["id"]):
+                self.assertTrue(entry["fits"].strip())
+                self.assertIsInstance(entry["seconds"], (int, float))
+                self.assertGreater(entry["seconds"], 0)
+
+    def test_sub_labels_are_unique_within_experiment(self):
+        labels = [entry["sub"] for entry in CATALOG if "sub" in entry]
+        labels += [entry["committed_sub"] for entry in CATALOG if "committed_sub" in entry]
+        self.assertEqual(len(labels), len(set(labels)))
+        self.assertEqual(sorted(l for l in labels if l.startswith("8-")), ["8-1", "8-2", "8-3"])
+        self.assertEqual(sorted(l for l in labels if l.startswith("6-")), ["6-1", "6-2", "6-3"])
+
     def test_ids_are_unique(self):
         ids = [entry["id"] for entry in CATALOG]
         self.assertEqual(len(ids), len(set(ids)))
