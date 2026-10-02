@@ -1,0 +1,287 @@
+{
+  "artifacts": [
+    {
+      "arm_failures": {},
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold0_seed0\\fit_audits.json.gz",
+        "sha256": "0def999a458d8028715726f961efede5d1cb3961d19335255eec7d097b6ed97b"
+      },
+      "fold_id": "fixed-fold0",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 98,
+        "final_loss": 0.02703861243898234,
+        "initial_loss": 1.1537624355340768,
+        "iterations": 81,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "seconds": 1.458800100008375,
+        "status": 0,
+        "success": true,
+        "weight_max": 1.111816396097956,
+        "weight_min": 0.0,
+        "zero_weights": 54
+      },
+      "parent_artifact": {
+        "fold_id": "fixed-fold0",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed0.joblib",
+        "seconds": 18.968338999999105,
+        "seed": 0,
+        "sha256": "22c6e85c30c1664f20533ff5c043070b667076136180f4cd0277ba374e41171e"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold0_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988722688,
+      "seconds": 11.706250899995212,
+      "seed": 0,
+      "sha256": "f20e4771bf4793b4b6386e2af3bcab9ba2f6b59ef71088de1a2aeb3243215f5b",
+      "warnings": []
+    },
+    {
+      "arm_failures": {},
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold0_seed1\\fit_audits.json.gz",
+        "sha256": "f84318f7b7f5e56725f148564a7007f365dd3f25e2cd1b37addba853e7f98843"
+      },
+      "fold_id": "fixed-fold0",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 79,
+        "final_loss": 0.02748125462905832,
+        "initial_loss": 1.1609341565929818,
+        "iterations": 74,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "seconds": 1.1969175999984145,
+        "status": 0,
+        "success": true,
+        "weight_max": 1.2724758604437862,
+        "weight_min": 0.0,
+        "zero_weights": 54
+      },
+      "parent_artifact": {
+        "fold_id": "fixed-fold0",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed1.joblib",
+        "seconds": 19.302914899992174,
+        "seed": 1,
+        "sha256": "80e90b97a75cb33df898a5965e86579000c53c3aa1767bb4ddaf8f90c0c72a98"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold0_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988722688,
+      "seconds": 11.322993399997358,
+      "seed": 1,
+      "sha256": "1714b4b028cc9b46bf9675648307c19c68aef299afa1f8a44773d08dcec24c3e",
+      "warnings": []
+    },
+    {
+      "arm_failures": {},
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold0_seed2\\fit_audits.json.gz",
+        "sha256": "f632a833eeb50b032838018a82e8238dc8bef99cfd9050efeacbc55f3fd8ce8c"
+      },
+      "fold_id": "fixed-fold0",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 86,
+        "final_loss": 0.026965777109785788,
+        "initial_loss": 1.1425692086506674,
+        "iterations": 78,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "seconds": 1.290446899991366,
+        "status": 0,
+        "success": true,
+        "weight_max": 1.1851169336661453,
+        "weight_min": 0.0,
+        "zero_weights": 56
+      },
+      "parent_artifact": {
+        "fold_id": "fixed-fold0",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed2.joblib",
+        "seconds": 19.04490199999418,
+        "seed": 2,
+        "sha256": "8cce91b201174a70afb24f811760049cca2095cad5a9d9bdcd346d135d718ed7"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold0_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988722688,
+      "seconds": 11.393246000006911,
+      "seed": 2,
+      "sha256": "c5da2380772fd6d65be79c5e04c9e9cc83243e8b5599455b21da7d12ab97e406",
+      "warnings": []
+    },
+    {
+      "arm_failures": {
+        "Q02": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "Q04": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold1_seed0\\fit_audits.json.gz",
+        "sha256": "2b32ca105530042cc22e691647fa07a9d9fc7c68deb1804afb261541e9924672"
+      },
+      "fold_id": "fixed-fold1",
+      "optimizer": null,
+      "parent_artifact": {
+        "fold_id": "fixed-fold1",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed0.joblib",
+        "seconds": 19.84686680001323,
+        "seed": 0,
+        "sha256": "8a7e801ee66358aa716f65eeab105f0a49b8b327033f9a04ada420554b573f37"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold1_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988722688,
+      "seconds": 10.971297999989474,
+      "seed": 0,
+      "sha256": "ecc3e1a21c3439d23d069f7b91f78b10d23267ba1484d3ae97ed1062664b01ba",
+      "warnings": []
+    },
+    {
+      "arm_failures": {
+        "Q02": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "Q04": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold1_seed1\\fit_audits.json.gz",
+        "sha256": "f1420a0c59d6420a1ec66b7b68114d6c43d4b72f484433dbbe415dd64eb2a858"
+      },
+      "fold_id": "fixed-fold1",
+      "optimizer": null,
+      "parent_artifact": {
+        "fold_id": "fixed-fold1",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed1.joblib",
+        "seconds": 18.724457799995434,
+        "seed": 1,
+        "sha256": "870dbcc6c6b3486eb1cca3d9faccb13f677a32bf137cbeaaa726487e649aa1e9"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold1_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988722688,
+      "seconds": 11.046352799996384,
+      "seed": 1,
+      "sha256": "45a99213eb15778e4923246a4ae5abf604cf063885966a3b771c729d345adc99",
+      "warnings": []
+    },
+    {
+      "arm_failures": {
+        "Q02": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "Q04": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold1_seed2\\fit_audits.json.gz",
+        "sha256": "f639c55741285c72bd95523fdddc441ce7862e0da6985201e1cb9effbbbc8526"
+      },
+      "fold_id": "fixed-fold1",
+      "optimizer": null,
+      "parent_artifact": {
+        "fold_id": "fixed-fold1",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed2.joblib",
+        "seconds": 18.509999900008552,
+        "seed": 2,
+        "sha256": "7ae7cd79f432b543a686a15040a061033ff30d27f00846e3a9af8c065e65e443"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold1_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988722688,
+      "seconds": 10.550351600002614,
+      "seed": 2,
+      "sha256": "61501895853622240ca125966637e91b47448df0acc6e449da63f5c3332f9d83",
+      "warnings": []
+    },
+    {
+      "arm_failures": {
+        "Q02": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "Q04": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold2_seed0\\fit_audits.json.gz",
+        "sha256": "1f72fd1a59853390ed7c5c118c8e2b9956e258189d15893e9fabe012b696b2ab"
+      },
+      "fold_id": "fixed-fold2",
+      "optimizer": null,
+      "parent_artifact": {
+        "fold_id": "fixed-fold2",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed0.joblib",
+        "seconds": 18.633680399987497,
+        "seed": 0,
+        "sha256": "cf5f6f024dc55f3caa567134e8c7406a78d12a185d36855b6f4d014eec83ee29"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold2_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988722688,
+      "seconds": 10.854693700006464,
+      "seed": 0,
+      "sha256": "3aadd16c371612f730ae832fe3bece048ae21107f694dff1b9c7260d1e7bfec7",
+      "warnings": []
+    },
+    {
+      "arm_failures": {
+        "Q02": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "Q04": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold2_seed1\\fit_audits.json.gz",
+        "sha256": "cbe8462f4f63692c093fa48de52eb8c0e02fed1f6a569bb240b80c78cdc6fe55"
+      },
+      "fold_id": "fixed-fold2",
+      "optimizer": null,
+      "parent_artifact": {
+        "fold_id": "fixed-fold2",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed1.joblib",
+        "seconds": 18.439518099999987,
+        "seed": 1,
+        "sha256": "1fdfa713e2af72b39cc28d8c2fc1cd720d4f8fcb1c2cafe2ca11b7e39a1498d9"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold2_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988722688,
+      "seconds": 10.710164799995255,
+      "seed": 1,
+      "sha256": "d66f9081f2909e8c5f36b85f07dff8d5ca4691578ccfc4b005a7f142216d092e",
+      "warnings": []
+    },
+    {
+      "arm_failures": {
+        "Q02": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "Q04": "metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT"
+      },
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold2_seed2\\fit_audits.json.gz",
+        "sha256": "2ad85f2569d94c02a8fffe26bfb5e96ebb48ce17054a8ad5c4a17c14403496a4"
+      },
+      "fold_id": "fixed-fold2",
+      "optimizer": null,
+      "parent_artifact": {
+        "fold_id": "fixed-fold2",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed2.joblib",
+        "seconds": 18.277159399993252,
+        "seed": 2,
+        "sha256": "9b40170d599f807e0f1623f82b2ba5591a8418aea0b63e017e07646c05568f7c"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_fit\\2026-10-02-18-42-53\\fixed-fold2_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988722688,
+      "seconds": 10.75527890000376,
+      "seed": 2,
+      "sha256": "612b6a4561d2cc37378b5983600495fa4d0524a13beb5a0cfe074f8208037878",
+      "warnings": []
+    }
+  ],
+  "code_head": "c7345742563925717572234649db8d62ac6f5634",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "locked_checksum": "564796435099fa7d85657f0ea3c907fa8dcff57d732ab47c68496eb2a6b7ea09",
+  "protocol_checksum": "b7870298906f8255340ef30cbbf96d424ff76fa67925377b8ea3a62d77e5364d",
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  }
+}

@@ -8,3 +8,6 @@
 - 盤點commit f610cce4fa9f5dd04d2231d949925ad36e5031c5已push；local/remote exact。
 - Q實作新增core研究表示/diagonal margin、registry/study/report、subset來源audit與雙runtime smoke。新增27tests（11 reliability+8 numeric+8 sourceaudit）；Python3.10.19/3.14.6各376全測試PASS，pipcheck/CLI待各acceptance終態核對。合成兩環境8arms PASS，不是正式資料成績。
 - 18:40:41 protocol已封存：output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json，seal b7870298906f8255340ef30cbbf96d424ff76fa67925377b8ea3a62d77e5364d。固定8arms×3folds×3seeds=72；scientific code/來源卡/contract SHA綁定；無selector/未知fit，outertest尚未執行。
+- 協定/程式commit c7345742563925717572234649db8d62ac6f5634已push，local/remote exact；雙runtime各376tests/34CLI/pipcheck PASS。
+- Fit 18:42:53→18:45:42完成9bundle。Q02/Q04只有trainT1的3seeds收斂；T2/T3共6fit達150iter上限，12 planned eval INCOMPLETE；保留不換solver。其他6arms都有9fold/seed模型。原模型封存於locked_study.json，尚未outer test。
+- 發現report v1假設所有方法有9run，partial方法配對會KeyError，且原delta標motor平均不適合per-fold rows。新增report_v2（只修彙整、per-fold delta，缺fold不均值），保留sealed v1檔/協定與numeric code完全不動。新報告附reporter SHA；未曾用v1產出研究報告。先驗證/commit repair+fit lock再outer evaluate。

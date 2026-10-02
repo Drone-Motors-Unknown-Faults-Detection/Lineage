@@ -1,0 +1,13 @@
+2026-10-02 18:42:53 | INFO    | Logger initialized: fault_type_continuous_fit
+2026-10-02 18:42:53 | INFO    | log_file=logs\fault_type_continuous_fit\2026-10-02-18-42-53.log
+2026-10-02 18:42:53 | INFO    | output_dir=output\fault_type_continuous_fit\2026-10-02-18-42-53
+2026-10-02 18:43:23 | INFO    | fit fixed-fold0_seed0 11.7s incomplete={}
+2026-10-02 18:43:42 | INFO    | fit fixed-fold0_seed1 11.3s incomplete={}
+2026-10-02 18:44:01 | INFO    | fit fixed-fold0_seed2 11.4s incomplete={}
+2026-10-02 18:44:18 | INFO    | fit fixed-fold1_seed0 11.0s incomplete={'Q02': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT', 'Q04': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT'}
+2026-10-02 18:44:35 | INFO    | fit fixed-fold1_seed1 11.0s incomplete={'Q02': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT', 'Q04': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT'}
+2026-10-02 18:44:52 | INFO    | fit fixed-fold1_seed2 10.6s incomplete={'Q02': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT', 'Q04': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT'}
+2026-10-02 18:45:09 | INFO    | fit fixed-fold2_seed0 10.9s incomplete={'Q02': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT', 'Q04': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT'}
+2026-10-02 18:45:25 | INFO    | fit fixed-fold2_seed1 10.7s incomplete={'Q02': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT', 'Q04': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT'}
+2026-10-02 18:45:42 | INFO    | fit fixed-fold2_seed2 10.8s incomplete={'Q02': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT', 'Q04': 'metric not converged: STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT'}
+2026-10-02 18:45:42 | INFO    | fit completed=9 output=output\fault_type_continuous_fit\2026-10-02-18-42-53
