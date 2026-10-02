@@ -1,0 +1,4 @@
+2026-10-02 18:40:41 | INFO    | Logger initialized: fault_type_continuous_registry
+2026-10-02 18:40:41 | INFO    | log_file=logs\fault_type_continuous_registry\2026-10-02-18-40-41.log
+2026-10-02 18:40:41 | INFO    | output_dir=output\fault_type_continuous_registry\2026-10-02-18-40-41
+2026-10-02 18:41:05 | INFO    | protocol=b7870298906f8255340ef30cbbf96d424ff76fa67925377b8ea3a62d77e5364d 72 planned; commit BEFORE fit

@@ -1,0 +1,7 @@
+usage: fault_type_accuracy_registry.py [-h] --baseline BASELINE
+
+Preregister exactly198 new logical evaluations; no selector or test fit.
+
+options:
+  -h, --help           show this help message and exit
+  --baseline BASELINE

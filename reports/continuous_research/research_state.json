@@ -1,10 +1,11 @@
 {
   "version": "continuous_state_v1",
-  "phase": "P0/P1 inventory and contract prepared; Q implementation next",
-  "head": "758674bcf73942bbf7feb21971c39035bb70a448",
+  "phase": "Q implemented/tested; protocol ready for commit BEFORE fit",
+  "head": "f610cce4fa9f5dd04d2231d949925ad36e5031c5",
   "inventory": "output/fault_type_continuous_inventory/2026-10-02-18-33-25/inventory.json",
-  "last_success": "python -m experiments.fault_type_continuous_inventory",
-  "next": "Implement core/fault_type_continuous.py, registry/study/report; synthetic/tests; seal and commit protocol BEFORE fit/evaluate",
+  "last_success": "Python3.10/3.14 each376 full tests PASS; eight-arm native smoke PASS",
+  "protocol": "output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json",
+  "next": ".venv310/Scripts/python.exe -m experiments.fault_type_continuous_study fit --protocol output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json --data-root data/formal_local",
   "known_blockers": [
     "fresh independent test unavailable",
     "raw provenance UNKNOWN"

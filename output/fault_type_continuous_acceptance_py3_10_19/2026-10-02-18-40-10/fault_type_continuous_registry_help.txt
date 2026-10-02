@@ -1,0 +1,7 @@
+usage: fault_type_continuous_registry.py [-h] [--index INDEX]
+
+Seal first continuous batch: eight matched arms, 72 exposed-data runs.
+
+options:
+  -h, --help     show this help message and exit
+  --index INDEX

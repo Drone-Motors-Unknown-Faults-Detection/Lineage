@@ -1,0 +1,6 @@
+usage: fault_type_mechanism_smoke.py [-h]
+
+Runtime-native synthetic mechanisms/inference smoke; NOT motor results.
+
+options:
+  -h, --help  show this help message and exit

@@ -22,7 +22,7 @@ def check_contract(contract):
     if contract != CONTRACT: raise ValueError('versioned reliability contract changed')
 
 
-def assess(candidate, controls, contract=CONTRACT, *, subsets_verified=1):
+def assess(candidate, controls, contract=CONTRACT, *, subsets_verified=1, ablations_verified=False, stress_verified=False):
     """All seed/group values required; no missing cell can silently pass."""
     check_contract(contract); reasons = []; incomplete = []
     expected = {(motor, rpm, seed) for motor in ['T1', 'T2', 'T3']
@@ -89,6 +89,6 @@ def assess(candidate, controls, contract=CONTRACT, *, subsets_verified=1):
                 reasons.append('motor unknown floor '+motor+' seed'+str(seed))
     screen = not reasons and not incomplete
     return {'contract_version': contract['version'], 'main_screen': 'INCOMPLETE' if incomplete else 'PASS' if screen else 'FAILED',
-            'reasons': reasons, 'incomplete': incomplete, 'evidence_B': bool(screen and subsets_verified >= contract['minimum_known_subsets_for_B']),
+            'reasons': reasons, 'incomplete': incomplete, 'evidence_B': bool(screen and subsets_verified >= contract['minimum_known_subsets_for_B'] and ablations_verified and stress_verified),
             'evidence_C': False, 'fresh_final_test': False, 'subsets_verified': subsets_verified,
             'independent_final_guard': 'INCOMPLETE; requirement unchanged', 'production_replacement': False}

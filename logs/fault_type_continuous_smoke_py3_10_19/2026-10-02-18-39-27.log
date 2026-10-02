@@ -1,0 +1,4 @@
+2026-10-02 18:39:27 | INFO    | Logger initialized: fault_type_continuous_smoke_py3_10_19
+2026-10-02 18:39:27 | INFO    | log_file=logs\fault_type_continuous_smoke_py3_10_19\2026-10-02-18-39-27.log
+2026-10-02 18:39:27 | INFO    | output_dir=output\fault_type_continuous_smoke_py3_10_19\2026-10-02-18-39-27
+2026-10-02 18:39:27 | INFO    | synthetic PASS eight arms; NOT research

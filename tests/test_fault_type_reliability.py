@@ -19,7 +19,8 @@ class ReliabilityTests(unittest.TestCase):
         return cc
     def test_no_C_and_B_requires_subsets(self):
         r=self.runs(); a=assess(r,self.controls(r)); self.assertEqual(a['main_screen'],'PASS'); self.assertFalse(a['evidence_B']); self.assertFalse(a['evidence_C'])
-        self.assertTrue(assess(r,self.controls(r),subsets_verified=3)['evidence_B'])
+        self.assertFalse(assess(r,self.controls(r),subsets_verified=3)['evidence_B'])
+        self.assertTrue(assess(r,self.controls(r),subsets_verified=3,ablations_verified=True,stress_verified=True)['evidence_B'])
     def test_full_health_not_unknown_only(self):
         r=self.runs(); cc=self.controls(r); r[0]['rpm_metrics'][0]['metrics']['healthy_safety_v2']['healthy_total_alarm_rate']=.11
         self.assertEqual(assess(r,cc)['main_screen'],'FAILED')

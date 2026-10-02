@@ -1,0 +1,8 @@
+usage: python.exe -m experiments.fault_type_literature_smoke
+       [-h] [--fixture FIXTURE]
+
+Reuse immutable existing synthetic fixture; 630 engineering evaluations only.
+
+options:
+  -h, --help         show this help message and exit
+  --fixture FIXTURE
