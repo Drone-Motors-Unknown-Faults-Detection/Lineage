@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 
-from health.schema import SeverityStage
+from experiments.health.schema import SeverityStage
 
 
 @dataclass(frozen=True)

@@ -1,6 +1,6 @@
 import unittest
 
-from health.evaluation import (
+from experiments.health.evaluation import (
     assert_group_disjoint,
     assert_temporal_order,
     evaluate_event_metrics,
@@ -8,7 +8,7 @@ from health.evaluation import (
     evaluate_results,
     evaluate_trajectory,
 )
-from health.schema import HealthMonitoringResult
+from experiments.health.schema import HealthMonitoringResult
 
 
 def _result(score: float, alarm: str = "normal") -> HealthMonitoringResult:

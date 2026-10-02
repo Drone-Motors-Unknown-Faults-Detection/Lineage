@@ -15,7 +15,7 @@ from sklearn.metrics import (
     roc_auc_score,
 )
 
-from health.schema import HealthMonitoringResult
+from experiments.health.schema import HealthMonitoringResult
 
 
 def _binary(values: Iterable[bool | int], *, name: str) -> np.ndarray:

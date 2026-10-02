@@ -307,7 +307,7 @@ venv/bin/python -m experiments.compare_openset --motor T1 --rpm 8000rpm
 
 ## 9. 實驗八：相對健康指數與健康監測（health_index_*、health_monitor）
 
-> 程式：`experiments/health_index_benchmark.py`、`health_index_matrix.py`、`health_monitor.py`，邏輯在 `health/` 套件。技術報告：[exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md)、[exp8_health_index_matrix](experiments/exp8_health_index_matrix.md)、[exp8_health_monitor](experiments/exp8_health_monitor.md)；流程總覽 [exp8_health_monitoring_workflow.md](exp8_health_monitoring_workflow.md)。
+> 程式：`experiments/health_index_benchmark.py`、`health_index_matrix.py`、`health_monitor.py`，邏輯在 `experiments/health/` 套件。技術報告：[exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md)、[exp8_health_index_matrix](experiments/exp8_health_index_matrix.md)、[exp8_health_monitor](experiments/exp8_health_monitor.md)；流程總覽 [exp8_health_monitoring_workflow.md](exp8_health_monitoring_workflow.md)。
 
 ### 想回答的問題
 > 能不能把「開集分數」換成 0～1 的健康度，讓人看得懂「這顆馬達離健康多遠」？

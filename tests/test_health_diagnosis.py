@@ -1,6 +1,6 @@
 import unittest
 
-from health.diagnosis import DiagnosisResolver
+from experiments.health.diagnosis import DiagnosisResolver
 
 
 class DiagnosisResolverTests(unittest.TestCase):

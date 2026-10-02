@@ -21,7 +21,7 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 
 ## 理論
 
-單窗健康指數的定義同 [exp8_health_index_benchmark.md](exp8_health_index_benchmark.md)。時間部分在 `health/trajectory.py`。
+單窗健康指數的定義同 [exp8_health_index_benchmark.md](exp8_health_index_benchmark.md)。時間部分在 `experiments/health/trajectory.py`。
 
 狀態鍵是 `(motor_id, session_id)`。平滑先取最近值的 rolling median，再做 EWMA，`α = 0.2`。歷史少於 `min_history = 5` 時，趨勢是 `insufficient_history`，斜率不做。滿 5 筆之後用線性斜率：絕對斜率小於 `stable_slope = 0.005` 視為持平，負斜率是變差，正斜率是回升。
 
@@ -50,10 +50,10 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 | 路徑 | 角色 |
 |---|---|
 | `experiments/health_monitor.py` | `run`、`main`、三種 `output-mode` |
-| `health/index.py` | `CalibratedHealthIndex` |
-| `health/trajectory.py` | `SessionTrajectoryMonitor`、`TrajectoryConfig` |
-| `health/schema.py` | `HealthMonitoringResult.to_dict` |
-| `health/severity.py` | stage 門檻 |
+| `experiments/health/index.py` | `CalibratedHealthIndex` |
+| `experiments/health/trajectory.py` | `SessionTrajectoryMonitor`、`TrajectoryConfig` |
+| `experiments/health/schema.py` | `HealthMonitoringResult.to_dict` |
+| `experiments/health/severity.py` | stage 門檻 |
 | `core/data.py` | `discover_datasets`、`load_pools`、`make_split`、`HEALTHY` |
 
 沒有 `logs/health_monitor/` 或 `output/health_monitor/`。結果是 stdout 的 JSON 行。要留檔時由呼叫端導向。
@@ -61,7 +61,7 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 ### 散在其他位置的相關檔案
 
 - 測試：`tests/test_health_trajectory.py`、`tests/test_health_schema.py`；CLI 本身沒有測試。
-- 套件：`health/`，見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
-- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`。
+- 套件：`experiments/health/`，見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
+- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；原始稽核見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
 - Web 實驗頁：頁首「實驗八」，`web/experiments.py` 的 `CATALOG` 項目 `exp8_monitor` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp8_monitor`；結果存到 `output/web_server/{ts}/experiments/exp8_monitor_{時間}.json`。

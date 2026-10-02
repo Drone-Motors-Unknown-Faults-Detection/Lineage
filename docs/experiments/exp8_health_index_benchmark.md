@@ -8,7 +8,7 @@
 
 1. 工況必須是 9，除非 `--allow-partial`。排序鍵是 `(motor, rpm)`。
 2. 每個工況只用 `8screws` 的 train 與 calibration。標籤傳進 `CalibratedHealthIndex.fit` 時全是 0。`legacy` 共變異數直接拒絕。
-3. 擬合順序寫在 `health/index.py`：訓練集擬合 `RobustScaler` 與 `create_openset_detector`；校準集分數交給 `HealthIndexCalibrator`。健康錨點是校準分數的第 10 百分位，critical 錨點是第 95 百分位（`confidence=0.95`）。分數越高，健康指數越低。`degradation_score = 1 - health_index`。
+3. 擬合順序寫在 `experiments/health/index.py`：訓練集擬合 `RobustScaler` 與 `create_openset_detector`；校準集分數交給 `HealthIndexCalibrator`。健康錨點是校準分數的第 10 百分位，critical 錨點是第 95 百分位（`confidence=0.95`）。分數越高，健康指數越低。`degradation_score = 1 - health_index`。
 4. 已知測驗是健康 holdout，未知測驗是其餘配置直向疊起。兩者都只在 `predict` 之後進入 `evaluate_open_set`。
 5. 每一列同時有健康分布（平均、標準差、中位數、`≥ 0.8` 的比例、`< 0.2` 的比例）、`health_gap_known_minus_unknown`、Cohen 式效果量，以及 open-set accuracy、AUROC、AUPR、unknown recall、unknown F1。`rul_available` 固定 false。
 
@@ -30,8 +30,8 @@ Open Set 分數已經能拒絕未知。健康指數是把這份分數壓進 `[0,
 ## 參考論文
 
 - 馬氏距離、Ledoit–Wolf、k 近鄰出處同 [exp1_cold_start.md](exp1_cold_start.md)。
-- 分數到 `[0, 1]` 的分位數錨點、第 10 與第 95 百分位、`degradation_score = 1 - health_index`：本專案操作約定，寫在 `health/calibration.py` 的 `HealthIndexCalibrator`。
-- 不能把指數說成物理損傷或 RUL：資料能力寫在 [exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md) 與 `reports/exp8_health_monitoring_data_capability.md`。
+- 分數到 `[0, 1]` 的分位數錨點、第 10 與第 95 百分位、`degradation_score = 1 - health_index`：本專案操作約定，寫在 `experiments/health/calibration.py` 的 `HealthIndexCalibrator`。
+- 不能把指數說成物理損傷或 RUL：資料能力寫在 [exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md) 與 [health_monitoring_data_capability.md（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/health_monitoring_data_capability.md)。
 
 ## 預期成果
 
@@ -55,10 +55,10 @@ k-NN 的健康差距高 0.018513。Mahalanobis 的 accuracy 高 0.000007。同�
 | 路徑 | 角色 |
 |---|---|
 | `experiments/health_index_benchmark.py` | `run`、`_health_distribution`、`_effect_size`、`main` |
-| `health/index.py` | `CalibratedHealthIndex.fit` / `predict` |
-| `health/calibration.py` | `HealthIndexCalibrator` |
-| `health/evaluation.py` | `evaluate_open_set` |
-| `health/severity.py` | 相對 stage 門檻 |
+| `experiments/health/index.py` | `CalibratedHealthIndex.fit` / `predict` |
+| `experiments/health/calibration.py` | `HealthIndexCalibrator` |
+| `experiments/health/evaluation.py` | `evaluate_open_set` |
+| `experiments/health/severity.py` | 相對 stage 門檻 |
 | `experiments/exp6_formal_benchmark.py` | `dataset_fingerprint` |
 | `core/openset.py` | 偵測器工廠 |
 | `core/data.py` | 載入與 `make_split` |
@@ -67,9 +67,9 @@ k-NN 的健康差距高 0.018513。Mahalanobis 的 accuracy 高 0.000007。同�
 
 ### 散在其他位置的相關檔案
 
-- 套件：`health/` 全部模組，對照表見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
+- 套件：`experiments/health/` 全部模組，對照表見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
 - 測試：`tests/test_health_benchmark.py`，以及 `tests/test_health_{calibration,diagnosis,evaluation,index,schema,severity}.py`。
 - 結果：`reports/exp8_health_index_results/`。
-- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`。
+- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；原始稽核見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
 - Web 實驗頁：頁首「實驗八」，`web/experiments.py` 的 `CATALOG` 項目 `exp8` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp8`；結果存到 `output/web_server/{ts}/experiments/exp8_{時間}.json`。同頁下方唯讀顯示已提交的正式矩陣結果。

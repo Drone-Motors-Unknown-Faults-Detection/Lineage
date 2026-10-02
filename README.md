@@ -267,7 +267,7 @@ accuracy 差異 < 0.00001。
 ### 實驗八：相對健康指數與健康監測（`health_index_*`、`health_monitor`）
 
 程式 `experiments/health_index_benchmark.py`、`experiments/health_index_matrix.py`、
-`experiments/health_monitor.py`，邏輯在 `health/`。把開集分數依 `8screws` 校準分數的
+`experiments/health_monitor.py`，邏輯在 `experiments/health/`。把開集分數依 `8screws` 校準分數的
 第 10／95 百分位映成 0～1 的相對健康指數，再分四段嚴重度、逐 session 追蹤趨勢告警。
 
 ```bash
@@ -387,9 +387,9 @@ Lineage/
 │   ├── aggregate_exp6.py        #   實驗六：正式矩陣彙整
 │   ├── compare_openset.py       #   實驗七：單工況相同 split 比較 Mahalanobis 與 k-NN
 │   ├── health_index_*.py        #   實驗八：健康指數 benchmark／matrix
-│   └── health_monitor.py        #   實驗八：健康監測 CLI
-├── health/                      # 健康指數、校準、嚴重度、趨勢/告警、軌跡、診斷（見 docs/health_and_reports.md）
-├── reports/                     # 資料來源與程式碼稽核紀錄、資料規格、health index 正式結果（見 reports/README.md）
+│   ├── health_monitor.py        #   實驗八：健康監測 CLI
+│   └── health/                  #   實驗八的套件：健康指數、校準、嚴重度、趨勢/告警、軌跡、診斷（見 docs/health_and_reports.md）
+├── reports/                     # 實驗八結果 exp8_health_index_results/（health_index_matrix 寫入）
 ├── tests/                       # unittest（venv/bin/python -m unittest discover -s tests -t .）
 ├── web/                         # 即時展示與實驗頁（只做編排與視覺化，不含實驗邏輯）
 │   ├── live.py                  #   LiveDemo：把三個實驗模組串成互動串流

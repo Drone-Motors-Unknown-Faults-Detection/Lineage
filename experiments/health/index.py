@@ -17,10 +17,10 @@ import numpy as np
 from sklearn.preprocessing import RobustScaler
 
 from core.openset import OpenSetDetector, canonical_openset_method, create_openset_detector
-from health.calibration import HealthIndexCalibrator
-from health.diagnosis import DiagnosisResolver
-from health.schema import HealthMonitoringResult
-from health.severity import DEFAULT_SEVERITY_POLICY, RelativeSeverityPolicy
+from experiments.health.calibration import HealthIndexCalibrator
+from experiments.health.diagnosis import DiagnosisResolver
+from experiments.health.schema import HealthMonitoringResult
+from experiments.health.severity import DEFAULT_SEVERITY_POLICY, RelativeSeverityPolicy
 
 
 def _matrix(value: np.ndarray, name: str, *, allow_empty: bool = False) -> np.ndarray:

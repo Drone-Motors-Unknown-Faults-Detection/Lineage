@@ -8,8 +8,8 @@ from typing import Callable
 
 import numpy as np
 
-from health.index import relative_severity
-from health.schema import HealthMonitoringResult
+from experiments.health.index import relative_severity
+from experiments.health.schema import HealthMonitoringResult
 
 
 @dataclass(frozen=True)

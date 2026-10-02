@@ -72,10 +72,11 @@
   - [ ] 新協定hard600 subset/all-train kNN完整outer配對比較尚未實作／執行，訓練收斂不等於accuracy改善。
   - 研究結果commit8bd6d14042e61a40548e37e989a1f2db2d7a4fbb已push；[Q報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/final_findings.md)、[solver報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/solver_findings.md)。#22維持OPEN；未合併研究分支到main。
 
-## 6. 文件：`health/` 與 `reports/`
+## 6. 文件：`experiments/health/` 與 `reports/`
 
 - [x] [#21](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/21) 釐清 health 與 reports 內容
-  - [x] `docs/health_and_reports.md`：`health/` 各模組與呼叫端、`core/trend.py` 與 `health/trajectory.py` 兩套趨勢邏輯的差別、`reports/` 各子目錄的來源與現況
-  - [x] 新增 `reports/README.md` 索引；更新 `docs/README.md`、`README.md`、`AGENT.md` 目錄說明
+  - [x] `docs/health_and_reports.md`：`experiments/health/` 各模組與呼叫端、`core/trend.py` 與 `experiments/health/trajectory.py` 兩套趨勢邏輯的差別、`reports/` 各子目錄的來源與現況
+  - [x] 更新 `docs/README.md`、`README.md`、`AGENT.md` 目錄說明
+  - [x] 2026-10-03 `health/` 搬到 `experiments/health/`；`reports/` 只保留 `exp8_health_index_results/`，稽核紀錄刪除（可從 commit `80bdf54` 取回）
   - 文件記下的不一致已另開 issue：[#24](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/24) health CLI 未走 `setup_run`、[#25](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/25) 健康指數彙總檔沒有產生程式、[#26](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/26)–[#29](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/29) 抽查仍成立的稽核發現、[#30](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/30) 重驗其餘 17 項。
 - [x] 實驗編號：`compare_openset` 定為實驗七、健康指數三支定為實驗八；規劃中的 #13–#16 順延為實驗九～十二。相關文件改名為 `expN_` 開頭，`docs/experiments/README.md` 加各實驗檔案位置表。程式檔名不變。

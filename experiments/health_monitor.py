@@ -10,8 +10,8 @@ from typing import Sequence
 import numpy as np
 
 from core.data import HEALTHY, discover_datasets, load_pools, make_split
-from health.index import CalibratedHealthIndex
-from health.trajectory import SessionTrajectoryMonitor
+from experiments.health.index import CalibratedHealthIndex
+from experiments.health.trajectory import SessionTrajectoryMonitor
 
 
 def _dataset(data_root: Path | str, motor: str, rpm: str) -> dict:
