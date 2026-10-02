@@ -63,4 +63,4 @@ venv/bin/python -m experiments.exp6_matrix --data-root data/formal_local --outpu
 
 - 測試：`tests/test_exp6_matrix.py`。
 - 已提交紀錄：`output/exp6_formal_matrix/`（`matrix_manifest.json`、`runs/`、`aggregate/`）。
-- 進度紀錄：`reports/exp6_ancestor_openset_progress.md` P9。
+- 進度紀錄：[實驗六進度紀錄（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/ancester_openset_exp6_progress.md) P9。

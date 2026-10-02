@@ -78,5 +78,5 @@ venv/bin/python -m experiments.exp4_polar_map --part a
 - 測試：`tests/test_geometry.py`。
 - Web：`web/live.py` 組 `direction` 訊息；`web/static/index.html` 的「極座標健康地圖（實驗四）」與「方向熟悉度（實驗四）」。
 - 已提交紀錄：`logs/exp4_polar_map/`、`output/exp4_polar_map/`（2 次執行）。
-- PolarMap 固定建在 Mahalanobis 上的經過：`reports/exp6_ancestor_openset_progress.md` P8。
+- PolarMap 固定建在 Mahalanobis 上的經過：[實驗六進度紀錄（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/ancester_openset_exp6_progress.md) P8。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 5 節。

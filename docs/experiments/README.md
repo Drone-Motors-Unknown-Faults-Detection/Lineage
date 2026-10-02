@@ -24,18 +24,18 @@
 
 ## 各實驗的檔案位置
 
-一個實驗的程式常分散在 `experiments/`、`core/`、`health/`、`web/`、`tests/` 與 `reports/`。下表列出每個實驗用到的全部位置；各報告的「程式碼與輸出」節有逐函式說明。
+一個實驗的程式常分散在 `experiments/`、`core/`、`experiments/health/`、`web/`、`tests/` 與 `reports/`。2026-10-03 刪除的稽核紀錄不列在表內，清單見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。下表列出每個實驗用到的全部位置；各報告的「程式碼與輸出」節有逐函式說明。
 
 | 編號 | 入口 | 邏輯 | 測試 | Web | 已提交的紀錄與結果 | 其他文件 |
 |---|---|---|---|---|---|---|
 | 實驗一 | `experiments/exp1_cold_start.py` | `core/monitor.py`、`core/openset.py`、`core/mahalanobis.py`、`core/data.py` | 無專屬（`tests/test_openset.py` 測共用偵測器） | `web/live.py`、`web/static/index.html` 分數串流圖 | `logs/`、`output/exp1_cold_start/` | `docs/Experiments_Guide.md` §2 |
 | 實驗二 | `experiments/exp2_scale_growth.py` | `ScaleGrowthSession`、`core/monitor.py`、`core/geometry.py` | 無專屬 | `web/live.py`、`web/server.py`、`web/static/index.html` 候選卡 | `logs/`、`output/exp2_scale_growth/`；`output/web_server/` | `docs/Experiments_Guide.md` §3 |
 | 實驗三 | `experiments/exp3_trend.py` | `core/trend.py` | 無專屬 | `web/live.py`、`web/static/index.html` 變化點卡 | `logs/`、`output/exp3_trend/` | `docs/Experiments_Guide.md` §4 |
-| 實驗四 | `experiments/exp4_polar_map.py` | `core/geometry.py`、`core/mahalanobis.py` | `tests/test_geometry.py` | `web/live.py`、`web/static/index.html` 極座標地圖 | `logs/`、`output/exp4_polar_map/` | `docs/Experiments_Guide.md` §5；`reports/exp6_ancestor_openset_progress.md` P8 |
+| 實驗四 | `experiments/exp4_polar_map.py` | `core/geometry.py`、`core/mahalanobis.py` | `tests/test_geometry.py` | `web/live.py`、`web/static/index.html` 極座標地圖 | `logs/`、`output/exp4_polar_map/` | `docs/Experiments_Guide.md` §5 |
 | 實驗五 | `experiments/exp5_cross_condition.py` | `core/data.py`、`core/monitor.py` | 無專屬 | `web/static/index.html` 資料集下拉 | `logs/`、`output/exp5_cross_condition/` | `docs/Experiments_Guide.md` §6 |
-| 實驗六 | `experiments/exp6_osr_benchmark.py`、`exp6_formal_benchmark.py`、`exp6_matrix.py`、`aggregate_exp6.py` | `core/detectors.py`、`core/openset.py`、`core/formal_data.py` | `tests/test_exp6_benchmark.py`、`test_exp6_matrix.py`、`test_aggregate_exp6.py`、`test_formal_data.py`、`test_openset.py` | 無 | `logs/`、`output/exp6_osr_benchmark/`；`output/exp6_formal_matrix/` | `docs/Experiments_Guide.md` §7；`reports/exp6_ancestor_openset_progress.md`、`reports/raw_data_audit/`、`reports/github_data_audit/` |
+| 實驗六 | `experiments/exp6_osr_benchmark.py`、`exp6_formal_benchmark.py`、`exp6_matrix.py`、`aggregate_exp6.py` | `core/detectors.py`、`core/openset.py`、`core/formal_data.py` | `tests/test_exp6_benchmark.py`、`test_exp6_matrix.py`、`test_aggregate_exp6.py`、`test_formal_data.py`、`test_openset.py` | 無 | `logs/`、`output/exp6_osr_benchmark/`；`output/exp6_formal_matrix/` | `docs/Experiments_Guide.md` §7 |
 | 實驗七 | `experiments/compare_openset.py` | `core/monitor.py`、`core/openset.py`、`core/mahalanobis.py` | `tests/test_openset.py` | 無 | 無（輸出目錄名是 `openset_comparison`） | `docs/Experiments_Guide.md` §8 |
-| 實驗八 | `experiments/health_index_benchmark.py`、`health_index_matrix.py`、`health_monitor.py` | `health/` 全部模組、`core/openset.py` | `tests/test_health_*.py`（9 檔） | 無 | `reports/exp8_health_index_results/` | `docs/exp8_health_monitoring_workflow.md`、`docs/health_and_reports.md`、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`、`docs/Experiments_Guide.md` §9 |
+| 實驗八 | `experiments/health_index_benchmark.py`、`health_index_matrix.py`、`health_monitor.py` | `experiments/health/` 全部模組、`core/openset.py` | `tests/test_health_*.py`（9 檔） | 無 | `reports/exp8_health_index_results/` | `docs/exp8_health_monitoring_workflow.md`、`docs/health_and_reports.md`、`docs/Experiments_Guide.md` §9 |
 
 不屬於任何編號實驗的檔案：`web/server.py` 與 `output/web_server/` 是展示本身；`logs/session_analysis/`、`output/session_analysis/`（2026-08-26）是一次 Web session 的事後分析圖，產生它的腳本不在 repo。
 

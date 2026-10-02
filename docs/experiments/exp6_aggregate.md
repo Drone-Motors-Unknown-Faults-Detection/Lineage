@@ -51,4 +51,4 @@ venv/bin/python -m experiments.aggregate_exp6 --manifest output/exp6_formal_matr
 
 - 測試：`tests/test_aggregate_exp6.py`。
 - 已提交紀錄：`output/exp6_formal_matrix/aggregate/`。
-- 進度紀錄：`reports/exp6_ancestor_openset_progress.md` P10。
+- 進度紀錄：[實驗六進度紀錄（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/ancester_openset_exp6_progress.md) P10。

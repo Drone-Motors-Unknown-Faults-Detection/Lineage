@@ -78,5 +78,5 @@ venv/bin/python -m experiments.exp6_formal_benchmark --openset-method knn --seed
 
 - 測試：`tests/test_exp6_benchmark.py`；偵測器工廠 `tests/test_openset.py`。
 - 正式資料物化：`core/formal_data.py`（`tests/test_formal_data.py`），把 raw ZIP 轉成 `data/formal_local/`。
-- 進度紀錄：`reports/exp6_ancestor_openset_progress.md`；資料來源稽核 `reports/raw_data_audit/`、`reports/github_data_audit/`。
+- 進度紀錄與資料來源稽核：[實驗六進度紀錄（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/ancester_openset_exp6_progress.md)、[raw_data_audit/](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/raw_data_audit)、[github_data_audit/](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/github_data_audit)，均已刪除，清單見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 7 節。

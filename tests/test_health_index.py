@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from health.index import CalibratedHealthIndex
+from experiments.health.index import CalibratedHealthIndex
 
 
 class HealthIndexTests(unittest.TestCase):

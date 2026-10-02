@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from health.calibration import HealthIndexCalibrator
+from experiments.health.calibration import HealthIndexCalibrator
 
 
 class HealthCalibrationTests(unittest.TestCase):

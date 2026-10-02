@@ -40,4 +40,4 @@ legacy-mac = [
 ]
 
 [tool.setuptools]
-packages = ["core", "experiments", "health", "web"]
+packages = ["core", "experiments", "experiments.health", "web"]
