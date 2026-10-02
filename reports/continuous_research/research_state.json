@@ -1,7 +1,9 @@
 {
   "version": "continuous_state_v1",
   "phase": "Q delivered;27 train-only solver fits and numeric re-verification complete; next outer comparator not implemented",
-  "head": "38d3833c09058931469bc58ab798b144337a42df",
+  "head": "8bd6d14042e61a40548e37e989a1f2db2d7a4fbb",
+  "head_scope": "last verified results commit; subsequent documentation-only delivery checkpoint recorded in git history",
+  "main_todo_commit": "80bdf54fdf43d466ea19549fb7c0b4e391394799",
   "inventory": "output/fault_type_continuous_inventory/2026-10-02-18-33-25/inventory.json",
   "last_success": "27 train fits with3/5/9 convergence;27 losses/gradients recomputed;3 original Q weights exact;both runtimes396 tests/37 CLI/pip check PASS;solver9archives190members SHA/CRC PASS",
   "protocol": "output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json",

@@ -27,3 +27,6 @@
 - 最後acceptance：23:57:32 Py3.10.19→23:59:45、23:57:44 Py3.14.6→2026-10-03 00:00:02，均exit0；各396 full tests/37help/pip check PASS（39commands）。本輪跨午夜，日期如實記載。
 - solver備份分三index：23:52:32五包81members、23:58:28一包28members、2026-10-03 00:01:04三包81members；00:01:36合併fixed_delivery驗證exit0，9包190members SHA/CRC PASS；D槽continuous_solver，保留舊Q8包及所有原產物，非offsite。
 - hard600九fit均success，但皆ftol停止，不能把projected gradient高於gtol隱去；只能支持迭代預算不足線索。下一批完整outer比較未實作/未執行，不宣稱新accuracy或可靠性達標。
+- 最終結果/報告commit8bd6d14042e61a40548e37e989a1f2db2d7a4fbb push成功，local/remote exact。未stage282 unrelated tracked deletions；formal data、production105/LW/PolarMap與原sealed Q來源未改。
+- 同步main TODO首次API返回409：PowerShell原生參數把sha=$old.sha展開成object字串，未寫入；重新讀取原blob858f9dfe…後改為明確member展開重試成功，非force。main commit80bdf54fdf43d466ea19549fb7c0b4e391394799、TODO blob727e4bfa80424aed672432ddc0bc7d2fec455f72。只改TODO狀態，不合併research code到main。
+- Issue #22正文同步reports/continuous_research/issue22_progress.md，保留OPEN及下一批outer未完成項。Docs #11此前已關閉不重開。未主動聯繫組員或向其他聊天室傳訊。
