@@ -197,14 +197,26 @@ def _figure(geometry, severity):
 
 
 def run(pools, seed: int = 42, parts: str = "abc") -> dict:
+    """批次介面：把 iter_run 跑完，回傳最後的結果。"""
+    for event in iter_run(pools, seed, parts):
+        pass
+    return event["result"]
+
+
+def iter_run(pools, seed: int = 42, parts: str = "abc"):
+    """逐段產生事件，供 Web 實驗頁邊跑邊畫；計算與 run() 完全相同。
+
+    每個子實驗開始時產生 part_start、完成時產生 part（name = geometry / direction /
+    severity，data 為該段結果），最後一個是 result（與 run() 回傳值相同）。
+    """
     result = {"seed": seed}
-    if "a" in parts:
-        result["geometry"] = run_geometry(pools, seed)
-    if "b" in parts:
-        result["direction"] = run_direction(pools, seed)
-    if "c" in parts:
-        result["severity"] = run_severity(pools, seed)
-    return result
+    for key, name, fn in (("a", "geometry", run_geometry), ("b", "direction", run_direction),
+                          ("c", "severity", run_severity)):
+        if key in parts:
+            yield {"event": "part_start", "name": name}
+            result[name] = fn(pools, seed)
+            yield {"event": "part", "name": name, "data": result[name]}
+    yield {"event": "result", "result": result}
 
 
 def main() -> None:

@@ -49,7 +49,7 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 
 | 路徑 | 角色 |
 |---|---|
-| `experiments/health_monitor.py` | `run`、`main`、三種 `output-mode` |
+| `experiments/health_monitor.py` | `run`、`iter_run`、`main`、三種 `output-mode`；`run` 收集 `iter_run` 的 `window` 事件（2026-10-03 起）。已知問題：故障配置用健康池的 holdout 索引取樣，樣本數較少的配置會 `IndexError`（例如 T1/8000rpm 的 5screws），見 [#35](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/35) |
 | `experiments/health/index.py` | `CalibratedHealthIndex` |
 | `experiments/health/trajectory.py` | `SessionTrajectoryMonitor`、`TrajectoryConfig` |
 | `experiments/health/schema.py` | `HealthMonitoringResult.to_dict` |
@@ -65,3 +65,4 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 - 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；原始稽核見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
 - Web 實驗頁：頁首「實驗八」的 8-3，`web/experiments.py` 的 `CATALOG` 項目 `exp8_monitor` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp8_monitor`；結果存到 `output/web_server/{ts}/experiments/exp8_monitor_{時間}.json`。
+- 邊跑邊畫：頁面上的「⏵ 邊跑邊畫」改走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/{id}/stream`）逐步推送，速度 20／80／400 筆/秒可選。`iter_run()` 只多吐出中間事件，計算與 `run()` 相同；`tests/test_iter_run.py` 比對兩者輸出。逐窗畫出健康度、平滑值與告警。

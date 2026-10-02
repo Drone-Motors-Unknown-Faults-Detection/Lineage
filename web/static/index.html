@@ -221,7 +221,20 @@ footer a:hover{color:var(--blue);}
 </main>
 </section>
 
-<section id="page-exp" hidden><div class="exp-wrap" id="expRoot"></div></section>
+<section id="page-exp" hidden><div class="exp-wrap">
+  <div class="panel" id="miniLive">
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:6px">
+      <h2 style="margin:0">即時展示（背景串流，與實驗頁同時運作）</h2>
+      <span id="miniRun" class="badge stop">⏸ 暫停</span>
+      <span id="miniInfo" class="mini">—</span>
+      <span class="spacer"></span>
+      <button id="miniToggle">▶ 開始串流</button>
+      <a href="#live" class="mini" style="color:var(--blue)">回到即時展示 →</a>
+    </div>
+    <canvas id="chartMini" height="110"></canvas>
+  </div>
+  <div id="expRoot" style="display:flex; flex-direction:column; gap:12px"></div>
+</div></section>
 
 <footer>
   冷啟動 PHM 畢業專題 ·
@@ -280,6 +293,8 @@ function onState(m){
   else if (running){ rb.className = "badge run"; rb.textContent = "▶ 串流中"; }
   else { rb.className = "badge stop"; rb.textContent = "⏸ 暫停"; }
   $("btnRun").textContent = running ? "⏸ 暫停" : "▶ 開始串流";
+  $("miniRun").className = rb.className; $("miniRun").textContent = rb.textContent;
+  $("miniToggle").textContent = $("btnRun").textContent;
   if (m.type === "state" && m.rate){ $("rate").value = m.rate; $("rateLabel").textContent = m.rate; }
 
   // 資料集下拉
@@ -377,7 +392,9 @@ function onSample(m){
     if (m.attempts > 0) q += `（已試分群 ${m.attempts} 次）`;
     $("qCount").textContent = q;
   }
-  drawChart(); drawScatter(); drawPolar();
+  $("miniInfo").innerHTML = `#${m.t}　注入 ${m.truth_display}　判定 <span class="verdict-${m.verdict}">${m.verdict === "unknown" ? "未知" : m.cls}</span>　分數 ${m.score.toFixed(2)}　EWMA ${m.ewma.toFixed(2)}`;
+  if ($("page-exp").hidden){ drawChart(); drawScatter(); drawPolar(); }
+  else drawChart("chartMini", 110);
 }
 
 function onEvent(m){
@@ -403,12 +420,12 @@ function onMetrics(m){
 }
 
 /* ---------- 分數串流圖 ---------- */
-function drawChart(){
-  const cv = $("chart"), ctx = cv.getContext("2d");
+function drawChart(id = "chart", hpx = 240){
+  const cv = $(id), ctx = cv.getContext("2d");
   const W = cv.width = cv.clientWidth * devicePixelRatio;
-  const H = cv.height = 240 * devicePixelRatio;
+  const H = cv.height = hpx * devicePixelRatio;
   ctx.clearRect(0, 0, W, H);
-  if (!samples.length) return;
+  if (!samples.length || !W) return;
   const pad = 34 * devicePixelRatio;
   const maxScore = Math.max(4, ...samples.map(s => s.score));
   const yOf = s => H - pad - (Math.sqrt(s) / Math.sqrt(maxScore)) * (H - pad * 1.6);
@@ -538,6 +555,7 @@ function drawPolar(){
 
 /* ---------- 控制 ---------- */
 $("btnRun").onclick = () => send({cmd: running ? "pause" : "start"});
+$("miniToggle").onclick = () => send({cmd: running ? "pause" : "start"});
 $("btnReset").onclick = () => { if (confirm("重置回階段 0（只認識健康）？")) send({cmd:"reset"}); };
 $("rate").oninput = e => { $("rateLabel").textContent = e.target.value; };
 $("rate").onchange = e => send({cmd:"rate", value:+e.target.value});
@@ -549,7 +567,10 @@ $("datasetSel").onchange = e => {
   const [motor, rpm] = e.target.value.split("|");
   send({cmd:"dataset", motor, rpm});
 };
-window.addEventListener("resize", () => { drawChart(); drawScatter(); drawPolar(); });
+window.addEventListener("resize", () => {
+  if ($("page-exp").hidden){ drawChart(); drawScatter(); drawPolar(); }
+  else drawChart("chartMini", 110);
+});
 connect();
 </script>
 <script src="/static/experiments.js"></script>
