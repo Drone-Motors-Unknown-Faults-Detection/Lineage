@@ -1,0 +1,19 @@
+# 文獻擴展研究執行紀錄
+
+2026-10-02 Asia/Taipei；接續 eb324595d76774556662d1d6d5ea810e0bb1392c，research-improvements-20260920。完整閱讀 AGENT.md，核對先前198次實測與備份索引，不重跑2490次歷史研究。正式90CSV/28910row指紋預期 c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d。保留282個既有tracked deletions與無關未追蹤產物。
+
+## 文獻／協定與工程測試
+
+查核28項原始文獻／作者來源，sources.md記採用、改編與未實測理由；另查官方sklearn1.7 NCA/OAS/GMM/LOF文件。部分出版頁抓取403或失敗，明列替代預印本與未完整取得內容，沒有宣稱完整逐篇通讀或將外部benchmark成績移植到本資料。
+
+固定24 pipelines×2正式detectors＋22額外score variants，3fold×3seed，共630 logical evaluations；方法固定且無selector。不保證分數改善、無界「所有方法」未宣稱完成。所有方法同一healthy＋5known／4unknown與3motor角色。閾值僅known cal，不用test搜尋。改編在本輪test前固定，但參考已曝光歷史結果，仍exploratory。
+
+首次23項小測試21通過、2失敗：NCA subset的numpy int64不支援JSON封存。已改為Python int；沒有任何正式fit/test受影響。準備階段也發現factory參數名應為knn_neighbors而非n_neighbors，已修正後才測。保留初版registry 2026-10-02-01-19-40日誌作工程痕跡，不能當作最終source SHA契約。
+
+正式預設105維／linear／Ledoit–Wolf Maha與PolarMap、kNN切換均未改。歷史sealed code、models、manifests、報告不覆寫。新模組／報告／output獨立版本；大型bundle/predictions循D槽archive慣例，Git保留compact report、locks及SHA索引。
+
+增加保存預測來源／SHA／truth／score方向／曝光及summary tamper測試，共31項新測試通過。首次synthetic01-21-41在執行期間程式修正後被source SHA guard拒絕，保留該工程輸出，不拿部分結果做研究。未更改候選方法；重新以穩定程式完成01-23-17 synthetic630/630、0失敗、226800筆保存預測與sealed重推論完全一致。修正synthetic每類12row時C24不必要的min15要求：最低5，只有knn15 classifier要求15；正式資料沒有因此缺格或調分。
+
+Python3.10.19與3.14.6初轮各295項完整測試通過、pip check與16個舊CLI help通過；增加8項tamper測試後再次全套驗收，最终實數另列。3.14讀3.10舊synthetic protocol被runtime參數契約正確拒絕，改用已存在3.14自己的fixture/index重fit，未解除guard、未cross-load joblib。
+
+最終準備protocol：output/fault_type_literature_registry/2026-10-02-01-26-16/protocol.json，bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba。候選、公式、係數、seeds與sources SHA都在正式fit/test前封存；先提交推送工程／protocol，再做正式fit；封存fit後再提交推送lock，才執行test。
