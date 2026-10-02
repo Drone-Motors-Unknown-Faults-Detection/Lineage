@@ -1,0 +1,89 @@
+{
+  "archive_count": 8,
+  "archives": [
+    {
+      "bytes": 219837952,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-01-23-17.zip",
+      "sha256": "9c6c7a9c737d4a0b448101c865a72cc1b5570b8290d52412e84b32f80d30a243",
+      "source_files": 646,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_smoke_py3_10_19\\2026-10-02-01-23-17",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 216511421,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-11-57-36.zip",
+      "sha256": "2e0e59771ce88e856b10a596fa6cf86b443ba1af90553b5cf90778027d7dad85",
+      "source_files": 646,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_smoke_py3_14_6\\2026-10-02-11-57-36",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 628817824,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-01-19.zip",
+      "sha256": "11020258e95624ec392144359c4ea553380939c8a808dd8c9ab96b0a2223f159",
+      "source_files": 11,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 8147440,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-15-03.zip",
+      "sha256": "123f68bee928a41db9a18cc9992cbb0a9c70fd2d478ce81a4a53f2ecb64ddf4e",
+      "source_files": 1,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-15-03",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 554478066,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-09-14.zip",
+      "sha256": "0ab4b22fb55899d51c51f178714b3232003094b58074cf2367762cbf32ae5109",
+      "source_files": 625,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 92697503,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-16-33.zip",
+      "sha256": "175f9555f6266e9d1f3f865bf0a2873f25f0d6d1cc2d789342fbe182c28536ae",
+      "source_files": 2,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 51777051,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-26-09.zip",
+      "sha256": "4649c36c1bfe0a56b9396755225e424a1d9d731581965282998699bd2adaf399",
+      "source_files": 3,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 8121664,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-24-42.zip",
+      "sha256": "f5280525bd6522bbbc2c3dbc756c7beeeba66ca977a1a28765f35ac9d6926842",
+      "source_files": 1,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42",
+      "whole_sha_status": "PASS"
+    }
+  ],
+  "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+  "source_files_removed": false,
+  "status": "PASS",
+  "verified_members": 1935
+}

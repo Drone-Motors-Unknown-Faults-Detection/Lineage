@@ -1,0 +1,9 @@
+usage: python.exe -m experiments.synchronized_fixture [-h] [--seed SEED]
+
+Generate SYNTHETIC engineering bundle/models, not actual acquisition evidence.
+Uses independent known-only random training/calibration, no incoming fitting.
+No synthetic metric is a research claim. Generated raw/model bytes not in Git.
+
+options:
+  -h, --help   show this help message and exit
+  --seed SEED

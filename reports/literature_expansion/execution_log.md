@@ -47,3 +47,21 @@ evaluate於12:09:14–12:16:07完成624/630，六格缺失均有封存R17 fit理
 核對歷史控制範圍：C02/A0為同混合RPM完整pipeline。C24/A7分類器／表示法／train相同；但歷史A7只按RPM分classifier，共用mixed-RPM A1 detector reference；本輪事前寫定的C24也按RPM分detector reference與cal。不能期待所有開集指標一致，也不能用該差異宣稱純分類器效果。報告新增classification_matches與expected_entire_method_match，把實際差異全部保留；此為報告解讀修正，不改方法或重跑挑分。新增三項報告範圍測試全部通過（完整測試應為310，依最新驗收实數確認）。sources.md與protocol保持封存原文，新增说明不冒充事前資訊。
 
 報告解讀修正後最终完整驗收：3.10.19（12:21:11）、3.14.6（12:22:05）各310 passed/0failed，pip check与21 CLI help PASS。新科學方法／協定程式已封存且未變；310比原272多38項工程測試。本階段提交報告檢查程式與測試、完整驗收、已完成evaluate日誌及D槽索引；不stage39MB evaluation或625份大型預測，全部可由archive index恢復驗SHA。
+
+### 解讀勘誤（以上A1 mixed-RPM敘述已撤回）
+
+71787fe394ef8a77e034a56357298815ddea7ac8已push且remote相同，但該commit報告注釋誤把歷史A1說成mixed。12:25完整控制report實際四組matches全部true，引發進一步來源核對：experiments/fault_type_accuracy_registry.py:25明列A1 rpm_strategy=separate；:31 A7 reference_arm=A1。舊summary的A1/A7 Maha AUROC同為.538823773312093，與本輪C24完全相同。結論：C02/A0與C24/A7均是完整pipeline控制；共享A1不等於混合RPM。前述差異推測不成立，已向使用者更正，不再當成已確認問題。
+
+更正報告說明及三項範圍測試，保持310項總數；不改sealed study code、protocol、模型、分數或門檻，因此無受影響研究runs需要重跑。output/fault_type_literature_report/2026-10-02-12-24-31保留為SUPERSEDED_INTERPRETATION_ONLY，數值沒變但注釋錯誤；以新timestamp report交付。來源／數字的實際核對優先於對話線索與代理的先前印象。
+
+正式verify於12:24:15完成624 available結果、6,013,647逐筆預測與sealed模型重新推論完全一致，source前後不變。verified.json.gz checksum索引與新report／只讀diagnosis後續列交付索引；沒有fresh test或獨立來源資格提升。
+
+## P4／P5：更正後結果、診斷與交付核對
+
+更正後report於12:26:09執行，summary checksum be1ae2f68ace1e9420b69e2d8269be6d1821d881ff8654aea4c175367db06f49；C02/A0與C24/A7四組全部18項指標matches=true。verified report seal efb92da2c9fa1007829c83c9c3aedb41b390046bfa3ef65b5366f8d7c97928be。只讀正式diagnosis於12:24:42–12:25:59成功，351分布集合，data_scope=EXPLORATORY_HISTORICAL_TEST_EXPOSED，diagnosis seal a02a8068515e8057ac0129bd4c16381c6d640c5b178f4a69b8fe6e5c2efcb5da，無refit／threshold改動。報告與診斷D槽archive index為output/fault_type_archive/2026-10-02-12-27-10；verified archive index為12-24-52。
+
+最终程式（含RPM解讀勘誤）完整驗收：Python3.10.19與3.14.6均12:26:34啟動，分别12:27:56／12:28:02完成，各310 passed／0failed、pip check及21CLI help PASS。保留早期307／310的工程日誌，不以舊驗收冒充更正後結果。研究sealed implementations及defaults均未改。
+
+12:27:43執行fault_type_fixed_delivery，8archives／1935member的whole SHA、CRC與所有來源member SHA PASS，沒有刪除來源。member_verification.json保存output/fault_type_fixed_delivery/2026-10-02-12-27-43。新ZIP全部位於D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/literature_expansion，不覆寫舊ZIP，不將同機D槽副本說成異地備份。
+
+數值結論：C17 healthy+known accuracy39.2863% vs C02 34.1532%（+5.1331pp）、fault-only30.4315% vs26.6126%（+3.8189pp），未超過歷史C24/A7 fault-only30.9091%。R09 AUROC .604251最高但T1 recall0、T2/11000健康拒絕100%；R18 recall22.6793%／healthy unknown-FPR9.4941%，不能只報召回改善。C17/M健康unknown-FPR0不包含healthy被classifier誤分known fault（T1該錯誤31.5843%）。所有弱結果與失敗均保留，正式default不替換。

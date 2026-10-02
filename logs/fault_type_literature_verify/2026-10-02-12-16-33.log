@@ -1,0 +1,13 @@
+2026-10-02 12:16:33 | INFO    | Logger initialized: fault_type_literature_verify
+2026-10-02 12:16:33 | INFO    | log_file=logs\fault_type_literature_verify\2026-10-02-12-16-33.log
+2026-10-02 12:16:33 | INFO    | output_dir=output\fault_type_literature_verify\2026-10-02-12-16-33
+2026-10-02 12:17:34 | INFO    | verified fresh sealed inference fold=fixed-fold0 seed=0 methods=69 49.3s
+2026-10-02 12:18:18 | INFO    | verified fresh sealed inference fold=fixed-fold0 seed=1 methods=69 43.5s
+2026-10-02 12:19:02 | INFO    | verified fresh sealed inference fold=fixed-fold0 seed=2 methods=69 43.9s
+2026-10-02 12:19:50 | INFO    | verified fresh sealed inference fold=fixed-fold1 seed=0 methods=70 47.8s
+2026-10-02 12:20:40 | INFO    | verified fresh sealed inference fold=fixed-fold1 seed=1 methods=70 50.1s
+2026-10-02 12:21:30 | INFO    | verified fresh sealed inference fold=fixed-fold1 seed=2 methods=70 50.6s
+2026-10-02 12:22:23 | INFO    | verified fresh sealed inference fold=fixed-fold2 seed=0 methods=69 53.0s
+2026-10-02 12:23:16 | INFO    | verified fresh sealed inference fold=fixed-fold2 seed=1 methods=69 52.7s
+2026-10-02 12:24:06 | INFO    | verified fresh sealed inference fold=fixed-fold2 seed=2 methods=69 50.4s
+2026-10-02 12:24:15 | INFO    | verify complete; output=output\fault_type_literature_verify\2026-10-02-12-16-33 count=624

@@ -27,11 +27,11 @@ def historical_comparison(current, historic, new, old, score):
     return {'new':new+'/'+score, 'historical':old+'/'+score, 'mean_differences':differences,
             'matches':bool(differences) and all(abs(d)<1e-12 for d in differences.values()),
             'classification_matches':bool(classification) and all(abs(d)<1e-12 for d in classification.values()),
-            'expected_entire_method_match':new=='C02',
+            'expected_entire_method_match':True,
             'reference_scope_note':'C02 and A0 both mixed-RPM references' if new=='C02' else
-                'C24 separately fits/calibrates RPM references; historical A7 only separated classifiers '
-                'and shared the mixed-RPM A1 reference. Only closed-set classification is an exact control; '
-                'detector differences are pipeline-scope differences, not an isolated classifier effect.',
+                'C24 separately fits/calibrates RPM references; historical A7 shared the per-RPM A1 '
+                'reference (A1 rpm_strategy=separate). Classifier and detector scopes are both identical; '
+                'sharing a fitted reference does not mean pooling RPMs. Full metrics should reproduce.',
             'scope':'saved historical summaries; not refit historical study'}
 
 
@@ -102,7 +102,7 @@ def run(pools,*,protocol,lock,verified,prior,output,inputs):
         '- 無新的fresh final test，模型選擇／可靠部署未驗證；健康FPR零只是此資料觀察，不是固定5%保證。',
         '', '## 原始來源與改編定位', '', '28項封存來源加3項補充來源，共31項書目；見repository的reports/literature_expansion/sources.md與sources_addendum.md。部分只作範圍依據，不是31套新演算法已實測。C/R ID參數逐項見封存protocol。自訂表示法、RDA-inspired混合、RMD係數、預測類別cal、融合在core/fault_type_literature.py有函數級來源；不是聲稱新原創已發表方法。',
         '', '## 歷史控制與成本','',f"{json.dumps(checks,ensure_ascii=False)}",'',
-        'C02/A0檢查完整混合RPM方法；C24/A7只檢查closed-set分類。C24的detector也依RPM分開fit/cal，而歷史A7共用mixed-RPM A1 reference，因此其開集數字不應被宣稱為完全相同流程的重現。三fold／seeds／test IDs仍相同；不改已鎖定本輪方法來追求歷史分數一致。','',
+        'C02/A0檢查完整混合RPM方法；C24/A7檢查完整RPM分開方法。舊registry的A1 rpm_strategy=separate，A7共用的是per-RPM reference，不是mixed-RPM。四組控制的實際matches及全部差異見上列；未改已鎖定本輪方法來追求歷史分數一致。','',
         f"physical bundle fit seconds={result['physical_bundle_fit_seconds']:.3f}; fit counts={result['fit_counts']}. 各邏輯run共享模型／參照，不把630組當630個獨立訓練或受試馬達。"]
     (output/'report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     return result

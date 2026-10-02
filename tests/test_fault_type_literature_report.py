@@ -15,12 +15,12 @@ class HistoricalScopeTests(unittest.TestCase):
         self.assertTrue(r['classification_matches'])
         self.assertTrue(r['expected_entire_method_match'])
 
-    def test_rpm_classifier_control_not_whole_detector_control(self):
+    def test_rpm_control_expected_full_match_but_difference_never_hidden(self):
         r=historical_comparison(method(auc=.5),method(),'C24','A7','knn')
         self.assertFalse(r['matches'])
         self.assertTrue(r['classification_matches'])
-        self.assertFalse(r['expected_entire_method_match'])
-        self.assertIn('shared the mixed-RPM',r['reference_scope_note'])
+        self.assertTrue(r['expected_entire_method_match'])
+        self.assertIn('per-RPM A1',r['reference_scope_note'])
 
     def test_classification_mismatch_never_hidden(self):
         r=historical_comparison(method(acc=.2),method(),'C24','A7','mahalanobis')

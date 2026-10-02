@@ -1,0 +1,23 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-26-09.zip",
+      "sha256": "4649c36c1bfe0a56b9396755225e424a1d9d731581965282998699bd2adaf399",
+      "bytes": 51777051,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09",
+      "source_files": 3,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-24-42.zip",
+      "sha256": "f5280525bd6522bbbc2c3dbc756c7beeeba66ca977a1a28765f35ac9d6926842",
+      "bytes": 8121664,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42",
+      "source_files": 1,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

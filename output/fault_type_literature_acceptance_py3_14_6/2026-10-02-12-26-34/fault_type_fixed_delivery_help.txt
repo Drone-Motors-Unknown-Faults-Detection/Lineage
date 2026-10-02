@@ -1,0 +1,7 @@
+usage: python.exe -m experiments.fault_type_fixed_delivery [-h] --index INDEX
+
+Verify explicit archive SHA/CRC/every member; never extract or delete data.
+
+options:
+  -h, --help     show this help message and exit
+  --index INDEX

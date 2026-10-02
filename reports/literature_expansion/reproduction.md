@@ -61,4 +61,4 @@ logs/output依AGENT慣例；大型joblib、逐樣本jsonl.gz、full verified與r
 
 ## 歷史控制的可比範圍
 
-C02與A0為同混合RPM完整pipeline，可比較所有保存指標。C24與A7只在closed-set分類器／表示法／train／test角色相同：A7共用mixed-RPM A1 reference，C24從事前protocol起就是classifier與detector均按RPM分fit/cal。報告保留所有實際差異，但不能把其開集差異說成完全相同流程的重現或純classifier效應。這項事後解读澄清不改已封存protocol、不改門檻，不覆寫舊A7；新runner只讀正式CSV。
+C02與A0為同混合RPM完整pipeline，可比較所有保存指標。C24與A7亦為完整RPM分開pipeline的控制：舊registry明列A1 rpm_strategy=separate，A7共用的是per-RPM A1 reference，不是混合RPM。四組控制的18種指標均實際重現。共享已擬合reference不代表跨RPM混合；不得只凭「共用A1」推斷RPM範圍。更正只在報告解讀，已封存protocol／模型／門檻與舊A7未改。
