@@ -1,0 +1,12 @@
+usage: python.exe -m experiments.fault_type_accuracy_diagnosis
+       [-h] --registry REGISTRY --locked LOCKED --verified VERIFIED
+       --data-root DATA_ROOT
+
+Post-evaluation T1 distributions. No refit, tuning, adaptation or selection.
+
+options:
+  -h, --help            show this help message and exit
+  --registry REGISTRY
+  --locked LOCKED
+  --verified VERIFIED
+  --data-root DATA_ROOT

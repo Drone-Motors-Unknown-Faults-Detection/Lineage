@@ -11,4 +11,9 @@ P1 commit def53146e3881eb284a52c1f650e7886108a6f07 已 push，remote exact。
 
 P2 commit 93b98075170f16cb64c94d1a71db10607a8f91a4 已 push，remote exact；16相關測試PASS（13 metrics+3 diagnosis）。
 P3 actual web 原文搜尋/方法查閱，17候選、7篇methods/settings深讀，其餘閱讀限制明列；既有31筆full-cover均未取得完整閱讀證明，不補造。原RDA掃描/官方存本抓取限制及Vaze全文timeout如實記錄。採用3機制，其餘延後/缺資料/越界分開。
+
+P3 commit b55a5b913d831dcbded263328d4771672c10764e 已 push，remote exact。
+P4/5/6工程：新增9arms train-only數值類、來源綁定registry、分離fit/cal/infer、逐格SHA checkpoint與reinfer。直接相關34新cases（13 metric+3 diagnosis+18 mechanisms），預算81。合成smoke兩runtime PASS，不算研究。protocol seal 4db05bc722e49ecb6421beaa072f21216ab795d8b180c3fcb441d0d7fe230743，未執行新outertest。完整acceptance實際測試數另依產物記錄。
+
+完整acceptance：Python3.10.19與3.14.6各344 tests PASS、pip check PASS、27 CLI help PASS。產物2026-10-02-13-09-31/13-09-43；synthetic13-09-54/13-09-56兩native runtime PASS。未跨sklearn載joblib。
 P2 只讀診斷 exit0；3 個 seed0 parent models，formal source 前後一致，無 fit/threshold 修改。兩圖檢視，2screws train=100%/test=0%；R17 真實 cal 各類足量但 predicted routes 空。形成 H-D/H-P/H-G，未知採集事實不補造。

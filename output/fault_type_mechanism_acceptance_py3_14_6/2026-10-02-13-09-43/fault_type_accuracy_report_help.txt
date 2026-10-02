@@ -1,0 +1,10 @@
+usage: python.exe -m experiments.fault_type_accuracy_report
+       [-h] --registry REGISTRY --locked LOCKED --evaluation EVALUATION
+
+Stream saved runs, verify score formulas and paired IDs; never select winner.
+
+options:
+  -h, --help            show this help message and exit
+  --registry REGISTRY
+  --locked LOCKED
+  --evaluation EVALUATION

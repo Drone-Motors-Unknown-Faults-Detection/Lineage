@@ -1,0 +1,17 @@
+usage: python.exe -m experiments.fault_type_mechanism_study
+       [-h] --protocol PROTOCOL --data-root DATA_ROOT [--lock LOCK]
+       [--evaluation EVALUATION] [--resume RESUME]
+       {fit,evaluate,verify}
+
+Checkpointed fit/evaluate/reinfer for nine fixed, exploratory mechanisms.
+
+positional arguments:
+  {fit,evaluate,verify}
+
+options:
+  -h, --help            show this help message and exit
+  --protocol PROTOCOL
+  --data-root DATA_ROOT
+  --lock LOCK
+  --evaluation EVALUATION
+  --resume RESUME

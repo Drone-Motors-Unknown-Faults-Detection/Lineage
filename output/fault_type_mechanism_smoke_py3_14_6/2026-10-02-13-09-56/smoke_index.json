@@ -1,0 +1,10 @@
+{
+  "arms": 9,
+  "deterministic": true,
+  "new_geometry_dimension": 69,
+  "process_peak_memory_bytes": 174424064,
+  "python": "3.14.6",
+  "rows": 216,
+  "scope": "SYNTHETIC_ENGINEERING_ONLY_NOT_RESEARCH",
+  "status": "PASS"
+}
