@@ -1,0 +1,216 @@
+{
+  "artifacts": [
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold0_seed0\\fit_audits.json.gz",
+        "sha256": "494d950eb346acd35e7b82b2ca4afa72cf9e2759d8454302c279a0999480878d"
+      },
+      "fold_id": "fixed-fold0",
+      "memory_definition": "cumulative process peak including parent load",
+      "parent_artifact": {
+        "fold_id": "fixed-fold0",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed0.joblib",
+        "seconds": 18.968338999999105,
+        "seed": 0,
+        "sha256": "22c6e85c30c1664f20533ff5c043070b667076136180f4cd0277ba374e41171e"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold0_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988251648,
+      "seconds": 5.199835000006715,
+      "seed": 0,
+      "sha256": "4ea1f81f19acac4025c6077bc3a4a717aaffa56b4bb79aa431c598fee24fd702",
+      "warnings": []
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold0_seed1\\fit_audits.json.gz",
+        "sha256": "707617325086f7a8fda838ebdf2fdeeb182f895087fbfc85a6a51cc1283bc6bd"
+      },
+      "fold_id": "fixed-fold0",
+      "memory_definition": "cumulative process peak including parent load",
+      "parent_artifact": {
+        "fold_id": "fixed-fold0",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed1.joblib",
+        "seconds": 19.302914899992174,
+        "seed": 1,
+        "sha256": "80e90b97a75cb33df898a5965e86579000c53c3aa1767bb4ddaf8f90c0c72a98"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold0_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988251648,
+      "seconds": 5.050607299999683,
+      "seed": 1,
+      "sha256": "7807bb5fde13f6df0963005cba3097a1991d51a7582f62860f865b83934fe190",
+      "warnings": []
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold0_seed2\\fit_audits.json.gz",
+        "sha256": "e6e1741326dadfa3e89763d3f15ea754eb242964e2c83930e62047866574dbcb"
+      },
+      "fold_id": "fixed-fold0",
+      "memory_definition": "cumulative process peak including parent load",
+      "parent_artifact": {
+        "fold_id": "fixed-fold0",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed2.joblib",
+        "seconds": 19.04490199999418,
+        "seed": 2,
+        "sha256": "8cce91b201174a70afb24f811760049cca2095cad5a9d9bdcd346d135d718ed7"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold0_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988251648,
+      "seconds": 5.2662383999995654,
+      "seed": 2,
+      "sha256": "a5cc234c81c14a91f2250d848fdd62b0b3b2bba6ff787709ab6ec46ed9fd377a",
+      "warnings": []
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold1_seed0\\fit_audits.json.gz",
+        "sha256": "b6295515e974def8c516556c83d0aecffd95baa42d1bed073c89ef76f140f751"
+      },
+      "fold_id": "fixed-fold1",
+      "memory_definition": "cumulative process peak including parent load",
+      "parent_artifact": {
+        "fold_id": "fixed-fold1",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed0.joblib",
+        "seconds": 19.84686680001323,
+        "seed": 0,
+        "sha256": "8a7e801ee66358aa716f65eeab105f0a49b8b327033f9a04ada420554b573f37"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold1_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988251648,
+      "seconds": 5.743329899996752,
+      "seed": 0,
+      "sha256": "fda1753ce5553816c33421a90fcaccc11787046674133b7a2a434ce3e1afa2b2",
+      "warnings": []
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold1_seed1\\fit_audits.json.gz",
+        "sha256": "971af70e86358898d7df98811911a3e1414771829bfdea644c323a1876a30844"
+      },
+      "fold_id": "fixed-fold1",
+      "memory_definition": "cumulative process peak including parent load",
+      "parent_artifact": {
+        "fold_id": "fixed-fold1",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed1.joblib",
+        "seconds": 18.724457799995434,
+        "seed": 1,
+        "sha256": "870dbcc6c6b3486eb1cca3d9faccb13f677a32bf137cbeaaa726487e649aa1e9"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold1_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988251648,
+      "seconds": 5.481446100005996,
+      "seed": 1,
+      "sha256": "940ad888405b3e2cc5ada7f6be54b1820c22faa9f3bfa0cb276145c04e23e902",
+      "warnings": []
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold1_seed2\\fit_audits.json.gz",
+        "sha256": "5298c90922d3df065123a1a8c9aa8563f5d53a8d596a43196527e7ab8eae9236"
+      },
+      "fold_id": "fixed-fold1",
+      "memory_definition": "cumulative process peak including parent load",
+      "parent_artifact": {
+        "fold_id": "fixed-fold1",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed2.joblib",
+        "seconds": 18.509999900008552,
+        "seed": 2,
+        "sha256": "7ae7cd79f432b543a686a15040a061033ff30d27f00846e3a9af8c065e65e443"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold1_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988251648,
+      "seconds": 5.518980699998792,
+      "seed": 2,
+      "sha256": "dd80c6f4b52d010826c535c3cdfe5ca9b36d85845bab07ffececfb1f52da95af",
+      "warnings": []
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold2_seed0\\fit_audits.json.gz",
+        "sha256": "abaea2169f662c1b509caca80d41ff1fa553a138b6caae8df0cfd4faaf3d0c35"
+      },
+      "fold_id": "fixed-fold2",
+      "memory_definition": "cumulative process peak including parent load",
+      "parent_artifact": {
+        "fold_id": "fixed-fold2",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed0.joblib",
+        "seconds": 18.633680399987497,
+        "seed": 0,
+        "sha256": "cf5f6f024dc55f3caa567134e8c7406a78d12a185d36855b6f4d014eec83ee29"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold2_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988251648,
+      "seconds": 5.391146499998285,
+      "seed": 0,
+      "sha256": "c20a9a29667125cf0cb9f451a894856275198c1a276e2c4198402003238bbee9",
+      "warnings": []
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold2_seed1\\fit_audits.json.gz",
+        "sha256": "18d344db987f07efa5483b0b0dfcebdbd2b21641a6467801b9af08c3732a94ba"
+      },
+      "fold_id": "fixed-fold2",
+      "memory_definition": "cumulative process peak including parent load",
+      "parent_artifact": {
+        "fold_id": "fixed-fold2",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed1.joblib",
+        "seconds": 18.439518099999987,
+        "seed": 1,
+        "sha256": "1fdfa713e2af72b39cc28d8c2fc1cd720d4f8fcb1c2cafe2ca11b7e39a1498d9"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold2_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988251648,
+      "seconds": 5.669848200006527,
+      "seed": 1,
+      "sha256": "60aece6e7b2f36269c92a4c220b8731c32b5cfa72194b24a923d2957389d9f90",
+      "warnings": []
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold2_seed2\\fit_audits.json.gz",
+        "sha256": "c73d282a31cdbbbf098a804738f03f5cfea9e161b521a7834dea85666a45f34a"
+      },
+      "fold_id": "fixed-fold2",
+      "memory_definition": "cumulative process peak including parent load",
+      "parent_artifact": {
+        "fold_id": "fixed-fold2",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed2.joblib",
+        "seconds": 18.277159399993252,
+        "seed": 2,
+        "sha256": "9b40170d599f807e0f1623f82b2ba5591a8418aea0b63e017e07646c05568f7c"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\fixed-fold2_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988251648,
+      "seconds": 5.501824200007832,
+      "seed": 2,
+      "sha256": "c865be936e41f2386d63f5905dbf4b897c12c99c6dc2706a913ac74a86f9ce9d",
+      "warnings": []
+    }
+  ],
+  "code_head": "8bcbb53405105d313bebcbfd291935430b53e81e",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "failures": [],
+  "locked_checksum": "c1d47ead2bbeeb8d82fb63fa5040272cd732a504ccaac0a182a1b8ed083278e1",
+  "new_classifier_fits": 27,
+  "new_geometry_fits": 9,
+  "parent_fits_reused": true,
+  "protocol_checksum": "ff6ddc29ca101f73c8a3ca6f818147dc4f6cd81032581966757b5f72087e1b91",
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  }
+}

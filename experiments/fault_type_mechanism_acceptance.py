@@ -11,7 +11,7 @@ from experiments.fault_type_literature_acceptance import run as prior
 
 def run(pools,*,output):
     result=prior(pools,output=output)
-    for name in ['fault_type_metrics_v2','fault_type_mechanism_diagnosis','fault_type_mechanism_registry','fault_type_mechanism_study','fault_type_mechanism_smoke','fault_type_mechanism_acceptance']:
+    for name in ['fault_type_metrics_v2','fault_type_mechanism_diagnosis','fault_type_mechanism_registry','fault_type_mechanism_study','fault_type_mechanism_smoke','fault_type_mechanism_report','fault_type_mechanism_acceptance']:
         command=[sys.executable,'-m','experiments.'+name,'--help'];r=subprocess.run(command,capture_output=True,text=True,encoding='utf-8',env=dict(os.environ,PYTHONIOENCODING='utf-8'))
         path=output/(name+'_help.txt');path.write_text(r.stdout+r.stderr,encoding='utf-8')
         result['commands'].append({'command':command,'exit_code':r.returncode,'output':str(path.resolve())})

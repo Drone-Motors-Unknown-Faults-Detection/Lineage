@@ -22,4 +22,7 @@ P4初次提交被auto-review額度限制拒絕，指令未執行；使用者繼�
 發現resume aggregate會重寫sealed總索引（checkpoint本身正常），新增save_immutable＋重現測試；舊protocol/lock完整保留，不覆寫。需要新source SHA協定後重新fit，不算新增arm，不新增test評估；正式81格仍尚未執行。
 
 修補驗證：science相關35 PASS、3.14 mechanisms19 PASS、report3 PASS。新protocol17:49:29/ff6ddc29ca101f73c8a3ca6f818147dc4f6cd81032581966757b5f72087e1b91已生成，未看新outertest。新版report以within-fold AUROC/AP作sample-weighted平均，不混跨模型raw score排名。
+
+修補/新protocol commit 8bcbb53405105d313bebcbfd291935430b53e81e 已push/remote exact。
+正式新fit 17:50:41–17:52:29，9 bundles、27 P classifier fits/9 geometry、0 failed/0 warnings；lock c1d47ead2bbeeb8d82fb63fa5040272cd732a504ccaac0a182a1b8ed083278e1。fit source前後SHA一致，峰值1,988,251,648 bytes含parent，非單arm增量。全套348 tests各runtime PASS，CLI仍在執行時未宣稱最後完成。外部大型models/audits稍後獨立備份，不入Git。
 P2 只讀診斷 exit0；3 個 seed0 parent models，formal source 前後一致，無 fit/threshold 修改。兩圖檢視，2screws train=100%/test=0%；R17 真實 cal 各類足量但 predicted routes 空。形成 H-D/H-P/H-G，未知採集事實不補造。
