@@ -29,6 +29,9 @@ def summarize(runs,rows,p):
             'fault_macro_f1':m['known_fault_classification']['macro_f1'],'fault_balanced_accuracy':m['known_fault_classification']['balanced_accuracy'],
             'unknown_auroc':m['unknown_rejection']['auroc_unknown_positive'],'unknown_aupr':m['unknown_rejection']['aupr_unknown_positive'],
             'unknown_recall':m['unknown_rejection']['unknown_recall'],'healthy_total_alarm':m['healthy_safety_v2']['healthy_total_alarm_rate'],
+            'unknown_precision':m['unknown_rejection']['unknown_precision'],'unknown_f1':m['unknown_rejection']['unknown_f1'],
+            'fpr_at_95_tpr':m['unknown_rejection']['fpr_at_95_tpr'],'known_correct_after_rejection':m['known_correct_after_rejection'],
+            'known_rejection_rate':m['known_rejection_rate'],
             'healthy_unknown_alarm':m['healthy_safety_v2']['healthy_to_unknown_rate'],'healthy_known_fault_alarm':m['healthy_safety_v2']['healthy_to_known_fault_rate'],
             'coverage':m['selective']['coverage'],'accepted_accuracy':m['selective']['accuracy_all_accepted'],
             'final_accuracy':m['final_open_set_classification']['accuracy']}
@@ -51,8 +54,8 @@ def summarize(runs,rows,p):
         'all_nine_health_groups_within_research_limit':all(r['healthy_total_alarm']<=.10 for r in rpm),
         'per_seed_motor_macro':seedvals,'seed_descriptive_range':ranges,
         'auc_aggregation':'sample-weighted mean of within-fold AUROC/AP; no cross-model raw-score ranking',
-        'runtime':{'shared_bundle_inference_seconds':sum(r.get('shared_bundle_inference_seconds',0.) for r in runs),
-            'process_peak_memory_bytes':max(r.get('process_peak_memory_bytes',0) for r in runs),
+        'runtime':{'shared_bundle_inference_seconds':sum(r['shared_bundle_inference_seconds'] for r in runs) if all('shared_bundle_inference_seconds' in r for r in runs) else None,
+            'process_peak_memory_bytes':max(r['process_peak_memory_bytes'] for r in runs) if all('process_peak_memory_bytes' in r for r in runs) else None,
             'definition':'same nine-arm shared bundle time, not per-arm time; old control timing unavailable here'},
         'per_motor':[{'motor':r['motor_roles']['test'],'metrics':get(r['metrics']),
             '2screws_recall':next(c['classifier_recall'] for c in r['configuration_metrics'] if c['label']=='2screws'),
@@ -111,7 +114,7 @@ def run(pools,*,protocol,evaluation,verification,baseline_metrics,output):
         'baseline_metrics_checksum':b['metrics_checksum'],'methods':tables,'paired_differences':pairs,'runs':allruns,'failed_runs':e['failed_runs'],
         'completed_runs':e['completed_runs'],'planned_runs':81,'prediction_records':e['prediction_records'],'unique_samples':28910,
         'scope':p['scope'],'selection_policy':'none','confidence_intervals':'NOT CALCULATED: acquisition groups UNKNOWN, 3 motors descriptive only',
-        'production_default_changed':False,'decoupling_parent_exact':True},'report_checksum')
+        'production_default_changed':False,'decoupling_parent_exact':True,'report_implementation':artifact(Path(__file__))},'report_checksum')
     save_json(output/'summary.json',result);write_gzip(output/'summary.json.gz',result)
     columns=['method','known_accuracy','fault_accuracy','fault_macro_f1','unknown_auroc','unknown_recall','healthy_total_alarm','coverage','worst_rpm_healthy_total_alarm','worst_motor_fault_class_recall','all_nine_health_groups_within_research_limit']
     with (output/'tradeoff.csv').open('w',newline='',encoding='utf-8') as f:

@@ -1,0 +1,421 @@
+{
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\command_0.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\command_1.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.synchronized_raw",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\command_2.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.synchronized_features",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\command_3.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_fresh",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\command_4.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.synchronized_fixture",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\command_5.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_fixed_calibration",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_fixed_calibration_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_fixed_smoke",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_fixed_smoke_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_fixed_report",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_fixed_report_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_fixed_diagnosis",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_fixed_diagnosis_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_fixed_delivery",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_fixed_delivery_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_baseline",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_accuracy_baseline_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_registry",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_accuracy_registry_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_study",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_accuracy_study_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_report",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_accuracy_report_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_smoke",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_accuracy_smoke_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_diagnosis",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_accuracy_diagnosis_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_accuracy_summary",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_accuracy_summary_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_literature_registry",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_literature_registry_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_literature_study",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_literature_study_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_literature_report",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_literature_report_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_literature_smoke",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_literature_smoke_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_literature_diagnosis",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_literature_diagnosis_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_metrics_v2",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_metrics_v2_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_mechanism_diagnosis",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_mechanism_diagnosis_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_mechanism_registry",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_mechanism_registry_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_mechanism_study",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_mechanism_study_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_mechanism_smoke",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_mechanism_smoke_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_mechanism_report",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_mechanism_report_help.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+        "-m",
+        "experiments.fault_type_mechanism_acceptance",
+        "--help"
+      ],
+      "exit_code": 0,
+      "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\fault_type_mechanism_acceptance_help.txt"
+    }
+  ],
+  "environment_fingerprint": "dd8a32a3a6945e7964e531483cde74fcdeeee55f18a761659f987d3f9d64efea",
+  "executable": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\venv\\Scripts\\python.exe",
+  "packages": [
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.4.0"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.65.0"
+    },
+    {
+      "name": "hdbscan",
+      "version": "0.8.44"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1"
+    },
+    {
+      "name": "lineage",
+      "version": "0.2.0"
+    },
+    {
+      "name": "loguru",
+      "version": "0.7.3"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.11.2"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.26.0"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.3"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pandas",
+      "version": "3.0.6"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.2"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.7.0"
+    },
+    {
+      "name": "tornado",
+      "version": "6.5.10"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.4"
+    },
+    {
+      "name": "win32_setctime",
+      "version": "1.2.0"
+    }
+  ],
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.6",
+  "research_status": "ENGINEERING_ONLY; existing exposed research comparisons permitted, not fresh validation",
+  "serialization_scope": "new synthetic fixtures fit/load within THIS interpreter; no cross-runtime joblib loading",
+  "status": "PASS",
+  "tests_passed": 349
+}

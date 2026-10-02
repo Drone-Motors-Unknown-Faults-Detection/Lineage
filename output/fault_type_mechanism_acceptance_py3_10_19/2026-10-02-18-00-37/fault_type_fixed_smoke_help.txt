@@ -1,0 +1,6 @@
+usage: fault_type_fixed_smoke.py [-h]
+
+Synthetic fixed-method CLI smoke fixture. NEVER research performance.
+
+options:
+  -h, --help  show this help message and exit

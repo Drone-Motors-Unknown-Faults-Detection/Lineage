@@ -1,0 +1,4 @@
+2026-10-02 18:00:37 | INFO    | Logger initialized: fault_type_mechanism_acceptance_py3_10_19
+2026-10-02 18:00:37 | INFO    | log_file=logs\fault_type_mechanism_acceptance_py3_10_19\2026-10-02-18-00-37.log
+2026-10-02 18:00:37 | INFO    | output_dir=output\fault_type_mechanism_acceptance_py3_10_19\2026-10-02-18-00-37
+2026-10-02 18:02:12 | INFO    | Python 3.10.19 tests=349 PASS

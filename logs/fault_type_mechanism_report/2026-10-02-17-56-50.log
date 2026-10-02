@@ -1,0 +1,4 @@
+2026-10-02 17:56:50 | INFO    | Logger initialized: fault_type_mechanism_report
+2026-10-02 17:56:50 | INFO    | log_file=logs\fault_type_mechanism_report\2026-10-02-17-56-50.log
+2026-10-02 17:56:50 | INFO    | output_dir=output\fault_type_mechanism_report\2026-10-02-17-56-50
+2026-10-02 17:57:26 | INFO    | paired report=9b84d9f47f4c4db1558a18b6b9c5369c25d50904ed47aaaef0a821637183c3b2 methods=16 no selected winner

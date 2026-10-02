@@ -31,4 +31,10 @@ P6 17:53:06–17:54:37，81/81新evaluations、0 failed/INCOMPLETE、780,570 rec
 17:55:10–17:56:37 verifier全部81/780,570重新inference exact，controlled truth mutation invariant；seal 1ff5c7fdb4df8b8cc64810858b58fd0067fa618b9f85c2d87103068192d17a9e。
 fit replay17:54:16與eval replay17:55:59 PASS，原sealed總檔SHA不變、不計新增研究runs。全套348/348兩runtime、pip各PASS、28 CLI各PASS（30 commands含pip/test）。
 初配對report17:56:50 16方法/243paired條件 PASS，D系列逐筆classifier/score與父控制exact；補充post-rejection/precision/F1與未測runtime=null後輸出新report，不覆蓋初報、不改模型/門檻。
+
+P6 commit b3df4063ce810d801fd27288412ee0fe81939227 已push，remote與local exact。
+P7 authoritative report17:58:59，seal 69e4b6d126dc1129ed2bceb0c1ff6621a946a263496bc72c1f859bbe9a6f40a8；16方法、243 paired comparisons，沒有global winner。全部27個arm/fold的3seed逐筆pred/score/threshold/reject完全相同，無seed敏感度，非新增獨立motor。
+最新版全套：Python3.10.19及3.14.6各349 tests PASS、pip check PASS、28 CLI help PASS，各30 commands/0 nonzero。產物18:00:37/18:00:48；不跨sklearn版本載入模型。349=既有310+本輪39；native synthetic只作工程測試。
+P8：18:03:58/18:04:29 archive indices保存14新ZIP，共301 source members/480,240,398 bytes；18:04:44全包whole SHA、CRC與逐member SHA PASS。D槽新mechanism_research_v2目錄，無刪除源檔，未覆蓋舊8個literature_expansion備份，另核對舊8 SHA全部不變。單D磁碟非offsite。
+原正式core/geometry.py、monitor.py、data.py、openset.py、mahalanobis.py相對起點無diff；formal fingerprint不變。282 tracked deletions仍保留，不stage。大型模型、逐樣本prediction及full summary只外部封存，小型摘要/索引/執行日誌入Git。
 P2 只讀診斷 exit0；3 個 seed0 parent models，formal source 前後一致，無 fit/threshold 修改。兩圖檢視，2screws train=100%/test=0%；R17 真實 cal 各類足量但 predicted routes 空。形成 H-D/H-P/H-G，未知採集事實不補造。

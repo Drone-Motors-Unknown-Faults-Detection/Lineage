@@ -28,3 +28,8 @@ class MechanismReportTest(unittest.TestCase):
         p,rows,rr=self.sample();rr[0]=dict(rr[0],metrics=dict(rr[0]['metrics'],unknown_rejection=dict(rr[0]['metrics']['unknown_rejection'],auroc_unknown_positive=.4)))
         s=summarize(rr,rows,p)
         self.assertAlmostEqual(s['sample_weighted_seed0']['unknown_auroc'],.8)
+
+    def test_missing_runtime_not_zero(self):
+        p,rows,rr=self.sample();s=summarize(rr,rows,p)
+        self.assertIsNone(s['runtime']['process_peak_memory_bytes'])
+        self.assertIsNone(s['runtime']['shared_bundle_inference_seconds'])
