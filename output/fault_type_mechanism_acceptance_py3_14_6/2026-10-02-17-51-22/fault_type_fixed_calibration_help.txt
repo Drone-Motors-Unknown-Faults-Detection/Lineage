@@ -1,0 +1,25 @@
+usage: python.exe -m experiments.fault_type_fixed_calibration
+       [-h] [--matrix MATRIX]
+       [--prior-manifests PRIOR_MANIFESTS PRIOR_MANIFESTS PRIOR_MANIFESTS]
+       --ledger LEDGER [--protocol PROTOCOL] [--data-root DATA_ROOT]
+       [--locked LOCKED] [--code-head CODE_HEAD]
+       {prepare,fit,evaluate}
+
+Fixed historical methods, dedicated calibration motor, no selector.
+Exploratory only: all historical rows have prior test exposure. No fresh guard
+or default detector is relaxed. Preparation never loads test feature values.
+
+positional arguments:
+  {prepare,fit,evaluate}
+
+options:
+  -h, --help            show this help message and exit
+  --matrix MATRIX
+  --prior-manifests PRIOR_MANIFESTS PRIOR_MANIFESTS PRIOR_MANIFESTS
+                        explicit predeclared existing N/class manifests in
+                        motor-role order
+  --ledger LEDGER
+  --protocol PROTOCOL
+  --data-root DATA_ROOT
+  --locked LOCKED
+  --code-head CODE_HEAD

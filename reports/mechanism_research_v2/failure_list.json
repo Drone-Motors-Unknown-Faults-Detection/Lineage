@@ -1,0 +1,15 @@
+{
+  "engineering_run_failures": [],
+  "missing_matrix_cells": [],
+  "scientific_failures": [
+    "All 9 new complete arms fail the predeclared <=10% healthy total alarm screen in all nine motor/RPM groups collectively",
+    "All 9 new arms retain at least one zero-recall known fault class/motor",
+    "T1 unknown recall remains 0 for every new arm",
+    "D01 retains C17 2screws recall 0 in all three motors",
+    "Partial-pooling beta=0.5 does not improve fault classification over both new endpoints",
+    "Block geometry does not provide reliable classification/rejection/health improvement"
+  ],
+  "historical_incomplete_not_filled": "R17 six predicted-class calibration-group gaps",
+  "unknown_not_pass": ["session/run boundaries", "raw window overlap", "deletion mask", "units", "mount/load/calibration history", "independent inner acquisition groups"],
+  "fresh_test": "INCOMPLETE: all old rows exposed; >=2 independent test groups per class requirement unchanged"
+}

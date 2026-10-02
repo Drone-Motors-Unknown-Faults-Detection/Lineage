@@ -25,4 +25,10 @@ P4初次提交被auto-review額度限制拒絕，指令未執行；使用者繼�
 
 修補/新protocol commit 8bcbb53405105d313bebcbfd291935430b53e81e 已push/remote exact。
 正式新fit 17:50:41–17:52:29，9 bundles、27 P classifier fits/9 geometry、0 failed/0 warnings；lock c1d47ead2bbeeb8d82fb63fa5040272cd732a504ccaac0a182a1b8ed083278e1。fit source前後SHA一致，峰值1,988,251,648 bytes含parent，非單arm增量。全套348 tests各runtime PASS，CLI仍在執行時未宣稱最後完成。外部大型models/audits稍後獨立備份，不入Git。
+
+P5 lock commit a724dbc693cd87280593ee64dacb31259486d99a 已push/remote exact。
+P6 17:53:06–17:54:37，81/81新evaluations、0 failed/INCOMPLETE、780,570 records/28,910 unique，data前後不變；evaluation seal 2ff6fdca458d449254cbcc83259719d8d91562db82105712c07f64f99b809076。
+17:55:10–17:56:37 verifier全部81/780,570重新inference exact，controlled truth mutation invariant；seal 1ff5c7fdb4df8b8cc64810858b58fd0067fa618b9f85c2d87103068192d17a9e。
+fit replay17:54:16與eval replay17:55:59 PASS，原sealed總檔SHA不變、不計新增研究runs。全套348/348兩runtime、pip各PASS、28 CLI各PASS（30 commands含pip/test）。
+初配對report17:56:50 16方法/243paired條件 PASS，D系列逐筆classifier/score與父控制exact；補充post-rejection/precision/F1與未測runtime=null後輸出新report，不覆蓋初報、不改模型/門檻。
 P2 只讀診斷 exit0；3 個 seed0 parent models，formal source 前後一致，無 fit/threshold 修改。兩圖檢視，2screws train=100%/test=0%；R17 真實 cal 各類足量但 predicted routes 空。形成 H-D/H-P/H-G，未知採集事實不補造。

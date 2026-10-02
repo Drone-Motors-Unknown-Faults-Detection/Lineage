@@ -1,0 +1,13 @@
+2026-10-02 17:54:16 | INFO    | Logger initialized: fault_type_mechanism_fit
+2026-10-02 17:54:16 | INFO    | log_file=logs\fault_type_mechanism_fit\2026-10-02-17-54-16.log
+2026-10-02 17:54:16 | INFO    | output_dir=output\fault_type_mechanism_fit\2026-10-02-17-54-16
+2026-10-02 17:54:31 | INFO    | resume sealed fit fixed-fold0_seed0
+2026-10-02 17:54:34 | INFO    | resume sealed fit fixed-fold0_seed1
+2026-10-02 17:54:37 | INFO    | resume sealed fit fixed-fold0_seed2
+2026-10-02 17:54:40 | INFO    | resume sealed fit fixed-fold1_seed0
+2026-10-02 17:54:42 | INFO    | resume sealed fit fixed-fold1_seed1
+2026-10-02 17:54:45 | INFO    | resume sealed fit fixed-fold1_seed2
+2026-10-02 17:54:48 | INFO    | resume sealed fit fixed-fold2_seed0
+2026-10-02 17:54:51 | INFO    | resume sealed fit fixed-fold2_seed1
+2026-10-02 17:54:53 | INFO    | resume sealed fit fixed-fold2_seed2
+2026-10-02 17:54:54 | INFO    | fit completed=9 output=C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\output\fault_type_mechanism_fit\2026-10-02-17-50-41

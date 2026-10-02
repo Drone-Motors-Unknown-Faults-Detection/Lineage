@@ -1,0 +1,13 @@
+2026-10-02 17:55:59 | INFO    | Logger initialized: fault_type_mechanism_evaluate
+2026-10-02 17:55:59 | INFO    | log_file=logs\fault_type_mechanism_evaluate\2026-10-02-17-55-59.log
+2026-10-02 17:55:59 | INFO    | output_dir=output\fault_type_mechanism_evaluate\2026-10-02-17-55-59
+2026-10-02 17:56:18 | INFO    | evaluated fold=fixed-fold0 seed=0 methods=9
+2026-10-02 17:56:25 | INFO    | evaluated fold=fixed-fold0 seed=1 methods=9
+2026-10-02 17:56:33 | INFO    | evaluated fold=fixed-fold0 seed=2 methods=9
+2026-10-02 17:56:41 | INFO    | evaluated fold=fixed-fold1 seed=0 methods=9
+2026-10-02 17:56:48 | INFO    | evaluated fold=fixed-fold1 seed=1 methods=9
+2026-10-02 17:56:56 | INFO    | evaluated fold=fixed-fold1 seed=2 methods=9
+2026-10-02 17:57:04 | INFO    | evaluated fold=fixed-fold2 seed=0 methods=9
+2026-10-02 17:57:12 | INFO    | evaluated fold=fixed-fold2 seed=1 methods=9
+2026-10-02 17:57:20 | INFO    | evaluated fold=fixed-fold2 seed=2 methods=9
+2026-10-02 17:57:20 | INFO    | evaluate completed=81 output=C:\Users\andy0\AppData\Local\Temp\codex-d-drive\schoolshit\專題\src\_lineage_compare\p1_worktree\output\fault_type_mechanism_evaluate\2026-10-02-17-53-06

@@ -1,0 +1,13 @@
+2026-10-02 17:53:06 | INFO    | Logger initialized: fault_type_mechanism_evaluate
+2026-10-02 17:53:06 | INFO    | log_file=logs\fault_type_mechanism_evaluate\2026-10-02-17-53-06.log
+2026-10-02 17:53:06 | INFO    | output_dir=output\fault_type_mechanism_evaluate\2026-10-02-17-53-06
+2026-10-02 17:53:26 | INFO    | evaluated fold=fixed-fold0 seed=0 methods=9
+2026-10-02 17:53:34 | INFO    | evaluated fold=fixed-fold0 seed=1 methods=9
+2026-10-02 17:53:43 | INFO    | evaluated fold=fixed-fold0 seed=2 methods=9
+2026-10-02 17:53:52 | INFO    | evaluated fold=fixed-fold1 seed=0 methods=9
+2026-10-02 17:54:00 | INFO    | evaluated fold=fixed-fold1 seed=1 methods=9
+2026-10-02 17:54:09 | INFO    | evaluated fold=fixed-fold1 seed=2 methods=9
+2026-10-02 17:54:18 | INFO    | evaluated fold=fixed-fold2 seed=0 methods=9
+2026-10-02 17:54:27 | INFO    | evaluated fold=fixed-fold2 seed=1 methods=9
+2026-10-02 17:54:36 | INFO    | evaluated fold=fixed-fold2 seed=2 methods=9
+2026-10-02 17:54:37 | INFO    | evaluate completed=81 output=output\fault_type_mechanism_evaluate\2026-10-02-17-53-06

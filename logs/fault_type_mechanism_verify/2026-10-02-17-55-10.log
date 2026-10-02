@@ -1,0 +1,13 @@
+2026-10-02 17:55:10 | INFO    | Logger initialized: fault_type_mechanism_verify
+2026-10-02 17:55:10 | INFO    | log_file=logs\fault_type_mechanism_verify\2026-10-02-17-55-10.log
+2026-10-02 17:55:10 | INFO    | output_dir=output\fault_type_mechanism_verify\2026-10-02-17-55-10
+2026-10-02 17:55:30 | INFO    | verified fold=fixed-fold0 seed=0 methods=9
+2026-10-02 17:55:37 | INFO    | verified fold=fixed-fold0 seed=1 methods=9
+2026-10-02 17:55:45 | INFO    | verified fold=fixed-fold0 seed=2 methods=9
+2026-10-02 17:55:54 | INFO    | verified fold=fixed-fold1 seed=0 methods=9
+2026-10-02 17:56:02 | INFO    | verified fold=fixed-fold1 seed=1 methods=9
+2026-10-02 17:56:11 | INFO    | verified fold=fixed-fold1 seed=2 methods=9
+2026-10-02 17:56:20 | INFO    | verified fold=fixed-fold2 seed=0 methods=9
+2026-10-02 17:56:29 | INFO    | verified fold=fixed-fold2 seed=1 methods=9
+2026-10-02 17:56:37 | INFO    | verified fold=fixed-fold2 seed=2 methods=9
+2026-10-02 17:56:37 | INFO    | verify completed=81 output=output\fault_type_mechanism_verify\2026-10-02-17-55-10
