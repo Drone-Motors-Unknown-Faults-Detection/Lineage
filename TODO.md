@@ -71,3 +71,10 @@
   - train-only solver診斷27fits：hard150 3/9、smooth150 5/9、hard600 9/9收斂；27loss/gradient重算及原Q三成功weights exact。兩Python各396tests/37CLI/pip check PASS。
   - [ ] 新協定hard600 subset/all-train kNN完整outer配對比較尚未實作／執行，訓練收斂不等於accuracy改善。
   - 研究結果commit8bd6d14042e61a40548e37e989a1f2db2d7a4fbb已push；[Q報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/final_findings.md)、[solver報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/solver_findings.md)。#22維持OPEN；未合併研究分支到main。
+
+## 6. 文件：`health/` 與 `reports/`
+
+- [x] [#21](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/21) 釐清 health 與 reports 內容
+  - [x] `docs/health_and_reports.md`：`health/` 各模組與呼叫端、`core/trend.py` 與 `health/trajectory.py` 兩套趨勢邏輯的差別、`reports/` 各子目錄的來源與現況
+  - [x] 新增 `reports/README.md` 索引；更新 `docs/README.md`、`README.md`、`AGENT.md` 目錄說明
+  - 本次只寫文件，沒有改程式。文件記下的不一致（health CLI 未走 `setup_run`、`health_index_results` 彙總檔沒有產生程式、`project_health_audit` 發現大多未處理）需要另開 issue 才處理。

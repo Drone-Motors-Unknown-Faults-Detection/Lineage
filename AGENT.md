@@ -23,7 +23,10 @@
 ```
 core/            共用零件：data / mahalanobis / openset / monitor / geometry / detectors / formal_data /
                  trend / logger / runner
-health/          健康指數、校準、嚴重度分級、趨勢/告警、軌跡與診斷（見 docs/health_monitoring_workflow.md）
+health/          健康指數、校準、嚴重度分級、趨勢/告警、軌跡與診斷（見 docs/health_monitoring_workflow.md、
+                 docs/health_and_reports.md）
+reports/         2026-09 的資料來源／程式碼稽核紀錄、資料規格與 health index 正式結果（見 reports/README.md）；
+                 一般實驗輸出不放這裡
 experiments/     實驗模組（exp1 冷啟動、exp2 量尺擴張、exp3 趨勢、exp4 極座標、
                  exp5 跨工況、exp6 OSR 基準＋正式矩陣、compare_openset、health_index_*）；
                  總覽見 docs/Experiments_Guide.md；技術報告在 docs/experiments/
