@@ -17,3 +17,5 @@
 Python3.10.19與3.14.6初轮各295項完整測試通過、pip check與16個舊CLI help通過；增加8項tamper測試後再次全套驗收，最终實數另列。3.14讀3.10舊synthetic protocol被runtime參數契約正確拒絕，改用已存在3.14自己的fixture/index重fit，未解除guard、未cross-load joblib。
 
 最終準備protocol：output/fault_type_literature_registry/2026-10-02-01-26-16/protocol.json，bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba。候選、公式、係數、seeds與sources SHA都在正式fit/test前封存；先提交推送工程／protocol，再做正式fit；封存fit後再提交推送lock，才執行test。
+
+P0文獻／界線文件commit25f05965b9d7e7ba68d01bfd6f4f198f7de5fa5c，push成功，local=remote。最新完整驗收：3.10.19在2026-10-02-11-57-44、3.14.6在11-59-05各303 passed/0failed，pip check与16 legacy CLI PASS。31項新單元測試覆蓋七種表示法、全部分類器、signed score、參數固定、未知/fit用途、防tamper。3.14使用自己的既有fixture，在11-57-36完成630synthetic、0失敗、226800保存預測／sealed重推論；與3.10的01-23-17相同工程矩陣，兩者不是研究成績。另新增literature_acceptance收錄4新CLI help與完整驗收。

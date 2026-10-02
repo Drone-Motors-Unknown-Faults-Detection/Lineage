@@ -1,0 +1,12 @@
+{
+  "completed": 630,
+  "failed": 0,
+  "failed_cases": [],
+  "output": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_smoke_py3_14_6\\2026-10-02-11-57-36",
+  "planned": 630,
+  "prediction_records": 226800,
+  "protocol_checksum": "71297415f8000f913fa677c55e2185893a2d6a971e142dee26798fa19753af14",
+  "python": "3.14.6",
+  "scope": "SYNTHETIC_ENGINEERING_ONLY_NOT_RESEARCH",
+  "status": "PASS"
+}

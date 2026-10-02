@@ -1,0 +1,4 @@
+2026-10-02 01:19:40 | INFO    | Logger initialized: fault_type_literature_registry
+2026-10-02 01:19:40 | INFO    | log_file=logs\fault_type_literature_registry\2026-10-02-01-19-40.log
+2026-10-02 01:19:40 | INFO    | output_dir=output\fault_type_literature_registry\2026-10-02-01-19-40
+2026-10-02 01:19:47 | INFO    | protocol=7879e0e183b62ace96b122e325a35f307e198e67d553b8018bd0bf0ce9e352cb no fit,630 planned; commit before fit
