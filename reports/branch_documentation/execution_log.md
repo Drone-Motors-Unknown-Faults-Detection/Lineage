@@ -30,3 +30,7 @@ Q evaluation `output/fault_type_continuous_evaluate/2026-10-02-18-47-45/evaluati
 ## Git 交付
 
 首次 staged diff --check 找到 smoke/acceptance CLI 行尾空白，提交程序 exit2，尚未commit/push；已刪除兩處空白再檢查。文件commit／push及issue完成狀態在下一筆同步紀錄追加，以實際回傳 SHA 為準。#11 只在研究分支文件push核對完成後關閉；main只更新TODO，不合併整個研究分支。
+
+- 文件提交 `2f15c797d2adb43b0103629783c7dd4baba03138`：17個確認檔案，staged diff --check PASS。正常push成功，local/remote同SHA；GitHub contents API讀固定commit的分支總覽確認文件存在。
+- #11原兩項checklist皆勾選；交付comment `https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/11#issuecomment-5955386278`；state=CLOSED，2026-10-02T15:12:17Z，reason completed。沒有關閉#9或把研究驗收寫成完成。
+- main/TODO完成標記commit `b623d35a7185740653e882ad5ce24e185e8c207f`，blob `858f9dfe27b385573ec7a638545a8d57596efa66`。#22仍open，只勾選已交付的文件／手冊，verify/report/備份／下批研究仍待辦。
