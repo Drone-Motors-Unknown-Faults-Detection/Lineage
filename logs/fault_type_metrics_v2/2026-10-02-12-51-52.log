@@ -1,0 +1,4 @@
+2026-10-02 12:51:52 | INFO    | Logger initialized: fault_type_metrics_v2
+2026-10-02 12:51:52 | INFO    | log_file=logs\fault_type_metrics_v2\2026-10-02-12-51-52.log
+2026-10-02 12:51:52 | INFO    | output_dir=output\fault_type_metrics_v2\2026-10-02-12-51-52
+2026-10-02 12:58:09 | INFO    | v2 metrics=19c1dd6b5a27d5de6c3ec8898f24123cbb68252f2e774a19141586fabf6ae59b runs=624 records=6013647; no refit, output=output\fault_type_metrics_v2\2026-10-02-12-51-52
