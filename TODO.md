@@ -58,7 +58,7 @@
 
 工作分支：`research-improvements-20260920`。依 main 的 AGENT.md（blob `f3b92347582bceff98ede6513f06458cdefdeac5`）先寫實驗手冊，再修改方法。相關來源問題保留在 [#9](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9)。
 
-- [ ] 持續研究 issue：建立後補連結
+- [ ] [#22](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22) 持續研究：局部距離學習、幅值比值與配對驗證
   - [ ] 完成 [#11](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/11)：分支總覽、README 與 docs 索引；補充同步 raw schema 的實際用途與限制。
   - [ ] 補齊現行 continuous_research 各模組手冊；已有程式的手冊註明補寫日期，後續改動先寫手冊。
   - [ ] 核對已封存 Q01–Q08 配對評估：72 格預定；12 格因訓練最佳化未收斂而 INCOMPLETE，不補零、不換參數填回。
@@ -66,4 +66,3 @@
   - [ ] 封存本批結果、雙 Python 測試與 D 槽備份；記錄相對 C02/C17/C24/D01 的配對差異。
   - [ ] 依未收斂／跨馬達失敗證據，先登錄下一批有限改編，再實作與消融；保留 formal105、LW、k-NN factory 與 PolarMap 正式預設。
   - 已有 28,910 筆資料全部有 test 曝露歷史。新比較皆為 exploratory；來源未知與獨立 test groups 不足不改成 PASS。此項不依賴重新採集，也不宣稱可靠模型已完成。
-
