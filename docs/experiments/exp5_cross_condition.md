@@ -65,3 +65,10 @@ venv/bin/python -m experiments.exp5_cross_condition --part a
 - `logs/exp5_cross_condition/{時間戳}.log`
 - `output/exp5_cross_condition/{時間戳}/summary.json`
 - `output/exp5_cross_condition/{時間戳}/cross_condition.png`
+
+### 散在其他位置的相關檔案
+
+- 測試：沒有專屬測試。
+- Web：`web/static/index.html` 的資料集下拉選單（9 組工況各自冷啟動）。
+- 已提交紀錄：`logs/exp5_cross_condition/`、`output/exp5_cross_condition/`（1 次執行）。
+- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 6 節。

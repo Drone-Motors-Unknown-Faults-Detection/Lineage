@@ -1,8 +1,8 @@
-# 健康監測逐窗輸出
+# 實驗八串流：健康監測逐窗輸出
 
 程式：`experiments/health_monitor.py`。它對一個工況擬合 `CalibratedHealthIndex`，再用 `SessionTrajectoryMonitor` 把 holdout 窗口一筆一筆送進去，把每筆結果印成一行 JSON。
 
-它不寫 `reports/health_index_results/`。那裡的 54 列是 [health_index_matrix.md](health_index_matrix.md) 的批次評估。本程式看的是同一套指數在一條序列上的平滑、斜率與告警。
+它不寫 `reports/exp8_health_index_results/`。那裡的 54 列是 [exp8_health_index_matrix.md](exp8_health_index_matrix.md) 的批次評估。本程式看的是同一套指數在一條序列上的平滑、斜率與告警。
 
 ## 實驗方法
 
@@ -21,7 +21,7 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 
 ## 理論
 
-單窗健康指數的定義同 [health_index_benchmark.md](health_index_benchmark.md)。時間部分在 `health/trajectory.py`。
+單窗健康指數的定義同 [exp8_health_index_benchmark.md](exp8_health_index_benchmark.md)。時間部分在 `health/trajectory.py`。
 
 狀態鍵是 `(motor_id, session_id)`。平滑先取最近值的 rolling median，再做 EWMA，`α = 0.2`。歷史少於 `min_history = 5` 時，趨勢是 `insufficient_history`，斜率不做。滿 5 筆之後用線性斜率：絕對斜率小於 `stable_slope = 0.005` 視為持平，負斜率是變差，正斜率是回升。
 
@@ -43,7 +43,7 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 
 ## 已記錄的實測
 
-本 CLI 沒有進版的逐窗 JSONL。批次分離度見 `reports/health_index_results/`，說明見 [health_index_benchmark.md](health_index_benchmark.md)。那份結果裡的 unknown 健康指數飽和在 0.0，所以用故障配置來播這支程式時，預期會看到貼底的指數，而不是一條分級下降的軌跡。
+本 CLI 沒有進版的逐窗 JSONL。批次分離度見 `reports/exp8_health_index_results/`，說明見 [exp8_health_index_benchmark.md](exp8_health_index_benchmark.md)。那份結果裡的 unknown 健康指數飽和在 0.0，所以用故障配置來播這支程式時，預期會看到貼底的指數，而不是一條分級下降的軌跡。
 
 ## 程式碼與輸出
 
@@ -57,3 +57,10 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 | `core/data.py` | `discover_datasets`、`load_pools`、`make_split`、`HEALTHY` |
 
 沒有 `logs/health_monitor/` 或 `output/health_monitor/`。結果是 stdout 的 JSON 行。要留檔時由呼叫端導向。
+
+### 散在其他位置的相關檔案
+
+- 測試：`tests/test_health_trajectory.py`、`tests/test_health_schema.py`；CLI 本身沒有測試。
+- 套件：`health/`，見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
+- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`。
+- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。

@@ -1,18 +1,18 @@
 # TODO
 
 專題目標（未知故障辨識、性能指標、視覺化）對照現況後的待辦清單，加上 repo 其他 open issues。2026-10-02 建立，細節見各 issue。
-依 [AGENT.md](AGENT.md)「實驗手冊」規定，每一項都要先在 `docs/` 寫手冊、在 `docs/README.md` 加一列，再改程式。
+依 [AGENT.md](AGENT.md)「實驗手冊」規定，每一項都要先在 `docs/experiments/` 寫手冊、在 `docs/README.md` 加一列，再改程式。
 
 ## 1. 未知故障辨識與遷移學習
 
 已有：只用健康資料的冷啟動偵測（`exp1_cold_start`）、HDBSCAN 新故障發現（`exp2_scale_growth`）、七種單類偵測器比較（`exp6_osr_benchmark`，含 PCA 重建 `core/detectors.py:127`）。
 
-- [ ] [#13](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/13) 非線性 AutoEncoder 偵測器
-  - [ ] 手冊 `docs/exp7_autoencoder.md`
+- [ ] [#13](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/13) 實驗九：非線性 AutoEncoder 偵測器
+  - [ ] 手冊 `docs/experiments/exp9_autoencoder.md`
   - [ ] `core/detectors.py` 新增 AE（sklearn `MLPRegressor`，不加依賴），加進 `ALL_DETECTORS`
   - [ ] `exp6_osr_benchmark` 9 工況比較；`tests/` 加 seed 重現檢查
-- [ ] [#14](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/14) 遷移學習
-  - [ ] 手冊 `docs/exp8_transfer.md`：來源／目標工況、目標端健康樣本數 0 / 10 / 25 / 50
+- [ ] [#14](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/14) 實驗十：遷移學習
+  - [ ] 手冊 `docs/experiments/exp10_transfer.md`：來源／目標工況、目標端健康樣本數 0 / 10 / 25 / 50
   - [ ] 至少一種遷移方法（CORAL、目標端重新縮放、共變異數混合，或 #13 的 AE 微調）
   - [ ] 對照：直接搬移（exp5 現況，平均 AUROC 0.893、最低 0.10）vs 目標端從零冷啟動
 
@@ -20,8 +20,8 @@
 
 已有：`docs/Mahalanobis_Improvement.md`（歷史文件，腳本在 Ancestor）開集 Accuracy 0.9509 → 0.9864（+3.55 pp，未達標）、Balanced Accuracy +6.51 pp、F1 未記錄。
 
-- [ ] [#15](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/15) Ancestor 對照實驗
-  - [ ] 手冊 `docs/exp9_ancestor_comparison.md`，先寫定主指標與達標門檻（建議 Balanced Accuracy、macro-F1；Accuracy 天花板只剩 4.9 pp）
+- [ ] [#15](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/15) 實驗十一：Ancestor 對照實驗
+  - [ ] 手冊 `docs/experiments/exp11_ancestor_comparison.md`，先寫定主指標與達標門檻（建議 Balanced Accuracy、macro-F1；Accuracy 天花板只剩 4.9 pp）
   - [ ] 從 Ancestor 複製 legacy 邏輯並註記來源（鐵則 1）
   - [ ] Ancestor 協定（已知 8/1/2/3/4screws、未知 5/6/7/3_14/4_146screws）＋冷啟動協定
   - [ ] 9 工況 × 3 seed（42/123/2026），輸出 Accuracy、Balanced Accuracy、macro-F1、unknown F1、Wilcoxon 配對檢定
@@ -32,8 +32,8 @@
 
 已有：PCA 投影（`core/monitor.py:90`、Web）、`polar_map.png`、`detect_rates.png`、`cross_condition.png`、`osr_benchmark.png`。
 
-- [ ] [#16](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/16) 混淆矩陣與 t-SNE
-  - [ ] 手冊 `docs/viz_confusion_tsne.md`
+- [ ] [#16](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/16) 實驗十二：混淆矩陣與 t-SNE
+  - [ ] 手冊 `docs/experiments/exp12_confusion_tsne.md`
   - [ ] 混淆矩陣：健康 vs 故障（exp1）、開集多類（已知各類 + unknown）
   - [ ] t-SNE：105 維 RobustScaler 特徵，顏色 = 螺絲配置、標記 = 系統判定，9 工況
   - [ ] 經 `core.logger.setup_run` / `save_plot()` 輸出；README 或 `docs/Experiments_Guide.md` 引用
@@ -77,4 +77,5 @@
 - [x] [#21](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/21) 釐清 health 與 reports 內容
   - [x] `docs/health_and_reports.md`：`health/` 各模組與呼叫端、`core/trend.py` 與 `health/trajectory.py` 兩套趨勢邏輯的差別、`reports/` 各子目錄的來源與現況
   - [x] 新增 `reports/README.md` 索引；更新 `docs/README.md`、`README.md`、`AGENT.md` 目錄說明
-  - 本次只寫文件，沒有改程式。文件記下的不一致（health CLI 未走 `setup_run`、`health_index_results` 彙總檔沒有產生程式、`project_health_audit` 發現大多未處理）需要另開 issue 才處理。
+  - 文件記下的不一致已另開 issue：[#24](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/24) health CLI 未走 `setup_run`、[#25](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/25) 健康指數彙總檔沒有產生程式、[#26](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/26)–[#29](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/29) 抽查仍成立的稽核發現、[#30](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/30) 重驗其餘 17 項。
+- [x] 實驗編號：`compare_openset` 定為實驗七、健康指數三支定為實驗八；規劃中的 #13–#16 順延為實驗九～十二。相關文件改名為 `expN_` 開頭，`docs/experiments/README.md` 加各實驗檔案位置表。程式檔名不變。

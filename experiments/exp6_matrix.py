@@ -1,4 +1,4 @@
-"""Resumable formal exp6 matrix runner (9 conditions × seeds × methods)."""
+"""實驗六矩陣：Resumable formal exp6 matrix runner (9 conditions × seeds × methods)."""
 
 from __future__ import annotations
 

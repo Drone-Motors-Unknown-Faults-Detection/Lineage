@@ -4,8 +4,8 @@
 
 兩個目錄都是 05zhi 在 2026-09-19～20 於 `feat/knn-openset-comparison` 分支做的，2026-10-01 由 `0aa3e97` 併入 main。之後 main 沒有再改過裡面的檔案。
 
-- `health/` 是 Python 套件。它把 `core.openset` 的開集分數換成 0～1 的相對健康指數，再加上嚴重度分級、`fault_type` 規則和逐 session 的趨勢告警。
-- `reports/` 是同一批工作的紀錄：資料來源稽核、正式資料接入進度、專案程式碼稽核、資料能力判定，以及一組 health index 正式結果。裡面只有 `reports/health_index_results/` 是程式寫出來的，其餘都是手寫 Markdown、清單 CSV/JSON 與 PowerShell 稽核腳本。
+- `health/` 是實驗八（exp8）的 Python 套件。它把 `core.openset` 的開集分數換成 0～1 的相對健康指數，再加上嚴重度分級、`fault_type` 規則和逐 session 的趨勢告警。
+- `reports/` 是同一批工作的紀錄：資料來源稽核、正式資料接入進度、專案程式碼稽核、資料能力判定，以及一組 health index 正式結果。裡面只有 `reports/exp8_health_index_results/` 是程式寫出來的，其餘都是手寫 Markdown、清單 CSV/JSON 與 PowerShell 稽核腳本。
 
 容易搞混的兩點：
 
@@ -17,6 +17,8 @@
 ## 1. `health/` 套件
 
 ### 1.1 模組
+
+`health/` 只服務實驗八。實驗八三支入口與全部相關檔案見 [experiments/README.md](experiments/README.md#各實驗的檔案位置)。
 
 | 檔案 | 內容 | 呼叫端 |
 |---|---|---|
@@ -62,16 +64,16 @@ AGENT.md「關鍵參數」表列的趨勢參數是 `TrendMonitor` 的；`Session
 ### 1.4 測試與文件
 
 - 測試：`tests/test_health_*.py` 共 9 檔，2026-10-03 在 Python 3.10.19 跑 `venv/bin/python -m unittest discover -s tests -t .`，全部 62 個測試通過。
-- 方法、正式結果、CLI：[health_monitoring_workflow.md](health_monitoring_workflow.md)。
-- 各 CLI 的技術報告：[health_index_benchmark](experiments/health_index_benchmark.md)、[health_index_matrix](experiments/health_index_matrix.md)、[health_monitor](experiments/health_monitor.md)。
+- 方法、正式結果、CLI：[exp8_health_monitoring_workflow.md](exp8_health_monitoring_workflow.md)。
+- 各 CLI 的技術報告：[exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md)、[exp8_health_index_matrix](experiments/exp8_health_index_matrix.md)、[exp8_health_monitor](experiments/exp8_health_monitor.md)。
 
 ### 1.5 與 AGENT.md 慣例不一致的地方
 
 這些是現況紀錄，本次沒有改程式：
 
-- 三支 health CLI 都沒有呼叫 `core.logger.setup_run()`（鐵則 4）。`health_index_benchmark` 與 `health_monitor` 把 JSON 印到 stdout；`health_index_matrix` 預設寫到 `reports/health_index_results/`（`experiments/health_index_matrix.py:49`），不是 `output/`。
-- `reports/health_index_results/aggregate_summary.json` 與 `aggregate_by_condition.csv` 沒有對應的產生程式，`experiments/aggregate_exp6.py` 只處理 exp6。
-- [health_monitoring_workflow.md](health_monitoring_workflow.md) 的指令是 Windows PowerShell 寫法（`.\venv\Scripts\python.exe`）且帶 `--data-root data/formal_local`；本 repo 其他文件用 `venv/bin/python`。
+- 三支 health CLI 都沒有呼叫 `core.logger.setup_run()`（鐵則 4）。`health_index_benchmark` 與 `health_monitor` 把 JSON 印到 stdout；`health_index_matrix` 預設寫到 `reports/exp8_health_index_results/`（`experiments/health_index_matrix.py:49`），不是 `output/`。
+- `reports/exp8_health_index_results/aggregate_summary.json` 與 `aggregate_by_condition.csv` 沒有對應的產生程式，`experiments/aggregate_exp6.py` 只處理 exp6。
+- [exp8_health_monitoring_workflow.md](exp8_health_monitoring_workflow.md) 的指令是 Windows PowerShell 寫法（`.\venv\Scripts\python.exe`）且帶 `--data-root data/formal_local`；本 repo 其他文件用 `venv/bin/python`。
 - `health/config.py` 與 `health/interfaces.py` 目前只有測試或沒有使用者，是預留給未來串流 API 的介面。
 
 ---
@@ -84,17 +86,17 @@ AGENT.md「關鍵參數」表列的趨勢參數是 `TrendMonitor` 的；`Session
 |---|---|---|---|---|
 | `github_data_audit/` | 稽核紀錄（16 檔） | 2026-09-19 | 掃 Ancestor、Lineage、GPU-Learning-PyTorch、GPU-Learning-Tensorflow 四個 repo、7 個分支，找可直接給 Lineage 用的 105 維 clean features | 結案。結論是 GitHub 上找不到正式資料集 |
 | `raw_data_audit/` | 稽核紀錄（19 檔） | 2026-09-19 | 盤點本機 raw 資料（`階段1/2/3.zip`，4.6 GiB）：450 個 raw CSV、T1/T3 各 30 個 clean CSV、T2 缺 `myfeature.zip`；含 `formal_source_manifest.json` 與 PowerShell 腳本 | 結案。結論落實為 `core/formal_data.py`（T2 由 raw 重建 105 維） |
-| `ancester_openset_exp6_progress.md` | 進度紀錄 | 2026-09-19～20 | P1–P10 逐階段紀錄：git 基線、資料來源、物化、可信度修正、exp6 factory、PolarMap 固定在 Mahalanobis、54-run 矩陣與跨 seed 彙整 | 結案。檔名的 `ancester` 是 `Ancestor` 的拼字錯誤，因其他文件有引用而保留 |
+| `exp6_ancestor_openset_progress.md` | 進度紀錄 | 2026-09-19～20 | P1–P10 逐階段紀錄：git 基線、資料來源、物化、可信度修正、exp6 factory、PolarMap 固定在 Mahalanobis、54-run 矩陣與跨 seed 彙整 | 結案。2026-10-03 由 `ancester_openset_exp6_progress.md` 改名，順便修正 `Ancestor` 拼字；`project_health_audit/` 等歷史稽核檔仍寫舊檔名 |
 | `project_health_audit/` | 程式碼稽核（7 檔） | 2026-09-20 | 以 `44d98da` 為基準的工程稽核：`findings.csv` 21 項、`roadmap.md` R1–R10、各面向評分 | 報告結案，發現大多未處理，見 2.3 |
-| `health_monitoring_data_capability.md` | 資料能力判定 | 2026-09-20 | 判定現有資料最高只到 Level A：相對健康指數、unknown 拒絕、session 內相對趨勢；不支援物理損傷比例、故障原因、RUL | 現行依據。`health/` 的輸出限制都出自這份 |
-| `fault_type_data_requirements.md` | 資料規格 | 2026-09-20 | 為何螺絲配置名稱不能改名成物理故障類型；未來監督式故障分類需要的欄位（`motor_id`、`session_id`、`timestamp`、`fault_type`、`severity_stage`、`failure_endpoint`） | 現行依據 |
-| `health_index_results/` | 實驗結果（16 檔） | 2026-09-20 | `health_index_matrix` 的 9 工況 × 3 seed（42/123/2026）× 2 方法 = 54 列；資料指紋 `81c91924…8228` | 現行結果，數字見 2.2 |
+| `exp8_health_monitoring_data_capability.md` | 資料能力判定 | 2026-09-20 | 判定現有資料最高只到 Level A：相對健康指數、unknown 拒絕、session 內相對趨勢；不支援物理損傷比例、故障原因、RUL | 現行依據。`health/` 的輸出限制都出自這份 |
+| `exp8_fault_type_data_requirements.md` | 資料規格 | 2026-09-20 | 為何螺絲配置名稱不能改名成物理故障類型；未來監督式故障分類需要的欄位（`motor_id`、`session_id`、`timestamp`、`fault_type`、`severity_stage`、`failure_endpoint`） | 現行依據 |
+| `exp8_health_index_results/` | 實驗結果（16 檔） | 2026-09-20 | `health_index_matrix` 的 9 工況 × 3 seed（42/123/2026）× 2 方法 = 54 列；資料指紋 `81c91924…8228` | 現行結果，數字見 2.2 |
 
 前三項是「把正式資料接進 Lineage」這件事的過程紀錄。資料已經由 `core/formal_data.py` 物化到 git 忽略的 `data/formal_local/`，這三份現在只用來追溯來源，不需要重跑。它們引用的 `<RAW_DATA_ROOT>`、`<LOCAL_CHECKOUT>` 是去識別化後的本機路徑，`*.ps1` 腳本要在 Windows PowerShell 下、對著原始 ZIP 目錄執行。
 
-### 2.2 `health_index_results/` 的數字
+### 2.2 `exp8_health_index_results/` 的數字
 
-來源 `reports/health_index_results/README.md`，每列是 9 工況 × 3 seed 的平均 ± 標準差：
+來源 `reports/exp8_health_index_results/README.md`，每列是 9 工況 × 3 seed 的平均 ± 標準差：
 
 | method | health gap（known − unknown） | Open Set accuracy | AUROC | unknown recall |
 |---|---:|---:|---:|---:|
@@ -132,5 +134,5 @@ AGENT.md「關鍵參數」表列的趨勢參數是 `TrendMonitor` 的；`Session
 ## 3. 之後放東西的規則
 
 - 新的馬達健康監測邏輯放 `health/`，實驗入口放 `experiments/health_*.py`，並照 AGENT.md「實驗手冊」在 `docs/experiments/` 寫技術報告。
-- 一般實驗輸出照鐵則 4 寫到 `logs/` 與 `output/`。`reports/` 只放稽核紀錄、資料規格這類人工撰寫的報告；`reports/health_index_results/` 是既有的例外。
+- 一般實驗輸出照鐵則 4 寫到 `logs/` 與 `output/`。`reports/` 只放稽核紀錄、資料規格這類人工撰寫的報告；`reports/exp8_health_index_results/` 是既有的例外。
 - 新增 `reports/` 子目錄時，在 [reports/README.md](../reports/README.md) 的表加一列。

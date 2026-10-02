@@ -1,4 +1,4 @@
-"""在相同資料切分與指標下比較 Mahalanobis 與 k-NN Open Set detector。
+"""實驗七：在相同資料切分與指標下比較 Mahalanobis 與 k-NN Open Set detector。
 
 unknown 是正類。所有 threshold 都只由 known calibration split 決定；holdout
 健康資料與未知故障資料僅用於最終評估，不參與擬合或調參。

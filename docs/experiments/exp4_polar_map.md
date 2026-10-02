@@ -72,3 +72,11 @@ venv/bin/python -m experiments.exp4_polar_map --part a
 - `logs/exp4_polar_map/{時間戳}.log`
 - `output/exp4_polar_map/{時間戳}/summary.json`
 - `output/exp4_polar_map/{時間戳}/polar_map.png`
+
+### 散在其他位置的相關檔案
+
+- 測試：`tests/test_geometry.py`。
+- Web：`web/live.py` 組 `direction` 訊息；`web/static/index.html` 的「極座標健康地圖（實驗四）」與「方向熟悉度（實驗四）」。
+- 已提交紀錄：`logs/exp4_polar_map/`、`output/exp4_polar_map/`（2 次執行）。
+- PolarMap 固定建在 Mahalanobis 上的經過：`reports/exp6_ancestor_openset_progress.md` P8。
+- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 5 節。
