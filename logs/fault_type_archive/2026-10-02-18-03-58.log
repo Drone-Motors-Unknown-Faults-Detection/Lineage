@@ -1,0 +1,15 @@
+2026-10-02 18:03:58 | INFO    | Logger initialized: fault_type_archive
+2026-10-02 18:03:58 | INFO    | log_file=logs\fault_type_archive\2026-10-02-18-03-58.log
+2026-10-02 18:03:58 | INFO    | output_dir=output\fault_type_archive\2026-10-02-18-03-58
+2026-10-02 18:04:00 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-12-51-52.zip bytes=28287555 files=2
+2026-10-02 18:04:01 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-12-53-20.zip bytes=233421 files=3
+2026-10-02 18:04:01 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-13-10-15.zip bytes=78630 files=1
+2026-10-02 18:04:01 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-17-49-29.zip bytes=78630 files=1
+2026-10-02 18:04:02 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-17-46-12.zip bytes=179432092 files=28
+2026-10-02 18:04:04 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-17-50-41.zip bytes=179432175 files=28
+2026-10-02 18:04:05 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-17-53-06.zip bytes=79867751 files=164
+2026-10-02 18:04:05 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-17-55-10.zip bytes=26256 files=2
+2026-10-02 18:04:05 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-17-56-50.zip bytes=6312372 files=4
+2026-10-02 18:04:05 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-17-58-59.zip bytes=6367058 files=4
+2026-10-02 18:04:06 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-13-09-54.zip bytes=1021 files=1
+2026-10-02 18:04:06 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\mechanism_research_v2\fault_type_2026-10-02-13-09-56.zip bytes=1019 files=1

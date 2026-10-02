@@ -1,0 +1,23 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\mechanism_research_v2\\fault_type_2026-10-02-18-00-37.zip",
+      "sha256": "70f224dc2f921de67b0a1529941cae7884e8c187786518cf4726a7ad64b272a8",
+      "bytes": 60600,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_10_19\\2026-10-02-18-00-37",
+      "source_files": 31,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\mechanism_research_v2\\fault_type_2026-10-02-18-00-48.zip",
+      "sha256": "319df4b55a044eb5a55b6f06e03197b4609dfab07c1e6a967a276f842e029ac9",
+      "bytes": 61818,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48",
+      "source_files": 31,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

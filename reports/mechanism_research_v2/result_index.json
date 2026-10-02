@@ -1,0 +1,248 @@
+{
+  "delivery_index_checksum": "4669b72d498665f3bfcdc618810c62849f81d040877a0fa5865859e5883f0ff8",
+  "schema_version": "mechanism_research_v2_delivery_v1",
+  "date": "2026-10-02",
+  "timezone": "Asia/Taipei",
+  "repo_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree",
+  "branch": "research-improvements-20260920",
+  "remote": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage.git",
+  "report_commit": "cec005b91c539df762704f39ade85c5ae45bda2f",
+  "final_commit": "see final response; cannot self-reference delivery commit",
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "selection_policy": "none",
+  "validation_sample_ids": [],
+  "selection_sample_ids": [],
+  "known_labels": [
+    "8screws",
+    "1screws",
+    "2screws",
+    "3_14screws",
+    "3screws",
+    "4screws"
+  ],
+  "unknown_labels": [
+    "4_146screws",
+    "5screws",
+    "6screws",
+    "7screws"
+  ],
+  "folds": [
+    {
+      "fold": 0,
+      "train": "T1",
+      "calibration": "T2",
+      "test": "T3"
+    },
+    {
+      "fold": 1,
+      "train": "T2",
+      "calibration": "T3",
+      "test": "T1"
+    },
+    {
+      "fold": 2,
+      "train": "T3",
+      "calibration": "T1",
+      "test": "T2"
+    }
+  ],
+  "rpms": [
+    6000,
+    8000,
+    11000
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "new_arms": [
+    "D01",
+    "D02",
+    "D03",
+    "P01",
+    "P02",
+    "P03",
+    "G01",
+    "G02",
+    "G03"
+  ],
+  "counts": {
+    "planned": 81,
+    "completed": 81,
+    "failed": 0,
+    "incomplete_runs": 0,
+    "prediction_records": 780570,
+    "unique_samples": 28910,
+    "reinferred_records": 780570,
+    "paired_comparisons": 243,
+    "report_methods_including_controls": 16
+  },
+  "tests": {
+    "python_3_10_19": {
+      "passed": 349,
+      "failed": 0,
+      "pip_check": "PASS",
+      "cli_help_passed": 28
+    },
+    "python_3_14_6": {
+      "passed": 349,
+      "failed": 0,
+      "pip_check": "PASS",
+      "cli_help_passed": 28
+    },
+    "cross_version_joblib_load": false
+  },
+  "scientific_status": {
+    "engineering": "VERIFIED",
+    "research_health_gate": "FAILED",
+    "fresh_final_test": "INCOMPLETE",
+    "minimum_two_test_groups_per_class": "INCOMPLETE",
+    "raw_session_window_device_provenance": "UNKNOWN",
+    "production_replacement": false
+  },
+  "production_default_changed": false,
+  "knn_factory_preserved": true,
+  "polarmap_preserved": true,
+  "unrelated_tracked_deletions_preserved": 282,
+  "backup": {
+    "root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\mechanism_research_v2",
+    "archive_count": 14,
+    "verified_members": 301,
+    "total_bytes": 480240398,
+    "whole_sha_crc_member_sha": "PASS",
+    "source_files_removed": false,
+    "old_eight_archives_unchanged": true,
+    "offsite": false
+  },
+  "seals": {
+    "protocol": "ff6ddc29ca101f73c8a3ca6f818147dc4f6cd81032581966757b5f72087e1b91",
+    "lock": "c1d47ead2bbeeb8d82fb63fa5040272cd732a504ccaac0a182a1b8ed083278e1",
+    "evaluation": "2ff6fdca458d449254cbcc83259719d8d91562db82105712c07f64f99b809076",
+    "verification": "1ff5c7fdb4df8b8cc64810858b58fd0067fa618b9f85c2d87103068192d17a9e",
+    "report": "69e4b6d126dc1129ed2bceb0c1ff6621a946a263496bc72c1f859bbe9a6f40a8"
+  },
+  "artifacts": {
+    "protocol": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_registry\\2026-10-02-17-49-29\\protocol.json",
+      "bytes": 77860,
+      "sha256": "b69788b25fb39be8eeb24d85173baa20ba5d9d47288daee0c6d3157961440b02"
+    },
+    "lock": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\locked_study.json",
+      "bytes": 12796,
+      "sha256": "7708d232083a11adf369ef69229a3ca74f144fb65677bf557b83f83eba5444a5"
+    },
+    "evaluation": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_evaluate\\2026-10-02-17-53-06\\evaluation.json",
+      "bytes": 3862580,
+      "sha256": "93199c1a2229ba175a34f809e12e3e0b963d52e761a627c74ce8a10079b1eab1"
+    },
+    "verification": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_verify\\2026-10-02-17-55-10\\verified.json",
+      "bytes": 21022,
+      "sha256": "2a17aa0b135bc110eaa9f52065a366b177416408cc8db2246e94886b7d3c647b"
+    },
+    "report": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\summary.json",
+      "bytes": 6109096,
+      "sha256": "0bbcfc665d816086b12748c3774428c3ce94de2a600eead1389568a4bf3a8d9c"
+    },
+    "report_gzip": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\summary.json.gz",
+      "bytes": 252466,
+      "sha256": "182fc8cebb2b87968ac62ec3df6a92e5c1d03bb7dda2728bb79853a85cfad507"
+    },
+    "tradeoff": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\tradeoff.csv",
+      "bytes": 2793,
+      "sha256": "1220703f21ec9021cc5a1ce70a2abf34db90918c3e23e21e2b0e9561b687b657"
+    },
+    "metrics_v2": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metrics_v2\\2026-10-02-12-51-52\\metrics_v2.json",
+      "bytes": 27499109,
+      "sha256": "3733521f2201d1182faf159b0483b12e12f3188e353b2204bfdcc7af0356a2e0"
+    },
+    "diagnosis": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_diagnosis\\2026-10-02-12-53-20\\mechanism_diagnosis.json",
+      "bytes": 146045,
+      "sha256": "a55ca81ef38bf1c9570725da8c3936e9c92ab6925f2d8cd672afa46b464d552b"
+    },
+    "acceptance_310": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_10_19\\2026-10-02-18-00-37\\environment.json",
+      "bytes": 18725,
+      "sha256": "44dee9d74a61517c1acc4d801b4a834b29124ac4857d24f2b915874e32da9ed4"
+    },
+    "acceptance_314": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\environment.json",
+      "bytes": 18436,
+      "sha256": "dd65c2ebb28994bbff198e468a766c8a40ca037f9a971b8ad7256b39d6ea883d"
+    },
+    "archive_index_12": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-18-03-58\\archive_index.json",
+      "bytes": 6518,
+      "sha256": "3b087a251a2b7bb1555e6c21046753bc6f41d0d88cfa1e8fd69c40a9fa25fe23"
+    },
+    "archive_index_2": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-18-04-29\\archive_index.json",
+      "bytes": 1222,
+      "sha256": "700eb0908279faeba321786655ad200d500181192894118600fb282cc4ea1f5d"
+    },
+    "archive_verification": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-18-04-44\\member_verification.json",
+      "bytes": 8526,
+      "sha256": "7f01cd3d6a71866c8bc1bae19cc87c4a16f6a8a90977a8120709c2f7232836d2"
+    },
+    "parent_result_index": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\result_index.json",
+      "bytes": 41412,
+      "sha256": "aa1fc6d98d10076b10b2d347a10feb1615ecfb97765da7a3a64c3e0ee0f5c611"
+    },
+    "final_findings": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\final_findings.md",
+      "bytes": 9500,
+      "sha256": "eb26d860bf55bc0e8ce6f889e4b6154c28cf2d2c30521f4b7ee0dd23a410bf5c"
+    },
+    "reproduction": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\reproduction.md",
+      "bytes": 3506,
+      "sha256": "b58c1e2b9390963d27919b8601075586eb654df5ae84357ba9ca3385bb148ece"
+    },
+    "delivery": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\delivery.md",
+      "bytes": 4294,
+      "sha256": "f68b913a0da28494b89dfa8757685d123b342fb7dcafc6e481310a677b1cdf14"
+    },
+    "attempt_ledger": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\attempt_ledger.json",
+      "bytes": 1656,
+      "sha256": "308bd70db7451ead381f59de2b6c01aae4dc224deff9e194c985281f307495fd"
+    },
+    "failure_list": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\failure_list.json",
+      "bytes": 975,
+      "sha256": "71e7d25b0b47e48c00f121102d4f4e596e97ccff818dba9d81b5799bea9c9e68"
+    },
+    "source_ledger": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\source_ledger.md",
+      "bytes": 8685,
+      "sha256": "aa1bc4bfc281e8bba9fbe590b54dfda76b7350262f517446e06cd75d9c6b294d"
+    },
+    "adoption_matrix": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\adoption_matrix.md",
+      "bytes": 2074,
+      "sha256": "603b0a3d483551c59bbd34e6e06fac73752de1148c6d31355422e5e342106dc7"
+    },
+    "adaptation_cards": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\adaptation_cards.md",
+      "bytes": 3124,
+      "sha256": "9a98e2387b0faaee734ec403e67e82a1559807f4ffe6f26159a2c37c0055a648"
+    },
+    "hypothesis_cards": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\hypothesis_cards.md",
+      "bytes": 1917,
+      "sha256": "90377d42fca624cf390c2fbf01e9f7d3934b9d792ba3200a2cc865f897555dda"
+    }
+  }
+}

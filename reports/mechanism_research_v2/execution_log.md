@@ -37,4 +37,6 @@ P7 authoritative report17:58:59，seal 69e4b6d126dc1129ed2bceb0c1ff6621a946a2634
 最新版全套：Python3.10.19及3.14.6各349 tests PASS、pip check PASS、28 CLI help PASS，各30 commands/0 nonzero。產物18:00:37/18:00:48；不跨sklearn版本載入模型。349=既有310+本輪39；native synthetic只作工程測試。
 P8：18:03:58/18:04:29 archive indices保存14新ZIP，共301 source members/480,240,398 bytes；18:04:44全包whole SHA、CRC與逐member SHA PASS。D槽新mechanism_research_v2目錄，無刪除源檔，未覆蓋舊8個literature_expansion備份，另核對舊8 SHA全部不變。單D磁碟非offsite。
 原正式core/geometry.py、monitor.py、data.py、openset.py、mahalanobis.py相對起點無diff；formal fingerprint不變。282 tracked deletions仍保留，不stage。大型模型、逐樣本prediction及full summary只外部封存，小型摘要/索引/執行日誌入Git。
+P7 commit cec005b91c539df762704f39ade85c5ae45bda2f 已push；git ls-remote與local exact。P8交付文件/index/備份索引不自嵌最後commit SHA；最终remote核對在回覆列出。
+P8 index驗收：core.fault_type_final_guard.verify_seal校驗delivery_index_checksum=4669b72d498665f3bfcdc618810c62849f81d040877a0fa5865859e5883f0ff8；24 artifact整檔SHA、protocol/lock/evaluation/verification/report五個sealed checksum及exact known/unknown class mapping全部PASS。git diff --check通過，protected core差異為空，原282刪除保留。最後提交只含delivery/index、兩個archive indices、member verification與三份相關logs；不更動模型，無須再重跑相同81評估。
 P2 只讀診斷 exit0；3 個 seed0 parent models，formal source 前後一致，無 fit/threshold 修改。兩圖檢視，2screws train=100%/test=0%；R17 真實 cal 各類足量但 predicted routes 空。形成 H-D/H-P/H-G，未知採集事實不補造。
