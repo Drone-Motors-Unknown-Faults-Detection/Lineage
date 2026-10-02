@@ -1,0 +1,4 @@
+2026-10-02 23:57:21 | INFO    | Logger initialized: fault_type_solver_report
+2026-10-02 23:57:21 | INFO    | log_file=logs\fault_type_solver_report\2026-10-02-23-57-21.log
+2026-10-02 23:57:21 | INFO    | output_dir=output\fault_type_solver_report\2026-10-02-23-57-21
+2026-10-02 23:59:24 | INFO    | numeric PASS: {'hard150': 3, 'smooth150': 5, 'hard600': 9} original matches=3 seal=8ec818f988011e6bb6ddcdaf813757389d5938cb8525f544a191e5547e3b5402

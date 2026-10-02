@@ -1,0 +1,1317 @@
+{
+  "accuracy_improvement": "NOT_EVALUATED",
+  "calibration_input_ids": [],
+  "converged_by_method": {
+    "hard150": 3,
+    "hard600": 9,
+    "smooth150": 5
+  },
+  "diagnosis_checksum": "a9c1319a703d4ef7252fad7569a68a4e03b9bbf483ba6c1fe21e463696f65232",
+  "fresh_final_test": false,
+  "numeric_recomputation": "PASS",
+  "original_Q_locked_checksum": "564796435099fa7d85657f0ea3c907fa8dcff57d732ab47c68496eb2a6b7ea09",
+  "original_Q_matches": [
+    {
+      "fold_id": "fixed-fold0",
+      "original_metric_available": true,
+      "original_weights_checksum": "df0fd6fcc8f06885abf230ecc5d0eec65eabbfb5597856e6a0bab69bcb751bca",
+      "seed": 0,
+      "weights_exact_match": true
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "original_metric_available": true,
+      "original_weights_checksum": "be06b6c35c2195af65e9433b76a1e653683c88936885d6260bbe9c0c0d2eb078",
+      "seed": 1,
+      "weights_exact_match": true
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "original_metric_available": true,
+      "original_weights_checksum": "a2117e2b8317ecbdd5def79fbe3ca290a4a4480c309a6a7751e826d46a3a8ba5",
+      "seed": 2,
+      "weights_exact_match": true
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "original_metric_available": false,
+      "reason": "old failed Q metric weights were not preserved",
+      "seed": 0,
+      "weights_exact_match": null
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "original_metric_available": false,
+      "reason": "old failed Q metric weights were not preserved",
+      "seed": 1,
+      "weights_exact_match": null
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "original_metric_available": false,
+      "reason": "old failed Q metric weights were not preserved",
+      "seed": 2,
+      "weights_exact_match": null
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "original_metric_available": false,
+      "reason": "old failed Q metric weights were not preserved",
+      "seed": 0,
+      "weights_exact_match": null
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "original_metric_available": false,
+      "reason": "old failed Q metric weights were not preserved",
+      "seed": 1,
+      "weights_exact_match": null
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "original_metric_available": false,
+      "reason": "old failed Q metric weights were not preserved",
+      "seed": 2,
+      "weights_exact_match": null
+    }
+  ],
+  "outer_evaluations": 0,
+  "physical_reason": "UNKNOWN; numerical solver evidence only",
+  "production_replacement": false,
+  "protocol_checksum": "6fa4d2854705d306baa949c630517b9d342f2916bc620eab2706ada642142164",
+  "report_checksum": "8ec818f988011e6bb6ddcdaf813757389d5938cb8525f544a191e5547e3b5402",
+  "reporter": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\experiments\\fault_type_solver_report.py",
+    "sha256": "85f935052d080ccf59ecab7f4478b009aba8e0e894550ec4360c3a81f27125f1"
+  },
+  "rows": [
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold0_seed0.json",
+        "sha256": "564d0540cbd7fbf3547f7f600cc1d89e88c75f3754a870779579d715c51c9c3c"
+      },
+      "fold_id": "fixed-fold0",
+      "method": {
+        "id": "hard150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "2dd84cde6626d18627b92049a7cf555e3a16c6e62a2273f3286413a1f290bfaf",
+      "motor": "T1",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 98,
+        "final_loss": 0.02703861243898234,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.1537624355340768,
+        "initial_loss": 1.1537624355340768,
+        "iterations": 81,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 5.359468522563753e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.02703861243898234,
+        "seconds": 4.118201900011627,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "df0fd6fcc8f06885abf230ecc5d0eec65eabbfb5597856e6a0bab69bcb751bca"
+      },
+      "recomputed": {
+        "final_loss": 0.02703861243898234,
+        "projected_gradient_inf": 5.359468522563753e-05,
+        "same_hard_loss": 0.02703861243898234
+      },
+      "seed": 0
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold0_seed0.json",
+        "sha256": "5e1d1d35f2fc46fc1f8086377d6720db18084fffaab99435fe0fcdc8c0b58ec0"
+      },
+      "fold_id": "fixed-fold0",
+      "method": {
+        "id": "smooth150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": true
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "2dd84cde6626d18627b92049a7cf555e3a16c6e62a2273f3286413a1f290bfaf",
+      "motor": "T1",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 73,
+        "final_loss": 0.027562659354933818,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.1537624355340768,
+        "initial_loss": 1.1537624355340774,
+        "iterations": 62,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 2.530422072885368e-06,
+        "ridge": 0.01,
+        "same_hard_loss": 0.02713658570166572,
+        "seconds": 6.744542000000365,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": 0.1,
+        "weights_checksum": "88b138e0ee428cbc33544d4d0e1d5a2ff01f8eb8ea46815099c13d7ad2e827d8"
+      },
+      "recomputed": {
+        "final_loss": 0.027562659354933818,
+        "projected_gradient_inf": 2.530422072885368e-06,
+        "same_hard_loss": 0.02713658570166572
+      },
+      "seed": 0
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold0_seed0.json",
+        "sha256": "29d2461c1adca84f0cdedecf660c1cc329289a2bc76c7d92259209b6a51b6f3d"
+      },
+      "fold_id": "fixed-fold0",
+      "method": {
+        "id": "hard600",
+        "maxfun": 2000,
+        "maxiter": 600,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "2dd84cde6626d18627b92049a7cf555e3a16c6e62a2273f3286413a1f290bfaf",
+      "motor": "T1",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 98,
+        "final_loss": 0.02703861243898234,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.1537624355340768,
+        "initial_loss": 1.1537624355340768,
+        "iterations": 81,
+        "maxfun": 2000,
+        "maxiter": 600,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 5.359468522563753e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.02703861243898234,
+        "seconds": 3.906751799979247,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "df0fd6fcc8f06885abf230ecc5d0eec65eabbfb5597856e6a0bab69bcb751bca"
+      },
+      "recomputed": {
+        "final_loss": 0.02703861243898234,
+        "projected_gradient_inf": 5.359468522563753e-05,
+        "same_hard_loss": 0.02703861243898234
+      },
+      "seed": 0
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold0_seed1.json",
+        "sha256": "9e00b4d0a78a324acaa612a2d02b0f33f86402e6b275060050106246a417b125"
+      },
+      "fold_id": "fixed-fold0",
+      "method": {
+        "id": "hard150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "96f3ac03e6f772a41e4f9a55aba8e17322017747a3ab68a9e572ce5df9668ddc",
+      "motor": "T1",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 79,
+        "final_loss": 0.02748125462905832,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.1609341565929818,
+        "initial_loss": 1.1609341565929818,
+        "iterations": 74,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 7.676893162841564e-06,
+        "ridge": 0.01,
+        "same_hard_loss": 0.02748125462905832,
+        "seconds": 3.353238200012129,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "be06b6c35c2195af65e9433b76a1e653683c88936885d6260bbe9c0c0d2eb078"
+      },
+      "recomputed": {
+        "final_loss": 0.02748125462905832,
+        "projected_gradient_inf": 7.676893162841564e-06,
+        "same_hard_loss": 0.02748125462905832
+      },
+      "seed": 1
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold0_seed1.json",
+        "sha256": "5a0e15a9347eb44d9a2b2ca2e80442a612680f5b7bd1f8fdc6f055dee1a00ce4"
+      },
+      "fold_id": "fixed-fold0",
+      "method": {
+        "id": "smooth150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": true
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "96f3ac03e6f772a41e4f9a55aba8e17322017747a3ab68a9e572ce5df9668ddc",
+      "motor": "T1",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 82,
+        "final_loss": 0.028102394599701375,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.1609341565929818,
+        "initial_loss": 1.1609341565929818,
+        "iterations": 77,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 4.171385800486309e-06,
+        "ridge": 0.01,
+        "same_hard_loss": 0.02758327915457076,
+        "seconds": 8.055746500001987,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": 0.1,
+        "weights_checksum": "c21533fab96e9997bc3a32828dfb202fb323530716ef6cb1019fac41f98dd7e5"
+      },
+      "recomputed": {
+        "final_loss": 0.028102394599701375,
+        "projected_gradient_inf": 4.171385800486309e-06,
+        "same_hard_loss": 0.02758327915457076
+      },
+      "seed": 1
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold0_seed1.json",
+        "sha256": "d8e6864f7619b2dbe0c0a80e547e6f60cdc9d940e10985e2ede77a9fb740c5a4"
+      },
+      "fold_id": "fixed-fold0",
+      "method": {
+        "id": "hard600",
+        "maxfun": 2000,
+        "maxiter": 600,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "96f3ac03e6f772a41e4f9a55aba8e17322017747a3ab68a9e572ce5df9668ddc",
+      "motor": "T1",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 79,
+        "final_loss": 0.02748125462905832,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.1609341565929818,
+        "initial_loss": 1.1609341565929818,
+        "iterations": 74,
+        "maxfun": 2000,
+        "maxiter": 600,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 7.676893162841564e-06,
+        "ridge": 0.01,
+        "same_hard_loss": 0.02748125462905832,
+        "seconds": 3.3470643000036944,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "be06b6c35c2195af65e9433b76a1e653683c88936885d6260bbe9c0c0d2eb078"
+      },
+      "recomputed": {
+        "final_loss": 0.02748125462905832,
+        "projected_gradient_inf": 7.676893162841564e-06,
+        "same_hard_loss": 0.02748125462905832
+      },
+      "seed": 1
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold0_seed2.json",
+        "sha256": "f22460bc93c5b1db26607d2a55b2d8c22fe4be8a1fb83acc0cd75a9a9c107414"
+      },
+      "fold_id": "fixed-fold0",
+      "method": {
+        "id": "hard150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "9d86b01b98e4abb0313d5bfbf74d7150007c634caf608baa544d36b5eee5c508",
+      "motor": "T1",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 86,
+        "final_loss": 0.026965777109785788,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.1425692086506674,
+        "initial_loss": 1.1425692086506674,
+        "iterations": 78,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 7.104161003651619e-06,
+        "ridge": 0.01,
+        "same_hard_loss": 0.026965777109785788,
+        "seconds": 3.6876919999776874,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "a2117e2b8317ecbdd5def79fbe3ca290a4a4480c309a6a7751e826d46a3a8ba5"
+      },
+      "recomputed": {
+        "final_loss": 0.026965777109785788,
+        "projected_gradient_inf": 7.104161003651619e-06,
+        "same_hard_loss": 0.026965777109785788
+      },
+      "seed": 2
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold0_seed2.json",
+        "sha256": "2b8a33098c2b230a53bf7e501c078c3f7af5e3bc13c55655ae838f6597f74a0c"
+      },
+      "fold_id": "fixed-fold0",
+      "method": {
+        "id": "smooth150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": true
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "9d86b01b98e4abb0313d5bfbf74d7150007c634caf608baa544d36b5eee5c508",
+      "motor": "T1",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 83,
+        "final_loss": 0.027602854779949594,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.1425692086506674,
+        "initial_loss": 1.1425692086506674,
+        "iterations": 74,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 3.107702581293893e-06,
+        "ridge": 0.01,
+        "same_hard_loss": 0.027051655099358335,
+        "seconds": 7.788058400008595,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": 0.1,
+        "weights_checksum": "cb1892462e705af56f8bc8210a9886b0f4c2b1c5133ecff019cd2659a6e2bd83"
+      },
+      "recomputed": {
+        "final_loss": 0.027602854779949594,
+        "projected_gradient_inf": 3.107702581293893e-06,
+        "same_hard_loss": 0.027051655099358335
+      },
+      "seed": 2
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold0_seed2.json",
+        "sha256": "807bfabbd0737ab2bedfaea0f401522958107d84cb76ce5714d1056fe922ffe2"
+      },
+      "fold_id": "fixed-fold0",
+      "method": {
+        "id": "hard600",
+        "maxfun": 2000,
+        "maxiter": 600,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "9d86b01b98e4abb0313d5bfbf74d7150007c634caf608baa544d36b5eee5c508",
+      "motor": "T1",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 86,
+        "final_loss": 0.026965777109785788,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.1425692086506674,
+        "initial_loss": 1.1425692086506674,
+        "iterations": 78,
+        "maxfun": 2000,
+        "maxiter": 600,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 7.104161003651619e-06,
+        "ridge": 0.01,
+        "same_hard_loss": 0.026965777109785788,
+        "seconds": 3.671146000007866,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "a2117e2b8317ecbdd5def79fbe3ca290a4a4480c309a6a7751e826d46a3a8ba5"
+      },
+      "recomputed": {
+        "final_loss": 0.026965777109785788,
+        "projected_gradient_inf": 7.104161003651619e-06,
+        "same_hard_loss": 0.026965777109785788
+      },
+      "seed": 2
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold1_seed0.json",
+        "sha256": "e623a502ea563a41f8b92c0cd6f3fe2b966b68c608820cade293dd9872858ac1"
+      },
+      "fold_id": "fixed-fold1",
+      "method": {
+        "id": "hard150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "6bb2fdcbc66aec30d1376976649c0e3629384614dbd23e0f912ca04a923ee0ed",
+      "motor": "T2",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 167,
+        "final_loss": 0.02486319063629605,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.2518349526165324,
+        "initial_loss": 1.2518349526165324,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 5.5225622852199125e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.02486319063629605,
+        "seconds": 6.790102500002831,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": null,
+        "weights_checksum": "a01d0307566f7becd0af7b9f79a5f045e253e8b6d47650953be2b11b87ca50d8"
+      },
+      "recomputed": {
+        "final_loss": 0.02486319063629605,
+        "projected_gradient_inf": 5.5225622852199125e-05,
+        "same_hard_loss": 0.02486319063629605
+      },
+      "seed": 0
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold1_seed0.json",
+        "sha256": "c0a10b63fb3b218a9b5c8cb48d656886b474ca5fbb852d5edf1a4bb323ae8cef"
+      },
+      "fold_id": "fixed-fold1",
+      "method": {
+        "id": "smooth150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": true
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "6bb2fdcbc66aec30d1376976649c0e3629384614dbd23e0f912ca04a923ee0ed",
+      "motor": "T2",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 141,
+        "final_loss": 0.02570519050865423,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.2518349526165324,
+        "initial_loss": 1.2518349526165324,
+        "iterations": 133,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 8.136993954042747e-06,
+        "ridge": 0.01,
+        "same_hard_loss": 0.024997539412181503,
+        "seconds": 12.887460099998862,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": 0.1,
+        "weights_checksum": "365f3c2899c682f63372412a811f5a3dc5a3367f2a72ba0467dcae48bf68c697"
+      },
+      "recomputed": {
+        "final_loss": 0.02570519050865423,
+        "projected_gradient_inf": 8.136993954042747e-06,
+        "same_hard_loss": 0.024997539412181503
+      },
+      "seed": 0
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold1_seed0.json",
+        "sha256": "b375e773402e8247f568acc665e551809511b1cdcd102744bd03c4fdfe8d25b2"
+      },
+      "fold_id": "fixed-fold1",
+      "method": {
+        "id": "hard600",
+        "maxfun": 2000,
+        "maxiter": 600,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "6bb2fdcbc66aec30d1376976649c0e3629384614dbd23e0f912ca04a923ee0ed",
+      "motor": "T2",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 178,
+        "final_loss": 0.02486312221204174,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.2518349526165324,
+        "initial_loss": 1.2518349526165324,
+        "iterations": 160,
+        "maxfun": 2000,
+        "maxiter": 600,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 1.7873472658385097e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.02486312221204174,
+        "seconds": 7.40199099999154,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "4c85d1535eff13846081be452bf478c4a5286d73c79d67e831d7e33014831f38"
+      },
+      "recomputed": {
+        "final_loss": 0.02486312221204174,
+        "projected_gradient_inf": 1.7873472658385097e-05,
+        "same_hard_loss": 0.02486312221204174
+      },
+      "seed": 0
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold1_seed1.json",
+        "sha256": "5a84ef76f4ba7716e39b3e4662bcaf7d316c029c7c39268e34e5ad482ae9937e"
+      },
+      "fold_id": "fixed-fold1",
+      "method": {
+        "id": "hard150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "bd0c4d4e936043ba874d4931657011e6ae26d148d9102d7b4127bf0d95d6e7e5",
+      "motor": "T2",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 160,
+        "final_loss": 0.025359370712295368,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.2759748448406638,
+        "initial_loss": 1.2759748448406638,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 3.604849347313183e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.025359370712295368,
+        "seconds": 6.258337300008861,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": null,
+        "weights_checksum": "2c7f4ce2ca129bdca6887a355a955cde244f3f9b68cc36ffc08de7d52c42b1b3"
+      },
+      "recomputed": {
+        "final_loss": 0.025359370712295368,
+        "projected_gradient_inf": 3.604849347313183e-05,
+        "same_hard_loss": 0.025359370712295368
+      },
+      "seed": 1
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold1_seed1.json",
+        "sha256": "cac443502e611b96c6aa231a4b87fb2b3eac35d6f2596666281c6cad31517f6c"
+      },
+      "fold_id": "fixed-fold1",
+      "method": {
+        "id": "smooth150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": true
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "bd0c4d4e936043ba874d4931657011e6ae26d148d9102d7b4127bf0d95d6e7e5",
+      "motor": "T2",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 154,
+        "final_loss": 0.02608638321298285,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.2759748448406638,
+        "initial_loss": 1.2759748448406638,
+        "iterations": 148,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 7.385091463547048e-06,
+        "ridge": 0.01,
+        "same_hard_loss": 0.025446659612872922,
+        "seconds": 13.998015800025314,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": 0.1,
+        "weights_checksum": "aff2b3ce003288fd48454f789c84fa64e5533639f1ca1a24ad18b8c865fd8b01"
+      },
+      "recomputed": {
+        "final_loss": 0.02608638321298285,
+        "projected_gradient_inf": 7.385091463547048e-06,
+        "same_hard_loss": 0.025446659612872922
+      },
+      "seed": 1
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold1_seed1.json",
+        "sha256": "94ca7e917b28375f627aa9f19248058b6419618b30698ddfda8147bd80e34051"
+      },
+      "fold_id": "fixed-fold1",
+      "method": {
+        "id": "hard600",
+        "maxfun": 2000,
+        "maxiter": 600,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "bd0c4d4e936043ba874d4931657011e6ae26d148d9102d7b4127bf0d95d6e7e5",
+      "motor": "T2",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 196,
+        "final_loss": 0.025359202927369498,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.2759748448406638,
+        "initial_loss": 1.2759748448406638,
+        "iterations": 178,
+        "maxfun": 2000,
+        "maxiter": 600,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 2.0425532327946014e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.025359202927369498,
+        "seconds": 8.510691399977077,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "1c09fd720def8d564e4a151d105888fd50175b0da43d993fd1e473c64f256568"
+      },
+      "recomputed": {
+        "final_loss": 0.025359202927369498,
+        "projected_gradient_inf": 2.0425532327946014e-05,
+        "same_hard_loss": 0.025359202927369498
+      },
+      "seed": 1
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold1_seed2.json",
+        "sha256": "23de130d7265989d7a4760336e05b457e067d8b9a209a56c20a3de865080cd61"
+      },
+      "fold_id": "fixed-fold1",
+      "method": {
+        "id": "hard150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "39ca7debbed1fd5689060832534d02c24ebea61cf39af68fb11ffe6ed30d07f1",
+      "motor": "T2",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 160,
+        "final_loss": 0.026232689189859833,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.2693780211382537,
+        "initial_loss": 1.2693780211382537,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 3.9240266280081274e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.026232689189859833,
+        "seconds": 6.363871699984884,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": null,
+        "weights_checksum": "0d8f8113b68ad99f8669a52fbce463014c4463786eef95a14b1e24c78f28a8c4"
+      },
+      "recomputed": {
+        "final_loss": 0.026232689189859833,
+        "projected_gradient_inf": 3.9240266280081274e-05,
+        "same_hard_loss": 0.026232689189859833
+      },
+      "seed": 2
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold1_seed2.json",
+        "sha256": "15e8d3f25cc013bad4aa668633eb7edfcc8fe059294e041f34fca1667709478b"
+      },
+      "fold_id": "fixed-fold1",
+      "method": {
+        "id": "smooth150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": true
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "39ca7debbed1fd5689060832534d02c24ebea61cf39af68fb11ffe6ed30d07f1",
+      "motor": "T2",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 156,
+        "final_loss": 0.027003649666734117,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.2693780211382537,
+        "initial_loss": 1.2693780211382537,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 1.3434906482530525e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.026379524932316253,
+        "seconds": 14.4157005000161,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": 0.1,
+        "weights_checksum": "5ed871e0c3f5ce75f32e4031c9a38ef3bd7785ef36ceb50bf57f0e5318d054a2"
+      },
+      "recomputed": {
+        "final_loss": 0.027003649666734117,
+        "projected_gradient_inf": 1.3434906482530525e-05,
+        "same_hard_loss": 0.026379524932316253
+      },
+      "seed": 2
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold1_seed2.json",
+        "sha256": "34d7fb954fd333a8dba87b70afb98ff387fda8519f89577340ad557918d5c067"
+      },
+      "fold_id": "fixed-fold1",
+      "method": {
+        "id": "hard600",
+        "maxfun": 2000,
+        "maxiter": 600,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "39ca7debbed1fd5689060832534d02c24ebea61cf39af68fb11ffe6ed30d07f1",
+      "motor": "T2",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 192,
+        "final_loss": 0.026232474002014318,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 1.2693780211382537,
+        "initial_loss": 1.2693780211382537,
+        "iterations": 179,
+        "maxfun": 2000,
+        "maxiter": 600,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 2.7996157950904168e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.026232474002014318,
+        "seconds": 7.969449900003383,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "9d7e2dc5b31705d9d466279b3c79d44946478b56511a1567b4a98c9e476a5dd9"
+      },
+      "recomputed": {
+        "final_loss": 0.026232474002014318,
+        "projected_gradient_inf": 2.7996157950904168e-05,
+        "same_hard_loss": 0.026232474002014318
+      },
+      "seed": 2
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold2_seed0.json",
+        "sha256": "405ccad83219bd82b027e69562c6f24edb87209bfd78bc5d5a38dade561f9f26"
+      },
+      "fold_id": "fixed-fold2",
+      "method": {
+        "id": "hard150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "215efc4ae8a6c264d63c37fac6ec5a0dc4311dd9b3361992e9284138b0e8efb7",
+      "motor": "T3",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 174,
+        "final_loss": 0.0361346363000873,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 3.1348166147429444,
+        "initial_loss": 3.1348166147429444,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 0.0003620043732009717,
+        "ridge": 0.01,
+        "same_hard_loss": 0.0361346363000873,
+        "seconds": 7.372556499991333,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": null,
+        "weights_checksum": "d39f360e9d33dd1a138813a5a30ab96a1723ef0d1bcfa619ab97384e8a996d82"
+      },
+      "recomputed": {
+        "final_loss": 0.0361346363000873,
+        "projected_gradient_inf": 0.0003620043732009717,
+        "same_hard_loss": 0.0361346363000873
+      },
+      "seed": 0
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold2_seed0.json",
+        "sha256": "ccc6054f2c52514b8d6c8d77289d3212e2a76c4c9f90346ce421a0cc7ed05a42"
+      },
+      "fold_id": "fixed-fold2",
+      "method": {
+        "id": "smooth150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": true
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "215efc4ae8a6c264d63c37fac6ec5a0dc4311dd9b3361992e9284138b0e8efb7",
+      "motor": "T3",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 164,
+        "final_loss": 0.0370145433090763,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 3.1348166147429444,
+        "initial_loss": 3.1348166147429444,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 0.0002246205082725366,
+        "ridge": 0.01,
+        "same_hard_loss": 0.036208858125605065,
+        "seconds": 13.440719899983378,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": 0.1,
+        "weights_checksum": "71cc8475283fbdb22b5092519bf1375ea6b5818c81cb1d061170bd071fc53e55"
+      },
+      "recomputed": {
+        "final_loss": 0.0370145433090763,
+        "projected_gradient_inf": 0.0002246205082725366,
+        "same_hard_loss": 0.036208858125605065
+      },
+      "seed": 0
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold2_seed0.json",
+        "sha256": "ebe51205e64e163ba6ec7bf4f800548e17477f0fed05dfbece7c0f837fce18d2"
+      },
+      "fold_id": "fixed-fold2",
+      "method": {
+        "id": "hard600",
+        "maxfun": 2000,
+        "maxiter": 600,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "215efc4ae8a6c264d63c37fac6ec5a0dc4311dd9b3361992e9284138b0e8efb7",
+      "motor": "T3",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 184,
+        "final_loss": 0.03613427658877203,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 3.1348166147429444,
+        "initial_loss": 3.1348166147429444,
+        "iterations": 159,
+        "maxfun": 2000,
+        "maxiter": 600,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 6.539506755705619e-05,
+        "ridge": 0.01,
+        "same_hard_loss": 0.03613427658877203,
+        "seconds": 4.701553999999305,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "bd2e77b9123074c5c7ca2fb842acee1956217e8c84aeb48e1c478c3c4ef8e7af"
+      },
+      "recomputed": {
+        "final_loss": 0.03613427658877203,
+        "projected_gradient_inf": 6.539506755705619e-05,
+        "same_hard_loss": 0.03613427658877203
+      },
+      "seed": 0
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold2_seed1.json",
+        "sha256": "368fc7efb2c1cad2700c313b52d611767b0fbad52b1d84bcf08e7f985ae66e18"
+      },
+      "fold_id": "fixed-fold2",
+      "method": {
+        "id": "hard150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "7e78219060617055f11e147c579cc1c1162efae69f4bfa550807e53f52f5df50",
+      "motor": "T3",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 169,
+        "final_loss": 0.03661884817893408,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 2.9933051672525934,
+        "initial_loss": 2.9933051672525934,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 0.0001851555060790143,
+        "ridge": 0.01,
+        "same_hard_loss": 0.03661884817893408,
+        "seconds": 4.543230799987214,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": null,
+        "weights_checksum": "bd7748a336a46991187187bb53d1d6ad453a7c43e949a6263366fdb8bf16654b"
+      },
+      "recomputed": {
+        "final_loss": 0.03661884817893408,
+        "projected_gradient_inf": 0.0001851555060790143,
+        "same_hard_loss": 0.03661884817893408
+      },
+      "seed": 1
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold2_seed1.json",
+        "sha256": "1f9d2e977ddadd43c157bfe3a8b4a08f72505683f9cee442fbd468e2170425a6"
+      },
+      "fold_id": "fixed-fold2",
+      "method": {
+        "id": "smooth150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": true
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "7e78219060617055f11e147c579cc1c1162efae69f4bfa550807e53f52f5df50",
+      "motor": "T3",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 171,
+        "final_loss": 0.037555983428461046,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 2.9933051672525934,
+        "initial_loss": 2.9933051672525934,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 0.00016445651212783477,
+        "ridge": 0.01,
+        "same_hard_loss": 0.03671503746697169,
+        "seconds": 9.32245750000584,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": 0.1,
+        "weights_checksum": "3f059620b9ee3360933359e2efba29fdf205af4020c2da149bdb6e1073cbea77"
+      },
+      "recomputed": {
+        "final_loss": 0.037555983428461046,
+        "projected_gradient_inf": 0.00016445651212783477,
+        "same_hard_loss": 0.03671503746697169
+      },
+      "seed": 1
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold2_seed1.json",
+        "sha256": "61bf6998a07b71531fb6c6d69dcead493bd07286d57dc2522ee48ac56482657c"
+      },
+      "fold_id": "fixed-fold2",
+      "method": {
+        "id": "hard600",
+        "maxfun": 2000,
+        "maxiter": 600,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "7e78219060617055f11e147c579cc1c1162efae69f4bfa550807e53f52f5df50",
+      "motor": "T3",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 204,
+        "final_loss": 0.036618204895237275,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 2.9933051672525934,
+        "initial_loss": 2.9933051672525934,
+        "iterations": 180,
+        "maxfun": 2000,
+        "maxiter": 600,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 0.00023701752972676886,
+        "ridge": 0.01,
+        "same_hard_loss": 0.036618204895237275,
+        "seconds": 5.060913599998457,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "d18f7984ac26696b93137e7b57740b3202be965fdf353b6d952289ae2ba5e10e"
+      },
+      "recomputed": {
+        "final_loss": 0.036618204895237275,
+        "projected_gradient_inf": 0.00023701752972676886,
+        "same_hard_loss": 0.036618204895237275
+      },
+      "seed": 1
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold2_seed2.json",
+        "sha256": "c7a23c1975d515e77be1f92df674fb48805ee19083719ce0b0c3767706102035"
+      },
+      "fold_id": "fixed-fold2",
+      "method": {
+        "id": "hard150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "d9226b8b9a583afc088a4c7e294306a8d8cd52d431d6a00e995310b422b5daa5",
+      "motor": "T3",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 172,
+        "final_loss": 0.03604514794795689,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 3.012644612991978,
+        "initial_loss": 3.012644612991978,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 0.0011143242222448834,
+        "ridge": 0.01,
+        "same_hard_loss": 0.03604514794795689,
+        "seconds": 4.143583099998068,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": null,
+        "weights_checksum": "9781c5f67e210b913e33a39ed08e730052f6f31b6d1c84185f6d6890fa53651c"
+      },
+      "recomputed": {
+        "final_loss": 0.03604514794795689,
+        "projected_gradient_inf": 0.0011143242222448834,
+        "same_hard_loss": 0.03604514794795689
+      },
+      "seed": 2
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold2_seed2.json",
+        "sha256": "cc8a0e9622bdc800a0fe8a3d6e5fee93a04e7462705d2308ea80f01d711cced5"
+      },
+      "fold_id": "fixed-fold2",
+      "method": {
+        "id": "smooth150",
+        "maxfun": 500,
+        "maxiter": 150,
+        "smooth": true
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "d9226b8b9a583afc088a4c7e294306a8d8cd52d431d6a00e995310b422b5daa5",
+      "motor": "T3",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 169,
+        "final_loss": 0.036915677045555394,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 3.012644612991978,
+        "initial_loss": 3.012644612991978,
+        "iterations": 150,
+        "maxfun": 500,
+        "maxiter": 150,
+        "maxls": 50,
+        "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+        "projected_gradient_inf": 0.0002750942774152038,
+        "ridge": 0.01,
+        "same_hard_loss": 0.03615667825582246,
+        "seconds": 9.119453000021167,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 1,
+        "success": false,
+        "tau": 0.1,
+        "weights_checksum": "25fc1613b79095b75ced91e384dcf5dae1f4c3f08e67a7b40e90ad77beda0355"
+      },
+      "recomputed": {
+        "final_loss": 0.036915677045555394,
+        "projected_gradient_inf": 0.0002750942774152038,
+        "same_hard_loss": 0.03615667825582246
+      },
+      "seed": 2
+    },
+    {
+      "artifact": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold2_seed2.json",
+        "sha256": "c70efb17452ec83f33dd976e3e76164cfea57591ccfcfd152dbbd5da61e4c7bc"
+      },
+      "fold_id": "fixed-fold2",
+      "method": {
+        "id": "hard600",
+        "maxfun": 2000,
+        "maxiter": 600,
+        "smooth": false
+      },
+      "metric_fit_count": 360,
+      "metric_fit_ids_checksum": "d9226b8b9a583afc088a4c7e294306a8d8cd52d431d6a00e995310b422b5daa5",
+      "motor": "T3",
+      "optimizer": {
+        "budget_seconds": 120,
+        "evaluations": 226,
+        "final_loss": 0.03603579782157821,
+        "ftol": 1e-09,
+        "gtol": 1e-06,
+        "initial_hard_loss": 3.012644612991978,
+        "initial_loss": 3.012644612991978,
+        "iterations": 200,
+        "maxfun": 2000,
+        "maxiter": 600,
+        "maxls": 50,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "projected_gradient_inf": 0.00011591315473663771,
+        "ridge": 0.01,
+        "same_hard_loss": 0.03603579782157821,
+        "seconds": 5.508142700011376,
+        "state_is_last_evaluation_not_converged_iterate": false,
+        "status": 0,
+        "success": true,
+        "tau": null,
+        "weights_checksum": "7bf68b49c6638123fed37cf1f85bbc6d298f28caac9061c5286f141d56c1dd42"
+      },
+      "recomputed": {
+        "final_loss": 0.03603579782157821,
+        "projected_gradient_inf": 0.00011591315473663771,
+        "same_hard_loss": 0.03603579782157821
+      },
+      "seed": 2
+    }
+  ],
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "test_input_ids": []
+}

@@ -1,0 +1,31 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\continuous_solver\\fault_type_2026-10-02-23-57-21.zip",
+      "sha256": "49437f9a78bf568f3b7d6c6f7c2dbbe83449361eb94213c2993d6e98389dfaa5",
+      "bytes": 50688,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_report\\2026-10-02-23-57-21",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\continuous_solver\\fault_type_2026-10-02-23-57-32.zip",
+      "sha256": "a0842dfbc44ef50295812cb500d57c37f896721fd6c67fe0bf4506302d7034c3",
+      "bytes": 73918,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_acceptance_py3_10_19\\2026-10-02-23-57-32",
+      "source_files": 40,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\continuous_solver\\fault_type_2026-10-02-23-57-44.zip",
+      "sha256": "9cb840133842d51a4ed8bfc248744b26eac71b9e3d0d92a38cb26a12f1756aec",
+      "bytes": 74994,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_acceptance_py3_14_6\\2026-10-02-23-57-44",
+      "source_files": 40,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

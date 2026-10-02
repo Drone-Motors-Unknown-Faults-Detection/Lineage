@@ -7,6 +7,7 @@
 | 模組 | 手冊 |
 |---|---|
 | `experiments/fault_type_solver_diagnosis.py`（train-only，無outer評估） | [fault_type_solver_diagnosis](fault_type_solver_diagnosis.md) |
+| `experiments/fault_type_solver_report.py`（train-only重算） | [fault_type_solver_report](fault_type_solver_report.md) |
 | `experiments/fault_type_continuous_study.py` | [fault_type_continuous_study](fault_type_continuous_study.md) |
 | `experiments/synchronized_raw.py` | [synchronized_raw](synchronized_raw.md) |
 | `experiments/synchronized_features.py` | [synchronized_features](synchronized_features.md) |

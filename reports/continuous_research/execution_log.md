@@ -21,3 +21,9 @@
 - 新solver首次9tests有1個fixture/欄位錯誤：沿用manifest的t_code並隔離unit fixture；新增跨用途alias、timeout與runner重用驗證。後續14tests雙runtime PASS；初次失敗保留於紀錄，不當正式研究失敗格。
 - 23:43:20診斷lock沒有fit，後續加seed/parent/optimizer checkpoint binding後作廢；新lock23:46:28，seal6fa4d2854705d306baa949c630517b9d342f2916bc620eab2706ada642142164。原Q結果/程式SHA未動。固定27train fits，尚未執行；等完整驗收及commit/push後再fit。
 - 23:45:05/23:45:18 acceptance exit0：Python3.10.19/3.14.6各392全測試、36help、pip check PASS（38commands）；14新tests另在最後checkpoint binding修補後雙runtime重測PASS。保留全部sourceguard，numeric損失無後續修改。
+- 協定/程式commit38d3833c09058931469bc58ab798b144337a42df push成功且remote exact；23:51:52才啟動formal train-only diagnosis。23:56:25 exit0，27fits完成，converged hard150=3/smooth150=5/hard600=9，10 nonconverged全部保存末weights，不調参回填Q；run耗時241.820秒。
+- diagnosis seal a9c1319a703d4ef7252fad7569a68a4e03b9bbf483ba6c1fe21e463696f65232；stage3report手冊先於新增report code。雙runtime18相關tests及CLI help PASS。
+- 23:57:21 solver_report→23:59:24 exit0，27loss/gradient重算PASS，原Q三成功weights exact；seal8ec818f988011e6bb6ddcdaf813757389d5938cb8525f544a191e5547e3b5402。只load train feature rows，沒有新增cal/test inference。
+- 最後acceptance：23:57:32 Py3.10.19→23:59:45、23:57:44 Py3.14.6→2026-10-03 00:00:02，均exit0；各396 full tests/37help/pip check PASS（39commands）。本輪跨午夜，日期如實記載。
+- solver備份分三index：23:52:32五包81members、23:58:28一包28members、2026-10-03 00:01:04三包81members；00:01:36合併fixed_delivery驗證exit0，9包190members SHA/CRC PASS；D槽continuous_solver，保留舊Q8包及所有原產物，非offsite。
+- hard600九fit均success，但皆ftol停止，不能把projected gradient高於gtol隱去；只能支持迭代預算不足線索。下一批完整outer比較未實作/未執行，不宣稱新accuracy或可靠性達標。

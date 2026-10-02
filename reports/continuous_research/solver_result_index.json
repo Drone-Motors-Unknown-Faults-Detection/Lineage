@@ -1,0 +1,44 @@
+{
+  "version": "train_only_solver_delivery_v1",
+  "repo": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree",
+  "branch": "research-improvements-20260920",
+  "prerun_commit": "38d3833c09058931469bc58ab798b144337a42df",
+  "started_date": "2026-10-02",
+  "delivery_date": "2026-10-03",
+  "timezone": "Asia/Taipei",
+  "paths": {
+    "protocol": "output/fault_type_solver_lock/2026-10-02-23-46-28/protocol.json",
+    "diagnosis": "output/fault_type_solver_fit/2026-10-02-23-51-52/diagnosis.json",
+    "report": "output/fault_type_solver_report/2026-10-02-23-57-21/summary.json",
+    "archive_indices": [
+      "output/fault_type_archive/2026-10-02-23-52-32/archive_index.json",
+      "output/fault_type_archive/2026-10-02-23-58-28/archive_index.json",
+      "output/fault_type_archive/2026-10-03-00-01-04/archive_index.json"
+    ],
+    "member_verification": "output/fault_type_fixed_delivery/2026-10-03-00-01-36/member_verification.json"
+  },
+  "seals": {
+    "protocol": "6fa4d2854705d306baa949c630517b9d342f2916bc620eab2706ada642142164",
+    "diagnosis": "a9c1319a703d4ef7252fad7569a68a4e03b9bbf483ba6c1fe21e463696f65232",
+    "report": "8ec818f988011e6bb6ddcdaf813757389d5938cb8525f544a191e5547e3b5402"
+  },
+  "converged_by_method": {"hard150": 3, "smooth150": 5, "hard600": 9},
+  "training_fits": 27,
+  "failed_to_converge": 10,
+  "saved_train_losses_and_gradients_recomputed": 27,
+  "original_successful_Q_weights_exact_matches": 3,
+  "new_outer_evaluations": 0,
+  "new_accuracy_change": "NOT_EVALUATED",
+  "tests": [
+    {"python": "3.10.19", "passed": 396, "failed": 0, "cli_help": 37, "pip_check": "PASS", "environment": "output/fault_type_continuous_acceptance_py3_10_19/2026-10-02-23-57-32/environment.json"},
+    {"python": "3.14.6", "passed": 396, "failed": 0, "cli_help": 37, "pip_check": "PASS", "environment": "output/fault_type_continuous_acceptance_py3_14_6/2026-10-02-23-57-44/environment.json"}
+  ],
+  "backup": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/continuous_solver",
+  "archives": 9,
+  "verified_members": 190,
+  "requires_original_Q_parent_dependencies": true,
+  "independence": "UNKNOWN raw/session; INCOMPLETE group count",
+  "fresh_final_test": false,
+  "production_replaced": false,
+  "next_comparison_implemented": false
+}

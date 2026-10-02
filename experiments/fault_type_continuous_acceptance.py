@@ -11,7 +11,7 @@ from experiments.fault_type_mechanism_acceptance import run as prior
 
 def run(pools,*,output):
     result=prior(pools,output=output)
-    for module in ['fault_type_continuous_inventory','fault_type_continuous_registry','fault_type_continuous_study','fault_type_continuous_report','fault_type_continuous_smoke','fault_type_continuous_acceptance','fault_type_continuous_report_v2','fault_type_solver_diagnosis']:
+    for module in ['fault_type_continuous_inventory','fault_type_continuous_registry','fault_type_continuous_study','fault_type_continuous_report','fault_type_continuous_smoke','fault_type_continuous_acceptance','fault_type_continuous_report_v2','fault_type_solver_diagnosis','fault_type_solver_report']:
         cmd=[sys.executable,'-m','experiments.'+module,'--help'];r=subprocess.run(cmd,capture_output=True,text=True,encoding='utf-8',env=dict(os.environ,PYTHONIOENCODING='utf-8'))
         path=output/(module+'_help.txt');path.write_text(r.stdout+r.stderr,encoding='utf-8');result['commands'].append({'command':cmd,'exit_code':r.returncode,'output':str(path.resolve())})
     result['status']='PASS' if all(x['exit_code']==0 for x in result['commands']) else 'FAILED';save_json(output/'environment.json',result)

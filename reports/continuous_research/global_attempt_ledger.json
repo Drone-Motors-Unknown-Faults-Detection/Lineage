@@ -29,5 +29,6 @@
       "report_checksum": "88d34b9ef3e25a3e6e0376da6ede26e20dfdb399a38741704aa1001898e88ab9"
     }
   ],
+  "training_only_diagnostics": [{"id":"solver_v1","training_fits":27,"converged":{"hard150":3,"smooth150":5,"hard600":9},"nonconverged":10,"new_outer_evaluations":0,"delivery":"reports/continuous_research/solver_result_index.json"}],
   "keep_all_failures": true
 }

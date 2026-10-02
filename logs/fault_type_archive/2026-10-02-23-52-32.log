@@ -1,0 +1,8 @@
+2026-10-02 23:52:32 | INFO    | Logger initialized: fault_type_archive
+2026-10-02 23:52:32 | INFO    | log_file=logs\fault_type_archive\2026-10-02-23-52-32.log
+2026-10-02 23:52:32 | INFO    | output_dir=output\fault_type_archive\2026-10-02-23-52-32
+2026-10-02 23:52:34 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_solver\fault_type_2026-10-02-23-46-28.zip bytes=4106 files=1
+2026-10-02 23:52:34 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_solver\fault_type_2026-10-02-23-42-10.zip bytes=2444 files=1
+2026-10-02 23:52:34 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_solver\fault_type_2026-10-02-23-43-17.zip bytes=2445 files=1
+2026-10-02 23:52:35 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_solver\fault_type_2026-10-02-23-45-05.zip bytes=72590 files=39
+2026-10-02 23:52:35 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-02\continuous_solver\fault_type_2026-10-02-23-45-18.zip bytes=73484 files=39

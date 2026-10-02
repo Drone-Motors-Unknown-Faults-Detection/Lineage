@@ -1,0 +1,19 @@
+{
+  "archive_count": 1,
+  "archives": [
+    {
+      "bytes": 12677100,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\continuous_solver\\fault_type_2026-10-02-23-51-52.zip",
+      "sha256": "4a48e4bf2500bafd23e460c010d9119a988c82ec419a2dd3dc65736703d26e93",
+      "source_files": 28,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52",
+      "whole_sha_status": "PASS"
+    }
+  ],
+  "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+  "source_files_removed": false,
+  "status": "PASS",
+  "verified_members": 28
+}

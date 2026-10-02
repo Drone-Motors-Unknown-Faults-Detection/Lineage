@@ -1,0 +1,31 @@
+2026-10-02 23:51:52 | INFO    | Logger initialized: fault_type_solver_fit
+2026-10-02 23:51:52 | INFO    | log_file=logs\fault_type_solver_fit\2026-10-02-23-51-52.log
+2026-10-02 23:51:52 | INFO    | output_dir=output\fault_type_solver_fit\2026-10-02-23-51-52
+2026-10-02 23:52:33 | INFO    | hard150_fixed-fold0_seed0.json success=True iter=81 hardloss=0.027039 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:52:40 | INFO    | smooth150_fixed-fold0_seed0.json success=True iter=62 hardloss=0.027137 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:52:44 | INFO    | hard600_fixed-fold0_seed0.json success=True iter=81 hardloss=0.027039 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:52:53 | INFO    | hard150_fixed-fold0_seed1.json success=True iter=74 hardloss=0.027481 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:53:01 | INFO    | smooth150_fixed-fold0_seed1.json success=True iter=77 hardloss=0.027583 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:53:05 | INFO    | hard600_fixed-fold0_seed1.json success=True iter=74 hardloss=0.027481 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:53:14 | INFO    | hard150_fixed-fold0_seed2.json success=True iter=78 hardloss=0.026966 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:53:22 | INFO    | smooth150_fixed-fold0_seed2.json success=True iter=74 hardloss=0.027052 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:53:26 | INFO    | hard600_fixed-fold0_seed2.json success=True iter=78 hardloss=0.026966 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:53:38 | INFO    | hard150_fixed-fold1_seed0.json success=False iter=150 hardloss=0.024863 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:53:52 | INFO    | smooth150_fixed-fold1_seed0.json success=True iter=133 hardloss=0.024998 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:53:59 | INFO    | hard600_fixed-fold1_seed0.json success=True iter=160 hardloss=0.024863 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:54:11 | INFO    | hard150_fixed-fold1_seed1.json success=False iter=150 hardloss=0.025359 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:54:25 | INFO    | smooth150_fixed-fold1_seed1.json success=True iter=148 hardloss=0.025447 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:54:33 | INFO    | hard600_fixed-fold1_seed1.json success=True iter=178 hardloss=0.025359 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:54:46 | INFO    | hard150_fixed-fold1_seed2.json success=False iter=150 hardloss=0.026233 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:55:00 | INFO    | smooth150_fixed-fold1_seed2.json success=False iter=150 hardloss=0.026380 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:55:08 | INFO    | hard600_fixed-fold1_seed2.json success=True iter=179 hardloss=0.026232 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:55:22 | INFO    | hard150_fixed-fold2_seed0.json success=False iter=150 hardloss=0.036135 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:55:35 | INFO    | smooth150_fixed-fold2_seed0.json success=False iter=150 hardloss=0.036209 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:55:40 | INFO    | hard600_fixed-fold2_seed0.json success=True iter=159 hardloss=0.036134 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:55:48 | INFO    | hard150_fixed-fold2_seed1.json success=False iter=150 hardloss=0.036619 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:55:57 | INFO    | smooth150_fixed-fold2_seed1.json success=False iter=150 hardloss=0.036715 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:56:02 | INFO    | hard600_fixed-fold2_seed1.json success=True iter=180 hardloss=0.036618 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:56:10 | INFO    | hard150_fixed-fold2_seed2.json success=False iter=150 hardloss=0.036045 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:56:19 | INFO    | smooth150_fixed-fold2_seed2.json success=False iter=150 hardloss=0.036157 STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+2026-10-02 23:56:25 | INFO    | hard600_fixed-fold2_seed2.json success=True iter=200 hardloss=0.036036 CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+2026-10-02 23:56:25 | INFO    | 27 train-only fits; convergence={'hard150': 3, 'smooth150': 5, 'hard600': 9} seal=a9c1319a703d4ef7252fad7569a68a4e03b9bbf483ba6c1fe21e463696f65232

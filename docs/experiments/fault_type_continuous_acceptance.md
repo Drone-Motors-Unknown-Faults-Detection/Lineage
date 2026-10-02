@@ -21,6 +21,8 @@ acceptance 流程、native runtime 和 CLI檢查是本地工程約定，沒有�
 
 各命令 exit0才工程 PASS。實際 passed數由當次 artifact 記錄；先前376不能當加入新tests後的數量。2026-10-02後續先改本手冊，再新增report_v2及solver_diagnosis的CLI help；全tests也包含train-only solver數值/用途/失敗checkpoint測試。之前的34help/378tests仍為獨立舊驗收紀錄。
 
+27train fits完成後，先補本手冊再納入solver_report CLI與4個保存數值重算測試；最後验收應包含新report，不借用392當新數字。
+
 預期不保證提高分數；缺失 motor/session/window 證據保留 UNKNOWN，每類至少兩個獨立test groups 的原 guard 不放寬。B/C 的門檻見封存 reliability_contract，程式能執行不能當模型可靠。
 
 ## 影響程式碼範圍

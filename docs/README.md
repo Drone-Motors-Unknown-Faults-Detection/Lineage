@@ -11,6 +11,7 @@
 | 文件 | 內容 |
 |---|---|
 | [fault_type_solver_diagnosis](experiments/fault_type_solver_diagnosis.md) | train-only hard／smooth hinge與最佳化預算診斷：先手冊再實作，不稱新outer成績 |
+| [fault_type_solver_report](experiments/fault_type_solver_report.md) | 27個train-only checkpoints損失/gradient重算、來源与原Q權重對照 |
 | [health_monitoring_workflow](health_monitoring_workflow.md) | Level A 資料能力、Health Index、趨勢/告警、正式 9×3×2 結果、限制與 CLI |
 | [研究分支說明](research_improvements_20260920.md) | 分支範圍、成果入口、資料／motor roles、性能與未知限制（Docs #11） |
 | [同步 raw schema 用途](synchronized_raw_schema.md) | config 欄位、實際 parser、preview／fresh 差別與 CLI |

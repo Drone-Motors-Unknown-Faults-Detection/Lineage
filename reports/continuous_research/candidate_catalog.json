@@ -34,7 +34,8 @@
   ],
   "requires_authority": "major installation/paid resources",
   "raw_signal_methods": "DATA_UNQUALIFIED",
-  "queued_after_Q": "train-only hard150/smooth150/hard600 solver diagnosis,27 training fits; no outer accuracy claim",
+  "solver_diagnosis": {"training_fits": 27, "converged": {"hard150":3,"smooth150":5,"hard600":9}, "new_outer_evaluations":0, "delivery":"reports/continuous_research/solver_result_index.json"},
+  "queued_after_Q": "hard600 subset/all-train kNN outer comparison; numerical coverage qualified, next complete protocol still unimplemented; no accuracy claim",
   "historical_exposure": true,
   "fresh_final_test": false
 }

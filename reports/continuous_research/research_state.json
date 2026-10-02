@@ -1,9 +1,9 @@
 {
   "version": "continuous_state_v1",
-  "phase": "Q delivered; train-only solver diagnosis protocol locked and engineering tests complete, fit next after commit",
-  "head": "20db8849605e84a2d9fc2e48079dbd96b8bf0c02",
+  "phase": "Q delivered;27 train-only solver fits and numeric re-verification complete; next outer comparator not implemented",
+  "head": "38d3833c09058931469bc58ab798b144337a42df",
   "inventory": "output/fault_type_continuous_inventory/2026-10-02-18-33-25/inventory.json",
-  "last_success": "60 completed/12 INCOMPLETE,576144 records exact reinference; both runtimes378 tests/34 CLI/pip check PASS;8 archives233 members SHA/CRC PASS",
+  "last_success": "27 train fits with3/5/9 convergence;27 losses/gradients recomputed;3 original Q weights exact;both runtimes396 tests/37 CLI/pip check PASS;solver9archives190members SHA/CRC PASS",
   "protocol": "output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json",
   "lock": "output/fault_type_continuous_fit/2026-10-02-18-42-53/locked_study.json",
   "evaluation": "output/fault_type_continuous_evaluate/2026-10-02-18-47-45/evaluation.json",
@@ -11,7 +11,8 @@
   "verification": "output/fault_type_continuous_verify/2026-10-02-23-26-52/verified.json",
   "report": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/summary.json.gz",
   "solver_protocol": "output/fault_type_solver_lock/2026-10-02-23-46-28/protocol.json",
-  "next": ".venv310/Scripts/python.exe -m experiments.fault_type_solver_diagnosis fit --protocol output/fault_type_solver_lock/2026-10-02-23-46-28/protocol.json --data-root data/formal_local",
+  "solver_delivery": "reports/continuous_research/solver_result_index.json",
+  "next": "Preregister and implement hard600 subset/all-train kNN complete pipelines paired with Q01/Q03 and C02/M; no new outer accuracy measured yet",
   "current_issue": 22,
   "goal_runtime_status": "historical usageLimited controller; user explicitly requested this continuation; no false completion",
   "known_blockers": [

@@ -1,0 +1,135 @@
+{
+  "accuracy_improvement": "NOT_EVALUATED",
+  "artifacts": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold0_seed0.json",
+      "sha256": "564d0540cbd7fbf3547f7f600cc1d89e88c75f3754a870779579d715c51c9c3c"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold0_seed0.json",
+      "sha256": "5e1d1d35f2fc46fc1f8086377d6720db18084fffaab99435fe0fcdc8c0b58ec0"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold0_seed0.json",
+      "sha256": "29d2461c1adca84f0cdedecf660c1cc329289a2bc76c7d92259209b6a51b6f3d"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold0_seed1.json",
+      "sha256": "9e00b4d0a78a324acaa612a2d02b0f33f86402e6b275060050106246a417b125"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold0_seed1.json",
+      "sha256": "5a0e15a9347eb44d9a2b2ca2e80442a612680f5b7bd1f8fdc6f055dee1a00ce4"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold0_seed1.json",
+      "sha256": "d8e6864f7619b2dbe0c0a80e547e6f60cdc9d940e10985e2ede77a9fb740c5a4"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold0_seed2.json",
+      "sha256": "f22460bc93c5b1db26607d2a55b2d8c22fe4be8a1fb83acc0cd75a9a9c107414"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold0_seed2.json",
+      "sha256": "2b8a33098c2b230a53bf7e501c078c3f7af5e3bc13c55655ae838f6597f74a0c"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold0_seed2.json",
+      "sha256": "807bfabbd0737ab2bedfaea0f401522958107d84cb76ce5714d1056fe922ffe2"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold1_seed0.json",
+      "sha256": "e623a502ea563a41f8b92c0cd6f3fe2b966b68c608820cade293dd9872858ac1"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold1_seed0.json",
+      "sha256": "c0a10b63fb3b218a9b5c8cb48d656886b474ca5fbb852d5edf1a4bb323ae8cef"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold1_seed0.json",
+      "sha256": "b375e773402e8247f568acc665e551809511b1cdcd102744bd03c4fdfe8d25b2"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold1_seed1.json",
+      "sha256": "5a84ef76f4ba7716e39b3e4662bcaf7d316c029c7c39268e34e5ad482ae9937e"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold1_seed1.json",
+      "sha256": "cac443502e611b96c6aa231a4b87fb2b3eac35d6f2596666281c6cad31517f6c"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold1_seed1.json",
+      "sha256": "94ca7e917b28375f627aa9f19248058b6419618b30698ddfda8147bd80e34051"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold1_seed2.json",
+      "sha256": "23de130d7265989d7a4760336e05b457e067d8b9a209a56c20a3de865080cd61"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold1_seed2.json",
+      "sha256": "15e8d3f25cc013bad4aa668633eb7edfcc8fe059294e041f34fca1667709478b"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold1_seed2.json",
+      "sha256": "34d7fb954fd333a8dba87b70afb98ff387fda8519f89577340ad557918d5c067"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold2_seed0.json",
+      "sha256": "405ccad83219bd82b027e69562c6f24edb87209bfd78bc5d5a38dade561f9f26"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold2_seed0.json",
+      "sha256": "ccc6054f2c52514b8d6c8d77289d3212e2a76c4c9f90346ce421a0cc7ed05a42"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold2_seed0.json",
+      "sha256": "ebe51205e64e163ba6ec7bf4f800548e17477f0fed05dfbece7c0f837fce18d2"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold2_seed1.json",
+      "sha256": "368fc7efb2c1cad2700c313b52d611767b0fbad52b1d84bcf08e7f985ae66e18"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold2_seed1.json",
+      "sha256": "1f9d2e977ddadd43c157bfe3a8b4a08f72505683f9cee442fbd468e2170425a6"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold2_seed1.json",
+      "sha256": "61bf6998a07b71531fb6c6d69dcead493bd07286d57dc2522ee48ac56482657c"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard150_fixed-fold2_seed2.json",
+      "sha256": "c7a23c1975d515e77be1f92df674fb48805ee19083719ce0b0c3767706102035"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\smooth150_fixed-fold2_seed2.json",
+      "sha256": "cc8a0e9622bdc800a0fe8a3d6e5fee93a04e7462705d2308ea80f01d711cced5"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold2_seed2.json",
+      "sha256": "c70efb17452ec83f33dd976e3e76164cfea57591ccfcfd152dbbd5da61e4c7bc"
+    }
+  ],
+  "completed_diagnostic_fits": 27,
+  "converged_by_method": {
+    "hard150": 3,
+    "hard600": 9,
+    "smooth150": 5
+  },
+  "diagnosis_checksum": "a9c1319a703d4ef7252fad7569a68a4e03b9bbf483ba6c1fe21e463696f65232",
+  "outer_evaluations": 0,
+  "planned_fits": 27,
+  "production_replacement": false,
+  "protocol_checksum": "6fa4d2854705d306baa949c630517b9d342f2916bc620eab2706ada642142164",
+  "seconds": 241.81998480000766,
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  }
+}
