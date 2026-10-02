@@ -1,0 +1,4 @@
+2026-10-02 18:33:25 | INFO    | Logger initialized: fault_type_continuous_inventory
+2026-10-02 18:33:25 | INFO    | log_file=logs\fault_type_continuous_inventory\2026-10-02-18-33-25.log
+2026-10-02 18:33:25 | INFO    | output_dir=output\fault_type_continuous_inventory\2026-10-02-18-33-25
+2026-10-02 18:33:38 | INFO    | inventory=5b19032a7645f4e7dc87636facc981d3960540cfc0d1655b12f90b2e02833662 41 artifact hashes; no fit/reinference

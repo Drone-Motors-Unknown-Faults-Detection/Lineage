@@ -1,0 +1,38 @@
+{
+  "version": "continuous_queue_v1",
+  "current_batch": {
+    "id": "Q",
+    "arms": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08"
+    ],
+    "status": "DESIGNED_NOT_IMPLEMENTED_OR_EVALUATED",
+    "planned_evaluations": 72
+  },
+  "prior_indices": [
+    "reports/literature_expansion/result_index.json",
+    "reports/mechanism_research_v2/result_index.json"
+  ],
+  "not_installed": [
+    "torch",
+    "tensorflow",
+    "metric_learn",
+    "pyod",
+    "xgboost",
+    "lightgbm",
+    "catboost",
+    "pywt",
+    "optuna"
+  ],
+  "requires_authority": "major installation/paid resources",
+  "raw_signal_methods": "DATA_UNQUALIFIED",
+  "queued_after_Q": "train-only robust class-margin/RPM experts, only with new falsifiable evidence",
+  "historical_exposure": true,
+  "fresh_final_test": false
+}

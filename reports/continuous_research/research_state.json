@@ -1,0 +1,13 @@
+{
+  "version": "continuous_state_v1",
+  "phase": "P0/P1 inventory and contract prepared; Q implementation next",
+  "head": "758674bcf73942bbf7feb21971c39035bb70a448",
+  "inventory": "output/fault_type_continuous_inventory/2026-10-02-18-33-25/inventory.json",
+  "last_success": "python -m experiments.fault_type_continuous_inventory",
+  "next": "Implement core/fault_type_continuous.py, registry/study/report; synthetic/tests; seal and commit protocol BEFORE fit/evaluate",
+  "known_blockers": [
+    "fresh independent test unavailable",
+    "raw provenance UNKNOWN"
+  ],
+  "goal_reached": false
+}

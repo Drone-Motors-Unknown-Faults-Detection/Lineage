@@ -1,0 +1,29 @@
+{
+  "version": "query_matrix_v1",
+  "status": "search coverage, NOT all fulltext",
+  "themes": [
+    "cross-motor/RPM shift",
+    "small-sample fault classification",
+    "unknown rejection",
+    "class collapse",
+    "amplitude/harmonic representation",
+    "local metric",
+    "limited calibration",
+    "leakage/provenance",
+    "mechanical features",
+    "failure evidence"
+  ],
+  "languages": {
+    "en": "LMNN diagonal regularization original code; motor cross-machine open-set",
+    "zh": "跨工况故障诊断 少样本 深度对比",
+    "ja": "モータ 故障診断 回転数 ウェーブレット",
+    "ko": "모터 고장 진단 운전 조건 변화",
+    "de": "Motordiagnose wechselnde Betriebsbedingungen; lokalisierter maschineller Lernverfahren",
+    "fr": "diagnostic défauts moteur mélange gaussien; conditions variables",
+    "es": "diagnóstico fallas motores condiciones variables",
+    "ru": "диагностика неисправностей двигателя переменные режимы"
+  },
+  "sources": "source_ledger.md",
+  "excluded": "secondary blogs/video/unverified future-publication dates",
+  "no_new_mechanism_found": "abstract-only sources retained as pending, not paper counts"
+}

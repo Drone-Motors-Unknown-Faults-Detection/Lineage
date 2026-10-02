@@ -1,0 +1,25 @@
+{
+  "version": "continuous_attempts_v1",
+  "inherited_indices": [
+    "reports/literature_expansion/result_index.json",
+    "reports/mechanism_research_v2/result_index.json"
+  ],
+  "batches": [
+    {
+      "id": "Q",
+      "arms": [
+        "Q01",
+        "Q02",
+        "Q03",
+        "Q04",
+        "Q05",
+        "Q06",
+        "Q07",
+        "Q08"
+      ],
+      "status": "DESIGNED_NOT_IMPLEMENTED_OR_EVALUATED",
+      "planned_evaluations": 72
+    }
+  ],
+  "keep_all_failures": true
+}
