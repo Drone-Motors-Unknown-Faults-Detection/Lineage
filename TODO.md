@@ -1,6 +1,6 @@
 # TODO
 
-專題目標（未知故障辨識、性能指標、視覺化）對照現況後的待辦清單。2026-10-02 走訪 repo 後建立，細節見各 issue。
+專題目標（未知故障辨識、性能指標、視覺化）對照現況後的待辦清單，加上 repo 其他 open issues。2026-10-02 建立，細節見各 issue。
 依 [AGENT.md](AGENT.md)「實驗手冊」規定，每一項都要先在 `docs/` 寫手冊、在 `docs/README.md` 加一列，再改程式。
 
 ## 1. 未知故障辨識與遷移學習
@@ -38,3 +38,18 @@
   - [ ] t-SNE：105 維 RobustScaler 特徵，顏色 = 螺絲配置、標記 = 系統判定，9 工況
   - [ ] 經 `core.logger.setup_run` / `save_plot()` 輸出；README 或 `docs/Experiments_Guide.md` 引用
   - [ ] #15 完成後加 legacy vs LW 混淆矩陣並排圖
+
+## 4. 其他 open issues
+
+兩者都屬於 `research-improvements-20260920` 分支，尚未併入 main。
+
+- [ ] [#9](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9) 故障配置評估：獨立資料來源與可靠度未解
+  - 現況：campaign-group 切分下 N=5 已知準確率 25.744%，unknown AUROC 0.528 / 0.524（Mahalanobis / k-NN），未證明能拒絕未見配置
+  - [ ] 核對實體馬達 / session / run 身分與原始訊號區間、stride
+  - [ ] 每個評估配置至少兩個獨立測試擷取群組（不拿 calibration 頂替 test，不把 RPM 檔案當獨立馬達）
+  - [ ] 稽核跨階段 105 維特徵語意與感測器方向（Stage2 為重建）
+  - [ ] 預先登錄新的 train/validation 比較與新的 final test，不回頭調這次的 test
+  - [ ] 另外驗證宣告的 Python 3.10 環境（本次以 3.14.6 執行）
+- [ ] [#11](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/11) `research-improvements-20260920` 分支文件
+  - [ ] 在 `docs/` 新增一份 md 說明這個分支做了什麼
+  - [ ] 更新 `README.md`、`docs/README.md`
