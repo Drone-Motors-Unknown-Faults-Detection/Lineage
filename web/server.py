@@ -7,6 +7,12 @@
 伺服器本身不含實驗邏輯：以固定頻率呼叫 LiveDemo.tick()，把訊息廣播給
 所有連線的瀏覽器；重擬合（確認納入、重置、換資料集）丟進執行緒池，
 避免卡住串流迴圈。
+
+實驗頁（實驗一～八，可在頁首切換）走 HTTP API，由 web/experiments.py 呼叫各
+experiments/ 模組的 run()；用另一個單執行緒池，跑實驗時即時展示照常串流：
+    GET  /api/experiments               實驗目錄、資料集、配置清單
+    POST /api/experiments/{id}/run      以 JSON 參數執行一次，回傳結果並存檔
+    GET  /api/committed/{name}          已提交的矩陣結果（唯讀）
 """
 
 from __future__ import annotations
@@ -25,6 +31,7 @@ from loguru import logger
 from core.data import discover_datasets
 from core.logger import setup_run
 from core.runner import add_openset_args
+from web.experiments import ExperimentRunner
 from web.live import LiveDemo
 
 STATIC_DIR = Path(__file__).parent / "static"
@@ -112,6 +119,71 @@ class IndexHandler(tornado.web.RequestHandler):
         self.set_header("Content-Type", "text/html; charset=utf-8")
         self.set_header("Cache-Control", "no-store")
         self.write((STATIC_DIR / "index.html").read_bytes())
+
+
+class ExperimentJobs:
+    """實驗頁的執行器：一次只跑一個實驗，避免兩個重任務搶 CPU。"""
+
+    def __init__(self, runner: ExperimentRunner):
+        self.runner = runner
+        self.executor = ThreadPoolExecutor(max_workers=1)
+        self.current: str | None = None
+
+
+JOBS: ExperimentJobs | None = None
+
+
+class _JSONHandler(tornado.web.RequestHandler):
+    def set_default_headers(self) -> None:
+        self.set_header("Content-Type", "application/json; charset=utf-8")
+        self.set_header("Cache-Control", "no-store")
+
+    def reply(self, payload: dict, status: int = 200) -> None:
+        self.set_status(status)
+        self.finish(json.dumps(payload, ensure_ascii=False, allow_nan=False))
+
+
+class CatalogHandler(_JSONHandler):
+    def get(self) -> None:
+        payload = JOBS.runner.catalog()
+        payload["running"] = JOBS.current
+        self.reply(payload)
+
+
+class RunHandler(_JSONHandler):
+    async def post(self, exp_id: str) -> None:
+        if JOBS.current is not None:
+            self.reply({"error": f"{JOBS.current} 執行中，請稍候"}, 409)
+            return
+        try:
+            params = json.loads(self.request.body or b"{}")
+        except json.JSONDecodeError:
+            self.reply({"error": "參數不是合法 JSON"}, 400)
+            return
+        JOBS.current = exp_id
+        logger.info(f"實驗頁執行 {exp_id} {params}")
+        try:
+            loop = tornado.ioloop.IOLoop.current()
+            payload = await loop.run_in_executor(JOBS.executor, JOBS.runner.run, exp_id, params)
+        except ValueError as exc:
+            self.reply({"error": str(exc)}, 400)
+            return
+        except Exception as exc:  # 展示現場永不讓伺服器死掉
+            logger.exception(f"實驗 {exp_id} 失敗")
+            self.reply({"error": f"{exp_id} 執行失敗：{exc!r}"}, 500)
+            return
+        finally:
+            JOBS.current = None
+        logger.info(f"實驗頁完成 {exp_id}（{payload['seconds']} 秒）→ {payload['saved']}")
+        self.reply(payload)
+
+
+class CommittedHandler(_JSONHandler):
+    def get(self, name: str) -> None:
+        try:
+            self.reply(JOBS.runner.committed(name))
+        except ValueError as exc:
+            self.reply({"error": str(exc)}, 404)
 
 
 class WSHandler(tornado.websocket.WebSocketHandler):
@@ -241,7 +313,7 @@ def main() -> None:
         datasets[0],
     )
 
-    global HUB
+    global HUB, JOBS
     detector_options = {
         "openset_method": args.openset_method,
         "mahalanobis_method": args.method,
@@ -257,7 +329,18 @@ def main() -> None:
         detector_options=detector_options,
     )
 
-    app = tornado.web.Application([(r"/", IndexHandler), (r"/ws", WSHandler)])
+    JOBS = ExperimentJobs(ExperimentRunner(
+        datasets, args.data_root, out_dir=paths.output_dir, detector_options=detector_options,
+    ))
+
+    app = tornado.web.Application([
+        (r"/", IndexHandler),
+        (r"/ws", WSHandler),
+        (r"/api/experiments", CatalogHandler),
+        (r"/api/experiments/([a-z0-9_]+)/run", RunHandler),
+        (r"/api/committed/([a-z0-9_]+)", CommittedHandler),
+        (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": str(STATIC_DIR)}),
+    ])
     app.listen(args.port, address="0.0.0.0")
     HUB.set_rate(args.rate)
     log.info(f"就緒 → http://localhost:{args.port}  （Ctrl+C 結束）")

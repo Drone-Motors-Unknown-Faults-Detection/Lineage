@@ -65,3 +65,4 @@ Mahalanobis 距離用類別平均與共變異數。105 維、單類、訓練筆�
 - Web：`web/live.py` 的開集分數串流圖、偵測統計表；`web/static/index.html` 對應畫面。
 - 已提交紀錄：`logs/exp1_cold_start/`、`output/exp1_cold_start/`（3 次執行）。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 2 節。
+- Web 實驗頁：頁首「實驗一」，`web/experiments.py` 的 `CATALOG` 項目 `exp1` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp1`；結果存到 `output/web_server/{ts}/experiments/exp1_{時間}.json`。

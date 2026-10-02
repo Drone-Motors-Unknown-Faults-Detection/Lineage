@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>冷啟動 PHM 即時展示</title>
+<title>冷啟動 PHM 展示</title>
 <style>
 :root{
   --bg:#0f172a; --panel:#16213b; --panel2:#1e293b; --border:#2d3b55;
@@ -76,6 +76,32 @@ th,td{text-align:right; padding:3px 6px; border-bottom:1px solid #24324d;}
 th:first-child,td:first-child{text-align:left;}
 th{color:var(--muted); font-weight:600;}
 .mini{font-size:12px; color:var(--muted);}
+/* 頁面切換 */
+nav.tabs{display:flex; gap:4px; flex-wrap:wrap;}
+nav.tabs a{padding:5px 12px; border-radius:8px; color:var(--muted); text-decoration:none; font-size:13px; font-weight:600; border:1px solid transparent;}
+nav.tabs a:hover{color:var(--text); border-color:var(--border);}
+nav.tabs a.active{background:#1d4ed8; color:#fff;}
+.livebar{display:flex; align-items:center; gap:12px; padding:8px 16px; background:var(--panel); border-bottom:1px solid var(--border); flex-wrap:wrap;}
+section[hidden]{display:none !important;}
+/* 實驗頁 */
+.exp-wrap{max-width:1500px; margin:0 auto; padding:12px 16px; display:flex; flex-direction:column; gap:12px;}
+.exp-head h2{font-size:18px; color:var(--text); margin-bottom:4px; letter-spacing:0;}
+.exp-head .q{color:var(--text); margin-bottom:6px;}
+.exp-head code{font-family:monospace; font-size:12px; color:#cbd5e1; background:var(--panel2); padding:1px 6px; border-radius:6px;}
+.form{display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap; margin-top:8px;}
+.form label{display:flex; flex-direction:column; gap:3px; font-size:12px; color:var(--muted);}
+.form input[type=number]{background:var(--panel2); border:1px solid var(--border); border-radius:8px; padding:6px 8px; width:110px; color:var(--text); font:inherit;}
+.kpis{display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 10px;}
+.kpi{background:var(--panel2); border:1px solid var(--border); border-radius:10px; padding:8px 12px; min-width:140px;}
+.kpi .v{font-size:20px; font-weight:700;}
+.kpi .l{font-size:12px; color:var(--muted);}
+.scroll{overflow-x:auto;}
+.panel h3{font-size:13px; margin:12px 0 6px; color:var(--text);}
+td.heat{text-align:center; color:#0f172a; font-weight:600;}
+.bar{height:10px; background:var(--panel2); border-radius:99px; overflow:hidden; min-width:80px;}
+.bar > div{height:100%; background:var(--blue);}
+.err{color:#fca5a5;}
+details summary{cursor:pointer; color:var(--muted); font-size:12.5px; margin-top:8px;}
 footer{max-width:1500px; margin:0 auto; padding:8px 16px 20px; text-align:center;
   color:var(--muted); font-size:12.5px; border-top:1px solid var(--border);}
 footer a{color:var(--muted); text-decoration:none; font-weight:600;}
@@ -84,8 +110,12 @@ footer a:hover{color:var(--blue);}
 </head>
 <body>
 <header>
-  <h1>冷啟動 PHM 即時展示</h1>
-  <span class="sub">健康基準 → 未知故障偵測 → 量尺擴張</span>
+  <h1>冷啟動 PHM 展示</h1>
+  <nav class="tabs" id="tabs"><a href="#live" data-page="live" class="active">即時展示</a></nav>
+</header>
+<section id="page-live">
+<div class="livebar">
+  <span class="sub">健康基準 → 未知故障偵測 → 量尺擴張（實驗一～四串流）</span>
   <span id="stageBadge" class="badge stage">階段 0：僅健康</span>
   <span id="methodBadge" class="badge stage">Open Set：Mahalanobis</span>
   <span id="runBadge" class="badge stop">⏸ 暫停</span>
@@ -93,7 +123,7 @@ footer a:hover{color:var(--blue);}
   <label class="mini">資料集</label>
   <select id="datasetSel"></select>
   <button id="btnReset" class="warn">↺ 重置</button>
-</header>
+</div>
 <div class="controls">
   <button id="btnRun" class="primary">▶ 開始串流</button>
   <label>速率 <span id="rateLabel">4</span> 筆/秒</label>
@@ -189,6 +219,9 @@ footer a:hover{color:var(--blue);}
     </div>
   </div>
 </main>
+</section>
+
+<section id="page-exp" hidden><div class="exp-wrap" id="expRoot"></div></section>
 
 <footer>
   冷啟動 PHM 畢業專題 ·
@@ -519,5 +552,6 @@ $("datasetSel").onchange = e => {
 window.addEventListener("resize", () => { drawChart(); drawScatter(); drawPolar(); });
 connect();
 </script>
+<script src="/static/experiments.js"></script>
 </body>
 </html>

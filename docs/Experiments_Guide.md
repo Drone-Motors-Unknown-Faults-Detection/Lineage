@@ -342,6 +342,10 @@ venv/bin/python -m experiments.health_index_matrix --data-root data/formal_local
 
 每次執行自動存檔逐筆紀錄與模型快照到 `output/web_server/`，事後可重建現場。
 
+頁首的「實驗一」～「實驗八」切到各實驗的頁面：選資料集、Open Set 方法、seed 後按「執行」，
+就會跑一次該實驗並畫出結果，不用開終端機。實驗五、六、八一次跑 9 組工況，約需數秒到十幾秒。
+實驗六、八的頁面下方另有已提交的正式結果（9 工況 × 3 seed），那部分只讀不重跑。
+
 ---
 
 ## 11. 常見問題（FAQ）

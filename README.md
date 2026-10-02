@@ -308,7 +308,14 @@ AUROC 皆 1.0；所有 unknown 的健康指數都是 0.0，分得開但排不出
 
 ## 即時展示介面（Web）
 
-發表用的即時儀表板：把資料集當成「感測器串流」逐筆播放，現場演示三個實驗的完整劇情。
+發表用的儀表板。頁首可切換兩種頁面：
+
+- **即時展示**：把資料集當成「感測器串流」逐筆播放，現場演示實驗一～四的完整劇情（下方功能清單）。
+- **實驗一～實驗八**：每個實驗一頁，填參數（資料集、Open Set 方法、seed 等）按「執行」，
+  伺服器呼叫該實驗模組的 `run()`，結果畫成表格、熱圖與線圖。實驗六、八另外顯示已提交的
+  正式矩陣結果（`output/exp6_formal_matrix/aggregate/`、`reports/exp8_health_index_results/`），
+  唯讀、不從網頁重跑。每次執行的完整結果存到 `output/web_server/{ts}/experiments/{實驗}_{時間}.json`。
+  實驗在另一個執行緒池跑，一次一個；跑實驗時即時展示照常串流。
 
 ```bash
 ./run_web.sh                      # 預設 T1/8000rpm、http://localhost:8600
@@ -335,7 +342,7 @@ AUROC 皆 1.0；所有 unknown 的健康指數都是 0.0，分得開但排不出
   百分位，已知樣本本來就有少數落在線外
 - **控制**：注入來源下拉（十種螺絲配置）、劇本 A／B 一鍵播放、速率 1–10 筆/秒、
   資料集切換（九組 motor×rpm）、重置回階段 0
-- **session 持久化**：每次伺服器執行自動保存到 `output/web_server/{ts}/`——
+- **session 持久化**：每次伺服器執行自動保存到 `output/web_server/{ts}/`（實驗頁的結果在其下 `experiments/`）——
   `samples_epoch{N}.csv`（逐筆：t／真實注入／分數／判定／EWMA／CUSUM…）與
   `model_epoch{N}_{K}classes.json`（每次擬合後的逐類閾值與樣本數快照；重置一次算
   一個 epoch）。批次實驗的 `summary.json` 也同樣附上模型快照
@@ -384,7 +391,7 @@ Lineage/
 │   └── health/                  #   實驗八的套件：健康指數、校準、嚴重度、趨勢/告警、軌跡、診斷（見 docs/health_and_reports.md）
 ├── reports/                     # 實驗八結果 exp8_health_index_results/（health_index_matrix 寫入）
 ├── tests/                       # unittest（venv/bin/python -m unittest discover -s tests -t .）
-├── web/                         # 即時展示（只做編排與視覺化，不含實驗邏輯）
+├── web/                         # 即時展示與實驗頁（只做編排與視覺化，不含實驗邏輯）
 │   ├── live.py                  #   LiveDemo：把三個實驗模組串成互動串流
 │   ├── server.py                #   Tornado + WebSocket 伺服器
 │   └── static/index.html        #   單檔儀表板（原生 JS，無外部依賴）

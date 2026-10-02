@@ -62,3 +62,4 @@ venv/bin/python -m experiments.compare_openset --motor T1 --rpm 8000rpm --opense
 - 已提交紀錄：沒有。`logs/openset_comparison/`、`output/openset_comparison/` 目前不在 repo；目錄名沿用 `setup_run("openset_comparison")`，沒有帶實驗編號。
 - 正式版 9 工況比較在實驗六：[exp6_formal_benchmark](exp6_formal_benchmark.md)。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 8 節。
+- Web 實驗頁：頁首「實驗七」，`web/experiments.py` 的 `CATALOG` 項目 `exp7` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp7`；結果存到 `output/web_server/{ts}/experiments/exp7_{時間}.json`。

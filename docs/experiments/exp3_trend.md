@@ -71,3 +71,4 @@ CUSUM 累積 `(score - 1)` 的正偏移，欄位給展示看，不參與 `kind` 
 - 已提交紀錄：`logs/exp3_trend/`、`output/exp3_trend/`（3 次執行）。
 - 另一套趨勢邏輯 `experiments/health/trajectory.py` 屬於實驗八，兩者差別見 [health_and_reports.md](../health_and_reports.md) 第 1.3 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 4 節。
+- Web 實驗頁：頁首「實驗三」，`web/experiments.py` 的 `CATALOG` 項目 `exp3` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp3`；結果存到 `output/web_server/{ts}/experiments/exp3_{時間}.json`。
