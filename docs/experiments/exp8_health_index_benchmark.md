@@ -31,7 +31,7 @@ Open Set 分數已經能拒絕未知。健康指數是把這份分數壓進 `[0,
 
 - 馬氏距離、Ledoit–Wolf、k 近鄰出處同 [exp1_cold_start.md](exp1_cold_start.md)。
 - 分數到 `[0, 1]` 的分位數錨點、第 10 與第 95 百分位、`degradation_score = 1 - health_index`：本專案操作約定，寫在 `experiments/health/calibration.py` 的 `HealthIndexCalibrator`。
-- 不能把指數說成物理損傷或 RUL：資料能力寫在 [exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md) 與 `reports/exp8_health_monitoring_data_capability.md`。
+- 不能把指數說成物理損傷或 RUL：資料能力寫在 [exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md) 與 [health_monitoring_data_capability.md（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/health_monitoring_data_capability.md)。
 
 ## 預期成果
 
@@ -70,5 +70,5 @@ k-NN 的健康差距高 0.018513。Mahalanobis 的 accuracy 高 0.000007。同�
 - 套件：`experiments/health/` 全部模組，對照表見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
 - 測試：`tests/test_health_benchmark.py`，以及 `tests/test_health_{calibration,diagnosis,evaluation,index,schema,severity}.py`。
 - 結果：`reports/exp8_health_index_results/`。
-- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`。
+- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；原始稽核見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。

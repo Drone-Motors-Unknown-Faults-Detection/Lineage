@@ -76,6 +76,7 @@
 
 - [x] [#21](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/21) 釐清 health 與 reports 內容
   - [x] `docs/health_and_reports.md`：`experiments/health/` 各模組與呼叫端、`core/trend.py` 與 `experiments/health/trajectory.py` 兩套趨勢邏輯的差別、`reports/` 各子目錄的來源與現況
-  - [x] 新增 `reports/README.md` 索引；更新 `docs/README.md`、`README.md`、`AGENT.md` 目錄說明
+  - [x] 更新 `docs/README.md`、`README.md`、`AGENT.md` 目錄說明
+  - [x] 2026-10-03 `health/` 搬到 `experiments/health/`；`reports/` 只保留 `exp8_health_index_results/`，稽核紀錄刪除（可從 commit `80bdf54` 取回）
   - 文件記下的不一致已另開 issue：[#24](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/24) health CLI 未走 `setup_run`、[#25](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/25) 健康指數彙總檔沒有產生程式、[#26](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/26)–[#29](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/29) 抽查仍成立的稽核發現、[#30](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/30) 重驗其餘 17 項。
 - [x] 實驗編號：`compare_openset` 定為實驗七、健康指數三支定為實驗八；規劃中的 #13–#16 順延為實驗九～十二。相關文件改名為 `expN_` 開頭，`docs/experiments/README.md` 加各實驗檔案位置表。程式檔名不變。

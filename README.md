@@ -382,7 +382,7 @@ Lineage/
 │   ├── health_index_*.py        #   實驗八：健康指數 benchmark／matrix
 │   ├── health_monitor.py        #   實驗八：健康監測 CLI
 │   └── health/                  #   實驗八的套件：健康指數、校準、嚴重度、趨勢/告警、軌跡、診斷（見 docs/health_and_reports.md）
-├── reports/                     # 資料來源與程式碼稽核紀錄、資料規格、health index 正式結果（見 reports/README.md）
+├── reports/                     # 實驗八結果 exp8_health_index_results/（health_index_matrix 寫入）
 ├── tests/                       # unittest（venv/bin/python -m unittest discover -s tests -t .）
 ├── web/                         # 即時展示（只做編排與視覺化，不含實驗邏輯）
 │   ├── live.py                  #   LiveDemo：把三個實驗模組串成互動串流

@@ -35,7 +35,7 @@
 | 文件 | 內容 |
 |---|---|
 | [exp8_health_monitoring_workflow](exp8_health_monitoring_workflow.md) | 實驗八總覽：Level A 資料能力、Health Index、趨勢/告警、正式 9×3×2 結果、限制與 CLI |
-| [health_and_reports](health_and_reports.md) | `experiments/health/` 各模組與呼叫端、兩套趨勢邏輯的差別、`reports/` 各子目錄的來源與現況 |
+| [health_and_reports](health_and_reports.md) | `experiments/health/` 各模組與呼叫端、兩套趨勢邏輯的差別、`reports/` 保留的實驗八結果與已刪除稽核紀錄的取回連結 |
 
 ## 論文版管線文件（程式碼在 Ancestor）
 
