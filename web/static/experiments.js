@@ -1,0 +1,335 @@
+/* 實驗頁：頁首切換列 + 實驗一～八的參數表單、執行與結果呈現。
+ * 只負責呈現；計算在伺服器端呼叫 experiments/ 的 run()（見 web/experiments.py）。 */
+"use strict";
+(() => {
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let CATALOG = null;
+const LAST = {};          // id -> 最近一次 payload（切頁回來還在）
+const COMMITTED = {};     // name -> 已提交結果
+
+/* ---------- 格式化 ---------- */
+const num = (v, d = 3) => v === null || v === undefined || Number.isNaN(v) ? "—" : Number(v).toFixed(d);
+const pct = (v, d = 1) => v === null || v === undefined ? "—" : (Number(v) * 100).toFixed(d) + "%";
+const int = v => v === null || v === undefined ? "—" : String(Math.round(v));
+const bool = v => v ? "✓" : "✗";
+const pm = (m, s, f = num) => `${f(m)} ± ${f(s)}`;
+
+function kpis(items){
+  return `<div class="kpis">${items.map(([l, v]) =>
+    `<div class="kpi"><div class="v">${v}</div><div class="l">${esc(l)}</div></div>`).join("")}</div>`;
+}
+function table(cols, rows){
+  const head = cols.map(c => `<th>${esc(c[1])}</th>`).join("");
+  const body = rows.map(r => "<tr>" + cols.map(c => {
+    const v = c[2] ? c[2](r[c[0]], r) : r[c[0]];
+    return `<td>${typeof v === "string" && v.startsWith("<") ? v : esc(v)}</td>`;
+  }).join("") + "</tr>").join("");
+  return `<div class="scroll"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+function bar(v, max = 1, color){
+  const w = Math.max(0, Math.min(1, (v ?? 0) / max)) * 100;
+  return `<div class="bar"><div style="width:${w}%;${color ? "background:" + color : ""}"></div></div>`;
+}
+// 0→紅、0.5→黃、1→綠
+function heatColor(v, lo = 0, hi = 1){
+  if (v === null || v === undefined) return "#334155";
+  const x = Math.max(0, Math.min(1, (v - lo) / (hi - lo)));
+  const h = x * 120;
+  return `hsl(${h}, 70%, 55%)`;
+}
+function heatmap(rowLabels, colLabels, valueOf, opts = {}){
+  const f = opts.fmt || (v => num(v, 2));
+  const head = `<th>${esc(opts.corner || "")}</th>` + colLabels.map(c => `<th style="text-align:center">${esc(c)}</th>`).join("");
+  const body = rowLabels.map(r => `<tr><th style="text-align:left">${esc(r)}</th>` + colLabels.map(c => {
+    const v = valueOf(r, c);
+    return `<td class="heat" style="background:${heatColor(v, opts.lo ?? 0, opts.hi ?? 1)}">${f(v)}</td>`;
+  }).join("") + "</tr>").join("");
+  return `<div class="scroll"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+const details = (title, html) => `<details><summary>${esc(title)}</summary>${html}</details>`;
+const modelLine = m => m ? `<div class="mini">模型：${esc(m.openset_method)}${m.openset_method === "knn" ? `（k=${m.knn_neighbors}）` : `（${esc(m.method)}）`}；閾值策略 ${esc(m.threshold_strategy)}；seed ${esc(m.random_seed)}</div>` : "";
+
+/* ---------- 各實驗的結果呈現 ---------- */
+const RENDER = {
+  exp1(r){
+    return kpis([["健康誤報率（holdout）", pct(r.healthy_fp_rate)], ["故障平均偵測率", pct(r.macro_detect_rate)], ["故障平均 AUROC", num(r.macro_auroc, 4)]])
+      + modelLine(r.model)
+      + table([["display", "配置"], ["kind", "類型"], ["n", "樣本數"], ["detect_rate", "判未知比例", v => pct(v)],
+               ["detect_rate", "", (v, row) => bar(v, 1, row.kind.startsWith("healthy") ? "var(--green)" : "var(--red)")],
+               ["auroc", "AUROC", v => num(v, 4)], ["median_score", "分數中位數", v => num(v, 2)]], r.rows);
+  },
+  exp2(r){
+    const found = r.stages.filter(s => s.discovered).length;
+    return kpis([["發現的新故障", `${found} / ${r.stages.length}`], ["最終已知類別", r.final_known.length]])
+      + modelLine(r.model)
+      + table([["display", "依序注入"], ["discovered", "發現", bool], ["learned", "學會為"], ["samples_to_candidate", "到候選所需筆數", int],
+               ["cluster_size", "叢大小", int], ["cluster_purity", "純度", v => pct(v, 0)], ["rejected_known_clusters", "退回次數", int],
+               ["own_holdout_acc", "本類 holdout 認出率", v => pct(v)], ["healthy_holdout_acc", "健康 holdout 認出率", v => pct(v)],
+               ["known_after", "之後已知類別數", int]], r.stages);
+  },
+  exp3(r){
+    const rows = Object.entries(r.summary).map(([k, s]) => ({key: k, ...s}));
+    return modelLine(r.model)
+      + table([["name", "劇本"], ["expected", "應判為"], ["trials", "次數"], ["alarm_rate", "有警報", v => pct(v, 0)],
+               ["correct_rate", "判別正確", v => pct(v, 0)], ["correct_rate", "", v => bar(v)], ["mean_latency", "平均警報延遲（筆）", v => num(v, 1)],
+               ["mean_transition", "平均中間帶停留（筆）", v => num(v, 1)]], rows)
+      + details(`逐次結果（${r.trials.length} 次）`, table([["scenario", "劇本"], ["trial", "#"], ["expected", "應判"], ["verdict", "判為"],
+               ["correct", "正確", bool], ["alarm_t", "警報時刻", int], ["latency", "延遲", int], ["transition", "中間帶停留", int]], r.trials));
+  },
+  exp4(r){
+    let h = "";
+    if (r.geometry){
+      const g = r.geometry, names = g.ray_names;
+      h += `<h3>(a) 射線結構：故障方向兩兩夾角 cos</h3>`
+        + heatmap(names, names, (a, b) => g.cos_matrix[names.indexOf(a)][names.indexOf(b)], {lo: 0, hi: 1})
+        + table([["k", "群組統計"], ["v", "平均 cos", v => num(v, 4)]], Object.entries(g.group_stats).map(([k, v]) => ({k, v})))
+        + `<div class="mini">PolarMap 基準：${esc(g.polar.polarmap_base_method)}，τ 取第 ${esc(g.polar.tau_percentile)} 百分位</div>`
+        + table([["config", "射線"], ["radius", "半徑", v => num(v, 1)], ["tau", "τ", v => num(v, 3)]], g.polar.rays);
+    }
+    if (r.direction){
+      h += `<h3>(b) 方向熟悉度：只認識部分故障時，未知樣本的 cos</h3>`
+        + table([["known", "已知射線", v => v.join("、")], ["auroc_family_vs_4_146", "家族 vs 4_146 AUROC", v => num(v, 4)],
+                 ["median_family", "家族 cos 中位數", v => num(v, 3)], ["median_4_146", "4_146 cos 中位數", v => num(v, 3)],
+                 ["median_3_14", "3_14 cos 中位數", v => num(v, 3)]], r.direction.scenarios);
+    }
+    if (r.severity){
+      const s = r.severity;
+      h += `<h3>(c) 嚴重度回復（錨點：${esc(s.anchors.join("、"))}）</h3>`
+        + kpis(Object.entries(s.spearman).map(([k, v]) => [`Spearman（${k}）`, num(v, 3)]))
+        + table([["config", "配置"], ["rank", "真實排序", int], ["n", "樣本數", int], ["sev_radius_median", "半徑嚴重度", v => num(v, 3)],
+                 ["sev_best_ray_median", "最近射線嚴重度", v => num(v, 3)], ["sev_bundle_median", "射線束嚴重度", v => num(v, 3)]], s.rows);
+    }
+    return h;
+  },
+  exp5(r){
+    const keys = r.matrix.keys, cell = (a, b) => r.matrix.cells[`${a}->${b}`];
+    const sum = r.strategy.summary;
+    return `<h3>(a) 9×9 遷移矩陣：列 = 建基準的工況，欄 = 測試工況</h3>`
+      + `<div class="mini">AUROC</div>` + heatmap(keys, keys, (a, b) => cell(a, b)?.auroc, {corner: "基準 → 測試"})
+      + `<div class="mini" style="margin-top:8px">健康接受率（測試工況的健康樣本被判健康的比例）</div>`
+      + heatmap(keys, keys, (a, b) => cell(a, b)?.healthy_accept, {corner: "基準 → 測試", fmt: v => pct(v, 0)})
+      + `<h3>(b) 部署策略</h3>`
+      + table([["k", "策略"], ["healthy_accept_mean", "平均健康接受率", v => pct(v)], ["fault_detect_mean", "平均故障偵測率", v => pct(v)]],
+              Object.entries(sum).map(([k, v]) => ({k, ...v})))
+      + `<h3>(c) 壽命期漂移：以 T1 為基準，各馬達健康資料的分數</h3>`
+      + table([["motor", "馬達"], ["rpm", "RPM"], ["n", "樣本數"], ["median_score", "分數中位數", v => num(v, 2)],
+               ["p90_score", "分數 P90", v => num(v, 2)], ["flagged_unknown", "被判未知", v => pct(v, 1)]], r.drift.rows);
+  },
+  exp6(r){
+    const sorted = [...r.summary].sort((a, b) => a.healthy_fp_mean - b.healthy_fp_mean);
+    const names = [...new Set(r.rows.map(x => x.method))], ds = [...new Set(r.rows.map(x => x.dataset))];
+    const fp = (d, m) => r.rows.find(x => x.dataset === d && x.method === m)?.healthy_fp;
+    return `<div class="mini">${r.n_datasets} 組資料集 × ${names.length} 種偵測器，seed ${esc(r.seed)}，校準信心 ${esc(r.confidence)}</div>`
+      + table([["method", "偵測器"], ["auroc_mean", "AUROC", (v, x) => pm(v, x.auroc_std, z => num(z, 4))],
+               ["healthy_fp_mean", "健康誤報率", (v, x) => `${pct(v)} ± ${pct(x.healthy_fp_std)}`], ["healthy_fp_mean", "", v => bar(v, 1, "var(--red)")],
+               ["fault_detect_mean", "故障偵測率", v => pct(v)], ["fpr_at_tpr95_mean", "FPR@TPR95", v => num(v, 4)]], sorted)
+      + `<h3>逐資料集健康誤報率</h3>`
+      + heatmap(ds, names, (d, m) => { const v = fp(d, m); return v === undefined ? null : 1 - v; }, {corner: "資料集", fmt: v => v === null ? "—" : pct(1 - v, 1)})
+      + `<div class="mini">顏色越綠誤報越低。</div>`;
+  },
+  exp7(r){
+    return table([["openset_method", "方法"], ["auroc", "AUROC", v => num(v, 4)], ["aupr_unknown_positive", "AUPR", v => num(v, 4)],
+                  ["fpr_at_95_tpr", "FPR@TPR95", v => num(v, 4)], ["open_set_accuracy", "Open Set accuracy", v => pct(v, 2)],
+                  ["known_class_accuracy", "已知類別認出率", v => pct(v, 1)], ["unknown_recall", "unknown recall", v => pct(v, 1)],
+                  ["unknown_precision", "unknown precision", v => pct(v, 2)], ["f1_unknown", "unknown F1", v => num(v, 4)]], r.results)
+      + `<div class="mini">公平性：seed ${esc(r.fairness.same_random_seed)}、${esc(r.fairness.same_features)}、閾值資料 ${esc(r.fairness.same_threshold_data)}</div>`
+      + details("逐配置結果", table([["openset_method", "方法"], ["config", "配置"], ["kind", "類型"], ["n", "樣本數"],
+               ["unknown_recall", "判未知比例", v => pct(v, 1)], ["median_score", "分數中位數", v => num(v, 2)]], r.details));
+  },
+  exp8(r){
+    const m = k => r.rows.reduce((s, x) => s + (x[k] ?? 0), 0) / r.rows.length;
+    return kpis([["健康差距 known−unknown（平均）", num(m("health_gap_known_minus_unknown"), 3)], ["Open Set accuracy（平均）", pct(m("open_set_accuracy"), 2)],
+                 ["AUROC（平均）", num(m("auroc"), 4)], ["unknown 健康度中位數（平均）", num(m("unknown_health_median"), 3)]])
+      + `<div class="mini">${esc(r.health_interpretation)}；方法 ${esc(r.method)}，seed ${esc(r.seed)}</div>`
+      + table([["dataset", "工況"], ["known_health_mean", "健康樣本健康度", (v, x) => pm(v, x.known_health_std)],
+               ["unknown_health_mean", "未知樣本健康度", (v, x) => pm(v, x.unknown_health_std)],
+               ["health_gap_known_minus_unknown", "差距", v => num(v, 3)], ["health_gap_known_minus_unknown", "", v => bar(v)],
+               ["known_healthy_fraction", "健康樣本判 healthy 段", v => pct(v, 0)], ["unknown_critical_fraction", "未知判 critical 段", v => pct(v, 0)],
+               ["open_set_accuracy", "Open Set accuracy", v => pct(v, 2)], ["auroc", "AUROC", v => num(v, 4)]], r.rows);
+  },
+  exp8_monitor(r){
+    const n = r.length, alarms = r.filter(x => x.alarm_state !== "normal").length;
+    const stages = {}; r.forEach(x => stages[x.severity_stage] = (stages[x.severity_stage] || 0) + 1);
+    return kpis([["窗口數", n], ["告警中的窗口", `${alarms} / ${n}`],
+                 ...Object.entries(stages).map(([k, v]) => [`${k} 段`, v])])
+      + `<canvas class="exp-line" height="220" data-series='${esc(JSON.stringify(r.map(x => [x.raw_health_index, x.smoothed_health_index, x.alarm_state])))}'></canvas>`
+      + `<div class="mini"><span style="color:#94a3b8">●</span> raw 健康度 <span style="color:var(--blue)">━</span> 平滑健康度；底色 = 告警（黃 warning、紅 critical）；虛線 = warning 0.5 / critical 0.2</div>`
+      + details("逐窗結果", table([["window_index", "#"], ["openset_score", "開集分數", v => num(v, 2)], ["health_index", "健康度", v => num(v, 3)],
+               ["smoothed_health_index", "平滑", v => num(v, 3)], ["severity_stage", "分段"], ["trend", "趨勢"], ["alarm_state", "告警"],
+               ["change_point_state", "變化點"], ["fault_type", "fault_type"]], r));
+  },
+};
+
+const COMMITTED_RENDER = {
+  exp6_formal_matrix(c){
+    return `<div class="mini">${esc(c.producer)}；${esc(c.completed_runs)}/${esc(c.expected_runs)} 格完成，seed ${esc((c.seeds || []).join("/"))}，資料 ${esc(c.dataset_root)}</div>`
+      + table([["method", "方法"], ["open_set_accuracy_mean", "Open Set accuracy", (v, x) => `${pct(v, 2)} ± ${pct(x.open_set_accuracy_std, 2)}`],
+               ["known_accuracy_mean", "已知認出率", (v, x) => `${pct(v, 1)} ± ${pct(x.known_accuracy_std, 1)}`],
+               ["auroc_mean", "AUROC", v => num(v, 4)], ["n_condition_seed_rows", "列數", int]], c.macro_summary)
+      + details("k-NN − Mahalanobis 成對差", table([["metric", "指標"], ["n_pairs", "配對數"], ["mean_difference", "平均差", v => num(v, 6)],
+               ["knn_better_pairs", "k-NN 較好"], ["mahalanobis_better_pairs", "Mahalanobis 較好"], ["ties", "平手"]], c.paired_differences));
+  },
+  exp8_health_index_results(c){
+    const rows = Object.entries(c.overall).map(([method, v]) => ({method, ...v}));
+    const ds = [...new Set(c.by_condition.map(x => x.dataset))];
+    const gap = (d, m) => c.by_condition.find(x => x.dataset === d && x.method === m)?.health_gap_known_minus_unknown_mean;
+    return `<div class="mini">${esc(c.producer)}；${esc(c.rows)} 列，seed ${esc((c.seeds || []).join("/"))}</div>`
+      + table([["method", "方法"], ["health_gap_known_minus_unknown", "健康差距", v => pm(v.mean, v.std)],
+               ["open_set_accuracy", "Open Set accuracy", v => pm(v.mean, v.std, z => num(z, 6))], ["auroc", "AUROC", v => num(v.mean, 4)],
+               ["unknown_recall", "unknown recall", v => num(v.mean, 4)]], rows)
+      + `<h3>逐工況健康差距（3 seed 平均）</h3>` + heatmap(ds, ["mahalanobis", "knn"], gap, {corner: "工況", lo: 0.3, hi: 0.8});
+  },
+};
+
+/* ---------- 線圖（實驗八逐窗） ---------- */
+function drawLines(root){
+  root.querySelectorAll("canvas.exp-line").forEach(cv => {
+    const data = JSON.parse(cv.dataset.series), dpr = devicePixelRatio;
+    const ctx = cv.getContext("2d"), W = cv.width = cv.clientWidth * dpr, H = cv.height = 220 * dpr;
+    if (!W || !data.length) return;
+    const pad = 30 * dpr, X = i => pad + (data.length === 1 ? 0 : i / (data.length - 1)) * (W - pad * 1.4);
+    const Y = v => H - pad - v * (H - pad * 1.6);
+    const step = (W - pad * 1.4) / Math.max(1, data.length - 1);
+    data.forEach(([, , a], i) => {
+      if (a === "normal") return;
+      ctx.fillStyle = a === "critical" ? "#ef444433" : "#eab30833";
+      ctx.fillRect(X(i) - step / 2, Y(1), step, Y(0) - Y(1));
+    });
+    ctx.font = `${11 * dpr}px monospace`; ctx.fillStyle = "#64748b";
+    for (const g of [0, 0.2, 0.5, 1]){
+      ctx.strokeStyle = g === 0.2 || g === 0.5 ? "#94a3b8" : "#1e293b";
+      ctx.setLineDash(g === 0.2 || g === 0.5 ? [5 * dpr, 4 * dpr] : []);
+      ctx.beginPath(); ctx.moveTo(pad, Y(g)); ctx.lineTo(W, Y(g)); ctx.stroke();
+      ctx.fillText(String(g), 4 * dpr, Y(g) + 4 * dpr);
+    }
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#94a3b8";
+    data.forEach(([raw], i) => { ctx.beginPath(); ctx.arc(X(i), Y(raw ?? 0), 2.2 * dpr, 0, 7); ctx.fill(); });
+    ctx.strokeStyle = "#60a5fa"; ctx.lineWidth = 2 * dpr; ctx.beginPath();
+    data.forEach(([, s], i) => i ? ctx.lineTo(X(i), Y(s ?? 0)) : ctx.moveTo(X(i), Y(s ?? 0)));
+    ctx.stroke();
+  });
+}
+
+/* ---------- 頁面 ---------- */
+function groups(){
+  const g = [];
+  for (const e of CATALOG.experiments){
+    let grp = g.find(x => x.no === e.no);
+    if (!grp){ grp = {no: e.no, key: e.id, items: []}; g.push(grp); }
+    grp.items.push(e);
+  }
+  return g;
+}
+
+function fieldHtml(e, p){
+  const id = `f-${e.id}-${p.name}`;
+  if (p.type === "dataset"){
+    const def = CATALOG.datasets.includes("T1/8000rpm") ? "T1/8000rpm" : CATALOG.datasets[0];
+    return `<label>${esc(p.label)}<select id="${id}">${CATALOG.datasets.map(d => `<option${d === def ? " selected" : ""}>${esc(d)}</option>`).join("")}</select></label>`;
+  }
+  if (p.type === "config")
+    return `<label>${esc(p.label)}<select id="${id}">${CATALOG.configs.map(c => `<option value="${esc(c.config)}"${c.config === p.default ? " selected" : ""}>${esc(c.display)}</option>`).join("")}</select></label>`;
+  if (p.type === "select")
+    return `<label>${esc(p.label)}<select id="${id}">${p.options.map(o => `<option${o === p.default ? " selected" : ""}>${esc(o)}</option>`).join("")}</select></label>`;
+  return `<label>${esc(p.label)}<input type="number" id="${id}" value="${esc(p.default)}" min="${p.min}" max="${p.max}"></label>`;
+}
+
+function cardHtml(e){
+  return `<div class="panel" id="card-${e.id}">
+    <div class="exp-head"><h2>${esc(e.no)}：${esc(e.title)}</h2>
+      <div class="q">${esc(e.question)}</div>
+      <div class="mini">程式 <code>${esc(e.code)}</code>　技術報告 <code>${esc(e.doc)}</code></div></div>
+    <div class="form">${e.params.map(p => fieldHtml(e, p)).join("")}
+      <button class="primary" id="run-${e.id}">▶ 執行</button>
+      <span class="mini" id="status-${e.id}"></span></div>
+    <div id="out-${e.id}" style="margin-top:10px"></div>
+  </div>
+  ${e.committed ? `<div class="panel"><h2>已提交的正式結果（唯讀，不從網頁重跑）</h2><div id="committed-${e.committed}" class="mini">載入中…</div></div>` : ""}`;
+}
+
+function showResult(e, payload){
+  const out = $(`out-${e.id}`);
+  if (!out) return;
+  const p = Object.entries(payload.params).map(([k, v]) => `${k}=${v}`).join("，");
+  out.innerHTML = `<div class="mini">參數 ${esc(p)}；${esc(payload.seconds)} 秒；結果存於 <code>${esc(payload.saved || "（未存檔）")}</code></div>`
+    + RENDER[e.id](payload.result);
+  drawLines(out);
+}
+
+async function runExp(e){
+  const params = {};
+  for (const p of e.params){
+    const v = $(`f-${e.id}-${p.name}`).value;
+    params[p.name] = p.type === "int" ? Number(v) : v;
+  }
+  const btn = $(`run-${e.id}`), st = $(`status-${e.id}`);
+  btn.disabled = true; st.className = "mini"; st.textContent = "⚙ 執行中…（多工況的實驗約需數秒到十幾秒）";
+  try {
+    const res = await fetch(`/api/experiments/${e.id}/run`, {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(params)});
+    const payload = await res.json();
+    if (!res.ok) throw new Error(payload.error || res.statusText);
+    LAST[e.id] = payload;
+    st.textContent = `✔ 完成（${payload.seconds} 秒）`;
+    showResult(e, payload);
+  } catch (err){
+    st.className = "mini err"; st.textContent = "✗ " + err.message;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function loadCommitted(name){
+  const box = $(`committed-${name}`);
+  if (!box) return;
+  try {
+    if (!COMMITTED[name]){
+      const res = await fetch(`/api/committed/${name}`);
+      COMMITTED[name] = await res.json();
+    }
+    const c = COMMITTED[name];
+    box.className = "";
+    box.innerHTML = c.available ? `<div class="mini">檔案 <code>${esc(c.path)}</code></div>` + COMMITTED_RENDER[name](c)
+      : `<span class="mini">找不到 <code>${esc(c.path)}</code></span>`;
+  } catch (err){
+    box.className = "mini err"; box.textContent = "✗ " + err.message;
+  }
+}
+
+function renderPage(key){
+  const grp = groups().find(g => g.key === key);
+  if (!grp) return false;
+  $("expRoot").innerHTML = grp.items.map(cardHtml).join("");
+  for (const e of grp.items){
+    $(`run-${e.id}`).onclick = () => runExp(e);
+    if (LAST[e.id]) showResult(e, LAST[e.id]);
+    if (e.committed) loadCommitted(e.committed);
+  }
+  return true;
+}
+
+function route(){
+  const key = location.hash.slice(1) || "live";
+  const isExp = CATALOG && key !== "live" && renderPage(key);
+  $("page-live").hidden = !!isExp;
+  $("page-exp").hidden = !isExp;
+  document.querySelectorAll("#tabs a").forEach(a => a.classList.toggle("active", a.dataset.page === (isExp ? key : "live")));
+  if (!isExp) window.dispatchEvent(new Event("resize"));   // 讓即時展示的 canvas 依可見寬度重畫
+}
+
+async function init(){
+  try {
+    CATALOG = await (await fetch("/api/experiments")).json();
+  } catch (err){
+    console.error("無法載入實驗目錄", err);
+    return;
+  }
+  $("tabs").insertAdjacentHTML("beforeend", groups().map(g =>
+    `<a href="#${g.key}" data-page="${g.key}" title="${esc(g.items.map(i => i.title).join("／"))}">${esc(g.no)}</a>`).join(""));
+  window.addEventListener("hashchange", route);
+  window.addEventListener("resize", () => { if (!$("page-exp").hidden) drawLines($("expRoot")); });
+  route();
+}
+init();
+})();

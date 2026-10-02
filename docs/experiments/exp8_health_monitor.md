@@ -64,3 +64,4 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 - 套件：`health/`，見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
 - 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
+- Web 實驗頁：頁首「實驗八」，`web/experiments.py` 的 `CATALOG` 項目 `exp8_monitor` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp8_monitor`；結果存到 `output/web_server/{ts}/experiments/exp8_monitor_{時間}.json`。

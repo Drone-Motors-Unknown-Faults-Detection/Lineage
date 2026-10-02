@@ -80,3 +80,4 @@ venv/bin/python -m experiments.exp4_polar_map --part a
 - 已提交紀錄：`logs/exp4_polar_map/`、`output/exp4_polar_map/`（2 次執行）。
 - PolarMap 固定建在 Mahalanobis 上的經過：`reports/exp6_ancestor_openset_progress.md` P8。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 5 節。
+- Web 實驗頁：頁首「實驗四」，`web/experiments.py` 的 `CATALOG` 項目 `exp4` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp4`；結果存到 `output/web_server/{ts}/experiments/exp4_{時間}.json`。

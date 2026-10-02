@@ -1,0 +1,328 @@
+"""Web 實驗頁的目錄與執行層。
+
+每個實驗頁對應一支 experiments/ 模組：本模組只負責把前端送來的參數驗證後，
+轉成該模組 run() 的引數、把回傳值轉成可 JSON 化的 dict，並把每次執行的結果
+存到 output/web_server/{ts}/experiments/。判定、統計與分群邏輯仍全部在
+experiments/ 與 core/（AGENT.md 鐵則 2）。
+
+已提交的矩陣結果（實驗六正式矩陣、實驗八 54 列）只讀取、不從網頁重跑，
+避免覆蓋 output/ 與 reports/ 裡進版的證據。
+"""
+
+from __future__ import annotations
+
+import csv
+import json
+import math
+import time
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Callable
+
+import numpy as np
+
+from core.data import HEALTHY, config_sort_key, display_name, load_pools
+from core.openset import SUPPORTED_OPENSET_METHODS
+
+ROOT = Path(__file__).resolve().parent.parent
+
+_OPENSET = {
+    "name": "openset_method", "label": "Open Set 方法", "type": "select",
+    "options": list(SUPPORTED_OPENSET_METHODS), "default": "mahalanobis",
+}
+_SEED = {"name": "seed", "label": "seed", "type": "int", "default": 42, "min": 0, "max": 100000}
+_DATASET = {"name": "dataset", "label": "資料集", "type": "dataset"}
+
+CATALOG: list[dict] = [
+    {
+        "id": "exp1", "no": "實驗一", "title": "冷啟動偵測能力",
+        "question": "只用 8screws 建健康基準，九種故障抓不抓得到？",
+        "code": "experiments/exp1_cold_start.py",
+        "doc": "docs/experiments/exp1_cold_start.md",
+        "params": [_DATASET, _OPENSET, _SEED],
+    },
+    {
+        "id": "exp2", "no": "實驗二", "title": "量尺擴張",
+        "question": "未知樣本能否由 HDBSCAN 分群、經確認後擴張量尺？",
+        "code": "experiments/exp2_scale_growth.py",
+        "doc": "docs/experiments/exp2_scale_growth.md",
+        "params": [_DATASET, _OPENSET, _SEED],
+    },
+    {
+        "id": "exp3", "no": "實驗三", "title": "漸進 vs 突發判別",
+        "question": "漸進鬆脫與突發切換能否從分數序列分開？",
+        "code": "experiments/exp3_trend.py",
+        "doc": "docs/experiments/exp3_trend.md",
+        "params": [_DATASET, _OPENSET, _SEED,
+                   {"name": "n_trials", "label": "每劇本次數", "type": "int",
+                    "default": 20, "min": 1, "max": 100}],
+    },
+    {
+        "id": "exp4", "no": "實驗四", "title": "極座標健康地圖",
+        "question": "故障方向與半徑能不能對上螺絲配置？",
+        "code": "experiments/exp4_polar_map.py",
+        "doc": "docs/experiments/exp4_polar_map.md",
+        "params": [_DATASET, _SEED],
+    },
+    {
+        "id": "exp5", "no": "實驗五", "title": "跨工況冷啟動泛化",
+        "question": "某一工況的健康基準能否搬到別的工況？（9 組全跑）",
+        "code": "experiments/exp5_cross_condition.py",
+        "doc": "docs/experiments/exp5_cross_condition.md",
+        "params": [_SEED],
+    },
+    {
+        "id": "exp6", "no": "實驗六", "title": "開集偵測方法基準比較",
+        "question": "七種單類偵測器在同一校準規則下，誰的誤報較低？（9 組全跑）",
+        "code": "experiments/exp6_osr_benchmark.py",
+        "doc": "docs/experiments/exp6_osr_benchmark.md",
+        "params": [_SEED],
+        "committed": "exp6_formal_matrix",
+    },
+    {
+        "id": "exp7", "no": "實驗七", "title": "單工況 Mahalanobis vs k-NN",
+        "question": "同一工況、同一切分下，換成 k-NN 距離差多少？",
+        "code": "experiments/compare_openset.py",
+        "doc": "docs/experiments/exp7_compare_openset.md",
+        "params": [_DATASET, _SEED],
+    },
+    {
+        "id": "exp8", "no": "實驗八", "title": "相對健康指數",
+        "question": "把開集分數映成 0～1 健康度後，健康與未知分得多開？（9 組全跑）",
+        "code": "experiments/health_index_benchmark.py",
+        "doc": "docs/experiments/exp8_health_index_benchmark.md",
+        "params": [_OPENSET, _SEED],
+        "committed": "exp8_health_index_results",
+    },
+    {
+        "id": "exp8_monitor", "no": "實驗八", "title": "健康監測逐窗輸出",
+        "question": "單一配置的 holdout 窗口逐筆送進 SessionTrajectoryMonitor，健康度與告警怎麼走？",
+        "code": "experiments/health_monitor.py",
+        "doc": "docs/experiments/exp8_health_monitor.md",
+        "params": [_DATASET, _OPENSET, _SEED,
+                   {"name": "config", "label": "注入配置", "type": "config", "default": HEALTHY},
+                   {"name": "max_windows", "label": "最多窗口數", "type": "int",
+                    "default": 120, "min": 5, "max": 1000}],
+    },
+]
+_BY_ID = {e["id"]: e for e in CATALOG}
+
+
+def jsonable(value: Any) -> Any:
+    """把 numpy 型別、NaN/inf 轉成瀏覽器 JSON.parse 吃得下的值。"""
+    if isinstance(value, dict):
+        return {str(k): jsonable(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [jsonable(v) for v in value]
+    if isinstance(value, np.ndarray):
+        return jsonable(value.tolist())
+    if isinstance(value, np.generic):
+        value = value.item()
+    if isinstance(value, float) and not math.isfinite(value):
+        return None
+    if isinstance(value, Path):
+        return str(value)
+    return value
+
+
+class ExperimentRunner:
+    def __init__(self, datasets: list[dict], data_root: str, out_dir: Path | None = None,
+                 detector_options: dict | None = None):
+        self.datasets = datasets
+        self.data_root = data_root
+        self.out_dir = Path(out_dir) / "experiments" if out_dir else None
+        self.detector_options = detector_options or {}
+        self._pools_cache: dict[str, dict] = {}
+
+    # -- 目錄 ------------------------------------------------------------------
+
+    def catalog(self) -> dict:
+        configs = []
+        if self.datasets:
+            pools = self._pools(self._dataset_key(self.datasets[0]))
+            configs = [{"config": c, "display": display_name(c)}
+                       for c in sorted(pools, key=config_sort_key)]
+        return {
+            "experiments": CATALOG,
+            "datasets": [self._dataset_key(d) for d in self.datasets],
+            "configs": configs,
+            "data_root": self.data_root,
+        }
+
+    # -- 參數 ------------------------------------------------------------------
+
+    @staticmethod
+    def _dataset_key(ds: dict) -> str:
+        return f"{ds['motor']}/{ds['rpm']}"
+
+    def _find_dataset(self, key: str) -> dict:
+        for ds in self.datasets:
+            if self._dataset_key(ds) == key:
+                return ds
+        raise ValueError(f"未知資料集：{key}")
+
+    def _pools(self, key: str) -> dict:
+        if key not in self._pools_cache:
+            self._pools_cache[key] = load_pools(self._find_dataset(key)["path"])
+        return self._pools_cache[key]
+
+    def _clean(self, spec: dict, raw: dict) -> dict:
+        out: dict[str, Any] = {}
+        for p in spec["params"]:
+            name, value = p["name"], raw.get(p["name"])
+            if p["type"] == "dataset":
+                value = value or self._dataset_key(self.datasets[0])
+                self._find_dataset(value)
+            elif p["type"] == "select":
+                value = value or p["default"]
+                if value not in p["options"]:
+                    raise ValueError(f"{p['label']} 不接受 {value!r}")
+            elif p["type"] == "config":
+                value = value or p["default"]
+            elif p["type"] == "int":
+                value = int(p["default"] if value in (None, "") else value)
+                if not p["min"] <= value <= p["max"]:
+                    raise ValueError(f"{p['label']} 必須在 {p['min']}～{p['max']}")
+            out[name] = value
+        return out
+
+    # -- 執行 ------------------------------------------------------------------
+
+    def run(self, exp_id: str, raw_params: dict) -> dict:
+        spec = _BY_ID.get(exp_id)
+        if spec is None:
+            raise ValueError(f"未知實驗：{exp_id}")
+        params = self._clean(spec, raw_params or {})
+        t0 = time.time()
+        result = jsonable(self._dispatch(exp_id, params))
+        payload = {
+            "experiment": exp_id,
+            "no": spec["no"],
+            "code": spec["code"],
+            "params": params,
+            "seconds": round(time.time() - t0, 2),
+            "finished_at": datetime.now().isoformat(timespec="seconds"),
+            "result": result,
+        }
+        payload["saved"] = self._save(exp_id, payload)
+        return payload
+
+    def _dispatch(self, exp_id: str, p: dict) -> Any:
+        opts = dict(self.detector_options)
+        mahal = opts.get("mahalanobis_method", "ledoit_wolf")
+        conf = opts.get("confidence", 0.95)
+        k = opts.get("knn_neighbors", 5)
+        seed = p["seed"]
+        method = p.get("openset_method", "mahalanobis")
+        if exp_id == "exp1":
+            from experiments.exp1_cold_start import run
+            return run(self._pools(p["dataset"]), seed=seed, confidence=conf, method=mahal,
+                       openset_method=method, knn_neighbors=k)
+        if exp_id == "exp2":
+            from experiments.exp2_scale_growth import run
+            return run(self._pools(p["dataset"]), seed=seed, confidence=conf, method=mahal,
+                       openset_method=method, knn_neighbors=k)
+        if exp_id == "exp3":
+            from experiments.exp3_trend import run
+            return run(self._pools(p["dataset"]), n_trials=p["n_trials"], seed=seed,
+                       confidence=conf, method=mahal, openset_method=method, knn_neighbors=k)
+        if exp_id == "exp4":
+            from experiments.exp4_polar_map import run
+            return run(self._pools(p["dataset"]), seed=seed)
+        if exp_id == "exp5":
+            from experiments.exp5_cross_condition import run
+            return run(self.data_root, seed=seed, confidence=conf, method=mahal)
+        if exp_id == "exp6":
+            from experiments.exp6_osr_benchmark import run
+            return run(self.data_root, seed=seed, confidence=conf)
+        if exp_id == "exp7":
+            from experiments.compare_openset import run
+            return run(self._pools(p["dataset"]), seed=seed, confidence=conf,
+                       mahalanobis_method=mahal, knn_neighbors=k)
+        if exp_id == "exp8":
+            from experiments.health_index_benchmark import run
+            return run(self.data_root, seed=seed, openset_method=method,
+                       mahalanobis_method=mahal, confidence=conf, knn_neighbors=k,
+                       require_nine=False)
+        if exp_id == "exp8_monitor":
+            from experiments.health_monitor import run
+            ds = self._find_dataset(p["dataset"])
+            if p["config"] not in self._pools(p["dataset"]):
+                raise ValueError(f"資料集 {p['dataset']} 沒有配置 {p['config']}")
+            return run(self.data_root, ds["motor"], ds["rpm"], p["config"], seed=seed,
+                       openset_method=method, mahalanobis_method=mahal, knn_neighbors=k,
+                       motor_id="web-demo", session_id=f"{p['dataset']}-{p['config']}",
+                       max_windows=p["max_windows"], require_identity=True)
+        raise ValueError(f"未知實驗：{exp_id}")
+
+    def _save(self, exp_id: str, payload: dict) -> str | None:
+        if self.out_dir is None:
+            return None
+        self.out_dir.mkdir(parents=True, exist_ok=True)
+        stamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+        path = self.out_dir / f"{exp_id}_{stamp}.json"
+        n = 1
+        while path.exists():
+            path = self.out_dir / f"{exp_id}_{stamp}_{n}.json"
+            n += 1
+        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        try:
+            return str(path.resolve().relative_to(ROOT))
+        except ValueError:
+            return str(path)
+
+    # -- 已提交結果 ------------------------------------------------------------
+
+    def committed(self, name: str) -> dict:
+        loaders: dict[str, Callable[[], dict]] = {
+            "exp6_formal_matrix": _load_exp6_matrix,
+            "exp8_health_index_results": _load_exp8_results,
+        }
+        if name not in loaders:
+            raise ValueError(f"沒有已提交結果：{name}")
+        return jsonable(loaders[name]())
+
+
+def _load_exp6_matrix() -> dict:
+    path = ROOT / "output/exp6_formal_matrix/aggregate/aggregate.json"
+    if not path.is_file():
+        return {"available": False, "path": str(path.relative_to(ROOT))}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return {
+        "available": True,
+        "path": str(path.relative_to(ROOT)),
+        "producer": "experiments/exp6_matrix.py → experiments/aggregate_exp6.py",
+        "completed_runs": data.get("completed_runs"),
+        "expected_runs": data.get("expected_runs"),
+        "seeds": data.get("seeds"),
+        "dataset_root": data.get("dataset_root"),
+        "macro_summary": data.get("macro_summary", []),
+        "condition_summary": data.get("condition_summary", []),
+        "paired_differences": data.get("paired_differences", []),
+    }
+
+
+def _load_exp8_results() -> dict:
+    base = ROOT / "reports/exp8_health_index_results"
+    summary = base / "aggregate_summary.json"
+    if not summary.is_file():
+        return {"available": False, "path": str(summary.relative_to(ROOT))}
+    data = json.loads(summary.read_text(encoding="utf-8"))
+    by_condition = []
+    csv_path = base / "aggregate_by_condition.csv"
+    if csv_path.is_file():
+        with csv_path.open(encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                row.pop("index", None)
+                by_condition.append({k: (v if k in ("method", "dataset") else float(v))
+                                     for k, v in row.items()})
+    return {
+        "available": True,
+        "path": str(base.relative_to(ROOT)),
+        "producer": "experiments/health_index_matrix.py",
+        "seeds": data.get("seeds"),
+        "rows": data.get("rows"),
+        "overall": data.get("overall", {}),
+        "difference_knn_minus_mahalanobis": data.get("difference_knn_minus_mahalanobis", {}),
+        "by_condition": by_condition,
+    }

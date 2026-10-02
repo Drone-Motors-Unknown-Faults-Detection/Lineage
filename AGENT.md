@@ -31,7 +31,8 @@ experiments/     實驗模組（exp1 冷啟動、exp2 量尺擴張、exp3 趨勢
                  exp5 跨工況、exp6 OSR 基準＋正式矩陣、exp7 compare_openset、
                  exp8 health_index_* / health_monitor）；
                  總覽見 docs/Experiments_Guide.md；技術報告在 docs/experiments/
-web/             即時展示（live.py 編排、server.py Tornado+WS、static/index.html）
+web/             即時展示與實驗頁（live.py 串流編排、experiments.py 實驗頁目錄與執行、
+                 server.py Tornado+WS+HTTP API、static/index.html + experiments.js）
 docs/            實驗技術報告在 docs/experiments/（每個 experiments/*.py 一份 .md）
                  ＋論文版技術文件快照與 Lineage 研究文件。
                  歷史快照見 docs/README.md；快照裡的程式路徑不對應現行架構，勿據以改碼

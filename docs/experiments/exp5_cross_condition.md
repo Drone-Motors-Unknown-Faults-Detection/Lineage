@@ -72,3 +72,4 @@ venv/bin/python -m experiments.exp5_cross_condition --part a
 - Web：`web/static/index.html` 的資料集下拉選單（9 組工況各自冷啟動）。
 - 已提交紀錄：`logs/exp5_cross_condition/`、`output/exp5_cross_condition/`（1 次執行）。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 6 節。
+- Web 實驗頁：頁首「實驗五」，`web/experiments.py` 的 `CATALOG` 項目 `exp5` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp5`；結果存到 `output/web_server/{ts}/experiments/exp5_{時間}.json`。

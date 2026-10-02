@@ -72,3 +72,4 @@ k-NN 的健康差距高 0.018513。Mahalanobis 的 accuracy 高 0.000007。同�
 - 結果：`reports/exp8_health_index_results/`。
 - 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)、`reports/exp8_health_monitoring_data_capability.md`、`reports/exp8_fault_type_data_requirements.md`。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
+- Web 實驗頁：頁首「實驗八」，`web/experiments.py` 的 `CATALOG` 項目 `exp8` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp8`；結果存到 `output/web_server/{ts}/experiments/exp8_{時間}.json`。同頁下方唯讀顯示已提交的正式矩陣結果。
