@@ -1,14 +1,34 @@
 # docs/ 文件索引
 
-> **想了解本專題的實驗？先讀 [實驗說明手冊（小白友善版）](Experiments_Guide.md)**——
-> 六個實驗的設計理念、方法、預期與實際結果，不需要機器學習背景。
-> 本目錄其餘文件為論文版管線的歷史快照（見下）。
+> 實驗的白話說明在 [實驗說明手冊](Experiments_Guide.md)。
+> 對程式的技術報告在 [experiments/](experiments/README.md)。
+> 下面的 Step 1–6、Tensorflow 與三份 Lineage 研究筆記是論文版管線的歷史快照。
 
-本目錄是**論文版管線時期的技術文件快照**（對應本 repo git 歷史 `dda8910` 時的版本，
-2026-09-17 放回）。文中描述的 Step 1–6 程式碼、notebook 與 `scripts/` 模組現存於
+歷史快照對應本 repo git 歷史 `dda8910`（2026-09-17 放回）。那些文件裡的 Step 1–6
+程式、notebook 與 `scripts/` 現存於
 [Ancestor repo](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor)，
-**不對應**目前的 `core/ experiments/ web/` 架構；每份文件頂部都有歷史標記。
-新專案（冷啟動 PHM）的說明見根目錄 [README.md](../README.md)。
+**不對應**目前的 `core/ experiments/ web/`；每份快照頂部都有歷史標記。
+新專案的說明見根目錄 [README.md](../README.md)。
+
+## 現行實驗技術報告
+
+`experiments/` 的每一支程式各有一份，目錄在 [experiments/README.md](experiments/README.md)。白話版仍是 [Experiments_Guide.md](Experiments_Guide.md)。
+
+| 文件 | 程式 |
+|---|---|
+| [exp1_cold_start](experiments/exp1_cold_start.md) | `experiments/exp1_cold_start.py` |
+| [exp2_scale_growth](experiments/exp2_scale_growth.md) | `experiments/exp2_scale_growth.py` |
+| [exp3_trend](experiments/exp3_trend.md) | `experiments/exp3_trend.py` |
+| [exp4_polar_map](experiments/exp4_polar_map.md) | `experiments/exp4_polar_map.py` |
+| [exp5_cross_condition](experiments/exp5_cross_condition.md) | `experiments/exp5_cross_condition.py` |
+| [exp6_osr_benchmark](experiments/exp6_osr_benchmark.md) | `experiments/exp6_osr_benchmark.py` |
+| [exp6_formal_benchmark](experiments/exp6_formal_benchmark.md) | `experiments/exp6_formal_benchmark.py` |
+| [exp6_matrix](experiments/exp6_matrix.md) | `experiments/exp6_matrix.py` |
+| [aggregate_exp6](experiments/aggregate_exp6.md) | `experiments/aggregate_exp6.py` |
+| [compare_openset](experiments/compare_openset.md) | `experiments/compare_openset.py` |
+| [health_index_benchmark](experiments/health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
+| [health_index_matrix](experiments/health_index_matrix.md) | `experiments/health_index_matrix.py` |
+| [health_monitor](experiments/health_monitor.md) | `experiments/health_monitor.py` |
 
 ## 現行健康監測工作流程
 

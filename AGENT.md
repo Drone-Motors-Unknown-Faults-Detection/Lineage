@@ -26,9 +26,10 @@ core/            共用零件：data / mahalanobis / openset / monitor / geometr
 health/          健康指數、校準、嚴重度分級、趨勢/告警、軌跡與診斷（見 docs/health_monitoring_workflow.md）
 experiments/     實驗模組（exp1 冷啟動、exp2 量尺擴張、exp3 趨勢、exp4 極座標、
                  exp5 跨工況、exp6 OSR 基準＋正式矩陣、compare_openset、health_index_*）；
-                 總覽見 docs/Experiments_Guide.md；每個實驗另有一份 docs/ 手冊
+                 總覽見 docs/Experiments_Guide.md；技術報告在 docs/experiments/
 web/             即時展示（live.py 編排、server.py Tornado+WS、static/index.html）
-docs/            實驗手冊（每個實驗一份 .md）＋論文版技術文件快照與 Lineage 研究文件。
+docs/            實驗技術報告在 docs/experiments/（每個 experiments/*.py 一份 .md）
+                 ＋論文版技術文件快照與 Lineage 研究文件。
                  歷史快照見 docs/README.md；快照裡的程式路徑不對應現行架構，勿據以改碼
 data/            特徵資料（git 忽略；由論文版管線產出，本專案唯讀）
 logs/ output/    每次執行的日誌與結果（納入版控）
@@ -62,7 +63,7 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
 
 ## 實驗手冊
 
-任何實驗都要在 `docs/` 放一份 Markdown 手冊，再改程式。範圍包含新的 `experiments/` 模組，以及既有實驗改了方法、資料切分或指標。手冊檔名用實驗名稱，例如 `docs/exp7_foo.md`。完成後在 `docs/README.md` 的現行文件表加一列。
+任何實驗都要在 `docs/experiments/` 放一份 Markdown 技術報告，再改程式。範圍包含新的 `experiments/` 模組，以及既有實驗改了方法、資料切分或指標。檔名用模組名，例如 `docs/experiments/exp7_foo.md`。完成後在 `docs/experiments/README.md` 與 `docs/README.md` 的現行文件表各加一列。
 
 手冊至少寫這四項：
 
