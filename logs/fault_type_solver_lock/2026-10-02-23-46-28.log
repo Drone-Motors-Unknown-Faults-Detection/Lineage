@@ -1,0 +1,4 @@
+2026-10-02 23:46:28 | INFO    | Logger initialized: fault_type_solver_lock
+2026-10-02 23:46:28 | INFO    | log_file=logs\fault_type_solver_lock\2026-10-02-23-46-28.log
+2026-10-02 23:46:28 | INFO    | output_dir=output\fault_type_solver_lock\2026-10-02-23-46-28
+2026-10-02 23:47:33 | INFO    | lock=6fa4d2854705d306baa949c630517b9d342f2916bc620eab2706ada642142164 commit BEFORE fit

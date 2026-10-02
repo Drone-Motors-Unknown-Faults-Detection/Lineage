@@ -17,3 +17,7 @@
 - 23:30:52 report_v2→23:34:17 exit0，seal88d34b9ef3e25a3e6e0376da6ede26e20dfdb399a38741704aa1001898e88ab9；六完整arms全部FAILED，Q02/Q04 INCOMPLETE。已重算所有方法/controls逐motor/RPM/class與配對，無部署winner。
 - 23:36:18 archive8roots exit0；23:36:43 fixed_delivery exit0，8 ZIP/233 members SHA/CRC PASS，原檔不移除。D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/continuous_research；父依賴沿用先前literature/mechanism備份，不宣稱單包自足。
 - 原始論文新閱讀：Weinberger/Saul2009§3.4 solver及Rennie/Srebro2005§3.3 Eq9 shifted generalized logistic，SciPy1.15.3 L-BFGS-B官方停止條件。先寫solver_diagnosis手冊與雙索引，再實作train-only有限diagnosis；沒有先看新cal/test分數選τ。原Q的sealed來源卡不修改。
+- Q驗證/結果交付commit20db8849605e84a2d9fc2e48079dbd96b8bf0c02已push，remote exact。第一次git add顯示summary.json.gz被既有ignore排除；實際未入該commit，後續只對此220961-byte compact檔用明確-f補入，不新增ignore或forcepush。
+- 新solver首次9tests有1個fixture/欄位錯誤：沿用manifest的t_code並隔離unit fixture；新增跨用途alias、timeout與runner重用驗證。後續14tests雙runtime PASS；初次失敗保留於紀錄，不當正式研究失敗格。
+- 23:43:20診斷lock沒有fit，後續加seed/parent/optimizer checkpoint binding後作廢；新lock23:46:28，seal6fa4d2854705d306baa949c630517b9d342f2916bc620eab2706ada642142164。原Q結果/程式SHA未動。固定27train fits，尚未執行；等完整驗收及commit/push後再fit。
+- 23:45:05/23:45:18 acceptance exit0：Python3.10.19/3.14.6各392全測試、36help、pip check PASS（38commands）；14新tests另在最後checkpoint binding修補後雙runtime重測PASS。保留全部sourceguard，numeric損失無後續修改。

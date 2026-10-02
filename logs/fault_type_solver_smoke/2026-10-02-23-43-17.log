@@ -1,0 +1,4 @@
+2026-10-02 23:43:17 | INFO    | Logger initialized: fault_type_solver_smoke
+2026-10-02 23:43:17 | INFO    | log_file=logs\fault_type_solver_smoke\2026-10-02-23-43-17.log
+2026-10-02 23:43:17 | INFO    | output_dir=output\fault_type_solver_smoke\2026-10-02-23-43-17
+2026-10-02 23:43:17 | INFO    | synthetic smoke complete
