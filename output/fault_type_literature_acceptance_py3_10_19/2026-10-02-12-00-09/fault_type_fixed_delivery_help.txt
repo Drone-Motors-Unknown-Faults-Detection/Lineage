@@ -1,0 +1,7 @@
+usage: fault_type_fixed_delivery.py [-h] --index INDEX
+
+Verify explicit archive SHA/CRC/every member; never extract or delete data.
+
+options:
+  -h, --help     show this help message and exit
+  --index INDEX

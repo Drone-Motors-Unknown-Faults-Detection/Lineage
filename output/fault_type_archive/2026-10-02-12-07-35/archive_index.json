@@ -1,0 +1,15 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-01-19.zip",
+      "sha256": "11020258e95624ec392144359c4ea553380939c8a808dd8c9ab96b0a2223f159",
+      "bytes": 628817824,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19",
+      "source_files": 11,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

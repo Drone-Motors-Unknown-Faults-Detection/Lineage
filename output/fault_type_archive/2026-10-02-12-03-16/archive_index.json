@@ -1,0 +1,23 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-01-23-17.zip",
+      "sha256": "9c6c7a9c737d4a0b448101c865a72cc1b5570b8290d52412e84b32f80d30a243",
+      "bytes": 219837952,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_smoke_py3_10_19\\2026-10-02-01-23-17",
+      "source_files": 646,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-11-57-36.zip",
+      "sha256": "2e0e59771ce88e856b10a596fa6cf86b443ba1af90553b5cf90778027d7dad85",
+      "bytes": 216511421,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_smoke_py3_14_6\\2026-10-02-11-57-36",
+      "source_files": 646,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

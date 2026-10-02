@@ -1,0 +1,149 @@
+{
+  "artifacts": [
+    {
+      "fold_id": "fixed-fold0",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed0.joblib",
+      "seconds": 18.968338999999105,
+      "seed": 0,
+      "sha256": "22c6e85c30c1664f20533ff5c043070b667076136180f4cd0277ba374e41171e"
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed1.joblib",
+      "seconds": 19.302914899992174,
+      "seed": 1,
+      "sha256": "80e90b97a75cb33df898a5965e86579000c53c3aa1767bb4ddaf8f90c0c72a98"
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed2.joblib",
+      "seconds": 19.04490199999418,
+      "seed": 2,
+      "sha256": "8cce91b201174a70afb24f811760049cca2095cad5a9d9bdcd346d135d718ed7"
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed0.joblib",
+      "seconds": 19.84686680001323,
+      "seed": 0,
+      "sha256": "8a7e801ee66358aa716f65eeab105f0a49b8b327033f9a04ada420554b573f37"
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed1.joblib",
+      "seconds": 18.724457799995434,
+      "seed": 1,
+      "sha256": "870dbcc6c6b3486eb1cca3d9faccb13f677a32bf137cbeaaa726487e649aa1e9"
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed2.joblib",
+      "seconds": 18.509999900008552,
+      "seed": 2,
+      "sha256": "7ae7cd79f432b543a686a15040a061033ff30d27f00846e3a9af8c065e65e443"
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed0.joblib",
+      "seconds": 18.633680399987497,
+      "seed": 0,
+      "sha256": "cf5f6f024dc55f3caa567134e8c7406a78d12a185d36855b6f4d014eec83ee29"
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed1.joblib",
+      "seconds": 18.439518099999987,
+      "seed": 1,
+      "sha256": "1fdfa713e2af72b39cc28d8c2fc1cd720d4f8fcb1c2cafe2ca11b7e39a1498d9"
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed2.joblib",
+      "seconds": 18.277159399993252,
+      "seed": 2,
+      "sha256": "9b40170d599f807e0f1623f82b2ba5591a8418aea0b63e017e07646c05568f7c"
+    }
+  ],
+  "code_head": "94487305f9ba648705e195cfb69bfa70d08b880b",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "failures": [
+    {
+      "arm_id": "R17",
+      "fold_id": "fixed-fold0",
+      "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+      "rpm": "mixed",
+      "seed": 0,
+      "status": "INCOMPLETE"
+    },
+    {
+      "arm_id": "R17",
+      "fold_id": "fixed-fold0",
+      "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+      "rpm": "mixed",
+      "seed": 1,
+      "status": "INCOMPLETE"
+    },
+    {
+      "arm_id": "R17",
+      "fold_id": "fixed-fold0",
+      "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+      "rpm": "mixed",
+      "seed": 2,
+      "status": "INCOMPLETE"
+    },
+    {
+      "arm_id": "R17",
+      "fold_id": "fixed-fold2",
+      "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+      "rpm": "mixed",
+      "seed": 0,
+      "status": "INCOMPLETE"
+    },
+    {
+      "arm_id": "R17",
+      "fold_id": "fixed-fold2",
+      "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+      "rpm": "mixed",
+      "seed": 1,
+      "status": "INCOMPLETE"
+    },
+    {
+      "arm_id": "R17",
+      "fold_id": "fixed-fold2",
+      "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+      "rpm": "mixed",
+      "seed": 2,
+      "status": "INCOMPLETE"
+    }
+  ],
+  "fit_audits": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fit_audits.json.gz",
+    "sha256": "d56614c5a2c7390b0dcc5188edc77d58f759b8f1c416e74a132547816d082755"
+  },
+  "fit_counts": {
+    "classifier_fits": 234,
+    "factory_reference_fits": 180,
+    "novelty_reference_fits": 174,
+    "representation_fits": 81
+  },
+  "fresh_final_test": false,
+  "historical_test_exposed": true,
+  "locked_checksum": "48ba96ab8c3eb8b2a4a25e8a17a95b5083e2e6f6318aba6bdd6e08b1b9be44da",
+  "protocol_checksum": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "version": "literature_expansion_v1_fixed_no_selection"
+}
