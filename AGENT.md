@@ -26,10 +26,10 @@ core/            共用零件：data / mahalanobis / openset / monitor / geometr
 health/          健康指數、校準、嚴重度分級、趨勢/告警、軌跡與診斷（見 docs/health_monitoring_workflow.md）
 experiments/     實驗模組（exp1 冷啟動、exp2 量尺擴張、exp3 趨勢、exp4 極座標、
                  exp5 跨工況、exp6 OSR 基準＋正式矩陣、compare_openset、health_index_*）；
-                 設計說明見 docs/Experiments_Guide.md
+                 總覽見 docs/Experiments_Guide.md；每個實驗另有一份 docs/ 手冊
 web/             即時展示（live.py 編排、server.py Tornado+WS、static/index.html）
-docs/            論文版技術文件快照 + Lineage 時期研究文件（歷史參考，見 docs/README.md；
-                 內文的程式路徑不對應現行架構，勿據以改碼）
+docs/            實驗手冊（每個實驗一份 .md）＋論文版技術文件快照與 Lineage 研究文件。
+                 歷史快照見 docs/README.md；快照裡的程式路徑不對應現行架構，勿據以改碼
 data/            特徵資料（git 忽略；由論文版管線產出，本專案唯讀）
 logs/ output/    每次執行的日誌與結果（納入版控）
 run_web.sh       啟動展示伺服器
@@ -57,6 +57,31 @@ build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jup
    「操作員確認」步驟揭示（`ScaleGrowthSession.confirm()`）。動到這條就毀了實驗效度。
 7. **決定論**：所有隨機性走 `numpy.random.default_rng(seed)`，seed 從 CLI/建構子傳入，
    預設 42。修改後同 seed 應重現同數字。
+
+---
+
+## 實驗手冊
+
+任何實驗都要在 `docs/` 放一份 Markdown 手冊，再改程式。範圍包含新的 `experiments/` 模組，以及既有實驗改了方法、資料切分或指標。手冊檔名用實驗名稱，例如 `docs/exp7_foo.md`。完成後在 `docs/README.md` 的現行文件表加一列。
+
+手冊至少寫這四項：
+
+1. **實驗方法**：資料從哪來、怎麼切、用哪個模型或統計程序、seed 與關鍵參數、怎麼跑（CLI）。
+2. **參考論文出處**：方法所依的論文，寫作者、年份、篇名、出處，以及 DOI 或穩定網址。沒有文獻依據的步驟，寫明是本專案的操作約定。
+3. **預期成果**：跑完應該看到什麼數字、圖或判定；什麼結果算支持假設，什麼結果算假設不成立。預期與事後實測分開寫，不要把已經跑出來的數字回填成預期。
+4. **影響程式碼範圍**：表列會讀或會改的路徑，例如 `experiments/exp7_foo.py`、`core/openset.py`。路徑必須對得上當時的程式，不要沿用論文版快照的舊路徑。
+
+---
+
+## 寫作
+
+撰寫文件、註解、commit 說明與對使用者的回覆前，先讀李思萱，〈「AI味」具體是指什麼？一個老編輯示範，這64個字為什麼能感動你？〉，《數位時代》，2026-04-22：<https://www.bnext.com.tw/article/90761/how-to-fix-ai-writing-style>。依該文的五個辨識點寫：
+
+1. 直接寫那件事是什麼。看到「不是 X，而是 Y」這類對仗，改成一句帶具體脈絡的話。
+2. 寫能對上檔案、數字、步驟的句子。拍不成畫面的抽象金句刪掉。
+3. 句子長短依內容決定。不要為了節奏湊成三段排比。
+4. 動作留在動詞上。少把事情收成「○○感」「○○性」「○○化」。
+5. 錨在具體座標：路徑、函數名、seed、日期、工況。能寫 `core/openset.py` 就不要寫「某個模組」。
 
 ---
 
