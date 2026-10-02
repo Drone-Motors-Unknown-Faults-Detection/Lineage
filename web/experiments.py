@@ -82,14 +82,27 @@ CATALOG: list[dict] = [
         "params": [_SEED],
     },
     {
-        "id": "exp6", "no": "實驗六", "title": "開集偵測方法基準比較",
+        "id": "exp6", "no": "實驗六", "sub": "6-1", "title": "七種偵測器廣度比較",
         "question": "七種單類偵測器在同一校準規則下，誰的誤報較低？（9 組全跑）",
         "code": "experiments/exp6_osr_benchmark.py",
         "doc": "docs/experiments/exp6_osr_benchmark.md",
         "fits": "9 工況 × 7 種偵測器：Ledoit–Wolf 與 legacy 馬氏距離、One-Class SVM、Isolation Forest、LOF、k-NN 距離、PCA 重建",
         "seconds": 4,
         "params": [_SEED],
+    },
+    {
+        "id": "exp6_formal", "no": "實驗六", "sub": "6-2", "title": "正式版 Mahalanobis vs k-NN（單次）",
+        "question": "主線 Mahalanobis 與 k-NN 在 9 組工況、同一切分下的正式比較，跑一個方法、一個 seed。",
+        "code": "experiments/exp6_formal_benchmark.py",
+        "doc": "docs/experiments/exp6_formal_benchmark.md",
+        "fits": "9 工況各擬合一個 RobustScaler 與所選方法的開集偵測器，校準集定閾值",
+        "seconds": 2,
+        "params": [_OPENSET, _SEED],
         "committed": "exp6_formal_matrix",
+        "committed_sub": "6-3",
+        "committed_title": "正式矩陣與彙總（9 工況 × 3 seed × 2 方法）",
+        "committed_code": "experiments/exp6_matrix.py → experiments/aggregate_exp6.py",
+        "committed_doc": "docs/experiments/exp6_matrix.md、docs/experiments/exp6_aggregate.md",
     },
     {
         "id": "exp7", "no": "實驗七", "title": "單工況 Mahalanobis vs k-NN",
@@ -101,7 +114,7 @@ CATALOG: list[dict] = [
         "params": [_DATASET, _SEED],
     },
     {
-        "id": "exp8", "no": "實驗八", "title": "相對健康指數",
+        "id": "exp8", "no": "實驗八", "sub": "8-1", "title": "相對健康指數（單次比較）",
         "question": "把開集分數映成 0～1 健康度後，健康與未知分得多開？（9 組全跑）",
         "code": "experiments/health_index_benchmark.py",
         "doc": "docs/experiments/exp8_health_index_benchmark.md",
@@ -109,9 +122,13 @@ CATALOG: list[dict] = [
         "seconds": 2,
         "params": [_OPENSET, _SEED],
         "committed": "exp8_health_index_results",
+        "committed_sub": "8-2",
+        "committed_title": "正式矩陣（9 工況 × 3 seed × 2 方法 = 54 列）",
+        "committed_code": "experiments/health_index_matrix.py",
+        "committed_doc": "docs/experiments/exp8_health_index_matrix.md",
     },
     {
-        "id": "exp8_monitor", "no": "實驗八", "title": "健康監測逐窗輸出",
+        "id": "exp8_monitor", "no": "實驗八", "sub": "8-3", "title": "健康監測逐窗輸出",
         "question": "單一配置的 holdout 窗口逐筆送進 SessionTrajectoryMonitor，健康度與告警怎麼走？",
         "code": "experiments/health_monitor.py",
         "doc": "docs/experiments/exp8_health_monitor.md",
@@ -253,6 +270,11 @@ class ExperimentRunner:
         if exp_id == "exp6":
             from experiments.exp6_osr_benchmark import run
             return run(self.data_root, seed=seed, confidence=conf)
+        if exp_id == "exp6_formal":
+            from experiments.exp6_formal_benchmark import run
+            return run(self.data_root, seed=seed, confidence=conf, openset_method=method,
+                       mahalanobis_method="ledoit_wolf" if mahal == "legacy" else mahal,
+                       knn_neighbors=k, require_nine=False)
         if exp_id == "exp7":
             from experiments.compare_openset import run
             return run(self._pools(p["dataset"]), seed=seed, confidence=conf,

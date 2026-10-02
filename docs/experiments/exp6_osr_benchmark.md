@@ -79,4 +79,4 @@ FPR@TPR95 的實作是：取故障分數的第 5 百分位當門檻（讓約 95%
 - 已提交紀錄：`logs/exp6_osr_benchmark/`、`output/exp6_osr_benchmark/`（5 次執行，其中 2026-09-19 的出自改名前的 `exp6_formal_benchmark`）。
 - 同屬實驗六：[exp6_formal_benchmark](exp6_formal_benchmark.md)、[exp6_matrix](exp6_matrix.md)、[exp6_aggregate](exp6_aggregate.md)。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 7 節。
-- Web 實驗頁：頁首「實驗六」，`web/experiments.py` 的 `CATALOG` 項目 `exp6` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp6`；結果存到 `output/web_server/{ts}/experiments/exp6_{時間}.json`。同頁下方唯讀顯示已提交的正式矩陣結果。
+- Web 實驗頁：頁首「實驗六」的 6-1，`web/experiments.py` 的 `CATALOG` 項目 `exp6` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp6`；結果存到 `output/web_server/{ts}/experiments/exp6_{時間}.json`。同頁還有 6-2 正式版單次比較與 6-3 正式矩陣（唯讀）。

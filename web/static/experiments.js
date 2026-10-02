@@ -128,6 +128,16 @@ const RENDER = {
       + heatmap(ds, names, (d, m) => { const v = fp(d, m); return v === undefined ? null : 1 - v; }, {corner: "資料集", fmt: v => v === null ? "—" : pct(1 - v, 1)})
       + `<div class="mini">顏色越綠誤報越低。</div>`;
   },
+  exp6_formal(r){
+    const m = k => r.rows.reduce((s, x) => s + (x[k] ?? 0), 0) / r.rows.length;
+    return kpis([["Open Set accuracy（平均）", pct(m("open_set_accuracy"), 2)], ["已知認出率（平均）", pct(m("known_accuracy"), 1)],
+                 ["AUROC（平均）", num(m("auroc"), 4)], ["unknown F1（平均）", num(m("unknown_f1"), 4)]])
+      + `<div class="mini">方法 ${esc(r.method)}，seed ${esc(r.seed)}，${r.rows.length} 組工況；資料指紋 ${esc(String(r.dataset_fingerprint).slice(0, 12))}…；commit ${esc(String(r.commit_sha).slice(0, 7))}</div>`
+      + table([["dataset", "工況"], ["n_known_test", "健康測試", int], ["n_unknown_test", "未知測試", int],
+               ["known_accuracy", "已知認出率", v => pct(v, 1)], ["open_set_accuracy", "Open Set accuracy", v => pct(v, 2)],
+               ["auroc", "AUROC", v => num(v, 4)], ["fpr_at_tpr95", "FPR@TPR95", v => num(v, 4)], ["unknown_f1", "unknown F1", v => num(v, 4)],
+               ["known_score_median", "健康分數中位數", v => num(v, 2)], ["unknown_score_median", "未知分數中位數", v => num(v, 2)]], r.rows);
+  },
   exp7(r){
     return table([["openset_method", "方法"], ["auroc", "AUROC", v => num(v, 4)], ["aupr_unknown_positive", "AUPR", v => num(v, 4)],
                   ["fpr_at_95_tpr", "FPR@TPR95", v => num(v, 4)], ["open_set_accuracy", "Open Set accuracy", v => pct(v, 2)],
@@ -238,7 +248,7 @@ function fieldHtml(e, p){
 
 function cardHtml(e){
   return `<div class="panel" id="card-${e.id}">
-    <div class="exp-head"><h2>${esc(e.no)}：${esc(e.title)}</h2>
+    <div class="exp-head"><h2>${esc(e.no)}${e.sub ? " " + esc(e.sub) : ""}：${esc(e.title)}</h2>
       <div class="q">${esc(e.question)}</div>
       <div class="mini">程式 <code>${esc(e.code)}</code>　技術報告 <code>${esc(e.doc)}</code></div>
       <div class="mini" style="margin-top:4px">⚙ 每次按「執行」都會從頭擬合：${esc(e.fits)}。本機約 ${e.seconds < 1 ? "不到 1" : esc(e.seconds)} 秒。
@@ -248,7 +258,10 @@ function cardHtml(e){
       <span class="mini" id="status-${e.id}"></span></div>
     <div id="out-${e.id}" style="margin-top:10px"></div>
   </div>
-  ${e.committed ? `<div class="panel"><h2>已提交的正式結果（唯讀，讀現成檔案，不擬合、不從網頁重跑）</h2><div id="committed-${e.committed}" class="mini">載入中…</div></div>` : ""}`;
+  ${e.committed ? `<div class="panel"><div class="exp-head"><h2>${esc(e.no)}${e.committed_sub ? " " + esc(e.committed_sub) : ""}：${esc(e.committed_title || "已提交的正式結果")}</h2>
+      <div class="mini">程式 <code>${esc(e.committed_code || "")}</code>　技術報告 <code>${esc(e.committed_doc || "")}</code></div>
+      <div class="mini" style="margin-top:4px">已提交的正式結果，唯讀：讀現成檔案，不擬合、不從網頁重跑。</div></div>
+      <div id="committed-${e.committed}" class="mini" style="margin-top:10px">載入中…</div></div>` : ""}`;
 }
 
 function showResult(e, payload){

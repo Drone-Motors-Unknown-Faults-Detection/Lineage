@@ -57,3 +57,4 @@ venv/bin/python -m experiments.health_index_matrix --data-root data/formal_local
 - 套件：`experiments/health/`，見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
 - 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；原始稽核見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
+- Web 實驗頁：頁首「實驗八」的 8-2 唯讀顯示本矩陣的 `reports/exp8_health_index_results/`（`web/experiments.py` 的 `_load_exp8_results`），不從網頁重跑。
