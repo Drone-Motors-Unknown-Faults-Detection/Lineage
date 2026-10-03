@@ -1,0 +1,291 @@
+{
+  "arms": [
+    {
+      "detector": "C02/M",
+      "id": "I01",
+      "model": "identity_1_static"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I02",
+      "model": "identity_1_glvq"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I03",
+      "model": "identity_1_auxiliary"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I04",
+      "model": "identity_2_static"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I05",
+      "model": "identity_2_glvq"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I06",
+      "model": "identity_2_auxiliary"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I07",
+      "model": "metric_1_static"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I08",
+      "model": "metric_1_glvq"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I09",
+      "model": "metric_1_auxiliary"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I10",
+      "model": "metric_2_static"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I11",
+      "model": "metric_2_glvq"
+    },
+    {
+      "detector": "C02/M",
+      "id": "I12",
+      "model": "metric_2_auxiliary"
+    }
+  ],
+  "budget": {
+    "planned_runs": 108,
+    "reserve_C_bytes": 1000000000,
+    "seconds_per_action": 1800
+  },
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "exposure_ledger_checksum": "4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc",
+  "factory_parameters": {
+    "confidence": 0.95,
+    "knn_neighbors": 5,
+    "mahalanobis_method": "ledoit_wolf"
+  },
+  "folds": [
+    {
+      "fold_id": "fixed-fold0",
+      "motor_roles": {
+        "calibration": "T2",
+        "test": "T3",
+        "train": "T1"
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "motor_roles": {
+        "calibration": "T3",
+        "test": "T1",
+        "train": "T2"
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "motor_roles": {
+        "calibration": "T1",
+        "test": "T2",
+        "train": "T3"
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "implementations": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\core\\fault_type_context_prototypes.py",
+      "sha256": "fcf9ee6f78de59ac365f4fd0bb26208548eea361848551a3b361684162fe7df0"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\experiments\\fault_type_context_prototypes.py",
+      "sha256": "09a936c82e842bf56998823272ca81079d9782725e0aa94a0eee43b1cb0e6338"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\docs\\experiments\\exp17_context_prototypes.md",
+      "sha256": "69f9777592c280c65e6a35e955e7c825ed5c52c5cbc028151f73398acab893d5"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\experiments\\fault_type_smooth_l1.py",
+      "sha256": "bf32240b097530e10cdcc50970dc2de00d8ffd4f6b334f72ca12b22ee8f93c41"
+    }
+  ],
+  "known_labels": [
+    "8screws",
+    "1screws",
+    "2screws",
+    "3_14screws",
+    "3screws",
+    "4screws"
+  ],
+  "manifest_checksums": [
+    "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+    "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+    "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95"
+  ],
+  "parameters": {
+    "auxiliary": [
+      0.0,
+      0.01
+    ],
+    "beta": 4.0,
+    "context": "(RPM-8000)/3000",
+    "context_rpms": [
+      6000,
+      8000,
+      11000
+    ],
+    "epsilon": 1e-12,
+    "initialization": "all known train class least squares",
+    "loss_subset_per_class_rpm": 20,
+    "models": [
+      {
+        "degree": 1,
+        "geometry": "identity",
+        "id": "identity_1_static",
+        "variant": "static"
+      },
+      {
+        "degree": 1,
+        "geometry": "identity",
+        "id": "identity_1_glvq",
+        "variant": "glvq"
+      },
+      {
+        "degree": 1,
+        "geometry": "identity",
+        "id": "identity_1_auxiliary",
+        "variant": "auxiliary"
+      },
+      {
+        "degree": 2,
+        "geometry": "identity",
+        "id": "identity_2_static",
+        "variant": "static"
+      },
+      {
+        "degree": 2,
+        "geometry": "identity",
+        "id": "identity_2_glvq",
+        "variant": "glvq"
+      },
+      {
+        "degree": 2,
+        "geometry": "identity",
+        "id": "identity_2_auxiliary",
+        "variant": "auxiliary"
+      },
+      {
+        "degree": 1,
+        "geometry": "metric",
+        "id": "metric_1_static",
+        "variant": "static"
+      },
+      {
+        "degree": 1,
+        "geometry": "metric",
+        "id": "metric_1_glvq",
+        "variant": "glvq"
+      },
+      {
+        "degree": 1,
+        "geometry": "metric",
+        "id": "metric_1_auxiliary",
+        "variant": "auxiliary"
+      },
+      {
+        "degree": 2,
+        "geometry": "metric",
+        "id": "metric_2_static",
+        "variant": "static"
+      },
+      {
+        "degree": 2,
+        "geometry": "metric",
+        "id": "metric_2_glvq",
+        "variant": "glvq"
+      },
+      {
+        "degree": 2,
+        "geometry": "metric",
+        "id": "metric_2_auxiliary",
+        "variant": "auxiliary"
+      }
+    ],
+    "optimizer": {
+      "ftol": 1e-09,
+      "gtol": 1e-06,
+      "maxfun": 2000,
+      "maxiter": 600,
+      "maxls": 50
+    },
+    "prototype_seconds": 120
+  },
+  "parent_lock": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\locked_study.json",
+    "sha256": "82af444fa9dcad983e1ef734469453d39894cbb121763035e7c7fcaae173a19f"
+  },
+  "parent_protocol": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_discriminative_prototypes_lock\\2026-10-03-15-23-33\\protocol.json",
+    "sha256": "d5abd3f023c44ee4b8465c64adb313134f4b655bffe40866aa6ee9adf7cf5537"
+  },
+  "parent_protocol_checksum": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+  "parent_source": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_discriminative_prototypes_source_verify\\2026-10-03-15-31-33\\source_verified.json",
+    "sha256": "cbab7b2447d5027b044b8b2a3cdec5cc2c2bf0b95070be25ef2b4c57544a50c0"
+  },
+  "protocol_checksum": "f2c3d40bddc99066e2a94fa0bc9b240b35cfd1c8e62a1ce8297c99ac4addef25",
+  "reliability_contract": {
+    "coverage_drop_each_motor_rpm_vs_D01": 0.1,
+    "fault_accuracy_gain_over_C24": 0.02,
+    "fault_f1_gain_over_C17": 0.02,
+    "healthy_total_alarm_max_each_motor_rpm": 0.1,
+    "known_correct_after_rejection_drop_vs_D01": 0.01,
+    "minimum_independent_test_groups_per_class": 2,
+    "minimum_known_subsets_for_B": 3,
+    "minimum_motor_class_recall": 0.1,
+    "minimum_motor_unknown_recall": 0.1,
+    "motor_fault_f1_drop_tolerance": 0.01,
+    "primary": "motor macro known-fault F1 and fault accuracy; all seeds",
+    "rationale": "2pp material gain; 1pp motor F1/postreject guard; prior temporary 10% full health cap; 10% class/unknown floor avoids accepting existing zero-recall collapse. Research values, not deployment requirements.",
+    "scope": "ADAPTIVE_EXPLORATORY; A/B cannot imply independent C",
+    "threshold_search": false,
+    "unknown_recall_drop_tolerance_each_motor_rpm_vs_C02": 0.02,
+    "version": "continuous_reliability_v1"
+  },
+  "rpms": [
+    "6000rpm",
+    "8000rpm",
+    "11000rpm"
+  ],
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "shared_validation_calibration": false,
+  "source_head": "4ccaed0b04dc916c2cb63627dbc38d046974cd5a",
+  "unknown_labels": [
+    "4_146screws",
+    "5screws",
+    "6screws",
+    "7screws"
+  ],
+  "validation_sample_ids": [],
+  "version": "exp17_context_prototypes_v1"
+}

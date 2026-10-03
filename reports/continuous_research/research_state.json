@@ -1,11 +1,11 @@
 {
   "version": "continuous_state_v1",
-  "phase": "Q delivered;27 train-only solver fits and numeric re-verification complete; next outer comparator not implemented",
-  "head": "8bd6d14042e61a40548e37e989a1f2db2d7a4fbb",
+  "phase": "Q及solver／E／F／G／H已交付，I工程驗收與事前lock完成，尚未fit",
+  "head": "4ccaed0b04dc916c2cb63627dbc38d046974cd5a",
   "head_scope": "last verified results commit; subsequent documentation-only delivery checkpoint recorded in git history",
   "main_todo_commit": "80bdf54fdf43d466ea19549fb7c0b4e391394799",
   "inventory": "output/fault_type_continuous_inventory/2026-10-02-18-33-25/inventory.json",
-  "last_success": "27 train fits with3/5/9 convergence;27 losses/gradients recomputed;3 original Q weights exact;both runtimes396 tests/37 CLI/pip check PASS;solver9archives190members SHA/CRC PASS",
+  "last_success": "H108格逐筆重推、12方法全部FAILED；6ZIP／252members驗證；I20小測試／雙環境492完整通過",
   "protocol": "output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json",
   "lock": "output/fault_type_continuous_fit/2026-10-02-18-42-53/locked_study.json",
   "evaluation": "output/fault_type_continuous_evaluate/2026-10-02-18-47-45/evaluation.json",
@@ -14,9 +14,11 @@
   "report": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/summary.json.gz",
   "solver_protocol": "output/fault_type_solver_lock/2026-10-02-23-46-28/protocol.json",
   "solver_delivery": "reports/continuous_research/solver_result_index.json",
-  "next": "Preregister and implement hard600 subset/all-train kNN complete pipelines paired with Q01/Q03 and C02/M; no new outer accuracy measured yet",
+  "next": "依reports/context_prototypes_v1/research_state.json推送I協定後fit／actual source重建；不得修改sealed H／G方法",
   "current_issue": 22,
-  "goal_runtime_status": "historical usageLimited controller; user explicitly requested this continuation; no false completion",
+  "goal_runtime_status": "使用者要求持續；歷史usageLimited不作本輪停止條件，未宣稱R2完成",
+  "latest_delivery": "reports/smooth_l1_v1/result_index.json",
+  "active_state": "reports/context_prototypes_v1/research_state.json",
   "known_blockers": [
     "fresh independent test unavailable",
     "raw provenance UNKNOWN"

@@ -1,0 +1,4 @@
+2026-10-03 20:33:01 | INFO    | Logger initialized: fault_type_context_prototypes_lock
+2026-10-03 20:33:01 | INFO    | log_file=logs\fault_type_context_prototypes_lock\2026-10-03-20-33-01.log
+2026-10-03 20:33:01 | INFO    | output_dir=output\fault_type_context_prototypes_lock\2026-10-03-20-33-01
+2026-10-03 20:33:23 | INFO    | lock 完成，輸出 output\fault_type_context_prototypes_lock\2026-10-03-20-33-01
