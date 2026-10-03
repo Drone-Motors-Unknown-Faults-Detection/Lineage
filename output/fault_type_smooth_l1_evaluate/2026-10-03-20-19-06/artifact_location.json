@@ -1,0 +1,12 @@
+{
+  "compact_artifact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_smooth_l1_evaluate\\2026-10-03-20-19-06\\evaluation.json.gz",
+    "sha256": "63fc6de85b1fc5267cf4e607139571e78f72ca5e4a5c566f0f03c30090ff37ee"
+  },
+  "contains_raw_data": false,
+  "primary_artifact": {
+    "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_evaluate\\2026-10-03-20-19-06\\evaluation.json.gz",
+    "sha256": "63fc6de85b1fc5267cf4e607139571e78f72ca5e4a5c566f0f03c30090ff37ee"
+  },
+  "primary_output": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_evaluate\\2026-10-03-20-19-06"
+}

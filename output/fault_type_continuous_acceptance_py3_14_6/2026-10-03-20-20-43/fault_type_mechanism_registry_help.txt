@@ -1,0 +1,8 @@
+usage: python.exe -m experiments.fault_type_mechanism_registry
+       [-h] [--index INDEX]
+
+Seal nine complete mechanisms BEFORE fitting/evaluation (81 cells).
+
+options:
+  -h, --help     show this help message and exit
+  --index INDEX

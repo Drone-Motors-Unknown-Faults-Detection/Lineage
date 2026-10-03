@@ -1,0 +1,7 @@
+usage: fault_type_metrics_v2.py [-h] [--index INDEX]
+
+Recompute metric v2 from immutable, verified saved predictions; no fitting.
+
+options:
+  -h, --help     show this help message and exit
+  --index INDEX

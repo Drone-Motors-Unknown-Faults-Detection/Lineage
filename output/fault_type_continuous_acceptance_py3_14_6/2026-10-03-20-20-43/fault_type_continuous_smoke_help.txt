@@ -1,0 +1,6 @@
+usage: python.exe -m experiments.fault_type_continuous_smoke [-h]
+
+Native synthetic eight-arm smoke; never counted as motor research.
+
+options:
+  -h, --help  show this help message and exit

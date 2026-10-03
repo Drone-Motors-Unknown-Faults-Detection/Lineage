@@ -1,0 +1,16 @@
+usage: fault_type_accuracy_study.py [-h] --registry REGISTRY --data-root
+                                    DATA_ROOT --code-head CODE_HEAD
+                                    [--locked LOCKED]
+                                    {fit,evaluate}
+
+Registry-driven bounded study. No implicit defaults or global selection.
+
+positional arguments:
+  {fit,evaluate}
+
+options:
+  -h, --help            show this help message and exit
+  --registry REGISTRY
+  --data-root DATA_ROOT
+  --code-head CODE_HEAD
+  --locked LOCKED

@@ -1,0 +1,6 @@
+2026-10-03 20:27:31 | INFO    | Logger initialized: fault_type_archive
+2026-10-03 20:27:31 | INFO    | log_file=logs\fault_type_archive\2026-10-03-20-27-31.log
+2026-10-03 20:27:31 | INFO    | output_dir=output\fault_type_archive\2026-10-03-20-27-31
+2026-10-03 20:27:33 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\smooth_l1_v1\archives\fault_type_2026-10-03-15-53-46.zip bytes=9131 files=1
+2026-10-03 20:27:33 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\smooth_l1_v1\archives\fault_type_2026-10-03-20-13-55.zip bytes=111835 files=1
+2026-10-03 20:27:33 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\smooth_l1_v1\archives\fault_type_2026-10-03-20-23-56.zip bytes=4039025 files=2

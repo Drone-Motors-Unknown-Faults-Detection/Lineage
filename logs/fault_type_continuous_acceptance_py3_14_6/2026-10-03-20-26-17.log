@@ -1,0 +1,4 @@
+2026-10-03 20:26:17 | INFO    | Logger initialized: fault_type_continuous_acceptance_py3_14_6
+2026-10-03 20:26:17 | INFO    | log_file=logs\fault_type_continuous_acceptance_py3_14_6\2026-10-03-20-26-17.log
+2026-10-03 20:26:17 | INFO    | output_dir=output\fault_type_continuous_acceptance_py3_14_6\2026-10-03-20-26-17
+2026-10-03 20:28:17 | INFO    | Python3.14.6 tests=492 PASS

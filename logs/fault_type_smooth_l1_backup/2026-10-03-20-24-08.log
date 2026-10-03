@@ -1,0 +1,7 @@
+2026-10-03 20:24:08 | INFO    | Logger initialized: fault_type_smooth_l1_backup
+2026-10-03 20:24:08 | INFO    | log_file=logs\fault_type_smooth_l1_backup\2026-10-03-20-24-08.log
+2026-10-03 20:24:08 | INFO    | output_dir=output\fault_type_smooth_l1_backup\2026-10-03-20-24-08
+2026-10-03 20:24:09 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\smooth_l1_v1\archives\fault_type_2026-10-03-15-54-51.zip bytes=148591298 files=28
+2026-10-03 20:24:11 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\smooth_l1_v1\archives\fault_type_2026-10-03-20-19-06.zip bytes=106264881 files=218
+2026-10-03 20:24:11 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\smooth_l1_v1\archives\fault_type_2026-10-03-20-21-11.zip bytes=5443916 files=2
+2026-10-03 20:24:12 | INFO    | backup 完成，輸出 output\fault_type_smooth_l1_backup\2026-10-03-20-24-08

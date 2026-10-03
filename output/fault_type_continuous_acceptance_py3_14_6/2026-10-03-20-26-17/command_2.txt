@@ -1,0 +1,9 @@
+usage: python.exe -m experiments.synchronized_raw [-h] --raw-file RAW_FILE
+                                                  --config CONFIG
+
+Preview one configured recording. Never declares unknown alignment verified.
+
+options:
+  -h, --help           show this help message and exit
+  --raw-file RAW_FILE
+  --config CONFIG

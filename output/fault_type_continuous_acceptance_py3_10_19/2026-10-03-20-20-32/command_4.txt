@@ -1,0 +1,36 @@
+usage: fault_type_fresh.py [-h] --ledger LEDGER [--seed-ledger SEED_LEDGER]
+                           [--incoming-root INCOMING_ROOT]
+                           [--manifest MANIFEST] [--registry REGISTRY]
+                           [--locked LOCKED]
+                           [--training-artifacts TRAINING_ARTIFACTS]
+                           [--claim {new_session,new_motor}]
+                           [--evaluation-id EVALUATION_ID]
+                           [--resume-receipt RESUME_RECEIPT]
+                           [--report-output REPORT_OUTPUT]
+                           {init-ledger,recover-ledger,receipt,validate,evaluate,resume}
+
+Guarded new-data CLI: N5, all3locked folds, both factory detectors. validate
+never predicts. evaluate exposes durably first. resume uses the SAME
+evaluation receipt. Synthetic fixtures are engineering only, never real final.
+Historical locks with unknown training physical contract are rejected.
+
+positional arguments:
+  {init-ledger,recover-ledger,receipt,validate,evaluate,resume}
+
+options:
+  -h, --help            show this help message and exit
+  --ledger LEDGER       canonical local durable JSON ledger; never reset for
+                        retries
+  --seed-ledger SEED_LEDGER
+                        sealed initial exposure ledger, JSON or gzip
+  --incoming-root INCOMING_ROOT
+  --manifest MANIFEST
+  --registry REGISTRY
+  --locked LOCKED
+  --training-artifacts TRAINING_ARTIFACTS
+                        explicit trusted locally generated joblib root, not
+                        untrusted downloads
+  --claim {new_session,new_motor}
+  --evaluation-id EVALUATION_ID
+  --resume-receipt RESUME_RECEIPT
+  --report-output REPORT_OUTPUT

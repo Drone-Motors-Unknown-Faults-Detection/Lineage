@@ -29,3 +29,17 @@ runner與472項驗收提交`45411e2c46aa78bbeb26e35036fd4e17b307a2d4`，push成�
 `fit --protocol output/fault_type_smooth_l1_lock/2026-10-03-15-53-46/protocol.json --data-root data/formal_local`：15:54:51–16:00:10，9bundles／108models，108成功、0未收斂、最高550iterations；資料SHA前後相同。D主產物為`D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/smooth_l1_v1/workspace/output/fault_type_smooth_l1_fit/2026-10-03-15-54-51/`，C compact lock同名路徑；locked seal=`aa6373bcff8a24e356142977555e76e7ae5f62aa520e520017c692bdfe61985b`。
 
 `source-verify --protocol ...15-53-46/protocol.json --lock output/fault_type_smooth_l1_fit/2026-10-03-15-54-51/locked_study.json --data-root data/formal_local`：20:13:55–20:17:19，actual known train/cal重建全部108models與train predictions完全一致，test_numeric_reads=0，來源前後不變。不是只比fit IDs或檔名。這段尚未outer評估；來源驗證檔為`output/fault_type_smooth_l1_source_verify/2026-10-03-20-13-55/source_verified.json`。中間時段不宣稱持續背景研究。
+
+## outer結果、重推與備份
+
+來源commit `36605fd37106872f620daabe7cb2fa834bf98b9e`已push／remote一致後，執行同module `evaluate --protocol ...15-53-46/protocol.json --lock ...15-54-51/locked_study.json --source-verification ...20-13-55/source_verified.json --data-root data/formal_local`，20:19:06–20:21:01，108／108格、0INCOMPLETE、1,040,760records／28,910unique，action計算102.892秒。D output `fault_type_smooth_l1_evaluate/2026-10-03-20-19-06`；before/after SHA相同。
+
+`verify`相同arguments加`--evaluation D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/smooth_l1_v1/workspace/output/fault_type_smooth_l1_evaluate/2026-10-03-20-19-06/evaluation.json`，20:21:11–20:23:12，108逐筆reinfer及truth mutation／saved metrics全匹配，輸出D `fault_type_smooth_l1_verify/2026-10-03-20-21-11`。未改參數，未重訓新增「獨立」資料。
+
+`report`使用本批p/e/v與`--baseline output/fault_type_metrics_v2/2026-10-02-12-51-52/metrics_v2.json --previous output/fault_type_mechanism_evaluate/2026-10-02-17-53-06/evaluation.json --euclidean D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/discriminative_prototypes_v1/workspace/output/fault_type_discriminative_prototypes_evaluate/2026-10-03-15-33-56/evaluation.json`：20:23:56–20:25:03，重算controls／12候選、756配對，12全部FAILED，無global winner。Human report未改sealed summary。
+
+`backup`一次指定本批D fit/evaluate/verify三roots，產物`output/fault_type_smooth_l1_backup/2026-10-03-20-24-08/archive_index.json`。另`-m experiments.fault_type_archive --output-root`三次指本批C protocol/source/report，`--destination D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/smooth_l1_v1/archives`，index `output/fault_type_archive/2026-10-03-20-27-31/archive_index.json`。每批單次多root，時間戳未撞名。
+
+`-m experiments.fault_type_fixed_delivery --index`上述兩index，20:28:18，6ZIP／252members整檔SHA、CRC、member SHA PASS；未extract/delete，不是離機備份。三compact GZIP總約599KB，個別explicit force-add以繞過既有*.gz忽略，未改.gitignore、未stage模型／data／282無關刪除。
+
+exp17 core-only後完整兩環境各483通過：20-20-32／20-20-43；exp17 runner及來源用途20測試後完整各492通過：20-26-06／20-26-17。全部各39命令exit0含pip check與37既有CLI。最初H事前驗收472項不回填成492；20:24:15／16的exp17 smoke是synthetic ENGINEERING_ONLY。
