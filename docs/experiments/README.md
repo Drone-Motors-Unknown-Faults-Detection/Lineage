@@ -6,6 +6,7 @@
 
 | 模組 | 手冊 |
 |---|---|
+| exp13：`experiments/fault_type_metric_classification.py` | [收斂距離與分類規則](exp13_metric_classification.md) |
 | `experiments/fault_type_solver_diagnosis.py`（train-only，無outer評估） | [fault_type_solver_diagnosis](fault_type_solver_diagnosis.md) |
 | `experiments/fault_type_solver_report.py`（train-only重算） | [fault_type_solver_report](fault_type_solver_report.md) |
 | `experiments/fault_type_continuous_study.py` | [fault_type_continuous_study](fault_type_continuous_study.md) |
@@ -17,3 +18,9 @@
 | `experiments/fault_type_continuous_report_v2.py` | [fault_type_continuous_report_v2](fault_type_continuous_report_v2.md) |
 | `experiments/fault_type_continuous_smoke.py` | [fault_type_continuous_smoke](fault_type_continuous_smoke.md) |
 | `experiments/fault_type_continuous_acceptance.py` | [fault_type_continuous_acceptance](fault_type_continuous_acceptance.md) |
+
+## 各實驗的檔案位置
+
+| 編號 | 入口與共用邏輯 | 測試、紀錄與輸出 | 展示 |
+|---|---|---|---|
+| exp13 | `experiments/fault_type_metric_classification.py`、`core/fault_type_metric_classifiers.py`、既有 `core/openset.py` | `tests/test_fault_type_metric_classifiers.py`、`logs/fault_type_metric_classification_*/`、`output/fault_type_metric_classification_*/` | N/A；不改 `web/` 或 `experiments/health/` |
