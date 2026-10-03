@@ -1,0 +1,59 @@
+{
+  "models": {
+    "quasi": {
+      "optimizer": {
+        "alpha": 20.0,
+        "anchor": 0.01,
+        "beta": 4.0,
+        "budget_seconds": 120,
+        "epsilon": 1e-12,
+        "evaluations": 7,
+        "final_loss": 0.040391480994292385,
+        "gradient_inf_norm": 4.8787079395911346e-08,
+        "initial_loss": 0.040519644311665284,
+        "initialization_gradient_inf_norm": 0.0017488510840137578,
+        "iterations": 5,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "options": {
+          "ftol": 1e-09,
+          "gtol": 1e-06,
+          "maxfun": 2000,
+          "maxiter": 600,
+          "maxls": 50
+        },
+        "seconds": 0.002187600010074675,
+        "status": 0,
+        "success": true
+      },
+      "state_checksum": "48c7c2e173099fde905657ae00bdeee9f14f4847e02f52692bebf350cb24b0f7"
+    },
+    "soft": {
+      "optimizer": {
+        "alpha": 20.0,
+        "anchor": 0.01,
+        "beta": 4.0,
+        "budget_seconds": 120,
+        "epsilon": 1e-12,
+        "evaluations": 8,
+        "final_loss": 0.03768335040403338,
+        "gradient_inf_norm": 1.7310975719497408e-07,
+        "initial_loss": 0.03784993022846363,
+        "initialization_gradient_inf_norm": 0.0026970305756094356,
+        "iterations": 6,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "options": {
+          "ftol": 1e-09,
+          "gtol": 1e-06,
+          "maxfun": 2000,
+          "maxiter": 600,
+          "maxls": 50
+        },
+        "seconds": 0.0015374999784398824,
+        "status": 0,
+        "success": true
+      },
+      "state_checksum": "fccf56edc8e03c58220ab653554b1559b79f0be2220333eb9584528fda2affb7"
+    }
+  },
+  "scope": "SYNTHETIC_ENGINEERING_ONLY"
+}

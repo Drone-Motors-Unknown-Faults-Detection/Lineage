@@ -1,10 +1,13 @@
 import pickle
+import copy
 import unittest
 import numpy as np
 from scipy.optimize import check_grad
 from core.fault_type_smooth_l1 import (ALPHA, smooth_absolute, distances_and_gradients,
                                       relative_objective, SmoothL1Prototypes)
 from core.fault_type_metric_classifiers import PrototypeClassifier
+from core.fault_type_final_guard import seal
+from experiments.fault_type_smooth_l1 import fit_node, verify_node, validate_parent_source, MODELS, ARMS
 
 
 class SmoothL1Tests(unittest.TestCase):
@@ -109,6 +112,76 @@ class SmoothL1Tests(unittest.TestCase):
         self.assertEqual(len(model.predict(np.empty((0, 4)))), 0)
         with self.assertRaises(ValueError):
             model.predict([[np.nan]*4])
+
+
+class SmoothL1SourceTests(unittest.TestCase):
+    def setUp(self):
+        self.X, self.y, self.ix = SmoothL1Tests().data()
+        self.C = self.X+.4
+        self.definition = {'kind': 'quasi', 'variant': 'static'}
+        self.node = fit_node(self.definition, self.X, self.C, self.y, self.ix, 0)
+
+    def verify(self):
+        return verify_node(self.node, self.definition, self.X, self.C, self.y, self.ix, 0)
+
+    def test_source_exact(self):
+        self.assertEqual(self.verify()['status'], 'completed')
+
+    def test_calibration_cannot_initialize(self):
+        self.node = fit_node(self.definition, self.C, self.C, self.y, self.ix, 0)
+        with self.assertRaises(ValueError):
+            self.verify()
+
+    def test_actual_prototypes_even_resealed(self):
+        self.node['model'].prototypes_[0, 0] += .1
+        self.node['model'].checksum_ = self.node['model'].signature()
+        with self.assertRaises(ValueError):
+            self.verify()
+
+    def test_calibration_array_tamper(self):
+        self.node['calibration_array_checksum'] = 'different calibration'
+        with self.assertRaises(ValueError):
+            self.verify()
+
+    def test_loss_subset_tamper(self):
+        self.node['model'] = SmoothL1Prototypes().fit(self.X, self.y, np.r_[0:10, 15:25])
+        with self.assertRaises(ValueError):
+            self.verify()
+
+    def parent(self):
+        p = dict(protocol_checksum='p', environment={}, folds=[{'fold_id': str(i)} for i in range(3)], seeds=[0, 1, 2])
+        lock = seal(dict(protocol_checksum='p', environment={}, selection_policy='none', selection_sample_ids=[],
+                        artifacts=[dict(fold_id=str(i), seed=s, sha256=str(i)+str(s)) for i in range(3) for s in range(3)]), 'locked_checksum')
+        source = seal(dict(protocol_checksum='p', locked_checksum=lock['locked_checksum'], test_numeric_reads=0,
+                           status='VERIFIED_AVAILABLE_NUMERIC_SOURCES',
+                           cells=[dict(fold_id=a['fold_id'], seed=a['seed'], model_sha256=a['sha256']) for a in lock['artifacts']]), 'source_verification_checksum')
+        return p, lock, source
+
+    def test_parent_source_and_inventory(self):
+        p, lock, source = self.parent()
+        validate_parent_source(p, lock, source)
+        self.assertEqual(len(MODELS), 12)
+        self.assertEqual(len({a['id'] for a in ARMS}), 12)
+        bad = copy.deepcopy(source)
+        bad['cells'].append(bad['cells'][0])
+        with self.assertRaises(ValueError):
+            validate_parent_source(p, lock, seal(bad, 'source_verification_checksum'))
+
+    def test_test_reads_or_selector_refused(self):
+        p, lock, source = self.parent()
+        bad = copy.deepcopy(source)
+        bad['test_numeric_reads'] = 1
+        with self.assertRaises(ValueError):
+            validate_parent_source(p, lock, seal(bad, 'source_verification_checksum'))
+        bad_lock = copy.deepcopy(lock)
+        bad_lock['selection_sample_ids'] = ['held-out']
+        with self.assertRaises(ValueError):
+            validate_parent_source(p, seal(bad_lock, 'locked_checksum'), source)
+
+    def test_wrong_distance_refused(self):
+        self.node = fit_node({'kind': 'soft', 'variant': 'static'}, self.X, self.C, self.y, self.ix, 0)
+        with self.assertRaises(ValueError):
+            self.verify()
 
 
 if __name__ == '__main__':

@@ -10,7 +10,7 @@
 
 | 文件 | 內容 |
 |---|---|
-| [exp16 平滑L1原型距離](experiments/exp16_smooth_l1_prototypes.md) | 固定Q／S平滑、原型loss與anchor配對；runner待實作，尚無正式成績 |
+| [exp16 平滑L1原型距離](experiments/exp16_smooth_l1_prototypes.md) | 固定Q／S平滑、原型loss與anchor配對；雙環境工程驗證完成，尚無正式成績 |
 | [exp15 判別式原型學習](experiments/exp15_discriminative_prototypes.md) | 固定GLVQ／anchor損失、static中心與模糊拒絕配對；保留失敗與曝露 |
 | [exp13 封存後失敗診斷](experiments/exp13_metric_failure_diagnosis.md) | 固定分數分布、分類器輸出、歷史Q配對重現；不掃threshold |
 | [exp14 局部 Fisher 與 PCA](experiments/exp14_local_fisher.md) | 固定秩、正則化、來源重建與全方法配對；不改正式預設 |

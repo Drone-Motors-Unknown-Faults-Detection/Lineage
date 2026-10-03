@@ -1,0 +1,7 @@
+usage: fault_type_continuous_inventory.py [-h] [--data-root DATA_ROOT]
+
+Read-only baseline inventory for continuing adaptive exploratory research.
+
+options:
+  -h, --help            show this help message and exit
+  --data-root DATA_ROOT

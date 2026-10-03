@@ -34,7 +34,7 @@ train/cal/test三fold為T1/T2/T3、T2/T3/T1、T3/T1/T2，seeds0／1／2、RPM600
 | 範圍 | 路徑 |
 |---|---|
 | 新公式／模型 | `core/fault_type_smooth_l1.py` |
-| 待新增API／CLI | `experiments/fault_type_smooth_l1.py`，run(...)／main()；lock/fit/source-verify/evaluate/verify/report/smoke/backup |
+| 新API／CLI | `experiments/fault_type_smooth_l1.py`，run(...)／main()；lock/fit/source-verify/evaluate/verify/report/smoke/backup |
 | 測試 | `tests/test_fault_type_smooth_l1.py` |
 | 只讀共用 | exp13／15的parent、manifests、FeatureStore、factory、metrics／reliability；不改sealed依賴 |
 | 紀錄 | `reports/smooth_l1_v1/` |
@@ -42,4 +42,11 @@ train/cal/test三fold為T1/T2/T3、T2/T3/T1、T3/T1/T2，seeds0／1／2、RPM600
 | 大型產物 | `D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/smooth_l1_v1/workspace/output/`，C標準output保留compact索引 |
 | production／web | N/A，formal105／LW／k-NN切換／PolarMap不改 |
 
-先核心公式測試與synthetic smoke；再完成來源／用途驗證與runner。協定lock+commit+push後才fit；實際train/cal重建+commit+push後才outer evaluate；逐筆reinfer／truth mutation／source SHA、完整108格及失敗原因、配對controls和指標重算後才能報成果。每action預算1800秒、C保留1GB，大型產物直接D；不覆寫舊artifact。本文此時runner仍待實作，CLI支援不等於研究完成。
+先核心公式測試與synthetic smoke；再完成來源／用途驗證與runner。協定lock+commit+push後才fit；實際train/cal重建+commit+push後才outer evaluate；逐筆reinfer／truth mutation／source SHA、完整108格及失敗原因、配對controls和指標重算後才能報成果。每action預算1800秒、C保留1GB，大型產物直接D；不覆寫舊artifact。runner與雙環境工程測試已完成，尚無本批正式研究成績。
+
+```powershell
+$env:PYTHONIOENCODING='utf-8'
+.venv310/Scripts/python.exe -m experiments.fault_type_smooth_l1 lock --parent-protocol output/fault_type_discriminative_prototypes_lock/2026-10-03-15-23-33/protocol.json --parent-lock output/fault_type_discriminative_prototypes_fit/2026-10-03-15-28-56/locked_study.json --parent-source output/fault_type_discriminative_prototypes_source_verify/2026-10-03-15-31-33/source_verified.json
+```
+
+後續命令使用新lock的實際路徑：`fit --protocol ... --data-root data/formal_local`、`source-verify --protocol ... --lock ... --data-root data/formal_local`、`evaluate --protocol ... --lock ... --source-verification ... --data-root data/formal_local`、`verify`加`--evaluation`，最後`report`加`--evaluation --verification --baseline --previous --euclidean`。所有省略位置由execution log記下實際產物；不能引用不存在的時間戳。基線為metrics_v2、D01與exp15封存evaluation，不讀手填分數。
