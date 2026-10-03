@@ -6,6 +6,7 @@
 
 | 模組 | 手冊 |
 |---|---|
+| exp15：`experiments/fault_type_discriminative_prototypes.py` | [判別式原型學習](exp15_discriminative_prototypes.md) |
 | exp13：`experiments/fault_type_metric_failure_diagnosis.py` | [封存後失敗診斷](exp13_metric_failure_diagnosis.md) |
 | exp14：`experiments/fault_type_local_fisher.py` | [局部 Fisher 與 PCA 配對](exp14_local_fisher.md) |
 | exp13：`experiments/fault_type_metric_classification.py` | [收斂距離與分類規則](exp13_metric_classification.md) |
@@ -26,6 +27,7 @@
 
 | 編號 | 入口與共用邏輯 | 測試、紀錄與輸出 | 展示 |
 |---|---|---|---|
+| exp15 | `experiments/fault_type_discriminative_prototypes.py`、`core/fault_type_discriminative_prototypes.py` | `tests/test_fault_type_discriminative_prototypes.py`、`logs/fault_type_discriminative_prototypes_*/`、`output/fault_type_discriminative_prototypes_*/` | N/A |
 | exp13失敗診斷 | `experiments/fault_type_metric_failure_diagnosis.py`、既有預測reader | `tests/test_fault_type_metric_failure_diagnosis.py`、`logs/fault_type_metric_failure_diagnosis/`、`output/fault_type_metric_failure_diagnosis/` | N/A |
 | exp14 | `experiments/fault_type_local_fisher.py`、`core/fault_type_local_fisher.py`、既有factory | `tests/test_fault_type_local_fisher.py`、`logs/fault_type_local_fisher_*/`、`output/fault_type_local_fisher_*/` | N/A |
 | exp13 | `experiments/fault_type_metric_classification.py`、`core/fault_type_metric_classifiers.py`、既有 `core/openset.py` | `tests/test_fault_type_metric_classifiers.py`、`logs/fault_type_metric_classification_*/`、`output/fault_type_metric_classification_*/` | N/A；不改 `web/` 或 `experiments/health/` |

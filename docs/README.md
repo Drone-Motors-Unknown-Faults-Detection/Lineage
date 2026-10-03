@@ -10,6 +10,7 @@
 
 | 文件 | 內容 |
 |---|---|
+| [exp15 判別式原型學習](experiments/exp15_discriminative_prototypes.md) | 固定GLVQ／anchor損失、static中心與模糊拒絕配對；保留失敗與曝露 |
 | [exp13 封存後失敗診斷](experiments/exp13_metric_failure_diagnosis.md) | 固定分數分布、分類器輸出、歷史Q配對重現；不掃threshold |
 | [exp14 局部 Fisher 與 PCA](experiments/exp14_local_fisher.md) | 固定秩、正則化、來源重建與全方法配對；不改正式預設 |
 | [exp13 收斂距離與分類規則](experiments/exp13_metric_classification.md) | hard600、k-NN／中心／energy 配對與 factory detector 消融；未知資料不擬合、不改正式預設 |

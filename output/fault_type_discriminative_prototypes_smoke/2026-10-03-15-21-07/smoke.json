@@ -1,0 +1,28 @@
+{
+  "optimizer": {
+    "anchor": 0.01,
+    "beta": 4.0,
+    "budget_seconds": 120,
+    "epsilon": 1e-12,
+    "evaluations": 4,
+    "final_loss": 0.020811751776324234,
+    "gradient_inf_norm": 5.865278724730252e-07,
+    "initial_loss": 0.020830288553249164,
+    "initialization_gradient_inf_norm": 0.00033269951657420317,
+    "iterations": 2,
+    "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "options": {
+      "ftol": 1e-09,
+      "gtol": 1e-06,
+      "maxfun": 2000,
+      "maxiter": 600,
+      "maxls": 50
+    },
+    "seconds": 0.001055200002156198,
+    "status": 0,
+    "success": true
+  },
+  "scope": "SYNTHETIC_ENGINEERING_ONLY",
+  "state_checksum": "1de0faa872034d668158d93d082ced3dd56a25ca28dfa666cb3d61993abff895",
+  "threshold": 0.07276885449038038
+}
