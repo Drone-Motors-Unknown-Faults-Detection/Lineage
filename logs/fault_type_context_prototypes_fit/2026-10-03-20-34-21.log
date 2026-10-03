@@ -1,0 +1,13 @@
+2026-10-03 20:34:21 | INFO    | Logger initialized: fault_type_context_prototypes_fit
+2026-10-03 20:34:21 | INFO    | log_file=logs\fault_type_context_prototypes_fit\2026-10-03-20-34-21.log
+2026-10-03 20:34:21 | INFO    | output_dir=output\fault_type_context_prototypes_fit\2026-10-03-20-34-21
+2026-10-03 20:34:51 | INFO    | 封存 fixed-fold0_seed0，成功12模型
+2026-10-03 20:35:10 | INFO    | 封存 fixed-fold0_seed1，成功12模型
+2026-10-03 20:35:29 | INFO    | 封存 fixed-fold0_seed2，成功12模型
+2026-10-03 20:35:47 | INFO    | 封存 fixed-fold1_seed0，成功12模型
+2026-10-03 20:36:06 | INFO    | 封存 fixed-fold1_seed1，成功12模型
+2026-10-03 20:36:24 | INFO    | 封存 fixed-fold1_seed2，成功12模型
+2026-10-03 20:36:43 | INFO    | 封存 fixed-fold2_seed0，成功12模型
+2026-10-03 20:37:01 | INFO    | 封存 fixed-fold2_seed1，成功12模型
+2026-10-03 20:37:20 | INFO    | 封存 fixed-fold2_seed2，成功12模型
+2026-10-03 20:37:21 | INFO    | fit 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_prototypes_v1\workspace\output\fault_type_context_prototypes_fit\2026-10-03-20-34-21

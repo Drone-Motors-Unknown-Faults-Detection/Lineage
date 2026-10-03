@@ -19,3 +19,9 @@ core／11測試commit `53b0bba3fb437f0160a6dfc2abb79f9206d261f9`已push／remote
 截至此段尚無I formal protocol、fit或outer結果。smoke／tests屬未提交runner工程驗證，正式lock須在code提交後生成；source SHA將由lock保存。exp16結果交付commit `e5f8a5b7f8bea6accebd0de669d78fc023ee44d7`已push且remote一致，12方法均FAILED，下一批不挑H最好seed作參數。
 
 runner commit `4ccaed0b04dc916c2cb63627dbc38d046974cd5a`已push／remote一致；20:33:01執行手冊lock命令，output `fault_type_context_prototypes_lock/2026-10-03-20-33-01/protocol.json`，20:33:23封存完成。source inventory包含I core/runner/manual及只讀H parent helper的SHA，依原G protocol/lock/actual source綁定。協定固定I01–12×3fold×seeds0/1/2、selection空、historical exposure保留；提交推送後才開始fit。
+
+事前協定commit `b2896ebac31e9f944babf5b3f560023681cddfe7`已push／remote一致，protocol semantic checksum `f2c3d40bddc99066e2a94fa0bc9b240b35cfd1c8e62a1ce8297c99ac4addef25`。20:34:21執行`fit --protocol output/fault_type_context_prototypes_lock/2026-10-03-20-33-01/protocol.json --data-root data/formal_local`，20:37:21完成9個fold/seed bundles、108個模型，全數收斂，最大172次迭代。lock semantic checksum `66c265da94df081dbadfb97807ad8f199c6afba8ea91a28d2ec30748d2315b6a`，formal資料前後checksum相同。模型在D槽，C槽保留`output/fault_type_context_prototypes_fit/2026-10-03-20-34-21/{locked_study,artifact_location}.json`。
+
+20:38:00開始`source-verify --protocol output/fault_type_context_prototypes_lock/2026-10-03-20-33-01/protocol.json --lock output/fault_type_context_prototypes_fit/2026-10-03-20-34-21/locked_study.json --data-root data/formal_local`。另以GitHub唯讀API確認main的AGENT.md blob仍為`8f35a6bf14fa4747d63add1d6bc852b65bcb4784`，未改規定。outer test尚未執行；不能將收斂與工程測試當作辨識改善。
+
+20:40:01：108模型由實際known train/cal/RPM逐一重建，state與train predictions一致，test_numeric_reads=0，formal checksum前後不變。`output/fault_type_context_prototypes_source_verify/2026-10-03-20-38-00/source_verified.json`保存逐模型證據。此處VERIFIED僅涵蓋可取得的數值來源；raw/session/window獨立性仍UNKNOWN。先提交這份重建與fit索引，再執行outer；未讀I test成績。

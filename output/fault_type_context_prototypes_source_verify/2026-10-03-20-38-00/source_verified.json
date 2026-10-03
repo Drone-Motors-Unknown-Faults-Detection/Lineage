@@ -1,0 +1,2963 @@
+{
+  "cells": [
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "1f2133bbab9fddfcfdbcae284502a5299a2f2669a508043de535cfeb86b5949c",
+      "seed": 0,
+      "verified": {
+        "identity_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 103,
+            "final_loss": 0.13290796707351238,
+            "gradient_inf_norm": 5.677828159104413e-05,
+            "initial_loss": 0.20866803324889618,
+            "initialization_gradient_inf_norm": 0.007597534598623667,
+            "iterations": 81,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.22348200000124052,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "f83fcfde261725c48bd9b1ee8a9b2f60c95e81183525ca73b502e22a496b6e2b",
+          "status": "completed"
+        },
+        "identity_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 110,
+            "final_loss": 0.12905700666161243,
+            "gradient_inf_norm": 5.935696404491656e-05,
+            "initial_loss": 0.20554514111558567,
+            "initialization_gradient_inf_norm": 0.0075960157040576666,
+            "iterations": 69,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.23439369999687187,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "44feff8f4226b6036eb348c4f0185ec2c6d5797dda45dd6741731787cfe83275",
+          "status": "completed"
+        },
+        "identity_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.20554514111558567,
+            "gradient_inf_norm": 0.0075960157040576666,
+            "initial_loss": 0.20554514111558567,
+            "initialization_gradient_inf_norm": 0.0075960157040576666,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005549499997869134,
+            "success": true
+          },
+          "state_checksum": "2671a7e5855c4b245982fbb62a7cdfef73bc993c6851f5ffada0c768ad0552ad",
+          "status": "completed"
+        },
+        "identity_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 48,
+            "final_loss": 0.030272020636762594,
+            "gradient_inf_norm": 7.215390802699429e-06,
+            "initial_loss": 0.03224586559317373,
+            "initialization_gradient_inf_norm": 0.0009198231334051716,
+            "iterations": 45,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.13993079998181202,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "8dd3c395a28c793c5eb9dee2ec60ab6eba412f5ee126369629844e304ed4d374",
+          "status": "completed"
+        },
+        "identity_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 55,
+            "final_loss": 0.02990252276038095,
+            "gradient_inf_norm": 7.650951880144323e-06,
+            "initial_loss": 0.03186661009886961,
+            "initialization_gradient_inf_norm": 0.000917147584838407,
+            "iterations": 52,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.1468295999802649,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "0c3c907fdea9058d2c21528ce3adc95e133f380db94352227e423d57c5d69832",
+          "status": "completed"
+        },
+        "identity_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.03186661009886961,
+            "gradient_inf_norm": 0.000917147584838407,
+            "initial_loss": 0.03186661009886961,
+            "initialization_gradient_inf_norm": 0.000917147584838407,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005273999995552003,
+            "success": true
+          },
+          "state_checksum": "71c2dc138272e3825fb14db0004e0d798290e921bce68fdfd0b64778e2e53852",
+          "status": "completed"
+        },
+        "metric_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 98,
+            "final_loss": 0.1460907539034339,
+            "gradient_inf_norm": 0.0006132553532220259,
+            "initial_loss": 0.2456418681669736,
+            "initialization_gradient_inf_norm": 0.07640840807508158,
+            "iterations": 65,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.2156740000064019,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "26aadd4c0d305af8a714b6744b0e055ed6a1e963919b30935ccd11928e46ea31",
+          "status": "completed"
+        },
+        "metric_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 70,
+            "final_loss": 0.14589761793021674,
+            "gradient_inf_norm": 0.0007012316498073689,
+            "initial_loss": 0.2454855533242328,
+            "initialization_gradient_inf_norm": 0.0764079324798999,
+            "iterations": 54,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.1535530999826733,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "ce896e14160c516ab8c5d8c77397793d8e99713b5f1994a50699c5957447aee2",
+          "status": "completed"
+        },
+        "metric_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.2454855533242328,
+            "gradient_inf_norm": 0.0764079324798999,
+            "initial_loss": 0.2454855533242328,
+            "initialization_gradient_inf_norm": 0.0764079324798999,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0043160000059287995,
+            "success": true
+          },
+          "state_checksum": "a6286a5e571786f91d9ebbeb90e472064527be033ea745f8d67ca860524ff755",
+          "status": "completed"
+        },
+        "metric_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 35,
+            "final_loss": 0.021882950811081686,
+            "gradient_inf_norm": 1.289523429704196e-05,
+            "initial_loss": 0.0224432050276162,
+            "initialization_gradient_inf_norm": 0.005732186959138841,
+            "iterations": 32,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.09323050000239164,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "2a6621eb4ad8bd7100403bfb5c4b5357cc9b10981f956c93527e06420b699fbd",
+          "status": "completed"
+        },
+        "metric_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 47,
+            "final_loss": 0.021878954451145554,
+            "gradient_inf_norm": 1.13072183778124e-06,
+            "initial_loss": 0.02243923044075241,
+            "initialization_gradient_inf_norm": 0.005732261067348264,
+            "iterations": 43,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.1242437000037171,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "35b659bdaf0de9c3692c220f5d332abd562c30a71f4bb464317bd6b705f20085",
+          "status": "completed"
+        },
+        "metric_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.02243923044075241,
+            "gradient_inf_norm": 0.005732261067348264,
+            "initial_loss": 0.02243923044075241,
+            "initialization_gradient_inf_norm": 0.005732261067348264,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005383099982282147,
+            "success": true
+          },
+          "state_checksum": "ca61a025aad68a478209c2ff6fab40b7e8547c6e501ea0a4cff94ffe740322dc",
+          "status": "completed"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "541fc80428efe5dcca59063a3486ea9b1a82df05996b583c2ebc9a95d6f35a26",
+      "seed": 1,
+      "verified": {
+        "identity_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 87,
+            "final_loss": 0.134811246562096,
+            "gradient_inf_norm": 0.000123158269062057,
+            "initial_loss": 0.20866703556138616,
+            "initialization_gradient_inf_norm": 0.0076151061068541,
+            "iterations": 67,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.21126959999674,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "c47150ded82ec1fa3e05703b8b984d256fa83bb07b40502ca6566e0024bc04ff",
+          "status": "completed"
+        },
+        "identity_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 117,
+            "final_loss": 0.1309684843128986,
+            "gradient_inf_norm": 2.06841658335592e-05,
+            "initial_loss": 0.20554951277334688,
+            "initialization_gradient_inf_norm": 0.0076165823875590545,
+            "iterations": 78,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.26811770000495017,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "1a925e6224b8e4a5cbac3e066c3fac71ded111e5b31cb39331873838daad6ca4",
+          "status": "completed"
+        },
+        "identity_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.20554951277334688,
+            "gradient_inf_norm": 0.0076165823875590545,
+            "initial_loss": 0.20554951277334688,
+            "initialization_gradient_inf_norm": 0.0076165823875590545,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.004542000009678304,
+            "success": true
+          },
+          "state_checksum": "116cb0cc2bea62ec8b20f843f627d29d07e05ae22d6d89a2903b1c66cfc7a63c",
+          "status": "completed"
+        },
+        "identity_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 82,
+            "final_loss": 0.030360106321573325,
+            "gradient_inf_norm": 2.9333269140155743e-06,
+            "initial_loss": 0.032245165534872756,
+            "initialization_gradient_inf_norm": 0.0008050372315214093,
+            "iterations": 66,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.24520710000069812,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "995c87acfc52c5a04530c6037f4cc109323c218d8dd98bfd9a53706729ef9b39",
+          "status": "completed"
+        },
+        "identity_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 94,
+            "final_loss": 0.029982667795808056,
+            "gradient_inf_norm": 2.9810118412636034e-06,
+            "initial_loss": 0.0318531534602909,
+            "initialization_gradient_inf_norm": 0.0008030695383667924,
+            "iterations": 73,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.2504774999979418,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "00d123be47594ccf4b4f1f58fdb116e5d7ccafd72c7172376c4a5cf7509810c4",
+          "status": "completed"
+        },
+        "identity_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.0318531534602909,
+            "gradient_inf_norm": 0.0008030695383667924,
+            "initial_loss": 0.0318531534602909,
+            "initialization_gradient_inf_norm": 0.0008030695383667924,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005505100009031594,
+            "success": true
+          },
+          "state_checksum": "ecc234956e13f1c5ccf25bb722122dfae7df844fdf4057b843b2a922a2afd480",
+          "status": "completed"
+        },
+        "metric_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 128,
+            "final_loss": 0.14233691688256195,
+            "gradient_inf_norm": 0.0005702799366594551,
+            "initial_loss": 0.2313329147868338,
+            "initialization_gradient_inf_norm": 0.0796688035525288,
+            "iterations": 89,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.28616049999254756,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "2a2c9d91ab99ece35da5ea646761cf69436fa335622e11906e32aca9251c3e1f",
+          "status": "completed"
+        },
+        "metric_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 87,
+            "final_loss": 0.1421815171332254,
+            "gradient_inf_norm": 0.0007804708922186094,
+            "initial_loss": 0.23120287806351705,
+            "initialization_gradient_inf_norm": 0.07966895665407393,
+            "iterations": 69,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.19713130002492107,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "9b6bf1e8be1495249a735d00e22cc0d2a3a5c45843993b2a763ff391c89ec1a3",
+          "status": "completed"
+        },
+        "metric_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.23120287806351705,
+            "gradient_inf_norm": 0.07966895665407393,
+            "initial_loss": 0.23120287806351705,
+            "initialization_gradient_inf_norm": 0.07966895665407393,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0050033000006806105,
+            "success": true
+          },
+          "state_checksum": "ecd9351b7516eb2bd0401db1efbefbdd35e612e37cae58d3644a61927c237809",
+          "status": "completed"
+        },
+        "metric_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 41,
+            "final_loss": 0.02184906280932141,
+            "gradient_inf_norm": 1.2605296214585875e-06,
+            "initial_loss": 0.022218231605934922,
+            "initialization_gradient_inf_norm": 0.0021589266741116934,
+            "iterations": 38,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.11533100000815466,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "8c2f4807304d94bf94f1decf05bc7b62e512c5c05d3350e21a5e724b8325f324",
+          "status": "completed"
+        },
+        "metric_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 41,
+            "final_loss": 0.02184454662674424,
+            "gradient_inf_norm": 1.190340935692298e-06,
+            "initial_loss": 0.02221361718888931,
+            "initialization_gradient_inf_norm": 0.002158967388154031,
+            "iterations": 38,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.11360939999576658,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "b4757d1b85db9b0de55bdcb07d5d5efdad1a43e2a6416222fee9243b98c58efe",
+          "status": "completed"
+        },
+        "metric_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.02221361718888931,
+            "gradient_inf_norm": 0.002158967388154031,
+            "initial_loss": 0.02221361718888931,
+            "initialization_gradient_inf_norm": 0.002158967388154031,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.00511009999900125,
+            "success": true
+          },
+          "state_checksum": "1b6006881e12e6f8888559b590007e61f25ce350b1615df10cd58ef94a3aae26",
+          "status": "completed"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "20c911ed97b00a52ecc46f32f07e9ee21e59e8197b031b12e96e65e6b8d75eeb",
+      "seed": 2,
+      "verified": {
+        "identity_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 83,
+            "final_loss": 0.13431675309277732,
+            "gradient_inf_norm": 9.214666191525042e-05,
+            "initial_loss": 0.20969780808899377,
+            "initialization_gradient_inf_norm": 0.007915383333504973,
+            "iterations": 64,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.1849017999775242,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "98c69d8ae46a7459a7a3785f02d9f12889b85b9076f0c918310e45766ae197a8",
+          "status": "completed"
+        },
+        "identity_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 159,
+            "final_loss": 0.130371122607551,
+            "gradient_inf_norm": 0.00015076669330786,
+            "initial_loss": 0.20650383368491204,
+            "initialization_gradient_inf_norm": 0.007913542741631412,
+            "iterations": 100,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.3527405000058934,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "1f433e6e428abf34d3cb01a356c3c69123d87e2d85fd1443605d9cb2c1086da7",
+          "status": "completed"
+        },
+        "identity_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.20650383368491204,
+            "gradient_inf_norm": 0.007913542741631412,
+            "initial_loss": 0.20650383368491204,
+            "initialization_gradient_inf_norm": 0.007913542741631412,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0046322999987751245,
+            "success": true
+          },
+          "state_checksum": "50d26dce64fc8af7cf0d0c661c52bf1bf30c62ebeba65bf82bf4be81a56d221d",
+          "status": "completed"
+        },
+        "identity_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 69,
+            "final_loss": 0.029987671453003226,
+            "gradient_inf_norm": 1.1048548345865266e-05,
+            "initial_loss": 0.031848894773472906,
+            "initialization_gradient_inf_norm": 0.0006405453075443985,
+            "iterations": 59,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.19437650000327267,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "d4803d1c24c040f5f3155748774bd7637080a940936f7dbf4f38d33d761148f2",
+          "status": "completed"
+        },
+        "identity_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 74,
+            "final_loss": 0.029606850169442683,
+            "gradient_inf_norm": 2.910199674108923e-05,
+            "initial_loss": 0.03146357539209009,
+            "initialization_gradient_inf_norm": 0.0006389428580264309,
+            "iterations": 63,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.19894170001498424,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "acd61f99aef73ba19d1afcdd25989c8b5e5980d24999ed9ed84a7158da6a6915",
+          "status": "completed"
+        },
+        "identity_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.03146357539209009,
+            "gradient_inf_norm": 0.0006389428580264309,
+            "initial_loss": 0.03146357539209009,
+            "initialization_gradient_inf_norm": 0.0006389428580264309,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005549199995584786,
+            "success": true
+          },
+          "state_checksum": "ad050b95c760614ad3f07d9a3158b7fc9e08eb96de14be6cd1d4a2843d78754c",
+          "status": "completed"
+        },
+        "metric_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 65,
+            "final_loss": 0.14532141489942144,
+            "gradient_inf_norm": 0.0005806023580210734,
+            "initial_loss": 0.22799478103094484,
+            "initialization_gradient_inf_norm": 0.07135647695743101,
+            "iterations": 49,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.14188710000598803,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "48fea30c70e3d01c0a6b6ff530d6f2053641730c371acf9631a7cbc6830d436d",
+          "status": "completed"
+        },
+        "metric_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 68,
+            "final_loss": 0.14518918362588304,
+            "gradient_inf_norm": 0.0009288507400463511,
+            "initial_loss": 0.22788531386599348,
+            "initialization_gradient_inf_norm": 0.0713537123502916,
+            "iterations": 42,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.18117830000119284,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "d36b9d75ef925c0b6aecb670c786683bccaf79fbcb0f84af2e1d209d2d442edc",
+          "status": "completed"
+        },
+        "metric_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.22788531386599348,
+            "gradient_inf_norm": 0.0713537123502916,
+            "initial_loss": 0.22788531386599348,
+            "initialization_gradient_inf_norm": 0.0713537123502916,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005310500011546537,
+            "success": true
+          },
+          "state_checksum": "8bfcb00f075278ddd4bc7453f4eddb9d130c3a3853d3fb5c37b35e94f883b299",
+          "status": "completed"
+        },
+        "metric_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 47,
+            "final_loss": 0.02182478181127256,
+            "gradient_inf_norm": 1.2610362591716061e-06,
+            "initial_loss": 0.022485473339780012,
+            "initialization_gradient_inf_norm": 0.006505105913828904,
+            "iterations": 44,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.12459079999825917,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "0e5f703e61b1cf66cc1882bbf246cf98b7e656bcc317d4f7cc700eef0ac10d4d",
+          "status": "completed"
+        },
+        "metric_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 47,
+            "final_loss": 0.02182107154358289,
+            "gradient_inf_norm": 7.602509610686535e-06,
+            "initial_loss": 0.02248154949201836,
+            "initialization_gradient_inf_norm": 0.0065045857652677765,
+            "iterations": 44,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.12873329999274574,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "4153c2c36ca3501050dea021e28bb7d68232192bb21a8db1ea1067e6241bdb24",
+          "status": "completed"
+        },
+        "metric_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.02248154949201836,
+            "gradient_inf_norm": 0.0065045857652677765,
+            "initial_loss": 0.02248154949201836,
+            "initialization_gradient_inf_norm": 0.0065045857652677765,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005720799992559478,
+            "success": true
+          },
+          "state_checksum": "e147ed331c1f1dbcf3d18022cf56b35aebdc8c6b1271843bb43ba3c9129a0128",
+          "status": "completed"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "ced6e71bef0fb9825d481aafd8c12213404c1507ccd4fd3cedac96a5a1340aec",
+      "seed": 0,
+      "verified": {
+        "identity_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 64,
+            "final_loss": 0.11723280892018587,
+            "gradient_inf_norm": 7.339562952635303e-05,
+            "initial_loss": 0.16779739412095554,
+            "initialization_gradient_inf_norm": 0.007649446193643712,
+            "iterations": 57,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.14833500000531785,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "c0fd7da204a28ef49cc15c3466849eeaaae42ea67e6a75b08e0dfbe16dc1bb18",
+          "status": "completed"
+        },
+        "identity_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 100,
+            "final_loss": 0.114759968490576,
+            "gradient_inf_norm": 8.106752894728517e-05,
+            "initial_loss": 0.1658917614069217,
+            "initialization_gradient_inf_norm": 0.007651560037654795,
+            "iterations": 83,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.22250490001169965,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "43a27906c0777fc3f1c7c5f73dff1c698ba2a95f986377fe02a45c91a445b5b3",
+          "status": "completed"
+        },
+        "identity_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.1658917614069217,
+            "gradient_inf_norm": 0.007651560037654795,
+            "initial_loss": 0.1658917614069217,
+            "initialization_gradient_inf_norm": 0.007651560037654795,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.004224400006933138,
+            "success": true
+          },
+          "state_checksum": "90b5a6fd634940c90a62f4ac9a9d119ca09917a3aa04242aaadc20ae0ea78d9a",
+          "status": "completed"
+        },
+        "identity_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 88,
+            "final_loss": 0.03563309427122853,
+            "gradient_inf_norm": 1.836217592878344e-05,
+            "initial_loss": 0.04383762921318113,
+            "initialization_gradient_inf_norm": 0.0028454175757423286,
+            "iterations": 78,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.24163979999138974,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "f2f2453fb4466d67195610a91d3665430b27d0175f20a796015bad4f3b82605e",
+          "status": "completed"
+        },
+        "identity_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 92,
+            "final_loss": 0.035140753383010634,
+            "gradient_inf_norm": 1.529556690959761e-05,
+            "initial_loss": 0.04336645080634056,
+            "initialization_gradient_inf_norm": 0.0028337201407372774,
+            "iterations": 76,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.24300650000805035,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "79aee63141957c61e2f0cde309812f084eacf218d3228c42bf0d6afe8d73f9a9",
+          "status": "completed"
+        },
+        "identity_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.04336645080634056,
+            "gradient_inf_norm": 0.0028337201407372774,
+            "initial_loss": 0.04336645080634056,
+            "initialization_gradient_inf_norm": 0.0028337201407372774,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005995299987262115,
+            "success": true
+          },
+          "state_checksum": "14c5fa7858fc4d6b57cfc99bc3300f67d5e2e267fe6d40e76ca70e20e5786e0f",
+          "status": "completed"
+        },
+        "metric_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 56,
+            "final_loss": 0.09321719121354015,
+            "gradient_inf_norm": 0.00016364069097467393,
+            "initial_loss": 0.15322893703958243,
+            "initialization_gradient_inf_norm": 0.05905036638075608,
+            "iterations": 43,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.12698400000226684,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "a71ab35357f93f3fb3ef4f25fe7d5cc7028dfa4851d60fcb9b7ae5250204733e",
+          "status": "completed"
+        },
+        "metric_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 69,
+            "final_loss": 0.09315177045739284,
+            "gradient_inf_norm": 0.0001708977636909586,
+            "initial_loss": 0.1531784126172714,
+            "initialization_gradient_inf_norm": 0.059050759620770416,
+            "iterations": 44,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.15443969998159446,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "863a766d3a87ea3d9895da27d3c514cf7568a1ce8061b9a2932f2b39e6e9dd1a",
+          "status": "completed"
+        },
+        "metric_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.1531784126172714,
+            "gradient_inf_norm": 0.059050759620770416,
+            "initial_loss": 0.1531784126172714,
+            "initialization_gradient_inf_norm": 0.059050759620770416,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.004692600021371618,
+            "success": true
+          },
+          "state_checksum": "05b568fd487ae61c7a866ec55cf83b9597c5acb6332e482e1cf02e9dc748edd0",
+          "status": "completed"
+        },
+        "metric_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 65,
+            "final_loss": 0.024568422762804687,
+            "gradient_inf_norm": 4.697844762246478e-05,
+            "initial_loss": 0.029118404208973325,
+            "initialization_gradient_inf_norm": 0.010494025545350215,
+            "iterations": 57,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.17620290000922978,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "dd3bc7fdacd3291cdd1264a270d722b68cb6268f9669d672df7511f15c869330",
+          "status": "completed"
+        },
+        "metric_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 48,
+            "final_loss": 0.024561055675335074,
+            "gradient_inf_norm": 4.4449977175065535e-05,
+            "initial_loss": 0.029111377744173397,
+            "initialization_gradient_inf_norm": 0.010491635885635819,
+            "iterations": 37,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.13140710000880063,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "19916c2778f7f4e1ae43954d1c5dac71dfd343743c4fbbf728838435a03ce55e",
+          "status": "completed"
+        },
+        "metric_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.029111377744173397,
+            "gradient_inf_norm": 0.010491635885635819,
+            "initial_loss": 0.029111377744173397,
+            "initialization_gradient_inf_norm": 0.010491635885635819,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0052803999860771,
+            "success": true
+          },
+          "state_checksum": "d8c0a9a002840f807cc4042e3d40be1fd3844cf666f90c35d34a3e2a93a3d6f8",
+          "status": "completed"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "30974d589cf5d8108accc4624df2fd60f176123d5ef34190b99a67d8e54b1d56",
+      "seed": 1,
+      "verified": {
+        "identity_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 102,
+            "final_loss": 0.1189698691508449,
+            "gradient_inf_norm": 0.00019849989808040384,
+            "initial_loss": 0.17153604221848953,
+            "initialization_gradient_inf_norm": 0.007165001033997084,
+            "iterations": 70,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.22682689997600392,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "b8dfbf6497d0c0d7ff59f04d10e37a2cb80ee7284939b1b4ae93b77a66751169",
+          "status": "completed"
+        },
+        "identity_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 103,
+            "final_loss": 0.11639427981868378,
+            "gradient_inf_norm": 0.00027519056248258365,
+            "initial_loss": 0.16957874652838195,
+            "initialization_gradient_inf_norm": 0.007168428983965607,
+            "iterations": 80,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.22693859998253174,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "516edd05bc43e8f6f5a0496f82cc989c2a1fa89fd05e0e782e7af9cea14f5b12",
+          "status": "completed"
+        },
+        "identity_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.16957874652838195,
+            "gradient_inf_norm": 0.007168428983965607,
+            "initial_loss": 0.16957874652838195,
+            "initialization_gradient_inf_norm": 0.007168428983965607,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0046175000024959445,
+            "success": true
+          },
+          "state_checksum": "4c6ceaccfef487cc67372ef054b71b92f0fba3a8856f251b26a463ee6847e4d6",
+          "status": "completed"
+        },
+        "identity_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 71,
+            "final_loss": 0.03661934185331686,
+            "gradient_inf_norm": 1.3586813389917893e-06,
+            "initial_loss": 0.04582562542469896,
+            "initialization_gradient_inf_norm": 0.0026490150690494096,
+            "iterations": 62,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.22344910001265816,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "1ec1caec4ec5cb3b0fd420be4302eecbd44885ea007aff981940b99b649abd79",
+          "status": "completed"
+        },
+        "identity_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 50,
+            "final_loss": 0.03611776720370723,
+            "gradient_inf_norm": 6.039390788746287e-05,
+            "initial_loss": 0.04534578799346705,
+            "initialization_gradient_inf_norm": 0.002637559161643494,
+            "iterations": 42,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.15792939998209476,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "cdf293cbdfa8fd02a2b6ba547b93d868445624dcf52d9b07e428825d8b9695b9",
+          "status": "completed"
+        },
+        "identity_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.04534578799346705,
+            "gradient_inf_norm": 0.002637559161643494,
+            "initial_loss": 0.04534578799346705,
+            "initialization_gradient_inf_norm": 0.002637559161643494,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.00673679998726584,
+            "success": true
+          },
+          "state_checksum": "5f077a14489e7c0f2e911781bfe2e178b0937db63fb47049fac3b2c90688f970",
+          "status": "completed"
+        },
+        "metric_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 144,
+            "final_loss": 0.09835202474337176,
+            "gradient_inf_norm": 0.0007677851670122248,
+            "initial_loss": 0.15204114886674894,
+            "initialization_gradient_inf_norm": 0.054738827727297025,
+            "iterations": 82,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.3264029000129085,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "ba25220fba20ce15bdf175e30432f65015e222241eb6aef7144df08cb42b5aaa",
+          "status": "completed"
+        },
+        "metric_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 129,
+            "final_loss": 0.09828157643521228,
+            "gradient_inf_norm": 0.0011373268034445688,
+            "initial_loss": 0.15198525605523738,
+            "initialization_gradient_inf_norm": 0.054740875037449045,
+            "iterations": 100,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.2934456999937538,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "b2ea04100d596573cd823a97f3888ff656f849571cf2b6dd240e4ba805920958",
+          "status": "completed"
+        },
+        "metric_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.15198525605523738,
+            "gradient_inf_norm": 0.054740875037449045,
+            "initial_loss": 0.15198525605523738,
+            "initialization_gradient_inf_norm": 0.054740875037449045,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.004439899988938123,
+            "success": true
+          },
+          "state_checksum": "ce262dc2842775d4b970b9096811cdbd65ef42b748db2d8115f89485ba2efbe4",
+          "status": "completed"
+        },
+        "metric_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 49,
+            "final_loss": 0.02426582808989703,
+            "gradient_inf_norm": 0.00017445030744205287,
+            "initial_loss": 0.029546768253227898,
+            "initialization_gradient_inf_norm": 0.010184966888183714,
+            "iterations": 33,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.1345840000140015,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "edee8cb49f82c597f90a8ce81d9942188210e4289093240fef10c26a67530280",
+          "status": "completed"
+        },
+        "metric_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 51,
+            "final_loss": 0.024257075315965354,
+            "gradient_inf_norm": 0.00022734579814247382,
+            "initial_loss": 0.02953865253180443,
+            "initialization_gradient_inf_norm": 0.010181935002199436,
+            "iterations": 37,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.15003300001262687,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "84bae38806124987c37cf7f95305da4f308bcbd8a5e831ba76b82d4c84dc6e0c",
+          "status": "completed"
+        },
+        "metric_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.02953865253180443,
+            "gradient_inf_norm": 0.010181935002199436,
+            "initial_loss": 0.02953865253180443,
+            "initialization_gradient_inf_norm": 0.010181935002199436,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005398299981607124,
+            "success": true
+          },
+          "state_checksum": "b46dbc70e967bf4803716fdd44e6219cf579fae3b45a29f51a59f690b6f8ef70",
+          "status": "completed"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "371b61c0de6228723fd84cdf7e89cd956d88e2c276ed3c18fc23548927ce6770",
+      "seed": 2,
+      "verified": {
+        "identity_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 119,
+            "final_loss": 0.11629509722700308,
+            "gradient_inf_norm": 0.00010352472538063413,
+            "initial_loss": 0.16517744278060667,
+            "initialization_gradient_inf_norm": 0.00709904304047691,
+            "iterations": 88,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.27617289999034256,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "bddc81128bed6288356d350cd0cf222103b6db67d32be87a6460e60b9fbfa31c",
+          "status": "completed"
+        },
+        "identity_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 111,
+            "final_loss": 0.11369879714264253,
+            "gradient_inf_norm": 6.0498094114179065e-05,
+            "initial_loss": 0.1632514815807777,
+            "initialization_gradient_inf_norm": 0.007099336360786348,
+            "iterations": 84,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.28154229998472147,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "4c80cce75783c7071d4ef4ea572d51d7f94403c9659b948328c689e9b3d7bde7",
+          "status": "completed"
+        },
+        "identity_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.1632514815807777,
+            "gradient_inf_norm": 0.007099336360786348,
+            "initial_loss": 0.1632514815807777,
+            "initialization_gradient_inf_norm": 0.007099336360786348,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.004856199986534193,
+            "success": true
+          },
+          "state_checksum": "14c13cd692c3c239c887cf1f46e82fd816bf79358a98c7ff99894859e9c57cdf",
+          "status": "completed"
+        },
+        "identity_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 52,
+            "final_loss": 0.035288136210474726,
+            "gradient_inf_norm": 1.6264283373222204e-06,
+            "initial_loss": 0.04159184365554445,
+            "initialization_gradient_inf_norm": 0.0014909297758328459,
+            "iterations": 47,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.15895219999947585,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "665bf482554364189471b4fda535390deae737709cefff69b5f50167e40c3e89",
+          "status": "completed"
+        },
+        "identity_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 45,
+            "final_loss": 0.03479761999273299,
+            "gradient_inf_norm": 9.198382407885011e-07,
+            "initial_loss": 0.041131292977055034,
+            "initialization_gradient_inf_norm": 0.0014907192261151454,
+            "iterations": 42,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.13406250000116415,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "69052f269dcf61e5c744115758806d460a77f7514f63edcd80c8998c27354d05",
+          "status": "completed"
+        },
+        "identity_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.041131292977055034,
+            "gradient_inf_norm": 0.0014907192261151454,
+            "initial_loss": 0.041131292977055034,
+            "initialization_gradient_inf_norm": 0.0014907192261151454,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.006186499987961724,
+            "success": true
+          },
+          "state_checksum": "41788cd841117013d049aa5ad2d0b50836f0965a030117e540b9389d758a4eaa",
+          "status": "completed"
+        },
+        "metric_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 42,
+            "final_loss": 0.09236880084697338,
+            "gradient_inf_norm": 0.00019061779437981586,
+            "initial_loss": 0.1399714338030062,
+            "initialization_gradient_inf_norm": 0.06742642719140067,
+            "iterations": 33,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.09897250001085922,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "1b8a7b4e06edd252e36e9a86f26c21b430dc763d8fd5f2db69a33af0809764d4",
+          "status": "completed"
+        },
+        "metric_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 44,
+            "final_loss": 0.09229654839263428,
+            "gradient_inf_norm": 0.0001177293546809387,
+            "initial_loss": 0.1399152596756295,
+            "initialization_gradient_inf_norm": 0.06742597585069865,
+            "iterations": 37,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.11464449999039061,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "08358c6db38728fe269c7cebcfe66fb0834ff1ba2f282d52388c7b9de23884c7",
+          "status": "completed"
+        },
+        "metric_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.1399152596756295,
+            "gradient_inf_norm": 0.06742597585069865,
+            "initial_loss": 0.1399152596756295,
+            "initialization_gradient_inf_norm": 0.06742597585069865,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.00532050000037998,
+            "success": true
+          },
+          "state_checksum": "cae3524b16e7f7a7e22be89dd6f7a6e03091fadd9b222522fa8b4e76ea1d2147",
+          "status": "completed"
+        },
+        "metric_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 33,
+            "final_loss": 0.024924542054395305,
+            "gradient_inf_norm": 1.851424077551419e-06,
+            "initial_loss": 0.02993642614679959,
+            "initialization_gradient_inf_norm": 0.0071343753986935245,
+            "iterations": 29,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.09496680001029745,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "227064bd914d22766fba2598bcc13d3e2549b80ef36d7725f74ae0661964c0aa",
+          "status": "completed"
+        },
+        "metric_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 33,
+            "final_loss": 0.024915497089073587,
+            "gradient_inf_norm": 1.8300762237638792e-06,
+            "initial_loss": 0.029928979638883663,
+            "initialization_gradient_inf_norm": 0.007133609758133102,
+            "iterations": 29,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.099551799998153,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "7be482fe5a103d6ece8cc248b44fd3a3e966ad37fa3529172331816ae283b8de",
+          "status": "completed"
+        },
+        "metric_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.029928979638883663,
+            "gradient_inf_norm": 0.007133609758133102,
+            "initial_loss": 0.029928979638883663,
+            "initialization_gradient_inf_norm": 0.007133609758133102,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005424500006483868,
+            "success": true
+          },
+          "state_checksum": "f571147c2dc49a13a09f2576e9b60043aa18c2bbd73df5e29c3f11cb6a7d47fc",
+          "status": "completed"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "514adc43ad15701e85bddd73589e2e718e59175c5c445976b88991db8726e454",
+      "seed": 0,
+      "verified": {
+        "identity_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 168,
+            "final_loss": 0.19785095826195354,
+            "gradient_inf_norm": 6.44457435985912e-05,
+            "initial_loss": 0.27856479468438916,
+            "initialization_gradient_inf_norm": 0.005887678811883826,
+            "iterations": 141,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.40922120001050644,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "c1409c6820ad3fb24f58edaea351e00b60d01d03cc24b6dc59bcfa0cdd5783c1",
+          "status": "completed"
+        },
+        "identity_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 208,
+            "final_loss": 0.1884747058979959,
+            "gradient_inf_norm": 9.383341739052078e-05,
+            "initial_loss": 0.27329877999881225,
+            "initialization_gradient_inf_norm": 0.005882359065092961,
+            "iterations": 172,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.4767852000077255,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "53ee2ce08aa34b80b7bdc27f37885c61103ae642d05f55ac9e64ce503220943a",
+          "status": "completed"
+        },
+        "identity_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.27329877999881225,
+            "gradient_inf_norm": 0.005882359065092961,
+            "initial_loss": 0.27329877999881225,
+            "initialization_gradient_inf_norm": 0.005882359065092961,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005187399976421148,
+            "success": true
+          },
+          "state_checksum": "d38c5b4f6e10b4f8c329541b5f8761c6f6d15aeecd0283de243da0fba928645f",
+          "status": "completed"
+        },
+        "identity_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 132,
+            "final_loss": 0.06036870041059768,
+            "gradient_inf_norm": 0.00010081434592124875,
+            "initial_loss": 0.07335602912624188,
+            "initialization_gradient_inf_norm": 0.002649413985415517,
+            "iterations": 93,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.35890930000459775,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "9fc67e8a5baae754aaa5292abb04507205507dbf3190f0fb09295a82c64b070c",
+          "status": "completed"
+        },
+        "identity_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 62,
+            "final_loss": 0.05900039981912557,
+            "gradient_inf_norm": 0.00014096728809710567,
+            "initial_loss": 0.07210207191362263,
+            "initialization_gradient_inf_norm": 0.0026515401672386287,
+            "iterations": 53,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.1685044000041671,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "626ed6da65d2227b6c08d1053fefb95ec512db0a137d485204cc46b1bc7052d7",
+          "status": "completed"
+        },
+        "identity_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.07210207191362263,
+            "gradient_inf_norm": 0.0026515401672386287,
+            "initial_loss": 0.07210207191362263,
+            "initialization_gradient_inf_norm": 0.0026515401672386287,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.00572039998951368,
+            "success": true
+          },
+          "state_checksum": "d0391041062f5f28b4793b5cf104b60c237955d244600ea7873a2894976ac404",
+          "status": "completed"
+        },
+        "metric_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 107,
+            "final_loss": 0.20975851779624147,
+            "gradient_inf_norm": 0.0008815688637098082,
+            "initial_loss": 0.30790253508340476,
+            "initialization_gradient_inf_norm": 0.05908309481572224,
+            "iterations": 83,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.2452793999982532,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "438143820ea29206da0afa90c774bd2ea25d42cd7953fd4796d03090d43fffdf",
+          "status": "completed"
+        },
+        "metric_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 124,
+            "final_loss": 0.20959406107968925,
+            "gradient_inf_norm": 0.0007815171394045371,
+            "initial_loss": 0.3077896742718274,
+            "initialization_gradient_inf_norm": 0.059082866743793906,
+            "iterations": 92,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.28175850000116043,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "fce23994a095400fe917a4a16c808720c47a38cd90f9e9425e4ce2f2a7ddd80a",
+          "status": "completed"
+        },
+        "metric_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.3077896742718274,
+            "gradient_inf_norm": 0.059082866743793906,
+            "initial_loss": 0.3077896742718274,
+            "initialization_gradient_inf_norm": 0.059082866743793906,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005441799992695451,
+            "success": true
+          },
+          "state_checksum": "1b1abdf7c0174cbf06fb17dbe5185cfbc521d35969023e119b8815260b2312d5",
+          "status": "completed"
+        },
+        "metric_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 98,
+            "final_loss": 0.04228352543746735,
+            "gradient_inf_norm": 4.151726446929746e-06,
+            "initial_loss": 0.048793750452165864,
+            "initialization_gradient_inf_norm": 0.02577892744432103,
+            "iterations": 88,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.27459370001452044,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "3222167a034e21fcbdbda558bfb58d46f7fddba479f60a6acb3d4bfb83802be6",
+          "status": "completed"
+        },
+        "metric_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 101,
+            "final_loss": 0.04227607243131254,
+            "gradient_inf_norm": 3.5219511010123826e-06,
+            "initial_loss": 0.04878704191104498,
+            "initialization_gradient_inf_norm": 0.025778517891432474,
+            "iterations": 89,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.2867637000163086,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "475ec0981844985b284bf6bcb95e0f820a819b2b7e4dae73e9ca48d0e2712f0b",
+          "status": "completed"
+        },
+        "metric_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.04878704191104498,
+            "gradient_inf_norm": 0.025778517891432474,
+            "initial_loss": 0.04878704191104498,
+            "initialization_gradient_inf_norm": 0.025778517891432474,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0053155999921727926,
+            "success": true
+          },
+          "state_checksum": "cb941753bf09387ea1d7562210eea8e7111fcd74c0c14db565e2c0f5aaedbd50",
+          "status": "completed"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "5d6e386749ba85a48c0446d969fda5fea5fe374804077756ede3362b2616035a",
+      "seed": 1,
+      "verified": {
+        "identity_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 144,
+            "final_loss": 0.18712436824839845,
+            "gradient_inf_norm": 9.1110054599234e-05,
+            "initial_loss": 0.2754994587368541,
+            "initialization_gradient_inf_norm": 0.00662281913394714,
+            "iterations": 127,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.33797160000540316,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "729073fe08ecb2e4649008d30df4a49558248d8305b3e40e85f7144c8d5be84d",
+          "status": "completed"
+        },
+        "identity_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 207,
+            "final_loss": 0.17675998792918082,
+            "gradient_inf_norm": 5.1604652929079844e-05,
+            "initial_loss": 0.270199044641494,
+            "initialization_gradient_inf_norm": 0.006621492343858408,
+            "iterations": 153,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.4669477000134066,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "7dc0e0f3722a7bc0549cfdce488b4be1b37045af807facaf1492b5e850091626",
+          "status": "completed"
+        },
+        "identity_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.270199044641494,
+            "gradient_inf_norm": 0.006621492343858408,
+            "initial_loss": 0.270199044641494,
+            "initialization_gradient_inf_norm": 0.006621492343858408,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005052699998486787,
+            "success": true
+          },
+          "state_checksum": "c4b8252c2465baedfef27e73e572cfb32b193dfb6bb8ae03effd34a3b1e0beaf",
+          "status": "completed"
+        },
+        "identity_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 63,
+            "final_loss": 0.059298563945116116,
+            "gradient_inf_norm": 2.992732753307236e-05,
+            "initial_loss": 0.07297670625509634,
+            "initialization_gradient_inf_norm": 0.0031596774439820877,
+            "iterations": 41,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.17954319997807033,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "ad786325a718a9162c40293844c6546a7849a6e31be96809affd282ea4506227",
+          "status": "completed"
+        },
+        "identity_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 80,
+            "final_loss": 0.057938137576678914,
+            "gradient_inf_norm": 3.0124641059967132e-05,
+            "initial_loss": 0.0717386877004075,
+            "initialization_gradient_inf_norm": 0.003158914696218715,
+            "iterations": 70,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.23685859999386594,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "2badfaead58297640b3e8989b1f9fe51c0fda6d5003f4bdcb564297eaf181b3d",
+          "status": "completed"
+        },
+        "identity_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.0717386877004075,
+            "gradient_inf_norm": 0.003158914696218715,
+            "initial_loss": 0.0717386877004075,
+            "initialization_gradient_inf_norm": 0.003158914696218715,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0054301000200212,
+            "success": true
+          },
+          "state_checksum": "147fede2592a8597d518750d5fabc4ca4042daa2e94a1ffa57f1b5a8dbcdb39b",
+          "status": "completed"
+        },
+        "metric_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 150,
+            "final_loss": 0.1988327950976648,
+            "gradient_inf_norm": 0.0004473355213412472,
+            "initial_loss": 0.29422418942538947,
+            "initialization_gradient_inf_norm": 0.05803732102556507,
+            "iterations": 109,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.34381170000415295,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "99869ff3a2e9da2b4f084e44e8be6f4e7a5a3ab7b0314bca5e458533d2bc7c48",
+          "status": "completed"
+        },
+        "metric_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 88,
+            "final_loss": 0.19865308578589824,
+            "gradient_inf_norm": 0.0014449764372943734,
+            "initial_loss": 0.29409548597257007,
+            "initialization_gradient_inf_norm": 0.058037036287326885,
+            "iterations": 61,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.20551369999884628,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "f243d62d8f45509f11d45abe58945eb3965a58d5af0fc1189d9fb31656b06af7",
+          "status": "completed"
+        },
+        "metric_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.29409548597257007,
+            "gradient_inf_norm": 0.058037036287326885,
+            "initial_loss": 0.29409548597257007,
+            "initialization_gradient_inf_norm": 0.058037036287326885,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0054945000156294554,
+            "success": true
+          },
+          "state_checksum": "6a9f276c0ab8a4fd1385ad32f0e6964c86814dc2cbb5ab3c8c8600ba190be304",
+          "status": "completed"
+        },
+        "metric_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 97,
+            "final_loss": 0.038962001793311093,
+            "gradient_inf_norm": 4.1808119537916e-06,
+            "initial_loss": 0.046345013913441174,
+            "initialization_gradient_inf_norm": 0.023814626917043735,
+            "iterations": 88,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.25739909999538213,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "13709f5b4394510c42b85e53c6db0b168b04b8f6d458045632860169fdee49d9",
+          "status": "completed"
+        },
+        "metric_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 91,
+            "final_loss": 0.038955390868523565,
+            "gradient_inf_norm": 5.5071127041559545e-06,
+            "initial_loss": 0.04633877519168163,
+            "initialization_gradient_inf_norm": 0.023814114963375956,
+            "iterations": 83,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.24168429998098873,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "c35a3bd3fec86e4a2e7550764513a91bde0f3458d1cf94d3719cbba2f70e1a00",
+          "status": "completed"
+        },
+        "metric_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.04633877519168163,
+            "gradient_inf_norm": 0.023814114963375956,
+            "initial_loss": 0.04633877519168163,
+            "initialization_gradient_inf_norm": 0.023814114963375956,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005090100021334365,
+            "success": true
+          },
+          "state_checksum": "b5381de8a03985b1083d134b59d8a75e5a88da57b21c7677d60f7881538256d0",
+          "status": "completed"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "ad7a7e4088ddb28625e5d6bc89a27316beb207d8b975a6027a6955bf3da27962",
+      "seed": 2,
+      "verified": {
+        "identity_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 187,
+            "final_loss": 0.1891072096439793,
+            "gradient_inf_norm": 7.972722379371426e-05,
+            "initial_loss": 0.2813088968693529,
+            "initialization_gradient_inf_norm": 0.006850791164142554,
+            "iterations": 148,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.41061209997860715,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "ce15d5673c2723611cac2bd79dea4f58ddcad76ce7819749bd3ce8c4e3743420",
+          "status": "completed"
+        },
+        "identity_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 154,
+            "final_loss": 0.17908363731992366,
+            "gradient_inf_norm": 9.308559493795237e-05,
+            "initial_loss": 0.2761339397965479,
+            "initialization_gradient_inf_norm": 0.00684446673800505,
+            "iterations": 129,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.3450924000062514,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "34012843ec703d5a75c3f83f17ace510e0e43d749be4f71bd98e7da58daca258",
+          "status": "completed"
+        },
+        "identity_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.2761339397965479,
+            "gradient_inf_norm": 0.00684446673800505,
+            "initial_loss": 0.2761339397965479,
+            "initialization_gradient_inf_norm": 0.00684446673800505,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0055219999921973795,
+            "success": true
+          },
+          "state_checksum": "7ca38a322a250acd49646e760083ef98e5683203f932152b55ee7dd3fb0a21cc",
+          "status": "completed"
+        },
+        "identity_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 108,
+            "final_loss": 0.05929996665278015,
+            "gradient_inf_norm": 0.00010338875649548411,
+            "initial_loss": 0.07512118462375704,
+            "initialization_gradient_inf_norm": 0.004528665683523913,
+            "iterations": 66,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.29469600002630614,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "056e863cabc62e71de55ad92a12a975bd11e9aecd957dad5984c924f415ab6ec",
+          "status": "completed"
+        },
+        "identity_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 135,
+            "final_loss": 0.057958474700230606,
+            "gradient_inf_norm": 4.935945962799827e-05,
+            "initial_loss": 0.0738564688801899,
+            "initialization_gradient_inf_norm": 0.004515338989778197,
+            "iterations": 75,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.3696074000035878,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "f85ab720d96fddccf8b065c2a2017546b58bae064748c235a36e8152cbbba5df",
+          "status": "completed"
+        },
+        "identity_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.0738564688801899,
+            "gradient_inf_norm": 0.004515338989778197,
+            "initial_loss": 0.0738564688801899,
+            "initialization_gradient_inf_norm": 0.004515338989778197,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.0056634000211488456,
+            "success": true
+          },
+          "state_checksum": "97955c6e747237bd57c9e9d55c8de0eed3878853b81a2c4ca038a13529ffe886",
+          "status": "completed"
+        },
+        "metric_1_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 161,
+            "final_loss": 0.19886773383262868,
+            "gradient_inf_norm": 0.0008369707294983217,
+            "initial_loss": 0.29263480754423116,
+            "initialization_gradient_inf_norm": 0.06025127896530958,
+            "iterations": 129,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.36286609998205677,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "93f88cab26400267b9ec0c0acd85ddcb082f64f5c799b338569baca13703fa9f",
+          "status": "completed"
+        },
+        "metric_1_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 158,
+            "final_loss": 0.19872218161579683,
+            "gradient_inf_norm": 0.0008034847631234732,
+            "initial_loss": 0.29253703740911685,
+            "initialization_gradient_inf_norm": 0.06025164303367906,
+            "iterations": 126,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.3532914000097662,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "0ce4d8d282db0a80f1756affd8006a474a062ae6fc60d3afefa9b31ae556404b",
+          "status": "completed"
+        },
+        "metric_1_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.29253703740911685,
+            "gradient_inf_norm": 0.06025164303367906,
+            "initial_loss": 0.29253703740911685,
+            "initialization_gradient_inf_norm": 0.06025164303367906,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005605599988484755,
+            "success": true
+          },
+          "state_checksum": "931bb134f9866ae109bacea5d54d1eb204e74bb66978330cf4542e4b007f1304",
+          "status": "completed"
+        },
+        "metric_2_auxiliary": {
+          "optimizer": {
+            "auxiliary": 0.01,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 120,
+            "final_loss": 0.0418555332493909,
+            "gradient_inf_norm": 4.554573362466267e-06,
+            "initial_loss": 0.04925634338218651,
+            "initialization_gradient_inf_norm": 0.06251068210205657,
+            "iterations": 108,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.3201694999879692,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "8d6ca7dce52a53df9bca08b67ce3075fe1b78e9c2ed56135b1ff13474ca79fe1",
+          "status": "completed"
+        },
+        "metric_2_glvq": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 109,
+            "final_loss": 0.041848936744327866,
+            "gradient_inf_norm": 2.7581150962636068e-05,
+            "initial_loss": 0.04924999106208099,
+            "initialization_gradient_inf_norm": 0.06250970970879013,
+            "iterations": 101,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.29461410001385957,
+            "status": 0,
+            "success": true
+          },
+          "state_checksum": "53b60c193d89790f6ec5586417992f83c230af4570d3b745d86310cb3a955fac",
+          "status": "completed"
+        },
+        "metric_2_static": {
+          "optimizer": {
+            "auxiliary": 0.0,
+            "beta": 4.0,
+            "budget_seconds": 120,
+            "epsilon": 1e-12,
+            "evaluations": 0,
+            "final_loss": 0.04924999106208099,
+            "gradient_inf_norm": 0.06250970970879013,
+            "initial_loss": 0.04924999106208099,
+            "initialization_gradient_inf_norm": 0.06250970970879013,
+            "iterations": 0,
+            "message": "STATIC_CONTEXT_LEAST_SQUARES",
+            "options": {
+              "ftol": 1e-09,
+              "gtol": 1e-06,
+              "maxfun": 2000,
+              "maxiter": 600,
+              "maxls": 50
+            },
+            "seconds": 0.005316099995980039,
+            "success": true
+          },
+          "state_checksum": "609af7c872cf02838ef625c42e21535b2d0a4c538b400535b276ca815c5ae78c",
+          "status": "completed"
+        }
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "locked_checksum": "66c265da94df081dbadfb97807ad8f199c6afba8ea91a28d2ec30748d2315b6a",
+  "protocol_checksum": "f2c3d40bddc99066e2a94fa0bc9b240b35cfd1c8e62a1ce8297c99ac4addef25",
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_verification_checksum": "b02f3805f4218cdd673bbe998429588014774f2bebaacf1af16c73e69941c4d2",
+  "status": "VERIFIED_AVAILABLE_NUMERIC_SOURCES",
+  "test_numeric_reads": 0
+}
