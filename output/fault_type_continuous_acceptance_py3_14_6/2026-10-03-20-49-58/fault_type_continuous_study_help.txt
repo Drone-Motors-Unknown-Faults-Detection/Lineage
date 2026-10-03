@@ -1,0 +1,17 @@
+usage: python.exe -m experiments.fault_type_continuous_study
+       [-h] --protocol PROTOCOL --data-root DATA_ROOT [--lock LOCK]
+       [--evaluation EVALUATION] [--resume RESUME]
+       {fit,evaluate,verify}
+
+Checkpointed bounded matched research batch; no global method selector.
+
+positional arguments:
+  {fit,evaluate,verify}
+
+options:
+  -h, --help            show this help message and exit
+  --protocol PROTOCOL
+  --data-root DATA_ROOT
+  --lock LOCK
+  --evaluation EVALUATION
+  --resume RESUME

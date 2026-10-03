@@ -1,0 +1,7 @@
+2026-10-03 20:44:56 | INFO    | Logger initialized: fault_type_context_prototypes_backup
+2026-10-03 20:44:56 | INFO    | log_file=logs\fault_type_context_prototypes_backup\2026-10-03-20-44-56.log
+2026-10-03 20:44:56 | INFO    | output_dir=output\fault_type_context_prototypes_backup\2026-10-03-20-44-56
+2026-10-03 20:44:58 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_prototypes_v1\archives\fault_type_2026-10-03-20-34-21.zip bytes=172812245 files=28
+2026-10-03 20:45:02 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_prototypes_v1\archives\fault_type_2026-10-03-20-40-45.zip bytes=106077011 files=218
+2026-10-03 20:45:02 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_prototypes_v1\archives\fault_type_2026-10-03-20-42-59.zip bytes=5389305 files=2
+2026-10-03 20:45:03 | INFO    | backup 完成，輸出 output\fault_type_context_prototypes_backup\2026-10-03-20-44-56

@@ -11,7 +11,7 @@
 | 文件 | 內容 |
 |---|---|
 | [exp18 RPM原型距離與聯合拒絕](experiments/exp18_context_rejection.md) | 先行規格：全部12父模型×距離／歧義／OR，固定known-cal quantiles，待實作，尚無成績 |
-| [exp17 RPM工況相關原型](experiments/exp17_context_prototypes.md) | AGLVQ機制改編、一次／二次工況原型與代表性損失；雙環境20項小測試／492項回歸通過，尚無formal成績 |
+| [exp17 RPM工況相關原型](experiments/exp17_context_prototypes.md) | 一次／二次RPM原型、GLVQ／aux；108格評估及來源重建完成，12方法皆FAILED；見reports/context_prototypes_v1 |
 | [exp16 平滑L1原型距離](experiments/exp16_smooth_l1_prototypes.md) | 固定Q／S、GLVQ／anchor；108格評估及重推完成，12方法皆未通過；結果見reports/smooth_l1_v1 |
 | [exp15 判別式原型學習](experiments/exp15_discriminative_prototypes.md) | 固定GLVQ／anchor損失、static中心與模糊拒絕配對；保留失敗與曝露 |
 | [exp13 封存後失敗診斷](experiments/exp13_metric_failure_diagnosis.md) | 固定分數分布、分類器輸出、歷史Q配對重現；不掃threshold |

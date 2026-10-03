@@ -1,0 +1,13 @@
+2026-10-03 20:40:45 | INFO    | Logger initialized: fault_type_context_prototypes_evaluate
+2026-10-03 20:40:45 | INFO    | log_file=logs\fault_type_context_prototypes_evaluate\2026-10-03-20-40-45.log
+2026-10-03 20:40:45 | INFO    | output_dir=output\fault_type_context_prototypes_evaluate\2026-10-03-20-40-45
+2026-10-03 20:41:08 | INFO    | 配對 fixed-fold0 seed0，完成12方法
+2026-10-03 20:41:18 | INFO    | 配對 fixed-fold0 seed1，完成12方法
+2026-10-03 20:41:28 | INFO    | 配對 fixed-fold0 seed2，完成12方法
+2026-10-03 20:41:39 | INFO    | 配對 fixed-fold1 seed0，完成12方法
+2026-10-03 20:41:49 | INFO    | 配對 fixed-fold1 seed1，完成12方法
+2026-10-03 20:41:59 | INFO    | 配對 fixed-fold1 seed2，完成12方法
+2026-10-03 20:42:09 | INFO    | 配對 fixed-fold2 seed0，完成12方法
+2026-10-03 20:42:20 | INFO    | 配對 fixed-fold2 seed1，完成12方法
+2026-10-03 20:42:30 | INFO    | 配對 fixed-fold2 seed2，完成12方法
+2026-10-03 20:42:30 | INFO    | evaluate 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_prototypes_v1\workspace\output\fault_type_context_prototypes_evaluate\2026-10-03-20-40-45

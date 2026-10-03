@@ -1,0 +1,69 @@
+{
+  "archive_count": 6,
+  "archives": [
+    {
+      "bytes": 172812245,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_prototypes_v1\\archives\\fault_type_2026-10-03-20-34-21.zip",
+      "sha256": "8d5ed4b9f2f5c73390fbf9653400be04823adb15714d9bcc901a276c7d3447e0",
+      "source_files": 28,
+      "source_root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_prototypes_v1\\workspace\\output\\fault_type_context_prototypes_fit\\2026-10-03-20-34-21",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 106077011,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_prototypes_v1\\archives\\fault_type_2026-10-03-20-40-45.zip",
+      "sha256": "3d28b34a3d27e0355bbf8e609e636f03a573806859e1020514dac2ca5226b48e",
+      "source_files": 218,
+      "source_root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_prototypes_v1\\workspace\\output\\fault_type_context_prototypes_evaluate\\2026-10-03-20-40-45",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 5389305,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_prototypes_v1\\archives\\fault_type_2026-10-03-20-42-59.zip",
+      "sha256": "3ccfb6dd6bf05055440a67c5ad912c6f3c4cc13e274425dfda08267b80b53f12",
+      "source_files": 2,
+      "source_root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_prototypes_v1\\workspace\\output\\fault_type_context_prototypes_verify\\2026-10-03-20-42-59",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 9341,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_prototypes_v1\\archives\\fault_type_2026-10-03-20-33-01.zip",
+      "sha256": "ae6421a9c605dd1323ffe66b3504824b6ad5a250f983f0b3c5ebf9785fe58f61",
+      "source_files": 1,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_context_prototypes_lock\\2026-10-03-20-33-01",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 109132,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_prototypes_v1\\archives\\fault_type_2026-10-03-20-38-00.zip",
+      "sha256": "97f07cd23fcb4133f8b3ea915f5c3732716bd27b19124e5e2c05b9a7770457e5",
+      "source_files": 1,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_context_prototypes_source_verify\\2026-10-03-20-38-00",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 3675959,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_prototypes_v1\\archives\\fault_type_2026-10-03-20-44-37.zip",
+      "sha256": "e1a15c2bfc52af6b37664032edec793869596275a328c5795237dad4a410b8e9",
+      "source_files": 2,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_context_prototypes_report\\2026-10-03-20-44-37",
+      "whole_sha_status": "PASS"
+    }
+  ],
+  "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+  "source_files_removed": false,
+  "status": "PASS",
+  "verified_members": 252
+}

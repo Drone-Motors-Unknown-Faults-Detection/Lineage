@@ -1,0 +1,16 @@
+usage: python.exe -m experiments.fault_type_solver_diagnosis
+       [-h] [--q-protocol Q_PROTOCOL] [--protocol PROTOCOL]
+       [--data-root DATA_ROOT] [--resume RESUME]
+       {lock,fit,smoke}
+
+Bounded train-only diagnostic: hard150 / smooth150 / hard600,27 cells.
+
+positional arguments:
+  {lock,fit,smoke}
+
+options:
+  -h, --help            show this help message and exit
+  --q-protocol Q_PROTOCOL
+  --protocol PROTOCOL
+  --data-root DATA_ROOT
+  --resume RESUME

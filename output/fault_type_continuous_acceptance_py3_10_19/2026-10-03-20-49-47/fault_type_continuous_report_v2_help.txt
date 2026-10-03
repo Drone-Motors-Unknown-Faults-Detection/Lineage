@@ -1,0 +1,16 @@
+usage: fault_type_continuous_report_v2.py [-h] --protocol PROTOCOL
+                                          --evaluation EVALUATION
+                                          --verification VERIFICATION
+                                          --baseline BASELINE --previous
+                                          PREVIOUS
+
+Partial-aware paired report; v1 preserved in sealed Q protocol. Reporting-only
+repair before Q outer evaluation. No numeric model/config change.
+
+options:
+  -h, --help            show this help message and exit
+  --protocol PROTOCOL
+  --evaluation EVALUATION
+  --verification VERIFICATION
+  --baseline BASELINE
+  --previous PREVIOUS
