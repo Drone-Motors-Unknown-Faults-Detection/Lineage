@@ -1,0 +1,13 @@
+2026-10-03 15:37:22 | INFO    | Logger initialized: fault_type_discriminative_prototypes_verify
+2026-10-03 15:37:22 | INFO    | log_file=logs\fault_type_discriminative_prototypes_verify\2026-10-03-15-37-22.log
+2026-10-03 15:37:22 | INFO    | output_dir=output\fault_type_discriminative_prototypes_verify\2026-10-03-15-37-22
+2026-10-03 15:37:45 | INFO    | 配對 fixed-fold0 seed0，完成24方法
+2026-10-03 15:37:53 | INFO    | 配對 fixed-fold0 seed1，完成24方法
+2026-10-03 15:38:02 | INFO    | 配對 fixed-fold0 seed2，完成24方法
+2026-10-03 15:38:12 | INFO    | 配對 fixed-fold1 seed0，完成24方法
+2026-10-03 15:38:22 | INFO    | 配對 fixed-fold1 seed1，完成24方法
+2026-10-03 15:38:33 | INFO    | 配對 fixed-fold1 seed2，完成24方法
+2026-10-03 15:38:44 | INFO    | 配對 fixed-fold2 seed0，完成24方法
+2026-10-03 15:38:55 | INFO    | 配對 fixed-fold2 seed1，完成24方法
+2026-10-03 15:39:06 | INFO    | 配對 fixed-fold2 seed2，完成24方法
+2026-10-03 15:39:07 | INFO    | verify 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\discriminative_prototypes_v1\workspace\output\fault_type_discriminative_prototypes_verify\2026-10-03-15-37-22

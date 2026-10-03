@@ -1,0 +1,7 @@
+2026-10-03 15:39:40 | INFO    | Logger initialized: fault_type_discriminative_prototypes_backup
+2026-10-03 15:39:40 | INFO    | log_file=logs\fault_type_discriminative_prototypes_backup\2026-10-03-15-39-40.log
+2026-10-03 15:39:40 | INFO    | output_dir=output\fault_type_discriminative_prototypes_backup\2026-10-03-15-39-40
+2026-10-03 15:39:46 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\discriminative_prototypes_v1\archives\fault_type_2026-10-03-15-28-56.zip bytes=293105427 files=28
+2026-10-03 15:39:50 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\discriminative_prototypes_v1\archives\fault_type_2026-10-03-15-33-56.zip bytes=212801495 files=434
+2026-10-03 15:39:50 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\discriminative_prototypes_v1\archives\fault_type_2026-10-03-15-37-22.zip bytes=10727933 files=2
+2026-10-03 15:39:52 | INFO    | backup 完成，輸出 output\fault_type_discriminative_prototypes_backup\2026-10-03-15-39-40

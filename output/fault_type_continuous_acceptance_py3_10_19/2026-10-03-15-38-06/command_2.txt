@@ -1,0 +1,8 @@
+usage: synchronized_raw.py [-h] --raw-file RAW_FILE --config CONFIG
+
+Preview one configured recording. Never declares unknown alignment verified.
+
+options:
+  -h, --help           show this help message and exit
+  --raw-file RAW_FILE
+  --config CONFIG

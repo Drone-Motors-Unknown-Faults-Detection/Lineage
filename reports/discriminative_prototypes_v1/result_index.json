@@ -1,0 +1,40 @@
+{
+  "schema_version": "exp15_result_index_v1",
+  "date": "2026-10-03",
+  "timezone": "Asia/Taipei",
+  "planned_runs": 216,
+  "completed_runs": 216,
+  "failed_runs": 0,
+  "prediction_records": 2081520,
+  "unique_samples": 28910,
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "sealed_checksums": {
+    "protocol": "98acdccd2201bfdc701c384256196eb7397c19dadf0b5c28865996ecb2c49e08",
+    "locked_study": "dfa6c1fd6dc1101c29abe11d148cbc317ceab91938cdb151c99807dbcb86f78b",
+    "source_verification": "ad3e3502918fc04d7b641478d99ce67089d5443d95815b78dce3fa68a358d47b",
+    "evaluation": "1d53dd512b0434dd65450de5926815e0352f189c784793f96c1135bf3a55bc87",
+    "verification": "438d5aea5f348557742693b35272cd6cbe95361247493f4bf825237cbcdd9c18",
+    "report": "3158ea1a6de6fc35be12cd84dc577955f1db566710bfc0cbf7b626440960d30a"
+  },
+  "compact_files": [
+    {"path": "output/fault_type_discriminative_prototypes_lock/2026-10-03-15-23-33/protocol.json", "sha256": "d5abd3f023c44ee4b8465c64adb313134f4b655bffe40866aa6ee9adf7cf5537", "bytes": 8936},
+    {"path": "output/fault_type_discriminative_prototypes_fit/2026-10-03-15-28-56/locked_study.json", "sha256": "82af444fa9dcad983e1ef734469453d39894cbb121763035e7c7fcaae173a19f", "bytes": 12102},
+    {"path": "output/fault_type_discriminative_prototypes_source_verify/2026-10-03-15-31-33/source_verified.json", "sha256": "cbab7b2447d5027b044b8b2a3cdec5cc2c2bf0b95070be25ef2b4c57544a50c0", "bytes": 112563},
+    {"path": "output/fault_type_discriminative_prototypes_evaluate/2026-10-03-15-33-56/evaluation.json.gz", "sha256": "663c8fc50afaf66a4095588b4d3bb1ac0b87c36b9cc3b4092bedd898c9086afc", "bytes": 399076},
+    {"path": "output/fault_type_discriminative_prototypes_verify/2026-10-03-15-37-22/verified.json.gz", "sha256": "26f3d6cbd9e415a15e503a9048bb6e39d8422d0313ef0b3ed8276ea511e93b70", "bytes": 399072},
+    {"path": "output/fault_type_discriminative_prototypes_report/2026-10-03-15-39-29/summary.json.gz", "sha256": "107452f0eb55d4bb457eb0d30d18ff56b9e50a2ee7fad12186024fc52afc0ef5", "bytes": 232051}
+  ],
+  "primary_output": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/discriminative_prototypes_v1/workspace/output",
+  "archive_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/discriminative_prototypes_v1/archives",
+  "archive_indices": ["output/fault_type_discriminative_prototypes_backup/2026-10-03-15-39-40/archive_index.json", "output/fault_type_archive/2026-10-03-15-44-44/archive_index.json"],
+  "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-15-45-12/member_verification.json",
+  "archive_count": 6,
+  "verified_members": 468,
+  "previous_result_indices": ["reports/metric_classification_v1/result_index.json", "reports/local_fisher_v1/result_index.json"],
+  "unchanged_parent_dependencies": ["output/fault_type_metric_classification_lock/2026-10-03-09-42-02/protocol.json", "harmonic69/base75父模型與其fit audits", "hard600 optimizer artifacts", "既有sample manifests與exposure ledger"],
+  "selection_policy": "none",
+  "reliability_main_screen": "24方法全部FAILED",
+  "fresh_final_test": false,
+  "production_replacement": false,
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED"
+}

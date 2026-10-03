@@ -27,3 +27,19 @@ compact lock `output/fault_type_discriminative_prototypes_fit/2026-10-03-15-28-5
 15:31:33執行source-verify，用相同protocol、上述lock與data/formal_local重建全部模型；此時尚未評估本批outer test。待來源重建成功封存與提交後才evaluate。
 
 15:33:10來源重建完成：9個bundles全部108模型的實際原型、初始化、train checksum、損失／梯度、optimizer狀態、train predictions及known calibration threshold一致，test_numeric_reads=0。`output/fault_type_discriminative_prototypes_source_verify/2026-10-03-15-31-33/source_verified.json`保存重建證據，status=VERIFIED_AVAILABLE_NUMERIC_SOURCES；只驗證可取得數值來源，raw/session仍UNKNOWN。
+
+## 外層評估、逐筆驗證與交付
+
+fit／source提交 `64b6f88d4bd9bad5da605a1a923e787bd10870b4` 並確認remote相同後才evaluate。15:33:56至15:36:03完成216格，2,081,520筆／28,910 unique樣本、失敗0。命令沿state的protocol／lock／source，`evaluate --data-root data/formal_local`；大型路徑見result_index。
+
+15:37:22至15:39:07執行 `verify --evaluation D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/discriminative_prototypes_v1/workspace/output/fault_type_discriminative_prototypes_evaluate/2026-10-03-15-33-56/evaluation.json`，其餘參數同evaluate。全部216格逐筆模型重推、truth mutation、SHA／IDs／threshold與保存指標一致。
+
+15:39:29至15:43:48 `report`，evaluation如上，verification為D槽同版本 `fault_type_discriminative_prototypes_verify/2026-10-03-15-37-22/verified.json`，baseline `output/fault_type_metrics_v2/2026-10-02-12-51-52/metrics_v2.json`、previous `output/fault_type_mechanism_evaluate/2026-10-02-17-53-06/evaluation.json`。24方法全部FAILED；1,296個逐fold／seed配對，無global winner。G16／G18的T1 seed0未知召回有局部改善，其他seeds及最差工況不達契約，未修改參數救結果。
+
+大型3roots以單次backup命令保存，索引 `output/fault_type_discriminative_prototypes_backup/2026-10-03-15-39-40`。protocol／source／report以單次archive命令保存，索引 `output/fault_type_archive/2026-10-03-15-44-44`；沒有同秒索引碰撞或覆寫。`python -m experiments.fault_type_fixed_delivery --index <第一索引> --index <第二索引>`於15:45:12完成6ZIP／468members whole SHA／member SHA／CRC PASS。來源檔案未刪，D槽不是異地備份。
+
+術語更正：前段標為SHA的protocol／lock值是canonical內容的seal checksum；檔案完整bytes SHA另列result_index.compact_files，兩種不可混用。來源核對、預測驗證與備份同時驗證各自正確的checksum／file SHA。
+
+新增exp16核心後完整回歸於 `output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-15-38-06` 與 `output/fault_type_continuous_acceptance_py3_14_6/2026-10-03-15-38-18` 完成：兩環境各464 passed／0 failed，pip check及37個既有CLI通過。exp16 runner初稿的Python3.10 starred subscript SyntaxError在新批正式lock前修正為tuple拼接；不是exp15問題。之後exp16各20項小測試／smoke成功，但這8項新增來源測試尚未包含在464舊快照；後續全套另存。
+
+結果詳見final_findings／result_index。282個無關tracked刪除仍保留，沒有raw data或大型joblib入Git；研究目標尚未達成，下一批exp16接續，不能將本批工程交付寫成可靠模型完成。

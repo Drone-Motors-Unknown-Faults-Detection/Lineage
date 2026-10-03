@@ -1,0 +1,6 @@
+usage: fault_type_continuous_acceptance.py [-h]
+
+Native full tests/pip/CLI evidence; production regression retained.
+
+options:
+  -h, --help  show this help message and exit
