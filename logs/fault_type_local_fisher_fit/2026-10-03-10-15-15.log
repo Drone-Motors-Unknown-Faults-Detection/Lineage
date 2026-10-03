@@ -1,0 +1,13 @@
+2026-10-03 10:15:15 | INFO    | Logger initialized: fault_type_local_fisher_fit
+2026-10-03 10:15:15 | INFO    | log_file=logs\fault_type_local_fisher_fit\2026-10-03-10-15-15.log
+2026-10-03 10:15:15 | INFO    | output_dir=output\fault_type_local_fisher_fit\2026-10-03-10-15-15
+2026-10-03 10:16:07 | INFO    | 封存 fixed-fold0_seed0，成功4表示法，缺失{}
+2026-10-03 10:16:26 | INFO    | 封存 fixed-fold0_seed1，成功4表示法，缺失{}
+2026-10-03 10:16:45 | INFO    | 封存 fixed-fold0_seed2，成功4表示法，缺失{}
+2026-10-03 10:17:04 | INFO    | 封存 fixed-fold1_seed0，成功4表示法，缺失{}
+2026-10-03 10:17:11 | INFO    | 封存 fixed-fold1_seed1，成功4表示法，缺失{}
+2026-10-03 10:17:18 | INFO    | 封存 fixed-fold1_seed2，成功4表示法，缺失{}
+2026-10-03 10:17:24 | INFO    | 封存 fixed-fold2_seed0，成功4表示法，缺失{}
+2026-10-03 10:17:31 | INFO    | 封存 fixed-fold2_seed1，成功4表示法，缺失{}
+2026-10-03 10:17:37 | INFO    | 封存 fixed-fold2_seed2，成功4表示法，缺失{}
+2026-10-03 10:17:37 | INFO    | fit 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\local_fisher_v1\workspace\output\fault_type_local_fisher_fit\2026-10-03-10-15-15
