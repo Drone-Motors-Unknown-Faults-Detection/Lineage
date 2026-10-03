@@ -1,0 +1,13 @@
+2026-10-03 10:21:09 | INFO    | Logger initialized: fault_type_local_fisher_evaluate
+2026-10-03 10:21:09 | INFO    | log_file=logs\fault_type_local_fisher_evaluate\2026-10-03-10-21-09.log
+2026-10-03 10:21:09 | INFO    | output_dir=output\fault_type_local_fisher_evaluate\2026-10-03-10-21-09
+2026-10-03 10:21:33 | INFO    | 配對 fixed-fold0 seed0，本cell16方法
+2026-10-03 10:21:47 | INFO    | 配對 fixed-fold0 seed1，本cell16方法
+2026-10-03 10:22:02 | INFO    | 配對 fixed-fold0 seed2，本cell16方法
+2026-10-03 10:22:18 | INFO    | 配對 fixed-fold1 seed0，本cell16方法
+2026-10-03 10:22:32 | INFO    | 配對 fixed-fold1 seed1，本cell16方法
+2026-10-03 10:22:48 | INFO    | 配對 fixed-fold1 seed2，本cell16方法
+2026-10-03 10:23:02 | INFO    | 配對 fixed-fold2 seed0，本cell16方法
+2026-10-03 10:23:17 | INFO    | 配對 fixed-fold2 seed1，本cell16方法
+2026-10-03 10:23:31 | INFO    | 配對 fixed-fold2 seed2，本cell16方法
+2026-10-03 10:23:32 | INFO    | evaluate 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\local_fisher_v1\workspace\output\fault_type_local_fisher_evaluate\2026-10-03-10-21-09

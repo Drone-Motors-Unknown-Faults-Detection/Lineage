@@ -1,0 +1,4 @@
+2026-10-03 15:13:39 | INFO    | Logger initialized: fault_type_archive
+2026-10-03 15:13:39 | INFO    | log_file=logs\fault_type_archive\2026-10-03-15-13-39.log
+2026-10-03 15:13:39 | INFO    | output_dir=output\fault_type_archive\2026-10-03-15-13-39
+2026-10-03 15:13:39 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\local_fisher_v1\archives\fault_type_2026-10-03-15-09-03.zip bytes=3648580 files=2

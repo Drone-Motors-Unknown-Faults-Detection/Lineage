@@ -1,0 +1,7 @@
+2026-10-03 15:09:14 | INFO    | Logger initialized: fault_type_local_fisher_backup
+2026-10-03 15:09:14 | INFO    | log_file=logs\fault_type_local_fisher_backup\2026-10-03-15-09-14.log
+2026-10-03 15:09:14 | INFO    | output_dir=output\fault_type_local_fisher_backup\2026-10-03-15-09-14
+2026-10-03 15:09:19 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\local_fisher_v1\archives\fault_type_2026-10-03-10-15-15.zip bytes=223887435 files=28
+2026-10-03 15:09:22 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\local_fisher_v1\archives\fault_type_2026-10-03-10-21-09.zip bytes=141340824 files=290
+2026-10-03 15:09:22 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\local_fisher_v1\archives\fault_type_2026-10-03-15-06-27.zip bytes=7067195 files=2
+2026-10-03 15:09:23 | INFO    | backup 完成，輸出 output\fault_type_local_fisher_backup\2026-10-03-15-09-14

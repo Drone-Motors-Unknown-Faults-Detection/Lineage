@@ -1,0 +1,15 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-03\\local_fisher_v1\\archives\\fault_type_2026-10-03-15-09-03.zip",
+      "sha256": "2915f511e1a87796f9acd89317491bb0164f27f33941498236eaf0c8b151cc20",
+      "bytes": 3648580,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_local_fisher_report\\2026-10-03-15-09-03",
+      "source_files": 2,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

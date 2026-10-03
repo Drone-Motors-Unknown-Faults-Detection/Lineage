@@ -1,0 +1,12 @@
+{
+  "note": "同秒輸出索引碰撞後，依現存ZIP整檔SHA與BUNDLE_INDEX恢復；後續由fixed_delivery逐成員驗證。",
+  "archives": [{
+    "path": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/local_fisher_v1/archives/fault_type_2026-10-03-10-08-32.zip",
+    "sha256": "e1a61a5f3873240ab54e171654e14d531c5dd7c39c37ecfda4944a93df9d9e9c",
+    "bytes": 7978,
+    "source_files": 1,
+    "source_root": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_local_fisher_lock/2026-10-03-10-08-32"
+  }],
+  "source_files_removed": false,
+  "contains_raw_data": false
+}

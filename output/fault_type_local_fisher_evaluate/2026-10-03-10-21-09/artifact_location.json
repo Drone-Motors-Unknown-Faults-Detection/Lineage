@@ -1,0 +1,13 @@
+{
+  "compact_artifact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_local_fisher_evaluate\\2026-10-03-10-21-09\\evaluation.json.gz",
+    "sha256": "f4e5d07e0e5434e3c9891827dcc10116a81e58a461e38488210f261463092ef1"
+  },
+  "contains_raw_data": false,
+  "primary_artifact": {
+    "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\local_fisher_v1\\workspace\\output\\fault_type_local_fisher_evaluate\\2026-10-03-10-21-09\\evaluation.json.gz",
+    "sha256": "f4e5d07e0e5434e3c9891827dcc10116a81e58a461e38488210f261463092ef1"
+  },
+  "primary_output": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\local_fisher_v1\\workspace\\output\\fault_type_local_fisher_evaluate\\2026-10-03-10-21-09",
+  "storage_note": "本批D槽衍生產物；標準output保留compact索引"
+}
