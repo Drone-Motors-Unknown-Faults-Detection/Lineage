@@ -1,0 +1,13 @@
+usage: fault_type_continuous_report.py [-h] --protocol PROTOCOL --evaluation
+                                       EVALUATION --verification VERIFICATION
+                                       --baseline BASELINE --previous PREVIOUS
+
+Full paired exposed-data report and fixed reliability screening, no winner.
+
+options:
+  -h, --help            show this help message and exit
+  --protocol PROTOCOL
+  --evaluation EVALUATION
+  --verification VERIFICATION
+  --baseline BASELINE
+  --previous PREVIOUS

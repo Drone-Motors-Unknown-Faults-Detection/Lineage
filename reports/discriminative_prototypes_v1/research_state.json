@@ -1,0 +1,20 @@
+{
+  "schema_version": "research_state_v1",
+  "date": "2026-10-03",
+  "timezone": "Asia/Taipei",
+  "batch": "exp15_discriminative_prototypes_v1",
+  "stage": "protocol_ready_before_formal_fit",
+  "protocol": "output/fault_type_discriminative_prototypes_lock/2026-10-03-15-23-33/protocol.json",
+  "protocol_checksum": "98acdccd2201bfdc701c384256196eb7397c19dadf0b5c28865996ecb2c49e08",
+  "implementation_head": "8cfe68f3a177f61db7e12d69acf50ce4470a79ee",
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "planned_evaluations": 216,
+  "actual_formal_fit_bundles": 0,
+  "actual_formal_evaluations": 0,
+  "acceptance": {"python_3_10_19": {"passed": 452, "failed": 0}, "python_3_14_6": {"passed": 452, "failed": 0}},
+  "selection_policy": "none",
+  "fresh_final_test": false,
+  "production_replacement": false,
+  "pending": ["提交並推送協定", "正式資料fit", "train/cal來源重建及提交", "配對evaluate與逐筆verify", "報告、備份、提交並推送"],
+  "limitations": ["所有樣本已有歷史test曝露", "採集來源鏈保留UNKNOWN", "獨立final guard保留INCOMPLETE", "未達R2，不能宣稱可靠模型"]
+}
