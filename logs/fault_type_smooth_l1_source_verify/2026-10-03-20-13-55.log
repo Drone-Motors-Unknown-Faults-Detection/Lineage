@@ -1,0 +1,13 @@
+2026-10-03 20:13:55 | INFO    | Logger initialized: fault_type_smooth_l1_source_verify
+2026-10-03 20:13:55 | INFO    | log_file=logs\fault_type_smooth_l1_source_verify\2026-10-03-20-13-55.log
+2026-10-03 20:13:55 | INFO    | output_dir=output\fault_type_smooth_l1_source_verify\2026-10-03-20-13-55
+2026-10-03 20:14:29 | INFO    | 來源重建 fixed-fold0 seed0
+2026-10-03 20:14:52 | INFO    | 來源重建 fixed-fold0 seed1
+2026-10-03 20:15:12 | INFO    | 來源重建 fixed-fold0 seed2
+2026-10-03 20:15:28 | INFO    | 來源重建 fixed-fold1 seed0
+2026-10-03 20:15:46 | INFO    | 來源重建 fixed-fold1 seed1
+2026-10-03 20:16:05 | INFO    | 來源重建 fixed-fold1 seed2
+2026-10-03 20:16:27 | INFO    | 來源重建 fixed-fold2 seed0
+2026-10-03 20:16:56 | INFO    | 來源重建 fixed-fold2 seed1
+2026-10-03 20:17:19 | INFO    | 來源重建 fixed-fold2 seed2
+2026-10-03 20:17:19 | INFO    | source-verify 完成，輸出 output\fault_type_smooth_l1_source_verify\2026-10-03-20-13-55

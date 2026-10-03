@@ -21,3 +21,11 @@
 runner與472項驗收提交`45411e2c46aa78bbeb26e35036fd4e17b307a2d4`，push成功且remote SHA一致。15:54再次唯讀核對main AGENT blob為`8f35a6bf14fa4747d63add1d6bc852b65bcb4784`，與前次已完整讀取版本相同。沒有建立issue／PR或向其他對話傳訊息。
 
 事前lock命令見手冊，實際輸出`output/fault_type_smooth_l1_lock/2026-10-03-15-53-46/protocol.json`；鎖定程式HEAD為45411e2。方法固定12、fold3、seed0/1/2，共108格；selection空、歷史曝光不清除。協定推送後才開始fit，沒有先看本批test成績。
+
+## 正式擬合與actual-source重建
+
+協定commit `7ace8972194ff75f8f1cda5d990f177d705eb342`已push且remote一致，semantic protocol seal=`71b1618d165ef1dd2e309bac9a5ec8e8b8adcd2e8a01084d3939235268437a8b`。seal是canonical payload checksum，與完整file SHA不同，後續索引分開列。
+
+`fit --protocol output/fault_type_smooth_l1_lock/2026-10-03-15-53-46/protocol.json --data-root data/formal_local`：15:54:51–16:00:10，9bundles／108models，108成功、0未收斂、最高550iterations；資料SHA前後相同。D主產物為`D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/smooth_l1_v1/workspace/output/fault_type_smooth_l1_fit/2026-10-03-15-54-51/`，C compact lock同名路徑；locked seal=`aa6373bcff8a24e356142977555e76e7ae5f62aa520e520017c692bdfe61985b`。
+
+`source-verify --protocol ...15-53-46/protocol.json --lock output/fault_type_smooth_l1_fit/2026-10-03-15-54-51/locked_study.json --data-root data/formal_local`：20:13:55–20:17:19，actual known train/cal重建全部108models與train predictions完全一致，test_numeric_reads=0，來源前後不變。不是只比fit IDs或檔名。這段尚未outer評估；來源驗證檔為`output/fault_type_smooth_l1_source_verify/2026-10-03-20-13-55/source_verified.json`。中間時段不宣稱持續背景研究。

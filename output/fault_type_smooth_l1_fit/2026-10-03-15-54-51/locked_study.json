@@ -1,0 +1,302 @@
+{
+  "artifacts": [
+    {
+      "fit_audits": {
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold0_seed0\\fit_audits.json.gz",
+        "sha256": "bbaca3e2b962a11b113d66aec522aeec04f863bdea1fc9bf75270b6f50f8bcaf"
+      },
+      "fold_id": "fixed-fold0",
+      "parent_artifact": {
+        "fit_audits": {
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold0_seed0\\fit_audits.json.gz",
+          "sha256": "f29232d607d5ef7515abfa8a28cd3dc01caba7e3becdd5bd50ea36d2d87c979c"
+        },
+        "fold_id": "fixed-fold0",
+        "parent_artifact": {
+          "fold_id": "fixed-fold0",
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed0.joblib",
+          "seconds": 18.968338999999105,
+          "seed": 0,
+          "sha256": "22c6e85c30c1664f20533ff5c043070b667076136180f4cd0277ba374e41171e"
+        },
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold0_seed0\\model.joblib",
+        "process_peak_memory_bytes": 1989087232,
+        "seconds": 11.917398599995067,
+        "seed": 0,
+        "sha256": "883e048be9dfd9d72f860b2475e316db4840e4144831136160ae7304daa4b6aa"
+      },
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold0_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988038656,
+      "seconds": 29.818931299989345,
+      "seed": 0,
+      "sha256": "aa9a0df86bb9f65531f51d53aef62cf73f9dad2a60ac5899d5db03dcb1aa8000"
+    },
+    {
+      "fit_audits": {
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold0_seed1\\fit_audits.json.gz",
+        "sha256": "4bb9ffb7d83f2bfddce4a3b249c17444805329f7844753a3297e322b903cc2f3"
+      },
+      "fold_id": "fixed-fold0",
+      "parent_artifact": {
+        "fit_audits": {
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold0_seed1\\fit_audits.json.gz",
+          "sha256": "257f23a86685ef9b629bb5066a9105b7d6ae39d37dabdbb5cd7180b6cb36e815"
+        },
+        "fold_id": "fixed-fold0",
+        "parent_artifact": {
+          "fold_id": "fixed-fold0",
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed1.joblib",
+          "seconds": 19.302914899992174,
+          "seed": 1,
+          "sha256": "80e90b97a75cb33df898a5965e86579000c53c3aa1767bb4ddaf8f90c0c72a98"
+        },
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold0_seed1\\model.joblib",
+        "process_peak_memory_bytes": 1989087232,
+        "seconds": 11.476175700023305,
+        "seed": 1,
+        "sha256": "420ab14785e7cf944b017723625cde2aa0a66b6309ef048087f202208db30666"
+      },
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold0_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988038656,
+      "seconds": 25.771211900020717,
+      "seed": 1,
+      "sha256": "8e954bbdc51bbd545adbdacf58049116d55be4edb02ccb26785f946ece79d56b"
+    },
+    {
+      "fit_audits": {
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold0_seed2\\fit_audits.json.gz",
+        "sha256": "0a988c225c841bee980532d6373e9af4ad8843be05558cc315bfdc2b16cb9125"
+      },
+      "fold_id": "fixed-fold0",
+      "parent_artifact": {
+        "fit_audits": {
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold0_seed2\\fit_audits.json.gz",
+          "sha256": "a8e540f12814084df9ebb5ae691abb5ff8c0b6de9c91e85eb159c4a2a02477ee"
+        },
+        "fold_id": "fixed-fold0",
+        "parent_artifact": {
+          "fold_id": "fixed-fold0",
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed2.joblib",
+          "seconds": 19.04490199999418,
+          "seed": 2,
+          "sha256": "8cce91b201174a70afb24f811760049cca2095cad5a9d9bdcd346d135d718ed7"
+        },
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold0_seed2\\model.joblib",
+        "process_peak_memory_bytes": 1989087232,
+        "seconds": 11.378825299994787,
+        "seed": 2,
+        "sha256": "4d0c942668cf33d4df2c681c0c84ad1bc799921a2be0aefcac82d223d9d23047"
+      },
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold0_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988038656,
+      "seconds": 26.5071467999951,
+      "seed": 2,
+      "sha256": "f9f56bf20ac0c580ae364c483ea0ba2be0a4c5ac7505d943d813d546024c6a12"
+    },
+    {
+      "fit_audits": {
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold1_seed0\\fit_audits.json.gz",
+        "sha256": "0ce0ce7bfaf0d1e977f81888133802af2d38ae24abf75c3d526b2c11ac41886c"
+      },
+      "fold_id": "fixed-fold1",
+      "parent_artifact": {
+        "fit_audits": {
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold1_seed0\\fit_audits.json.gz",
+          "sha256": "2ec0f8bfa1f7ffbdb491c98176927765a1bf4c6589122e8002f8b732b3ea000d"
+        },
+        "fold_id": "fixed-fold1",
+        "parent_artifact": {
+          "fold_id": "fixed-fold1",
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed0.joblib",
+          "seconds": 19.84686680001323,
+          "seed": 0,
+          "sha256": "8a7e801ee66358aa716f65eeab105f0a49b8b327033f9a04ada420554b573f37"
+        },
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold1_seed0\\model.joblib",
+        "process_peak_memory_bytes": 1989087232,
+        "seconds": 11.51870109999436,
+        "seed": 0,
+        "sha256": "563078b59bdf41a777e6b5b1b575285ae8803a6954e046a1e071d02a31e083a8"
+      },
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold1_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988038656,
+      "seconds": 20.869585000007646,
+      "seed": 0,
+      "sha256": "8246770da379427ce760f2ebefdf30921c5eda46603937d516e3c4abc245d994"
+    },
+    {
+      "fit_audits": {
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold1_seed1\\fit_audits.json.gz",
+        "sha256": "0418320495f666ad9381e66446ceb987f406573a495d91fa0eb4a87cc05549f5"
+      },
+      "fold_id": "fixed-fold1",
+      "parent_artifact": {
+        "fit_audits": {
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold1_seed1\\fit_audits.json.gz",
+          "sha256": "51ab0c8c885928260a2f58ed57b727f6bac524326cd545dc11b39e570630f93b"
+        },
+        "fold_id": "fixed-fold1",
+        "parent_artifact": {
+          "fold_id": "fixed-fold1",
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed1.joblib",
+          "seconds": 18.724457799995434,
+          "seed": 1,
+          "sha256": "870dbcc6c6b3486eb1cca3d9faccb13f677a32bf137cbeaaa726487e649aa1e9"
+        },
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold1_seed1\\model.joblib",
+        "process_peak_memory_bytes": 1989087232,
+        "seconds": 11.500761099974625,
+        "seed": 1,
+        "sha256": "b37300a3211a660282b47e291593c38b074365118daf001670c5625ae0c328a8"
+      },
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold1_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988038656,
+      "seconds": 23.703634299978148,
+      "seed": 1,
+      "sha256": "2ab0ff646fba2ed0632dfa912eedfb6841f7dd7c22014b73bb5dfe47d50183cd"
+    },
+    {
+      "fit_audits": {
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold1_seed2\\fit_audits.json.gz",
+        "sha256": "95f6707623f0bc0042ea51de358a6ae63eeb4cfdd0c2804001468dfdc663403f"
+      },
+      "fold_id": "fixed-fold1",
+      "parent_artifact": {
+        "fit_audits": {
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold1_seed2\\fit_audits.json.gz",
+          "sha256": "bcd8575a8179cfd07b5963c37b98638ae63816333c50a166edeb5387b446eb25"
+        },
+        "fold_id": "fixed-fold1",
+        "parent_artifact": {
+          "fold_id": "fixed-fold1",
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed2.joblib",
+          "seconds": 18.509999900008552,
+          "seed": 2,
+          "sha256": "7ae7cd79f432b543a686a15040a061033ff30d27f00846e3a9af8c065e65e443"
+        },
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold1_seed2\\model.joblib",
+        "process_peak_memory_bytes": 1989087232,
+        "seconds": 11.624220999976387,
+        "seed": 2,
+        "sha256": "af201ef873f16c618776d3051332da43e8f13c6ea43847c70b1d22f364c84287"
+      },
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold1_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988038656,
+      "seconds": 25.778762700007064,
+      "seed": 2,
+      "sha256": "53845ce6465ede535ad1101eddfc00f021c3c2c111871792b4437c337934d62e"
+    },
+    {
+      "fit_audits": {
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold2_seed0\\fit_audits.json.gz",
+        "sha256": "e5b8f8e28963caea10df4d96ebc800debcabbd4ae445371140193fa6b4d5896d"
+      },
+      "fold_id": "fixed-fold2",
+      "parent_artifact": {
+        "fit_audits": {
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold2_seed0\\fit_audits.json.gz",
+          "sha256": "f3406054f9eb5c91b24a5157549cc2c1360f76b39bae121353a873b9a2409b0f"
+        },
+        "fold_id": "fixed-fold2",
+        "parent_artifact": {
+          "fold_id": "fixed-fold2",
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed0.joblib",
+          "seconds": 18.633680399987497,
+          "seed": 0,
+          "sha256": "cf5f6f024dc55f3caa567134e8c7406a78d12a185d36855b6f4d014eec83ee29"
+        },
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold2_seed0\\model.joblib",
+        "process_peak_memory_bytes": 1989087232,
+        "seconds": 11.175153599993791,
+        "seed": 0,
+        "sha256": "e59b01c0c8d0e20887425c30955213a6aa358c38aa8b60b5d9aa931fbfda38c2"
+      },
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold2_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988038656,
+      "seconds": 31.12511219998123,
+      "seed": 0,
+      "sha256": "bc778b910fee10570a8eb7308f3dac0c2e241ab331b729203054a285a107338e"
+    },
+    {
+      "fit_audits": {
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold2_seed1\\fit_audits.json.gz",
+        "sha256": "d5a07f50872ed1e8f724f8629dc4a728b004a100682b2e9ca7f5efe839d16855"
+      },
+      "fold_id": "fixed-fold2",
+      "parent_artifact": {
+        "fit_audits": {
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold2_seed1\\fit_audits.json.gz",
+          "sha256": "c1ddc65e45daf5deb0adcb29bdf31a96defb5d2cbb4772d4ef2c9d09fc4ae3f3"
+        },
+        "fold_id": "fixed-fold2",
+        "parent_artifact": {
+          "fold_id": "fixed-fold2",
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed1.joblib",
+          "seconds": 18.439518099999987,
+          "seed": 1,
+          "sha256": "1fdfa713e2af72b39cc28d8c2fc1cd720d4f8fcb1c2cafe2ca11b7e39a1498d9"
+        },
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold2_seed1\\model.joblib",
+        "process_peak_memory_bytes": 1989087232,
+        "seconds": 11.417217899987008,
+        "seed": 1,
+        "sha256": "b658328b3bb607b6db14fb9f37dba27f78b504593dbc871100f780a6b675e1af"
+      },
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold2_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988038656,
+      "seconds": 39.35874789999798,
+      "seed": 1,
+      "sha256": "39fcf87dbfbaf5621705ef82345e9e854bcde378b115c0062755906173ddfe5e"
+    },
+    {
+      "fit_audits": {
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold2_seed2\\fit_audits.json.gz",
+        "sha256": "b8ca17ec13093c4e94f9be55600f9e2854b88643942e9ad5757308b6c211c138"
+      },
+      "fold_id": "fixed-fold2",
+      "parent_artifact": {
+        "fit_audits": {
+          "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold2_seed2\\fit_audits.json.gz",
+          "sha256": "d13be3f5617bfb832b7096c07e1c488e3e7e5a7a45bdecd0f70a18ec06de6a67"
+        },
+        "fold_id": "fixed-fold2",
+        "parent_artifact": {
+          "fold_id": "fixed-fold2",
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed2.joblib",
+          "seconds": 18.277159399993252,
+          "seed": 2,
+          "sha256": "9b40170d599f807e0f1623f82b2ba5591a8418aea0b63e017e07646c05568f7c"
+        },
+        "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\fixed-fold2_seed2\\model.joblib",
+        "process_peak_memory_bytes": 1989087232,
+        "seconds": 11.410642200004077,
+        "seed": 2,
+        "sha256": "a6430f4a5cc73022d2c09a49a966ea4e3efb50fcfa0e19cc74b9dccabf268fab"
+      },
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\smooth_l1_v1\\workspace\\output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\fixed-fold2_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988038656,
+      "seconds": 29.221854199975496,
+      "seed": 2,
+      "sha256": "4062f8f3823715308179bec14bdf6126d1c206a5d79fb6105d38cc93299027cc"
+    }
+  ],
+  "code_head": "7ace8972194ff75f8f1cda5d990f177d705eb342",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "locked_checksum": "aa6373bcff8a24e356142977555e76e7ae5f62aa520e520017c692bdfe61985b",
+  "protocol_checksum": "71b1618d165ef1dd2e309bac9a5ec8e8b8adcd2e8a01084d3939235268437a8b",
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  }
+}
