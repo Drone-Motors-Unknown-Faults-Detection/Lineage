@@ -13,3 +13,5 @@ core／13項測試commit `eb26d9756d69b8ab1a8edc6ded1f152a0a26c502`已push／rem
 再補每筆context_distance／context_ambiguity／calibration_quantiles／rejector state與mode；tamper測試成28項，兩環境通過（1.999／2.037秒），因此再次完整acceptance；最終實際數目待完成後記錄，不沿用519。新formula／manual／protocol尚未封存，本批沒有formal成績。
 
 最終完整acceptance：Python3.10.19於`output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-20-54-40`、Python3.14.6於`...py3_14_6/2026-10-03-20-54-51`，各520通過、0失敗；unittest本體59.038／61.086秒。pip check＋37既有CLI，共39命令全部exit0。新exp18的兩環境CLI help／smoke另外查核，不混算既有37個。常數訊號moment precision warning與故意invalid CLI選項是既有邊界測試輸出，沒有忽略failed testcase。
+
+工程commit `34ee046f2507c031fcdd5829edc67c61c0eee233`已push／remote一致；20:57:37–20:57:58執行手冊lock命令，`output/fault_type_context_rejection_lock/2026-10-03-20-57-37/protocol.json`綁定上述HEAD、I protocol／108模型lock／actual source、J core／runner／manual SHA。固定36方法×3fold×3seeds=324評估，無winner／selection，test曝露未清除。協定提交推送後才能calibrate；此刻尚未讀J outer。

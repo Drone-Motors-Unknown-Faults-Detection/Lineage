@@ -1,0 +1,573 @@
+{
+  "arms": [
+    {
+      "detector": "distance",
+      "id": "J01",
+      "model": "identity_1_static_distance",
+      "parent_arm": "I01"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J02",
+      "model": "identity_1_static_ambiguity",
+      "parent_arm": "I01"
+    },
+    {
+      "detector": "or",
+      "id": "J03",
+      "model": "identity_1_static_or",
+      "parent_arm": "I01"
+    },
+    {
+      "detector": "distance",
+      "id": "J04",
+      "model": "identity_1_glvq_distance",
+      "parent_arm": "I02"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J05",
+      "model": "identity_1_glvq_ambiguity",
+      "parent_arm": "I02"
+    },
+    {
+      "detector": "or",
+      "id": "J06",
+      "model": "identity_1_glvq_or",
+      "parent_arm": "I02"
+    },
+    {
+      "detector": "distance",
+      "id": "J07",
+      "model": "identity_1_auxiliary_distance",
+      "parent_arm": "I03"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J08",
+      "model": "identity_1_auxiliary_ambiguity",
+      "parent_arm": "I03"
+    },
+    {
+      "detector": "or",
+      "id": "J09",
+      "model": "identity_1_auxiliary_or",
+      "parent_arm": "I03"
+    },
+    {
+      "detector": "distance",
+      "id": "J10",
+      "model": "identity_2_static_distance",
+      "parent_arm": "I04"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J11",
+      "model": "identity_2_static_ambiguity",
+      "parent_arm": "I04"
+    },
+    {
+      "detector": "or",
+      "id": "J12",
+      "model": "identity_2_static_or",
+      "parent_arm": "I04"
+    },
+    {
+      "detector": "distance",
+      "id": "J13",
+      "model": "identity_2_glvq_distance",
+      "parent_arm": "I05"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J14",
+      "model": "identity_2_glvq_ambiguity",
+      "parent_arm": "I05"
+    },
+    {
+      "detector": "or",
+      "id": "J15",
+      "model": "identity_2_glvq_or",
+      "parent_arm": "I05"
+    },
+    {
+      "detector": "distance",
+      "id": "J16",
+      "model": "identity_2_auxiliary_distance",
+      "parent_arm": "I06"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J17",
+      "model": "identity_2_auxiliary_ambiguity",
+      "parent_arm": "I06"
+    },
+    {
+      "detector": "or",
+      "id": "J18",
+      "model": "identity_2_auxiliary_or",
+      "parent_arm": "I06"
+    },
+    {
+      "detector": "distance",
+      "id": "J19",
+      "model": "metric_1_static_distance",
+      "parent_arm": "I07"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J20",
+      "model": "metric_1_static_ambiguity",
+      "parent_arm": "I07"
+    },
+    {
+      "detector": "or",
+      "id": "J21",
+      "model": "metric_1_static_or",
+      "parent_arm": "I07"
+    },
+    {
+      "detector": "distance",
+      "id": "J22",
+      "model": "metric_1_glvq_distance",
+      "parent_arm": "I08"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J23",
+      "model": "metric_1_glvq_ambiguity",
+      "parent_arm": "I08"
+    },
+    {
+      "detector": "or",
+      "id": "J24",
+      "model": "metric_1_glvq_or",
+      "parent_arm": "I08"
+    },
+    {
+      "detector": "distance",
+      "id": "J25",
+      "model": "metric_1_auxiliary_distance",
+      "parent_arm": "I09"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J26",
+      "model": "metric_1_auxiliary_ambiguity",
+      "parent_arm": "I09"
+    },
+    {
+      "detector": "or",
+      "id": "J27",
+      "model": "metric_1_auxiliary_or",
+      "parent_arm": "I09"
+    },
+    {
+      "detector": "distance",
+      "id": "J28",
+      "model": "metric_2_static_distance",
+      "parent_arm": "I10"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J29",
+      "model": "metric_2_static_ambiguity",
+      "parent_arm": "I10"
+    },
+    {
+      "detector": "or",
+      "id": "J30",
+      "model": "metric_2_static_or",
+      "parent_arm": "I10"
+    },
+    {
+      "detector": "distance",
+      "id": "J31",
+      "model": "metric_2_glvq_distance",
+      "parent_arm": "I11"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J32",
+      "model": "metric_2_glvq_ambiguity",
+      "parent_arm": "I11"
+    },
+    {
+      "detector": "or",
+      "id": "J33",
+      "model": "metric_2_glvq_or",
+      "parent_arm": "I11"
+    },
+    {
+      "detector": "distance",
+      "id": "J34",
+      "model": "metric_2_auxiliary_distance",
+      "parent_arm": "I12"
+    },
+    {
+      "detector": "ambiguity",
+      "id": "J35",
+      "model": "metric_2_auxiliary_ambiguity",
+      "parent_arm": "I12"
+    },
+    {
+      "detector": "or",
+      "id": "J36",
+      "model": "metric_2_auxiliary_or",
+      "parent_arm": "I12"
+    }
+  ],
+  "budget": {
+    "planned_runs": 324,
+    "reserve_C_bytes": 1000000000,
+    "seconds_per_action": 1800
+  },
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "exposure_ledger_checksum": "4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc",
+  "factory_parameters": {
+    "confidence": 0.95,
+    "knn_neighbors": 5,
+    "mahalanobis_method": "ledoit_wolf"
+  },
+  "folds": [
+    {
+      "fold_id": "fixed-fold0",
+      "motor_roles": {
+        "calibration": "T2",
+        "test": "T3",
+        "train": "T1"
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "motor_roles": {
+        "calibration": "T3",
+        "test": "T1",
+        "train": "T2"
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "motor_roles": {
+        "calibration": "T1",
+        "test": "T2",
+        "train": "T3"
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "implementations": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\core\\fault_type_context_rejection.py",
+      "sha256": "2b864f5b45213f364b5b61e93f81fd57a7afc45f8675825b2dadf841ab3d8317"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\experiments\\fault_type_context_rejection.py",
+      "sha256": "c202be3bf42eee3ed24aa2a4dc4311f0252d2ba3ec869d23414ac05754fcb4e1"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\docs\\experiments\\exp18_context_rejection.md",
+      "sha256": "afa9adefbe7f834c21d1be45f437f89895eb19619ccdf926d48937c013b8c069"
+    }
+  ],
+  "known_labels": [
+    "8screws",
+    "1screws",
+    "2screws",
+    "3_14screws",
+    "3screws",
+    "4screws"
+  ],
+  "manifest_checksums": [
+    "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+    "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+    "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95"
+  ],
+  "parameters": {
+    "calibration_scope": "pooled known calibration motor",
+    "epsilon": 1e-12,
+    "fusion": "max signed normalized excess",
+    "models": [
+      {
+        "id": "identity_1_static_distance",
+        "mode": "distance",
+        "parent_arm": "I01",
+        "parent_model": "identity_1_static"
+      },
+      {
+        "id": "identity_1_static_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I01",
+        "parent_model": "identity_1_static"
+      },
+      {
+        "id": "identity_1_static_or",
+        "mode": "or",
+        "parent_arm": "I01",
+        "parent_model": "identity_1_static"
+      },
+      {
+        "id": "identity_1_glvq_distance",
+        "mode": "distance",
+        "parent_arm": "I02",
+        "parent_model": "identity_1_glvq"
+      },
+      {
+        "id": "identity_1_glvq_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I02",
+        "parent_model": "identity_1_glvq"
+      },
+      {
+        "id": "identity_1_glvq_or",
+        "mode": "or",
+        "parent_arm": "I02",
+        "parent_model": "identity_1_glvq"
+      },
+      {
+        "id": "identity_1_auxiliary_distance",
+        "mode": "distance",
+        "parent_arm": "I03",
+        "parent_model": "identity_1_auxiliary"
+      },
+      {
+        "id": "identity_1_auxiliary_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I03",
+        "parent_model": "identity_1_auxiliary"
+      },
+      {
+        "id": "identity_1_auxiliary_or",
+        "mode": "or",
+        "parent_arm": "I03",
+        "parent_model": "identity_1_auxiliary"
+      },
+      {
+        "id": "identity_2_static_distance",
+        "mode": "distance",
+        "parent_arm": "I04",
+        "parent_model": "identity_2_static"
+      },
+      {
+        "id": "identity_2_static_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I04",
+        "parent_model": "identity_2_static"
+      },
+      {
+        "id": "identity_2_static_or",
+        "mode": "or",
+        "parent_arm": "I04",
+        "parent_model": "identity_2_static"
+      },
+      {
+        "id": "identity_2_glvq_distance",
+        "mode": "distance",
+        "parent_arm": "I05",
+        "parent_model": "identity_2_glvq"
+      },
+      {
+        "id": "identity_2_glvq_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I05",
+        "parent_model": "identity_2_glvq"
+      },
+      {
+        "id": "identity_2_glvq_or",
+        "mode": "or",
+        "parent_arm": "I05",
+        "parent_model": "identity_2_glvq"
+      },
+      {
+        "id": "identity_2_auxiliary_distance",
+        "mode": "distance",
+        "parent_arm": "I06",
+        "parent_model": "identity_2_auxiliary"
+      },
+      {
+        "id": "identity_2_auxiliary_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I06",
+        "parent_model": "identity_2_auxiliary"
+      },
+      {
+        "id": "identity_2_auxiliary_or",
+        "mode": "or",
+        "parent_arm": "I06",
+        "parent_model": "identity_2_auxiliary"
+      },
+      {
+        "id": "metric_1_static_distance",
+        "mode": "distance",
+        "parent_arm": "I07",
+        "parent_model": "metric_1_static"
+      },
+      {
+        "id": "metric_1_static_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I07",
+        "parent_model": "metric_1_static"
+      },
+      {
+        "id": "metric_1_static_or",
+        "mode": "or",
+        "parent_arm": "I07",
+        "parent_model": "metric_1_static"
+      },
+      {
+        "id": "metric_1_glvq_distance",
+        "mode": "distance",
+        "parent_arm": "I08",
+        "parent_model": "metric_1_glvq"
+      },
+      {
+        "id": "metric_1_glvq_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I08",
+        "parent_model": "metric_1_glvq"
+      },
+      {
+        "id": "metric_1_glvq_or",
+        "mode": "or",
+        "parent_arm": "I08",
+        "parent_model": "metric_1_glvq"
+      },
+      {
+        "id": "metric_1_auxiliary_distance",
+        "mode": "distance",
+        "parent_arm": "I09",
+        "parent_model": "metric_1_auxiliary"
+      },
+      {
+        "id": "metric_1_auxiliary_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I09",
+        "parent_model": "metric_1_auxiliary"
+      },
+      {
+        "id": "metric_1_auxiliary_or",
+        "mode": "or",
+        "parent_arm": "I09",
+        "parent_model": "metric_1_auxiliary"
+      },
+      {
+        "id": "metric_2_static_distance",
+        "mode": "distance",
+        "parent_arm": "I10",
+        "parent_model": "metric_2_static"
+      },
+      {
+        "id": "metric_2_static_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I10",
+        "parent_model": "metric_2_static"
+      },
+      {
+        "id": "metric_2_static_or",
+        "mode": "or",
+        "parent_arm": "I10",
+        "parent_model": "metric_2_static"
+      },
+      {
+        "id": "metric_2_glvq_distance",
+        "mode": "distance",
+        "parent_arm": "I11",
+        "parent_model": "metric_2_glvq"
+      },
+      {
+        "id": "metric_2_glvq_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I11",
+        "parent_model": "metric_2_glvq"
+      },
+      {
+        "id": "metric_2_glvq_or",
+        "mode": "or",
+        "parent_arm": "I11",
+        "parent_model": "metric_2_glvq"
+      },
+      {
+        "id": "metric_2_auxiliary_distance",
+        "mode": "distance",
+        "parent_arm": "I12",
+        "parent_model": "metric_2_auxiliary"
+      },
+      {
+        "id": "metric_2_auxiliary_ambiguity",
+        "mode": "ambiguity",
+        "parent_arm": "I12",
+        "parent_model": "metric_2_auxiliary"
+      },
+      {
+        "id": "metric_2_auxiliary_or",
+        "mode": "or",
+        "parent_arm": "I12",
+        "parent_model": "metric_2_auxiliary"
+      }
+    ],
+    "quantile": 0.95,
+    "quantile_method": "linear",
+    "reject_comparison": "strict >",
+    "threshold": 0.0,
+    "unknown_score_direction": "higher"
+  },
+  "parent_lock": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_context_prototypes_fit\\2026-10-03-20-34-21\\locked_study.json",
+    "sha256": "73cd40095a53e8810e9a42a532557ca89f0c28b599e6fa5f0e2272a56ecbca84"
+  },
+  "parent_protocol": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_context_prototypes_lock\\2026-10-03-20-33-01\\protocol.json",
+    "sha256": "63e1a35914c2f930c25da395d624e0730ebe4d2383b44c6e694dacf9731bc051"
+  },
+  "parent_protocol_checksum": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+  "parent_source": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_context_prototypes_source_verify\\2026-10-03-20-38-00\\source_verified.json",
+    "sha256": "9c4e3f0ee1bf42569e902904764473c4c7c856f8063f34956b2f97a31df34d7a"
+  },
+  "protocol_checksum": "8b80faa1c6baab0978439e169c7634f9d699ab7e987f285eed735d9348870077",
+  "reliability_contract": {
+    "coverage_drop_each_motor_rpm_vs_D01": 0.1,
+    "fault_accuracy_gain_over_C24": 0.02,
+    "fault_f1_gain_over_C17": 0.02,
+    "healthy_total_alarm_max_each_motor_rpm": 0.1,
+    "known_correct_after_rejection_drop_vs_D01": 0.01,
+    "minimum_independent_test_groups_per_class": 2,
+    "minimum_known_subsets_for_B": 3,
+    "minimum_motor_class_recall": 0.1,
+    "minimum_motor_unknown_recall": 0.1,
+    "motor_fault_f1_drop_tolerance": 0.01,
+    "primary": "motor macro known-fault F1 and fault accuracy; all seeds",
+    "rationale": "2pp material gain; 1pp motor F1/postreject guard; prior temporary 10% full health cap; 10% class/unknown floor avoids accepting existing zero-recall collapse. Research values, not deployment requirements.",
+    "scope": "ADAPTIVE_EXPLORATORY; A/B cannot imply independent C",
+    "threshold_search": false,
+    "unknown_recall_drop_tolerance_each_motor_rpm_vs_C02": 0.02,
+    "version": "continuous_reliability_v1"
+  },
+  "rpms": [
+    "6000rpm",
+    "8000rpm",
+    "11000rpm"
+  ],
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "shared_validation_calibration": false,
+  "source_head": "34ee046f2507c031fcdd5829edc67c61c0eee233",
+  "unknown_labels": [
+    "4_146screws",
+    "5screws",
+    "6screws",
+    "7screws"
+  ],
+  "validation_sample_ids": [],
+  "version": "exp18_context_rejection_v1"
+}

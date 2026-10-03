@@ -18,7 +18,7 @@
   "current_issue": 22,
   "goal_runtime_status": "使用者要求持續；歷史usageLimited不作本輪停止條件，未宣稱R2完成",
   "latest_delivery": "reports/context_prototypes_v1/result_index.json",
-  "active_state": "reports/context_prototypes_v1/research_state.json",
+  "active_state": "reports/context_rejection_v1/research_state.json",
   "known_blockers": [
     "fresh independent test unavailable",
     "raw provenance UNKNOWN"

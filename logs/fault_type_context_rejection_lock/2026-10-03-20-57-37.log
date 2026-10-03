@@ -1,0 +1,4 @@
+2026-10-03 20:57:37 | INFO    | Logger initialized: fault_type_context_rejection_lock
+2026-10-03 20:57:37 | INFO    | log_file=logs\fault_type_context_rejection_lock\2026-10-03-20-57-37.log
+2026-10-03 20:57:37 | INFO    | output_dir=output\fault_type_context_rejection_lock\2026-10-03-20-57-37
+2026-10-03 20:57:58 | INFO    | lock 完成，輸出 output\fault_type_context_rejection_lock\2026-10-03-20-57-37
