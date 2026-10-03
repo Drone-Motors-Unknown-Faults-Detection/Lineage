@@ -1,0 +1,6 @@
+usage: python.exe -m experiments.fault_type_mechanism_acceptance [-h]
+
+Dual-runtime full test/pip/CLI evidence; no cross-version joblib loads.
+
+options:
+  -h, --help  show this help message and exit

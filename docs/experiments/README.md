@@ -6,7 +6,7 @@
 
 | 模組 | 手冊 |
 |---|---|
-| exp18：`experiments/fault_type_context_rejection.py`（待實作） | [RPM原型距離與聯合拒絕](exp18_context_rejection.md) |
+| exp18：`experiments/fault_type_context_rejection.py` | [RPM原型距離與聯合拒絕](exp18_context_rejection.md) |
 | exp17：`experiments/fault_type_context_prototypes.py` | [RPM工況相關原型](exp17_context_prototypes.md) |
 | exp16：`experiments/fault_type_smooth_l1.py` | [平滑L1原型距離](exp16_smooth_l1_prototypes.md) |
 | exp15：`experiments/fault_type_discriminative_prototypes.py` | [判別式原型學習](exp15_discriminative_prototypes.md) |
@@ -30,7 +30,7 @@
 
 | 編號 | 入口與共用邏輯 | 測試、紀錄與輸出 | 展示 |
 |---|---|---|---|
-| exp18（先行規格） | `experiments/fault_type_context_rejection.py`、`core/fault_type_context_rejection.py`（待實作） | `tests/test_fault_type_context_rejection.py`、`logs/fault_type_context_rejection_*/`、`output/fault_type_context_rejection_*/`（待建立） | N/A |
+| exp18 | `experiments/fault_type_context_rejection.py`、`core/fault_type_context_rejection.py` | `tests/test_fault_type_context_rejection.py`、`logs/fault_type_context_rejection_*/`、`output/fault_type_context_rejection_*/` | N/A |
 | exp17 | `experiments/fault_type_context_prototypes.py`、`core/fault_type_context_prototypes.py` | `tests/test_fault_type_context_prototypes.py`、`logs/fault_type_context_prototypes_*/`、`output/fault_type_context_prototypes_*/` | N/A |
 | exp16 | `experiments/fault_type_smooth_l1.py`、`core/fault_type_smooth_l1.py` | `tests/test_fault_type_smooth_l1.py`、`logs/fault_type_smooth_l1_*/`、`output/fault_type_smooth_l1_*/` | N/A |
 | exp15 | `experiments/fault_type_discriminative_prototypes.py`、`core/fault_type_discriminative_prototypes.py` | `tests/test_fault_type_discriminative_prototypes.py`、`logs/fault_type_discriminative_prototypes_*/`、`output/fault_type_discriminative_prototypes_*/` | N/A |

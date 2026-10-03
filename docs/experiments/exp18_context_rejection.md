@@ -41,4 +41,11 @@ source-verify以實際known train/cal重算距離與quantiles，檢查父批原�
 
 每action1800秒，C槽保留1GB。協定在校準前commit/push，actual source重建提交後才outer。未收斂／missing／tamper不借cal或test補fit，保留明確INCOMPLETE／拒絕。雙Python完整測試＋pip check／CLI和合成smoke；合成只作工程測試。大型產物D槽獨立版本包驗證ZIP members SHA／CRC，Git只存compact索引／設定／摘要與logs。不覆寫舊formal／lock／model／prediction。
 
-目前僅先行手冊；CLI具體路徑待runner實作後記入execution log，不宣稱已執行。
+手冊先行提交後已實作core／runner雙介面，兩環境公式／source-purpose測試及合成smoke完成；28項小測試及完整驗收狀態見execution_log.md。尚未formal lock、calibrate或outer。以下lock必須在runner工程commit推送後執行，再提交協定才calibrate。
+
+```powershell
+$env:PYTHONIOENCODING='utf-8'
+.venv310/Scripts/python.exe -m experiments.fault_type_context_rejection lock --parent-protocol output/fault_type_context_prototypes_lock/2026-10-03-20-33-01/protocol.json --parent-lock output/fault_type_context_prototypes_fit/2026-10-03-20-34-21/locked_study.json --parent-source output/fault_type_context_prototypes_source_verify/2026-10-03-20-38-00/source_verified.json
+```
+
+其餘action與必填參數見`--help`；calibrate／source-verify／evaluate／verify明列`--data-root data/formal_local`。report以原metrics_v2／D01為baseline，並以`--parent-evaluation`指向exp17封存evaluation，重算全部12父classifier及36新score的相同test IDs。calibrate只生rejector與引用父model，不以新增校準數冒充classifier訓練。

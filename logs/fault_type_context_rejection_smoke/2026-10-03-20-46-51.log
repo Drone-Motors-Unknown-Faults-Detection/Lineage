@@ -1,0 +1,4 @@
+2026-10-03 20:46:51 | INFO    | Logger initialized: fault_type_context_rejection_smoke
+2026-10-03 20:46:51 | INFO    | log_file=logs\fault_type_context_rejection_smoke\2026-10-03-20-46-51.log
+2026-10-03 20:46:51 | INFO    | output_dir=output\fault_type_context_rejection_smoke\2026-10-03-20-46-51
+2026-10-03 20:46:51 | INFO    | smoke 完成，輸出 output\fault_type_context_rejection_smoke\2026-10-03-20-46-51
