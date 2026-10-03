@@ -1,0 +1,151 @@
+{
+  "acquisition_independence": "UNKNOWN",
+  "cells": [
+    {
+      "calibration_array_checksum": "4a15a1426b4d80e724a926c6d218ed917e90c471f010fb313cda9f5903dc989e",
+      "calibration_ids_checksum": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933",
+      "classifier_arrays": 4,
+      "energy_reference": 1,
+      "factory_models": 4,
+      "fold_id": "fixed-fold0",
+      "model_sha256": "5779ed89971e04e70d438e87199dc00d0e67a1a74fa5475af85c0d13b3834fb2",
+      "numeric_exact": true,
+      "prototype_models": 3,
+      "seed": 0,
+      "train_array_checksum": "1db77ab7b5e298b8505d06cb3e2dd55012cc91b3259d3eabfff9374210481713",
+      "train_ids_checksum": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470"
+    },
+    {
+      "calibration_array_checksum": "4a15a1426b4d80e724a926c6d218ed917e90c471f010fb313cda9f5903dc989e",
+      "calibration_ids_checksum": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933",
+      "classifier_arrays": 4,
+      "energy_reference": 1,
+      "factory_models": 4,
+      "fold_id": "fixed-fold0",
+      "model_sha256": "157a0e0e0355f3e205cd52821a16df935f799f234af9be1596aa7776ae293fa9",
+      "numeric_exact": true,
+      "prototype_models": 3,
+      "seed": 1,
+      "train_array_checksum": "1db77ab7b5e298b8505d06cb3e2dd55012cc91b3259d3eabfff9374210481713",
+      "train_ids_checksum": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470"
+    },
+    {
+      "calibration_array_checksum": "4a15a1426b4d80e724a926c6d218ed917e90c471f010fb313cda9f5903dc989e",
+      "calibration_ids_checksum": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933",
+      "classifier_arrays": 4,
+      "energy_reference": 1,
+      "factory_models": 4,
+      "fold_id": "fixed-fold0",
+      "model_sha256": "5cad54290098f4ba2ffae4c729f1fa7ece9e0f7f36725d64c9483909923984ae",
+      "numeric_exact": true,
+      "prototype_models": 3,
+      "seed": 2,
+      "train_array_checksum": "1db77ab7b5e298b8505d06cb3e2dd55012cc91b3259d3eabfff9374210481713",
+      "train_ids_checksum": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470"
+    },
+    {
+      "calibration_array_checksum": "ecbf76a19a541f351b60c817601012550b26339b91d14605d3d8977a898eaab8",
+      "calibration_ids_checksum": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b",
+      "classifier_arrays": 4,
+      "energy_reference": 1,
+      "factory_models": 4,
+      "fold_id": "fixed-fold1",
+      "model_sha256": "966d34538ac4435ba4967d76774b0fff872303e40a2020016058d06b4b650609",
+      "numeric_exact": true,
+      "prototype_models": 3,
+      "seed": 0,
+      "train_array_checksum": "f21c2c8009303f5c0278e2995c5a0e95be3215d18e865d3c6541415dc50e1d67",
+      "train_ids_checksum": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933"
+    },
+    {
+      "calibration_array_checksum": "ecbf76a19a541f351b60c817601012550b26339b91d14605d3d8977a898eaab8",
+      "calibration_ids_checksum": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b",
+      "classifier_arrays": 4,
+      "energy_reference": 1,
+      "factory_models": 4,
+      "fold_id": "fixed-fold1",
+      "model_sha256": "72e83495609e73f3e753bcdf634f1089e4fd1f50ee4bedac431a95c21f27baf1",
+      "numeric_exact": true,
+      "prototype_models": 3,
+      "seed": 1,
+      "train_array_checksum": "f21c2c8009303f5c0278e2995c5a0e95be3215d18e865d3c6541415dc50e1d67",
+      "train_ids_checksum": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933"
+    },
+    {
+      "calibration_array_checksum": "ecbf76a19a541f351b60c817601012550b26339b91d14605d3d8977a898eaab8",
+      "calibration_ids_checksum": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b",
+      "classifier_arrays": 4,
+      "energy_reference": 1,
+      "factory_models": 4,
+      "fold_id": "fixed-fold1",
+      "model_sha256": "346f2d4473c70d712e98e1bb91502e5bc749d148c481ab7b71d476e16fb4adb8",
+      "numeric_exact": true,
+      "prototype_models": 3,
+      "seed": 2,
+      "train_array_checksum": "f21c2c8009303f5c0278e2995c5a0e95be3215d18e865d3c6541415dc50e1d67",
+      "train_ids_checksum": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933"
+    },
+    {
+      "calibration_array_checksum": "0731b3079d8e875d93dad9a764e69b83f3c7117b86b77fb2e6dcec3dc59c3606",
+      "calibration_ids_checksum": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470",
+      "classifier_arrays": 4,
+      "energy_reference": 1,
+      "factory_models": 4,
+      "fold_id": "fixed-fold2",
+      "model_sha256": "efdeb905ac5ea53697364aac0c3e09f4145a0f4f252a0a60243531679cc0440c",
+      "numeric_exact": true,
+      "prototype_models": 3,
+      "seed": 0,
+      "train_array_checksum": "0642fdc820bd492758c41246c7546351606a6b01ff38599a46eedf2dea21a3a6",
+      "train_ids_checksum": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b"
+    },
+    {
+      "calibration_array_checksum": "0731b3079d8e875d93dad9a764e69b83f3c7117b86b77fb2e6dcec3dc59c3606",
+      "calibration_ids_checksum": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470",
+      "classifier_arrays": 4,
+      "energy_reference": 1,
+      "factory_models": 4,
+      "fold_id": "fixed-fold2",
+      "model_sha256": "9a89517c2d8ab6ed847c4ea503d337d15f5260e211e95e1b6536103303f46ed8",
+      "numeric_exact": true,
+      "prototype_models": 3,
+      "seed": 1,
+      "train_array_checksum": "0642fdc820bd492758c41246c7546351606a6b01ff38599a46eedf2dea21a3a6",
+      "train_ids_checksum": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b"
+    },
+    {
+      "calibration_array_checksum": "0731b3079d8e875d93dad9a764e69b83f3c7117b86b77fb2e6dcec3dc59c3606",
+      "calibration_ids_checksum": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470",
+      "classifier_arrays": 4,
+      "energy_reference": 1,
+      "factory_models": 4,
+      "fold_id": "fixed-fold2",
+      "model_sha256": "a2d397bef33f4936729b5ab74441d1d93515ab38b034be93f08c0873357c63a1",
+      "numeric_exact": true,
+      "prototype_models": 3,
+      "seed": 2,
+      "train_array_checksum": "0642fdc820bd492758c41246c7546351606a6b01ff38599a46eedf2dea21a3a6",
+      "train_ids_checksum": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b"
+    }
+  ],
+  "fresh_final_test": false,
+  "locked_checksum": "36e745c102f4b63f0b12ac2b3c26978c446322e55c0e98793bfc2d9b005e76e1",
+  "protocol_checksum": "9ca9be082013349680b642e509be761d84ca150a947429251bd1c50f86ed1a8b",
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_verification_checksum": "5611f1e6ab41451a7c9c38090a597a01efe76c242ca53e00dc8566f5a0eaf673",
+  "status": "VERIFIED_NUMERIC_KNOWN_SOURCES",
+  "test_numeric_reads": 0,
+  "verifier": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\experiments\\fault_type_metric_source_verification.py",
+    "sha256": "1660048b32a292828d1797e6a73cbcad9c7b827e9b20ecbb725f4d7ecee22169"
+  }
+}

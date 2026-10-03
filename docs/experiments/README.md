@@ -7,6 +7,7 @@
 | 模組 | 手冊 |
 |---|---|
 | exp13：`experiments/fault_type_metric_classification.py` | [收斂距離與分類規則](exp13_metric_classification.md) |
+| exp13：`experiments/fault_type_metric_source_verification.py` | [實際輸入來源重建](exp13_metric_source_verification.md) |
 | `experiments/fault_type_solver_diagnosis.py`（train-only，無outer評估） | [fault_type_solver_diagnosis](fault_type_solver_diagnosis.md) |
 | `experiments/fault_type_solver_report.py`（train-only重算） | [fault_type_solver_report](fault_type_solver_report.md) |
 | `experiments/fault_type_continuous_study.py` | [fault_type_continuous_study](fault_type_continuous_study.md) |
@@ -24,3 +25,4 @@
 | 編號 | 入口與共用邏輯 | 測試、紀錄與輸出 | 展示 |
 |---|---|---|---|
 | exp13 | `experiments/fault_type_metric_classification.py`、`core/fault_type_metric_classifiers.py`、既有 `core/openset.py` | `tests/test_fault_type_metric_classifiers.py`、`logs/fault_type_metric_classification_*/`、`output/fault_type_metric_classification_*/` | N/A；不改 `web/` 或 `experiments/health/` |
+| exp13來源核對 | `experiments/fault_type_metric_source_verification.py`、既有factory | `tests/test_fault_type_metric_source_verification.py`、`logs/fault_type_metric_source_verification/`、`output/fault_type_metric_source_verification/` | N/A |

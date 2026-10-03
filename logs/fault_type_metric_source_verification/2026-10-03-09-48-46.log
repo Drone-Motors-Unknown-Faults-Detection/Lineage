@@ -1,0 +1,4 @@
+2026-10-03 09:48:46 | INFO    | Logger initialized: fault_type_metric_source_verification
+2026-10-03 09:48:46 | INFO    | log_file=logs\fault_type_metric_source_verification\2026-10-03-09-48-46.log
+2026-10-03 09:48:46 | INFO    | output_dir=output\fault_type_metric_source_verification\2026-10-03-09-48-46
+2026-10-03 09:51:11 | INFO    | 九份bundle來源核對 5611f1e6ab41451a7c9c38090a597a01efe76c242ca53e00dc8566f5a0eaf673

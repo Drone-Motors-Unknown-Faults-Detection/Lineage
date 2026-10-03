@@ -1,0 +1,194 @@
+{
+  "artifacts": [
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold0_seed0\\fit_audits.json.gz",
+        "sha256": "6ec50cf573407443581f83556d24b6fcdc9400be69806426ad67f38790ea9781"
+      },
+      "fold_id": "fixed-fold0",
+      "parent_artifact": {
+        "fold_id": "fixed-fold0",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed0.joblib",
+        "seconds": 18.968338999999105,
+        "seed": 0,
+        "sha256": "22c6e85c30c1664f20533ff5c043070b667076136180f4cd0277ba374e41171e"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold0_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988829184,
+      "seconds": 16.483838899992406,
+      "seed": 0,
+      "sha256": "5779ed89971e04e70d438e87199dc00d0e67a1a74fa5475af85c0d13b3834fb2"
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold0_seed1\\fit_audits.json.gz",
+        "sha256": "3858d936fc865595f662fb708b6824c5060425b60540d3c1aae0e8e8ae827407"
+      },
+      "fold_id": "fixed-fold0",
+      "parent_artifact": {
+        "fold_id": "fixed-fold0",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed1.joblib",
+        "seconds": 19.302914899992174,
+        "seed": 1,
+        "sha256": "80e90b97a75cb33df898a5965e86579000c53c3aa1767bb4ddaf8f90c0c72a98"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold0_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988829184,
+      "seconds": 22.017943899991224,
+      "seed": 1,
+      "sha256": "157a0e0e0355f3e205cd52821a16df935f799f234af9be1596aa7776ae293fa9"
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold0_seed2\\fit_audits.json.gz",
+        "sha256": "eaecaa420aa5a7f49dbfd10c17464df16b158fc31f38fb011612f6ad4de4a7ed"
+      },
+      "fold_id": "fixed-fold0",
+      "parent_artifact": {
+        "fold_id": "fixed-fold0",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold0_seed2.joblib",
+        "seconds": 19.04490199999418,
+        "seed": 2,
+        "sha256": "8cce91b201174a70afb24f811760049cca2095cad5a9d9bdcd346d135d718ed7"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold0_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988829184,
+      "seconds": 14.913112799986266,
+      "seed": 2,
+      "sha256": "5cad54290098f4ba2ffae4c729f1fa7ece9e0f7f36725d64c9483909923984ae"
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold1_seed0\\fit_audits.json.gz",
+        "sha256": "1489143caf7f3638a7c8ff588c7211a67c78a9a6ed818927701a07b975f7363e"
+      },
+      "fold_id": "fixed-fold1",
+      "parent_artifact": {
+        "fold_id": "fixed-fold1",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed0.joblib",
+        "seconds": 19.84686680001323,
+        "seed": 0,
+        "sha256": "8a7e801ee66358aa716f65eeab105f0a49b8b327033f9a04ada420554b573f37"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold1_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988829184,
+      "seconds": 9.54128660002607,
+      "seed": 0,
+      "sha256": "966d34538ac4435ba4967d76774b0fff872303e40a2020016058d06b4b650609"
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold1_seed1\\fit_audits.json.gz",
+        "sha256": "4de80d261a5d3b84eca19070c9473661710b3213b85e8c41ed5730d0012b8a9b"
+      },
+      "fold_id": "fixed-fold1",
+      "parent_artifact": {
+        "fold_id": "fixed-fold1",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed1.joblib",
+        "seconds": 18.724457799995434,
+        "seed": 1,
+        "sha256": "870dbcc6c6b3486eb1cca3d9faccb13f677a32bf137cbeaaa726487e649aa1e9"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold1_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988829184,
+      "seconds": 9.111255700001493,
+      "seed": 1,
+      "sha256": "72e83495609e73f3e753bcdf634f1089e4fd1f50ee4bedac431a95c21f27baf1"
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold1_seed2\\fit_audits.json.gz",
+        "sha256": "9020fcb5ff1f8aebe8b3e7d0a45a8f9ff8bb4ef1d20f6fd3d1bdc80cdcae7ca3"
+      },
+      "fold_id": "fixed-fold1",
+      "parent_artifact": {
+        "fold_id": "fixed-fold1",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold1_seed2.joblib",
+        "seconds": 18.509999900008552,
+        "seed": 2,
+        "sha256": "7ae7cd79f432b543a686a15040a061033ff30d27f00846e3a9af8c065e65e443"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold1_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988829184,
+      "seconds": 9.83719230000861,
+      "seed": 2,
+      "sha256": "346f2d4473c70d712e98e1bb91502e5bc749d148c481ab7b71d476e16fb4adb8"
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold2_seed0\\fit_audits.json.gz",
+        "sha256": "8c62d203b91c28459aa1e3af7f446eadad9ec14f894de83efdf15ec412063570"
+      },
+      "fold_id": "fixed-fold2",
+      "parent_artifact": {
+        "fold_id": "fixed-fold2",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed0.joblib",
+        "seconds": 18.633680399987497,
+        "seed": 0,
+        "sha256": "cf5f6f024dc55f3caa567134e8c7406a78d12a185d36855b6f4d014eec83ee29"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold2_seed0\\model.joblib",
+      "process_peak_memory_bytes": 1988829184,
+      "seconds": 8.637484499980928,
+      "seed": 0,
+      "sha256": "efdeb905ac5ea53697364aac0c3e09f4145a0f4f252a0a60243531679cc0440c"
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold2_seed1\\fit_audits.json.gz",
+        "sha256": "cdec15bbbe1c53d0b197ee0143956afb2d57d606acd352eba1f89910a2824e00"
+      },
+      "fold_id": "fixed-fold2",
+      "parent_artifact": {
+        "fold_id": "fixed-fold2",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed1.joblib",
+        "seconds": 18.439518099999987,
+        "seed": 1,
+        "sha256": "1fdfa713e2af72b39cc28d8c2fc1cd720d4f8fcb1c2cafe2ca11b7e39a1498d9"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold2_seed1\\model.joblib",
+      "process_peak_memory_bytes": 1988829184,
+      "seconds": 8.953121800004737,
+      "seed": 1,
+      "sha256": "9a89517c2d8ab6ed847c4ea503d337d15f5260e211e95e1b6536103303f46ed8"
+    },
+    {
+      "fit_audits": {
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold2_seed2\\fit_audits.json.gz",
+        "sha256": "519388713d4dba591d28c13b534bf77ecf3e812cafbd9003195df79fe8d761bd"
+      },
+      "fold_id": "fixed-fold2",
+      "parent_artifact": {
+        "fold_id": "fixed-fold2",
+        "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\fixed-fold2_seed2.joblib",
+        "seconds": 18.277159399993252,
+        "seed": 2,
+        "sha256": "9b40170d599f807e0f1623f82b2ba5591a8418aea0b63e017e07646c05568f7c"
+      },
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55\\fixed-fold2_seed2\\model.joblib",
+      "process_peak_memory_bytes": 1988829184,
+      "seconds": 8.981455600005575,
+      "seed": 2,
+      "sha256": "a2d397bef33f4936729b5ab74441d1d93515ab38b034be93f08c0873357c63a1"
+    }
+  ],
+  "code_head": "1d1fd9cba6eacfab4046e51122dcbfc0f9865d1d",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "locked_checksum": "36e745c102f4b63f0b12ac2b3c26978c446322e55c0e98793bfc2d9b005e76e1",
+  "protocol_checksum": "9ca9be082013349680b642e509be761d84ca150a947429251bd1c50f86ed1a8b",
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  }
+}

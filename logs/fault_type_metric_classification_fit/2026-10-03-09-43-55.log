@@ -1,0 +1,13 @@
+2026-10-03 09:43:55 | INFO    | Logger initialized: fault_type_metric_classification_fit
+2026-10-03 09:43:55 | INFO    | log_file=logs\fault_type_metric_classification_fit\2026-10-03-09-43-55.log
+2026-10-03 09:43:55 | INFO    | output_dir=output\fault_type_metric_classification_fit\2026-10-03-09-43-55
+2026-10-03 09:44:42 | INFO    | 封存 fixed-fold0_seed0 16.5s
+2026-10-03 09:45:13 | INFO    | 封存 fixed-fold0_seed1 22.0s
+2026-10-03 09:45:33 | INFO    | 封存 fixed-fold0_seed2 14.9s
+2026-10-03 09:45:46 | INFO    | 封存 fixed-fold1_seed0 9.5s
+2026-10-03 09:45:59 | INFO    | 封存 fixed-fold1_seed1 9.1s
+2026-10-03 09:46:13 | INFO    | 封存 fixed-fold1_seed2 9.8s
+2026-10-03 09:46:26 | INFO    | 封存 fixed-fold2_seed0 8.6s
+2026-10-03 09:46:39 | INFO    | 封存 fixed-fold2_seed1 9.0s
+2026-10-03 09:46:52 | INFO    | 封存 fixed-fold2_seed2 9.0s
+2026-10-03 09:46:53 | INFO    | fit 完成，輸出 output\fault_type_metric_classification_fit\2026-10-03-09-43-55
