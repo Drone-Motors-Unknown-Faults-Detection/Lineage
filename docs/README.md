@@ -10,6 +10,7 @@
 
 | 文件 | 內容 |
 |---|---|
+| [exp14 局部 Fisher 與 PCA](experiments/exp14_local_fisher.md) | 固定秩、正則化、來源重建與全方法配對；不改正式預設 |
 | [exp13 收斂距離與分類規則](experiments/exp13_metric_classification.md) | hard600、k-NN／中心／energy 配對與 factory detector 消融；未知資料不擬合、不改正式預設 |
 | [exp13 實際模型來源重建](experiments/exp13_metric_source_verification.md) | 重建 train-only 數值陣列與已知 calibration；不修改封存方法 |
 | [fault_type_solver_diagnosis](experiments/fault_type_solver_diagnosis.md) | train-only hard／smooth hinge與最佳化預算診斷：先手冊再實作，不稱新outer成績 |

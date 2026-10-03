@@ -28,3 +28,13 @@
 ```
 
 待辦：108格正式配對、逐樣本重算、固定門檻判定、完整分母的 final fault F1、D槽備份、後續 LFDA 文獻與有界協定。九份 joblib 與大型 audit 不加入Git；以後續 archive 索引交付。既有282個無關刪除不納入提交。
+
+## 10:08執行檢查點
+
+來源核對／fit lock已提交 `a821d42e643bd0c29597e39dbb91853598aa4cbf` 並確認remote一致。兩個417項測試環境的pip／既有37 CLI最後均PASS。
+
+首次evaluate在60個checkpoint後因C槽剩餘不足1GB停止，退出1；保留原目錄與失敗log，不算模型失敗、不調參。當時本輪預測檔僅約55MB，不能把所有磁碟減少歸因於其輸出；OS頁面檔資訊唯讀查詢被拒絕，原因未確認，未調整OS設定。
+
+已將兩份先前工程smoke的未tracked `fit/evaluate/verify` 六個子目錄移到 `D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/relocated_engineering_smoke/`，按原timestamp分目錄。每個目標預先確認在明確D槽範圍、不存在、不含tracked檔；逐檔移動前後SHA相同。共11+631+2+11+631+2=1,288檔，可由新位置或既有完整ZIP恢復。原tracked smoke_index保留；沒有移動正式資料或本輪依賴。這是可恢復的移動，不是刪除；既有歷史索引的source path以原封存位置保留，新對照在此記錄。
+
+以同protocol／lock及 `--resume output/fault_type_metric_classification_evaluate/2026-10-03-09-55-17` 續跑，108／108完成、0模型失敗，1,040,760筆輸出、28,910個unique samples。新evaluation SHA `f7b055a5f3081d0c0718fa52d0705c0edd29528f2cbc5cdfb9617101a41cb60a`；90CSV前後指紋相同。verify於 `output/fault_type_metric_classification_verify/2026-10-03-10-06-11` 重推全部保存輸出與truth mutation；尚待完成、report及備份。不以checkpoint重推算新增獨立試驗。
