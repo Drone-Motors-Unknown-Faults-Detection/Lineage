@@ -16,7 +16,7 @@ loss採本站exp15平均sigmoid(4mu)、平方Euclidean、epsilon=1e-12；mu=(d_t
 
 兩種幾何(identity harmonic69、已封存hard600對角)×degree1／2×static／GLVQ／GLVQ+aux=12分類器，C02/M拒絕固定，12×3fold×3seed=108格。與exp15同幾何單中心Euclidean static／GLVQ作配對；新批不挑global winner。new aux只在degree相同配對；degree1/2差別列capacity與context變化，不能宣稱排除了全部容量效應。
 
-optimizer沿用maxiter600/maxfun2000/maxls50/ftol1e-9/gtol1e-6，單模型120秒，loss用原合法train分層最多360筆（每class/RPM最多20），初始化／harmonic69 scaler fit全部known train；hard600只原合法train subset。未收斂保留INCOMPLETE，不改预算換最好seed。
+optimizer沿用maxiter600/maxfun2000/maxls50/ftol1e-9/gtol1e-6，單模型120秒，loss用原合法train分層最多360筆（每class/RPM最多20），初始化／harmonic69 scaler fit全部known train；hard600只原合法train subset。未收斂保留INCOMPLETE，不改預算換最好seed。
 
 ## 資料、校準與成功判定
 
@@ -41,4 +41,11 @@ optimizer沿用maxiter600/maxfun2000/maxls50/ftol1e-9/gtol1e-6，單模型120秒
 
 先完成公式、RPM路由、source reconstruction與synthetic smoke、雙環境回歸。協定及code封存提交推送後才fit；actual train/cal重建提交後才outer；逐筆reinfer／truth mutation／相同test IDs／predictions SHA與指標重算後報實測。每action1800秒、C保留1GB；大型產物直接D、索引入Git，舊data/model/prediction/lock不覆寫。
 
-此時尚無新code或formal成績。CLI具體路徑與時間戳由後續execution log補記；原程式需要Python3.6／TF2.1／Keras2.3.1，不在本案科學環境安裝，本站用既有NumPy／SciPy從方程式獨立實作。
+先行手冊提交後已完成core／runner、兩環境20項公式與來源用途測試、synthetic smoke及492項完整回歸；尚無本批formal成績。CLI具體路徑與時間戳由後續execution log補記；原程式需要Python3.6／TF2.1／Keras2.3.1，不在本案科學環境安裝，本站用既有NumPy／SciPy從方程式獨立實作。
+
+```powershell
+$env:PYTHONIOENCODING='utf-8'
+.venv310/Scripts/python.exe -m experiments.fault_type_context_prototypes lock --parent-protocol output/fault_type_discriminative_prototypes_lock/2026-10-03-15-23-33/protocol.json --parent-lock output/fault_type_discriminative_prototypes_fit/2026-10-03-15-28-56/locked_study.json --parent-source output/fault_type_discriminative_prototypes_source_verify/2026-10-03-15-31-33/source_verified.json
+```
+
+其他action及必填參數見`--help`，沿用exp16雙介面。fit/source-verify/evaluate/verify均指定`--data-root data/formal_local`；report讀metrics_v2、D01、exp15 evaluation，對照全方法及實際相同IDs，不造winner。共同source helper只讀exp16 `validate_parent_source`／`parent_bundle`，其檔案SHA也列入新protocol；沒有monkeypatch舊runner。

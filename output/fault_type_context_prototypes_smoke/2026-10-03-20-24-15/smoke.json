@@ -1,0 +1,57 @@
+{
+  "models": {
+    "1": {
+      "optimizer": {
+        "auxiliary": 0.01,
+        "beta": 4.0,
+        "budget_seconds": 120,
+        "epsilon": 1e-12,
+        "evaluations": 4,
+        "final_loss": 0.01806910582401422,
+        "gradient_inf_norm": 8.052401310346711e-07,
+        "initial_loss": 0.01806911422466306,
+        "initialization_gradient_inf_norm": 8.729434465873343e-06,
+        "iterations": 2,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "options": {
+          "ftol": 1e-09,
+          "gtol": 1e-06,
+          "maxfun": 2000,
+          "maxiter": 600,
+          "maxls": 50
+        },
+        "seconds": 0.0014279000170063227,
+        "status": 0,
+        "success": true
+      },
+      "state_checksum": "624ff3b186ed0088f1a6d4fb6813ead5f9cb3e804c5b1ad99aca8b27afccdc0a"
+    },
+    "2": {
+      "optimizer": {
+        "auxiliary": 0.01,
+        "beta": 4.0,
+        "budget_seconds": 120,
+        "epsilon": 1e-12,
+        "evaluations": 5,
+        "final_loss": 0.01806713734673256,
+        "gradient_inf_norm": 1.5019237485407826e-06,
+        "initial_loss": 0.018067146691826918,
+        "initialization_gradient_inf_norm": 9.11061835100059e-06,
+        "iterations": 3,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "options": {
+          "ftol": 1e-09,
+          "gtol": 1e-06,
+          "maxfun": 2000,
+          "maxiter": 600,
+          "maxls": 50
+        },
+        "seconds": 0.0015845999878365546,
+        "status": 0,
+        "success": true
+      },
+      "state_checksum": "f30fb9f02c1d9f930e6080196ee42b2831db2bc446767ec20fb13d209d163f8e"
+    }
+  },
+  "scope": "SYNTHETIC_ENGINEERING_ONLY"
+}

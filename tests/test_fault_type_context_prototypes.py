@@ -1,9 +1,17 @@
 import pickle
+import copy
+import tempfile
 import unittest
+from pathlib import Path
 import numpy as np
 from scipy.optimize import check_grad
 from core.fault_type_context_prototypes import ContextPrototypes, context_basis, context_distances, relative_objective
 from core.fault_type_discriminative_prototypes import relative_objective as pooled_objective
+from core.fault_type_fixed_calibration import fixed_manifests
+from core.fault_type_validator import compute_manifest_checksum
+from experiments.fault_type_fixed_calibration import build_protocol
+from experiments.fault_type_fixed_smoke import fixture
+from experiments.fault_type_context_prototypes import fit_node, verify_node, rpm_values, expected_audits, validate_policy, MODELS, ARMS
 
 
 class ContextPrototypeTests(unittest.TestCase):
@@ -95,6 +103,93 @@ class ContextPrototypeTests(unittest.TestCase):
         a.coefficients_[0, 0, 0] += .1
         with self.assertRaises(ValueError):
             a.predict(X, r)
+
+
+class ContextSourceTests(unittest.TestCase):
+    def setUp(self):
+        self.X, self.y, self.rpm, self.ix = ContextPrototypeTests().data()
+        self.C, self.cr = self.X+.5, self.rpm.copy()
+        self.d = dict(degree=1, variant='static')
+        self.node = fit_node(self.d, self.X, self.C, self.y, self.rpm, self.cr, self.ix, 0)
+
+    def verify(self):
+        return verify_node(self.node, self.d, self.X, self.C, self.y, self.rpm, self.cr, self.ix, 0)
+
+    def test_actual_source(self):
+        self.assertEqual(self.verify()['status'], 'completed')
+        self.assertEqual(len(MODELS), 12)
+        self.assertEqual(len({a['id'] for a in ARMS}), 12)
+
+    def test_calibration_cannot_initialize(self):
+        self.node = fit_node(self.d, self.C, self.C, self.y, self.rpm, self.cr, self.ix, 0)
+        with self.assertRaises(ValueError):
+            self.verify()
+
+    def test_train_rpm_source(self):
+        self.node = fit_node(self.d, self.X, self.C, self.y, self.rpm[::-1], self.cr, self.ix, 0)
+        with self.assertRaises(ValueError):
+            self.verify()
+
+    def test_cal_rpm_source(self):
+        self.node['calibration_rpm_checksum'] = 'different'
+        with self.assertRaises(ValueError):
+            self.verify()
+
+    def test_resealed_coefficients(self):
+        self.node['model'].coefficients_[0, 0, 0] += .1
+        self.node['model'].checksum_ = self.node['model'].signature()
+        with self.assertRaises(ValueError):
+            self.verify()
+
+    def test_rpm_not_truth_or_motor(self):
+        a = [dict(rpm='6000rpm', label='fault', t_code='T1')]
+        b = [dict(rpm='6000rpm', label='unknown', t_code='T2')]
+        np.testing.assert_array_equal(rpm_values(a), rpm_values(b))
+        with self.assertRaises(ValueError):
+            rpm_values([dict(rpm='2screws')])
+
+    def test_selector_exposure_guard(self):
+        p = dict(selection_policy='none', selection_sample_ids=[], validation_sample_ids=[], shared_validation_calibration=False,
+                 fresh_final_test=False, scope='EXPLORATORY_HISTORICAL_TEST_EXPOSED')
+        validate_policy(p)
+        for change in [dict(global_winner='I01'), dict(selected_model='I01'), dict(selection_sample_ids=['test']),
+                       dict(shared_validation_calibration=True), dict(fresh_final_test=True), dict(scope='FRESH')]:
+            with self.assertRaises(ValueError):
+                validate_policy(dict(p, **change))
+
+
+class ContextPurposeTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.temp = tempfile.TemporaryDirectory()
+        priors, ledger = fixture(Path(cls.temp.name)/'data')
+        cls.p = build_protocol(priors, ledger)
+        cls.m = fixed_manifests(priors, cls.p)[0]
+        cls.p = dict(protocol_checksum=cls.p['protocol_checksum'], dataset_fingerprint='SYNTHETIC_FIXTURE_ONLY',
+                     known_labels=[cls.m['healthy_label'], *cls.m['known_fault_labels']])
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.temp.cleanup()
+
+    def audit(self, m):
+        return expected_audits(self.p, m, dict(seed=0), np.array([0], int))
+
+    def test_empty_selection_and_purpose(self):
+        a = self.audit(self.m)
+        self.assertEqual(len(a), 12)
+        self.assertTrue(all(x['selection_sample_ids'] == [] and x['context_fit_ids'] == x['classifier_fit_ids'] for x in a))
+        self.assertTrue(all(not set(x['context_fit_ids'])&set(x['calibration_sample_ids']) for x in a))
+
+    def test_unknown_and_test_motor_in_fit_or_cal(self):
+        for part in ['train', 'calibration']:
+            for key, value in [('label', self.m['unknown_test_labels'][0]), ('t_code', self.m['motor_roles']['test'])]:
+                m = copy.deepcopy(self.m)
+                sid = m['sample_ids'][part][0]
+                next(r for r in m['records'] if r['sample_id'] == sid)[key] = value
+                m['manifest_checksum'] = compute_manifest_checksum(m)
+                with self.assertRaises(ValueError):
+                    self.audit(m)
 
 
 if __name__ == '__main__':

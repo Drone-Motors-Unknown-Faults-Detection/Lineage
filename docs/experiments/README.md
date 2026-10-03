@@ -6,7 +6,7 @@
 
 | 模組 | 手冊 |
 |---|---|
-| exp17：`experiments/fault_type_context_prototypes.py`（待實作） | [RPM工況相關原型](exp17_context_prototypes.md) |
+| exp17：`experiments/fault_type_context_prototypes.py` | [RPM工況相關原型](exp17_context_prototypes.md) |
 | exp16：`experiments/fault_type_smooth_l1.py` | [平滑L1原型距離](exp16_smooth_l1_prototypes.md) |
 | exp15：`experiments/fault_type_discriminative_prototypes.py` | [判別式原型學習](exp15_discriminative_prototypes.md) |
 | exp13：`experiments/fault_type_metric_failure_diagnosis.py` | [封存後失敗診斷](exp13_metric_failure_diagnosis.md) |
@@ -29,7 +29,7 @@
 
 | 編號 | 入口與共用邏輯 | 測試、紀錄與輸出 | 展示 |
 |---|---|---|---|
-| exp17（待實作） | `experiments/fault_type_context_prototypes.py`、`core/fault_type_context_prototypes.py` | `tests/test_fault_type_context_prototypes.py`、`logs/fault_type_context_prototypes_*/`、`output/fault_type_context_prototypes_*/` | N/A |
+| exp17 | `experiments/fault_type_context_prototypes.py`、`core/fault_type_context_prototypes.py` | `tests/test_fault_type_context_prototypes.py`、`logs/fault_type_context_prototypes_*/`、`output/fault_type_context_prototypes_*/` | N/A |
 | exp16 | `experiments/fault_type_smooth_l1.py`、`core/fault_type_smooth_l1.py` | `tests/test_fault_type_smooth_l1.py`、`logs/fault_type_smooth_l1_*/`、`output/fault_type_smooth_l1_*/` | N/A |
 | exp15 | `experiments/fault_type_discriminative_prototypes.py`、`core/fault_type_discriminative_prototypes.py` | `tests/test_fault_type_discriminative_prototypes.py`、`logs/fault_type_discriminative_prototypes_*/`、`output/fault_type_discriminative_prototypes_*/` | N/A |
 | exp13失敗診斷 | `experiments/fault_type_metric_failure_diagnosis.py`、既有預測reader | `tests/test_fault_type_metric_failure_diagnosis.py`、`logs/fault_type_metric_failure_diagnosis/`、`output/fault_type_metric_failure_diagnosis/` | N/A |

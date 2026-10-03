@@ -1,0 +1,4 @@
+2026-10-03 20:24:15 | INFO    | Logger initialized: fault_type_context_prototypes_smoke
+2026-10-03 20:24:15 | INFO    | log_file=logs\fault_type_context_prototypes_smoke\2026-10-03-20-24-15.log
+2026-10-03 20:24:15 | INFO    | output_dir=output\fault_type_context_prototypes_smoke\2026-10-03-20-24-15
+2026-10-03 20:24:15 | INFO    | smoke 完成，輸出 output\fault_type_context_prototypes_smoke\2026-10-03-20-24-15
