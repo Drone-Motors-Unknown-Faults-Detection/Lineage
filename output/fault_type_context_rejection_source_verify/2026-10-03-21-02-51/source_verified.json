@@ -1,0 +1,2677 @@
+{
+  "cells": [
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "41da7865533bf30abe43039b65ac61f206aa8d0652811b96a6f0932360130f8a",
+      "seed": 0,
+      "verified": {
+        "identity_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "5e6869c5128e456c61dc8a9c37ca7e712252a4f8a86fbde3ca41359ad25cd869",
+          "quantiles": [
+            533.8325635151897,
+            0.997852360946891
+          ],
+          "state_checksum": "b329fb03ca7a0bec94897c08421ba0e335e0e0a5e48f3a9951705c5db81f95a2"
+        },
+        "identity_1_auxiliary_distance": {
+          "calibration_distances_checksum": "5e6869c5128e456c61dc8a9c37ca7e712252a4f8a86fbde3ca41359ad25cd869",
+          "quantiles": [
+            533.8325635151897,
+            0.997852360946891
+          ],
+          "state_checksum": "3b3ae6ca92672abf2ff144e2d267e22642cddf25d7b47f34bce277a04477ac0c"
+        },
+        "identity_1_auxiliary_or": {
+          "calibration_distances_checksum": "5e6869c5128e456c61dc8a9c37ca7e712252a4f8a86fbde3ca41359ad25cd869",
+          "quantiles": [
+            533.8325635151897,
+            0.997852360946891
+          ],
+          "state_checksum": "33fcc334fa0acee7d33f1ab55178fd319b2b854daff3c36671e373501c7ead32"
+        },
+        "identity_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "1b6638daa421743a823feaabef39e2b0169ec526cfcdddc61f8d9ff53af1bd31",
+          "quantiles": [
+            534.9321864489264,
+            0.9977957966787568
+          ],
+          "state_checksum": "c9757189f80848797b7733e9ed3fe211b2e2ea99fd3e1b6feb7fc45d03c8a155"
+        },
+        "identity_1_glvq_distance": {
+          "calibration_distances_checksum": "1b6638daa421743a823feaabef39e2b0169ec526cfcdddc61f8d9ff53af1bd31",
+          "quantiles": [
+            534.9321864489264,
+            0.9977957966787568
+          ],
+          "state_checksum": "7ef643d3aa2b4b0926f904f774dde16f5c14cd7aaecb2c37311e4c7408b5e755"
+        },
+        "identity_1_glvq_or": {
+          "calibration_distances_checksum": "1b6638daa421743a823feaabef39e2b0169ec526cfcdddc61f8d9ff53af1bd31",
+          "quantiles": [
+            534.9321864489264,
+            0.9977957966787568
+          ],
+          "state_checksum": "392c2e8970690d91cb91a1b5bfd816eaecd16a4e6c7b293b8aa3cae895522553"
+        },
+        "identity_1_static_ambiguity": {
+          "calibration_distances_checksum": "c3c18edf35a92fbc76008f7ef9a2dcc5e0119ce907fde5f9d876453d1c815e32",
+          "quantiles": [
+            525.0053006613456,
+            0.9892851122582957
+          ],
+          "state_checksum": "259c0864a8b086181bead34f5e4fc3be6ee77ec85d4619a66c70353f120d6688"
+        },
+        "identity_1_static_distance": {
+          "calibration_distances_checksum": "c3c18edf35a92fbc76008f7ef9a2dcc5e0119ce907fde5f9d876453d1c815e32",
+          "quantiles": [
+            525.0053006613456,
+            0.9892851122582957
+          ],
+          "state_checksum": "46571b852d6064e60de8f1ec76130cf2683ee061707fb0500c8f0cd0b4a2c8e2"
+        },
+        "identity_1_static_or": {
+          "calibration_distances_checksum": "c3c18edf35a92fbc76008f7ef9a2dcc5e0119ce907fde5f9d876453d1c815e32",
+          "quantiles": [
+            525.0053006613456,
+            0.9892851122582957
+          ],
+          "state_checksum": "c8ebd97dfe3e3f5813158abfdf854d4b7af4d0496256dc27d2d7ffcc08f17232"
+        },
+        "identity_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "238a0662bb0b89169a4f4d366dac8fa931ec01cb08fb34a8feb6fa4e16781c44",
+          "quantiles": [
+            626.0094260529862,
+            0.9931459868536956
+          ],
+          "state_checksum": "8d1bfc6298b2bf86fb0886c291c17cfb39fd5929c900f2e141c17a1002a235e9"
+        },
+        "identity_2_auxiliary_distance": {
+          "calibration_distances_checksum": "238a0662bb0b89169a4f4d366dac8fa931ec01cb08fb34a8feb6fa4e16781c44",
+          "quantiles": [
+            626.0094260529862,
+            0.9931459868536956
+          ],
+          "state_checksum": "2fc9b798b87f5edbeeb851f0bb52ebea9fe86ac4c2a10e13d45776dbd6d964bf"
+        },
+        "identity_2_auxiliary_or": {
+          "calibration_distances_checksum": "238a0662bb0b89169a4f4d366dac8fa931ec01cb08fb34a8feb6fa4e16781c44",
+          "quantiles": [
+            626.0094260529862,
+            0.9931459868536956
+          ],
+          "state_checksum": "8e7ea24032baa260bf2045b9ee330bb28a7c3ba4edf5a1ff724b2c54fcd32624"
+        },
+        "identity_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "d4443ee752130719abf83100f28b03de3bdd427221b7b61f8dc7ae0aa68a49f6",
+          "quantiles": [
+            626.0815753047744,
+            0.9931387400392068
+          ],
+          "state_checksum": "7c95e2dc88f663573b591827925f8ec034331058baa61a880f12b834c5d9966c"
+        },
+        "identity_2_glvq_distance": {
+          "calibration_distances_checksum": "d4443ee752130719abf83100f28b03de3bdd427221b7b61f8dc7ae0aa68a49f6",
+          "quantiles": [
+            626.0815753047744,
+            0.9931387400392068
+          ],
+          "state_checksum": "ffda51e2bdc87b424bf7a12b64c661d48f3b3e676010d9ee67fe90a297191b3d"
+        },
+        "identity_2_glvq_or": {
+          "calibration_distances_checksum": "d4443ee752130719abf83100f28b03de3bdd427221b7b61f8dc7ae0aa68a49f6",
+          "quantiles": [
+            626.0815753047744,
+            0.9931387400392068
+          ],
+          "state_checksum": "4efe783147a55ea34f32f7436c8dd4204f10b008feb09e1b30894b6c631f3e55"
+        },
+        "identity_2_static_ambiguity": {
+          "calibration_distances_checksum": "e698b0218ecce65557c16b3b8779e6b035dc4a66c0fb5992b713befe28915d84",
+          "quantiles": [
+            631.6937569927394,
+            0.9927389249904608
+          ],
+          "state_checksum": "afa96b8592e4b2d35cdb304b2d842de4c6bf4edc1be2f465f96fd2f678cdd5da"
+        },
+        "identity_2_static_distance": {
+          "calibration_distances_checksum": "e698b0218ecce65557c16b3b8779e6b035dc4a66c0fb5992b713befe28915d84",
+          "quantiles": [
+            631.6937569927394,
+            0.9927389249904608
+          ],
+          "state_checksum": "b6c5755d3b04e0b3833e1d1142c5e701330fdb3532850badc4ca222b4c64aeed"
+        },
+        "identity_2_static_or": {
+          "calibration_distances_checksum": "e698b0218ecce65557c16b3b8779e6b035dc4a66c0fb5992b713befe28915d84",
+          "quantiles": [
+            631.6937569927394,
+            0.9927389249904608
+          ],
+          "state_checksum": "897b159103ef1782b8199216e56d888681007266e834c8a3ed041fb0e9f7a301"
+        },
+        "metric_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "436acaba2e40e4797e0f540bea3d6d7d7fc588e90e653a2429b9252d486bd9f2",
+          "quantiles": [
+            27.02683574780299,
+            0.9978392826581274
+          ],
+          "state_checksum": "7f198b9e1753a4f2fe66317f949bd4f9741998a541196fc56937dc1e023d47ff"
+        },
+        "metric_1_auxiliary_distance": {
+          "calibration_distances_checksum": "436acaba2e40e4797e0f540bea3d6d7d7fc588e90e653a2429b9252d486bd9f2",
+          "quantiles": [
+            27.02683574780299,
+            0.9978392826581274
+          ],
+          "state_checksum": "fbccdf4ae89baccade39351aafdafe40e98b12f6d33a77ee2b530427aa70b797"
+        },
+        "metric_1_auxiliary_or": {
+          "calibration_distances_checksum": "436acaba2e40e4797e0f540bea3d6d7d7fc588e90e653a2429b9252d486bd9f2",
+          "quantiles": [
+            27.02683574780299,
+            0.9978392826581274
+          ],
+          "state_checksum": "0c752e929dc883a95047331700ce712d66d425be4e0084a8759dea64267ee6ab"
+        },
+        "metric_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "d2d7db40472cb06606cdec17f96cc59bae0b8b9075560036b2e61918e00962ff",
+          "quantiles": [
+            27.02515466026296,
+            0.9978413891570653
+          ],
+          "state_checksum": "4e1f116dbe2799fe9976b873aa0bf99e5c8bd80222d96130f6c76a41a847bc24"
+        },
+        "metric_1_glvq_distance": {
+          "calibration_distances_checksum": "d2d7db40472cb06606cdec17f96cc59bae0b8b9075560036b2e61918e00962ff",
+          "quantiles": [
+            27.02515466026296,
+            0.9978413891570653
+          ],
+          "state_checksum": "3a961be9a66ea7fb16e34606c5f9e629fb767bec7f434aa0d4282b109c727508"
+        },
+        "metric_1_glvq_or": {
+          "calibration_distances_checksum": "d2d7db40472cb06606cdec17f96cc59bae0b8b9075560036b2e61918e00962ff",
+          "quantiles": [
+            27.02515466026296,
+            0.9978413891570653
+          ],
+          "state_checksum": "8b7f92417f63fea01b9270a8d136a46fad21700d93673022bdd75ccd0bd64435"
+        },
+        "metric_1_static_ambiguity": {
+          "calibration_distances_checksum": "30e0333d4ea048c225f9969b155340018643f6801043e12b6156c64bfadc08ac",
+          "quantiles": [
+            21.618493505127013,
+            0.9726009789320855
+          ],
+          "state_checksum": "0d0f7fdb53e6eb8634507bbddd81a55e15ad1c9961db69e08a1337b97076141b"
+        },
+        "metric_1_static_distance": {
+          "calibration_distances_checksum": "30e0333d4ea048c225f9969b155340018643f6801043e12b6156c64bfadc08ac",
+          "quantiles": [
+            21.618493505127013,
+            0.9726009789320855
+          ],
+          "state_checksum": "4494256a21927b6081a55a60f93a1f2747f968faa82b1729d9fe97b178ff4239"
+        },
+        "metric_1_static_or": {
+          "calibration_distances_checksum": "30e0333d4ea048c225f9969b155340018643f6801043e12b6156c64bfadc08ac",
+          "quantiles": [
+            21.618493505127013,
+            0.9726009789320855
+          ],
+          "state_checksum": "d947543e6dbf2b295a99647ff5af3675d16366f996137401c349518dff638b75"
+        },
+        "metric_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "36daf7c9760988322d6ab5e6ec3b5b3bfa0a7c6025001847be03258343b959ae",
+          "quantiles": [
+            11.905140619511059,
+            0.9796735501346747
+          ],
+          "state_checksum": "38a5aa8252efcae61f31c9f4d5f6524cd0adebda8f9a496860639e8e06239e41"
+        },
+        "metric_2_auxiliary_distance": {
+          "calibration_distances_checksum": "36daf7c9760988322d6ab5e6ec3b5b3bfa0a7c6025001847be03258343b959ae",
+          "quantiles": [
+            11.905140619511059,
+            0.9796735501346747
+          ],
+          "state_checksum": "da425db0d4b6ef187b900e22d6f37cd7e1a04e2308e99992729dd56085f70877"
+        },
+        "metric_2_auxiliary_or": {
+          "calibration_distances_checksum": "36daf7c9760988322d6ab5e6ec3b5b3bfa0a7c6025001847be03258343b959ae",
+          "quantiles": [
+            11.905140619511059,
+            0.9796735501346747
+          ],
+          "state_checksum": "205a0acb1a6b501975e5b9b2305caa68f96023844a2ad2f8794c638b63e2c1a8"
+        },
+        "metric_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "9075d94c454a94b439b88b37b1add4303913474ba02e318a54aefb29e196793a",
+          "quantiles": [
+            11.904693648601238,
+            0.9796712506914794
+          ],
+          "state_checksum": "f4ccee89cd7eb19e0d9b372fd6e117f707ee49c8a38c457b6f34c33b6d6425e1"
+        },
+        "metric_2_glvq_distance": {
+          "calibration_distances_checksum": "9075d94c454a94b439b88b37b1add4303913474ba02e318a54aefb29e196793a",
+          "quantiles": [
+            11.904693648601238,
+            0.9796712506914794
+          ],
+          "state_checksum": "1a810766ae96e6c3fee2a6eab077d4c822db69dc76fa2f8ffc016c63810aeef4"
+        },
+        "metric_2_glvq_or": {
+          "calibration_distances_checksum": "9075d94c454a94b439b88b37b1add4303913474ba02e318a54aefb29e196793a",
+          "quantiles": [
+            11.904693648601238,
+            0.9796712506914794
+          ],
+          "state_checksum": "8a575d7458643c9ac22f2046ff7d8e7bd0c69ef13f9942a09ba0dc933ed4b643"
+        },
+        "metric_2_static_ambiguity": {
+          "calibration_distances_checksum": "c28297bb67547776278ad83fe9cd0fdb424f2b27db401e162f314a2e8ba2b0c8",
+          "quantiles": [
+            12.076283190652791,
+            0.980934065514123
+          ],
+          "state_checksum": "9f3eaa38e67a1844af59bd92cf87aacdb4c3ce65ae856a256386a632bbf84a7e"
+        },
+        "metric_2_static_distance": {
+          "calibration_distances_checksum": "c28297bb67547776278ad83fe9cd0fdb424f2b27db401e162f314a2e8ba2b0c8",
+          "quantiles": [
+            12.076283190652791,
+            0.980934065514123
+          ],
+          "state_checksum": "ace6365432406f3a1c70d57d7edf61e149fcd9af776881fc760e1f768a2d340e"
+        },
+        "metric_2_static_or": {
+          "calibration_distances_checksum": "c28297bb67547776278ad83fe9cd0fdb424f2b27db401e162f314a2e8ba2b0c8",
+          "quantiles": [
+            12.076283190652791,
+            0.980934065514123
+          ],
+          "state_checksum": "c7d3b54a2ef327ccc4804797f29b4676482cae9c93e25b06008a2b41212ff858"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "e5815d385df28ae16a24b100475ee761b1e7c609a0267868882eb39564926339",
+      "seed": 1,
+      "verified": {
+        "identity_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "5366e28c2e6f7c66b71f95ab7a390cb3d4730fafd10266332bb05292e3a91e2c",
+          "quantiles": [
+            540.0036338277918,
+            0.9984164838192814
+          ],
+          "state_checksum": "8fda0e158f97fa9d96fa11e0ced86251f98db644f7fa1f497d7a1ec610802757"
+        },
+        "identity_1_auxiliary_distance": {
+          "calibration_distances_checksum": "5366e28c2e6f7c66b71f95ab7a390cb3d4730fafd10266332bb05292e3a91e2c",
+          "quantiles": [
+            540.0036338277918,
+            0.9984164838192814
+          ],
+          "state_checksum": "f46bbe1f386755d5b4b0b9f2e1eef94517ac83d4b14a5e77ea1870385d649a25"
+        },
+        "identity_1_auxiliary_or": {
+          "calibration_distances_checksum": "5366e28c2e6f7c66b71f95ab7a390cb3d4730fafd10266332bb05292e3a91e2c",
+          "quantiles": [
+            540.0036338277918,
+            0.9984164838192814
+          ],
+          "state_checksum": "eb2e279a917abb52caeb3c0198805f66c7ac85a8ceb746108e23a1b6b1eca0d3"
+        },
+        "identity_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "97184b83b8f521b32ff664181c1ad067f2e3f259d9202dc44211c39b5bec977c",
+          "quantiles": [
+            541.5455180634737,
+            0.9981460510117057
+          ],
+          "state_checksum": "9636ee80c58f0afbecc6f3d79a41809e779a5aff9cc102da96a94bef5f1c974e"
+        },
+        "identity_1_glvq_distance": {
+          "calibration_distances_checksum": "97184b83b8f521b32ff664181c1ad067f2e3f259d9202dc44211c39b5bec977c",
+          "quantiles": [
+            541.5455180634737,
+            0.9981460510117057
+          ],
+          "state_checksum": "b7282093fa8b200fa781698a7e1eda2049c4087b6fb8a720340694769383e59c"
+        },
+        "identity_1_glvq_or": {
+          "calibration_distances_checksum": "97184b83b8f521b32ff664181c1ad067f2e3f259d9202dc44211c39b5bec977c",
+          "quantiles": [
+            541.5455180634737,
+            0.9981460510117057
+          ],
+          "state_checksum": "fa69fca749305f3aa3297877e48aff3580ac6112ea766fc17bb04d0aa3204751"
+        },
+        "identity_1_static_ambiguity": {
+          "calibration_distances_checksum": "c3c18edf35a92fbc76008f7ef9a2dcc5e0119ce907fde5f9d876453d1c815e32",
+          "quantiles": [
+            525.0053006613456,
+            0.9892851122582957
+          ],
+          "state_checksum": "259c0864a8b086181bead34f5e4fc3be6ee77ec85d4619a66c70353f120d6688"
+        },
+        "identity_1_static_distance": {
+          "calibration_distances_checksum": "c3c18edf35a92fbc76008f7ef9a2dcc5e0119ce907fde5f9d876453d1c815e32",
+          "quantiles": [
+            525.0053006613456,
+            0.9892851122582957
+          ],
+          "state_checksum": "46571b852d6064e60de8f1ec76130cf2683ee061707fb0500c8f0cd0b4a2c8e2"
+        },
+        "identity_1_static_or": {
+          "calibration_distances_checksum": "c3c18edf35a92fbc76008f7ef9a2dcc5e0119ce907fde5f9d876453d1c815e32",
+          "quantiles": [
+            525.0053006613456,
+            0.9892851122582957
+          ],
+          "state_checksum": "c8ebd97dfe3e3f5813158abfdf854d4b7af4d0496256dc27d2d7ffcc08f17232"
+        },
+        "identity_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "56fe90dcd47ed9af0afb0eea1ba570223b3ab2135e6fb008baac13e88ba1f695",
+          "quantiles": [
+            634.9870046458319,
+            0.9933282436100285
+          ],
+          "state_checksum": "d38ef632654a98785665681c6b9f6fec1bb17044d0dacb34f658776fd2fd8152"
+        },
+        "identity_2_auxiliary_distance": {
+          "calibration_distances_checksum": "56fe90dcd47ed9af0afb0eea1ba570223b3ab2135e6fb008baac13e88ba1f695",
+          "quantiles": [
+            634.9870046458319,
+            0.9933282436100285
+          ],
+          "state_checksum": "53573c045f859229f310023bfe7e808357fbe112d539811bdb0495e086bb74ca"
+        },
+        "identity_2_auxiliary_or": {
+          "calibration_distances_checksum": "56fe90dcd47ed9af0afb0eea1ba570223b3ab2135e6fb008baac13e88ba1f695",
+          "quantiles": [
+            634.9870046458319,
+            0.9933282436100285
+          ],
+          "state_checksum": "dce3d0b7618a02fa3a6581b9b4aed366f912dc588b86dd640b0174add27348e0"
+        },
+        "identity_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "60343c3b295c56a55f644d9920eefe1386f580b09729e670b842c40e44bdd433",
+          "quantiles": [
+            635.1261303868101,
+            0.9933560464430103
+          ],
+          "state_checksum": "5fefc639d360b100029ebccaa9f991ecec4b06dd186cd57bfd1fe80c8aa48874"
+        },
+        "identity_2_glvq_distance": {
+          "calibration_distances_checksum": "60343c3b295c56a55f644d9920eefe1386f580b09729e670b842c40e44bdd433",
+          "quantiles": [
+            635.1261303868101,
+            0.9933560464430103
+          ],
+          "state_checksum": "2f278d975e1cba95e37108f64d415e0216125949d02b5fc8166a75febc25f0d3"
+        },
+        "identity_2_glvq_or": {
+          "calibration_distances_checksum": "60343c3b295c56a55f644d9920eefe1386f580b09729e670b842c40e44bdd433",
+          "quantiles": [
+            635.1261303868101,
+            0.9933560464430103
+          ],
+          "state_checksum": "185b665fff30449101f05dfd5ce456ea1a39c31931b10d65da05088c1300b1e1"
+        },
+        "identity_2_static_ambiguity": {
+          "calibration_distances_checksum": "e698b0218ecce65557c16b3b8779e6b035dc4a66c0fb5992b713befe28915d84",
+          "quantiles": [
+            631.6937569927394,
+            0.9927389249904608
+          ],
+          "state_checksum": "afa96b8592e4b2d35cdb304b2d842de4c6bf4edc1be2f465f96fd2f678cdd5da"
+        },
+        "identity_2_static_distance": {
+          "calibration_distances_checksum": "e698b0218ecce65557c16b3b8779e6b035dc4a66c0fb5992b713befe28915d84",
+          "quantiles": [
+            631.6937569927394,
+            0.9927389249904608
+          ],
+          "state_checksum": "b6c5755d3b04e0b3833e1d1142c5e701330fdb3532850badc4ca222b4c64aeed"
+        },
+        "identity_2_static_or": {
+          "calibration_distances_checksum": "e698b0218ecce65557c16b3b8779e6b035dc4a66c0fb5992b713befe28915d84",
+          "quantiles": [
+            631.6937569927394,
+            0.9927389249904608
+          ],
+          "state_checksum": "897b159103ef1782b8199216e56d888681007266e834c8a3ed041fb0e9f7a301"
+        },
+        "metric_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "e32495cda36d29003185959456b378fc5e5ce178f22cab4a2858db8ed33875ef",
+          "quantiles": [
+            21.222445810011266,
+            0.9974226152755618
+          ],
+          "state_checksum": "5d94d113e27dfff635a55d0ee42642dc1be2aba9a0391f1d7afa56e387dfdf42"
+        },
+        "metric_1_auxiliary_distance": {
+          "calibration_distances_checksum": "e32495cda36d29003185959456b378fc5e5ce178f22cab4a2858db8ed33875ef",
+          "quantiles": [
+            21.222445810011266,
+            0.9974226152755618
+          ],
+          "state_checksum": "ab6fb8a95f69dc5ee02a8a29ba9d8fcbc6b5dcbaa84b6f3c2c5b6435e267e2f8"
+        },
+        "metric_1_auxiliary_or": {
+          "calibration_distances_checksum": "e32495cda36d29003185959456b378fc5e5ce178f22cab4a2858db8ed33875ef",
+          "quantiles": [
+            21.222445810011266,
+            0.9974226152755618
+          ],
+          "state_checksum": "cecbe4b1381b142a5c966bb2b029da7ed9e004417671c917336c279733726198"
+        },
+        "metric_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "6ee76c7f5b5ff43cc6ee35c688a5c8682a3dfda6b20687b6ad1104b08999bd8e",
+          "quantiles": [
+            21.22296862948404,
+            0.9974568276852683
+          ],
+          "state_checksum": "a4a0b872061b5051b269a122d6e2ce4e9b74f750a5dcd508aaa734b776c6f4b5"
+        },
+        "metric_1_glvq_distance": {
+          "calibration_distances_checksum": "6ee76c7f5b5ff43cc6ee35c688a5c8682a3dfda6b20687b6ad1104b08999bd8e",
+          "quantiles": [
+            21.22296862948404,
+            0.9974568276852683
+          ],
+          "state_checksum": "188a305a114679ab0620f90d538e4445158425e59c43abb4df0a7d92de5f7954"
+        },
+        "metric_1_glvq_or": {
+          "calibration_distances_checksum": "6ee76c7f5b5ff43cc6ee35c688a5c8682a3dfda6b20687b6ad1104b08999bd8e",
+          "quantiles": [
+            21.22296862948404,
+            0.9974568276852683
+          ],
+          "state_checksum": "ff6dfc1db5eaed8dcea2b577a88928105ff0e82073efa07e4000b025500bfe0e"
+        },
+        "metric_1_static_ambiguity": {
+          "calibration_distances_checksum": "9aa10211994fef7111fc8573104bc1f958842ed7f7aeb88620fab2ed1d877b74",
+          "quantiles": [
+            16.695493082709948,
+            0.9797720249746961
+          ],
+          "state_checksum": "283c5adf418659ea70f530de7c336a2826f15b8697e9a3cb0a95ec3971f2ac9b"
+        },
+        "metric_1_static_distance": {
+          "calibration_distances_checksum": "9aa10211994fef7111fc8573104bc1f958842ed7f7aeb88620fab2ed1d877b74",
+          "quantiles": [
+            16.695493082709948,
+            0.9797720249746961
+          ],
+          "state_checksum": "88ada612a8c7c256e8098fc4beccab9f39772c2bc6533437452651791a6284f8"
+        },
+        "metric_1_static_or": {
+          "calibration_distances_checksum": "9aa10211994fef7111fc8573104bc1f958842ed7f7aeb88620fab2ed1d877b74",
+          "quantiles": [
+            16.695493082709948,
+            0.9797720249746961
+          ],
+          "state_checksum": "7cf725ec8bf4aea0cc954a41467dc10e2034fbfd5778d4f26a387567b85291ae"
+        },
+        "metric_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "ddc2c48564efb3673f07d51b7324cbf4e6f57b5747bfa87eeae6fa8cdac1c1bb",
+          "quantiles": [
+            10.95025795912434,
+            0.9888604977955477
+          ],
+          "state_checksum": "695a6592067fb6e3c62fe7e2e4f5606331b01d3232827c6c2a89422400b36d6e"
+        },
+        "metric_2_auxiliary_distance": {
+          "calibration_distances_checksum": "ddc2c48564efb3673f07d51b7324cbf4e6f57b5747bfa87eeae6fa8cdac1c1bb",
+          "quantiles": [
+            10.95025795912434,
+            0.9888604977955477
+          ],
+          "state_checksum": "9532faafcc70940c4aa3f83c2b2f60f1f191794c5ce0110fb70eae90ea1d2912"
+        },
+        "metric_2_auxiliary_or": {
+          "calibration_distances_checksum": "ddc2c48564efb3673f07d51b7324cbf4e6f57b5747bfa87eeae6fa8cdac1c1bb",
+          "quantiles": [
+            10.95025795912434,
+            0.9888604977955477
+          ],
+          "state_checksum": "d9f1c58f55426bef7b13a3fbdbebe7e5a4e065886bc6c1d93498e402bfee6a8e"
+        },
+        "metric_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "c308f542e2a7c67de032ee5b1c626970386b6654937d8392aad6a307f531061e",
+          "quantiles": [
+            10.9502035083129,
+            0.9888618084938607
+          ],
+          "state_checksum": "a4e99cf06517da7a6feea45ea5efa29f2d1e805a319ad20d78756d07357901d3"
+        },
+        "metric_2_glvq_distance": {
+          "calibration_distances_checksum": "c308f542e2a7c67de032ee5b1c626970386b6654937d8392aad6a307f531061e",
+          "quantiles": [
+            10.9502035083129,
+            0.9888618084938607
+          ],
+          "state_checksum": "a90ccdcab046ecde1f28c64455f52f61caf419eba0578210e3d64fbfe9a3e677"
+        },
+        "metric_2_glvq_or": {
+          "calibration_distances_checksum": "c308f542e2a7c67de032ee5b1c626970386b6654937d8392aad6a307f531061e",
+          "quantiles": [
+            10.9502035083129,
+            0.9888618084938607
+          ],
+          "state_checksum": "505470331bbbfc8986466c00f4d10d99cc9467ae392aec198637ddd0ea316330"
+        },
+        "metric_2_static_ambiguity": {
+          "calibration_distances_checksum": "41b8d62b2addf7d07978b2bdb915dcb7f5ca6436caf22ecfe228aa6b1aa3c38c",
+          "quantiles": [
+            11.253792313353218,
+            0.9882703441554056
+          ],
+          "state_checksum": "6bdacf5448b81d2e9ac17087da05301834167a601e265000c50ccde3a86ecea7"
+        },
+        "metric_2_static_distance": {
+          "calibration_distances_checksum": "41b8d62b2addf7d07978b2bdb915dcb7f5ca6436caf22ecfe228aa6b1aa3c38c",
+          "quantiles": [
+            11.253792313353218,
+            0.9882703441554056
+          ],
+          "state_checksum": "f78b2c8d764767481f4002145c29db5f04879baa3bd76361f892573131799d46"
+        },
+        "metric_2_static_or": {
+          "calibration_distances_checksum": "41b8d62b2addf7d07978b2bdb915dcb7f5ca6436caf22ecfe228aa6b1aa3c38c",
+          "quantiles": [
+            11.253792313353218,
+            0.9882703441554056
+          ],
+          "state_checksum": "4dd696952b2216b982f7bdffb62d19753a03449ed6f235b1a45564665038eb35"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "a113127384688a80449565fb42943ff4067f6c79787b5a8a9d16e5c1726cad35",
+      "seed": 2,
+      "verified": {
+        "identity_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "17ce94096960b62274c478cc61524a9dc8ae3dc610accee5499f2e99a579bf12",
+          "quantiles": [
+            537.0237068317567,
+            0.9988031748998464
+          ],
+          "state_checksum": "6c8500669cb635e100a7857c79704692aaae3effd09b7285096ee50f60e4058b"
+        },
+        "identity_1_auxiliary_distance": {
+          "calibration_distances_checksum": "17ce94096960b62274c478cc61524a9dc8ae3dc610accee5499f2e99a579bf12",
+          "quantiles": [
+            537.0237068317567,
+            0.9988031748998464
+          ],
+          "state_checksum": "e63af761283cda43b675633df18b865f388c84e8fe6694dee48b567728437226"
+        },
+        "identity_1_auxiliary_or": {
+          "calibration_distances_checksum": "17ce94096960b62274c478cc61524a9dc8ae3dc610accee5499f2e99a579bf12",
+          "quantiles": [
+            537.0237068317567,
+            0.9988031748998464
+          ],
+          "state_checksum": "e39b182856ecff58c606bbc5886cb942f2492e82271fc1f13a0c06653ce8c709"
+        },
+        "identity_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "4ce413c0946fa3e9ab460369a4cdc04dac0ea7efa97236ab00303d6ca60bccb4",
+          "quantiles": [
+            538.9380104962652,
+            0.9988788441663159
+          ],
+          "state_checksum": "7c72aaad6eea497b8a1ea43ce3e48c8ac257b526919570c0e4d87168d35f8b51"
+        },
+        "identity_1_glvq_distance": {
+          "calibration_distances_checksum": "4ce413c0946fa3e9ab460369a4cdc04dac0ea7efa97236ab00303d6ca60bccb4",
+          "quantiles": [
+            538.9380104962652,
+            0.9988788441663159
+          ],
+          "state_checksum": "fd22abba0d531f765b56b1fa9ec934120cfb7c164793a7c56555dd1276d367a4"
+        },
+        "identity_1_glvq_or": {
+          "calibration_distances_checksum": "4ce413c0946fa3e9ab460369a4cdc04dac0ea7efa97236ab00303d6ca60bccb4",
+          "quantiles": [
+            538.9380104962652,
+            0.9988788441663159
+          ],
+          "state_checksum": "0ea8a62045f0656a31885efa14db07046725abe03dd04ba4a245d8953de1f270"
+        },
+        "identity_1_static_ambiguity": {
+          "calibration_distances_checksum": "c3c18edf35a92fbc76008f7ef9a2dcc5e0119ce907fde5f9d876453d1c815e32",
+          "quantiles": [
+            525.0053006613456,
+            0.9892851122582957
+          ],
+          "state_checksum": "259c0864a8b086181bead34f5e4fc3be6ee77ec85d4619a66c70353f120d6688"
+        },
+        "identity_1_static_distance": {
+          "calibration_distances_checksum": "c3c18edf35a92fbc76008f7ef9a2dcc5e0119ce907fde5f9d876453d1c815e32",
+          "quantiles": [
+            525.0053006613456,
+            0.9892851122582957
+          ],
+          "state_checksum": "46571b852d6064e60de8f1ec76130cf2683ee061707fb0500c8f0cd0b4a2c8e2"
+        },
+        "identity_1_static_or": {
+          "calibration_distances_checksum": "c3c18edf35a92fbc76008f7ef9a2dcc5e0119ce907fde5f9d876453d1c815e32",
+          "quantiles": [
+            525.0053006613456,
+            0.9892851122582957
+          ],
+          "state_checksum": "c8ebd97dfe3e3f5813158abfdf854d4b7af4d0496256dc27d2d7ffcc08f17232"
+        },
+        "identity_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "3ea4e1d51807e77746473b1e7ea50c17e48bb62c50c6f85a1bbb4df94014aaff",
+          "quantiles": [
+            630.5369899611655,
+            0.9937531524855472
+          ],
+          "state_checksum": "84af8f36827490b15fc711f4889adc38da9b546c39bd01f177a064a779e6feae"
+        },
+        "identity_2_auxiliary_distance": {
+          "calibration_distances_checksum": "3ea4e1d51807e77746473b1e7ea50c17e48bb62c50c6f85a1bbb4df94014aaff",
+          "quantiles": [
+            630.5369899611655,
+            0.9937531524855472
+          ],
+          "state_checksum": "81ec0bfc9b3ab2010da07a95a4730e26e0d19000acefd7b2abcf1b3f5d942c81"
+        },
+        "identity_2_auxiliary_or": {
+          "calibration_distances_checksum": "3ea4e1d51807e77746473b1e7ea50c17e48bb62c50c6f85a1bbb4df94014aaff",
+          "quantiles": [
+            630.5369899611655,
+            0.9937531524855472
+          ],
+          "state_checksum": "381d2191ba8bdc66cd82339396b2a993c788987c55add6078a424bfb7348621d"
+        },
+        "identity_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "86106051939533ee2a27fe8486350ac07926d18b48f1788f56cfc4440d200bdd",
+          "quantiles": [
+            630.5019132938559,
+            0.993744492619848
+          ],
+          "state_checksum": "23a73f55131f23f6cc59f64ba4c7e28b90ae5bfdf1727dd0fba951b28ea23a3c"
+        },
+        "identity_2_glvq_distance": {
+          "calibration_distances_checksum": "86106051939533ee2a27fe8486350ac07926d18b48f1788f56cfc4440d200bdd",
+          "quantiles": [
+            630.5019132938559,
+            0.993744492619848
+          ],
+          "state_checksum": "12ae28b4cd3fb4d859b56b38923fb1ec24dd339551624b573c1b52d7e9852b93"
+        },
+        "identity_2_glvq_or": {
+          "calibration_distances_checksum": "86106051939533ee2a27fe8486350ac07926d18b48f1788f56cfc4440d200bdd",
+          "quantiles": [
+            630.5019132938559,
+            0.993744492619848
+          ],
+          "state_checksum": "e5bbefb96d7b40b4ea09e1f737bcb9c855f9a4eecba2fd64e8b6df518917647d"
+        },
+        "identity_2_static_ambiguity": {
+          "calibration_distances_checksum": "e698b0218ecce65557c16b3b8779e6b035dc4a66c0fb5992b713befe28915d84",
+          "quantiles": [
+            631.6937569927394,
+            0.9927389249904608
+          ],
+          "state_checksum": "afa96b8592e4b2d35cdb304b2d842de4c6bf4edc1be2f465f96fd2f678cdd5da"
+        },
+        "identity_2_static_distance": {
+          "calibration_distances_checksum": "e698b0218ecce65557c16b3b8779e6b035dc4a66c0fb5992b713befe28915d84",
+          "quantiles": [
+            631.6937569927394,
+            0.9927389249904608
+          ],
+          "state_checksum": "b6c5755d3b04e0b3833e1d1142c5e701330fdb3532850badc4ca222b4c64aeed"
+        },
+        "identity_2_static_or": {
+          "calibration_distances_checksum": "e698b0218ecce65557c16b3b8779e6b035dc4a66c0fb5992b713befe28915d84",
+          "quantiles": [
+            631.6937569927394,
+            0.9927389249904608
+          ],
+          "state_checksum": "897b159103ef1782b8199216e56d888681007266e834c8a3ed041fb0e9f7a301"
+        },
+        "metric_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "9d4ce79be32495b4b26af0591afdd3f3ecc2906af891815da2582d3732527157",
+          "quantiles": [
+            16.75893767720421,
+            0.9935444555603532
+          ],
+          "state_checksum": "3da84a77ee62c674ee208198f0700e4df42cdb92738d1bcee73f043219cfd4c9"
+        },
+        "metric_1_auxiliary_distance": {
+          "calibration_distances_checksum": "9d4ce79be32495b4b26af0591afdd3f3ecc2906af891815da2582d3732527157",
+          "quantiles": [
+            16.75893767720421,
+            0.9935444555603532
+          ],
+          "state_checksum": "713ef2ab30529f3d7f17bab6424f968c753a38fca0bc5b6a447d812017c51583"
+        },
+        "metric_1_auxiliary_or": {
+          "calibration_distances_checksum": "9d4ce79be32495b4b26af0591afdd3f3ecc2906af891815da2582d3732527157",
+          "quantiles": [
+            16.75893767720421,
+            0.9935444555603532
+          ],
+          "state_checksum": "8e462860d20af6d6d5e53218b316078acb16daac0c690416b4b4d1bec4310292"
+        },
+        "metric_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "1e7254e20437ac48a926978f2b0490d3037fcf9afff49a3054522a4819c17747",
+          "quantiles": [
+            16.760121746137195,
+            0.993586273207552
+          ],
+          "state_checksum": "8a1ebb0c4e35304c88568a96038a0f79aa1821ed3be8c95ab6f18343c9a59b87"
+        },
+        "metric_1_glvq_distance": {
+          "calibration_distances_checksum": "1e7254e20437ac48a926978f2b0490d3037fcf9afff49a3054522a4819c17747",
+          "quantiles": [
+            16.760121746137195,
+            0.993586273207552
+          ],
+          "state_checksum": "f3fc24a62e27a86ff7094804ac589006f58c406628a7713b4350a85b4122e6cf"
+        },
+        "metric_1_glvq_or": {
+          "calibration_distances_checksum": "1e7254e20437ac48a926978f2b0490d3037fcf9afff49a3054522a4819c17747",
+          "quantiles": [
+            16.760121746137195,
+            0.993586273207552
+          ],
+          "state_checksum": "f1568eb1d902081ef3de32f074228cf84070036b52fdb3335621c742ed89aed7"
+        },
+        "metric_1_static_ambiguity": {
+          "calibration_distances_checksum": "275d0ac26e8eb664e7236333f2a08c11fc45ada6a76b34485e193576321bc66e",
+          "quantiles": [
+            13.33104655920768,
+            0.9881505713316605
+          ],
+          "state_checksum": "7b48dfd96ff5a0c7c4c610af6ed24ed2e09c51425d497620c0b94468d4c947fc"
+        },
+        "metric_1_static_distance": {
+          "calibration_distances_checksum": "275d0ac26e8eb664e7236333f2a08c11fc45ada6a76b34485e193576321bc66e",
+          "quantiles": [
+            13.33104655920768,
+            0.9881505713316605
+          ],
+          "state_checksum": "eb69bac084556236a8999acebb36f456e1fafc29138110ee3a9fad8c6840df02"
+        },
+        "metric_1_static_or": {
+          "calibration_distances_checksum": "275d0ac26e8eb664e7236333f2a08c11fc45ada6a76b34485e193576321bc66e",
+          "quantiles": [
+            13.33104655920768,
+            0.9881505713316605
+          ],
+          "state_checksum": "bee97e53d881b80042c9c69466de49c29f580172ad426f19b321df39a7238ee7"
+        },
+        "metric_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "a4e5eb85a7d2c6828ee84fe4737ec855199b8dc18d0569b08c04dce236c43e91",
+          "quantiles": [
+            9.654910803431157,
+            0.9893516065191121
+          ],
+          "state_checksum": "4eda7a9465db69838d053efa0be83d61f047b92c9d5ddad016d41c0c3db2dd23"
+        },
+        "metric_2_auxiliary_distance": {
+          "calibration_distances_checksum": "a4e5eb85a7d2c6828ee84fe4737ec855199b8dc18d0569b08c04dce236c43e91",
+          "quantiles": [
+            9.654910803431157,
+            0.9893516065191121
+          ],
+          "state_checksum": "1e76c083374a23e8f886ecd1a908b364253fe83d1e3e09bcd8fa9ce71ddcf9d0"
+        },
+        "metric_2_auxiliary_or": {
+          "calibration_distances_checksum": "a4e5eb85a7d2c6828ee84fe4737ec855199b8dc18d0569b08c04dce236c43e91",
+          "quantiles": [
+            9.654910803431157,
+            0.9893516065191121
+          ],
+          "state_checksum": "d3bddcf207d47a2deaff6aa964bfdd75eecca250d24f8637729c67cc864ff3a1"
+        },
+        "metric_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "4fc392ceeb8bce2400770650db16c99292a7a24b021b6198ba785ce29743a374",
+          "quantiles": [
+            9.65484020993164,
+            0.9893631809123979
+          ],
+          "state_checksum": "27b0b1009ac30b105dd348b33c2cc8c42515a767f28262c6eb32b0ad93883ad4"
+        },
+        "metric_2_glvq_distance": {
+          "calibration_distances_checksum": "4fc392ceeb8bce2400770650db16c99292a7a24b021b6198ba785ce29743a374",
+          "quantiles": [
+            9.65484020993164,
+            0.9893631809123979
+          ],
+          "state_checksum": "a51e77763cdb9ad9fd1168805eaf7d8b4f5d055a5447aa0f1de2f9b0ed183996"
+        },
+        "metric_2_glvq_or": {
+          "calibration_distances_checksum": "4fc392ceeb8bce2400770650db16c99292a7a24b021b6198ba785ce29743a374",
+          "quantiles": [
+            9.65484020993164,
+            0.9893631809123979
+          ],
+          "state_checksum": "3c889712fe43630e173f9cb713a0c067b945e562d0e519c1b34cf1d631b1ee02"
+        },
+        "metric_2_static_ambiguity": {
+          "calibration_distances_checksum": "4d2f8f1a6c79bebb6268a65d8d8e4ffc4da0a200fdfdaf9809918312ab9c8b01",
+          "quantiles": [
+            9.640110757307495,
+            0.9885144447451316
+          ],
+          "state_checksum": "be9aa79ec39eea3a4fb31d1d9e4cbeb8144dedc2361e12e75fe08135101c34f3"
+        },
+        "metric_2_static_distance": {
+          "calibration_distances_checksum": "4d2f8f1a6c79bebb6268a65d8d8e4ffc4da0a200fdfdaf9809918312ab9c8b01",
+          "quantiles": [
+            9.640110757307495,
+            0.9885144447451316
+          ],
+          "state_checksum": "16078620645fb56c163bd44fdf5ac963080e4b3577d361b88a021a81d3dc4127"
+        },
+        "metric_2_static_or": {
+          "calibration_distances_checksum": "4d2f8f1a6c79bebb6268a65d8d8e4ffc4da0a200fdfdaf9809918312ab9c8b01",
+          "quantiles": [
+            9.640110757307495,
+            0.9885144447451316
+          ],
+          "state_checksum": "9da11cbb419a69bfebe513eb5fc111b1ec86f0e6527422fe936c32cbf7fefe90"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "2648c1f84c4226eb8603d81f7b41272e35ee3668988b5f5a4e929f5a1c5ed706",
+      "seed": 0,
+      "verified": {
+        "identity_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "12b1b917a75f7c8ebbeb58d4663af495bd32876ba58b47f97d261f5e1541590c",
+          "quantiles": [
+            288.8120372489455,
+            0.9734571880740779
+          ],
+          "state_checksum": "76a53e7e376636e74ae1818b7af7eabeaeabb354341f354cb4fd21e37f6b90a4"
+        },
+        "identity_1_auxiliary_distance": {
+          "calibration_distances_checksum": "12b1b917a75f7c8ebbeb58d4663af495bd32876ba58b47f97d261f5e1541590c",
+          "quantiles": [
+            288.8120372489455,
+            0.9734571880740779
+          ],
+          "state_checksum": "8ea96163ab104668cdc5907d6e6f0e41c8319db37e6c9a94c1f4306f6a781fa9"
+        },
+        "identity_1_auxiliary_or": {
+          "calibration_distances_checksum": "12b1b917a75f7c8ebbeb58d4663af495bd32876ba58b47f97d261f5e1541590c",
+          "quantiles": [
+            288.8120372489455,
+            0.9734571880740779
+          ],
+          "state_checksum": "354e6193353fd3ad3c5c4345f928ad0229604f2f478aeb9c925616fa6519cf98"
+        },
+        "identity_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "7f27c4e75456bafe11d7419db3a4e3271462911308279f87e2aaafe62d1f2820",
+          "quantiles": [
+            289.23108587230917,
+            0.9731517909189957
+          ],
+          "state_checksum": "b786eb8eb9ea3ba7b22a039123646070854ba51eb4eba43316a7fddc40b38987"
+        },
+        "identity_1_glvq_distance": {
+          "calibration_distances_checksum": "7f27c4e75456bafe11d7419db3a4e3271462911308279f87e2aaafe62d1f2820",
+          "quantiles": [
+            289.23108587230917,
+            0.9731517909189957
+          ],
+          "state_checksum": "ce8a944a5ee8ee3da8a5989d6c39c2e3f48d31ed8b22a9b826cd9abee8c801eb"
+        },
+        "identity_1_glvq_or": {
+          "calibration_distances_checksum": "7f27c4e75456bafe11d7419db3a4e3271462911308279f87e2aaafe62d1f2820",
+          "quantiles": [
+            289.23108587230917,
+            0.9731517909189957
+          ],
+          "state_checksum": "92dac34dabae60a77f934c1e828f44b0c020e74ccc84b81d942643bd37f04e84"
+        },
+        "identity_1_static_ambiguity": {
+          "calibration_distances_checksum": "ce8b98f05c9b4ebdb74d4669e4a408738a405fbc936182cab24d09e7188c13d1",
+          "quantiles": [
+            283.3261355198142,
+            0.9857892756073365
+          ],
+          "state_checksum": "760c21c3faa6501e92c81847884a9a0c223a47dba5d5692786816b84623bce21"
+        },
+        "identity_1_static_distance": {
+          "calibration_distances_checksum": "ce8b98f05c9b4ebdb74d4669e4a408738a405fbc936182cab24d09e7188c13d1",
+          "quantiles": [
+            283.3261355198142,
+            0.9857892756073365
+          ],
+          "state_checksum": "3e0611562992af8293e0db27a5c63765bbf3a42c94cfbcd32eeabf4509a0f3a8"
+        },
+        "identity_1_static_or": {
+          "calibration_distances_checksum": "ce8b98f05c9b4ebdb74d4669e4a408738a405fbc936182cab24d09e7188c13d1",
+          "quantiles": [
+            283.3261355198142,
+            0.9857892756073365
+          ],
+          "state_checksum": "07ea8928bf3592565c3dfc67d701225e5e2ecd32f7a1c64f67f6f54df732498b"
+        },
+        "identity_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "2b5730b79bc82f2effc0670f8cac7bb907b72402b08b0c5b9cb837b5b635925c",
+          "quantiles": [
+            290.87498872798636,
+            0.9926315097526595
+          ],
+          "state_checksum": "420804d2fa935374b7a42ef409f8d1099e915cdf6d3f3c1bc8003c2be85270ea"
+        },
+        "identity_2_auxiliary_distance": {
+          "calibration_distances_checksum": "2b5730b79bc82f2effc0670f8cac7bb907b72402b08b0c5b9cb837b5b635925c",
+          "quantiles": [
+            290.87498872798636,
+            0.9926315097526595
+          ],
+          "state_checksum": "99d7adb0cc25d2c89632e80b21ce5c3a18a218ac9b01aae9f5450b6cc4dadc3b"
+        },
+        "identity_2_auxiliary_or": {
+          "calibration_distances_checksum": "2b5730b79bc82f2effc0670f8cac7bb907b72402b08b0c5b9cb837b5b635925c",
+          "quantiles": [
+            290.87498872798636,
+            0.9926315097526595
+          ],
+          "state_checksum": "78584b75ddff0bee934bab0da65c2f84ffa601506a76789e6ff7d16e973cd40f"
+        },
+        "identity_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "a89fef2698420712f68f4cb38314649823acecc28ca649e80cb3d41cce6eb645",
+          "quantiles": [
+            290.8613627510781,
+            0.9925752629722218
+          ],
+          "state_checksum": "88c1d42eba8e6e5318064b7ca4e8dc63de0d31d59113b4c0c6a10c5ae68d93bf"
+        },
+        "identity_2_glvq_distance": {
+          "calibration_distances_checksum": "a89fef2698420712f68f4cb38314649823acecc28ca649e80cb3d41cce6eb645",
+          "quantiles": [
+            290.8613627510781,
+            0.9925752629722218
+          ],
+          "state_checksum": "d2fc186c5425c3530a0ae4339550f2540f25e3461b15fff6294b31e097cba6e7"
+        },
+        "identity_2_glvq_or": {
+          "calibration_distances_checksum": "a89fef2698420712f68f4cb38314649823acecc28ca649e80cb3d41cce6eb645",
+          "quantiles": [
+            290.8613627510781,
+            0.9925752629722218
+          ],
+          "state_checksum": "f078e5a14cdcdfdd0712be5e7b52a65ea01bc6700999c6b3bdfbed935c8fb06f"
+        },
+        "identity_2_static_ambiguity": {
+          "calibration_distances_checksum": "280b1a4488855fc81980cd7c76ce8889f7fea595231e277f9e359ae062696f7a",
+          "quantiles": [
+            289.9107574648822,
+            0.9922362557412923
+          ],
+          "state_checksum": "df42c253215f62ca24990a9c31af6013b33ad44da949787e40389aef3c561a45"
+        },
+        "identity_2_static_distance": {
+          "calibration_distances_checksum": "280b1a4488855fc81980cd7c76ce8889f7fea595231e277f9e359ae062696f7a",
+          "quantiles": [
+            289.9107574648822,
+            0.9922362557412923
+          ],
+          "state_checksum": "7203cf45d5b4fc7347e64fa5db4cb61f42080dcdb03f7dc1f49c4f2eaf9d5b67"
+        },
+        "identity_2_static_or": {
+          "calibration_distances_checksum": "280b1a4488855fc81980cd7c76ce8889f7fea595231e277f9e359ae062696f7a",
+          "quantiles": [
+            289.9107574648822,
+            0.9922362557412923
+          ],
+          "state_checksum": "41730347fa55833f6dcb4f602492df980883dfbd617bf5878aa02cab2ad3481e"
+        },
+        "metric_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "fb5f56571e2b50b934d016fb8e2f6df171b84d533db0be99dd69a3555cd15033",
+          "quantiles": [
+            8.950712573928325,
+            0.9858351101295467
+          ],
+          "state_checksum": "d21a7d35afeea0b29e116e8770cd0bdaf36f94774c1e6185ae9e6dede7ee753d"
+        },
+        "metric_1_auxiliary_distance": {
+          "calibration_distances_checksum": "fb5f56571e2b50b934d016fb8e2f6df171b84d533db0be99dd69a3555cd15033",
+          "quantiles": [
+            8.950712573928325,
+            0.9858351101295467
+          ],
+          "state_checksum": "0547904a88c797bb64802e61e033bf7760eb4d2b0eb427c35417a5c80dd58862"
+        },
+        "metric_1_auxiliary_or": {
+          "calibration_distances_checksum": "fb5f56571e2b50b934d016fb8e2f6df171b84d533db0be99dd69a3555cd15033",
+          "quantiles": [
+            8.950712573928325,
+            0.9858351101295467
+          ],
+          "state_checksum": "73b76c143f56a2af9c2737842a0c28b40ded981a12bc579b932954409e1e745a"
+        },
+        "metric_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "7b751debc2d9a4f32e2a11e02c936ecb2d438e194227fac0229be81baf1d9f1d",
+          "quantiles": [
+            8.951400367471653,
+            0.9859132988904095
+          ],
+          "state_checksum": "da2b61409c900dda511c65ca115c5d190e8f533c344d5ce59315d8b395035681"
+        },
+        "metric_1_glvq_distance": {
+          "calibration_distances_checksum": "7b751debc2d9a4f32e2a11e02c936ecb2d438e194227fac0229be81baf1d9f1d",
+          "quantiles": [
+            8.951400367471653,
+            0.9859132988904095
+          ],
+          "state_checksum": "d86842e5721aeca22a66c38f5b72f845b89220ea4d2f71f313d058cb3106d477"
+        },
+        "metric_1_glvq_or": {
+          "calibration_distances_checksum": "7b751debc2d9a4f32e2a11e02c936ecb2d438e194227fac0229be81baf1d9f1d",
+          "quantiles": [
+            8.951400367471653,
+            0.9859132988904095
+          ],
+          "state_checksum": "a546d703b3fa63817fc91f54bd9977c61ddaafc8dc154fca38ad1cc350335d92"
+        },
+        "metric_1_static_ambiguity": {
+          "calibration_distances_checksum": "4bab5727f52b160c1b81acbb79bb04a131ecf3e34e789252a117571349c7a46f",
+          "quantiles": [
+            7.883131544595493,
+            0.9898043350699841
+          ],
+          "state_checksum": "08c989c3bff6823233cfa50c7c44e025770ab1b095cc8a2f949589c2811f5cfd"
+        },
+        "metric_1_static_distance": {
+          "calibration_distances_checksum": "4bab5727f52b160c1b81acbb79bb04a131ecf3e34e789252a117571349c7a46f",
+          "quantiles": [
+            7.883131544595493,
+            0.9898043350699841
+          ],
+          "state_checksum": "9e9eda637d4b43acad17cf32a8dfdc541d55dd764d9bc46688477348b66fb4cc"
+        },
+        "metric_1_static_or": {
+          "calibration_distances_checksum": "4bab5727f52b160c1b81acbb79bb04a131ecf3e34e789252a117571349c7a46f",
+          "quantiles": [
+            7.883131544595493,
+            0.9898043350699841
+          ],
+          "state_checksum": "07d9de284cec37d92e7bcb496b5212f8dae1a15232e7415309f34b768d71a7f0"
+        },
+        "metric_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "d1e0a6644b482757fcf5748d920f5475e06326e686a22386592585823e0336a9",
+          "quantiles": [
+            7.466898780706945,
+            0.9903506271094092
+          ],
+          "state_checksum": "f51dd45e13ddb1801080f5409bad4937882b3a1ae92ae7a4ac4c1e382c2ea7e5"
+        },
+        "metric_2_auxiliary_distance": {
+          "calibration_distances_checksum": "d1e0a6644b482757fcf5748d920f5475e06326e686a22386592585823e0336a9",
+          "quantiles": [
+            7.466898780706945,
+            0.9903506271094092
+          ],
+          "state_checksum": "efde2993dde45ad3cc16f33453852a84307ed6d211aa5d9573bce69c44af2248"
+        },
+        "metric_2_auxiliary_or": {
+          "calibration_distances_checksum": "d1e0a6644b482757fcf5748d920f5475e06326e686a22386592585823e0336a9",
+          "quantiles": [
+            7.466898780706945,
+            0.9903506271094092
+          ],
+          "state_checksum": "9adad0539ea147661fe89388c563914799f974fa3b10bc34de06cf706a624900"
+        },
+        "metric_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "13d552a9dedd79d3d86487739160a0e04b1a662463a101a5ac9ab9f4da1c4f24",
+          "quantiles": [
+            7.467044014966437,
+            0.9903275412883967
+          ],
+          "state_checksum": "104e226e36e42b77bcb7ed0eb3d8f74edd48482c030a1223a66927cb4a8ba639"
+        },
+        "metric_2_glvq_distance": {
+          "calibration_distances_checksum": "13d552a9dedd79d3d86487739160a0e04b1a662463a101a5ac9ab9f4da1c4f24",
+          "quantiles": [
+            7.467044014966437,
+            0.9903275412883967
+          ],
+          "state_checksum": "5da3591c34f84bf9c393369a4b9f70d1dd17c8544691e9340c07878efd351b30"
+        },
+        "metric_2_glvq_or": {
+          "calibration_distances_checksum": "13d552a9dedd79d3d86487739160a0e04b1a662463a101a5ac9ab9f4da1c4f24",
+          "quantiles": [
+            7.467044014966437,
+            0.9903275412883967
+          ],
+          "state_checksum": "14fe94c0785b3ebfa2c1a3ba56126fd955ce18632a25ac48dfd690b555f66dc8"
+        },
+        "metric_2_static_ambiguity": {
+          "calibration_distances_checksum": "e66c21137b75b2ebbd7732a4af0e051f79979476e0203fc35ee133cf29e7e0b6",
+          "quantiles": [
+            7.379978892055134,
+            0.9914424255410964
+          ],
+          "state_checksum": "79518573e52447c752726c852422c8fad8fc101dc7e958fd67356f2f8e2f338e"
+        },
+        "metric_2_static_distance": {
+          "calibration_distances_checksum": "e66c21137b75b2ebbd7732a4af0e051f79979476e0203fc35ee133cf29e7e0b6",
+          "quantiles": [
+            7.379978892055134,
+            0.9914424255410964
+          ],
+          "state_checksum": "7fe19fdecd33b170919b29f243204ec217d4831932f333d25c787a05a5fb3384"
+        },
+        "metric_2_static_or": {
+          "calibration_distances_checksum": "e66c21137b75b2ebbd7732a4af0e051f79979476e0203fc35ee133cf29e7e0b6",
+          "quantiles": [
+            7.379978892055134,
+            0.9914424255410964
+          ],
+          "state_checksum": "409415762ead76542159c491e4df93901b56a6c3a5535426dc56aedbc0012085"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "4d371ff2015f4c3d7b39a84221c195db02b4d3d8d648e922714993f14546ca3c",
+      "seed": 1,
+      "verified": {
+        "identity_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "938632169e609779df9430039740357716d0be01e8ac514ceb4b2bd4344ced3c",
+          "quantiles": [
+            289.9120469853593,
+            0.9767336345228185
+          ],
+          "state_checksum": "a8c6945b0cde8d0982668b686ff6cb3daf557288b06ab2bbec249fd5f6d79c5b"
+        },
+        "identity_1_auxiliary_distance": {
+          "calibration_distances_checksum": "938632169e609779df9430039740357716d0be01e8ac514ceb4b2bd4344ced3c",
+          "quantiles": [
+            289.9120469853593,
+            0.9767336345228185
+          ],
+          "state_checksum": "8af40af0a45db3aa294e8f93601d2d2f40726ebfd186cf8b50b4abd28e90c3c6"
+        },
+        "identity_1_auxiliary_or": {
+          "calibration_distances_checksum": "938632169e609779df9430039740357716d0be01e8ac514ceb4b2bd4344ced3c",
+          "quantiles": [
+            289.9120469853593,
+            0.9767336345228185
+          ],
+          "state_checksum": "8e915435f632d2a8c54a73938c3bcd852646cc8825a98aead429d29d02c9f39b"
+        },
+        "identity_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "0e6fd8ce93c32dfe49e13180e2ab5bbc5ff9b10ec2be4d9ff41f0046e9c61992",
+          "quantiles": [
+            290.3721795784497,
+            0.9765224217762332
+          ],
+          "state_checksum": "e9fe0e3201fc4fef36a35d09271d569c53e88485a438534536e86427c493ff0a"
+        },
+        "identity_1_glvq_distance": {
+          "calibration_distances_checksum": "0e6fd8ce93c32dfe49e13180e2ab5bbc5ff9b10ec2be4d9ff41f0046e9c61992",
+          "quantiles": [
+            290.3721795784497,
+            0.9765224217762332
+          ],
+          "state_checksum": "59d43c86afb2aa121ec108f2ef8089d357ad5eff039c8e2ef83319fd188d5605"
+        },
+        "identity_1_glvq_or": {
+          "calibration_distances_checksum": "0e6fd8ce93c32dfe49e13180e2ab5bbc5ff9b10ec2be4d9ff41f0046e9c61992",
+          "quantiles": [
+            290.3721795784497,
+            0.9765224217762332
+          ],
+          "state_checksum": "fdc4306d17bbc759e6570695c379cfac107b66d97997f4b153541a13061555e2"
+        },
+        "identity_1_static_ambiguity": {
+          "calibration_distances_checksum": "ce8b98f05c9b4ebdb74d4669e4a408738a405fbc936182cab24d09e7188c13d1",
+          "quantiles": [
+            283.3261355198142,
+            0.9857892756073365
+          ],
+          "state_checksum": "760c21c3faa6501e92c81847884a9a0c223a47dba5d5692786816b84623bce21"
+        },
+        "identity_1_static_distance": {
+          "calibration_distances_checksum": "ce8b98f05c9b4ebdb74d4669e4a408738a405fbc936182cab24d09e7188c13d1",
+          "quantiles": [
+            283.3261355198142,
+            0.9857892756073365
+          ],
+          "state_checksum": "3e0611562992af8293e0db27a5c63765bbf3a42c94cfbcd32eeabf4509a0f3a8"
+        },
+        "identity_1_static_or": {
+          "calibration_distances_checksum": "ce8b98f05c9b4ebdb74d4669e4a408738a405fbc936182cab24d09e7188c13d1",
+          "quantiles": [
+            283.3261355198142,
+            0.9857892756073365
+          ],
+          "state_checksum": "07ea8928bf3592565c3dfc67d701225e5e2ecd32f7a1c64f67f6f54df732498b"
+        },
+        "identity_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "73ec2e31bb6fc0a05c15357ee1febaaf0f9705b7893626608f7ee430878a141a",
+          "quantiles": [
+            289.9949339577771,
+            0.9913425530166375
+          ],
+          "state_checksum": "c0741b1d14db4f23db7c7683b340d8ed8838a21505c1855a0f04bfb7b4486782"
+        },
+        "identity_2_auxiliary_distance": {
+          "calibration_distances_checksum": "73ec2e31bb6fc0a05c15357ee1febaaf0f9705b7893626608f7ee430878a141a",
+          "quantiles": [
+            289.9949339577771,
+            0.9913425530166375
+          ],
+          "state_checksum": "265ba1bc30d2c87f9ecaca17d9fc84dc8fe4919757fc73135f2633c8c9fc2f83"
+        },
+        "identity_2_auxiliary_or": {
+          "calibration_distances_checksum": "73ec2e31bb6fc0a05c15357ee1febaaf0f9705b7893626608f7ee430878a141a",
+          "quantiles": [
+            289.9949339577771,
+            0.9913425530166375
+          ],
+          "state_checksum": "30f6d794472360371aa712267955c9f2ad8e147113d5f95ed73851588d15d5b6"
+        },
+        "identity_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "0267c8ae02e61c833d3e38d49bb2f1919170b4e0c0037fd469a6346811cc7144",
+          "quantiles": [
+            289.98014648731896,
+            0.9913709730386612
+          ],
+          "state_checksum": "6de03c7df81c8f60df6ca183fc8eefe447d8bd015355f160bab11e3913160a64"
+        },
+        "identity_2_glvq_distance": {
+          "calibration_distances_checksum": "0267c8ae02e61c833d3e38d49bb2f1919170b4e0c0037fd469a6346811cc7144",
+          "quantiles": [
+            289.98014648731896,
+            0.9913709730386612
+          ],
+          "state_checksum": "5f1f4788778b424004327ce9e3741b640e2a2a06bdcf0c95ed997a34d2dc3bbb"
+        },
+        "identity_2_glvq_or": {
+          "calibration_distances_checksum": "0267c8ae02e61c833d3e38d49bb2f1919170b4e0c0037fd469a6346811cc7144",
+          "quantiles": [
+            289.98014648731896,
+            0.9913709730386612
+          ],
+          "state_checksum": "06604ab1ab5ffebb1146178c185caa38526f796710b7f127c57e56597b22cd04"
+        },
+        "identity_2_static_ambiguity": {
+          "calibration_distances_checksum": "280b1a4488855fc81980cd7c76ce8889f7fea595231e277f9e359ae062696f7a",
+          "quantiles": [
+            289.9107574648822,
+            0.9922362557412923
+          ],
+          "state_checksum": "df42c253215f62ca24990a9c31af6013b33ad44da949787e40389aef3c561a45"
+        },
+        "identity_2_static_distance": {
+          "calibration_distances_checksum": "280b1a4488855fc81980cd7c76ce8889f7fea595231e277f9e359ae062696f7a",
+          "quantiles": [
+            289.9107574648822,
+            0.9922362557412923
+          ],
+          "state_checksum": "7203cf45d5b4fc7347e64fa5db4cb61f42080dcdb03f7dc1f49c4f2eaf9d5b67"
+        },
+        "identity_2_static_or": {
+          "calibration_distances_checksum": "280b1a4488855fc81980cd7c76ce8889f7fea595231e277f9e359ae062696f7a",
+          "quantiles": [
+            289.9107574648822,
+            0.9922362557412923
+          ],
+          "state_checksum": "41730347fa55833f6dcb4f602492df980883dfbd617bf5878aa02cab2ad3481e"
+        },
+        "metric_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "fd7d6037493a0c30abe9eb1dc6a7b2979dea444755a639b6951019e5f1e48daf",
+          "quantiles": [
+            9.146823577402488,
+            0.9976786098373019
+          ],
+          "state_checksum": "5f9f4eeaf0af324cab921b61dfd4d92e4f2306d699cd40750d02a79240736926"
+        },
+        "metric_1_auxiliary_distance": {
+          "calibration_distances_checksum": "fd7d6037493a0c30abe9eb1dc6a7b2979dea444755a639b6951019e5f1e48daf",
+          "quantiles": [
+            9.146823577402488,
+            0.9976786098373019
+          ],
+          "state_checksum": "7ce58413699bc5a952590f678201ac6d551b5aa3cf63575cb4d5a85bc0b8a19c"
+        },
+        "metric_1_auxiliary_or": {
+          "calibration_distances_checksum": "fd7d6037493a0c30abe9eb1dc6a7b2979dea444755a639b6951019e5f1e48daf",
+          "quantiles": [
+            9.146823577402488,
+            0.9976786098373019
+          ],
+          "state_checksum": "e4a69b79b5fafd3434478f9bb071d265d127fa535ed6753b6d1d309f04b11f75"
+        },
+        "metric_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "0735a9985a50b0d8f6b631b57a9198ba9181e4f1b83cab5ded53059ab4d283e4",
+          "quantiles": [
+            9.144137564543083,
+            0.9976898411614085
+          ],
+          "state_checksum": "ae2642a50b02b50da0e5d6be994accdc01c892534f256aaa6f8a47caecaa9aff"
+        },
+        "metric_1_glvq_distance": {
+          "calibration_distances_checksum": "0735a9985a50b0d8f6b631b57a9198ba9181e4f1b83cab5ded53059ab4d283e4",
+          "quantiles": [
+            9.144137564543083,
+            0.9976898411614085
+          ],
+          "state_checksum": "243d81a69f5e16d091d3f022cac3c54b9bd18e7ef8e2ada7db6ffb101fd8c7db"
+        },
+        "metric_1_glvq_or": {
+          "calibration_distances_checksum": "0735a9985a50b0d8f6b631b57a9198ba9181e4f1b83cab5ded53059ab4d283e4",
+          "quantiles": [
+            9.144137564543083,
+            0.9976898411614085
+          ],
+          "state_checksum": "165121eecae38fba008a528443bee0ca5ad91b1a65d53d7b843fb8e663fa81db"
+        },
+        "metric_1_static_ambiguity": {
+          "calibration_distances_checksum": "2f28711f3726f68da60c7cf480622e323486f4252fd6e1b70c4d8decff5f3a44",
+          "quantiles": [
+            8.061352866152717,
+            0.9885902510506077
+          ],
+          "state_checksum": "97e36558887be72e593d2928c549c1f8ecef315b0919b04779d19352d9b1c9db"
+        },
+        "metric_1_static_distance": {
+          "calibration_distances_checksum": "2f28711f3726f68da60c7cf480622e323486f4252fd6e1b70c4d8decff5f3a44",
+          "quantiles": [
+            8.061352866152717,
+            0.9885902510506077
+          ],
+          "state_checksum": "021352eee0fcf779891714e23914ce988403481ad81216b263dde59bd341323a"
+        },
+        "metric_1_static_or": {
+          "calibration_distances_checksum": "2f28711f3726f68da60c7cf480622e323486f4252fd6e1b70c4d8decff5f3a44",
+          "quantiles": [
+            8.061352866152717,
+            0.9885902510506077
+          ],
+          "state_checksum": "b2e370c9a8bb75287fbb772adfe23c37cb5506c8daf404508906b039c2d2b883"
+        },
+        "metric_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "3cd846b1eda17e8927b124f39396bf322b9c30297afebd98c10107f74dda2f88",
+          "quantiles": [
+            7.390454514298963,
+            0.9631111680067057
+          ],
+          "state_checksum": "305f55e405e3ce9276c1db94763c2d50cca8099866d9524633a19c7571119316"
+        },
+        "metric_2_auxiliary_distance": {
+          "calibration_distances_checksum": "3cd846b1eda17e8927b124f39396bf322b9c30297afebd98c10107f74dda2f88",
+          "quantiles": [
+            7.390454514298963,
+            0.9631111680067057
+          ],
+          "state_checksum": "4b0983a8daef87e59e3679ae60e947b15a49cc6e9c8a7e6eb414bb5525696ebe"
+        },
+        "metric_2_auxiliary_or": {
+          "calibration_distances_checksum": "3cd846b1eda17e8927b124f39396bf322b9c30297afebd98c10107f74dda2f88",
+          "quantiles": [
+            7.390454514298963,
+            0.9631111680067057
+          ],
+          "state_checksum": "908b5ef5cb58b536ed2f12d08a69942382fb2c61a8f37f7a1c73e89d51323c4e"
+        },
+        "metric_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "229ddb72b7591fe84e5ee5d217a2580f7b904ba53ae7d442bb871d76869f23c7",
+          "quantiles": [
+            7.3922085755269,
+            0.9633148764931576
+          ],
+          "state_checksum": "042bdcd125a696817f4fc9882d148d1e894bc9e5da8ac20279d3ddf45eea8b88"
+        },
+        "metric_2_glvq_distance": {
+          "calibration_distances_checksum": "229ddb72b7591fe84e5ee5d217a2580f7b904ba53ae7d442bb871d76869f23c7",
+          "quantiles": [
+            7.3922085755269,
+            0.9633148764931576
+          ],
+          "state_checksum": "2a386b1564e6bf3cc0b66b4b4cfa400905759747a39ab0dc499b398ec707b168"
+        },
+        "metric_2_glvq_or": {
+          "calibration_distances_checksum": "229ddb72b7591fe84e5ee5d217a2580f7b904ba53ae7d442bb871d76869f23c7",
+          "quantiles": [
+            7.3922085755269,
+            0.9633148764931576
+          ],
+          "state_checksum": "d19d673c27bf77358e8ee909c5461b09bd83117e5d74d5195e902f40156b8f9c"
+        },
+        "metric_2_static_ambiguity": {
+          "calibration_distances_checksum": "1564baedfd53444c3084c6abfa0c41924135056c449f354bb3dd5aaba0afc909",
+          "quantiles": [
+            7.400137909809872,
+            0.9513632076020363
+          ],
+          "state_checksum": "9a132a65b1793f6c12ab364520d5deb2f0fa4b8479d58c8255d35f30823c82e7"
+        },
+        "metric_2_static_distance": {
+          "calibration_distances_checksum": "1564baedfd53444c3084c6abfa0c41924135056c449f354bb3dd5aaba0afc909",
+          "quantiles": [
+            7.400137909809872,
+            0.9513632076020363
+          ],
+          "state_checksum": "d051d1173323b993e62d78a7f10d562bf78702f17629cab0c134a85070975ad3"
+        },
+        "metric_2_static_or": {
+          "calibration_distances_checksum": "1564baedfd53444c3084c6abfa0c41924135056c449f354bb3dd5aaba0afc909",
+          "quantiles": [
+            7.400137909809872,
+            0.9513632076020363
+          ],
+          "state_checksum": "90148142ebe0c24929db1c4336fa2f12102105bef8259e43c1f432079531fc04"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "c2c5f80d61c3d418b467edc83962601774dd51936b940edc90b960cb7f3ee0cd",
+      "seed": 2,
+      "verified": {
+        "identity_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "cca4d6c49e4b6d9c7db3ff58dece3cd4b417ef232d0cdf3ea13a1554b7e0bfaf",
+          "quantiles": [
+            285.45568629362276,
+            0.9811172922779207
+          ],
+          "state_checksum": "1f75425bc70ce532b44f7909ce702fac38e9314625be4787685b177714023d86"
+        },
+        "identity_1_auxiliary_distance": {
+          "calibration_distances_checksum": "cca4d6c49e4b6d9c7db3ff58dece3cd4b417ef232d0cdf3ea13a1554b7e0bfaf",
+          "quantiles": [
+            285.45568629362276,
+            0.9811172922779207
+          ],
+          "state_checksum": "24f673e171620b6e6c20219de14ef093437b58f5832d3fd708b69ce3a922ebdd"
+        },
+        "identity_1_auxiliary_or": {
+          "calibration_distances_checksum": "cca4d6c49e4b6d9c7db3ff58dece3cd4b417ef232d0cdf3ea13a1554b7e0bfaf",
+          "quantiles": [
+            285.45568629362276,
+            0.9811172922779207
+          ],
+          "state_checksum": "dc2d208f0522c62db85c43b10718c9b331df4227be25cfc8a344820a7c1f1c71"
+        },
+        "identity_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "9bc8168f0e005e62670952e24cb404d6311c1f4a8ba7106bb9eeb3cba1553029",
+          "quantiles": [
+            285.84786041931096,
+            0.9804563889790436
+          ],
+          "state_checksum": "7e253d6bfe747732fff645a0c5422e109243e6c36c03744dfc28aa04a46043ca"
+        },
+        "identity_1_glvq_distance": {
+          "calibration_distances_checksum": "9bc8168f0e005e62670952e24cb404d6311c1f4a8ba7106bb9eeb3cba1553029",
+          "quantiles": [
+            285.84786041931096,
+            0.9804563889790436
+          ],
+          "state_checksum": "d3228cb1b9c326d3a47eb55205dac988491b49c7789bd889e93267f453eb812e"
+        },
+        "identity_1_glvq_or": {
+          "calibration_distances_checksum": "9bc8168f0e005e62670952e24cb404d6311c1f4a8ba7106bb9eeb3cba1553029",
+          "quantiles": [
+            285.84786041931096,
+            0.9804563889790436
+          ],
+          "state_checksum": "718d416f02b969b2c67111fb57c3976a03d744cee4648a9332153574a27fb77a"
+        },
+        "identity_1_static_ambiguity": {
+          "calibration_distances_checksum": "ce8b98f05c9b4ebdb74d4669e4a408738a405fbc936182cab24d09e7188c13d1",
+          "quantiles": [
+            283.3261355198142,
+            0.9857892756073365
+          ],
+          "state_checksum": "760c21c3faa6501e92c81847884a9a0c223a47dba5d5692786816b84623bce21"
+        },
+        "identity_1_static_distance": {
+          "calibration_distances_checksum": "ce8b98f05c9b4ebdb74d4669e4a408738a405fbc936182cab24d09e7188c13d1",
+          "quantiles": [
+            283.3261355198142,
+            0.9857892756073365
+          ],
+          "state_checksum": "3e0611562992af8293e0db27a5c63765bbf3a42c94cfbcd32eeabf4509a0f3a8"
+        },
+        "identity_1_static_or": {
+          "calibration_distances_checksum": "ce8b98f05c9b4ebdb74d4669e4a408738a405fbc936182cab24d09e7188c13d1",
+          "quantiles": [
+            283.3261355198142,
+            0.9857892756073365
+          ],
+          "state_checksum": "07ea8928bf3592565c3dfc67d701225e5e2ecd32f7a1c64f67f6f54df732498b"
+        },
+        "identity_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "5b1d697c412c0017dcf06ebd71c41f9bba16f1d256d83262741cff3b4aa75864",
+          "quantiles": [
+            288.99687860398467,
+            0.9924651957226978
+          ],
+          "state_checksum": "4d899915f565a2f6a64776a0080cdbd9312175a3675c01ca4f962c78570bf19d"
+        },
+        "identity_2_auxiliary_distance": {
+          "calibration_distances_checksum": "5b1d697c412c0017dcf06ebd71c41f9bba16f1d256d83262741cff3b4aa75864",
+          "quantiles": [
+            288.99687860398467,
+            0.9924651957226978
+          ],
+          "state_checksum": "0ffcd02d3131ed5ccc688d1690231094c115204468e7c9a21b8d4acdef6f3ad9"
+        },
+        "identity_2_auxiliary_or": {
+          "calibration_distances_checksum": "5b1d697c412c0017dcf06ebd71c41f9bba16f1d256d83262741cff3b4aa75864",
+          "quantiles": [
+            288.99687860398467,
+            0.9924651957226978
+          ],
+          "state_checksum": "4cefddacc18afa498dc8c16c584625b0ae381455a4c5f9a00fb491ce7f6bb21d"
+        },
+        "identity_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "dcb51e072864cf1b7a19864bf36561fc60894e025b0cde77a6628c8f13fa9584",
+          "quantiles": [
+            289.0091856494285,
+            0.9925125469274906
+          ],
+          "state_checksum": "c280185447ff163fdadb5f043a291698b2af728520c3c22248b74aead8c5bc38"
+        },
+        "identity_2_glvq_distance": {
+          "calibration_distances_checksum": "dcb51e072864cf1b7a19864bf36561fc60894e025b0cde77a6628c8f13fa9584",
+          "quantiles": [
+            289.0091856494285,
+            0.9925125469274906
+          ],
+          "state_checksum": "9a4cb96fa523d4110c782d035c6c016776b629b83dd9e157c18c4b7d29a5c594"
+        },
+        "identity_2_glvq_or": {
+          "calibration_distances_checksum": "dcb51e072864cf1b7a19864bf36561fc60894e025b0cde77a6628c8f13fa9584",
+          "quantiles": [
+            289.0091856494285,
+            0.9925125469274906
+          ],
+          "state_checksum": "b53b3390b46f277a7f9242ea469314a1e51c81297050f2fab1b4f92cade5b951"
+        },
+        "identity_2_static_ambiguity": {
+          "calibration_distances_checksum": "280b1a4488855fc81980cd7c76ce8889f7fea595231e277f9e359ae062696f7a",
+          "quantiles": [
+            289.9107574648822,
+            0.9922362557412923
+          ],
+          "state_checksum": "df42c253215f62ca24990a9c31af6013b33ad44da949787e40389aef3c561a45"
+        },
+        "identity_2_static_distance": {
+          "calibration_distances_checksum": "280b1a4488855fc81980cd7c76ce8889f7fea595231e277f9e359ae062696f7a",
+          "quantiles": [
+            289.9107574648822,
+            0.9922362557412923
+          ],
+          "state_checksum": "7203cf45d5b4fc7347e64fa5db4cb61f42080dcdb03f7dc1f49c4f2eaf9d5b67"
+        },
+        "identity_2_static_or": {
+          "calibration_distances_checksum": "280b1a4488855fc81980cd7c76ce8889f7fea595231e277f9e359ae062696f7a",
+          "quantiles": [
+            289.9107574648822,
+            0.9922362557412923
+          ],
+          "state_checksum": "41730347fa55833f6dcb4f602492df980883dfbd617bf5878aa02cab2ad3481e"
+        },
+        "metric_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "821fe3218241d263954e3f78f0e96d3a19bd7a1e2dfbb0140c754140f46d48a5",
+          "quantiles": [
+            10.031444075929759,
+            0.9925123015034217
+          ],
+          "state_checksum": "6cc6c17ac3ec753abb1c8c1f2ebd21e181d815529e9abccef24d27100e21cb5a"
+        },
+        "metric_1_auxiliary_distance": {
+          "calibration_distances_checksum": "821fe3218241d263954e3f78f0e96d3a19bd7a1e2dfbb0140c754140f46d48a5",
+          "quantiles": [
+            10.031444075929759,
+            0.9925123015034217
+          ],
+          "state_checksum": "3c796d5902c91663d72d48686abf6d39c79824b5f01f5caeb0dfb4000637d2ed"
+        },
+        "metric_1_auxiliary_or": {
+          "calibration_distances_checksum": "821fe3218241d263954e3f78f0e96d3a19bd7a1e2dfbb0140c754140f46d48a5",
+          "quantiles": [
+            10.031444075929759,
+            0.9925123015034217
+          ],
+          "state_checksum": "644b87ff54a80a5ce6940cd9b4838f0024aa5996f535ac859e1e0b6ae8c67f74"
+        },
+        "metric_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "edc5ea27d682ab29bcdafaabb354a0c223ac329e6b913674a512a34dffbeb532",
+          "quantiles": [
+            10.032348567235156,
+            0.99245866177649
+          ],
+          "state_checksum": "f200efb670f5abc80018dafcd6b21cc2b7245eac652db6315e072a75438c56b1"
+        },
+        "metric_1_glvq_distance": {
+          "calibration_distances_checksum": "edc5ea27d682ab29bcdafaabb354a0c223ac329e6b913674a512a34dffbeb532",
+          "quantiles": [
+            10.032348567235156,
+            0.99245866177649
+          ],
+          "state_checksum": "ac79c0228d28ad616eddd7aa2c3104caeac4155120377f3160dbd41b13bf7028"
+        },
+        "metric_1_glvq_or": {
+          "calibration_distances_checksum": "edc5ea27d682ab29bcdafaabb354a0c223ac329e6b913674a512a34dffbeb532",
+          "quantiles": [
+            10.032348567235156,
+            0.99245866177649
+          ],
+          "state_checksum": "ef46b686d7bb9537212db30e15f3dcb18f9b42b8815024dc55e34405f30985b4"
+        },
+        "metric_1_static_ambiguity": {
+          "calibration_distances_checksum": "92164298ac67e51038c1b72c0fe4c8c5ad20527510f1e6d83d9be07311033079",
+          "quantiles": [
+            9.086050270736296,
+            0.9826577256873401
+          ],
+          "state_checksum": "d608e730287ad0bae3ccd17d8d6200175363d73597a05447a109ffaecae84f0b"
+        },
+        "metric_1_static_distance": {
+          "calibration_distances_checksum": "92164298ac67e51038c1b72c0fe4c8c5ad20527510f1e6d83d9be07311033079",
+          "quantiles": [
+            9.086050270736296,
+            0.9826577256873401
+          ],
+          "state_checksum": "4bb5ede5c349af8570304102a20700f3696a73e37c63f671077ffdd6d13d2b3c"
+        },
+        "metric_1_static_or": {
+          "calibration_distances_checksum": "92164298ac67e51038c1b72c0fe4c8c5ad20527510f1e6d83d9be07311033079",
+          "quantiles": [
+            9.086050270736296,
+            0.9826577256873401
+          ],
+          "state_checksum": "726586c654dfe59890dde13a96f059a528010d634539830462af0e86107b7290"
+        },
+        "metric_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "23223390668c1bcb03dedb9c9acdb943bc8060cb1d527b6d95582d0555ab009c",
+          "quantiles": [
+            8.507162591369644,
+            0.9873293396723526
+          ],
+          "state_checksum": "a59c58feddc4e5c5176a993ae94f6c54222153a84108b6d6265a8e5d1c7d8ba2"
+        },
+        "metric_2_auxiliary_distance": {
+          "calibration_distances_checksum": "23223390668c1bcb03dedb9c9acdb943bc8060cb1d527b6d95582d0555ab009c",
+          "quantiles": [
+            8.507162591369644,
+            0.9873293396723526
+          ],
+          "state_checksum": "76c5c2e243c8516afdbdc9983fe14d11ba8762fb60606a81bd5f0dbe6ba916cf"
+        },
+        "metric_2_auxiliary_or": {
+          "calibration_distances_checksum": "23223390668c1bcb03dedb9c9acdb943bc8060cb1d527b6d95582d0555ab009c",
+          "quantiles": [
+            8.507162591369644,
+            0.9873293396723526
+          ],
+          "state_checksum": "82224e5fe0ac3675eef5ab82870592d71aca8a4a50576d8bb15428b99451572e"
+        },
+        "metric_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "f00662401d2f269b86eb3cb2406f2846d46f579afa2b594cf90bf7dc8b5e0336",
+          "quantiles": [
+            8.507119417619196,
+            0.9873249706650146
+          ],
+          "state_checksum": "51f66bf0f51e5baddd8f661e3f652824e44466ae834a8f9f54556af0629c6c5a"
+        },
+        "metric_2_glvq_distance": {
+          "calibration_distances_checksum": "f00662401d2f269b86eb3cb2406f2846d46f579afa2b594cf90bf7dc8b5e0336",
+          "quantiles": [
+            8.507119417619196,
+            0.9873249706650146
+          ],
+          "state_checksum": "060022967c8b0d02d2a5b3f3de0afe35bcb6d838d3b4ab03048b954ec9f78c72"
+        },
+        "metric_2_glvq_or": {
+          "calibration_distances_checksum": "f00662401d2f269b86eb3cb2406f2846d46f579afa2b594cf90bf7dc8b5e0336",
+          "quantiles": [
+            8.507119417619196,
+            0.9873249706650146
+          ],
+          "state_checksum": "6de530e3586bc228061851fa12b2d270f909e9f5e34356f3f280e887684f90cb"
+        },
+        "metric_2_static_ambiguity": {
+          "calibration_distances_checksum": "5c3cd8ec4031546d92cf11135f515bee95571d8ec0cc9173719f40216be40880",
+          "quantiles": [
+            8.521102266217328,
+            0.9943195704212446
+          ],
+          "state_checksum": "78b22e3e5206eae738a23da093e242b7013be4b8e63f49a55cb029a8db4c8485"
+        },
+        "metric_2_static_distance": {
+          "calibration_distances_checksum": "5c3cd8ec4031546d92cf11135f515bee95571d8ec0cc9173719f40216be40880",
+          "quantiles": [
+            8.521102266217328,
+            0.9943195704212446
+          ],
+          "state_checksum": "064154198714cf1f967837186a57f9b1a472a8fcdd8313137495e7f3f55b9a65"
+        },
+        "metric_2_static_or": {
+          "calibration_distances_checksum": "5c3cd8ec4031546d92cf11135f515bee95571d8ec0cc9173719f40216be40880",
+          "quantiles": [
+            8.521102266217328,
+            0.9943195704212446
+          ],
+          "state_checksum": "530566aa4edebbdc8830a1f4254da95ff40a6a2d82b5591ce26377dd49648943"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "501cb998f3414e5adf27efe7944544dbcf819f34a9bd55d5a086b993369dc814",
+      "seed": 0,
+      "verified": {
+        "identity_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "f3923c8e610e85dd1680b5e515faf0f4d0a8122c5b7035c6bb093d6a754955b0",
+          "quantiles": [
+            473.1643330091501,
+            0.9976719860305407
+          ],
+          "state_checksum": "3c0ff13aba60e786ba04c70c0aa035c0a6879692b8a87824e67ee92b91557a3f"
+        },
+        "identity_1_auxiliary_distance": {
+          "calibration_distances_checksum": "f3923c8e610e85dd1680b5e515faf0f4d0a8122c5b7035c6bb093d6a754955b0",
+          "quantiles": [
+            473.1643330091501,
+            0.9976719860305407
+          ],
+          "state_checksum": "5a12e85ec06195a8c3ef9c542fdf3b6bfdae263c3c422c3e202719e3e749846a"
+        },
+        "identity_1_auxiliary_or": {
+          "calibration_distances_checksum": "f3923c8e610e85dd1680b5e515faf0f4d0a8122c5b7035c6bb093d6a754955b0",
+          "quantiles": [
+            473.1643330091501,
+            0.9976719860305407
+          ],
+          "state_checksum": "06af933c97be6a4a5951e5a5dec16aa9401f3fddff377ab6ca4bef943068896f"
+        },
+        "identity_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "5adbcf841e2bd3521649cacf7644c4f250530214a9eed794867bee60233b7419",
+          "quantiles": [
+            476.35432311959255,
+            0.9981287431284778
+          ],
+          "state_checksum": "4ef7366728a043a3824a1ba6504c80806051502e598c0e0b6445ab97bf9853a0"
+        },
+        "identity_1_glvq_distance": {
+          "calibration_distances_checksum": "5adbcf841e2bd3521649cacf7644c4f250530214a9eed794867bee60233b7419",
+          "quantiles": [
+            476.35432311959255,
+            0.9981287431284778
+          ],
+          "state_checksum": "a0f0c00e3e72b18d1b2bc6506b9fe26023badbe277d1ce0c7887d03c01ee0470"
+        },
+        "identity_1_glvq_or": {
+          "calibration_distances_checksum": "5adbcf841e2bd3521649cacf7644c4f250530214a9eed794867bee60233b7419",
+          "quantiles": [
+            476.35432311959255,
+            0.9981287431284778
+          ],
+          "state_checksum": "d4dfb6a0094573ac206a4e9f775d17da77ce878955a7dcfadbaea33346338615"
+        },
+        "identity_1_static_ambiguity": {
+          "calibration_distances_checksum": "6f74339bce47866661fb731a317a5ab07e6d06ae2df90fa7dce5efd695608685",
+          "quantiles": [
+            453.1816682520586,
+            0.9924002060367201
+          ],
+          "state_checksum": "7e90ce3bf1640febd4518750bdb2ff532b08d5d1509beb2ff3a26799d21cb77c"
+        },
+        "identity_1_static_distance": {
+          "calibration_distances_checksum": "6f74339bce47866661fb731a317a5ab07e6d06ae2df90fa7dce5efd695608685",
+          "quantiles": [
+            453.1816682520586,
+            0.9924002060367201
+          ],
+          "state_checksum": "67dd4c47d5135cb6c9afd2c0a0c318133ad068a90ecf12578ae1d76e441739c2"
+        },
+        "identity_1_static_or": {
+          "calibration_distances_checksum": "6f74339bce47866661fb731a317a5ab07e6d06ae2df90fa7dce5efd695608685",
+          "quantiles": [
+            453.1816682520586,
+            0.9924002060367201
+          ],
+          "state_checksum": "da12d764e4b4e06bdaaa1a5737ae831ab7e5ed85b72ee6405fa8675f4812739a"
+        },
+        "identity_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "38fca64c0fe01f76a943ddf9ff726844870e23dba4d2ffe3483abd99898e8312",
+          "quantiles": [
+            492.57541724477164,
+            0.9964469666609143
+          ],
+          "state_checksum": "6ce2a57804dd6af788565658a426cb38defc19b736f7a94f8360b1237befc20a"
+        },
+        "identity_2_auxiliary_distance": {
+          "calibration_distances_checksum": "38fca64c0fe01f76a943ddf9ff726844870e23dba4d2ffe3483abd99898e8312",
+          "quantiles": [
+            492.57541724477164,
+            0.9964469666609143
+          ],
+          "state_checksum": "4d078380f8f9686f1c44443e2757f52cac8deac6808cd429681046ca502b9576"
+        },
+        "identity_2_auxiliary_or": {
+          "calibration_distances_checksum": "38fca64c0fe01f76a943ddf9ff726844870e23dba4d2ffe3483abd99898e8312",
+          "quantiles": [
+            492.57541724477164,
+            0.9964469666609143
+          ],
+          "state_checksum": "f60679b42c20fb5659b7701be1d0640291e0c5484a9237d5d9cfc27a92226b13"
+        },
+        "identity_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "3668ad458a751cbc394d2b61913b8cf10fde031cd96ea95cd139e99afeac8a49",
+          "quantiles": [
+            492.5908976341339,
+            0.996445543987909
+          ],
+          "state_checksum": "a2df3d27bce506fd7d073ee8b74156d172a9e85fa4fd89cdc8abea49e2b40473"
+        },
+        "identity_2_glvq_distance": {
+          "calibration_distances_checksum": "3668ad458a751cbc394d2b61913b8cf10fde031cd96ea95cd139e99afeac8a49",
+          "quantiles": [
+            492.5908976341339,
+            0.996445543987909
+          ],
+          "state_checksum": "db99962c6b421c1eca686065c0d85c5eaf2009fb73af53006b11344cf3436ab8"
+        },
+        "identity_2_glvq_or": {
+          "calibration_distances_checksum": "3668ad458a751cbc394d2b61913b8cf10fde031cd96ea95cd139e99afeac8a49",
+          "quantiles": [
+            492.5908976341339,
+            0.996445543987909
+          ],
+          "state_checksum": "bdcbeae650cd963fc716c1533cddde10ee585f04d48ea26be592be24fa07dacf"
+        },
+        "identity_2_static_ambiguity": {
+          "calibration_distances_checksum": "620d665e20b6e51c4add1d76b6e2f394d5efd1abcafc1dde9439dbf28b77be4a",
+          "quantiles": [
+            489.57661783882526,
+            0.9964368888066566
+          ],
+          "state_checksum": "bae2cee8e94afef350494660533ef75e1b38265a1b8da328843d6fe621bc6edc"
+        },
+        "identity_2_static_distance": {
+          "calibration_distances_checksum": "620d665e20b6e51c4add1d76b6e2f394d5efd1abcafc1dde9439dbf28b77be4a",
+          "quantiles": [
+            489.57661783882526,
+            0.9964368888066566
+          ],
+          "state_checksum": "d1911071f9496cea563783f563f983363b1d9c7c20aab4ec917614049f3392d7"
+        },
+        "identity_2_static_or": {
+          "calibration_distances_checksum": "620d665e20b6e51c4add1d76b6e2f394d5efd1abcafc1dde9439dbf28b77be4a",
+          "quantiles": [
+            489.57661783882526,
+            0.9964368888066566
+          ],
+          "state_checksum": "bd2fa6193597eb5ff939d227c31a8ea65b4f60cfaaa50ed284063a3ac618a85c"
+        },
+        "metric_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "913b56f3bc463d447624f225117d651a9c649df93d2a3a78ec3d6968313e5de5",
+          "quantiles": [
+            2.8160598212671784,
+            0.9715772476277152
+          ],
+          "state_checksum": "776d7d3afd2d0ec9baa4200b76f728c231e2cd2cca2e0bd8c54bb434c7245f48"
+        },
+        "metric_1_auxiliary_distance": {
+          "calibration_distances_checksum": "913b56f3bc463d447624f225117d651a9c649df93d2a3a78ec3d6968313e5de5",
+          "quantiles": [
+            2.8160598212671784,
+            0.9715772476277152
+          ],
+          "state_checksum": "823020d94d0f0169c58361cf3eba6f83c1144f7b4705624e3ec82fc461ba53e3"
+        },
+        "metric_1_auxiliary_or": {
+          "calibration_distances_checksum": "913b56f3bc463d447624f225117d651a9c649df93d2a3a78ec3d6968313e5de5",
+          "quantiles": [
+            2.8160598212671784,
+            0.9715772476277152
+          ],
+          "state_checksum": "e4ab4abbafc0c8a947854e03c5a865ffecdbdc29ee05a640d6d67ba1a9130c80"
+        },
+        "metric_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "3fbc99e784153c040c10d0f7378d09857668b2e2b785f5db27827cc9085f100c",
+          "quantiles": [
+            2.815438978442046,
+            0.9714602958260026
+          ],
+          "state_checksum": "dc9c2e534e1d7089eb99459fd9292ade0916c244002086795879768eace7a30d"
+        },
+        "metric_1_glvq_distance": {
+          "calibration_distances_checksum": "3fbc99e784153c040c10d0f7378d09857668b2e2b785f5db27827cc9085f100c",
+          "quantiles": [
+            2.815438978442046,
+            0.9714602958260026
+          ],
+          "state_checksum": "aaf705a934da247dbfda45d6e27b99cd385dd13942bbbd2d337035707c2be27e"
+        },
+        "metric_1_glvq_or": {
+          "calibration_distances_checksum": "3fbc99e784153c040c10d0f7378d09857668b2e2b785f5db27827cc9085f100c",
+          "quantiles": [
+            2.815438978442046,
+            0.9714602958260026
+          ],
+          "state_checksum": "5301e672ae1551a0b84caf0945a386ee23fd5e6e8c748b99513c8aeb2a0e6df0"
+        },
+        "metric_1_static_ambiguity": {
+          "calibration_distances_checksum": "6762a2d69edadd261ac9111b1d15cda892f5a0592c4be2f5c009d22568838967",
+          "quantiles": [
+            3.3855664740003135,
+            0.9763268464502998
+          ],
+          "state_checksum": "f5ea6be8a3cdd02f5326d808c169ce4678c05b37045674a6c98caf0e32df42fe"
+        },
+        "metric_1_static_distance": {
+          "calibration_distances_checksum": "6762a2d69edadd261ac9111b1d15cda892f5a0592c4be2f5c009d22568838967",
+          "quantiles": [
+            3.3855664740003135,
+            0.9763268464502998
+          ],
+          "state_checksum": "efeb87b4af1d781cdf4183c2b52995f467920748091973140f188a19a2ff4e42"
+        },
+        "metric_1_static_or": {
+          "calibration_distances_checksum": "6762a2d69edadd261ac9111b1d15cda892f5a0592c4be2f5c009d22568838967",
+          "quantiles": [
+            3.3855664740003135,
+            0.9763268464502998
+          ],
+          "state_checksum": "212dddc49a0b0eeb2a72f30c5d0eaa13fc6f1a040cb71b4ee5df61378761cec7"
+        },
+        "metric_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "dbb4d15b8c44962e2cc46c711c4b31644ca43d64875d65631bcaa726bda55ad2",
+          "quantiles": [
+            4.310429451665423,
+            0.9898571436835767
+          ],
+          "state_checksum": "ef7b47cac971f26b8e2f21f12c96efeb3ea9eb0f6fa92f4e344e3c461925b8c7"
+        },
+        "metric_2_auxiliary_distance": {
+          "calibration_distances_checksum": "dbb4d15b8c44962e2cc46c711c4b31644ca43d64875d65631bcaa726bda55ad2",
+          "quantiles": [
+            4.310429451665423,
+            0.9898571436835767
+          ],
+          "state_checksum": "02b6d44e0586aac5953b0ba9f8fe88bf7c6516c61eb139d4bd847492f3ecddc7"
+        },
+        "metric_2_auxiliary_or": {
+          "calibration_distances_checksum": "dbb4d15b8c44962e2cc46c711c4b31644ca43d64875d65631bcaa726bda55ad2",
+          "quantiles": [
+            4.310429451665423,
+            0.9898571436835767
+          ],
+          "state_checksum": "3ac2107fd79f6d55d00c5a1157251d524cfec1c687b215befeb88d6247823219"
+        },
+        "metric_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "8f3d2693de92c72996e46752c1324974e7af9e31a9741558ca08ed98505650dd",
+          "quantiles": [
+            4.3104393593456765,
+            0.9898529819751521
+          ],
+          "state_checksum": "87d193255c8d3d61bb697a8bbc86362b3cc9a89d57dd9f932598bdefa469fa0e"
+        },
+        "metric_2_glvq_distance": {
+          "calibration_distances_checksum": "8f3d2693de92c72996e46752c1324974e7af9e31a9741558ca08ed98505650dd",
+          "quantiles": [
+            4.3104393593456765,
+            0.9898529819751521
+          ],
+          "state_checksum": "ee65765f3d72bd1249d8bc64ebef9cc3fe3aa62e0c5f258d1d93744927ce3bbb"
+        },
+        "metric_2_glvq_or": {
+          "calibration_distances_checksum": "8f3d2693de92c72996e46752c1324974e7af9e31a9741558ca08ed98505650dd",
+          "quantiles": [
+            4.3104393593456765,
+            0.9898529819751521
+          ],
+          "state_checksum": "57eaa5b0fc4624b0057d8b1fff545951d0f4d6376be9b6e31dd557f6c0b66706"
+        },
+        "metric_2_static_ambiguity": {
+          "calibration_distances_checksum": "a76ceb23906c34c9c586ed7c381e2c6b0a5f56002f7ec43ff9788a5093cbd8ab",
+          "quantiles": [
+            4.163218040453073,
+            0.9832949823836833
+          ],
+          "state_checksum": "5edc9c0f65be158edb4c710e3d8baf1f9794d6a398d388da3c3439e76118dac0"
+        },
+        "metric_2_static_distance": {
+          "calibration_distances_checksum": "a76ceb23906c34c9c586ed7c381e2c6b0a5f56002f7ec43ff9788a5093cbd8ab",
+          "quantiles": [
+            4.163218040453073,
+            0.9832949823836833
+          ],
+          "state_checksum": "909f1a35126700abf4ff6b4ae67e401fe2abdc9f48eaf4fac108276fef7cdef8"
+        },
+        "metric_2_static_or": {
+          "calibration_distances_checksum": "a76ceb23906c34c9c586ed7c381e2c6b0a5f56002f7ec43ff9788a5093cbd8ab",
+          "quantiles": [
+            4.163218040453073,
+            0.9832949823836833
+          ],
+          "state_checksum": "93fba5dee2085684068aad2c26c294e4897ab5cda5e16f80ea6aba8a063ce1f2"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "4e3f83fe36f133461a515243cb1c849eb821ae562ac54a61454a796bd30d0b85",
+      "seed": 1,
+      "verified": {
+        "identity_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "f111bc4166419c15682c33da93c2237e850341834fc6839f7b6739e4b7cf110c",
+          "quantiles": [
+            476.0475894816472,
+            0.9969009348800109
+          ],
+          "state_checksum": "3e8b37964a3aa65ca20c70c210c688c566dd2e25abbb74fde031763c6e136223"
+        },
+        "identity_1_auxiliary_distance": {
+          "calibration_distances_checksum": "f111bc4166419c15682c33da93c2237e850341834fc6839f7b6739e4b7cf110c",
+          "quantiles": [
+            476.0475894816472,
+            0.9969009348800109
+          ],
+          "state_checksum": "f7da6266201725412cba015d9459088c5784e418703e1a3f8207dff11433c49d"
+        },
+        "identity_1_auxiliary_or": {
+          "calibration_distances_checksum": "f111bc4166419c15682c33da93c2237e850341834fc6839f7b6739e4b7cf110c",
+          "quantiles": [
+            476.0475894816472,
+            0.9969009348800109
+          ],
+          "state_checksum": "0f8fa2052edf34f3e9622fab3a510c7bf7730a54b0bc336a8a53db87369dab25"
+        },
+        "identity_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "e87efdf17f76c76426b35f5b25ba6ee0dd567ecdd84a67028d31b64cf810b74a",
+          "quantiles": [
+            487.3190346357464,
+            0.9968018777509703
+          ],
+          "state_checksum": "47e3b748cd015891614723b82e8b7002431b42f2edfb8028b9054ac74037498e"
+        },
+        "identity_1_glvq_distance": {
+          "calibration_distances_checksum": "e87efdf17f76c76426b35f5b25ba6ee0dd567ecdd84a67028d31b64cf810b74a",
+          "quantiles": [
+            487.3190346357464,
+            0.9968018777509703
+          ],
+          "state_checksum": "f3ccee96e17b0b63bb3774d86a193172ff79bcf0a4cd5641b3e4c51915e5c4cf"
+        },
+        "identity_1_glvq_or": {
+          "calibration_distances_checksum": "e87efdf17f76c76426b35f5b25ba6ee0dd567ecdd84a67028d31b64cf810b74a",
+          "quantiles": [
+            487.3190346357464,
+            0.9968018777509703
+          ],
+          "state_checksum": "3a1afc8ba07cc584d1beb033babd633b6e0b5985425028a13a8944adf753f34c"
+        },
+        "identity_1_static_ambiguity": {
+          "calibration_distances_checksum": "6f74339bce47866661fb731a317a5ab07e6d06ae2df90fa7dce5efd695608685",
+          "quantiles": [
+            453.1816682520586,
+            0.9924002060367201
+          ],
+          "state_checksum": "7e90ce3bf1640febd4518750bdb2ff532b08d5d1509beb2ff3a26799d21cb77c"
+        },
+        "identity_1_static_distance": {
+          "calibration_distances_checksum": "6f74339bce47866661fb731a317a5ab07e6d06ae2df90fa7dce5efd695608685",
+          "quantiles": [
+            453.1816682520586,
+            0.9924002060367201
+          ],
+          "state_checksum": "67dd4c47d5135cb6c9afd2c0a0c318133ad068a90ecf12578ae1d76e441739c2"
+        },
+        "identity_1_static_or": {
+          "calibration_distances_checksum": "6f74339bce47866661fb731a317a5ab07e6d06ae2df90fa7dce5efd695608685",
+          "quantiles": [
+            453.1816682520586,
+            0.9924002060367201
+          ],
+          "state_checksum": "da12d764e4b4e06bdaaa1a5737ae831ab7e5ed85b72ee6405fa8675f4812739a"
+        },
+        "identity_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "feca2bb29f3623aa7d1f692bb174a943b45c340835d6d60db30e7dd653922c25",
+          "quantiles": [
+            490.75077895827826,
+            0.9972887032272372
+          ],
+          "state_checksum": "af97eacf365ea0ea4d7669042ca69282df31196f8cfbd04ca26b4e54002b7066"
+        },
+        "identity_2_auxiliary_distance": {
+          "calibration_distances_checksum": "feca2bb29f3623aa7d1f692bb174a943b45c340835d6d60db30e7dd653922c25",
+          "quantiles": [
+            490.75077895827826,
+            0.9972887032272372
+          ],
+          "state_checksum": "eb0c0cf1b86b1117f31bcc74db339af215dc9596def215698a88ae909f802078"
+        },
+        "identity_2_auxiliary_or": {
+          "calibration_distances_checksum": "feca2bb29f3623aa7d1f692bb174a943b45c340835d6d60db30e7dd653922c25",
+          "quantiles": [
+            490.75077895827826,
+            0.9972887032272372
+          ],
+          "state_checksum": "b9a9ba0cff5ff93b7b1c826e63b2fdeb9a7158c6ff274483892c4dd5bcb627bd"
+        },
+        "identity_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "91d127ec38a5ab0ce08ba68c22156f0206231fba2ce9446e4ed9824c7bab82f2",
+          "quantiles": [
+            491.00408542841564,
+            0.9974088726579651
+          ],
+          "state_checksum": "9956e6c8efe3a9fa3550666e8634321f96c2dfd1b34b3b5867fca9338bd0d29c"
+        },
+        "identity_2_glvq_distance": {
+          "calibration_distances_checksum": "91d127ec38a5ab0ce08ba68c22156f0206231fba2ce9446e4ed9824c7bab82f2",
+          "quantiles": [
+            491.00408542841564,
+            0.9974088726579651
+          ],
+          "state_checksum": "a65d31a6391f034eb575082e0066850e8dffef78efa1d271b167499433fec667"
+        },
+        "identity_2_glvq_or": {
+          "calibration_distances_checksum": "91d127ec38a5ab0ce08ba68c22156f0206231fba2ce9446e4ed9824c7bab82f2",
+          "quantiles": [
+            491.00408542841564,
+            0.9974088726579651
+          ],
+          "state_checksum": "cd3bc338503dfd6bab6c1c2a0892a5c2606cc4f3c0184e8ef956e6dd96915e53"
+        },
+        "identity_2_static_ambiguity": {
+          "calibration_distances_checksum": "620d665e20b6e51c4add1d76b6e2f394d5efd1abcafc1dde9439dbf28b77be4a",
+          "quantiles": [
+            489.57661783882526,
+            0.9964368888066566
+          ],
+          "state_checksum": "bae2cee8e94afef350494660533ef75e1b38265a1b8da328843d6fe621bc6edc"
+        },
+        "identity_2_static_distance": {
+          "calibration_distances_checksum": "620d665e20b6e51c4add1d76b6e2f394d5efd1abcafc1dde9439dbf28b77be4a",
+          "quantiles": [
+            489.57661783882526,
+            0.9964368888066566
+          ],
+          "state_checksum": "d1911071f9496cea563783f563f983363b1d9c7c20aab4ec917614049f3392d7"
+        },
+        "identity_2_static_or": {
+          "calibration_distances_checksum": "620d665e20b6e51c4add1d76b6e2f394d5efd1abcafc1dde9439dbf28b77be4a",
+          "quantiles": [
+            489.57661783882526,
+            0.9964368888066566
+          ],
+          "state_checksum": "bd2fa6193597eb5ff939d227c31a8ea65b4f60cfaaa50ed284063a3ac618a85c"
+        },
+        "metric_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "4ee30fae363f44be7a45e84b1208efa8d3765c036fd66940b2be49cb7a7b17a5",
+          "quantiles": [
+            3.462169812482597,
+            0.9813026909058541
+          ],
+          "state_checksum": "cfdd530cf1a608fffb271f857a189aa711c1be2bf831065e29d486ddf70e898f"
+        },
+        "metric_1_auxiliary_distance": {
+          "calibration_distances_checksum": "4ee30fae363f44be7a45e84b1208efa8d3765c036fd66940b2be49cb7a7b17a5",
+          "quantiles": [
+            3.462169812482597,
+            0.9813026909058541
+          ],
+          "state_checksum": "3c44608e09be45438bbc0e78639d59e6645de40a0bafdaed620093bd9d3d9c50"
+        },
+        "metric_1_auxiliary_or": {
+          "calibration_distances_checksum": "4ee30fae363f44be7a45e84b1208efa8d3765c036fd66940b2be49cb7a7b17a5",
+          "quantiles": [
+            3.462169812482597,
+            0.9813026909058541
+          ],
+          "state_checksum": "34fa723a701a050016f8c83fd0cdda194ae56827ed82198571f34880a8c6dfde"
+        },
+        "metric_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "bb860ab7487f4d105b73eb0524f699347f75d4b9eab667d9f2892ff44487c12f",
+          "quantiles": [
+            3.4622727608406185,
+            0.9819005870405149
+          ],
+          "state_checksum": "50125a13e4fb1c73df86570ad50e81b193f356e2db9ec0ccb45e61cee2ae4e39"
+        },
+        "metric_1_glvq_distance": {
+          "calibration_distances_checksum": "bb860ab7487f4d105b73eb0524f699347f75d4b9eab667d9f2892ff44487c12f",
+          "quantiles": [
+            3.4622727608406185,
+            0.9819005870405149
+          ],
+          "state_checksum": "f511a65760346b6e634386fa5b9eb1a68723e7192a09b5f0cef25c458a9eead7"
+        },
+        "metric_1_glvq_or": {
+          "calibration_distances_checksum": "bb860ab7487f4d105b73eb0524f699347f75d4b9eab667d9f2892ff44487c12f",
+          "quantiles": [
+            3.4622727608406185,
+            0.9819005870405149
+          ],
+          "state_checksum": "8bf20548f326563e1a6e97d69264119f6e634f08cf0a82b7f54c345f53bc210a"
+        },
+        "metric_1_static_ambiguity": {
+          "calibration_distances_checksum": "1181992e5913a769d118f6e91fd2bc01830cc23e0caac61451b670d71b3fcf49",
+          "quantiles": [
+            3.288717446869553,
+            0.9760304586860022
+          ],
+          "state_checksum": "43ead7db75e2f905e33c3d38843441eb74f91bbf00170fa0e2913df969b08e70"
+        },
+        "metric_1_static_distance": {
+          "calibration_distances_checksum": "1181992e5913a769d118f6e91fd2bc01830cc23e0caac61451b670d71b3fcf49",
+          "quantiles": [
+            3.288717446869553,
+            0.9760304586860022
+          ],
+          "state_checksum": "6e5b713963b4158acd1a197d1df3502ad1ed022162f801b72531ffdd22e96d84"
+        },
+        "metric_1_static_or": {
+          "calibration_distances_checksum": "1181992e5913a769d118f6e91fd2bc01830cc23e0caac61451b670d71b3fcf49",
+          "quantiles": [
+            3.288717446869553,
+            0.9760304586860022
+          ],
+          "state_checksum": "98c5608bfc9c825886468c1bfedd303aa218ad8c5d105b5564599563373d4abc"
+        },
+        "metric_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "e0648733b271d3dd9319d292f20452a73370e5226b6b221654e8e81c62e145c7",
+          "quantiles": [
+            3.773800684995005,
+            0.9765158758678959
+          ],
+          "state_checksum": "b592ebe6f6619833ed67c0210d845240b85d3a19844e4ad06fe24315c5a60a98"
+        },
+        "metric_2_auxiliary_distance": {
+          "calibration_distances_checksum": "e0648733b271d3dd9319d292f20452a73370e5226b6b221654e8e81c62e145c7",
+          "quantiles": [
+            3.773800684995005,
+            0.9765158758678959
+          ],
+          "state_checksum": "ea99d6a8b212473f0bd0d31bd79f40f978d3685abc99f58d89ddbef2c31a446b"
+        },
+        "metric_2_auxiliary_or": {
+          "calibration_distances_checksum": "e0648733b271d3dd9319d292f20452a73370e5226b6b221654e8e81c62e145c7",
+          "quantiles": [
+            3.773800684995005,
+            0.9765158758678959
+          ],
+          "state_checksum": "e16f0a2bb77d9adc4767e8f70be78486f8586963ca7de49d07e372c5b44935d5"
+        },
+        "metric_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "a2af62e692390cd42e5074a018f363948cf4410bca4ac03021e28c5676e8ba5b",
+          "quantiles": [
+            3.7738388332687296,
+            0.9764927286674151
+          ],
+          "state_checksum": "b9a4f65f811c44933c3b0c03d869627d7abf609b2b7373c1e2ef5703c58b221b"
+        },
+        "metric_2_glvq_distance": {
+          "calibration_distances_checksum": "a2af62e692390cd42e5074a018f363948cf4410bca4ac03021e28c5676e8ba5b",
+          "quantiles": [
+            3.7738388332687296,
+            0.9764927286674151
+          ],
+          "state_checksum": "182460a9e7bdb86624305c9d097ae345f1c445072183d2fe10edfef5d6f65ead"
+        },
+        "metric_2_glvq_or": {
+          "calibration_distances_checksum": "a2af62e692390cd42e5074a018f363948cf4410bca4ac03021e28c5676e8ba5b",
+          "quantiles": [
+            3.7738388332687296,
+            0.9764927286674151
+          ],
+          "state_checksum": "548d9f7c1774038718b7813745f580a2320f1ce31ad54b023803be4a3ce842b4"
+        },
+        "metric_2_static_ambiguity": {
+          "calibration_distances_checksum": "d98bcd5853994ea281c3bcb56d8df54142b0c9d6b11af75121090da3db876f84",
+          "quantiles": [
+            3.7256168453415706,
+            0.9525704409806459
+          ],
+          "state_checksum": "9a9d61b70826cce60dbe8822544e772c98e39fc64feab0b86be0a6b68573c16a"
+        },
+        "metric_2_static_distance": {
+          "calibration_distances_checksum": "d98bcd5853994ea281c3bcb56d8df54142b0c9d6b11af75121090da3db876f84",
+          "quantiles": [
+            3.7256168453415706,
+            0.9525704409806459
+          ],
+          "state_checksum": "ae02279249f335e309fe025da12930dd8aa2252ced1773e60f6e5727bac5543c"
+        },
+        "metric_2_static_or": {
+          "calibration_distances_checksum": "d98bcd5853994ea281c3bcb56d8df54142b0c9d6b11af75121090da3db876f84",
+          "quantiles": [
+            3.7256168453415706,
+            0.9525704409806459
+          ],
+          "state_checksum": "564f7485f0c1e10cfc649719975cf8608f63ee61609cb976c921a79f1904ca5f"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "a2c2af5d86b2ad431a4bbdbc7b9f2c462ef48c4f0c58df026c2868920b37ff39",
+      "seed": 2,
+      "verified": {
+        "identity_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "155468d289ead7e672740bc1242cafd81beca9d3613f16e585d5bab49e29bd09",
+          "quantiles": [
+            467.8291907249934,
+            0.9937293123215305
+          ],
+          "state_checksum": "344b1eaf60b9694932b0cc4b1aad58c1f9fdc6d376f9772b3bd20dad623b8fb6"
+        },
+        "identity_1_auxiliary_distance": {
+          "calibration_distances_checksum": "155468d289ead7e672740bc1242cafd81beca9d3613f16e585d5bab49e29bd09",
+          "quantiles": [
+            467.8291907249934,
+            0.9937293123215305
+          ],
+          "state_checksum": "d8b73d114909ce22e165386898759aff4a18dccb141a92b7882309e1dc5d2fdf"
+        },
+        "identity_1_auxiliary_or": {
+          "calibration_distances_checksum": "155468d289ead7e672740bc1242cafd81beca9d3613f16e585d5bab49e29bd09",
+          "quantiles": [
+            467.8291907249934,
+            0.9937293123215305
+          ],
+          "state_checksum": "f48578409552f0cf19c983618da5199fe7f58028af48df5132f0647af0adcf4b"
+        },
+        "identity_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "8782d4483c09bf8d6f3fdbf7ea78e8502737538901466056f139a1b2b49d0668",
+          "quantiles": [
+            475.0749422500836,
+            0.9963447934183001
+          ],
+          "state_checksum": "ea204b56cf1f79f716d093c2b77a6a4b5d52d1a1d2e18b3405863b213b1036e2"
+        },
+        "identity_1_glvq_distance": {
+          "calibration_distances_checksum": "8782d4483c09bf8d6f3fdbf7ea78e8502737538901466056f139a1b2b49d0668",
+          "quantiles": [
+            475.0749422500836,
+            0.9963447934183001
+          ],
+          "state_checksum": "61e743d73b300d2af76f696477971a80c4588cf5bfbbbe65a00c943d2c38e811"
+        },
+        "identity_1_glvq_or": {
+          "calibration_distances_checksum": "8782d4483c09bf8d6f3fdbf7ea78e8502737538901466056f139a1b2b49d0668",
+          "quantiles": [
+            475.0749422500836,
+            0.9963447934183001
+          ],
+          "state_checksum": "6f1f4eeb6001fd3714eb23be2055ce360bd6a79122ea1ab34894fa9df6ca9cc4"
+        },
+        "identity_1_static_ambiguity": {
+          "calibration_distances_checksum": "6f74339bce47866661fb731a317a5ab07e6d06ae2df90fa7dce5efd695608685",
+          "quantiles": [
+            453.1816682520586,
+            0.9924002060367201
+          ],
+          "state_checksum": "7e90ce3bf1640febd4518750bdb2ff532b08d5d1509beb2ff3a26799d21cb77c"
+        },
+        "identity_1_static_distance": {
+          "calibration_distances_checksum": "6f74339bce47866661fb731a317a5ab07e6d06ae2df90fa7dce5efd695608685",
+          "quantiles": [
+            453.1816682520586,
+            0.9924002060367201
+          ],
+          "state_checksum": "67dd4c47d5135cb6c9afd2c0a0c318133ad068a90ecf12578ae1d76e441739c2"
+        },
+        "identity_1_static_or": {
+          "calibration_distances_checksum": "6f74339bce47866661fb731a317a5ab07e6d06ae2df90fa7dce5efd695608685",
+          "quantiles": [
+            453.1816682520586,
+            0.9924002060367201
+          ],
+          "state_checksum": "da12d764e4b4e06bdaaa1a5737ae831ab7e5ed85b72ee6405fa8675f4812739a"
+        },
+        "identity_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "c8c113d73c3d493733fae0b7cc3051e750920a31d901e982347b299132fd460e",
+          "quantiles": [
+            484.48738841276304,
+            0.995364063184333
+          ],
+          "state_checksum": "581c831e319c4ca4fc4be319982268ae5bd49ef2db9216afd30b44cf8fca1fe8"
+        },
+        "identity_2_auxiliary_distance": {
+          "calibration_distances_checksum": "c8c113d73c3d493733fae0b7cc3051e750920a31d901e982347b299132fd460e",
+          "quantiles": [
+            484.48738841276304,
+            0.995364063184333
+          ],
+          "state_checksum": "fa5fc2cbb0d7a25826ed529cdc22ae3ee6a96a77b2fc986b3fec06ddeda71daa"
+        },
+        "identity_2_auxiliary_or": {
+          "calibration_distances_checksum": "c8c113d73c3d493733fae0b7cc3051e750920a31d901e982347b299132fd460e",
+          "quantiles": [
+            484.48738841276304,
+            0.995364063184333
+          ],
+          "state_checksum": "dafda8e47e756490727355f899153f4c0776d00ecebd61cd64ade2106f969a26"
+        },
+        "identity_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "472f93997befd67aa8830844d0307e2f8d157188b10979a2497f98d25c90b83d",
+          "quantiles": [
+            484.6284602932928,
+            0.9953882416242894
+          ],
+          "state_checksum": "227fd8b4bdb31c4e7e3cef23673748c12688d16a9fe497dcc3a177e03bc1eaa1"
+        },
+        "identity_2_glvq_distance": {
+          "calibration_distances_checksum": "472f93997befd67aa8830844d0307e2f8d157188b10979a2497f98d25c90b83d",
+          "quantiles": [
+            484.6284602932928,
+            0.9953882416242894
+          ],
+          "state_checksum": "21944c34ade61b8bb6834277efa5498a537c47ffcdf107bd3dc29e8600454797"
+        },
+        "identity_2_glvq_or": {
+          "calibration_distances_checksum": "472f93997befd67aa8830844d0307e2f8d157188b10979a2497f98d25c90b83d",
+          "quantiles": [
+            484.6284602932928,
+            0.9953882416242894
+          ],
+          "state_checksum": "f22a7d12fdb301c221de10162002decc7d2eda8896be692e5cd6ff2ff769a6da"
+        },
+        "identity_2_static_ambiguity": {
+          "calibration_distances_checksum": "620d665e20b6e51c4add1d76b6e2f394d5efd1abcafc1dde9439dbf28b77be4a",
+          "quantiles": [
+            489.57661783882526,
+            0.9964368888066566
+          ],
+          "state_checksum": "bae2cee8e94afef350494660533ef75e1b38265a1b8da328843d6fe621bc6edc"
+        },
+        "identity_2_static_distance": {
+          "calibration_distances_checksum": "620d665e20b6e51c4add1d76b6e2f394d5efd1abcafc1dde9439dbf28b77be4a",
+          "quantiles": [
+            489.57661783882526,
+            0.9964368888066566
+          ],
+          "state_checksum": "d1911071f9496cea563783f563f983363b1d9c7c20aab4ec917614049f3392d7"
+        },
+        "identity_2_static_or": {
+          "calibration_distances_checksum": "620d665e20b6e51c4add1d76b6e2f394d5efd1abcafc1dde9439dbf28b77be4a",
+          "quantiles": [
+            489.57661783882526,
+            0.9964368888066566
+          ],
+          "state_checksum": "bd2fa6193597eb5ff939d227c31a8ea65b4f60cfaaa50ed284063a3ac618a85c"
+        },
+        "metric_1_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "351514e81c860d8ed843b68ad921006f5fe43a4e0e9df73fc2f649283ece7da2",
+          "quantiles": [
+            2.9097343350864193,
+            0.9306498536899056
+          ],
+          "state_checksum": "30613de6f5406e72e07a360cc21f507bc1ab8ebcbc8f79b5c1c8642ac531670a"
+        },
+        "metric_1_auxiliary_distance": {
+          "calibration_distances_checksum": "351514e81c860d8ed843b68ad921006f5fe43a4e0e9df73fc2f649283ece7da2",
+          "quantiles": [
+            2.9097343350864193,
+            0.9306498536899056
+          ],
+          "state_checksum": "c5e1856b656b9655357600529d00748cef6f962499157a6a0075f2452e80ae0e"
+        },
+        "metric_1_auxiliary_or": {
+          "calibration_distances_checksum": "351514e81c860d8ed843b68ad921006f5fe43a4e0e9df73fc2f649283ece7da2",
+          "quantiles": [
+            2.9097343350864193,
+            0.9306498536899056
+          ],
+          "state_checksum": "e5ee456cf4aa4df92be95cf1f671236e53aba7f4c788a1fcf096d69bb82bc8a7"
+        },
+        "metric_1_glvq_ambiguity": {
+          "calibration_distances_checksum": "b13cae9538b088e167439936cdcaafbc796ec1899fcedbee5d0f496f018f8bf5",
+          "quantiles": [
+            2.91039329205786,
+            0.9303768306059953
+          ],
+          "state_checksum": "c275fcf15d4e97169f6192bec14db7c3869c4d5e15f8f3c6333cf0c8031866bf"
+        },
+        "metric_1_glvq_distance": {
+          "calibration_distances_checksum": "b13cae9538b088e167439936cdcaafbc796ec1899fcedbee5d0f496f018f8bf5",
+          "quantiles": [
+            2.91039329205786,
+            0.9303768306059953
+          ],
+          "state_checksum": "cfb1e5c3421e24851aef1ef09008403ede05edaad098b5eac1e4428b3373a577"
+        },
+        "metric_1_glvq_or": {
+          "calibration_distances_checksum": "b13cae9538b088e167439936cdcaafbc796ec1899fcedbee5d0f496f018f8bf5",
+          "quantiles": [
+            2.91039329205786,
+            0.9303768306059953
+          ],
+          "state_checksum": "215293f2cef56fdfaaeb460469be772f5a092f33611ac5d3d0030890fd5baa67"
+        },
+        "metric_1_static_ambiguity": {
+          "calibration_distances_checksum": "ecf292b014a05b5a175fb395601b3e354146e93bb09b384e892db0ee4a030eb5",
+          "quantiles": [
+            3.0011077194536178,
+            0.9803368819128836
+          ],
+          "state_checksum": "4eb04ec5f0e54129e9183a3d0b3b894c7589e4b74e8a9e0440dd3b1c65a13ca4"
+        },
+        "metric_1_static_distance": {
+          "calibration_distances_checksum": "ecf292b014a05b5a175fb395601b3e354146e93bb09b384e892db0ee4a030eb5",
+          "quantiles": [
+            3.0011077194536178,
+            0.9803368819128836
+          ],
+          "state_checksum": "b64149b3f4c132f8903f1f40dd666589ad2263454b91e4e0d2b2adb685f5c969"
+        },
+        "metric_1_static_or": {
+          "calibration_distances_checksum": "ecf292b014a05b5a175fb395601b3e354146e93bb09b384e892db0ee4a030eb5",
+          "quantiles": [
+            3.0011077194536178,
+            0.9803368819128836
+          ],
+          "state_checksum": "d9a98fc55d4fb53c555e6a6cc6382605aa32199de481f336a7ae7e6c3a2033e5"
+        },
+        "metric_2_auxiliary_ambiguity": {
+          "calibration_distances_checksum": "b00fb93498cb1ee2f8b7b604311172277f2c5b5d252cee214a09c447003b5db8",
+          "quantiles": [
+            3.5513542457572065,
+            0.9880219776805904
+          ],
+          "state_checksum": "1e464c3ad61163075b11aa850852242e72edb1ef83c3d40611d1b113b770d496"
+        },
+        "metric_2_auxiliary_distance": {
+          "calibration_distances_checksum": "b00fb93498cb1ee2f8b7b604311172277f2c5b5d252cee214a09c447003b5db8",
+          "quantiles": [
+            3.5513542457572065,
+            0.9880219776805904
+          ],
+          "state_checksum": "1a3961d537975d142698f8d6a16811c484c746559b549a15401f3d94d47b7c39"
+        },
+        "metric_2_auxiliary_or": {
+          "calibration_distances_checksum": "b00fb93498cb1ee2f8b7b604311172277f2c5b5d252cee214a09c447003b5db8",
+          "quantiles": [
+            3.5513542457572065,
+            0.9880219776805904
+          ],
+          "state_checksum": "077ff5d0d5f3857586f8c02f273f9bb423948befcf180dba0d0619adb77e2d25"
+        },
+        "metric_2_glvq_ambiguity": {
+          "calibration_distances_checksum": "046c4c6498154efc5ac91971da408e1c24073c34d4e9f3c4941e136599499c91",
+          "quantiles": [
+            3.5512568456352227,
+            0.9879957098218829
+          ],
+          "state_checksum": "5e6a1b73cf290da171d88e910e273b8e77a74f6cc524849e4fab710e7ab92a3b"
+        },
+        "metric_2_glvq_distance": {
+          "calibration_distances_checksum": "046c4c6498154efc5ac91971da408e1c24073c34d4e9f3c4941e136599499c91",
+          "quantiles": [
+            3.5512568456352227,
+            0.9879957098218829
+          ],
+          "state_checksum": "f04b8e3444548bf6638e44b1fdabccd3aba42abe30edbdf12df998062c7a6734"
+        },
+        "metric_2_glvq_or": {
+          "calibration_distances_checksum": "046c4c6498154efc5ac91971da408e1c24073c34d4e9f3c4941e136599499c91",
+          "quantiles": [
+            3.5512568456352227,
+            0.9879957098218829
+          ],
+          "state_checksum": "8f54009731b697d5d8c95d56745f5552eca7cdd0bfe158164dae9774a60b55e9"
+        },
+        "metric_2_static_ambiguity": {
+          "calibration_distances_checksum": "9136d51cf4cebdf5537afca67a6844a1f3e8a3855ab54f55943a630722ce0e69",
+          "quantiles": [
+            3.4541157882141715,
+            0.9845039582871681
+          ],
+          "state_checksum": "8a42f39cc90c56b11d26241ff9b6221a03655635779593407a31ae48e8708257"
+        },
+        "metric_2_static_distance": {
+          "calibration_distances_checksum": "9136d51cf4cebdf5537afca67a6844a1f3e8a3855ab54f55943a630722ce0e69",
+          "quantiles": [
+            3.4541157882141715,
+            0.9845039582871681
+          ],
+          "state_checksum": "fd930b3dde1c8cc694339193858fa288f8592f11a3206a06a4c245cdf4a59944"
+        },
+        "metric_2_static_or": {
+          "calibration_distances_checksum": "9136d51cf4cebdf5537afca67a6844a1f3e8a3855ab54f55943a630722ce0e69",
+          "quantiles": [
+            3.4541157882141715,
+            0.9845039582871681
+          ],
+          "state_checksum": "4ed9c952de1e00287e2784511029387db89a3ee46914d3a2698e69f6061e3bdf"
+        }
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "locked_checksum": "13c1519c1128ea1fd54e2707cd84149506fd57df6c080b7fe30c8b3abd008a71",
+  "new_classifier_fits": 0,
+  "parent_actual_source_verification": "b02f3805f4218cdd673bbe998429588014774f2bebaacf1af16c73e69941c4d2",
+  "protocol_checksum": "8b80faa1c6baab0978439e169c7634f9d699ab7e987f285eed735d9348870077",
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_verification_checksum": "33bedd625b41b323a5905071e0d0a41292a47974248cf84f9e8f14fc088aef9b",
+  "status": "VERIFIED_AVAILABLE_NUMERIC_SOURCES",
+  "test_numeric_reads": 0
+}

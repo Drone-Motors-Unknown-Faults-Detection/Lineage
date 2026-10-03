@@ -1,0 +1,13 @@
+2026-10-03 21:02:51 | INFO    | Logger initialized: fault_type_context_rejection_source_verify
+2026-10-03 21:02:51 | INFO    | log_file=logs\fault_type_context_rejection_source_verify\2026-10-03-21-02-51.log
+2026-10-03 21:02:51 | INFO    | output_dir=output\fault_type_context_rejection_source_verify\2026-10-03-21-02-51
+2026-10-03 21:03:12 | INFO    | 重建known cal fixed-fold0 seed0
+2026-10-03 21:03:22 | INFO    | 重建known cal fixed-fold0 seed1
+2026-10-03 21:03:32 | INFO    | 重建known cal fixed-fold0 seed2
+2026-10-03 21:03:42 | INFO    | 重建known cal fixed-fold1 seed0
+2026-10-03 21:03:52 | INFO    | 重建known cal fixed-fold1 seed1
+2026-10-03 21:04:02 | INFO    | 重建known cal fixed-fold1 seed2
+2026-10-03 21:04:13 | INFO    | 重建known cal fixed-fold2 seed0
+2026-10-03 21:04:23 | INFO    | 重建known cal fixed-fold2 seed1
+2026-10-03 21:04:33 | INFO    | 重建known cal fixed-fold2 seed2
+2026-10-03 21:04:33 | INFO    | source-verify 完成，輸出 output\fault_type_context_rejection_source_verify\2026-10-03-21-02-51

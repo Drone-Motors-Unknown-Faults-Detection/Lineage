@@ -1,0 +1,13 @@
+2026-10-03 20:59:06 | INFO    | Logger initialized: fault_type_context_rejection_calibrate
+2026-10-03 20:59:06 | INFO    | log_file=logs\fault_type_context_rejection_calibrate\2026-10-03-20-59-06.log
+2026-10-03 20:59:06 | INFO    | output_dir=output\fault_type_context_rejection_calibrate\2026-10-03-20-59-06
+2026-10-03 20:59:40 | INFO    | 固定calibration fixed-fold0_seed0，36拒絕器，0新classifier fit
+2026-10-03 21:00:02 | INFO    | 固定calibration fixed-fold0_seed1，36拒絕器，0新classifier fit
+2026-10-03 21:00:24 | INFO    | 固定calibration fixed-fold0_seed2，36拒絕器，0新classifier fit
+2026-10-03 21:00:46 | INFO    | 固定calibration fixed-fold1_seed0，36拒絕器，0新classifier fit
+2026-10-03 21:01:08 | INFO    | 固定calibration fixed-fold1_seed1，36拒絕器，0新classifier fit
+2026-10-03 21:01:30 | INFO    | 固定calibration fixed-fold1_seed2，36拒絕器，0新classifier fit
+2026-10-03 21:01:52 | INFO    | 固定calibration fixed-fold2_seed0，36拒絕器，0新classifier fit
+2026-10-03 21:02:14 | INFO    | 固定calibration fixed-fold2_seed1，36拒絕器，0新classifier fit
+2026-10-03 21:02:35 | INFO    | 固定calibration fixed-fold2_seed2，36拒絕器，0新classifier fit
+2026-10-03 21:02:36 | INFO    | calibrate 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_rejection_v1\workspace\output\fault_type_context_rejection_calibrate\2026-10-03-20-59-06
