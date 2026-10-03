@@ -43,3 +43,5 @@ fit／source提交 `64b6f88d4bd9bad5da605a1a923e787bd10870b4` 並確認remote相
 新增exp16核心後完整回歸於 `output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-15-38-06` 與 `output/fault_type_continuous_acceptance_py3_14_6/2026-10-03-15-38-18` 完成：兩環境各464 passed／0 failed，pip check及37個既有CLI通過。exp16 runner初稿的Python3.10 starred subscript SyntaxError在新批正式lock前修正為tuple拼接；不是exp15問題。之後exp16各20項小測試／smoke成功，但這8項新增來源測試尚未包含在464舊快照；後續全套另存。
 
 結果詳見final_findings／result_index。282個無關tracked刪除仍保留，沒有raw data或大型joblib入Git；研究目標尚未達成，下一批exp16接續，不能將本批工程交付寫成可靠模型完成。
+
+結果提交 `975c05a8285e0c64126942eeba0dbab49e523994` 已push且remote相同。普通git add受到既有 `*.gz` ignore限制，三個compact GZIP未入該commit；備份與本機檔案完整保留。本次明確 `git add -f -- <三個已驗證compact檔案>` 補交，僅399,076／399,072／232,051 bytes的evaluation／verification／summary，不改.gitignore、不帶大型predictions／models或正式資料。
