@@ -17,3 +17,13 @@
 本次fit命令：`.venv310/Scripts/python.exe -m experiments.fault_type_discriminative_prototypes fit --protocol output/fault_type_discriminative_prototypes_lock/2026-10-03-15-23-33/protocol.json --data-root data/formal_local`。協定提交／push後才執行；未知不fit／cal。完成fit與source-verify後另提交，再執行evaluate／verify／report。artifact主位置D槽版本目錄，C槽標準output索引保留。
 
 接續時再次唯讀核對GitHub main的AGENT.md，blob仍為 `8f35a6bf14fa4747d63add1d6bc852b65bcb4784`，與先前已讀版本一致。普通sandbox網路查詢被拒，改用正常核准流程成功；沒有繞過權限。正式資料、sealed程式與282個無關刪除未改。
+
+## 正式擬合
+
+協定與雙環境驗收提交 `8927918784ef70cbac6a458b06aaeddb5f2a39ce`，push及remote SHA一致後才fit。正式fit於15:28:56開始、15:31:11完成；9個fold／seed bundles、108個原型模型全完成，其中36個static、72個最佳化版本。GLVQ／anchor均收斂，最大198次迭代；不代表全域最小值或跨motor可靠。
+
+compact lock `output/fault_type_discriminative_prototypes_fit/2026-10-03-15-28-56/locked_study.json`，SHA `dfa6c1fd6dc1101c29abe11d148cbc317ceab91938cdb151c99807dbcb86f78b`。大型models／實際fit audits位於 `D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/discriminative_prototypes_v1/workspace/output/fault_type_discriminative_prototypes_fit/2026-10-03-15-28-56/`；C標準output的artifact_location.json保存每份SHA。正式資料source_before與source_after完全相等。
+
+15:31:33執行source-verify，用相同protocol、上述lock與data/formal_local重建全部模型；此時尚未評估本批outer test。待來源重建成功封存與提交後才evaluate。
+
+15:33:10來源重建完成：9個bundles全部108模型的實際原型、初始化、train checksum、損失／梯度、optimizer狀態、train predictions及known calibration threshold一致，test_numeric_reads=0。`output/fault_type_discriminative_prototypes_source_verify/2026-10-03-15-31-33/source_verified.json`保存重建證據，status=VERIFIED_AVAILABLE_NUMERIC_SOURCES；只驗證可取得數值來源，raw/session仍UNKNOWN。

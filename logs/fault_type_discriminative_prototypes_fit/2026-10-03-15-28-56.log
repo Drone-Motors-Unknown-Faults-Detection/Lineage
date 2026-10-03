@@ -1,0 +1,13 @@
+2026-10-03 15:28:56 | INFO    | Logger initialized: fault_type_discriminative_prototypes_fit
+2026-10-03 15:28:56 | INFO    | log_file=logs\fault_type_discriminative_prototypes_fit\2026-10-03-15-28-56.log
+2026-10-03 15:28:56 | INFO    | output_dir=output\fault_type_discriminative_prototypes_fit\2026-10-03-15-28-56
+2026-10-03 15:29:23 | INFO    | 封存 fixed-fold0_seed0，成功12原型模型
+2026-10-03 15:29:37 | INFO    | 封存 fixed-fold0_seed1，成功12原型模型
+2026-10-03 15:29:50 | INFO    | 封存 fixed-fold0_seed2，成功12原型模型
+2026-10-03 15:30:04 | INFO    | 封存 fixed-fold1_seed0，成功12原型模型
+2026-10-03 15:30:17 | INFO    | 封存 fixed-fold1_seed1，成功12原型模型
+2026-10-03 15:30:31 | INFO    | 封存 fixed-fold1_seed2，成功12原型模型
+2026-10-03 15:30:44 | INFO    | 封存 fixed-fold2_seed0，成功12原型模型
+2026-10-03 15:30:58 | INFO    | 封存 fixed-fold2_seed1，成功12原型模型
+2026-10-03 15:31:11 | INFO    | 封存 fixed-fold2_seed2，成功12原型模型
+2026-10-03 15:31:11 | INFO    | fit 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\discriminative_prototypes_v1\workspace\output\fault_type_discriminative_prototypes_fit\2026-10-03-15-28-56

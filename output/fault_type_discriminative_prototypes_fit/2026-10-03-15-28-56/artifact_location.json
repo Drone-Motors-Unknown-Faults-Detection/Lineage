@@ -1,0 +1,12 @@
+{
+  "compact_artifact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\locked_study.json",
+    "sha256": "82af444fa9dcad983e1ef734469453d39894cbb121763035e7c7fcaae173a19f"
+  },
+  "contains_raw_data": false,
+  "primary_artifact": {
+    "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\locked_study.json",
+    "sha256": "82af444fa9dcad983e1ef734469453d39894cbb121763035e7c7fcaae173a19f"
+  },
+  "primary_output": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\discriminative_prototypes_v1\\workspace\\output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56"
+}
