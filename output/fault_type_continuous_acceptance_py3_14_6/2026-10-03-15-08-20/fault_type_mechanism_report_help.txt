@@ -1,0 +1,12 @@
+usage: python.exe -m experiments.fault_type_mechanism_report
+       [-h] --protocol PROTOCOL --evaluation EVALUATION
+       --verification VERIFICATION --baseline-metrics BASELINE_METRICS
+
+Paired metric-v2 report, without selector or deployment winner.
+
+options:
+  -h, --help            show this help message and exit
+  --protocol PROTOCOL
+  --evaluation EVALUATION
+  --verification VERIFICATION
+  --baseline-metrics BASELINE_METRICS

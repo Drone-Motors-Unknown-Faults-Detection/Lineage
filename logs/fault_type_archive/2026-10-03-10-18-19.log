@@ -1,0 +1,7 @@
+2026-10-03 10:18:19 | INFO    | Logger initialized: fault_type_archive
+2026-10-03 10:18:19 | INFO    | log_file=logs\fault_type_archive\2026-10-03-10-18-19.log
+2026-10-03 10:18:19 | INFO    | output_dir=output\fault_type_archive\2026-10-03-10-18-19
+2026-10-03 10:18:20 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\metric_classification_v1\fault_type_2026-10-03-10-06-11.zip bytes=19289 files=2
+2026-10-03 10:18:20 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\metric_classification_v1\fault_type_2026-10-03-10-12-38.zip bytes=2897459 files=2
+2026-10-03 10:18:20 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\metric_classification_v1\fault_type_2026-10-03-10-06-22.zip bytes=73919 files=40
+2026-10-03 10:18:20 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\metric_classification_v1\fault_type_2026-10-03-10-10-56.zip bytes=74995 files=40

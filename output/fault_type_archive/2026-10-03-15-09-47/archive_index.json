@@ -1,0 +1,15 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-03\\metric_classification_v1\\fault_type_2026-10-03-15-07-58.zip",
+      "sha256": "29e998a4e1597a813aaf03ae3830e8dc518d405a7517064066a76f92090dc3b9",
+      "bytes": 889577,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_failure_diagnosis\\2026-10-03-15-07-58",
+      "source_files": 1,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

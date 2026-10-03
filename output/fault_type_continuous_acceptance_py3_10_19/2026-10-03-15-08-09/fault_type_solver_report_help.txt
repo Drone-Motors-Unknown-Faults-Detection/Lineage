@@ -1,0 +1,12 @@
+usage: fault_type_solver_report.py [-h] --protocol PROTOCOL --diagnosis
+                                   DIAGNOSIS --q-lock Q_LOCK --data-root
+                                   DATA_ROOT
+
+Recompute train-only objectives and compare sealed original Q weights.
+
+options:
+  -h, --help            show this help message and exit
+  --protocol PROTOCOL
+  --diagnosis DIAGNOSIS
+  --q-lock Q_LOCK
+  --data-root DATA_ROOT

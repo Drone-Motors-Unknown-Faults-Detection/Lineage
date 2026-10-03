@@ -1,0 +1,9 @@
+usage: fault_type_mechanism_diagnosis.py [-h] [--index INDEX] --data-root
+                                         DATA_ROOT
+
+Read-only mechanism diagnosis of existing sealed C17 models and exposed data.
+
+options:
+  -h, --help            show this help message and exit
+  --index INDEX
+  --data-root DATA_ROOT

@@ -1,0 +1,4 @@
+2026-10-03 15:10:24 | INFO    | Logger initialized: fault_type_fixed_delivery
+2026-10-03 15:10:24 | INFO    | log_file=logs\fault_type_fixed_delivery\2026-10-03-15-10-24.log
+2026-10-03 15:10:24 | INFO    | output_dir=output\fault_type_fixed_delivery\2026-10-03-15-10-24
+2026-10-03 15:10:25 | INFO    | 11 archives / 413 members SHA/CRC PASS; no deletion

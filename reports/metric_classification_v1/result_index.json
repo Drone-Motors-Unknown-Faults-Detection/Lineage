@@ -1,0 +1,26 @@
+{
+  "version": "exp13_metric_classification_v1_delivery",
+  "date": "2026-10-03",
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "protocol": "output/fault_type_metric_classification_lock/2026-10-03-09-42-02/protocol.json",
+  "evaluation": "output/fault_type_metric_classification_evaluate/2026-10-03-09-55-17/evaluation.json.gz",
+  "verification": "output/fault_type_metric_classification_verify/2026-10-03-10-06-11/verified.json.gz",
+  "summary": "output/fault_type_metric_classification_report/2026-10-03-10-12-38/summary.json.gz",
+  "diagnosis": "output/fault_type_metric_failure_diagnosis/2026-10-03-15-07-58/diagnosis.json",
+  "archive_indices": ["output/fault_type_archive/2026-10-03-10-12-10/archive_index.json", "output/fault_type_archive/2026-10-03-10-18-19/archive_index.json", "output/fault_type_archive/2026-10-03-15-09-47/archive_index.json"],
+  "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-15-10-24/member_verification.json",
+  "backup_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/metric_classification_v1",
+  "completed_runs": 108,
+  "failed_model_runs": 0,
+  "prediction_records": 1040760,
+  "unique_samples": 28910,
+  "main_screen": "FAILED_ALL_12_METHODS",
+  "independent_final_validation": "INCOMPLETE",
+  "raw_acquisition_independence": "UNKNOWN",
+  "production_replacement": false,
+  "tests": {"Python3.10.19":437,"Python3.14.6":437},
+  "historical_diagnostic_exclusions": [
+    {"path":"output/fault_type_metric_failure_diagnosis/2026-10-03-10-21-25", "status":"INVALID_IMPLEMENTATION_BINDING"},
+    {"path":"output/fault_type_metric_failure_diagnosis/2026-10-03-10-23-33", "status":"FAILED_SCHEMA_BINDING_CHECK"}
+  ]
+}

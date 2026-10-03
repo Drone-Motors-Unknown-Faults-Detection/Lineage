@@ -1,0 +1,4 @@
+2026-10-03 15:09:47 | INFO    | Logger initialized: fault_type_archive
+2026-10-03 15:09:47 | INFO    | log_file=logs\fault_type_archive\2026-10-03-15-09-47.log
+2026-10-03 15:09:47 | INFO    | output_dir=output\fault_type_archive\2026-10-03-15-09-47
+2026-10-03 15:09:47 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\metric_classification_v1\fault_type_2026-10-03-15-07-58.zip bytes=889577 files=1

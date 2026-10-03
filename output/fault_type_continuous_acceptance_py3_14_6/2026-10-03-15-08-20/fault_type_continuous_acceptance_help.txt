@@ -1,0 +1,6 @@
+usage: python.exe -m experiments.fault_type_continuous_acceptance [-h]
+
+Native full tests/pip/CLI evidence; production regression retained.
+
+options:
+  -h, --help  show this help message and exit

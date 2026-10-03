@@ -1,0 +1,8 @@
+2026-10-03 09:55:17 | INFO    | Logger initialized: fault_type_metric_classification_evaluate
+2026-10-03 09:55:17 | INFO    | log_file=logs\fault_type_metric_classification_evaluate\2026-10-03-09-55-17.log
+2026-10-03 09:55:17 | INFO    | output_dir=output\fault_type_metric_classification_evaluate\2026-10-03-09-55-17
+2026-10-03 09:56:21 | INFO    | 評估 fixed-fold0 seed0 十二方法
+2026-10-03 09:56:52 | INFO    | 評估 fixed-fold0 seed1 十二方法
+2026-10-03 09:57:23 | INFO    | 評估 fixed-fold0 seed2 十二方法
+2026-10-03 09:57:58 | INFO    | 評估 fixed-fold1 seed0 十二方法
+2026-10-03 09:58:32 | INFO    | 評估 fixed-fold1 seed1 十二方法

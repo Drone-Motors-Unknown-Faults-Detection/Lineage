@@ -1,0 +1,55 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-03\\metric_classification_v1\\fault_type_2026-10-03-09-42-02.zip",
+      "sha256": "14235aa63599cf77ebb34c7ef6b823d921a4cbdb0047dd853d29814ec25337c4",
+      "bytes": 9996,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_lock\\2026-10-03-09-42-02",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-03\\metric_classification_v1\\fault_type_2026-10-03-09-43-55.zip",
+      "sha256": "ba4b7d8b973307b0efac171f0ddd45b8f3e77220f9121373d3a109a4d34fa182",
+      "bytes": 197574026,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_fit\\2026-10-03-09-43-55",
+      "source_files": 28,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-03\\metric_classification_v1\\fault_type_2026-10-03-09-55-17.zip",
+      "sha256": "bdd51cd38986dee12a64a08a27ccea37125e460df32e5cc17ad072b773926509",
+      "bytes": 106040653,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_classification_evaluate\\2026-10-03-09-55-17",
+      "source_files": 218,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-03\\metric_classification_v1\\fault_type_2026-10-03-09-48-46.zip",
+      "sha256": "71039fd206c9df5d1628d61b3a476aa166b3ad56f0f7a19a411ce588349d1cfc",
+      "bytes": 8278,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metric_source_verification\\2026-10-03-09-48-46",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-03\\metric_classification_v1\\fault_type_2026-10-03-09-50-03.zip",
+      "sha256": "3ee5b15191c43d066e2eed59281abd1cd19736d6be2543fc5159ccdcd218cbc0",
+      "bytes": 73919,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_acceptance_py3_10_19\\2026-10-03-09-50-03",
+      "source_files": 40,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-03\\metric_classification_v1\\fault_type_2026-10-03-09-50-16.zip",
+      "sha256": "5395cfbc05f6b367352582dc70caedc068a421643be1b2c1465a81f3c75df3b8",
+      "bytes": 74995,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_continuous_acceptance_py3_14_6\\2026-10-03-09-50-16",
+      "source_files": 40,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

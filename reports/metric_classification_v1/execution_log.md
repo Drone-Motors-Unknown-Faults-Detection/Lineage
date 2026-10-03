@@ -38,3 +38,15 @@
 已將兩份先前工程smoke的未tracked `fit/evaluate/verify` 六個子目錄移到 `D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/relocated_engineering_smoke/`，按原timestamp分目錄。每個目標預先確認在明確D槽範圍、不存在、不含tracked檔；逐檔移動前後SHA相同。共11+631+2+11+631+2=1,288檔，可由新位置或既有完整ZIP恢復。原tracked smoke_index保留；沒有移動正式資料或本輪依賴。這是可恢復的移動，不是刪除；既有歷史索引的source path以原封存位置保留，新對照在此記錄。
 
 以同protocol／lock及 `--resume output/fault_type_metric_classification_evaluate/2026-10-03-09-55-17` 續跑，108／108完成、0模型失敗，1,040,760筆輸出、28,910個unique samples。新evaluation SHA `f7b055a5f3081d0c0718fa52d0705c0edd29528f2cbc5cdfb9617101a41cb60a`；90CSV前後指紋相同。verify於 `output/fault_type_metric_classification_verify/2026-10-03-10-06-11` 重推全部保存輸出與truth mutation；尚待完成、report及備份。不以checkpoint重推算新增獨立試驗。
+
+## 15:11驗收檢查點
+
+verify已完成108格、全部逐筆精確相符，SHA `66b5dce1ce08d3d0dd778faac7b13ab3893e5097372c46ae1d275ec65cd084d5`。report `output/fault_type_metric_classification_report/2026-10-03-10-12-38/summary.json.gz` 封存12方法、每motor／RPM／class／seed、完整分母final fault F1與安全契約；12方法main_screen全部FAILED。數字見final_findings，不將工程測試通過稱為研究通過。
+
+新增事後診斷手冊先於程式。第一次診斷 `2026-10-03-10-21-25` 在程式載入後又修改來源檔，故不採其程式綁定證據；保留產物，不列VERIFIED。第二次 `2026-10-03-10-23-33` 拒絕於verified binding，退出1：原verifier的runs是run_id／rows／reinference flags精簡schema，新增檢查誤要求與完整評估runs字典相等。修正為唯一ID、逐run筆數、成功flags、資料來源及unique samples核對；每個評估checkpoint仍驗seal、逐樣本SHA與IDs。另加入執行前後程式SHA相同保護，未放寬原模型／來源guard，未改任何參數或正式推論。
+
+修正後 `output/fault_type_metric_failure_diagnosis/2026-10-03-15-07-58/diagnosis.json` 完成432組分布與18組Q01/Q03對照；對照全部逐筆EXACT，diagnosis SHA `3e172400df4c2172c53a262707a808595a6a6d741396a9e97040486579acd05d`。五項診斷測試兩環境各通過。T1 seed0 unknown分數最大值：E09=.771471、E10=.615236、E11=.996801、E12=.712990；固定門檻1，全數未拒絕。這支持校準位置與排序分開分析；沒有依T1掃門檻。
+
+新增診斷後完整回歸：`.venv310/Scripts/python.exe -m experiments.fault_type_continuous_acceptance`，Python3.10.19共437項通過；`venv/Scripts/python.exe`同入口，Python3.14.6亦437通過。兩者pip check及原37 CLI均PASS。摘要為 `output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-15-08-09/environment.json` 與 `output/fault_type_continuous_acceptance_py3_14_6/2026-10-03-15-08-20/environment.json`；先前432／417摘要保留。
+
+備份新增有效診斷後為11 ZIP／413來源成員；`output/fault_type_fixed_delivery/2026-10-03-15-10-24/member_verification.json` 全檔SHA、逐成員SHA／CRC均PASS。D槽路徑 `D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/metric_classification_v1`，不是離站備份。首次診斷無效／第二次失敗log保留，正式資料與282無關刪除均不stage。本階段提交hash於下一階段紀錄，避免自引用commit造成循環。
