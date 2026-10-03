@@ -17,3 +17,7 @@
 完整命令：兩環境各執行`-m experiments.fault_type_continuous_acceptance`。`output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-15-48-08/environment.json`及`...py3_14_6/2026-10-03-15-48-19/environment.json`實際各472項通過、0失敗，status=PASS；pip check與既有37個CLI皆exit0。exp16 help/smoke另行執行，不灌入37的計數。
 
 此時僅完成工程驗收，108格尚未fit/evaluate。先提交runner與手冊，再生成新protocol並提交推送，之後才正式擬合。正式105／LW／k-NN factory／PolarMap及282筆既有tracked deletions均未改。
+
+runner與472項驗收提交`45411e2c46aa78bbeb26e35036fd4e17b307a2d4`，push成功且remote SHA一致。15:54再次唯讀核對main AGENT blob為`8f35a6bf14fa4747d63add1d6bc852b65bcb4784`，與前次已完整讀取版本相同。沒有建立issue／PR或向其他對話傳訊息。
+
+事前lock命令見手冊，實際輸出`output/fault_type_smooth_l1_lock/2026-10-03-15-53-46/protocol.json`；鎖定程式HEAD為45411e2。方法固定12、fold3、seed0/1/2，共108格；selection空、歷史曝光不清除。協定推送後才開始fit，沒有先看本批test成績。

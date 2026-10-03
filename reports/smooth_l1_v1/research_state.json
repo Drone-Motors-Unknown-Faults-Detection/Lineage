@@ -1,0 +1,16 @@
+{
+  "current_stage": "protocol_locked_before_fit",
+  "batch_id": "exp16_smooth_l1_v1",
+  "protocol_id": "output/fault_type_smooth_l1_lock/2026-10-03-15-53-46/protocol.json",
+  "active_source_sha": "45411e2c46aa78bbeb26e35036fd4e17b307a2d4",
+  "runtime": ".venv310/Scripts/python.exe; Python 3.10.19; sklearn 1.7.2",
+  "data_paths": ["data/formal_local", "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/smooth_l1_v1/workspace/output"],
+  "last_completed_cell": null,
+  "pending_cells": 108,
+  "hypotheses": ["平滑L1取代平方距離是否改善配置分類", "固定幾何與原型更新的交互作用"],
+  "blocked_candidates": ["fresh final test缺獨立未曝光來源；維持INCOMPLETE"],
+  "next_commands": [".venv310/Scripts/python.exe -m experiments.fault_type_smooth_l1 fit --protocol output/fault_type_smooth_l1_lock/2026-10-03-15-53-46/protocol.json --data-root data/formal_local"],
+  "checkpoint": null,
+  "local_remote_verified_commit": "45411e2c46aa78bbeb26e35036fd4e17b307a2d4",
+  "research_status": "尚未找到通過完整可靠提升契約的方法；可執行方向繼續，缺來源保留UNKNOWN"
+}
