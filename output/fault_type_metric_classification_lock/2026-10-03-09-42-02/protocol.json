@@ -1,0 +1,251 @@
+{
+  "arms": [
+    {
+      "classifier": "identity_subset",
+      "detector": "C02/M",
+      "id": "E01"
+    },
+    {
+      "classifier": "metric_subset",
+      "detector": "C02/M",
+      "id": "E02"
+    },
+    {
+      "classifier": "identity_all",
+      "detector": "C02/M",
+      "id": "E03"
+    },
+    {
+      "classifier": "metric_all",
+      "detector": "C02/M",
+      "id": "E04"
+    },
+    {
+      "classifier": "identity_mean",
+      "detector": "C02/M",
+      "id": "E05"
+    },
+    {
+      "classifier": "metric_mean",
+      "detector": "C02/M",
+      "id": "E06"
+    },
+    {
+      "classifier": "metric_multi",
+      "detector": "C02/M",
+      "id": "E07"
+    },
+    {
+      "classifier": "metric_energy",
+      "detector": "C02/M",
+      "id": "E08"
+    },
+    {
+      "classifier": "identity_all",
+      "detector": "identity/mahalanobis",
+      "id": "E09"
+    },
+    {
+      "classifier": "metric_all",
+      "detector": "metric/mahalanobis",
+      "id": "E10"
+    },
+    {
+      "classifier": "identity_all",
+      "detector": "identity/knn",
+      "id": "E11"
+    },
+    {
+      "classifier": "metric_all",
+      "detector": "metric/knn",
+      "id": "E12"
+    }
+  ],
+  "budget": {
+    "artifact_estimate_bytes": 300000000,
+    "planned_runs": 108,
+    "reserve_C_bytes": 1000000000,
+    "seconds_per_action": 1800
+  },
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "exposure_ledger_checksum": "4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc",
+  "factory_parameters": {
+    "confidence": 0.95,
+    "knn_neighbors": 5,
+    "mahalanobis_method": "ledoit_wolf"
+  },
+  "folds": [
+    {
+      "fold_id": "fixed-fold0",
+      "motor_roles": {
+        "calibration": "T2",
+        "test": "T3",
+        "train": "T1"
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "motor_roles": {
+        "calibration": "T3",
+        "test": "T1",
+        "train": "T2"
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "motor_roles": {
+        "calibration": "T1",
+        "test": "T2",
+        "train": "T3"
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "implementations": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\core\\fault_type_metric_classifiers.py",
+      "sha256": "ca782223113fb0cffbcc5d79e00f0c171c405f7391320d4cc58a2e6bd4f25c58"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\experiments\\fault_type_metric_classification.py",
+      "sha256": "16c4e5502966b31eb2e6f60c7e2a16532aee4074737fc52a757085e9642505ee"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\docs\\experiments\\exp13_metric_classification.md",
+      "sha256": "9c8ea33dcc37221d0dad41814a88599fe095876c88430658a91b4d7ffc28169b"
+    }
+  ],
+  "known_labels": [
+    "8screws",
+    "1screws",
+    "2screws",
+    "3_14screws",
+    "3screws",
+    "4screws"
+  ],
+  "manifest_checksums": [
+    "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+    "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+    "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95"
+  ],
+  "parameters": {
+    "energy": {
+      "aggregation": "original_sums",
+      "batch_size": 128,
+      "k": 3,
+      "margin": 1,
+      "mu": 0.5,
+      "targets": "original_harmonic69"
+    },
+    "neighbors": {
+      "algorithm": "brute",
+      "n_jobs": 1,
+      "n_neighbors": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    "prototypes": {
+      "algorithm": "lloyd",
+      "centers": [
+        1,
+        3
+      ],
+      "max_iter": 300,
+      "n_init": 10,
+      "tol": 0.0001
+    }
+  },
+  "parent_protocol_checksum": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+  "protocol_checksum": "9ca9be082013349680b642e509be761d84ca150a947429251bd1c50f86ed1a8b",
+  "reliability_contract": {
+    "coverage_drop_each_motor_rpm_vs_D01": 0.1,
+    "fault_accuracy_gain_over_C24": 0.02,
+    "fault_f1_gain_over_C17": 0.02,
+    "healthy_total_alarm_max_each_motor_rpm": 0.1,
+    "known_correct_after_rejection_drop_vs_D01": 0.01,
+    "minimum_independent_test_groups_per_class": 2,
+    "minimum_known_subsets_for_B": 3,
+    "minimum_motor_class_recall": 0.1,
+    "minimum_motor_unknown_recall": 0.1,
+    "motor_fault_f1_drop_tolerance": 0.01,
+    "primary": "motor macro known-fault F1 and fault accuracy; all seeds",
+    "rationale": "2pp material gain; 1pp motor F1/postreject guard; prior temporary 10% full health cap; 10% class/unknown floor avoids accepting existing zero-recall collapse. Research values, not deployment requirements.",
+    "scope": "ADAPTIVE_EXPLORATORY; A/B cannot imply independent C",
+    "threshold_search": false,
+    "unknown_recall_drop_tolerance_each_motor_rpm_vs_C02": 0.02,
+    "version": "continuous_reliability_v1"
+  },
+  "rpms": [
+    "6000rpm",
+    "8000rpm",
+    "11000rpm"
+  ],
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "shared_validation_calibration": false,
+  "solver_diagnosis": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\diagnosis.json",
+    "sha256": "95aa15858a63350ca854c301e9b5cb2f93fefc5b04af138d7d8f8873c2a9affa"
+  },
+  "solver_protocol": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_lock\\2026-10-02-23-46-28\\protocol.json",
+    "sha256": "c453d6d322c59ea0a70ca69a0adad1626385dafa60b7bd6bab84889ea859734c"
+  },
+  "source_head": "a83e4f8f62f6d45b505931a270b0b2447c6b215d",
+  "unknown_labels": [
+    "4_146screws",
+    "5screws",
+    "6screws",
+    "7screws"
+  ],
+  "validation_sample_ids": [],
+  "version": "exp13_metric_classification_v1",
+  "weight_artifacts": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold0_seed0.json",
+      "sha256": "29d2461c1adca84f0cdedecf660c1cc329289a2bc76c7d92259209b6a51b6f3d"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold0_seed1.json",
+      "sha256": "d8e6864f7619b2dbe0c0a80e547e6f60cdc9d940e10985e2ede77a9fb740c5a4"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold0_seed2.json",
+      "sha256": "807bfabbd0737ab2bedfaea0f401522958107d84cb76ce5714d1056fe922ffe2"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold1_seed0.json",
+      "sha256": "b375e773402e8247f568acc665e551809511b1cdcd102744bd03c4fdfe8d25b2"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold1_seed1.json",
+      "sha256": "94ca7e917b28375f627aa9f19248058b6419618b30698ddfda8147bd80e34051"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold1_seed2.json",
+      "sha256": "34d7fb954fd333a8dba87b70afb98ff387fda8519f89577340ad557918d5c067"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold2_seed0.json",
+      "sha256": "ebe51205e64e163ba6ec7bf4f800548e17477f0fed05dfbece7c0f837fce18d2"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold2_seed1.json",
+      "sha256": "61bf6998a07b71531fb6c6d69dcead493bd07286d57dc2522ee48ac56482657c"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_solver_fit\\2026-10-02-23-51-52\\hard600_fixed-fold2_seed2.json",
+      "sha256": "c70efb17452ec83f33dd976e3e76164cfea57591ccfcfd152dbbd5da61e4c7bc"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+2026-10-03 09:38:24 | INFO    | Logger initialized: fault_type_metric_classification_smoke
+2026-10-03 09:38:24 | INFO    | log_file=logs\fault_type_metric_classification_smoke\2026-10-03-09-38-24.log
+2026-10-03 09:38:24 | INFO    | output_dir=output\fault_type_metric_classification_smoke\2026-10-03-09-38-24
+2026-10-03 09:38:24 | INFO    | smoke 完成，輸出 output\fault_type_metric_classification_smoke\2026-10-03-09-38-24

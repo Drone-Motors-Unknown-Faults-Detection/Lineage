@@ -1,0 +1,4 @@
+2026-10-03 09:42:02 | INFO    | Logger initialized: fault_type_metric_classification_lock
+2026-10-03 09:42:02 | INFO    | log_file=logs\fault_type_metric_classification_lock\2026-10-03-09-42-02.log
+2026-10-03 09:42:02 | INFO    | output_dir=output\fault_type_metric_classification_lock\2026-10-03-09-42-02
+2026-10-03 09:42:41 | INFO    | lock 完成，輸出 output\fault_type_metric_classification_lock\2026-10-03-09-42-02
