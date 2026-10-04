@@ -13,3 +13,5 @@ core階段commit `9f11645d0f0f16aabf3f2148e2359426640c8f24`已push／remote一�
 J完整結果交付commit `e471393f0e77054c98e18f8853244a4466affef4`已push／remote一致。2026-10-04 16:41:57／16:41:58開始本批完整acceptance，結果待完成後記錄。新kernel／runner未formal lock／fit，沒有用J外部成績挑alpha或門檻。
 
 完整acceptance完成：Python3.10.19於16:43:56、Python3.14.6於16:44:07，各553 tests通過、0失敗，unittest本體63.772／64.776秒。各39命令exit0，包含pip check、unittest及37既有CLI；新exp19 help／smoke另外核對。工程驗收產物`output/fault_type_continuous_acceptance_py3_10_19/2026-10-04-16-41-57`及`...py3_14_6/2026-10-04-16-41-58`。先提交推送runner／回歸證據，再lock協定；此時formal K fit／outer均0。
+
+工程commit `72c7d61b4b248043e2de83469f6b30e631f1cfe9`已push／remote一致。16:46:00–16:46:22執行手冊lock，protocol `output/fault_type_axis_kernel_lock/2026-10-04-16-46-00/protocol.json`；semantic checksum `2dab6753530bc6736b88881b57e61d9488253ceb9a459276b3fcd0d8b0f00abf`。固定81評估／27分類器、alpha0／0.5／1、gamma1/66、完整SVC／shared scaler參數、三motor角色／seeds及原CONTRACT；各implementation SHA封存，不修改sealed程式或手冊。協定commit／push後才formal fit。

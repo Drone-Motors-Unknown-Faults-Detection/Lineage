@@ -1,7 +1,9 @@
 {
-  "current_stage": "33小測試與兩native各553完整回歸通過；待runner提交推送後lock",
+  "current_stage": "工程已push／remote一致，81評估協定封存；待協定提交後formal fit",
   "batch_id": "exp19_axis_invariant_kernel_v1",
-  "source_head": "e471393f0e77054c98e18f8853244a4466affef4",
+  "source_head": "72c7d61b4b248043e2de83469f6b30e631f1cfe9",
+  "protocol_id": "output/fault_type_axis_kernel_lock/2026-10-04-16-46-00/protocol.json",
+  "protocol_checksum": "2dab6753530bc6736b88881b57e61d9488253ceb9a459276b3fcd0d8b0f00abf",
   "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
   "planned_evaluations": 81,
   "completed_evaluations": 0,

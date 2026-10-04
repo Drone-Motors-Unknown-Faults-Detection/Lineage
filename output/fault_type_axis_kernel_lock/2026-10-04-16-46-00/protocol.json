@@ -1,0 +1,252 @@
+{
+  "arms": [
+    {
+      "detector": "C02/M",
+      "id": "K01",
+      "model": "alpha0"
+    },
+    {
+      "detector": "C02/kNN",
+      "id": "K02",
+      "model": "alpha0"
+    },
+    {
+      "detector": "centroid",
+      "id": "K03",
+      "model": "alpha0"
+    },
+    {
+      "detector": "C02/M",
+      "id": "K04",
+      "model": "alpha1"
+    },
+    {
+      "detector": "C02/kNN",
+      "id": "K05",
+      "model": "alpha1"
+    },
+    {
+      "detector": "centroid",
+      "id": "K06",
+      "model": "alpha1"
+    },
+    {
+      "detector": "C02/M",
+      "id": "K07",
+      "model": "alpha2"
+    },
+    {
+      "detector": "C02/kNN",
+      "id": "K08",
+      "model": "alpha2"
+    },
+    {
+      "detector": "centroid",
+      "id": "K09",
+      "model": "alpha2"
+    }
+  ],
+  "budget": {
+    "planned_runs": 81,
+    "reserve_C_bytes": 1000000000,
+    "seconds_per_action": 1800
+  },
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "exposure_ledger_checksum": "4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc",
+  "factory_parameters": {
+    "confidence": 0.95,
+    "knn_neighbors": 5,
+    "mahalanobis_method": "ledoit_wolf"
+  },
+  "folds": [
+    {
+      "fold_id": "fixed-fold0",
+      "motor_roles": {
+        "calibration": "T2",
+        "test": "T3",
+        "train": "T1"
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "motor_roles": {
+        "calibration": "T3",
+        "test": "T1",
+        "train": "T2"
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "motor_roles": {
+        "calibration": "T1",
+        "test": "T2",
+        "train": "T3"
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "implementations": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\core\\fault_type_axis_kernel.py",
+      "sha256": "5ad54ee19a01cebd923309def5b20bdb19f606fcb7626c144581f732700abe69"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\experiments\\fault_type_axis_kernel.py",
+      "sha256": "3a4ff6602d7e6ac72eaa8c32f96fda5341c8141573ad857152f42b65e7d36fe5"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\docs\\experiments\\exp19_axis_invariant_kernel.md",
+      "sha256": "752c4013c11abde2f76af39c42247ecd8865af169726ba5d53bb8c860b07a0cc"
+    }
+  ],
+  "known_labels": [
+    "8screws",
+    "1screws",
+    "2screws",
+    "3_14screws",
+    "3screws",
+    "4screws"
+  ],
+  "manifest_checksums": [
+    "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+    "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+    "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95"
+  ],
+  "parameters": {
+    "block_rows": 128,
+    "calibration_quantile": 0.95,
+    "centroid_negative_tolerance": 1e-10,
+    "classifier_parameters": {
+      "0": {
+        "C": 1.0,
+        "break_ties": false,
+        "cache_size": 200.0,
+        "class_weight": "balanced",
+        "coef0": 0.0,
+        "decision_function_shape": "ovr",
+        "degree": 3,
+        "gamma": 0.015151515151515152,
+        "kernel": "precomputed",
+        "max_iter": 100000,
+        "probability": false,
+        "random_state": 0,
+        "shrinking": true,
+        "tol": 0.001,
+        "verbose": false
+      },
+      "1": {
+        "C": 1.0,
+        "break_ties": false,
+        "cache_size": 200.0,
+        "class_weight": "balanced",
+        "coef0": 0.0,
+        "decision_function_shape": "ovr",
+        "degree": 3,
+        "gamma": 0.015151515151515152,
+        "kernel": "precomputed",
+        "max_iter": 100000,
+        "probability": false,
+        "random_state": 1,
+        "shrinking": true,
+        "tol": 0.001,
+        "verbose": false
+      },
+      "2": {
+        "C": 1.0,
+        "break_ties": false,
+        "cache_size": 200.0,
+        "class_weight": "balanced",
+        "coef0": 0.0,
+        "decision_function_shape": "ovr",
+        "degree": 3,
+        "gamma": 0.015151515151515152,
+        "kernel": "precomputed",
+        "max_iter": 100000,
+        "probability": false,
+        "random_state": 2,
+        "shrinking": true,
+        "tol": 0.001,
+        "verbose": false
+      }
+    },
+    "gamma": 0.015151515151515152,
+    "models": [
+      {
+        "alpha": 0.0,
+        "id": "alpha0"
+      },
+      {
+        "alpha": 0.5,
+        "id": "alpha1"
+      },
+      {
+        "alpha": 1.0,
+        "id": "alpha2"
+      }
+    ],
+    "quantile_method": "linear",
+    "scaler": {
+      "copy": true,
+      "quantile_range": [
+        25.0,
+        75.0
+      ],
+      "unit_variance": false,
+      "with_centering": true,
+      "with_scaling": true
+    },
+    "score": "min squared RKHS class-centroid distance",
+    "strict_reject": "score > threshold"
+  },
+  "parent_protocol": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_discriminative_prototypes_lock\\2026-10-03-15-23-33\\protocol.json",
+    "sha256": "d5abd3f023c44ee4b8465c64adb313134f4b655bffe40866aa6ee9adf7cf5537"
+  },
+  "parent_protocol_checksum": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+  "protocol_checksum": "2dab6753530bc6736b88881b57e61d9488253ceb9a459276b3fcd0d8b0f00abf",
+  "reliability_contract": {
+    "coverage_drop_each_motor_rpm_vs_D01": 0.1,
+    "fault_accuracy_gain_over_C24": 0.02,
+    "fault_f1_gain_over_C17": 0.02,
+    "healthy_total_alarm_max_each_motor_rpm": 0.1,
+    "known_correct_after_rejection_drop_vs_D01": 0.01,
+    "minimum_independent_test_groups_per_class": 2,
+    "minimum_known_subsets_for_B": 3,
+    "minimum_motor_class_recall": 0.1,
+    "minimum_motor_unknown_recall": 0.1,
+    "motor_fault_f1_drop_tolerance": 0.01,
+    "primary": "motor macro known-fault F1 and fault accuracy; all seeds",
+    "rationale": "2pp material gain; 1pp motor F1/postreject guard; prior temporary 10% full health cap; 10% class/unknown floor avoids accepting existing zero-recall collapse. Research values, not deployment requirements.",
+    "scope": "ADAPTIVE_EXPLORATORY; A/B cannot imply independent C",
+    "threshold_search": false,
+    "unknown_recall_drop_tolerance_each_motor_rpm_vs_C02": 0.02,
+    "version": "continuous_reliability_v1"
+  },
+  "rpms": [
+    "6000rpm",
+    "8000rpm",
+    "11000rpm"
+  ],
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "shared_validation_calibration": false,
+  "source_head": "72c7d61b4b248043e2de83469f6b30e631f1cfe9",
+  "unknown_labels": [
+    "4_146screws",
+    "5screws",
+    "6screws",
+    "7screws"
+  ],
+  "validation_sample_ids": [],
+  "version": "exp19_axis_invariant_kernel_v1"
+}

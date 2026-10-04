@@ -1,0 +1,4 @@
+2026-10-04 16:46:00 | INFO    | Logger initialized: fault_type_axis_kernel_lock
+2026-10-04 16:46:00 | INFO    | log_file=logs\fault_type_axis_kernel_lock\2026-10-04-16-46-00.log
+2026-10-04 16:46:00 | INFO    | output_dir=output\fault_type_axis_kernel_lock\2026-10-04-16-46-00
+2026-10-04 16:46:22 | INFO    | lock 完成，輸出 output\fault_type_axis_kernel_lock\2026-10-04-16-46-00
