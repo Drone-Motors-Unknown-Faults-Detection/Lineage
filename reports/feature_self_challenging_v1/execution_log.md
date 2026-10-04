@@ -15,3 +15,7 @@
 22:00:48／22:01:09完整acceptance完成；Python3.10.19／3.14.6各618 passed、0 failed，unittest本體75.999／76.890秒；各39命令exit0，pip check／37既有CLI與完整tests均PASS。本批help及smoke另行驗證，未混進既有39命令數。早期mechanical replacement誤把protocol version留下exp20，封存前改為exp21，沒有生成錯版formal lock。來源／score／policy程式與兩native驗收證據先提交push，再lock精確216條件。新fit預計72fixed-horizon＋18ERM warm，不把重推算新fit。
 
 工程commit `9e086915f1f305ab0b0c982809ea0f4b907e0ee8`已push／remote一致；22:01:49–22:02:11 lock完成，`output/fault_type_self_challenging_lock/2026-10-04-22-01-49/protocol.json`，semantic checksum `e3099ce35f8c8d4bf71ccb71c314d475b56e98fba1c211c202643100fc596f4d`。封存五份implementation來源SHA、固定參數／216方法格、原CONTRACT及歷史曝露。此後不修改sealed core／runner／manual／warm依賴；先提交push本協定再fit data/formal_local。當前formal M fit與outer均0。
+
+協定commit `5d4893b7ac89d4570cc764703952354841058592`已push／remote一致。22:03:00–22:09:16 formal fit完成：9 bundle、72 fine固定200step全部完成、18 ERM warm完成；兩類計數分開，不把source proof重建算新增研究fit。C compact lock `output/fault_type_self_challenging_fit/2026-10-04-22-03-00/locked_study.json`，semantic checksum `dd4049ee4f4112a806baa5027310552431273575acd396eea8a1b9a5b650a7b1`。前後90 CSV／fingerprint c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d相同。22:09:26啟動actual known source refit，尚未讀本批outer結果。
+
+接續本回合完整讀AGENT.md，remote main blob仍8f35a6bf14fa4747d63add1d6bc852b65bcb4784；HEAD／branch／remote／282既有deletions不變。PDF技能唯讀核對Group DRO原論文與固定作者碼，新增獨立source card；尚無該支線manual／程式／protocol／formal runs，不修改sealed M。新文件用繁體中文，author英文術語作輔助。

@@ -39,7 +39,7 @@
     {"id":"J","planned_evaluations":324,"completed_evaluations":324,"incomplete_evaluations":0,"prediction_records":3122280,"unique_samples":28910,"index":"reports/context_rejection_v1/result_index.json","reliability":"36方法全部FAILED"},
     {"id":"K","planned_evaluations":81,"completed_evaluations":81,"incomplete_evaluations":0,"prediction_records":780570,"unique_samples":28910,"index":"reports/axis_invariant_kernel_v1/result_index.json","reliability":"9方法全部FAILED"},
     {"id":"L","planned_evaluations":162,"completed_evaluations":162,"incomplete_evaluations":0,"prediction_records":1561140,"unique_samples":28910,"index":"reports/rpm_risk_extrapolation_v1/result_index.json","reliability":"18方法全部FAILED"},
-    {"id":"M","planned_evaluations":216,"completed_evaluations":0,"status":"先行手冊與工程已push，216協定封存，formal fit及outer尚未開始","source":"docs/experiments/exp21_feature_self_challenging.md"}
+    {"id":"M","planned_evaluations":216,"completed_evaluations":0,"completed_fixed_horizon_fits":72,"completed_warm_fits":18,"status":"正式fit完成，actual known source proof執行中，outer尚未開始","source":"docs/experiments/exp21_feature_self_challenging.md"}
   ],
   "repeated_predictions_are_not_independent_data": true,
   "keep_all_failures": true

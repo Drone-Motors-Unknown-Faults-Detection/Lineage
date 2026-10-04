@@ -1,0 +1,13 @@
+2026-10-04 22:03:00 | INFO    | Logger initialized: fault_type_self_challenging_fit
+2026-10-04 22:03:00 | INFO    | log_file=logs\fault_type_self_challenging_fit\2026-10-04-22-03-00.log
+2026-10-04 22:03:00 | INFO    | output_dir=output\fault_type_self_challenging_fit\2026-10-04-22-03-00
+2026-10-04 22:03:53 | INFO    | 封存 fixed-fold0_seed0，成功8固定自挑戰分類器
+2026-10-04 22:04:34 | INFO    | 封存 fixed-fold0_seed1，成功8固定自挑戰分類器
+2026-10-04 22:05:14 | INFO    | 封存 fixed-fold0_seed2，成功8固定自挑戰分類器
+2026-10-04 22:05:54 | INFO    | 封存 fixed-fold1_seed0，成功8固定自挑戰分類器
+2026-10-04 22:06:35 | INFO    | 封存 fixed-fold1_seed1，成功8固定自挑戰分類器
+2026-10-04 22:07:15 | INFO    | 封存 fixed-fold1_seed2，成功8固定自挑戰分類器
+2026-10-04 22:07:54 | INFO    | 封存 fixed-fold2_seed0，成功8固定自挑戰分類器
+2026-10-04 22:08:33 | INFO    | 封存 fixed-fold2_seed1，成功8固定自挑戰分類器
+2026-10-04 22:09:12 | INFO    | 封存 fixed-fold2_seed2，成功8固定自挑戰分類器
+2026-10-04 22:09:16 | INFO    | fit 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\feature_self_challenging_v1\workspace\output\fault_type_self_challenging_fit\2026-10-04-22-03-00

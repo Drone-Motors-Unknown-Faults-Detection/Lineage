@@ -1,19 +1,25 @@
 {
   "batch_id": "exp21_feature_self_challenging_v1",
-  "current_stage": "216協定已封存，提交push後正式72fine＋18warm fit，outer仍0",
+  "current_stage": "72fine＋18warm已完成，actual known source proof執行中；outer仍0",
   "manual_commit": "a210b7a41dd50a28b2168663722a043fcb9be1c2",
   "core_commit": "bc8eed323cdd9adaf95cf283e06b04e81c1de59e",
   "engineering_commit": "9e086915f1f305ab0b0c982809ea0f4b907e0ee8",
+  "protocol_commit": "5d4893b7ac89d4570cc764703952354841058592",
   "protocol": "output/fault_type_self_challenging_lock/2026-10-04-22-01-49/protocol.json",
   "protocol_checksum": "e3099ce35f8c8d4bf71ccb71c314d475b56e98fba1c211c202643100fc596f4d",
   "planned_evaluations": 216,
   "completed_evaluations": 0,
   "planned_fixed_horizon_fits": 72,
   "planned_warm_fits": 18,
+  "completed_fixed_horizon_fits": 72,
+  "completed_warm_fits": 18,
+  "lock": "output/fault_type_self_challenging_fit/2026-10-04-22-03-00/locked_study.json",
+  "locked_checksum": "dd4049ee4f4112a806baa5027310552431273575acd396eea8a1b9a5b650a7b1",
+  "active_source_verification": "output/fault_type_self_challenging_source_verify/2026-10-04-22-09-26",
   "acceptance": {"Python3.10.19": 618, "Python3.14.6": 618},
   "selection_policy": "none",
   "fresh_final_test": false,
   "production_replacement": false,
   "reliable_improvement_reached": false,
-  "next": "工程commit/push；lock --parent-protocol output/fault_type_discriminative_prototypes_lock/2026-10-03-15-23-33/protocol.json；協定commit/push後fit data/formal_local"
+  "next": "actual known source proof完成後提交push lock／proof，再evaluate／verify／report216條件；不得修改sealed sources"
 }

@@ -1,0 +1,12 @@
+{
+  "compact_artifact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_fit\\2026-10-04-22-03-00\\locked_study.json",
+    "sha256": "b42c9c2058d7eaa424c770cfd0aaa7197d1b2c6108780355532c3b4a20c4a5c3"
+  },
+  "contains_raw_data": false,
+  "primary_artifact": {
+    "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\feature_self_challenging_v1\\workspace\\output\\fault_type_self_challenging_fit\\2026-10-04-22-03-00\\locked_study.json",
+    "sha256": "b42c9c2058d7eaa424c770cfd0aaa7197d1b2c6108780355532c3b4a20c4a5c3"
+  },
+  "primary_output": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\feature_self_challenging_v1\\workspace\\output\\fault_type_self_challenging_fit\\2026-10-04-22-03-00"
+}
