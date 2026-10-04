@@ -209,7 +209,7 @@ healthy8screws及known 1screws／2screws／3_14screws／3screws／4screws；unkn
 | 項目 | 判定與證據 |
 |---|---|
 | 事前固定、空selector、known-only fit／cal | VERIFIED；protocol與actual-source proof在outer前commit／push |
-| 27 classifier實际收斂／來源重建 | VERIFIED；0test numeric reads，實際重fit scaler／SVC／factory／threshold |
+| 27 classifier實際收斂／來源重建 | VERIFIED；0test numeric reads，實際重fit scaler／SVC／factory／threshold |
 | 81評估及逐筆重推 | VERIFIED；780,570records／28,910unique、378配對IDs／truth／SHA完全相同 |
 | 固定可靠性A | FAILED；9／9失敗，類別collapse與健康工況誤報超標 |
 | R2多subset／ablation／stress B | INCOMPLETE；本批只有既有N=5一組，未再跑126組或N-sweep |

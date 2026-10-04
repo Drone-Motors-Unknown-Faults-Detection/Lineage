@@ -1,0 +1,31 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-17-12-57.zip",
+      "sha256": "4e65acf56308de2c239aeee8b2cfbfa6f6b5f0817d201a05cc8d82477567fc59",
+      "bytes": 219937495,
+      "source_root": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\workspace\\output\\fault_type_risk_extrapolation_fit\\2026-10-04-17-12-57",
+      "source_files": 28,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-21-34-45.zip",
+      "sha256": "ff605085e31148e3ddf6057b0f28b326f3640eecc745b59c18f6bdb907054659",
+      "bytes": 160323328,
+      "source_root": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\workspace\\output\\fault_type_risk_extrapolation_evaluate\\2026-10-04-21-34-45",
+      "source_files": 326,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-21-36-48.zip",
+      "sha256": "d8d3e5ace92ec49301f258598ff994e0ef285c3c4f19002c5af8ecb36c198f32",
+      "bytes": 7994789,
+      "source_root": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\workspace\\output\\fault_type_risk_extrapolation_verify\\2026-10-04-21-36-48",
+      "source_files": 2,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

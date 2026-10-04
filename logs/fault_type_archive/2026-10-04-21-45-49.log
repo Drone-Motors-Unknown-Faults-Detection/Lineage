@@ -1,0 +1,6 @@
+2026-10-04 21:45:49 | INFO    | Logger initialized: fault_type_archive
+2026-10-04 21:45:49 | INFO    | log_file=logs\fault_type_archive\2026-10-04-21-45-49.log
+2026-10-04 21:45:49 | INFO    | output_dir=output\fault_type_archive\2026-10-04-21-45-49
+2026-10-04 21:45:50 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\rpm_risk_extrapolation_v1\archives\fault_type_2026-10-04-17-11-45.zip bytes=8326 files=1
+2026-10-04 21:45:50 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\rpm_risk_extrapolation_v1\archives\fault_type_2026-10-04-21-32-16.zip bytes=97409 files=1
+2026-10-04 21:45:50 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\rpm_risk_extrapolation_v1\archives\fault_type_2026-10-04-21-40-24.zip bytes=3975743 files=2

@@ -1,0 +1,74 @@
+{
+  "version": "exp20_rpm_risk_extrapolation_delivery_v1",
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "planned_evaluations": 162,
+  "completed_evaluations": 162,
+  "incomplete_evaluations": 0,
+  "new_classifier_fits": 54,
+  "shared_bundles": 9,
+  "prediction_records": 1561140,
+  "unique_samples": 28910,
+  "paired_comparisons": 756,
+  "reliability_main_screen": "18方法全部FAILED",
+  "fresh_final_test": false,
+  "production_replacement": false,
+  "compact_files": [
+    {
+      "path": "output/fault_type_risk_extrapolation_lock/2026-10-04-17-11-45/protocol.json",
+      "sha256": "2b52fc91a949241d37e57a4a31f896f683f5e38f15bc5f31cc5d38303743072c",
+      "bytes": 7552
+    },
+    {
+      "path": "output/fault_type_risk_extrapolation_fit/2026-10-04-17-12-57/locked_study.json",
+      "sha256": "36dd3014e4578a4c4f11d59b9f10900f0979f154b1d510088b90355785e5af21",
+      "bytes": 12018
+    },
+    {
+      "path": "output/fault_type_risk_extrapolation_source_verify/2026-10-04-21-32-16/source_verified.json",
+      "sha256": "b6d959499d40d091a8018f936dfd191698db47519a7f44addba7c64b0f36ec19",
+      "bytes": 96604
+    },
+    {
+      "path": "output/fault_type_risk_extrapolation_evaluate/2026-10-04-21-34-45/evaluation.json.gz",
+      "sha256": "d26ae9bbbc9144f1679bde7071f133947636fb31847f654ba99fd37dce69f5f0",
+      "bytes": 248334
+    },
+    {
+      "path": "output/fault_type_risk_extrapolation_verify/2026-10-04-21-36-48/verified.json.gz",
+      "sha256": "341f24039f5b2cfa3a65d1e2bd350d7a3bf10eaaea9784715978af05ae987c62",
+      "bytes": 248328
+    },
+    {
+      "path": "output/fault_type_risk_extrapolation_report/2026-10-04-21-40-24/summary.json.gz",
+      "sha256": "ed78e1ec756ea35d430f2f473971144e061351ee4ef989f8b12bf0b03044d209",
+      "bytes": 194413
+    }
+  ],
+  "semantic_seals": {
+    "protocol_checksum": "20757999cf3795589151c7ab8898746cf7f5539e8f78a9f4b0627293313d5987",
+    "locked_checksum": "83c100b725ec66f4be239318a13a2e4a90b9fbcc329cce73ce6004b63a6d0817",
+    "source_verification_checksum": "3f92a86e367159aaa0ffa58dd05d4daa21ad2da7aa4d1a1b6d2a42ac8fbf20d7",
+    "evaluation_checksum": "6a0e15b03bec4970ec2b828a33cfc64902c7ff01122fb90086c78adf10cab5b8",
+    "verification_checksum": "77c35bc29d66cbd3ef553099bcc52374991a0ef73ed50fb2950c7f5e15c31b0a",
+    "report_checksum": "2007258c995dc99d0f756787a8f9e766a6c6623274c875e1d89c9fc26a28d919"
+  },
+  "primary_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-04/rpm_risk_extrapolation_v1/workspace/output",
+  "archives": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-04/rpm_risk_extrapolation_v1/archives",
+  "archive_indices": [
+    "output/fault_type_risk_extrapolation_backup/2026-10-04-21-40-35/archive_index.json",
+    "output/fault_type_archive/2026-10-04-21-45-49/archive_index.json"
+  ],
+  "archive_verification": "output/fault_type_fixed_delivery/2026-10-04-21-46-01/member_verification.json",
+  "archive_count": 6,
+  "member_count": 360,
+  "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
+  "protocol_commit": "d81df1d9badeb44e551eda170323d1ab3fdc204e",
+  "source_commit": "32925fd46d8f47bef2b681e4495a392d6010c309",
+  "acceptance_before_L_fit": [
+    "output/fault_type_continuous_acceptance_py3_10_19/2026-10-04-17-08-09/environment.json",
+    "output/fault_type_continuous_acceptance_py3_14_6/2026-10-04-17-08-20/environment.json"
+  ],
+  "tests_before_L_fit_each": 582,
+  "no_cross_runtime_model_load": true
+}

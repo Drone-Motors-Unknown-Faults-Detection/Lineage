@@ -1,0 +1,69 @@
+{
+  "archive_count": 6,
+  "archives": [
+    {
+      "bytes": 219937495,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-17-12-57.zip",
+      "sha256": "4e65acf56308de2c239aeee8b2cfbfa6f6b5f0817d201a05cc8d82477567fc59",
+      "source_files": 28,
+      "source_root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\workspace\\output\\fault_type_risk_extrapolation_fit\\2026-10-04-17-12-57",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 160323328,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-21-34-45.zip",
+      "sha256": "ff605085e31148e3ddf6057b0f28b326f3640eecc745b59c18f6bdb907054659",
+      "source_files": 326,
+      "source_root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\workspace\\output\\fault_type_risk_extrapolation_evaluate\\2026-10-04-21-34-45",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 7994789,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-21-36-48.zip",
+      "sha256": "d8d3e5ace92ec49301f258598ff994e0ef285c3c4f19002c5af8ecb36c198f32",
+      "source_files": 2,
+      "source_root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\workspace\\output\\fault_type_risk_extrapolation_verify\\2026-10-04-21-36-48",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 8326,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-17-11-45.zip",
+      "sha256": "4ea047cf0572d5cf46ccf5a7a22ae69eec9dba331ced35c1d17a205c51e52af2",
+      "source_files": 1,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_risk_extrapolation_lock\\2026-10-04-17-11-45",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 97409,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-21-32-16.zip",
+      "sha256": "63a0b896e868da48d043feb67c6636079f973414c819cb2784f1751b58bcfd8f",
+      "source_files": 1,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_risk_extrapolation_source_verify\\2026-10-04-21-32-16",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 3975743,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-21-40-24.zip",
+      "sha256": "23561658699ae686cc8d9b4aa27dd3f12e90b5ffd28c007cf826f5f24c544754",
+      "source_files": 2,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_risk_extrapolation_report\\2026-10-04-21-40-24",
+      "whole_sha_status": "PASS"
+    }
+  ],
+  "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+  "source_files_removed": false,
+  "status": "PASS",
+  "verified_members": 360
+}

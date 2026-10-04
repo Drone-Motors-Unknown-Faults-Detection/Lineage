@@ -1,0 +1,4 @@
+2026-10-04 21:40:24 | INFO    | Logger initialized: fault_type_risk_extrapolation_report
+2026-10-04 21:40:24 | INFO    | log_file=logs\fault_type_risk_extrapolation_report\2026-10-04-21-40-24.log
+2026-10-04 21:40:24 | INFO    | output_dir=output\fault_type_risk_extrapolation_report\2026-10-04-21-40-24
+2026-10-04 21:43:03 | INFO    | report 完成，輸出 output\fault_type_risk_extrapolation_report\2026-10-04-21-40-24

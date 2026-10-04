@@ -1,13 +1,13 @@
 {
   "batch_id": "exp20_rpm_risk_extrapolation_v1",
-  "current_stage": "54optimizer與actual known來源重建完成，來源提交後162 outer",
+  "current_stage": "162評估／逐筆重推／756配對及6ZIP360members完成；18方法FAILED，交付提交待push",
   "engineering_commit": "fd5ebd11ad0f9839bde36fa2f32a5f3b0b19b704",
   "protocol": "output/fault_type_risk_extrapolation_lock/2026-10-04-17-11-45/protocol.json",
   "protocol_checksum": "20757999cf3795589151c7ab8898746cf7f5539e8f78a9f4b0627293313d5987",
   "manual_commit": "5bbc6d83451a62a40c1adca846c2a633d355d61f",
   "core_commit": "02574d0ceb6093e40cb1f118771232482c0af6dd",
   "planned_evaluations": 162,
-  "completed_evaluations": 0,
+  "completed_evaluations": 162,
   "planned_optimizer_fits": 54,
   "completed_optimizer_fits": 54,
   "source_verification": "output/fault_type_risk_extrapolation_source_verify/2026-10-04-21-32-16/source_verified.json",
@@ -17,5 +17,10 @@
   "production_replacement": false,
   "reliable_improvement_reached": false,
   "acceptance": {"Python3.10.19": 582,"Python3.14.6": 582},
-  "next": "工程commit／push、lock／commit／push、known fit與actual source／commit／push、162配對outer"
+  "evaluation": "output/fault_type_risk_extrapolation_evaluate/2026-10-04-21-34-45/evaluation.json.gz",
+  "verification": "output/fault_type_risk_extrapolation_verify/2026-10-04-21-36-48/verified.json.gz",
+  "report": "output/fault_type_risk_extrapolation_report/2026-10-04-21-40-24/summary.json.gz",
+  "delivery": "reports/rpm_risk_extrapolation_v1/result_index.json",
+  "main_screen": "18方法全部FAILED",
+  "next": "交付commit／push並核對remote；特徵自挑戰原文／作者程式與有限改編手冊，先commit再實作"
 }

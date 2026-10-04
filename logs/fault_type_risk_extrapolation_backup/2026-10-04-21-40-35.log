@@ -1,0 +1,7 @@
+2026-10-04 21:40:35 | INFO    | Logger initialized: fault_type_risk_extrapolation_backup
+2026-10-04 21:40:35 | INFO    | log_file=logs\fault_type_risk_extrapolation_backup\2026-10-04-21-40-35.log
+2026-10-04 21:40:35 | INFO    | output_dir=output\fault_type_risk_extrapolation_backup\2026-10-04-21-40-35
+2026-10-04 21:40:42 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\rpm_risk_extrapolation_v1\archives\fault_type_2026-10-04-17-12-57.zip bytes=219937495 files=28
+2026-10-04 21:40:44 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\rpm_risk_extrapolation_v1\archives\fault_type_2026-10-04-21-34-45.zip bytes=160323328 files=326
+2026-10-04 21:40:44 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\rpm_risk_extrapolation_v1\archives\fault_type_2026-10-04-21-36-48.zip bytes=7994789 files=2
+2026-10-04 21:40:45 | INFO    | backup 完成，輸出 output\fault_type_risk_extrapolation_backup\2026-10-04-21-40-35

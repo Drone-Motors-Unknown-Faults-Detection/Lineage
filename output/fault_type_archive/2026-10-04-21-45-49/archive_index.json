@@ -1,0 +1,31 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-17-11-45.zip",
+      "sha256": "4ea047cf0572d5cf46ccf5a7a22ae69eec9dba331ced35c1d17a205c51e52af2",
+      "bytes": 8326,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_risk_extrapolation_lock\\2026-10-04-17-11-45",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-21-32-16.zip",
+      "sha256": "63a0b896e868da48d043feb67c6636079f973414c819cb2784f1751b58bcfd8f",
+      "bytes": 97409,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_risk_extrapolation_source_verify\\2026-10-04-21-32-16",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\archives\\fault_type_2026-10-04-21-40-24.zip",
+      "sha256": "23561658699ae686cc8d9b4aa27dd3f12e90b5ffd28c007cf826f5f24c544754",
+      "bytes": 3975743,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_risk_extrapolation_report\\2026-10-04-21-40-24",
+      "source_files": 2,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

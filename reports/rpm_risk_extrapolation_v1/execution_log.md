@@ -17,3 +17,9 @@
 協定commit `d81df1d9badeb44e551eda170323d1ab3fdc204e`已push／remote一致。17:12:57–17:14:23完成54 planned／54 attempted／54 completed optimizer fit，0失敗；D槽primary與C槽compact lock物理SHA皆`36dd3014e4578a4c4f11d59b9f10900f0979f154b1d510088b90355785e5af21`，semantic locked checksum `83c100b725ec66f4be239318a13a2e4a90b9fbcc329cce73ce6004b63a6d0817`。
 
 本回合後續CLI timestamp為21:32:16–21:33:09，actual known來源重建完成54／54，來源seal `3f92a86e367159aaa0ffa58dd05d4daa21ad2da7aa4d1a1b6d2a42ac8fbf20d7`。獨立重建ERM／REx、representation、MSP calibration及父factory，test_numeric_reads=0，90CSV fingerprint前後皆`c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d`。來源proof `output/fault_type_risk_extrapolation_source_verify/2026-10-04-21-32-16/source_verified.json`；先提交push此證據再162 outer，沒有L test成績。17:14 fit完成至21:32 source開始的時間間隔不計模型訓練成本。
+
+來源commit `32925fd46d8f47bef2b681e4495a392d6010c309`已push／remote一致後，21:34:45–21:36:28實際完成162／162評估、0失敗，1,561,140records／28,910unique，本體89.885秒。21:36:48–21:38:08逐筆重推完成，本體66.893秒；test IDs／truth mutation／threshold／score／reject／重算metrics與來源SHA全核對。21:40:24–21:43:03完成report，22方法（18L＋4controls）、756配對，原CONTRACT 18L全FAILED。沒有用結果調beta、threshold或改正式預設。
+
+21:40:35 D槽primary三root及21:45:49 C槽protocol／source／report三root封存；21:46:01–21:46:02 fixed_delivery核對6ZIP360members，whole SHA／逐member SHA／CRC全PASS，未刪來源且不是offsite備份。sealed摘要／lock／來源及三compact gz精確SHA見result_index。本回合唯讀remote核對K交付 `f7973c792d027c583784710465e1fb4139e70d16`一致，main AGENT仍blob `8f35a6bf14fa4747d63add1d6bc852b65bcb4784`。新增L完整報告及索引，並更正上一份自己K報告一個誤用字為繁體「實際」，不改模型／sealed摘要／歷史結果。
+
+事後讀取摘要時，三次小型摘要提取腳本分別遇到dict/list格式、nested RPM key及輸出長度限制，均為唯讀失敗；改為按方法分批、只取必要欄位後成功，不改sealed模型或正式預測。一次錯誤將fit audit list當dict列印，輸出截斷；沒有新增研究run，後續source proof只取optimizer欄位。全seed與工況表由封存summary擷取後以apply_patch寫報告，不手改成績。
