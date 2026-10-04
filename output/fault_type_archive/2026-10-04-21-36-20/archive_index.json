@@ -1,0 +1,31 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\axis_invariant_kernel_v1\\archives\\fault_type_2026-10-04-16-46-00.zip",
+      "sha256": "47080b051f700caf3f00e8a1457700a596541c3d94a2edaac064f7b39266cb2b",
+      "bytes": 8019,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_axis_kernel_lock\\2026-10-04-16-46-00",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\axis_invariant_kernel_v1\\archives\\fault_type_2026-10-04-16-52-44.zip",
+      "sha256": "30ecb4dbdb402ded88791ddd4d87954f96f498864009ad4b54dd82f4232bbcbc",
+      "bytes": 16339,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_axis_kernel_source_verify\\2026-10-04-16-52-44",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\axis_invariant_kernel_v1\\archives\\fault_type_2026-10-04-21-32-27.zip",
+      "sha256": "b63c176a79a86e58ec98411791689340c322c0d466cc52dc09ca1e041a006913",
+      "bytes": 2315706,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_axis_kernel_report\\2026-10-04-21-32-27",
+      "source_files": 2,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

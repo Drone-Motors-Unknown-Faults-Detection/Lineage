@@ -1,0 +1,4 @@
+2026-10-04 21:32:27 | INFO    | Logger initialized: fault_type_axis_kernel_report
+2026-10-04 21:32:27 | INFO    | log_file=logs\fault_type_axis_kernel_report\2026-10-04-21-32-27.log
+2026-10-04 21:32:27 | INFO    | output_dir=output\fault_type_axis_kernel_report\2026-10-04-21-32-27
+2026-10-04 21:34:01 | INFO    | report 完成，輸出 output\fault_type_axis_kernel_report\2026-10-04-21-32-27

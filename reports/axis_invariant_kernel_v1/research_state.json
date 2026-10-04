@@ -1,12 +1,15 @@
 {
-  "current_stage": "27分類器fit及actual known來源重建完成；來源證據提交後執行81配對outer",
+  "current_stage": "81評估／逐筆重推／378配對及6ZIP198members驗證完成；9方法全部FAILED",
   "batch_id": "exp19_axis_invariant_kernel_v1",
   "source_head": "72c7d61b4b248043e2de83469f6b30e631f1cfe9",
   "protocol_id": "output/fault_type_axis_kernel_lock/2026-10-04-16-46-00/protocol.json",
   "protocol_checksum": "2dab6753530bc6736b88881b57e61d9488253ceb9a459276b3fcd0d8b0f00abf",
   "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
   "planned_evaluations": 81,
-  "completed_evaluations": 0,
+  "completed_evaluations": 81,
+  "prediction_records": 780570,
+  "unique_samples": 28910,
+  "result_index": "reports/axis_invariant_kernel_v1/result_index.json",
   "completed_classifier_fits": 27,
   "source_verification": "output/fault_type_axis_kernel_source_verify/2026-10-04-16-52-44/source_verified.json",
   "source_verification_checksum": "8e19b4cebac79443fe60f6345424fcc2f655af4bf8c9c39ed1b9282bb32324ee",
@@ -18,7 +21,7 @@
   "reliable_improvement_reached": false,
   "latest_delivered_results": "reports/context_rejection_v1/result_index.json",
   "latest_results_commit": "e471393f0e77054c98e18f8853244a4466affef4",
-  "next_commands": ["提交actual known來源證據，81配對outer／逐筆重算／報告／SHA與CRC備份"],
+  "next_commands": ["提交push本批交付，接續事前封存REx162評估；不降低CONTRACT"],
   "blocked_candidates": ["fresh與raw採集證據不足INCOMPLETE／UNKNOWN；不阻擋現有特徵探索"],
   "checkpoint": null
 }

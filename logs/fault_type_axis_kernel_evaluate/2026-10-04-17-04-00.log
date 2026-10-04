@@ -1,0 +1,13 @@
+2026-10-04 17:04:00 | INFO    | Logger initialized: fault_type_axis_kernel_evaluate
+2026-10-04 17:04:00 | INFO    | log_file=logs\fault_type_axis_kernel_evaluate\2026-10-04-17-04-00.log
+2026-10-04 17:04:00 | INFO    | output_dir=output\fault_type_axis_kernel_evaluate\2026-10-04-17-04-00
+2026-10-04 17:04:42 | INFO    | 配對 fixed-fold0 seed0，完成9方法
+2026-10-04 17:05:11 | INFO    | 配對 fixed-fold0 seed1，完成9方法
+2026-10-04 17:05:41 | INFO    | 配對 fixed-fold0 seed2，完成9方法
+2026-10-04 17:06:11 | INFO    | 配對 fixed-fold1 seed0，完成9方法
+2026-10-04 17:06:42 | INFO    | 配對 fixed-fold1 seed1，完成9方法
+2026-10-04 17:07:13 | INFO    | 配對 fixed-fold1 seed2，完成9方法
+2026-10-04 17:07:43 | INFO    | 配對 fixed-fold2 seed0，完成9方法
+2026-10-04 17:08:13 | INFO    | 配對 fixed-fold2 seed1，完成9方法
+2026-10-04 17:08:45 | INFO    | 配對 fixed-fold2 seed2，完成9方法
+2026-10-04 17:08:46 | INFO    | evaluate 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\axis_invariant_kernel_v1\workspace\output\fault_type_axis_kernel_evaluate\2026-10-04-17-04-00

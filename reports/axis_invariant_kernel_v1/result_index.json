@@ -1,0 +1,74 @@
+{
+  "version": "exp19_axis_invariant_kernel_delivery_v1",
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "planned_evaluations": 81,
+  "completed_evaluations": 81,
+  "incomplete_evaluations": 0,
+  "new_classifier_fits": 27,
+  "shared_bundles": 9,
+  "prediction_records": 780570,
+  "unique_samples": 28910,
+  "paired_comparisons": 378,
+  "reliability_main_screen": "9方法全部FAILED",
+  "fresh_final_test": false,
+  "production_replacement": false,
+  "compact_files": [
+    {
+      "path": "output/fault_type_axis_kernel_lock/2026-10-04-16-46-00/protocol.json",
+      "sha256": "9328c3f0147603b4c23f8a24111f5dc696dbb060ea8b36a2f477c101ac693ab1",
+      "bytes": 7252
+    },
+    {
+      "path": "output/fault_type_axis_kernel_fit/2026-10-04-16-47-14/locked_study.json",
+      "sha256": "f8d112cd6001370e57f786f3c87b339f8ae96eb3ac146f3b6de3cdead6392315",
+      "bytes": 11844
+    },
+    {
+      "path": "output/fault_type_axis_kernel_source_verify/2026-10-04-16-52-44/source_verified.json",
+      "sha256": "8c0faf1def1dff47f808e240f01018935e199ec5e06e632653b82150c7dcae61",
+      "bytes": 15541
+    },
+    {
+      "path": "output/fault_type_axis_kernel_evaluate/2026-10-04-17-04-00/evaluation.json.gz",
+      "sha256": "c2caf0dc78527a552ebe2079d46832f947a45a7d46bec830c756650a35f668d9",
+      "bytes": 111994
+    },
+    {
+      "path": "output/fault_type_axis_kernel_verify/2026-10-04-17-09-01/verified.json.gz",
+      "sha256": "c286282d3fa8157b293c02047752d41b6cb0f240ad826a736cbb6ff165e377ec",
+      "bytes": 111991
+    },
+    {
+      "path": "output/fault_type_axis_kernel_report/2026-10-04-21-32-27/summary.json.gz",
+      "sha256": "0a682b596eeca4387a4ea7684e621a9fa23bb410c3f8b31ba6c0b051606c08a5",
+      "bytes": 108596
+    }
+  ],
+  "semantic_seals": {
+    "protocol_checksum": "2dab6753530bc6736b88881b57e61d9488253ceb9a459276b3fcd0d8b0f00abf",
+    "locked_checksum": "21f30fb76c1bdcffcdb25a956afe7c8a46fe26497a0f2bab99b0d2f601636f49",
+    "source_verification_checksum": "8e19b4cebac79443fe60f6345424fcc2f655af4bf8c9c39ed1b9282bb32324ee",
+    "evaluation_checksum": "1d87b45bc16b64ca41580120fcf10354526bcbd962b69e51ea58817ad5e07d92",
+    "verification_checksum": "0653d9bcfe97268048a3e9f6c9cbb9ae1d46435c8eea89144d45c028ac62b408",
+    "report_checksum": "4ae0663e984090036e8318849d4f584fb0662ff02b13591ed3d5d454a2a70c87"
+  },
+  "primary_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-04/axis_invariant_kernel_v1/workspace/output",
+  "archives": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-04/axis_invariant_kernel_v1/archives",
+  "archive_indices": [
+    "output/fault_type_axis_kernel_backup/2026-10-04-21-33-45/archive_index.json",
+    "output/fault_type_archive/2026-10-04-21-36-20/archive_index.json"
+  ],
+  "archive_verification": "output/fault_type_fixed_delivery/2026-10-04-21-36-37/member_verification.json",
+  "archive_count": 6,
+  "member_count": 198,
+  "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
+  "protocol_commit": "060fe0e3807132c77151bb6fb0b5c62c9f5fc1ca",
+  "source_commit": "c5b1f88e0e2dbbe5adee8a1ad00344ab540972a5",
+  "acceptance_before_K_fit": [
+    "output/fault_type_continuous_acceptance_py3_10_19/2026-10-04-16-41-57/environment.json",
+    "output/fault_type_continuous_acceptance_py3_14_6/2026-10-04-16-41-58/environment.json"
+  ],
+  "tests_before_K_fit_each": 553,
+  "no_cross_runtime_model_load": true
+}

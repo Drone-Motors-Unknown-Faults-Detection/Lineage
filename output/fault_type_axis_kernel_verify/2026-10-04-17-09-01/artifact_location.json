@@ -1,0 +1,12 @@
+{
+  "compact_artifact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_axis_kernel_verify\\2026-10-04-17-09-01\\verified.json.gz",
+    "sha256": "c286282d3fa8157b293c02047752d41b6cb0f240ad826a736cbb6ff165e377ec"
+  },
+  "contains_raw_data": false,
+  "primary_artifact": {
+    "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\axis_invariant_kernel_v1\\workspace\\output\\fault_type_axis_kernel_verify\\2026-10-04-17-09-01\\verified.json.gz",
+    "sha256": "c286282d3fa8157b293c02047752d41b6cb0f240ad826a736cbb6ff165e377ec"
+  },
+  "primary_output": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\axis_invariant_kernel_v1\\workspace\\output\\fault_type_axis_kernel_verify\\2026-10-04-17-09-01"
+}
