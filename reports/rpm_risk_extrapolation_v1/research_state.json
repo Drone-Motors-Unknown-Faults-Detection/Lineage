@@ -1,6 +1,6 @@
 {
   "batch_id": "exp20_rpm_risk_extrapolation_v1",
-  "current_stage": "工程已push，162協定已封存；協定commit／push後formal fit",
+  "current_stage": "54optimizer與actual known來源重建完成，來源提交後162 outer",
   "engineering_commit": "fd5ebd11ad0f9839bde36fa2f32a5f3b0b19b704",
   "protocol": "output/fault_type_risk_extrapolation_lock/2026-10-04-17-11-45/protocol.json",
   "protocol_checksum": "20757999cf3795589151c7ab8898746cf7f5539e8f78a9f4b0627293313d5987",
@@ -9,7 +9,9 @@
   "planned_evaluations": 162,
   "completed_evaluations": 0,
   "planned_optimizer_fits": 54,
-  "completed_optimizer_fits": 0,
+  "completed_optimizer_fits": 54,
+  "source_verification": "output/fault_type_risk_extrapolation_source_verify/2026-10-04-21-32-16/source_verified.json",
+  "source_verification_checksum": "3f92a86e367159aaa0ffa58dd05d4daa21ad2da7aa4d1a1b6d2a42ac8fbf20d7",
   "selection_policy": "none",
   "fresh_final_test": false,
   "production_replacement": false,

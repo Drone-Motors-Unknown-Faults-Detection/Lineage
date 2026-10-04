@@ -1,0 +1,13 @@
+2026-10-04 21:32:16 | INFO    | Logger initialized: fault_type_risk_extrapolation_source_verify
+2026-10-04 21:32:16 | INFO    | log_file=logs\fault_type_risk_extrapolation_source_verify\2026-10-04-21-32-16.log
+2026-10-04 21:32:16 | INFO    | output_dir=output\fault_type_risk_extrapolation_source_verify\2026-10-04-21-32-16
+2026-10-04 21:32:32 | INFO    | 重建known RPM／ERM／REx／MSP及factory fixed-fold0 seed0
+2026-10-04 21:32:36 | INFO    | 重建known RPM／ERM／REx／MSP及factory fixed-fold0 seed1
+2026-10-04 21:32:41 | INFO    | 重建known RPM／ERM／REx／MSP及factory fixed-fold0 seed2
+2026-10-04 21:32:45 | INFO    | 重建known RPM／ERM／REx／MSP及factory fixed-fold1 seed0
+2026-10-04 21:32:49 | INFO    | 重建known RPM／ERM／REx／MSP及factory fixed-fold1 seed1
+2026-10-04 21:32:54 | INFO    | 重建known RPM／ERM／REx／MSP及factory fixed-fold1 seed2
+2026-10-04 21:32:59 | INFO    | 重建known RPM／ERM／REx／MSP及factory fixed-fold2 seed0
+2026-10-04 21:33:04 | INFO    | 重建known RPM／ERM／REx／MSP及factory fixed-fold2 seed1
+2026-10-04 21:33:09 | INFO    | 重建known RPM／ERM／REx／MSP及factory fixed-fold2 seed2
+2026-10-04 21:33:09 | INFO    | source-verify 完成，輸出 output\fault_type_risk_extrapolation_source_verify\2026-10-04-21-32-16

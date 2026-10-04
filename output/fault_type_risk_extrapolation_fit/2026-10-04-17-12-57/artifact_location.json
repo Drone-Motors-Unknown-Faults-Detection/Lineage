@@ -1,0 +1,12 @@
+{
+  "compact_artifact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_risk_extrapolation_fit\\2026-10-04-17-12-57\\locked_study.json",
+    "sha256": "36dd3014e4578a4c4f11d59b9f10900f0979f154b1d510088b90355785e5af21"
+  },
+  "contains_raw_data": false,
+  "primary_artifact": {
+    "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\workspace\\output\\fault_type_risk_extrapolation_fit\\2026-10-04-17-12-57\\locked_study.json",
+    "sha256": "36dd3014e4578a4c4f11d59b9f10900f0979f154b1d510088b90355785e5af21"
+  },
+  "primary_output": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-04\\rpm_risk_extrapolation_v1\\workspace\\output\\fault_type_risk_extrapolation_fit\\2026-10-04-17-12-57"
+}

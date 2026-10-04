@@ -1,0 +1,2189 @@
+{
+  "cells": [
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "a92895f20866bfdeeb2aefee57ba66cad5c0d4fdaa05b722f47c32c4351693c7",
+      "seed": 0,
+      "verified": {
+        "base75_beta0": {
+          "calibration_score_checksum": "b861f8d378604a84eff15ef48a75820df6fa1ec129e79b879efb0a11a4979121",
+          "classifier_checksum": "f3af9ea781f53593c61e3198ac6cf976e009e1f4e5d9b48da926bf0fce966e5b",
+          "node_checksum": "98b745161a7e49cb448dc23008cfb35f6d12c09c4de0acae1240826442b0ae26",
+          "optimizer": {
+            "evaluations": 97,
+            "gradient_inf": 6.892147249029665e-07,
+            "initialization": "zero",
+            "iterations": 90,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03379310466004775,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010423083614648552,
+            "risk_population_variance": 2.1190187785457667e-05,
+            "risks": [
+              0.004012888598188572,
+              0.01461171127818657,
+              0.012644650967570512
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "99068c9fee6f4c00812a4e808eb2e2e508a89e5ad77b38a16e5df4aaef642faa",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "2784b9738dd7e307cdbcc71467beaa210f1331b7a8296804416311f8b737849f",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.41924143055283886
+        },
+        "base75_beta1": {
+          "calibration_score_checksum": "c32a012ac0a77c3b941a9a435ea9e5545c96a28a4379ba294e209ae5fda8dcc9",
+          "classifier_checksum": "e806dfe2692f0df7295a01765eab9eee238ba2f8d45755c0ce93692f0963b3dd",
+          "node_checksum": "20b93488cc42ea3d0df0a9028981940f92f7ed3121e1ce0dd78c730d22a8a954",
+          "optimizer": {
+            "evaluations": 14,
+            "gradient_inf": 7.451917822967158e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 10,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03381403372683642,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010390384623651718,
+            "risk_population_variance": 2.0668348591131247e-05,
+            "risks": [
+              0.004056414951667857,
+              0.014512955160922384,
+              0.012601783758364911
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "99068c9fee6f4c00812a4e808eb2e2e508a89e5ad77b38a16e5df4aaef642faa",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "2784b9738dd7e307cdbcc71467beaa210f1331b7a8296804416311f8b737849f",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.41857800081436275
+        },
+        "base75_beta2": {
+          "calibration_score_checksum": "e07267567cf2c32365e9e1e72fd756dce76688d024792676e99a571bce789322",
+          "classifier_checksum": "66094d6c29c4b0e677ecc1a4a62a0481af3c0926435430a61e74d7b7175885cb",
+          "node_checksum": "ac3f00259444a0e5d051f40d700fecb0d511e5f14cf0628f30349974f730089f",
+          "optimizer": {
+            "evaluations": 36,
+            "gradient_inf": 7.003459683831365e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 30,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.033981137758465195,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010165880161186669,
+            "risk_population_variance": 1.667047866454567e-05,
+            "risks": [
+              0.004461617519822172,
+              0.013793742611557882,
+              0.012242280352179948
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "99068c9fee6f4c00812a4e808eb2e2e508a89e5ad77b38a16e5df4aaef642faa",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "2784b9738dd7e307cdbcc71467beaa210f1331b7a8296804416311f8b737849f",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.41303773387398585
+        },
+        "harmonic69_beta0": {
+          "calibration_score_checksum": "e74db18ffbc77a1dc44a8eb84be8b1b08e175cd7d90762d288b80a42ea820c11",
+          "classifier_checksum": "d4e89f9f21c383bffb4fd4804812d818d7931502e0d92f3d9661ee517a2f6e49",
+          "node_checksum": "70ca90aee5093953d54649fae284987ed64fbeee4a9d7536c64063e895138999",
+          "optimizer": {
+            "evaluations": 100,
+            "gradient_inf": 7.476557890737047e-07,
+            "initialization": "zero",
+            "iterations": 94,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.037005255312088745,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011254169926638413,
+            "risk_population_variance": 7.208526479599726e-06,
+            "risks": [
+              0.007606640165093777,
+              0.013991408779882954,
+              0.012164460834938513
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "10892d59e4fb95b67a9505ce05f29886b6e02f60ac8c2f5298c795ef67eda017",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "44a301342d124c15536227ca0b62aa14bfb98d75118da3b2e7f1bc81841bc928",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.48289870217579406
+        },
+        "harmonic69_beta1": {
+          "calibration_score_checksum": "e4a9efc5aa6707729479e7f3d164dc89c4d5fb4219b094524fd96167884fec48",
+          "classifier_checksum": "add999f2d0028b1fa2f94abc5ef6b947fbd08a5ea56cfaef783bdfce3083ce77",
+          "node_checksum": "010564194c81bf5ef2de190e9ad5ce4362090aff577de90847e7bb9d3c4bbbc6",
+          "optimizer": {
+            "evaluations": 11,
+            "gradient_inf": 7.730950519193257e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 8,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03701235156145429,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011243608668773317,
+            "risk_population_variance": 6.979700052524865e-06,
+            "risks": [
+              0.007651980859265848,
+              0.013930886166315189,
+              0.01214795898073891
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "10892d59e4fb95b67a9505ce05f29886b6e02f60ac8c2f5298c795ef67eda017",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "44a301342d124c15536227ca0b62aa14bfb98d75118da3b2e7f1bc81841bc928",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.48227992323634544
+        },
+        "harmonic69_beta2": {
+          "calibration_score_checksum": "bb2719e95a4295783a36f4039bebf781d0a3a7baa500ca18f525e49706bacd3b",
+          "classifier_checksum": "6c51024d08fd11b9678d78dfff3d62d0fd73afad8c69f2ec1bc8e7ed37281120",
+          "node_checksum": "4caea342704044f8cd30fdaf41efc1ffe59328c377b2075be5c5d66337607f86",
+          "optimizer": {
+            "evaluations": 26,
+            "gradient_inf": 8.716513766241602e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 22,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.037066949165786046,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011171567765668166,
+            "risk_population_variance": 5.269879359513868e-06,
+            "risks": [
+              0.008035975104817992,
+              0.01346796758097903,
+              0.012010760611207474
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "10892d59e4fb95b67a9505ce05f29886b6e02f60ac8c2f5298c795ef67eda017",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "44a301342d124c15536227ca0b62aa14bfb98d75118da3b2e7f1bc81841bc928",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.4819848630142719
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "c62f39b4cc24e08786b3ce316d0e5d0052016b46aa3c7d655e54823de47bbe9c",
+      "seed": 1,
+      "verified": {
+        "base75_beta0": {
+          "calibration_score_checksum": "b861f8d378604a84eff15ef48a75820df6fa1ec129e79b879efb0a11a4979121",
+          "classifier_checksum": "9cfac57933e8e95b14a47c0bc7b3d16d9513d0ae36a7f8593b2713639651b64a",
+          "node_checksum": "58756d24c7e4bcb3fe3bbe59f15a9d07d2d9f5441b19ef4c1e2e4a76eae3b877",
+          "optimizer": {
+            "evaluations": 97,
+            "gradient_inf": 6.892147249029665e-07,
+            "initialization": "zero",
+            "iterations": 90,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03379310466004775,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010423083614648552,
+            "risk_population_variance": 2.1190187785457667e-05,
+            "risks": [
+              0.004012888598188572,
+              0.01461171127818657,
+              0.012644650967570512
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "a2877168c52f617c422077121298319499a784ae25e7332a174b17dc630dea38",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "2784b9738dd7e307cdbcc71467beaa210f1331b7a8296804416311f8b737849f",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.41924143055283886
+        },
+        "base75_beta1": {
+          "calibration_score_checksum": "c32a012ac0a77c3b941a9a435ea9e5545c96a28a4379ba294e209ae5fda8dcc9",
+          "classifier_checksum": "69b6faaaf2004f0e9258285110004cd5d65b74aba5358d36e895dddb34a898d6",
+          "node_checksum": "22b415febbfd8c33c907c04361c4ee76a70a689de6723990f07077a719f67f45",
+          "optimizer": {
+            "evaluations": 14,
+            "gradient_inf": 7.451917822967158e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 10,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03381403372683642,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010390384623651718,
+            "risk_population_variance": 2.0668348591131247e-05,
+            "risks": [
+              0.004056414951667857,
+              0.014512955160922384,
+              0.012601783758364911
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "a2877168c52f617c422077121298319499a784ae25e7332a174b17dc630dea38",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "2784b9738dd7e307cdbcc71467beaa210f1331b7a8296804416311f8b737849f",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.41857800081436275
+        },
+        "base75_beta2": {
+          "calibration_score_checksum": "e07267567cf2c32365e9e1e72fd756dce76688d024792676e99a571bce789322",
+          "classifier_checksum": "bb7fe657103a46d32909330d8bc08dbf4e22412b9b9dde5c7e7bf776aebfb1c5",
+          "node_checksum": "0895c0bde768ae73c91468289663e9f2fe70370cc08df5f53988e02bfe30c506",
+          "optimizer": {
+            "evaluations": 36,
+            "gradient_inf": 7.003459683831365e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 30,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.033981137758465195,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010165880161186669,
+            "risk_population_variance": 1.667047866454567e-05,
+            "risks": [
+              0.004461617519822172,
+              0.013793742611557882,
+              0.012242280352179948
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "a2877168c52f617c422077121298319499a784ae25e7332a174b17dc630dea38",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "2784b9738dd7e307cdbcc71467beaa210f1331b7a8296804416311f8b737849f",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.41303773387398585
+        },
+        "harmonic69_beta0": {
+          "calibration_score_checksum": "e74db18ffbc77a1dc44a8eb84be8b1b08e175cd7d90762d288b80a42ea820c11",
+          "classifier_checksum": "399170948a5d1c431b1d5f2ca379d938e9730b4d7d4b7511135d09286619cdde",
+          "node_checksum": "4d09d0cf43e384ea819247b27cfde571697888d725c5ec80d9f31807c631fbd1",
+          "optimizer": {
+            "evaluations": 100,
+            "gradient_inf": 7.476557890737047e-07,
+            "initialization": "zero",
+            "iterations": 94,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.037005255312088745,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011254169926638413,
+            "risk_population_variance": 7.208526479599726e-06,
+            "risks": [
+              0.007606640165093777,
+              0.013991408779882954,
+              0.012164460834938513
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "f6a0e3be26fbadd22e7177055444d55b0d3d7be744cab4489fa37f9408e2fc42",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "44a301342d124c15536227ca0b62aa14bfb98d75118da3b2e7f1bc81841bc928",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.48289870217579406
+        },
+        "harmonic69_beta1": {
+          "calibration_score_checksum": "e4a9efc5aa6707729479e7f3d164dc89c4d5fb4219b094524fd96167884fec48",
+          "classifier_checksum": "b960b20464714b946f48d28d2cdd02ad05420eac2e490245578109bb01013c28",
+          "node_checksum": "57753787a01479b3c98dab33833f7e9ae47bc10276ec0c48d875b085130efb85",
+          "optimizer": {
+            "evaluations": 11,
+            "gradient_inf": 7.730950519193257e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 8,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03701235156145429,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011243608668773317,
+            "risk_population_variance": 6.979700052524865e-06,
+            "risks": [
+              0.007651980859265848,
+              0.013930886166315189,
+              0.01214795898073891
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "f6a0e3be26fbadd22e7177055444d55b0d3d7be744cab4489fa37f9408e2fc42",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "44a301342d124c15536227ca0b62aa14bfb98d75118da3b2e7f1bc81841bc928",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.48227992323634544
+        },
+        "harmonic69_beta2": {
+          "calibration_score_checksum": "bb2719e95a4295783a36f4039bebf781d0a3a7baa500ca18f525e49706bacd3b",
+          "classifier_checksum": "90cbea17ca0483cebbe5cc325157123bd07d4a0f3ccd51be2f622b31a3e99e09",
+          "node_checksum": "8170f5af3d9f9adb8b3abefc0c6a2eeb98cd69dae61c932bc2d4ed62af19ae79",
+          "optimizer": {
+            "evaluations": 26,
+            "gradient_inf": 8.716513766241602e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 22,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.037066949165786046,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011171567765668166,
+            "risk_population_variance": 5.269879359513868e-06,
+            "risks": [
+              0.008035975104817992,
+              0.01346796758097903,
+              0.012010760611207474
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "f6a0e3be26fbadd22e7177055444d55b0d3d7be744cab4489fa37f9408e2fc42",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "44a301342d124c15536227ca0b62aa14bfb98d75118da3b2e7f1bc81841bc928",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.4819848630142719
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "3a7570e10fefdeb3a2183ed3369dd1d05fa37cfc8de53be6a126afd6ad9746e8",
+      "seed": 2,
+      "verified": {
+        "base75_beta0": {
+          "calibration_score_checksum": "b861f8d378604a84eff15ef48a75820df6fa1ec129e79b879efb0a11a4979121",
+          "classifier_checksum": "be8f4c165f4ebb0ba4099054ba60db424ced54cc3292d34bec4e5188fc8f1e76",
+          "node_checksum": "5baa92a31fd89bcad88d0f88c5d8d843f7e40efe31443a0d10dd7684abac5d76",
+          "optimizer": {
+            "evaluations": 97,
+            "gradient_inf": 6.892147249029665e-07,
+            "initialization": "zero",
+            "iterations": 90,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03379310466004775,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010423083614648552,
+            "risk_population_variance": 2.1190187785457667e-05,
+            "risks": [
+              0.004012888598188572,
+              0.01461171127818657,
+              0.012644650967570512
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "71c3a6dfe6fa69deca3de0f8a98b4c28c74e6102e6df99164a903ca30ad4e3ae",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "2784b9738dd7e307cdbcc71467beaa210f1331b7a8296804416311f8b737849f",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.41924143055283886
+        },
+        "base75_beta1": {
+          "calibration_score_checksum": "c32a012ac0a77c3b941a9a435ea9e5545c96a28a4379ba294e209ae5fda8dcc9",
+          "classifier_checksum": "5eeb085c5f0199e742bd50770cba3ac233e59087630826ff1e9329ee7954b6c7",
+          "node_checksum": "597eef405a667d43b6b3badeda08363d4881896848df0ddbd4e83d8ec846f975",
+          "optimizer": {
+            "evaluations": 14,
+            "gradient_inf": 7.451917822967158e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 10,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03381403372683642,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010390384623651718,
+            "risk_population_variance": 2.0668348591131247e-05,
+            "risks": [
+              0.004056414951667857,
+              0.014512955160922384,
+              0.012601783758364911
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "71c3a6dfe6fa69deca3de0f8a98b4c28c74e6102e6df99164a903ca30ad4e3ae",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "2784b9738dd7e307cdbcc71467beaa210f1331b7a8296804416311f8b737849f",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.41857800081436275
+        },
+        "base75_beta2": {
+          "calibration_score_checksum": "e07267567cf2c32365e9e1e72fd756dce76688d024792676e99a571bce789322",
+          "classifier_checksum": "989b3a101b5ec2ca605af883113ec4d1e0c0f2bfec1ae50700b0f36923010f5e",
+          "node_checksum": "d9515107bbc4143824438f0d04d13085709ffeb9ab8227ce3360c9062719cc5f",
+          "optimizer": {
+            "evaluations": 36,
+            "gradient_inf": 7.003459683831365e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 30,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.033981137758465195,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010165880161186669,
+            "risk_population_variance": 1.667047866454567e-05,
+            "risks": [
+              0.004461617519822172,
+              0.013793742611557882,
+              0.012242280352179948
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "71c3a6dfe6fa69deca3de0f8a98b4c28c74e6102e6df99164a903ca30ad4e3ae",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "2784b9738dd7e307cdbcc71467beaa210f1331b7a8296804416311f8b737849f",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.41303773387398585
+        },
+        "harmonic69_beta0": {
+          "calibration_score_checksum": "e74db18ffbc77a1dc44a8eb84be8b1b08e175cd7d90762d288b80a42ea820c11",
+          "classifier_checksum": "2182716ecec266943bba4fe11e0c3094ddf6eaa992e3ea01d70038badc938140",
+          "node_checksum": "e97bd855c0c8cbd2f216dc84cb6de462bd985f3a85753c55fa298f5f13687057",
+          "optimizer": {
+            "evaluations": 100,
+            "gradient_inf": 7.476557890737047e-07,
+            "initialization": "zero",
+            "iterations": 94,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.037005255312088745,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011254169926638413,
+            "risk_population_variance": 7.208526479599726e-06,
+            "risks": [
+              0.007606640165093777,
+              0.013991408779882954,
+              0.012164460834938513
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "f4ffb2b5594a44d6c779a1b7de197cc8669b3f131d56f754496276dd48bd8ce9",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "44a301342d124c15536227ca0b62aa14bfb98d75118da3b2e7f1bc81841bc928",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.48289870217579406
+        },
+        "harmonic69_beta1": {
+          "calibration_score_checksum": "e4a9efc5aa6707729479e7f3d164dc89c4d5fb4219b094524fd96167884fec48",
+          "classifier_checksum": "f5b0f687923e105efb78afb20432633a4fa593056c1df5cf2747932253316d98",
+          "node_checksum": "765559186445cb9fe1392edfcaf76fa00e965b754864976638e45d0d551c3250",
+          "optimizer": {
+            "evaluations": 11,
+            "gradient_inf": 7.730950519193257e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 8,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03701235156145429,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011243608668773317,
+            "risk_population_variance": 6.979700052524865e-06,
+            "risks": [
+              0.007651980859265848,
+              0.013930886166315189,
+              0.01214795898073891
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "f4ffb2b5594a44d6c779a1b7de197cc8669b3f131d56f754496276dd48bd8ce9",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "44a301342d124c15536227ca0b62aa14bfb98d75118da3b2e7f1bc81841bc928",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.48227992323634544
+        },
+        "harmonic69_beta2": {
+          "calibration_score_checksum": "bb2719e95a4295783a36f4039bebf781d0a3a7baa500ca18f525e49706bacd3b",
+          "classifier_checksum": "14e91a1af9acff22c9fc37dd77bcac8e3eeb3e1a959314c54685a8a26f36b7e4",
+          "node_checksum": "50b6bf17f792bcc2aa4aab6a5958b2b86ca0762cabc208ffb1b85e2eef7bb37c",
+          "optimizer": {
+            "evaluations": 26,
+            "gradient_inf": 8.716513766241602e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 22,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.037066949165786046,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011171567765668166,
+            "risk_population_variance": 5.269879359513868e-06,
+            "risks": [
+              0.008035975104817992,
+              0.01346796758097903,
+              0.012010760611207474
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "f4ffb2b5594a44d6c779a1b7de197cc8669b3f131d56f754496276dd48bd8ce9",
+          "source": {
+            "environments": "95809cb7a2f31a262a7d5f7b4a8f8fb3bc8f439d487fe2ef6b9fddb6a4bebe2d",
+            "features": "44a301342d124c15536227ca0b62aa14bfb98d75118da3b2e7f1bc81841bc928",
+            "labels": "1e1c3d8ffa6cab5e29c476f0d16f4e02ec7b7e7c8058f210ae7e4d2cdec453bf"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.4819848630142719
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "95c59bbc98ee16843b5a3491030893c9aa3cf1f6cfd4c7f7ba19699e7bd935f8",
+      "seed": 0,
+      "verified": {
+        "base75_beta0": {
+          "calibration_score_checksum": "3c574ff1023839e28d3fa7473b5ef4f0065a2b8ec99ae7e5ed484b3594271a95",
+          "classifier_checksum": "dc7b9009db95adac1790897a0df95fb3d5633ed9d6a1719672de1e3f03c4206b",
+          "node_checksum": "5d03134d078e9f63f8e243749b26c5989f4106528a098810b5bb88eae56e284d",
+          "optimizer": {
+            "evaluations": 78,
+            "gradient_inf": 8.993193463989403e-07,
+            "initialization": "zero",
+            "iterations": 73,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03758857952613321,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01143769346977285,
+            "risk_population_variance": 4.110370295697274e-05,
+            "risks": [
+              0.006130019263019167,
+              0.020457612596001765,
+              0.007725448550297615
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "3452fc07b8279143215f387d40c5d094eb60ddefefad620e87bf7374c6814835",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "16d88c086dcba0ab74ef020e6f00b53183a2aef3d68db44111ec4c8bc43bbf2c",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5665231200018506
+        },
+        "base75_beta1": {
+          "calibration_score_checksum": "cbcfbf84977c745b7e34cc2e6286a4f5e6b82bddec83a488a7ea95a93fdb52c7",
+          "classifier_checksum": "eaeb2de6908dd3156aa42e42f8ff61b65e4cfb034f24597cfccbae2e23798954",
+          "node_checksum": "5f73b1395884c29c452909dc648cf515649e9a7a8085368653166f34b3cc270d",
+          "optimizer": {
+            "evaluations": 20,
+            "gradient_inf": 7.814414908886487e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 15,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03762865329303247,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011380839892281329,
+            "risk_population_variance": 3.9082585740904926e-05,
+            "risks": [
+              0.006191471081260417,
+              0.020174453005137913,
+              0.007776595590445655
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "3452fc07b8279143215f387d40c5d094eb60ddefefad620e87bf7374c6814835",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "16d88c086dcba0ab74ef020e6f00b53183a2aef3d68db44111ec4c8bc43bbf2c",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.566786445123911
+        },
+        "base75_beta2": {
+          "calibration_score_checksum": "50283f6ee2c7121325fa3c862df5b05e5212a21d0acae55bd3f09622a2ca52d1",
+          "classifier_checksum": "7259a59e6841883fed5e48cf640e2e0b9846241517f787c1011913af5d065cb5",
+          "node_checksum": "e36d48312ed17a20d9053ca3fd5efe018968db8c77c1068b32ab15be3205b015",
+          "optimizer": {
+            "evaluations": 40,
+            "gradient_inf": 9.765300073461968e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 35,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.037919177092658136,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011056607381920177,
+            "risk_population_variance": 2.688282701723096e-05,
+            "risks": [
+              0.006687030134866825,
+              0.018340840733784603,
+              0.0081419512771091
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "3452fc07b8279143215f387d40c5d094eb60ddefefad620e87bf7374c6814835",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "16d88c086dcba0ab74ef020e6f00b53183a2aef3d68db44111ec4c8bc43bbf2c",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5683347284600347
+        },
+        "harmonic69_beta0": {
+          "calibration_score_checksum": "bc7ccc09c2c91717497ac41ad322b6d1bd66cc0539d7e42b398727127d9bab97",
+          "classifier_checksum": "2115fba1c93a4d0c93cdad631e6343bc6fa2eee55d0dd59836b8a509c737da5a",
+          "node_checksum": "f23cd3eb479b4379fc982d2da5ecf55cb0cc70fe420c59c976d418a2a9204ca2",
+          "optimizer": {
+            "evaluations": 83,
+            "gradient_inf": 6.269171273587073e-07,
+            "initialization": "zero",
+            "iterations": 78,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.034495176174324904,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010305032285094553,
+            "risk_population_variance": 7.339715466156341e-06,
+            "risks": [
+              0.008234926595355694,
+              0.014132139933190024,
+              0.008548030326737939
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "713b9320e928ed6425aa16d0170b0f504e65533b5e5a1d092a6bca09017a635c",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "a0988251740ffab13cdb95c733715fb3a03630529454af5b684ac9f44ad21c06",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.521542651197593
+        },
+        "harmonic69_beta1": {
+          "calibration_score_checksum": "613510033f2204a06bc9f58f7e1b0cd4a59ed7954c5aa339be5b76b64da9760c",
+          "classifier_checksum": "6dff6dca48f0cae2f328c91185a180565c7736e3e0547cba5b873a26d0bf4eba",
+          "node_checksum": "a9049b0988ce1731dfc537d9efce9891b9cafc71b16d31d40a8ac251f7628f31",
+          "optimizer": {
+            "evaluations": 11,
+            "gradient_inf": 6.215888231829675e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 8,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03450236720752569,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010294443488421935,
+            "risk_population_variance": 7.046389241613509e-06,
+            "risks": [
+              0.00826467339158844,
+              0.014044215897941635,
+              0.008574441175735728
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "713b9320e928ed6425aa16d0170b0f504e65533b5e5a1d092a6bca09017a635c",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "a0988251740ffab13cdb95c733715fb3a03630529454af5b684ac9f44ad21c06",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5217532136228582
+        },
+        "harmonic69_beta2": {
+          "calibration_score_checksum": "53756cf9159e0c291ccdd07547afc191853391a3bafb1fa6bbeceed64641913e",
+          "classifier_checksum": "074a6ae225d89e5fcacba8f8f5b939bcb31d574ce168f77f2179f041c043cc34",
+          "node_checksum": "2c28fe2b33dc86f8d509a2b2c86f20bd925ebdc04faff1a109e85ec5188019fd",
+          "optimizer": {
+            "evaluations": 27,
+            "gradient_inf": 9.319239178071586e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 23,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03455607715688154,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01022919370944774,
+            "risk_population_variance": 5.0722597353408e-06,
+            "risks": [
+              0.00849894875419367,
+              0.013410148413105965,
+              0.00877848396104358
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "713b9320e928ed6425aa16d0170b0f504e65533b5e5a1d092a6bca09017a635c",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "a0988251740ffab13cdb95c733715fb3a03630529454af5b684ac9f44ad21c06",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5231740655361737
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "0c387a0b6c958cda6fb125bb08744332cb055b8e74e76fb89b344a8b86373ac9",
+      "seed": 1,
+      "verified": {
+        "base75_beta0": {
+          "calibration_score_checksum": "3c574ff1023839e28d3fa7473b5ef4f0065a2b8ec99ae7e5ed484b3594271a95",
+          "classifier_checksum": "17720bc5954a3a7ef630182472d6eb350d8319ce0970ac46e411022800c97d8b",
+          "node_checksum": "dc8a3ef52cb44b7b0c755a1d0e1f7d4394596051a8fc0fe80e443dd3e553a815",
+          "optimizer": {
+            "evaluations": 78,
+            "gradient_inf": 8.993193463989403e-07,
+            "initialization": "zero",
+            "iterations": 73,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03758857952613321,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01143769346977285,
+            "risk_population_variance": 4.110370295697274e-05,
+            "risks": [
+              0.006130019263019167,
+              0.020457612596001765,
+              0.007725448550297615
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "fbfa5221f9174579879e91b5534d5887a5f645e99caaa277ef17a15e25636e57",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "16d88c086dcba0ab74ef020e6f00b53183a2aef3d68db44111ec4c8bc43bbf2c",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5665231200018506
+        },
+        "base75_beta1": {
+          "calibration_score_checksum": "cbcfbf84977c745b7e34cc2e6286a4f5e6b82bddec83a488a7ea95a93fdb52c7",
+          "classifier_checksum": "1e807345d5e92f11c81bfb248991263a5bdd6d0e34bd068eb9f4b6e03b4e2f87",
+          "node_checksum": "bfd296afeea96214387c7ccbe5fe41f9ae811af1d64ecc054561f26aef1f6f93",
+          "optimizer": {
+            "evaluations": 20,
+            "gradient_inf": 7.814414908886487e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 15,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03762865329303247,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011380839892281329,
+            "risk_population_variance": 3.9082585740904926e-05,
+            "risks": [
+              0.006191471081260417,
+              0.020174453005137913,
+              0.007776595590445655
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "fbfa5221f9174579879e91b5534d5887a5f645e99caaa277ef17a15e25636e57",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "16d88c086dcba0ab74ef020e6f00b53183a2aef3d68db44111ec4c8bc43bbf2c",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.566786445123911
+        },
+        "base75_beta2": {
+          "calibration_score_checksum": "50283f6ee2c7121325fa3c862df5b05e5212a21d0acae55bd3f09622a2ca52d1",
+          "classifier_checksum": "bc613e8de1002522cef615c2f82ff5d7e3278e6c52618a050f69da1245d6e909",
+          "node_checksum": "2c467ea060093b4549d1efe62796ab3d64f3e68b5b78927b4c8bbf9f65527d16",
+          "optimizer": {
+            "evaluations": 40,
+            "gradient_inf": 9.765300073461968e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 35,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.037919177092658136,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011056607381920177,
+            "risk_population_variance": 2.688282701723096e-05,
+            "risks": [
+              0.006687030134866825,
+              0.018340840733784603,
+              0.0081419512771091
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "fbfa5221f9174579879e91b5534d5887a5f645e99caaa277ef17a15e25636e57",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "16d88c086dcba0ab74ef020e6f00b53183a2aef3d68db44111ec4c8bc43bbf2c",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5683347284600347
+        },
+        "harmonic69_beta0": {
+          "calibration_score_checksum": "bc7ccc09c2c91717497ac41ad322b6d1bd66cc0539d7e42b398727127d9bab97",
+          "classifier_checksum": "84bf14e11a1b96a5d63781f8ffd3742a5fc8c7851890efe34439ed060cedf814",
+          "node_checksum": "df3c874575d5395fe0be6888a77da4bf3b6c75e65f180a7378432d2129dcf849",
+          "optimizer": {
+            "evaluations": 83,
+            "gradient_inf": 6.269171273587073e-07,
+            "initialization": "zero",
+            "iterations": 78,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.034495176174324904,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010305032285094553,
+            "risk_population_variance": 7.339715466156341e-06,
+            "risks": [
+              0.008234926595355694,
+              0.014132139933190024,
+              0.008548030326737939
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "a8e48d1da529715023ddb05a89b8c3dba4cc4e145ba99457a299ee2fc4bc33e0",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "a0988251740ffab13cdb95c733715fb3a03630529454af5b684ac9f44ad21c06",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.521542651197593
+        },
+        "harmonic69_beta1": {
+          "calibration_score_checksum": "613510033f2204a06bc9f58f7e1b0cd4a59ed7954c5aa339be5b76b64da9760c",
+          "classifier_checksum": "8d37ecca25c4715533dad433baf9630c888bdd7f0439f17909ebe13259711afc",
+          "node_checksum": "981a72e5f1c3ef2a4858bf0c08bd556b07658a32a01d58850b668ec9fae4164b",
+          "optimizer": {
+            "evaluations": 11,
+            "gradient_inf": 6.215888231829675e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 8,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03450236720752569,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010294443488421935,
+            "risk_population_variance": 7.046389241613509e-06,
+            "risks": [
+              0.00826467339158844,
+              0.014044215897941635,
+              0.008574441175735728
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "a8e48d1da529715023ddb05a89b8c3dba4cc4e145ba99457a299ee2fc4bc33e0",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "a0988251740ffab13cdb95c733715fb3a03630529454af5b684ac9f44ad21c06",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5217532136228582
+        },
+        "harmonic69_beta2": {
+          "calibration_score_checksum": "53756cf9159e0c291ccdd07547afc191853391a3bafb1fa6bbeceed64641913e",
+          "classifier_checksum": "698aeb9007ac8e79348ffad55d1424724d52e3619cb0006e53e2186a27f15125",
+          "node_checksum": "078bd82ca393a79d55cb52949015c1efc3b40c4a711068ae79a92a8044ac3811",
+          "optimizer": {
+            "evaluations": 27,
+            "gradient_inf": 9.319239178071586e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 23,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03455607715688154,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01022919370944774,
+            "risk_population_variance": 5.0722597353408e-06,
+            "risks": [
+              0.00849894875419367,
+              0.013410148413105965,
+              0.00877848396104358
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "a8e48d1da529715023ddb05a89b8c3dba4cc4e145ba99457a299ee2fc4bc33e0",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "a0988251740ffab13cdb95c733715fb3a03630529454af5b684ac9f44ad21c06",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5231740655361737
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "ddd43a065b35ca94ce599af09cca5eec93269f138ce098e1bef3d7fef3ba28e1",
+      "seed": 2,
+      "verified": {
+        "base75_beta0": {
+          "calibration_score_checksum": "3c574ff1023839e28d3fa7473b5ef4f0065a2b8ec99ae7e5ed484b3594271a95",
+          "classifier_checksum": "b545ab08e63244be24a4534297554f21bcddba784d3ba4e0edbda2ce7248843c",
+          "node_checksum": "a4032f6dc965fe6def8ed2531202c096bd6fb2cc420345ea92abc5914e7ba360",
+          "optimizer": {
+            "evaluations": 78,
+            "gradient_inf": 8.993193463989403e-07,
+            "initialization": "zero",
+            "iterations": 73,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03758857952613321,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01143769346977285,
+            "risk_population_variance": 4.110370295697274e-05,
+            "risks": [
+              0.006130019263019167,
+              0.020457612596001765,
+              0.007725448550297615
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "72027a48840497eb0da1a6ad7bc14966b8f0330a4f1a2d315caaec3dec61c6ce",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "16d88c086dcba0ab74ef020e6f00b53183a2aef3d68db44111ec4c8bc43bbf2c",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5665231200018506
+        },
+        "base75_beta1": {
+          "calibration_score_checksum": "cbcfbf84977c745b7e34cc2e6286a4f5e6b82bddec83a488a7ea95a93fdb52c7",
+          "classifier_checksum": "075a6261e1adb0ee526a0843bdd2b13073c0ab88c3ecd5ccfdcd61eda0d0f7e1",
+          "node_checksum": "26efcff59b5a984ffadb17ca402828a5876f21313c1fbd0962c8f9c5714b6636",
+          "optimizer": {
+            "evaluations": 20,
+            "gradient_inf": 7.814414908886487e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 15,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03762865329303247,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011380839892281329,
+            "risk_population_variance": 3.9082585740904926e-05,
+            "risks": [
+              0.006191471081260417,
+              0.020174453005137913,
+              0.007776595590445655
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "72027a48840497eb0da1a6ad7bc14966b8f0330a4f1a2d315caaec3dec61c6ce",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "16d88c086dcba0ab74ef020e6f00b53183a2aef3d68db44111ec4c8bc43bbf2c",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.566786445123911
+        },
+        "base75_beta2": {
+          "calibration_score_checksum": "50283f6ee2c7121325fa3c862df5b05e5212a21d0acae55bd3f09622a2ca52d1",
+          "classifier_checksum": "5023dd7f94ea39f0ac55ef943f0244949e621a9689e5c256c2e19cde9d28f513",
+          "node_checksum": "a8cdd6ccd9edb974df7d8a7b58e5217ec8b7fb61f63ede7fc57966172d359da8",
+          "optimizer": {
+            "evaluations": 40,
+            "gradient_inf": 9.765300073461968e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 35,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.037919177092658136,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.011056607381920177,
+            "risk_population_variance": 2.688282701723096e-05,
+            "risks": [
+              0.006687030134866825,
+              0.018340840733784603,
+              0.0081419512771091
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "72027a48840497eb0da1a6ad7bc14966b8f0330a4f1a2d315caaec3dec61c6ce",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "16d88c086dcba0ab74ef020e6f00b53183a2aef3d68db44111ec4c8bc43bbf2c",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5683347284600347
+        },
+        "harmonic69_beta0": {
+          "calibration_score_checksum": "bc7ccc09c2c91717497ac41ad322b6d1bd66cc0539d7e42b398727127d9bab97",
+          "classifier_checksum": "fee9cb5cc948425d3a9feabc7acb15cd4bea0beae49126b74e4358f59890961a",
+          "node_checksum": "0447b14336c5b19fd3c6b6dcd19ad3866b494779e2590625f4e540091d0ae752",
+          "optimizer": {
+            "evaluations": 83,
+            "gradient_inf": 6.269171273587073e-07,
+            "initialization": "zero",
+            "iterations": 78,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.034495176174324904,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010305032285094553,
+            "risk_population_variance": 7.339715466156341e-06,
+            "risks": [
+              0.008234926595355694,
+              0.014132139933190024,
+              0.008548030326737939
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "0201eeb5f03e7b89cb1c7924dd13c9ca18c92fcd88c2edc542d00a624d5f7c6e",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "a0988251740ffab13cdb95c733715fb3a03630529454af5b684ac9f44ad21c06",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.521542651197593
+        },
+        "harmonic69_beta1": {
+          "calibration_score_checksum": "613510033f2204a06bc9f58f7e1b0cd4a59ed7954c5aa339be5b76b64da9760c",
+          "classifier_checksum": "ea310338c044861e0515f5c4cb54e91e9a9a6a7f618a2a2681ffba9d73e988ea",
+          "node_checksum": "41cb3613cf7a4dd98ddd98b1d4a36b1a6980ff08d2ea7d983336d2b7ff1a2563",
+          "optimizer": {
+            "evaluations": 11,
+            "gradient_inf": 6.215888231829675e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 8,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03450236720752569,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.010294443488421935,
+            "risk_population_variance": 7.046389241613509e-06,
+            "risks": [
+              0.00826467339158844,
+              0.014044215897941635,
+              0.008574441175735728
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "0201eeb5f03e7b89cb1c7924dd13c9ca18c92fcd88c2edc542d00a624d5f7c6e",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "a0988251740ffab13cdb95c733715fb3a03630529454af5b684ac9f44ad21c06",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5217532136228582
+        },
+        "harmonic69_beta2": {
+          "calibration_score_checksum": "53756cf9159e0c291ccdd07547afc191853391a3bafb1fa6bbeceed64641913e",
+          "classifier_checksum": "04ed8f4455b34b44f7f748cac72027d04f24160efe4352c03170fb8c1ede9f1f",
+          "node_checksum": "0a84d756575c347757412d13a60aa69b95b840c8b86af7f1d1b0c4b7aaea782c",
+          "optimizer": {
+            "evaluations": 27,
+            "gradient_inf": 9.319239178071586e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 23,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03455607715688154,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01022919370944774,
+            "risk_population_variance": 5.0722597353408e-06,
+            "risks": [
+              0.00849894875419367,
+              0.013410148413105965,
+              0.00877848396104358
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "0201eeb5f03e7b89cb1c7924dd13c9ca18c92fcd88c2edc542d00a624d5f7c6e",
+          "source": {
+            "environments": "14acaa61664d521779e9576a0bc1d218536bf01a9d5a08ed42c76e5a6324d128",
+            "features": "a0988251740ffab13cdb95c733715fb3a03630529454af5b684ac9f44ad21c06",
+            "labels": "ca6db39e4596d739cf22c29e5af2288c1f181f56012c7ceb6c23756063de42c4"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5231740655361737
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "18beb06d115f918f6cbf8ce37ca4b4310ed277431daf2a8edc9fdd8b6eda8e65",
+      "seed": 0,
+      "verified": {
+        "base75_beta0": {
+          "calibration_score_checksum": "ac7541be3168fc059bc8b0987d03431e262c2e1996e5ab8254919b30889d8c0f",
+          "classifier_checksum": "15034f87ae347f2c01dd19b9dfab8e25d42eb9d87960de213b4335d50fc75c8d",
+          "node_checksum": "38206c8b75cc37645b272066f18ee0c49c5cd8797528cac842fb02c2119b87a6",
+          "optimizer": {
+            "evaluations": 135,
+            "gradient_inf": 9.268115942396736e-07,
+            "initialization": "zero",
+            "iterations": 120,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.05180726972154667,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.018608139176185114,
+            "risk_population_variance": 0.00020512199109910066,
+            "risks": [
+              0.007905424838347514,
+              0.03885150480604145,
+              0.009067487884166387
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "de4b52e85d8665d62f09d42113fecf60cfd6b7a28b2f8c4d1c8b069713f9105f",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "cb95bdfe0dc26799c1e608bc7a09c760bf279ec877e4123dfa6f0c185568d034",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5709354819847096
+        },
+        "base75_beta1": {
+          "calibration_score_checksum": "b90e61884f649f8bcfe1f8256d8ea755122f42f262309d216516e9120960082d",
+          "classifier_checksum": "fbe86233774060c9264c8a0c3eb3a1db26b47dcd53b5ade480b2bc2bfda13ff1",
+          "node_checksum": "74ecf6db54c8ddeee7bd193d4c4a82612533941995a54c19d9eafe8de8d358c3",
+          "optimizer": {
+            "evaluations": 57,
+            "gradient_inf": 7.937944658875546e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 48,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.05200355818354594,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01834453467411969,
+            "risk_population_variance": 0.00018800241465221,
+            "risks": [
+              0.008073602753641256,
+              0.037723756813540996,
+              0.00923624445517682
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "de4b52e85d8665d62f09d42113fecf60cfd6b7a28b2f8c4d1c8b069713f9105f",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "cb95bdfe0dc26799c1e608bc7a09c760bf279ec877e4123dfa6f0c185568d034",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5704660416131468
+        },
+        "base75_beta2": {
+          "calibration_score_checksum": "6d4dfeab58677acdfe2784d1a25de44e77b8f9c9cbf3d5c0fe825126d781944b",
+          "classifier_checksum": "b2b0d6fdcc58fa68955c8b011842129a04d536b8c92def930e8d81f9e31292f8",
+          "node_checksum": "e4fd60858f216044391400498844429f44f002596ac9272e56553e2052b49423",
+          "optimizer": {
+            "evaluations": 83,
+            "gradient_inf": 7.767699164737494e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 77,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.05326515962919613,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.017207135845310115,
+            "risk_population_variance": 0.00010676237532315613,
+            "risks": [
+              0.009355991557586115,
+              0.031805721294454664,
+              0.010459694683889565
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "de4b52e85d8665d62f09d42113fecf60cfd6b7a28b2f8c4d1c8b069713f9105f",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "cb95bdfe0dc26799c1e608bc7a09c760bf279ec877e4123dfa6f0c185568d034",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.559589454973965
+        },
+        "harmonic69_beta0": {
+          "calibration_score_checksum": "c7e03407e4aed8560c2cb04036372243636610d7b80f3d718cb272239076901a",
+          "classifier_checksum": "64f3c00152efe7c012b4e0a13f20af4f8fc4fa54458c0484f447fb49470df37a",
+          "node_checksum": "b626f72d95e6f500bbd3c56b991712f91fa908cbba46cdf4ca7388ebb7ec57b6",
+          "optimizer": {
+            "evaluations": 159,
+            "gradient_inf": 9.024993484718422e-07,
+            "initialization": "zero",
+            "iterations": 147,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03655083958043577,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.012471443001731752,
+            "risk_population_variance": 1.6555301528605317e-05,
+            "risks": [
+              0.008617277570980967,
+              0.01809879718244752,
+              0.010698254251766775
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "237244e113d71b9457a377fa7f13e4bae1c571bf747e756847c3e1a474dca943",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "6416d50d01b0c163c77fe45c280d9b6bd7e503a81538a84cf1b9a0aa83300875",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.39041282085009144
+        },
+        "harmonic69_beta1": {
+          "calibration_score_checksum": "929b959810c7b58d52cd067964919904769e5988082ceea9c6ee4f6ac8cbdfa4",
+          "classifier_checksum": "548e944af53049e9c139d285cb426f80de719534a5fed307b288b251a761546f",
+          "node_checksum": "b74367ccf8daf9ab92c114dc8cddd05454a06f6e1628e26d3eb098e42fcb4d67",
+          "optimizer": {
+            "evaluations": 20,
+            "gradient_inf": 9.179460239295915e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 16,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.036566991942808935,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.012448563494175046,
+            "risk_population_variance": 1.5762139846077656e-05,
+            "risks": [
+              0.008675764867055995,
+              0.017936032462507016,
+              0.010733893152962125
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "237244e113d71b9457a377fa7f13e4bae1c571bf747e756847c3e1a474dca943",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "6416d50d01b0c163c77fe45c280d9b6bd7e503a81538a84cf1b9a0aa83300875",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.3897320099644766
+        },
+        "harmonic69_beta2": {
+          "calibration_score_checksum": "8cee85699e23819d4c63bf4ce4ed1fac5f69b6cc3a4b63433e2727c52efb8fd0",
+          "classifier_checksum": "229578f54f79d66c289d3cd61ed222e1730cd15719c8be80a71bd7b5ca6fa002",
+          "node_checksum": "b736c8e7e733f79907d626c5fe5e4d26d4d1ca330e9972c8830c1cc83fa6414b",
+          "optimizer": {
+            "evaluations": 55,
+            "gradient_inf": 8.853466612768895e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 49,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03668421048580791,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01232122834198727,
+            "risk_population_variance": 1.081308792821303e-05,
+            "risks": [
+              0.009137241585395263,
+              0.01684857572665194,
+              0.010977867713914614
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "237244e113d71b9457a377fa7f13e4bae1c571bf747e756847c3e1a474dca943",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "6416d50d01b0c163c77fe45c280d9b6bd7e503a81538a84cf1b9a0aa83300875",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.3931280623005526
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "cd09f73fb7f03fbbca125d3062539405db163d6934acb80688a22c725d59e572",
+      "seed": 1,
+      "verified": {
+        "base75_beta0": {
+          "calibration_score_checksum": "ac7541be3168fc059bc8b0987d03431e262c2e1996e5ab8254919b30889d8c0f",
+          "classifier_checksum": "923c86dfaacfc58cf5b024e0a16a3b2b1916148e16f1c89fe53b239675e4374c",
+          "node_checksum": "c772213d8bef6f1815eb016bfb8819b5b39bf20fa446dcf3d0d8969ffb386afc",
+          "optimizer": {
+            "evaluations": 135,
+            "gradient_inf": 9.268115942396736e-07,
+            "initialization": "zero",
+            "iterations": 120,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.05180726972154667,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.018608139176185114,
+            "risk_population_variance": 0.00020512199109910066,
+            "risks": [
+              0.007905424838347514,
+              0.03885150480604145,
+              0.009067487884166387
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "4c12252f57382232bb4c9091e0d51c9976be5b7314f777be6090180e69e87cad",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "cb95bdfe0dc26799c1e608bc7a09c760bf279ec877e4123dfa6f0c185568d034",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5709354819847096
+        },
+        "base75_beta1": {
+          "calibration_score_checksum": "b90e61884f649f8bcfe1f8256d8ea755122f42f262309d216516e9120960082d",
+          "classifier_checksum": "768572c1a091c58ad05de55b1bcaa7d4c3723a535edaf2c085ecabbc810a7ee1",
+          "node_checksum": "76b8bb440a1fb7bb6539cfb972a15f5982623f6f26f1b73b1c7653bee83f6b92",
+          "optimizer": {
+            "evaluations": 57,
+            "gradient_inf": 7.937944658875546e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 48,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.05200355818354594,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01834453467411969,
+            "risk_population_variance": 0.00018800241465221,
+            "risks": [
+              0.008073602753641256,
+              0.037723756813540996,
+              0.00923624445517682
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "4c12252f57382232bb4c9091e0d51c9976be5b7314f777be6090180e69e87cad",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "cb95bdfe0dc26799c1e608bc7a09c760bf279ec877e4123dfa6f0c185568d034",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5704660416131468
+        },
+        "base75_beta2": {
+          "calibration_score_checksum": "6d4dfeab58677acdfe2784d1a25de44e77b8f9c9cbf3d5c0fe825126d781944b",
+          "classifier_checksum": "0257593567376c94302b710fc55b331081afa5f24a50a16ff02a8c47291885d1",
+          "node_checksum": "d6f8747baf4cb2e892e14259cb4d4adaf177755f928f672b63b50eab4d3bd9df",
+          "optimizer": {
+            "evaluations": 83,
+            "gradient_inf": 7.767699164737494e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 77,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.05326515962919613,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.017207135845310115,
+            "risk_population_variance": 0.00010676237532315613,
+            "risks": [
+              0.009355991557586115,
+              0.031805721294454664,
+              0.010459694683889565
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "4c12252f57382232bb4c9091e0d51c9976be5b7314f777be6090180e69e87cad",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "cb95bdfe0dc26799c1e608bc7a09c760bf279ec877e4123dfa6f0c185568d034",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.559589454973965
+        },
+        "harmonic69_beta0": {
+          "calibration_score_checksum": "c7e03407e4aed8560c2cb04036372243636610d7b80f3d718cb272239076901a",
+          "classifier_checksum": "065338086305fe5e81f5115d333778d1c89e15619c051737d0e8d5fe65dce3ea",
+          "node_checksum": "d25c68962aab59dda4accbfd12253d554fc13cbbc833ab1ef353ba6b9ef88263",
+          "optimizer": {
+            "evaluations": 159,
+            "gradient_inf": 9.024993484718422e-07,
+            "initialization": "zero",
+            "iterations": 147,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03655083958043577,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.012471443001731752,
+            "risk_population_variance": 1.6555301528605317e-05,
+            "risks": [
+              0.008617277570980967,
+              0.01809879718244752,
+              0.010698254251766775
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "c76394e97baeb0c2d3828feb5245d212b6fec4d811e7f00c2fb3ade41e7cd47f",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "6416d50d01b0c163c77fe45c280d9b6bd7e503a81538a84cf1b9a0aa83300875",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.39041282085009144
+        },
+        "harmonic69_beta1": {
+          "calibration_score_checksum": "929b959810c7b58d52cd067964919904769e5988082ceea9c6ee4f6ac8cbdfa4",
+          "classifier_checksum": "71d67418743bdc3ceed292d4748b0abed88cc1be0e0f8adf7e1bfb387d5d7543",
+          "node_checksum": "668ebf3db1b8c9fe6b31abe5cba640ff4d72383fb0665cdcde3e182365554553",
+          "optimizer": {
+            "evaluations": 20,
+            "gradient_inf": 9.179460239295915e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 16,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.036566991942808935,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.012448563494175046,
+            "risk_population_variance": 1.5762139846077656e-05,
+            "risks": [
+              0.008675764867055995,
+              0.017936032462507016,
+              0.010733893152962125
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "c76394e97baeb0c2d3828feb5245d212b6fec4d811e7f00c2fb3ade41e7cd47f",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "6416d50d01b0c163c77fe45c280d9b6bd7e503a81538a84cf1b9a0aa83300875",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.3897320099644766
+        },
+        "harmonic69_beta2": {
+          "calibration_score_checksum": "8cee85699e23819d4c63bf4ce4ed1fac5f69b6cc3a4b63433e2727c52efb8fd0",
+          "classifier_checksum": "143f718848626c74a99f3c6fa51afab358202923119048d93893c4dc82e910d7",
+          "node_checksum": "dbce4b86176bc7ad4f6308de7242adbf3c4f7d6cbce212728816f5cffb552b31",
+          "optimizer": {
+            "evaluations": 55,
+            "gradient_inf": 8.853466612768895e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 49,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03668421048580791,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01232122834198727,
+            "risk_population_variance": 1.081308792821303e-05,
+            "risks": [
+              0.009137241585395263,
+              0.01684857572665194,
+              0.010977867713914614
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "c76394e97baeb0c2d3828feb5245d212b6fec4d811e7f00c2fb3ade41e7cd47f",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "6416d50d01b0c163c77fe45c280d9b6bd7e503a81538a84cf1b9a0aa83300875",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.3931280623005526
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "f1cac476f6dc5c4dc8db2143a7d09afd8de1d07670db89ae49ad6da9c1654142",
+      "seed": 2,
+      "verified": {
+        "base75_beta0": {
+          "calibration_score_checksum": "ac7541be3168fc059bc8b0987d03431e262c2e1996e5ab8254919b30889d8c0f",
+          "classifier_checksum": "c4ec6f324bc486d829f066040221996d5ec113cc812831591fe8d5e6511567c7",
+          "node_checksum": "f9728369c3d324210f77d5866eb8fa285cc1706a04aa51772aa14cbb218b9cac",
+          "optimizer": {
+            "evaluations": 135,
+            "gradient_inf": 9.268115942396736e-07,
+            "initialization": "zero",
+            "iterations": 120,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.05180726972154667,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.018608139176185114,
+            "risk_population_variance": 0.00020512199109910066,
+            "risks": [
+              0.007905424838347514,
+              0.03885150480604145,
+              0.009067487884166387
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "d40c40873f533d8391df6e00238c818234541f7e86d4ec27ef9ee0a0531384e0",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "cb95bdfe0dc26799c1e608bc7a09c760bf279ec877e4123dfa6f0c185568d034",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5709354819847096
+        },
+        "base75_beta1": {
+          "calibration_score_checksum": "b90e61884f649f8bcfe1f8256d8ea755122f42f262309d216516e9120960082d",
+          "classifier_checksum": "7e922c88845d37ed8a0799cc778c026c55fc0bce3df1c2f3c6064c99dbd2503c",
+          "node_checksum": "d000d7429f880d315f387c907d14393e45624277a0548a428670d107bde25b40",
+          "optimizer": {
+            "evaluations": 57,
+            "gradient_inf": 7.937944658875546e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 48,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.05200355818354594,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01834453467411969,
+            "risk_population_variance": 0.00018800241465221,
+            "risks": [
+              0.008073602753641256,
+              0.037723756813540996,
+              0.00923624445517682
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "d40c40873f533d8391df6e00238c818234541f7e86d4ec27ef9ee0a0531384e0",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "cb95bdfe0dc26799c1e608bc7a09c760bf279ec877e4123dfa6f0c185568d034",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.5704660416131468
+        },
+        "base75_beta2": {
+          "calibration_score_checksum": "6d4dfeab58677acdfe2784d1a25de44e77b8f9c9cbf3d5c0fe825126d781944b",
+          "classifier_checksum": "97564d091f49f3159086e012069072ed3ee7902dbd301b5157f6a3db5c93b49a",
+          "node_checksum": "5b0009df8484ec98501d9d335c1661dfee2af8ffa6c0c65ffe333650c29abb7d",
+          "optimizer": {
+            "evaluations": 83,
+            "gradient_inf": 7.767699164737494e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 77,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.05326515962919613,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.017207135845310115,
+            "risk_population_variance": 0.00010676237532315613,
+            "risks": [
+              0.009355991557586115,
+              0.031805721294454664,
+              0.010459694683889565
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "d40c40873f533d8391df6e00238c818234541f7e86d4ec27ef9ee0a0531384e0",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "cb95bdfe0dc26799c1e608bc7a09c760bf279ec877e4123dfa6f0c185568d034",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.559589454973965
+        },
+        "harmonic69_beta0": {
+          "calibration_score_checksum": "c7e03407e4aed8560c2cb04036372243636610d7b80f3d718cb272239076901a",
+          "classifier_checksum": "856806097ffd3405bc667cc6a0e894b7b5c194fb9b3e14794b43aa6bfe78fab4",
+          "node_checksum": "d6ee7c597c635971ea9bb1d49e4294c2fa01e218a552df09f8de85a349a1f84c",
+          "optimizer": {
+            "evaluations": 159,
+            "gradient_inf": 9.024993484718422e-07,
+            "initialization": "zero",
+            "iterations": 147,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03655083958043577,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.012471443001731752,
+            "risk_population_variance": 1.6555301528605317e-05,
+            "risks": [
+              0.008617277570980967,
+              0.01809879718244752,
+              0.010698254251766775
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "811170b33ef6019f5f1c6e8bc9a8132b88b62c7d1a46afd26f9f9eefcdb6cfd6",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "6416d50d01b0c163c77fe45c280d9b6bd7e503a81538a84cf1b9a0aa83300875",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.39041282085009144
+        },
+        "harmonic69_beta1": {
+          "calibration_score_checksum": "929b959810c7b58d52cd067964919904769e5988082ceea9c6ee4f6ac8cbdfa4",
+          "classifier_checksum": "73d278869a8673cd2e2983f2fcd642f45651e82b934423263ac1fb2fbeb835f3",
+          "node_checksum": "a529a6644a8f5270185e8542d63038020156d809d970ba0aed6a224c157fabb2",
+          "optimizer": {
+            "evaluations": 20,
+            "gradient_inf": 9.179460239295915e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 16,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.036566991942808935,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.012448563494175046,
+            "risk_population_variance": 1.5762139846077656e-05,
+            "risks": [
+              0.008675764867055995,
+              0.017936032462507016,
+              0.010733893152962125
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "811170b33ef6019f5f1c6e8bc9a8132b88b62c7d1a46afd26f9f9eefcdb6cfd6",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "6416d50d01b0c163c77fe45c280d9b6bd7e503a81538a84cf1b9a0aa83300875",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.3897320099644766
+        },
+        "harmonic69_beta2": {
+          "calibration_score_checksum": "8cee85699e23819d4c63bf4ce4ed1fac5f69b6cc3a4b63433e2727c52efb8fd0",
+          "classifier_checksum": "50fb734f564c4d73233db99438e9a5e4b47ebb99ffa9134d96f63fd6fb9eca44",
+          "node_checksum": "8b4d7a7667b57f89179f691f9e1d2a25a00223ded8e3a1c2773c6f724da54086",
+          "optimizer": {
+            "evaluations": 55,
+            "gradient_inf": 8.853466612768895e-07,
+            "initialization": "train_only_ERM",
+            "iterations": 49,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "objective": 0.03668421048580791,
+            "options": {
+              "ftol": 1e-10,
+              "gtol": 1e-06,
+              "maxcor": 10,
+              "maxiter": 1000,
+              "maxls": 50
+            },
+            "ridge": 0.001,
+            "risk_mean": 0.01232122834198727,
+            "risk_population_variance": 1.081308792821303e-05,
+            "risks": [
+              0.009137241585395263,
+              0.01684857572665194,
+              0.010977867713914614
+            ],
+            "status": 0,
+            "success": true
+          },
+          "representation_checksum": "811170b33ef6019f5f1c6e8bc9a8132b88b62c7d1a46afd26f9f9eefcdb6cfd6",
+          "source": {
+            "environments": "0a8f9cc24cb1f23761815018fd325adca277eeddc6527b6651f17499f1645a74",
+            "features": "6416d50d01b0c163c77fe45c280d9b6bd7e503a81538a84cf1b9a0aa83300875",
+            "labels": "7b10efd45e7a7d264ce64de3e7739e7cf612981f5b0acd60cdcb703b0fd7d202"
+          },
+          "status": "completed",
+          "test_numeric_reads": 0,
+          "threshold": 0.3931280623005526
+        }
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "locked_checksum": "83c100b725ec66f4be239318a13a2e4a90b9fbcc329cce73ce6004b63a6d0817",
+  "protocol_checksum": "20757999cf3795589151c7ab8898746cf7f5539e8f78a9f4b0627293313d5987",
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_verification_checksum": "3f92a86e367159aaa0ffa58dd05d4daa21ad2da7aa4d1a1b6d2a42ac8fbf20d7",
+  "status": "VERIFIED_AVAILABLE_NUMERIC_SOURCES",
+  "test_numeric_reads": 0
+}
