@@ -1,0 +1,17 @@
+{
+  "models": [
+    {
+      "alpha": 0.0,
+      "state_checksum": "3881d9b91848572cbe1b1e4d7ae7992b09c8d645663b4f66f02606d6f1194183"
+    },
+    {
+      "alpha": 0.5,
+      "state_checksum": "227efb34bc48d56379a9b736c33c05a9223d26b012ac9cae6bb68561f015ddf2"
+    },
+    {
+      "alpha": 1.0,
+      "state_checksum": "2763b245104597c5cfe4a77b6833b5576a96af7288e4fbeb22753c3ccece4096"
+    }
+  ],
+  "scope": "SYNTHETIC_ENGINEERING_ONLY"
+}

@@ -46,3 +46,12 @@ base kernel為exp(−gamma×平方Euclidean距離)，gamma=1/66，無資料選�
 | 保持不變 | 正式105／linear／Maha-LW／k-NN切換、PolarMap、formal CSV、舊模型／報告／manifest |
 
 先提交手冊，再實作與雙環境smoke／測試；runner工程提交後lock，協定push後fit；actual來源重建push後才能outer。執行命令由新CLI `--help`列出精確必填protocol／lock／source／data-root，版本化產物不覆寫。ZIP備份逐member SHA／CRC核對，Git保存compact設定／摘要／索引；D槽同機備份不稱異地備份。
+
+2026-10-04工程接續：runner／33小測試與兩native smoke／help完成，完整acceptance另記execution_log。paired report除C02／C17／C24／D01外，固定同detector的alpha0消融，共42方法配對、每配對9fold/seed格；沒有使用G的prototype變體欄位。JSON或既有.gz摘要皆可由新CLI讀取，不改任何父批reader。下列lock在工程commit/push及完整回歸通過後執行；此時尚無正式K模型或成績。
+
+```powershell
+$env:PYTHONIOENCODING='utf-8'
+.venv310/Scripts/python.exe -m experiments.fault_type_axis_kernel lock --parent-protocol output/fault_type_discriminative_prototypes_lock/2026-10-03-15-23-33/protocol.json
+```
+
+對新protocol執行fit／source-verify／evaluate／verify時，明列`--data-root data/formal_local`；fit後傳新`--lock`，outer前傳已提交的`--source-verification`。report沿用metrics_v2及D01檔，另傳本批evaluation／verification；不拿J後續成績挑K候選。完整命令與產物時間戳由execution_log及result_index保存。

@@ -1,0 +1,14 @@
+usage: fault_type_literature_diagnosis.py [-h] --protocol PROTOCOL --locked
+                                          LOCKED --verified VERIFIED
+                                          --data-root DATA_ROOT
+
+Read-only score distributions; posthoc diagnosis, never fitting or selection.
+Uses the sealed study's existing infer function and trusted model loader. No
+threshold scan, new model, unknown fitting, or changed protocol is permitted.
+
+options:
+  -h, --help            show this help message and exit
+  --protocol PROTOCOL
+  --locked LOCKED
+  --verified VERIFIED
+  --data-root DATA_ROOT

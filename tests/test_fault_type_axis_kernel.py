@@ -1,12 +1,23 @@
 """exp19先行公式／來源回歸；合成資料不作研究成績。"""
 import copy
+import tempfile
 import itertools
 import unittest
 from unittest.mock import patch
 import numpy as np
+from pathlib import Path
 from scipy.spatial.distance import cdist
 from core.fault_type_axis_kernel import (SharedAxisRepresentation, AxisKernelClassifier,
     KernelCentroidRejection, kernel, kernel_diagonal, permute_axes, GAMMA, PERMUTATIONS)
+from experiments import fault_type_axis_kernel as K
+from experiments.fault_type_fixed_smoke import fixture
+from experiments.fault_type_fixed_calibration import build_protocol
+from core.fault_type_fixed_calibration import fixed_manifests
+from core.fault_type_validator import compute_manifest_checksum
+from core.fault_type_final_guard import seal
+from core.fault_type_literature import LiteratureRepresentation
+from core.openset import create_openset_detector
+from experiments.fault_type_openset import DETECTOR_CONFIG
 
 
 def formal(seed=42, n=18):
@@ -177,6 +188,107 @@ class TestAxisKernel(unittest.TestCase):
         m.quantile_ += .1
         with self.assertRaises(ValueError):
             m.score_samples(np.ones((2, 2)))
+
+
+class TestAxisRunner(unittest.TestCase):
+    def setUp(self):
+        self.X,self.C = formal(n=18),formal(seed=123,n=18)
+        self.y,self.cy = np.arange(18)%3,np.arange(18)%3
+        self.p=dict(factory_parameters=DETECTOR_CONFIG)
+        rep=SharedAxisRepresentation().fit(self.X)
+        self.b=dict(representation=rep,nodes=K.fit_nodes(rep.transform(self.X),rep.transform(self.C),self.y,0))
+        base=LiteratureRepresentation('base75',0).fit(self.X,self.y)
+        Z,C=base.transform(self.X),base.transform(self.C)
+        self.parent=dict(references={'base75/mixed':dict(transformer=base,detectors={method:
+            create_openset_detector(method,**DETECTOR_CONFIG).fit(Z,self.y,C,self.cy) for method in ['mahalanobis','knn']})})
+
+    def test_source_rebuilds_scaler_svc_centroid_and_factory(self):
+        verified=K.verify_actual_sources(self.b,self.parent,self.X,self.C,self.y,self.cy,self.p,0)
+        self.assertEqual(len(verified),3)
+        self.assertTrue(all(a['test_numeric_reads']==0 for a in verified.values()))
+
+    def test_changed_calibration_rejected(self):
+        C=self.C.copy();C[0,15]+=.1
+        with self.assertRaises(ValueError):
+            K.verify_actual_sources(self.b,self.parent,self.X,C,self.y,self.cy,self.p,0)
+
+    def test_resealed_threshold_rejected(self):
+        n=self.b['nodes']['alpha1']['rejector'];n.quantile_+=.1;n.checksum_=n.signature()
+        with self.assertRaises(ValueError):
+            K.verify_actual_sources(self.b,self.parent,self.X,self.C,self.y,self.cy,self.p,0)
+
+    def test_changed_factory_reference_rejected(self):
+        self.parent['references']['base75/mixed']['detectors']['knn'].models_[0].neighbors._fit_X[0,0]+=.1
+        with self.assertRaisesRegex(ValueError,'factory'):
+            K.verify_actual_sources(self.b,self.parent,self.X,self.C,self.y,self.cy,self.p,0)
+
+    def test_classifier_shared_across_three_rejectors(self):
+        values=K.infer(self.parent,self.b,self.p,self.C)
+        self.assertEqual(len(values),9)
+        for start in range(0,9,3):
+            ids=[K.ARMS[i]['id'] for i in range(start,start+3)]
+            np.testing.assert_array_equal(values[ids[0]][0],values[ids[1]][0])
+            np.testing.assert_array_equal(values[ids[0]][0],values[ids[2]][0])
+        np.testing.assert_array_equal(values['K01'][1],values['K04'][1])
+        np.testing.assert_array_equal(values['K02'][1],values['K08'][1])
+
+    def test_failed_fits_stay_incomplete(self):
+        with patch.object(AxisKernelClassifier,'fit',side_effect=RuntimeError('SYNTHETIC_NONCONVERGENCE')):
+            nodes=K.fit_nodes(self.b['representation'].transform(self.X),self.b['representation'].transform(self.C),self.y,0)
+        self.assertTrue(all(n['status']=='INCOMPLETE' and n['model'] is None for n in nodes.values()))
+
+    def test_comparisons_have_fixed_alpha_controls(self):
+        pairs=K.paired_methods(['C02','C17','C24','D01'])
+        self.assertEqual(len(pairs),42)
+        self.assertIn(('K04','K01'),pairs)
+        self.assertIn(('K09','K03'),pairs)
+        self.assertFalse(any(old=='K09' for _,old in pairs))
+
+    def test_policy_and_resealed_parameters_rejected(self):
+        p=dict(version='exp19_axis_invariant_kernel_v1',parameters=K.normalized(K.PARAMETERS),arms=K.ARMS,
+            budget=K.BUDGET,reliability_contract=K.CONTRACT,selection_policy='none',selection_sample_ids=[],
+            validation_sample_ids=[],shared_validation_calibration=False,fresh_final_test=False,
+            scope='EXPLORATORY_HISTORICAL_TEST_EXPOSED')
+        for change in [dict(global_winner='K09'),dict(selection_sample_ids=['outer']),dict(shared_validation_calibration=True),dict(fresh_final_test=True)]:
+            with self.assertRaises(ValueError):
+                K.check(seal(dict(p,**change),'protocol_checksum'))
+        p['parameters']['gamma']=2/66
+        with self.assertRaisesRegex(ValueError,'definitions'):
+            K.check(seal(p,'protocol_checksum'))
+
+
+class TestAxisPurpose(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.temp=tempfile.TemporaryDirectory()
+        priors,ledger=fixture(Path(cls.temp.name)/'data')
+        protocol=build_protocol(priors,ledger)
+        cls.m=fixed_manifests(priors,protocol)[0]
+        cls.p=dict(protocol_checksum='SYNTHETIC',dataset_fingerprint='SYNTHETIC_FIXTURE_ONLY',
+            known_labels=[cls.m['healthy_label'],*cls.m['known_fault_labels']])
+        cls.pa=dict(seed=0,sha256='SYNTHETIC')
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.temp.cleanup()
+
+    def test_train_cal_and_empty_selection_audits(self):
+        audits=K.expected_audits(self.p,self.m,self.pa)
+        self.assertEqual(len(audits),9)
+        for a in audits:
+            for field in ['scaler_fit_ids','representation_fit_ids','classifier_fit_ids','reference_fit_ids','support_reference_ids']:
+                self.assertEqual(a[field],self.m['sample_ids']['train'])
+            self.assertEqual(a['calibration_sample_ids'],self.m['sample_ids']['calibration'])
+            self.assertEqual(a['selection_sample_ids'],[])
+
+    def test_unknown_and_test_motor_in_development_rejected(self):
+        for part in ['train','calibration']:
+            for key,value in [('label',self.m['unknown_test_labels'][0]),('t_code',self.m['motor_roles']['test'])]:
+                m=copy.deepcopy(self.m);sid=m['sample_ids'][part][0]
+                next(r for r in m['records'] if r['sample_id']==sid)[key]=value
+                m['manifest_checksum']=compute_manifest_checksum(m)
+                with self.assertRaises(ValueError):
+                    K.expected_audits(self.p,m,self.pa)
 
 
 if __name__ == '__main__':

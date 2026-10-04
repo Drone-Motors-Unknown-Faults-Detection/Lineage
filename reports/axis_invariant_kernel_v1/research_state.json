@@ -1,0 +1,19 @@
+{
+  "current_stage": "33小測試與兩native各553完整回歸通過；待runner提交推送後lock",
+  "batch_id": "exp19_axis_invariant_kernel_v1",
+  "source_head": "e471393f0e77054c98e18f8853244a4466affef4",
+  "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
+  "planned_evaluations": 81,
+  "completed_evaluations": 0,
+  "planned_classifier_fits": 27,
+  "acceptance": {"Python3.10.19":553,"Python3.14.6":553},
+  "selection_policy": "none",
+  "fresh_final_test": false,
+  "production_replacement": false,
+  "reliable_improvement_reached": false,
+  "latest_delivered_results": "reports/context_rejection_v1/result_index.json",
+  "latest_results_commit": "e471393f0e77054c98e18f8853244a4466affef4",
+  "next_commands": ["完成兩native完整回歸後提交runner，再lock／提交協定／fit／actual source／配對outer"],
+  "blocked_candidates": ["fresh與raw採集證據不足INCOMPLETE／UNKNOWN；不阻擋現有特徵探索"],
+  "checkpoint": null
+}

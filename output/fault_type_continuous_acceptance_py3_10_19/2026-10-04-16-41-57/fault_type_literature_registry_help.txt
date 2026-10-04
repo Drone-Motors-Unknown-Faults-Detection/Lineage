@@ -1,0 +1,8 @@
+usage: fault_type_literature_registry.py [-h] [--index INDEX]
+
+Finite literature/adaptation registry: 24 pipelines +22 score variants, 630
+evals.
+
+options:
+  -h, --help     show this help message and exit
+  --index INDEX
