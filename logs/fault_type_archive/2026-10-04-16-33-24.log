@@ -1,0 +1,6 @@
+2026-10-04 16:33:24 | INFO    | Logger initialized: fault_type_archive
+2026-10-04 16:33:24 | INFO    | log_file=logs\fault_type_archive\2026-10-04-16-33-24.log
+2026-10-04 16:33:24 | INFO    | output_dir=output\fault_type_archive\2026-10-04-16-33-24
+2026-10-04 16:33:26 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_rejection_v1\archives\fault_type_2026-10-03-20-57-37.zip bytes=16783 files=1
+2026-10-04 16:33:26 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_rejection_v1\archives\fault_type_2026-10-03-21-02-51.zip bytes=121285 files=1
+2026-10-04 16:33:26 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_rejection_v1\archives\fault_type_2026-10-04-16-29-39.zip bytes=9643159 files=2

@@ -36,7 +36,8 @@
     {"id":"G","planned_evaluations":216,"completed_evaluations":216,"incomplete_evaluations":0,"index":"reports/discriminative_prototypes_v1/result_index.json","reliability":"24方法全部FAILED"},
     {"id":"H","planned_evaluations":108,"completed_evaluations":108,"incomplete_evaluations":0,"prediction_records":1040760,"unique_samples":28910,"index":"reports/smooth_l1_v1/result_index.json","reliability":"12方法全部FAILED"},
     {"id":"I","planned_evaluations":108,"completed_evaluations":108,"incomplete_evaluations":0,"prediction_records":1040760,"unique_samples":28910,"index":"reports/context_prototypes_v1/result_index.json","reliability":"12方法全部FAILED"},
-    {"id":"J","planned_evaluations":324,"completed_evaluations":0,"status":"先行手冊與core已push；runner／source用途測試與雙環境519回歸完成，尚未lock/calibrate/outer","source":"docs/experiments/exp18_context_rejection.md"}
+    {"id":"J","planned_evaluations":324,"completed_evaluations":324,"incomplete_evaluations":0,"prediction_records":3122280,"unique_samples":28910,"index":"reports/context_rejection_v1/result_index.json","reliability":"36方法全部FAILED"},
+    {"id":"K","planned_evaluations":81,"completed_evaluations":0,"status":"先行手冊與core／23項小測試已push；runner初稿兩native smoke完成，尚未lock／formal fit","source":"docs/experiments/exp19_axis_invariant_kernel.md"}
   ],
   "repeated_predictions_are_not_independent_data": true,
   "keep_all_failures": true

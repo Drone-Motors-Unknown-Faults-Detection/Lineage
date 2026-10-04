@@ -11,7 +11,7 @@
 | 文件 | 內容 |
 |---|---|
 | [exp19 三軸排列不變核](experiments/exp19_axis_invariant_kernel.md) | 先行手冊；固定0／0.5／1群平均核與SVM，尚未實作或formal評估 |
-| [exp18 RPM原型距離與聯合拒絕](experiments/exp18_context_rejection.md) | 全部12父模型×距離／歧義／OR，固定known-cal quantiles；runner與28項小測試完成，尚無formal成績 |
+| [exp18 RPM原型距離與聯合拒絕](experiments/exp18_context_rejection.md) | 324評估／逐筆重推完成、36方法全FAILED；[報告](../reports/context_rejection_v1/final_findings.md)，保留健康誤報與未知召回限制 |
 | [exp17 RPM工況相關原型](experiments/exp17_context_prototypes.md) | 一次／二次RPM原型、GLVQ／aux；108格評估及來源重建完成，12方法皆FAILED；見reports/context_prototypes_v1 |
 | [exp16 平滑L1原型距離](experiments/exp16_smooth_l1_prototypes.md) | 固定Q／S、GLVQ／anchor；108格評估及重推完成，12方法皆未通過；結果見reports/smooth_l1_v1 |
 | [exp15 判別式原型學習](experiments/exp15_discriminative_prototypes.md) | 固定GLVQ／anchor損失、static中心與模糊拒絕配對；保留失敗與曝露 |

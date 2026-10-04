@@ -1,0 +1,74 @@
+{
+  "version": "exp18_context_rejection_delivery_v1",
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "planned_evaluations": 324,
+  "completed_evaluations": 324,
+  "incomplete_evaluations": 0,
+  "new_classifier_fits": 0,
+  "inherited_classifiers": 108,
+  "prediction_records": 3122280,
+  "unique_samples": 28910,
+  "paired_comparisons": 1836,
+  "reliability_main_screen": "36方法全部FAILED",
+  "fresh_final_test": false,
+  "production_replacement": false,
+  "semantic_seals": {
+    "protocol": "8b80faa1c6baab0978439e169c7634f9d699ab7e987f285eed735d9348870077",
+    "locked_study": "13c1519c1128ea1fd54e2707cd84149506fd57df6c080b7fe30c8b3abd008a71",
+    "actual_source_verification": "33bedd625b41b323a5905071e0d0a41292a47974248cf84f9e8f14fc088aef9b",
+    "evaluation": "aafb282e42eb9bdf8750b3ba1f0fad1212b9b1c3644a51364579e70e79220baf",
+    "verification": "11f3527c47cb2d0ab42178078972a2377e41ca36d9d337345a76441056dd0693",
+    "report": "cf61244a7296c047490edf79ebf88d0d5b1058b62a4a03787cc3ab179f478fd9"
+  },
+  "compact_files": [
+    {
+      "path": "output/fault_type_context_rejection_lock/2026-10-03-20-57-37/protocol.json",
+      "sha256": "6176ca4a5ec125d0e703c27b2032ef9a1bb23511a25e4cea2f6d0a5bcda44a7a",
+      "bytes": 16009
+    },
+    {
+      "path": "output/fault_type_context_rejection_calibrate/2026-10-03-20-59-06/locked_study.json",
+      "sha256": "5987fb7e1afe6a646b0f756122931ba7d27ecd53c531f5eb318071fb3fbaf0cd",
+      "bytes": 27885
+    },
+    {
+      "path": "output/fault_type_context_rejection_source_verify/2026-10-03-21-02-51/source_verified.json",
+      "sha256": "c7b1e118d1b3dd84bae3c7caf413f22083fbbcd42e15616648cb174b8364f6cc",
+      "bytes": 120480
+    },
+    {
+      "path": "output/fault_type_context_rejection_evaluate/2026-10-03-21-07-31/evaluation.json.gz",
+      "sha256": "31ddec74d7bf88b4d46621a876322c406935866e82f8716611c12452ab1fd6e5",
+      "bytes": 482093
+    },
+    {
+      "path": "output/fault_type_context_rejection_verify/2026-10-04-16-26-08/verified.json.gz",
+      "sha256": "162ba0c80d0845837de136086d92567bfbcdba88d5aba273995eb013e6ae9a9f",
+      "bytes": 482082
+    },
+    {
+      "path": "output/fault_type_context_rejection_report/2026-10-04-16-29-39/summary.json.gz",
+      "sha256": "59c134cf5921011ba457c526e8e905585fa0b060de294ae15baf34e3f91133ff",
+      "bytes": 520281
+    }
+  ],
+  "primary_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/context_rejection_v1/workspace/output",
+  "archives": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/context_rejection_v1/archives",
+  "archive_indices": [
+    "output/fault_type_context_rejection_backup/2026-10-04-16-30-00/archive_index.json",
+    "output/fault_type_archive/2026-10-04-16-33-24/archive_index.json"
+  ],
+  "archive_verification": "output/fault_type_fixed_delivery/2026-10-04-16-33-40/member_verification.json",
+  "archive_count": 6,
+  "member_count": 684,
+  "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
+  "protocol_commit": "98da5c9c09cee9b9c7fb81315dbc6ddfa95fe246",
+  "source_commit": "d81fbcc0c61fbf4c55b7c65863a0e0cbf3951ff0",
+  "acceptance_before_J_fit": [
+    "output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-20-54-40/environment.json",
+    "output/fault_type_continuous_acceptance_py3_14_6/2026-10-03-20-54-51/environment.json"
+  ],
+  "tests_before_J_fit_each": 520,
+  "no_cross_runtime_model_load": true
+}

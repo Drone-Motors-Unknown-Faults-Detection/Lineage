@@ -1,0 +1,12 @@
+{
+  "compact_artifact": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_context_rejection_evaluate\\2026-10-03-21-07-31\\evaluation.json.gz",
+    "sha256": "31ddec74d7bf88b4d46621a876322c406935866e82f8716611c12452ab1fd6e5"
+  },
+  "contains_raw_data": false,
+  "primary_artifact": {
+    "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_rejection_v1\\workspace\\output\\fault_type_context_rejection_evaluate\\2026-10-03-21-07-31\\evaluation.json.gz",
+    "sha256": "31ddec74d7bf88b4d46621a876322c406935866e82f8716611c12452ab1fd6e5"
+  },
+  "primary_output": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_rejection_v1\\workspace\\output\\fault_type_context_rejection_evaluate\\2026-10-03-21-07-31"
+}

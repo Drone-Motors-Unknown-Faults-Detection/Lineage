@@ -1,0 +1,7 @@
+2026-10-04 16:30:00 | INFO    | Logger initialized: fault_type_context_rejection_backup
+2026-10-04 16:30:00 | INFO    | log_file=logs\fault_type_context_rejection_backup\2026-10-04-16-30-00.log
+2026-10-04 16:30:00 | INFO    | output_dir=output\fault_type_context_rejection_backup\2026-10-04-16-30-00
+2026-10-04 16:30:12 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_rejection_v1\archives\fault_type_2026-10-03-20-59-06.zip bytes=582164989 files=28
+2026-10-04 16:30:21 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_rejection_v1\archives\fault_type_2026-10-03-21-07-31.zip bytes=429407812 files=650
+2026-10-04 16:30:21 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_rejection_v1\archives\fault_type_2026-10-04-16-26-08.zip bytes=16560897 files=2
+2026-10-04 16:30:24 | INFO    | backup 完成，輸出 output\fault_type_context_rejection_backup\2026-10-04-16-30-00

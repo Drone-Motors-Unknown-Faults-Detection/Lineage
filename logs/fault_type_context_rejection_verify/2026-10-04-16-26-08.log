@@ -1,0 +1,13 @@
+2026-10-04 16:26:08 | INFO    | Logger initialized: fault_type_context_rejection_verify
+2026-10-04 16:26:08 | INFO    | log_file=logs\fault_type_context_rejection_verify\2026-10-04-16-26-08.log
+2026-10-04 16:26:08 | INFO    | output_dir=output\fault_type_context_rejection_verify\2026-10-04-16-26-08
+2026-10-04 16:26:40 | INFO    | 配對 fixed-fold0 seed0，完成36方法
+2026-10-04 16:26:59 | INFO    | 配對 fixed-fold0 seed1，完成36方法
+2026-10-04 16:27:19 | INFO    | 配對 fixed-fold0 seed2，完成36方法
+2026-10-04 16:27:40 | INFO    | 配對 fixed-fold1 seed0，完成36方法
+2026-10-04 16:28:00 | INFO    | 配對 fixed-fold1 seed1，完成36方法
+2026-10-04 16:28:21 | INFO    | 配對 fixed-fold1 seed2，完成36方法
+2026-10-04 16:28:43 | INFO    | 配對 fixed-fold2 seed0，完成36方法
+2026-10-04 16:29:04 | INFO    | 配對 fixed-fold2 seed1，完成36方法
+2026-10-04 16:29:25 | INFO    | 配對 fixed-fold2 seed2，完成36方法
+2026-10-04 16:29:26 | INFO    | verify 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-03\context_rejection_v1\workspace\output\fault_type_context_rejection_verify\2026-10-04-16-26-08

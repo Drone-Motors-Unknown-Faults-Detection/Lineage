@@ -19,3 +19,11 @@ core／13項測試commit `eb26d9756d69b8ab1a8edc6ded1f152a0a26c502`已push／rem
 協定commit `98da5c9c09cee9b9c7fb81315dbc6ddfa95fe246`已push／remote一致，之後20:59:06–21:02:36執行calibrate：324個拒絕器完成，引用108個父分類器，新增分類器fit為0。lock checksum `13c1519c1128ea1fd54e2707cd84149506fd57df6c080b7fe30c8b3abd008a71`；9個fold／seed bundle保存在D槽context_rejection_v1，C槽保存compact lock及artifact_location。
 
 21:02:51–21:04:33執行source-verify，從actual known train／cal重新計算距離及固定95%分位數，9個bundle共324節點通過；test numeric reads=0。source checksum `33bedd625b41b323a5905071e0d0a41292a47974248cf84f9e8f14fc088aef9b`，status=VERIFIED_AVAILABLE_NUMERIC_SOURCES。校準與來源重建前後90份formal檔案指紋均為`c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d`。此項只證明可用特徵／用途／計算來源；raw session、視窗及採集獨立性仍UNKNOWN。將本階段提交推送後才執行outer，沒有讀J test成績。
+
+actual source commit `d81fbcc0c61fbf4c55b7c65863a0e0cbf3951ff0`已push／remote一致後，2026-10-03 21:07:31–21:11:18執行evaluate，324／324完成、0失敗、3,122,280prediction records／28,910unique。2026-10-04使用者接續；16:25:51 verify指令誤傳evaluation.json.gz給原JSON reader，CLI拒絕，未產生驗證結果。16:26:08–16:29:26改用同一份evaluation.json，全部324逐筆重推及truth mutation完成，沒有改sealed程式／model／threshold。保留兩次log。
+
+16:29:39–16:32:32 report重算全部36J／12I父方法／4controls，paired ID／truth／source共1,836次一致。36方法原screen全部FAILED；T1局部unknown提升與healthy誤報均完整保留。來源指紋未變，global winner不存在。所有值與逐motor/RPM／class／seeds見final_findings及summary，沒有掃threshold補分數。
+
+16:30:00 D產物backup、16:33:24 C協定／source／report backup；16:33:40–16:33:43 member verify，6ZIP共684members SHA／CRC PASS，source_files_removed=false。D同機備份不稱異地。日期根保留原2026-10-03 batch，後續action timestamp明列2026-10-04，不覆寫舊包。
+
+2026-10-04再次查GitHub main AGENT.md，blob仍`8f35a6bf14fa4747d63add1d6bc852b65bcb4784`，與已完整閱讀版本一致。282筆無關tracked deletions不stage。J驗收前各520測試不倒填後續K的新增測試；結果與文獻／改編／限制已記錄，待此結果階段commit／push。

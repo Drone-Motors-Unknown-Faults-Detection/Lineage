@@ -1,0 +1,39 @@
+{
+  "archive_count": 3,
+  "archives": [
+    {
+      "bytes": 582164989,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_rejection_v1\\archives\\fault_type_2026-10-03-20-59-06.zip",
+      "sha256": "e0e34972e7630946fa932922875900973514ae3dd0e41f6904e723868cc82eb8",
+      "source_files": 28,
+      "source_root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_rejection_v1\\workspace\\output\\fault_type_context_rejection_calibrate\\2026-10-03-20-59-06",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 429407812,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_rejection_v1\\archives\\fault_type_2026-10-03-21-07-31.zip",
+      "sha256": "0bdab6f73773395f46c7178a7e4401ec88f01f21268df31f7e74ce673fd855ed",
+      "source_files": 650,
+      "source_root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_rejection_v1\\workspace\\output\\fault_type_context_rejection_evaluate\\2026-10-03-21-07-31",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 16560897,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_rejection_v1\\archives\\fault_type_2026-10-04-16-26-08.zip",
+      "sha256": "33063ce29fd31b7fdc6e6e40f5eefe6df8314ac16b26b642ecde982fd6be904f",
+      "source_files": 2,
+      "source_root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-03\\context_rejection_v1\\workspace\\output\\fault_type_context_rejection_verify\\2026-10-04-16-26-08",
+      "whole_sha_status": "PASS"
+    }
+  ],
+  "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+  "source_files_removed": false,
+  "status": "PASS",
+  "verified_members": 680
+}
