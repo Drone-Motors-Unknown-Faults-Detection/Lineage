@@ -1,0 +1,277 @@
+{
+  "arms": [
+    {
+      "detector": "C02/M",
+      "id": "L01",
+      "model": "base75_beta0"
+    },
+    {
+      "detector": "C02/kNN",
+      "id": "L02",
+      "model": "base75_beta0"
+    },
+    {
+      "detector": "MSP",
+      "id": "L03",
+      "model": "base75_beta0"
+    },
+    {
+      "detector": "C02/M",
+      "id": "L04",
+      "model": "base75_beta1"
+    },
+    {
+      "detector": "C02/kNN",
+      "id": "L05",
+      "model": "base75_beta1"
+    },
+    {
+      "detector": "MSP",
+      "id": "L06",
+      "model": "base75_beta1"
+    },
+    {
+      "detector": "C02/M",
+      "id": "L07",
+      "model": "base75_beta2"
+    },
+    {
+      "detector": "C02/kNN",
+      "id": "L08",
+      "model": "base75_beta2"
+    },
+    {
+      "detector": "MSP",
+      "id": "L09",
+      "model": "base75_beta2"
+    },
+    {
+      "detector": "C02/M",
+      "id": "L10",
+      "model": "harmonic69_beta0"
+    },
+    {
+      "detector": "C02/kNN",
+      "id": "L11",
+      "model": "harmonic69_beta0"
+    },
+    {
+      "detector": "MSP",
+      "id": "L12",
+      "model": "harmonic69_beta0"
+    },
+    {
+      "detector": "C02/M",
+      "id": "L13",
+      "model": "harmonic69_beta1"
+    },
+    {
+      "detector": "C02/kNN",
+      "id": "L14",
+      "model": "harmonic69_beta1"
+    },
+    {
+      "detector": "MSP",
+      "id": "L15",
+      "model": "harmonic69_beta1"
+    },
+    {
+      "detector": "C02/M",
+      "id": "L16",
+      "model": "harmonic69_beta2"
+    },
+    {
+      "detector": "C02/kNN",
+      "id": "L17",
+      "model": "harmonic69_beta2"
+    },
+    {
+      "detector": "MSP",
+      "id": "L18",
+      "model": "harmonic69_beta2"
+    }
+  ],
+  "budget": {
+    "planned_runs": 162,
+    "reserve_C_bytes": 1000000000,
+    "seconds_per_action": 1800
+  },
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "environment": {
+    "python": "3.10.19",
+    "sklearn": "1.7.2"
+  },
+  "exposure_ledger_checksum": "4cb30f0a8220891b169ea32fce1fbdc24650d27f64ed8730755ee3dc95d38bdc",
+  "factory_parameters": {
+    "confidence": 0.95,
+    "knn_neighbors": 5,
+    "mahalanobis_method": "ledoit_wolf"
+  },
+  "folds": [
+    {
+      "fold_id": "fixed-fold0",
+      "motor_roles": {
+        "calibration": "T2",
+        "test": "T3",
+        "train": "T1"
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "motor_roles": {
+        "calibration": "T3",
+        "test": "T1",
+        "train": "T2"
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "motor_roles": {
+        "calibration": "T1",
+        "test": "T2",
+        "train": "T3"
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "implementations": [
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\core\\fault_type_risk_extrapolation.py",
+      "sha256": "3dbe9056875643b26b4ae8b4549fad1253cbe5e7cb9721f90031f29701cd9f94"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\experiments\\fault_type_risk_extrapolation.py",
+      "sha256": "3240c1933ff64747fccc60dea23827a40f294f0576f5c56775d51d345d6d1835"
+    },
+    {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\docs\\experiments\\exp20_rpm_risk_extrapolation.md",
+      "sha256": "0ba4b4ad19059bb1bf95bd03986388c1d5bc90444d8e06728318ad60c6367c76"
+    }
+  ],
+  "known_labels": [
+    "8screws",
+    "1screws",
+    "2screws",
+    "3_14screws",
+    "3screws",
+    "4screws"
+  ],
+  "manifest_checksums": [
+    "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+    "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+    "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95"
+  ],
+  "parameters": {
+    "MSP_definition": {
+      "kind": "msp"
+    },
+    "MSP_score": "1-max softmax probability",
+    "calibration_quantile": 0.95,
+    "initialization": "beta0 zero; beta1/10 same converged train-only ERM",
+    "models": [
+      {
+        "beta": 0.0,
+        "id": "base75_beta0",
+        "representation": "base75"
+      },
+      {
+        "beta": 1.0,
+        "id": "base75_beta1",
+        "representation": "base75"
+      },
+      {
+        "beta": 10.0,
+        "id": "base75_beta2",
+        "representation": "base75"
+      },
+      {
+        "beta": 0.0,
+        "id": "harmonic69_beta0",
+        "representation": "harmonic69"
+      },
+      {
+        "beta": 1.0,
+        "id": "harmonic69_beta1",
+        "representation": "harmonic69"
+      },
+      {
+        "beta": 10.0,
+        "id": "harmonic69_beta2",
+        "representation": "harmonic69"
+      }
+    ],
+    "optimizer": {
+      "ftol": 1e-10,
+      "gtol": 1e-06,
+      "maxcor": 10,
+      "maxiter": 1000,
+      "maxls": 50
+    },
+    "quantile_method": "linear",
+    "ridge": 0.001,
+    "risk": "mean RPM(equal-class CE)+beta*population variance",
+    "scaler": {
+      "copy": true,
+      "quantile_range": [
+        25.0,
+        75.0
+      ],
+      "unit_variance": false,
+      "with_centering": true,
+      "with_scaling": true
+    },
+    "strict_reject": "score > threshold",
+    "training_rpms": [
+      "6000rpm",
+      "8000rpm",
+      "11000rpm"
+    ]
+  },
+  "parent_protocol": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_discriminative_prototypes_lock\\2026-10-03-15-23-33\\protocol.json",
+    "sha256": "d5abd3f023c44ee4b8465c64adb313134f4b655bffe40866aa6ee9adf7cf5537"
+  },
+  "parent_protocol_checksum": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+  "protocol_checksum": "20757999cf3795589151c7ab8898746cf7f5539e8f78a9f4b0627293313d5987",
+  "reliability_contract": {
+    "coverage_drop_each_motor_rpm_vs_D01": 0.1,
+    "fault_accuracy_gain_over_C24": 0.02,
+    "fault_f1_gain_over_C17": 0.02,
+    "healthy_total_alarm_max_each_motor_rpm": 0.1,
+    "known_correct_after_rejection_drop_vs_D01": 0.01,
+    "minimum_independent_test_groups_per_class": 2,
+    "minimum_known_subsets_for_B": 3,
+    "minimum_motor_class_recall": 0.1,
+    "minimum_motor_unknown_recall": 0.1,
+    "motor_fault_f1_drop_tolerance": 0.01,
+    "primary": "motor macro known-fault F1 and fault accuracy; all seeds",
+    "rationale": "2pp material gain; 1pp motor F1/postreject guard; prior temporary 10% full health cap; 10% class/unknown floor avoids accepting existing zero-recall collapse. Research values, not deployment requirements.",
+    "scope": "ADAPTIVE_EXPLORATORY; A/B cannot imply independent C",
+    "threshold_search": false,
+    "unknown_recall_drop_tolerance_each_motor_rpm_vs_C02": 0.02,
+    "version": "continuous_reliability_v1"
+  },
+  "rpms": [
+    "6000rpm",
+    "8000rpm",
+    "11000rpm"
+  ],
+  "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "selection_policy": "none",
+  "selection_sample_ids": [],
+  "shared_validation_calibration": false,
+  "source_head": "fd5ebd11ad0f9839bde36fa2f32a5f3b0b19b704",
+  "unknown_labels": [
+    "4_146screws",
+    "5screws",
+    "6screws",
+    "7screws"
+  ],
+  "validation_sample_ids": [],
+  "version": "exp20_rpm_risk_extrapolation_v1"
+}

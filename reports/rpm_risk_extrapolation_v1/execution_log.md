@@ -11,3 +11,5 @@
 17:08:09／17:08:20開始完整acceptance；目前unittest各582項通過、0失敗，本體68.323／70.750秒。pip check及CLI總狀態待完整流程結束核對，不用unittest先推論39命令全通過。formal L optimizer與outer此時均0。
 
 完整acceptance於17:10:14／17:10:39完成，兩native各39命令exit0（pip check、unittest及37既有CLI），tests_passed各582、status=PASS。輸出`output/fault_type_continuous_acceptance_py3_10_19/2026-10-04-17-08-09`及`...py3_14_6/2026-10-04-17-08-20`；新exp20 help／smoke另外核對。測試中的故意bad CLI及常數moment警告保留，沒有忽略失敗。先提交runner／新16測試／582回歸證據；再lock精確162協定。core／factory／原105／linear預設及PolarMap沒有修改，282筆他人刪除未stage。
+
+工程commit `fd5ebd11ad0f9839bde36fa2f32a5f3b0b19b704`已push／remote一致；17:11:45–17:12:10 lock成功，protocol `output/fault_type_risk_extrapolation_lock/2026-10-04-17-11-45/protocol.json`，semantic checksum `20757999cf3795589151c7ab8898746cf7f5539e8f78a9f4b0627293313d5987`。封存本批core／runner／manual SHA、2表示法×3beta×3拒絕器×3fold×3seed=162、54 optimizer planned fit、原CONTRACT與既有N=5來源。此後不修改sealed implementation或手冊；先提交push本協定再formal fit。K逐筆驗證仍在執行，沒有用K測試成績調本批方法。

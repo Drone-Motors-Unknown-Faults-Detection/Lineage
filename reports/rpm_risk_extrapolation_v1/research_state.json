@@ -1,6 +1,9 @@
 {
   "batch_id": "exp20_rpm_risk_extrapolation_v1",
-  "current_stage": "兩native各582回歸與39命令通過；工程提交後封存協定",
+  "current_stage": "工程已push，162協定已封存；協定commit／push後formal fit",
+  "engineering_commit": "fd5ebd11ad0f9839bde36fa2f32a5f3b0b19b704",
+  "protocol": "output/fault_type_risk_extrapolation_lock/2026-10-04-17-11-45/protocol.json",
+  "protocol_checksum": "20757999cf3795589151c7ab8898746cf7f5539e8f78a9f4b0627293313d5987",
   "manual_commit": "5bbc6d83451a62a40c1adca846c2a633d355d61f",
   "core_commit": "02574d0ceb6093e40cb1f118771232482c0af6dd",
   "planned_evaluations": 162,
