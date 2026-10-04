@@ -1,0 +1,326 @@
+{
+  "cells": [
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "184583fc98ec5207dee15e09cffb36140a7e83a1a0c0fd43306ad2beb265f282",
+      "seed": 0,
+      "verified": {
+        "alpha0": {
+          "calibration_checksum": "b0ba4970b42f0ea45b69ced327206edb3dbb7f1bffd60a77212abf729a6c1e58",
+          "quantile": 1.2843620353282135,
+          "state_checksum": "345654c06fad556dfe4de1aacba74ce94077b94b050299c4042f045f7ccc5150",
+          "status": "completed",
+          "support_count": 358,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "3b553050ec6013d08ed3dc6c4fd49fc74c6badec55646a065328f436bd807ed5"
+        },
+        "alpha1": {
+          "calibration_checksum": "053914815365aeb70ee577af723c088990aecce70092fee27f4ec65218175674",
+          "quantile": 0.847925220023165,
+          "state_checksum": "7b38b7f50df4722c81b2ffa78d0597fb0f28d9c4a0e2a5ab6fc7609c1077ef71",
+          "status": "completed",
+          "support_count": 437,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "77d8a878d23239f43513fa0a59982c60ae082d9dbda38d231b993e2741a15f04"
+        },
+        "alpha2": {
+          "calibration_checksum": "6dc6c4b893944ddf1a49e6700abe4d656cae49c509bb0079bb61cf04b7501f7b",
+          "quantile": 0.4659324805354232,
+          "state_checksum": "c8c43f3584b3d582bb4ba55ac0296869ea15fbf71ba70441bd0345bcff5e19cf",
+          "status": "completed",
+          "support_count": 659,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "56e2804692b4c340a8e7399506f38345ad8a8f7654d24e85f5b45886ca1c10e0"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "87a706b07b3af61d6ee4c74bc19c2a0aa2d89f9b2e60e9ae8902fcb95f7e59fe",
+      "seed": 1,
+      "verified": {
+        "alpha0": {
+          "calibration_checksum": "b0ba4970b42f0ea45b69ced327206edb3dbb7f1bffd60a77212abf729a6c1e58",
+          "quantile": 1.2843620353282135,
+          "state_checksum": "f266773cf890e861b71b63cd7d1bb790b39c78b1011b1d660bdd664df5e10502",
+          "status": "completed",
+          "support_count": 358,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "3b553050ec6013d08ed3dc6c4fd49fc74c6badec55646a065328f436bd807ed5"
+        },
+        "alpha1": {
+          "calibration_checksum": "053914815365aeb70ee577af723c088990aecce70092fee27f4ec65218175674",
+          "quantile": 0.847925220023165,
+          "state_checksum": "edc0b3fe58aa56a50cbc0016f418ac4d981cc9faa682183d08fcb7e73b9a8653",
+          "status": "completed",
+          "support_count": 437,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "77d8a878d23239f43513fa0a59982c60ae082d9dbda38d231b993e2741a15f04"
+        },
+        "alpha2": {
+          "calibration_checksum": "6dc6c4b893944ddf1a49e6700abe4d656cae49c509bb0079bb61cf04b7501f7b",
+          "quantile": 0.4659324805354232,
+          "state_checksum": "b8e010cd024a32c964cf4ece4a2920b86e37106fbe81a438ebbb69a3c4522f98",
+          "status": "completed",
+          "support_count": 659,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "56e2804692b4c340a8e7399506f38345ad8a8f7654d24e85f5b45886ca1c10e0"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold0",
+      "model_sha256": "ab9d8d7e9f3af8da564012082f07229077f1669a8c2fbcad294db5dec1c2a3df",
+      "seed": 2,
+      "verified": {
+        "alpha0": {
+          "calibration_checksum": "b0ba4970b42f0ea45b69ced327206edb3dbb7f1bffd60a77212abf729a6c1e58",
+          "quantile": 1.2843620353282135,
+          "state_checksum": "cdb617f5f570c1232d4ee5faddfa4f26e8bdf1b68aae963340423ea6fbe040a6",
+          "status": "completed",
+          "support_count": 358,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "3b553050ec6013d08ed3dc6c4fd49fc74c6badec55646a065328f436bd807ed5"
+        },
+        "alpha1": {
+          "calibration_checksum": "053914815365aeb70ee577af723c088990aecce70092fee27f4ec65218175674",
+          "quantile": 0.847925220023165,
+          "state_checksum": "62b42abda7770aff1b94b817778a59cb5fe05eabe63abdb35c9d619e4b3bbeba",
+          "status": "completed",
+          "support_count": 437,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "77d8a878d23239f43513fa0a59982c60ae082d9dbda38d231b993e2741a15f04"
+        },
+        "alpha2": {
+          "calibration_checksum": "6dc6c4b893944ddf1a49e6700abe4d656cae49c509bb0079bb61cf04b7501f7b",
+          "quantile": 0.4659324805354232,
+          "state_checksum": "8775de0ad561a4c4c945651f5f17d9d882217a48defde3f6685f0fa4e2407fc4",
+          "status": "completed",
+          "support_count": 659,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "56e2804692b4c340a8e7399506f38345ad8a8f7654d24e85f5b45886ca1c10e0"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "86ab7bba340c28b772f3d70e0aa5c6e9f597e6b177a7e9247c9000f87b57a592",
+      "seed": 0,
+      "verified": {
+        "alpha0": {
+          "calibration_checksum": "a958f1f0fce794f57c127f2ef818a3948ca417e60569ac217a466eebc9c1e12c",
+          "quantile": 1.298758612115656,
+          "state_checksum": "d9cef07a69660fe87e3cde6add7fc96ee6bdb576f1ee45be10aac4d391e1e701",
+          "status": "completed",
+          "support_count": 372,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "09266b318f07c1f627f1d712e34326b29a833bea660c46fd83d152948f621255"
+        },
+        "alpha1": {
+          "calibration_checksum": "5fd8c8053d4a955fc90e1d7b4505b24d3995368f67af155deaef8eae81cfd91b",
+          "quantile": 0.8616549442079464,
+          "state_checksum": "cad85aaa1871c99aa91eaf689075dabe9fb60ec750783f91f1eba5d6863d9562",
+          "status": "completed",
+          "support_count": 431,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "2188ccb7c087db07534810fcd097ca881d6077b7386fe6e5789ae67eadba88ad"
+        },
+        "alpha2": {
+          "calibration_checksum": "71a10c1c433a266283248bcbf0b650029d6b25996889acfaff046a31d6ff9d4c",
+          "quantile": 0.43096908875182005,
+          "state_checksum": "63098e89b28b5e788aa819d74722a224f66c4b1790473484e0c3633de72d0057",
+          "status": "completed",
+          "support_count": 591,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "a8b7e47ce6c7cd7f667f9bbdf85f29930aca2068a7cf59f043fcd879f4d87672"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "bccd4b1b50d9b72b6b9da92c25ac6f279f1bdb1e47b187ee6ec1fe4cb6265a87",
+      "seed": 1,
+      "verified": {
+        "alpha0": {
+          "calibration_checksum": "a958f1f0fce794f57c127f2ef818a3948ca417e60569ac217a466eebc9c1e12c",
+          "quantile": 1.298758612115656,
+          "state_checksum": "3c6ac1ebef8cb11eb5498f346b9dfcd829f72cf7daa873a30401d2f125c5dce9",
+          "status": "completed",
+          "support_count": 372,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "09266b318f07c1f627f1d712e34326b29a833bea660c46fd83d152948f621255"
+        },
+        "alpha1": {
+          "calibration_checksum": "5fd8c8053d4a955fc90e1d7b4505b24d3995368f67af155deaef8eae81cfd91b",
+          "quantile": 0.8616549442079464,
+          "state_checksum": "41abcfd5be8d8a36048c36d9e5bdede2786ec2c7b600f0afed4649ebfd8d3179",
+          "status": "completed",
+          "support_count": 431,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "2188ccb7c087db07534810fcd097ca881d6077b7386fe6e5789ae67eadba88ad"
+        },
+        "alpha2": {
+          "calibration_checksum": "71a10c1c433a266283248bcbf0b650029d6b25996889acfaff046a31d6ff9d4c",
+          "quantile": 0.43096908875182005,
+          "state_checksum": "1b192ea41ab4a78a753cf89784f2b6d1a8acdd10407cde9e498e50a942d57deb",
+          "status": "completed",
+          "support_count": 591,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "a8b7e47ce6c7cd7f667f9bbdf85f29930aca2068a7cf59f043fcd879f4d87672"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold1",
+      "model_sha256": "eb35ab0a72d258992521eb51862c091aba8956264953a4c95e043951ddb9117b",
+      "seed": 2,
+      "verified": {
+        "alpha0": {
+          "calibration_checksum": "a958f1f0fce794f57c127f2ef818a3948ca417e60569ac217a466eebc9c1e12c",
+          "quantile": 1.298758612115656,
+          "state_checksum": "ad12c2fb47eb1ffe409ff72e3d00b584d61998d196ca8781621d366ad0942c55",
+          "status": "completed",
+          "support_count": 372,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "09266b318f07c1f627f1d712e34326b29a833bea660c46fd83d152948f621255"
+        },
+        "alpha1": {
+          "calibration_checksum": "5fd8c8053d4a955fc90e1d7b4505b24d3995368f67af155deaef8eae81cfd91b",
+          "quantile": 0.8616549442079464,
+          "state_checksum": "ad732908c271faf1114efd55da15faab23a18eece8a95d4c18072887c2a11b3d",
+          "status": "completed",
+          "support_count": 431,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "2188ccb7c087db07534810fcd097ca881d6077b7386fe6e5789ae67eadba88ad"
+        },
+        "alpha2": {
+          "calibration_checksum": "71a10c1c433a266283248bcbf0b650029d6b25996889acfaff046a31d6ff9d4c",
+          "quantile": 0.43096908875182005,
+          "state_checksum": "d2fc6ca04a1f7e9cd5f94a3c9c452464ff72b7f942848c6abcaa93e801c5e9f0",
+          "status": "completed",
+          "support_count": 591,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "a8b7e47ce6c7cd7f667f9bbdf85f29930aca2068a7cf59f043fcd879f4d87672"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "e82451cdca3facf35552397da6e722622ed2ca1bdbd93dd57c1acdce0e42782d",
+      "seed": 0,
+      "verified": {
+        "alpha0": {
+          "calibration_checksum": "a94196743661f955da8edc2997af01b6badc12c998c6575fa2f024c02d97ba31",
+          "quantile": 1.2372722614829768,
+          "state_checksum": "ffc7e1a35d8ca1c19ff80711fca012fb8f2de19c6fb5b93794f9b249baaa4ddc",
+          "status": "completed",
+          "support_count": 538,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "ccb8b46f04afd34a00555e3006ae95f2b3ac1f4321712650053c576b9098e2ca"
+        },
+        "alpha1": {
+          "calibration_checksum": "2e56ba6d31634ee9beb951f607fe2e700dedf41be5754bb93ea71034206073ba",
+          "quantile": 0.7814711448360646,
+          "state_checksum": "ab33f874d12215a68c7eee611fdbbb0fb04d71be3fb9e3ffe5ab9f729383c9ec",
+          "status": "completed",
+          "support_count": 625,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "24cc5fe3efbd084f61bfe2e5db402e3bf452f485aa904ba9876414b44ef61a17"
+        },
+        "alpha2": {
+          "calibration_checksum": "d7e3f49b99119f1a650cf9c48e265431274c721380d1bbb5dfa04663b327d459",
+          "quantile": 0.4532090329649428,
+          "state_checksum": "9f7ff8059a632d6a61b40bb920c03454881d062342f09bc2d74b272d49cad412",
+          "status": "completed",
+          "support_count": 923,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "9d27801bcc791d555f6b256a262e89a18ba02da87aec837606b25b4b0a4374ac"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "1dbf22ce1b361e5e0f349d352ea0df6c9d5f17f1e51e9d0bd6fae51646fbe22c",
+      "seed": 1,
+      "verified": {
+        "alpha0": {
+          "calibration_checksum": "a94196743661f955da8edc2997af01b6badc12c998c6575fa2f024c02d97ba31",
+          "quantile": 1.2372722614829768,
+          "state_checksum": "3e5839ec670afe90036d7fa68cd4eae76bed4ce3dff3ff81ca70912f876ef9cc",
+          "status": "completed",
+          "support_count": 538,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "ccb8b46f04afd34a00555e3006ae95f2b3ac1f4321712650053c576b9098e2ca"
+        },
+        "alpha1": {
+          "calibration_checksum": "2e56ba6d31634ee9beb951f607fe2e700dedf41be5754bb93ea71034206073ba",
+          "quantile": 0.7814711448360646,
+          "state_checksum": "6ef6d51492aaa53684f8018b3d468767531ab5307260547b9318a52e57f2b9a4",
+          "status": "completed",
+          "support_count": 625,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "24cc5fe3efbd084f61bfe2e5db402e3bf452f485aa904ba9876414b44ef61a17"
+        },
+        "alpha2": {
+          "calibration_checksum": "d7e3f49b99119f1a650cf9c48e265431274c721380d1bbb5dfa04663b327d459",
+          "quantile": 0.4532090329649428,
+          "state_checksum": "bfa247ffec01a051133873966575348fa8690f77015f4e29fa8151dd55c44b78",
+          "status": "completed",
+          "support_count": 923,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "9d27801bcc791d555f6b256a262e89a18ba02da87aec837606b25b4b0a4374ac"
+        }
+      }
+    },
+    {
+      "fold_id": "fixed-fold2",
+      "model_sha256": "597465336553ca1c99fdb3768e46d2a2212f1a5aec91cb9919bf8c5de4ffc73f",
+      "seed": 2,
+      "verified": {
+        "alpha0": {
+          "calibration_checksum": "a94196743661f955da8edc2997af01b6badc12c998c6575fa2f024c02d97ba31",
+          "quantile": 1.2372722614829768,
+          "state_checksum": "262eafaf70dc594be90e8be76df6cd8ac08aa17ff9bfffcc939d4bebb2e62cb7",
+          "status": "completed",
+          "support_count": 538,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "ccb8b46f04afd34a00555e3006ae95f2b3ac1f4321712650053c576b9098e2ca"
+        },
+        "alpha1": {
+          "calibration_checksum": "2e56ba6d31634ee9beb951f607fe2e700dedf41be5754bb93ea71034206073ba",
+          "quantile": 0.7814711448360646,
+          "state_checksum": "0b7e16d679d2381be27fa8cb3a980ab652bed8815abbe535991278281959c9cc",
+          "status": "completed",
+          "support_count": 625,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "24cc5fe3efbd084f61bfe2e5db402e3bf452f485aa904ba9876414b44ef61a17"
+        },
+        "alpha2": {
+          "calibration_checksum": "d7e3f49b99119f1a650cf9c48e265431274c721380d1bbb5dfa04663b327d459",
+          "quantile": 0.4532090329649428,
+          "state_checksum": "5536d286aca3eea58147fc593aaa25ba2927d95995ce781a3b24cb491c56ca94",
+          "status": "completed",
+          "support_count": 923,
+          "test_numeric_reads": 0,
+          "training_kernel_checksum": "9d27801bcc791d555f6b256a262e89a18ba02da87aec837606b25b4b0a4374ac"
+        }
+      }
+    }
+  ],
+  "fresh_final_test": false,
+  "locked_checksum": "21f30fb76c1bdcffcdb25a956afe7c8a46fe26497a0f2bab99b0d2f601636f49",
+  "protocol_checksum": "2dab6753530bc6736b88881b57e61d9488253ceb9a459276b3fcd0d8b0f00abf",
+  "source_after": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_before": {
+    "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "file_count": 90,
+    "status": "VERIFIED_BYTES"
+  },
+  "source_verification_checksum": "8e19b4cebac79443fe60f6345424fcc2f655af4bf8c9c39ed1b9282bb32324ee",
+  "status": "VERIFIED_AVAILABLE_NUMERIC_SOURCES",
+  "test_numeric_reads": 0
+}

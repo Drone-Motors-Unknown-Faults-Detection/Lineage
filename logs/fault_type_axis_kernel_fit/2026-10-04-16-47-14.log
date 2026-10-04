@@ -1,0 +1,13 @@
+2026-10-04 16:47:14 | INFO    | Logger initialized: fault_type_axis_kernel_fit
+2026-10-04 16:47:14 | INFO    | log_file=logs\fault_type_axis_kernel_fit\2026-10-04-16-47-14.log
+2026-10-04 16:47:14 | INFO    | output_dir=output\fault_type_axis_kernel_fit\2026-10-04-16-47-14
+2026-10-04 16:48:03 | INFO    | 封存 fixed-fold0_seed0，成功3固定核分類器
+2026-10-04 16:48:37 | INFO    | 封存 fixed-fold0_seed1，成功3固定核分類器
+2026-10-04 16:49:12 | INFO    | 封存 fixed-fold0_seed2，成功3固定核分類器
+2026-10-04 16:49:46 | INFO    | 封存 fixed-fold1_seed0，成功3固定核分類器
+2026-10-04 16:50:21 | INFO    | 封存 fixed-fold1_seed1，成功3固定核分類器
+2026-10-04 16:50:55 | INFO    | 封存 fixed-fold1_seed2，成功3固定核分類器
+2026-10-04 16:51:27 | INFO    | 封存 fixed-fold2_seed0，成功3固定核分類器
+2026-10-04 16:52:00 | INFO    | 封存 fixed-fold2_seed1，成功3固定核分類器
+2026-10-04 16:52:32 | INFO    | 封存 fixed-fold2_seed2，成功3固定核分類器
+2026-10-04 16:52:33 | INFO    | fit 完成，輸出 D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\axis_invariant_kernel_v1\workspace\output\fault_type_axis_kernel_fit\2026-10-04-16-47-14
