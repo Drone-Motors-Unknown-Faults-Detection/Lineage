@@ -6,6 +6,7 @@
 
 | 模組 | 手冊 |
 |---|---|
+| exp22：`experiments/fault_type_group_dro.py`（預定，尚未實作） | [已知群組穩健損失](exp22_known_group_dro.md) |
 | exp21：`experiments/fault_type_self_challenging.py` | [有限表格特徵自挑戰](exp21_feature_self_challenging.md) |
 | exp20：`experiments/fault_type_risk_extrapolation.py` | [RPM風險差異與固定softmax](exp20_rpm_risk_extrapolation.md) |
 | exp19：`experiments/fault_type_axis_kernel.py` | [三軸排列不變核](exp19_axis_invariant_kernel.md) |
@@ -33,6 +34,7 @@
 
 | 編號 | 入口與共用邏輯 | 測試、紀錄與輸出 | 展示 |
 |---|---|---|---|
+| exp22（預定） | `experiments/fault_type_group_dro.py`、`core/fault_type_group_dro.py` | `tests/test_fault_type_group_dro.py`、`tests/test_fault_type_group_dro_runner.py`、`logs/fault_type_group_dro_*/`、`output/fault_type_group_dro_*/` | N/A；尚未實作 |
 | exp21 | `experiments/fault_type_self_challenging.py`、`core/fault_type_self_challenging.py` | `tests/test_fault_type_self_challenging.py`、`tests/test_fault_type_self_challenging_runner.py`、`logs/fault_type_self_challenging_*/`、`output/fault_type_self_challenging_*/` | N/A |
 | exp20 | `experiments/fault_type_risk_extrapolation.py`、`core/fault_type_risk_extrapolation.py` | `tests/test_fault_type_risk_extrapolation.py`、`tests/test_fault_type_risk_runner.py`、`logs/fault_type_risk_extrapolation_*/`、`output/fault_type_risk_extrapolation_*/` | N/A |
 | exp19 | `experiments/fault_type_axis_kernel.py`、`core/fault_type_axis_kernel.py` | `tests/test_fault_type_axis_kernel.py`、`logs/fault_type_axis_kernel_*/`、`output/fault_type_axis_kernel_*/` | N/A |
