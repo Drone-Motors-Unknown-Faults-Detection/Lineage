@@ -40,7 +40,7 @@ formal105唯讀；固定沿用base75與harmonic69兩種LiteratureRepresentation�
 |---|---|
 | 新公式 | core/fault_type_risk_extrapolation.py；等RPM／等class風險、softmax、解析gradient與train-only warm start |
 | 新實驗 | experiments/fault_type_risk_extrapolation.py；run(...)／main()，lock、fit、source-verify、evaluate、verify、report、smoke、backup |
-| 新測試 | tests/test_fault_type_risk_extrapolation.py |
+| 新測試 | tests/test_fault_type_risk_extrapolation.py、tests/test_fault_type_risk_runner.py |
 | 只讀共用 | core/fault_type_literature.py的表示法／MSP、core.openset factory、最新用途／來源／alias guards、舊protocol／manifests／controls |
 | 文件 | reports/rpm_risk_extrapolation_v1/、docs兩索引 |
 | 執行輸出 | core.logger.setup_run；logs/fault_type_risk_extrapolation_*/及output/fault_type_risk_extrapolation_*/ |
@@ -48,4 +48,12 @@ formal105唯讀；固定沿用base75與harmonic69兩種LiteratureRepresentation�
 
 先行手冊commit/push，實作與synthetic小測試，再兩Python完整acceptance／pip check與CLI。工程commit/push後lock精確參數／source SHA；protocol commit/push後fit，來源重建commit/push後才162評估及逐筆re-infer。每action1800秒、C槽保留1GB，若不足保留同設定checkpoint與INCOMPLETE。大型模型／predictions依已有archive／fixed_delivery逐member SHA／CRC核對，Git只保存compact摘要／索引；不覆蓋舊ZIP，不stage282筆無關刪除或formal資料。
 
-尚未實作CLI；精確命令待新增模組--help及smoke通過後記execution_log，不把不存在的入口當已完成。原論文／作者程式／獨立改編與本輪實測分開記錄。
+2026-10-04工程接續：CLI help及smoke已在兩native環境通過；以下入口存在，尚不代表formal162評估完成。協定封存前先提交工程驗收證據，精確run timestamp／SHA記execution_log。
+
+```powershell
+.venv310/Scripts/python.exe -m experiments.fault_type_risk_extrapolation smoke
+.venv310/Scripts/python.exe -m experiments.fault_type_risk_extrapolation lock --parent-protocol output/fault_type_discriminative_prototypes_lock/2026-10-03-15-23-33/protocol.json
+# lock、source-verification、evaluation實際路徑以本輪輸出及execution_log為準；不可指向歷史另一批。
+```
+
+原論文／作者程式／獨立改編與本輪實測分開記錄。source replay會獨立重跑同known train ERM／REx，成功與失敗的optimizer狀態都要一致；來源重建不計入54次新研究分類器fit。

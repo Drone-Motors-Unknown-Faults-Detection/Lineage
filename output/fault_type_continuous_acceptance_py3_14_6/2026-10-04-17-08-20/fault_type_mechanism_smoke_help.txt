@@ -1,0 +1,6 @@
+usage: python.exe -m experiments.fault_type_mechanism_smoke [-h]
+
+Runtime-native synthetic mechanisms/inference smoke; NOT motor results.
+
+options:
+  -h, --help  show this help message and exit

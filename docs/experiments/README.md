@@ -6,7 +6,7 @@
 
 | 模組 | 手冊 |
 |---|---|
-| exp20：`experiments/fault_type_risk_extrapolation.py`（待實作） | [RPM風險差異與固定softmax](exp20_rpm_risk_extrapolation.md) |
+| exp20：`experiments/fault_type_risk_extrapolation.py` | [RPM風險差異與固定softmax](exp20_rpm_risk_extrapolation.md) |
 | exp19：`experiments/fault_type_axis_kernel.py` | [三軸排列不變核](exp19_axis_invariant_kernel.md) |
 | exp18：`experiments/fault_type_context_rejection.py` | [RPM原型距離與聯合拒絕](exp18_context_rejection.md) |
 | exp17：`experiments/fault_type_context_prototypes.py` | [RPM工況相關原型](exp17_context_prototypes.md) |
@@ -32,7 +32,7 @@
 
 | 編號 | 入口與共用邏輯 | 測試、紀錄與輸出 | 展示 |
 |---|---|---|---|
-| exp20（待實作） | `experiments/fault_type_risk_extrapolation.py`、`core/fault_type_risk_extrapolation.py` | `tests/test_fault_type_risk_extrapolation.py`、`logs/fault_type_risk_extrapolation_*/`、`output/fault_type_risk_extrapolation_*/` | N/A |
+| exp20 | `experiments/fault_type_risk_extrapolation.py`、`core/fault_type_risk_extrapolation.py` | `tests/test_fault_type_risk_extrapolation.py`、`tests/test_fault_type_risk_runner.py`、`logs/fault_type_risk_extrapolation_*/`、`output/fault_type_risk_extrapolation_*/` | N/A |
 | exp19 | `experiments/fault_type_axis_kernel.py`、`core/fault_type_axis_kernel.py` | `tests/test_fault_type_axis_kernel.py`、`logs/fault_type_axis_kernel_*/`、`output/fault_type_axis_kernel_*/` | N/A |
 | exp18 | `experiments/fault_type_context_rejection.py`、`core/fault_type_context_rejection.py` | `tests/test_fault_type_context_rejection.py`、`logs/fault_type_context_rejection_*/`、`output/fault_type_context_rejection_*/` | N/A |
 | exp17 | `experiments/fault_type_context_prototypes.py`、`core/fault_type_context_prototypes.py` | `tests/test_fault_type_context_prototypes.py`、`logs/fault_type_context_prototypes_*/`、`output/fault_type_context_prototypes_*/` | N/A |

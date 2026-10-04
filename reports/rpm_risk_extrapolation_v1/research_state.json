@@ -1,0 +1,16 @@
+{
+  "batch_id": "exp20_rpm_risk_extrapolation_v1",
+  "current_stage": "兩native各582回歸與39命令通過；工程提交後封存協定",
+  "manual_commit": "5bbc6d83451a62a40c1adca846c2a633d355d61f",
+  "core_commit": "02574d0ceb6093e40cb1f118771232482c0af6dd",
+  "planned_evaluations": 162,
+  "completed_evaluations": 0,
+  "planned_optimizer_fits": 54,
+  "completed_optimizer_fits": 0,
+  "selection_policy": "none",
+  "fresh_final_test": false,
+  "production_replacement": false,
+  "reliable_improvement_reached": false,
+  "acceptance": {"Python3.10.19": 582,"Python3.14.6": 582},
+  "next": "工程commit／push、lock／commit／push、known fit與actual source／commit／push、162配對outer"
+}

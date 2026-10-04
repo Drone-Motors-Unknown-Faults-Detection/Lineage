@@ -10,7 +10,7 @@
 
 | 文件 | 內容 |
 |---|---|
-| [exp20 RPM風險差異](experiments/exp20_rpm_risk_extrapolation.md) | REx原文與負面證據；固定等RPM／等class softmax比較，先行手冊，尚未實作／實測 |
+| [exp20 RPM風險差異](experiments/exp20_rpm_risk_extrapolation.md) | REx原文與負面證據；固定等RPM／等class softmax入口、用途／來源測試，formal成績另記reports/rpm_risk_extrapolation_v1 |
 | [exp19 三軸排列不變核](experiments/exp19_axis_invariant_kernel.md) | 固定0／0.5／1群平均核與SVM；33小測試／native smoke完成，尚無formal成績 |
 | [exp18 RPM原型距離與聯合拒絕](experiments/exp18_context_rejection.md) | 324評估／逐筆重推完成、36方法全FAILED；[報告](../reports/context_rejection_v1/final_findings.md)，保留健康誤報與未知召回限制 |
 | [exp17 RPM工況相關原型](experiments/exp17_context_prototypes.md) | 一次／二次RPM原型、GLVQ／aux；108格評估及來源重建完成，12方法皆FAILED；見reports/context_prototypes_v1 |

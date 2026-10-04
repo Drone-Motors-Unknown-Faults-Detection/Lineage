@@ -1,0 +1,92 @@
+{
+  "models": [
+    {
+      "beta": 0.0,
+      "optimizer": {
+        "evaluations": 12,
+        "gradient_inf": 8.580887635484431e-07,
+        "initialization": "zero",
+        "iterations": 11,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": 0.995542851331102,
+        "options": {
+          "ftol": 1e-10,
+          "gtol": 1e-06,
+          "maxcor": 10,
+          "maxiter": 1000,
+          "maxls": 50
+        },
+        "ridge": 0.001,
+        "risk_mean": 0.9949901629523046,
+        "risk_population_variance": 0.021225260001019073,
+        "risks": [
+          1.1829826648925568,
+          0.827973336715944,
+          0.9740144872484131
+        ],
+        "status": 0,
+        "success": true
+      },
+      "state_checksum": "4b7f1dcb6a094eb21ac295014cec6cf20411345b4b2d5f8bfb2f1cc0991a5d54"
+    },
+    {
+      "beta": 1.0,
+      "optimizer": {
+        "evaluations": 11,
+        "gradient_inf": 5.1031207660545e-07,
+        "initialization": "train_only_ERM",
+        "iterations": 9,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": 1.010729761922112,
+        "options": {
+          "ftol": 1e-10,
+          "gtol": 1e-06,
+          "maxcor": 10,
+          "maxiter": 1000,
+          "maxls": 50
+        },
+        "ridge": 0.001,
+        "risk_mean": 0.9993401659425957,
+        "risk_population_variance": 0.010988935446938658,
+        "risks": [
+          1.1363350718686913,
+          0.8817743934328879,
+          0.9799110325262074
+        ],
+        "status": 0,
+        "success": true
+      },
+      "state_checksum": "7a5295601c348366bbe60d7989a1ac7f0f9d117d69e35710327fb3bc1964b84f"
+    },
+    {
+      "beta": 10.0,
+      "optimizer": {
+        "evaluations": 16,
+        "gradient_inf": 9.654605949697861e-07,
+        "initialization": "train_only_ERM",
+        "iterations": 15,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": 1.0394181591886664,
+        "options": {
+          "ftol": 1e-10,
+          "gtol": 1e-06,
+          "maxcor": 10,
+          "maxiter": 1000,
+          "maxls": 50
+        },
+        "ridge": 0.001,
+        "risk_mean": 1.0301608901875177,
+        "risk_population_variance": 0.0009009686673729244,
+        "risks": [
+          1.070435767014789,
+          0.9984086455563647,
+          1.0216382579913996
+        ],
+        "status": 0,
+        "success": true
+      },
+      "state_checksum": "4a345567d6a2ea378d90e0e0d7bf1a00f9cb500e5305494628f6526e50bc8540"
+    }
+  ],
+  "scope": "SYNTHETIC_ENGINEERING_ONLY"
+}
