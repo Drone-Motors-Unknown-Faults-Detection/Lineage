@@ -1,7 +1,7 @@
 {
   "version": "continuous_state_v1",
-  "phase": "L162已交付、18FAILED；M72fine＋18warm完成，actual known source proof執行中，outer0",
-  "head": "5d4893b7ac89d4570cc764703952354841058592",
+  "phase": "L162已交付、18FAILED；M72fine＋18warm與known source proof完成，outer0；N先行手冊已寫尚無程式",
+  "head": "ffbc0aac9bea74f70f5f4bd151653a3b0f7efa07",
   "head_scope": "last verified results commit; subsequent documentation-only delivery checkpoint recorded in git history",
   "main_todo_commit": "80bdf54fdf43d466ea19549fb7c0b4e391394799",
   "inventory": "output/fault_type_continuous_inventory/2026-10-02-18-33-25/inventory.json",

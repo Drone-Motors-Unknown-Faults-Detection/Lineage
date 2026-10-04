@@ -19,3 +19,7 @@
 協定commit `5d4893b7ac89d4570cc764703952354841058592`已push／remote一致。22:03:00–22:09:16 formal fit完成：9 bundle、72 fine固定200step全部完成、18 ERM warm完成；兩類計數分開，不把source proof重建算新增研究fit。C compact lock `output/fault_type_self_challenging_fit/2026-10-04-22-03-00/locked_study.json`，semantic checksum `dd4049ee4f4112a806baa5027310552431273575acd396eea8a1b9a5b650a7b1`。前後90 CSV／fingerprint c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d相同。22:09:26啟動actual known source refit，尚未讀本批outer結果。
 
 接續本回合完整讀AGENT.md，remote main blob仍8f35a6bf14fa4747d63add1d6bc852b65bcb4784；HEAD／branch／remote／282既有deletions不變。PDF技能唯讀核對Group DRO原論文與固定作者碼，新增獨立source card；尚無該支線manual／程式／protocol／formal runs，不修改sealed M。新文件用繁體中文，author英文術語作輔助。
+
+fit與來源卡commit `ffbc0aac9bea74f70f5f4bd151653a3b0f7efa07`已push／remote一致。22:09:26–22:14:59 actual known source proof完成，9格72 fine及18 warm重建，加原factory／MSP與scaler重建，`test_numeric_reads=0`，status VERIFIED_AVAILABLE_NUMERIC_SOURCES，checksum `1353d36ec855ad005ed1d5aa2d497660126c6edcbca78283d4edbc1bd36c6aac`。這是來源驗證重建，不算新candidate fits。先提交push proof後才outer；五份sealed來源與正式指紋仍不變。
+
+M來源重建期間依exp20既有結果／Group DRO原文寫exp22先行手冊與兩索引，N程式／protocol／fit／outer均0，M outer仍0；M與N提交範圍分開。本回合有一次JavaScript輔助輸出把已存object當array.slice，讀檔／變更前即TypeError；改為Object.keys，未改正式模型或評估。
