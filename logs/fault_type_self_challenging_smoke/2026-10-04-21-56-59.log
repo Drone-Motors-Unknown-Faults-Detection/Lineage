@@ -1,0 +1,4 @@
+2026-10-04 21:56:59 | INFO    | Logger initialized: fault_type_self_challenging_smoke
+2026-10-04 21:56:59 | INFO    | log_file=logs\fault_type_self_challenging_smoke\2026-10-04-21-56-59.log
+2026-10-04 21:56:59 | INFO    | output_dir=output\fault_type_self_challenging_smoke\2026-10-04-21-56-59
+2026-10-04 21:56:59 | INFO    | smoke 完成，輸出 output\fault_type_self_challenging_smoke\2026-10-04-21-56-59

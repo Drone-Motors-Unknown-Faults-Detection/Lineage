@@ -1,0 +1,137 @@
+{
+  "models": [
+    {
+      "optimizer": {
+        "converged_not_claimed": true,
+        "gradient_inf": 2.236093688684493e-12,
+        "history_checksum": "532cb1200a08ec9601224956590b416c0648c2c58cab80ed22c16108e92b6baa",
+        "learning_rate": 0.5028518310729629,
+        "objective": 0.9955428513271007,
+        "risk_mean": 0.9949901650970102,
+        "risk_population_variance": 0.021225056458824023,
+        "risks": [
+          1.1829820030626335,
+          0.8279744793933567,
+          0.9740140128350404
+        ],
+        "status": "FIXED_HORIZON_COMPLETE",
+        "steps": 200,
+        "success": true,
+        "training": {
+          "feature_fraction": 0.3333333333333333,
+          "initialization": "same_known_source_ERM",
+          "learning_rate": "1/(0.5*weighted_augmented_train_trace+ridge)",
+          "mask_gradient": "stop",
+          "optimizer": "fixed_full_batch_SGD",
+          "ridge": 0.001,
+          "row_fraction": 0.3333333333333333,
+          "selection": "last_iterate",
+          "steps": 200,
+          "ties": "stable_descending_exact_ceil"
+        }
+      },
+      "state_checksum": "1db56ee6e3be1cd8f55cf6e97a0c0dcffeab18f90b8610dc68fc902b7804a149",
+      "variant": "unmasked"
+    },
+    {
+      "optimizer": {
+        "converged_not_claimed": true,
+        "gradient_inf": 0.08279113963431521,
+        "history_checksum": "f90bd95107c05b8da20b74231c6845803e8830c7508fe0a7616de7098c509b0d",
+        "learning_rate": 0.5028518310729629,
+        "objective": 1.040400467246453,
+        "risk_mean": 1.0403425106740205,
+        "risk_population_variance": 0.0022622344198344247,
+        "risks": [
+          1.1068476664291773,
+          0.998363546188092,
+          1.0158163194047924
+        ],
+        "status": "FIXED_HORIZON_COMPLETE",
+        "steps": 200,
+        "success": true,
+        "training": {
+          "feature_fraction": 0.3333333333333333,
+          "initialization": "same_known_source_ERM",
+          "learning_rate": "1/(0.5*weighted_augmented_train_trace+ridge)",
+          "mask_gradient": "stop",
+          "optimizer": "fixed_full_batch_SGD",
+          "ridge": 0.001,
+          "row_fraction": 0.3333333333333333,
+          "selection": "last_iterate",
+          "steps": 200,
+          "ties": "stable_descending_exact_ceil"
+        }
+      },
+      "state_checksum": "94c4ccc59ae6f874e12dfa94a226f3abacdf272ab15adb8aca4d491d69e31f27",
+      "variant": "random"
+    },
+    {
+      "optimizer": {
+        "converged_not_claimed": true,
+        "gradient_inf": 0.07776103172505544,
+        "history_checksum": "6a1a424857059473dba490471f1db4d8a3aaf7978b3189ec91671937d948c508",
+        "learning_rate": 0.5028518310729629,
+        "objective": 1.042323787302286,
+        "risk_mean": 1.0422353994968516,
+        "risk_population_variance": 0.004765804896191549,
+        "risks": [
+          1.1352651642602198,
+          0.9700728175040598,
+          1.0213682167262756
+        ],
+        "status": "FIXED_HORIZON_COMPLETE",
+        "steps": 200,
+        "success": true,
+        "training": {
+          "feature_fraction": 0.3333333333333333,
+          "initialization": "same_known_source_ERM",
+          "learning_rate": "1/(0.5*weighted_augmented_train_trace+ridge)",
+          "mask_gradient": "stop",
+          "optimizer": "fixed_full_batch_SGD",
+          "ridge": 0.001,
+          "row_fraction": 0.3333333333333333,
+          "selection": "last_iterate",
+          "steps": 200,
+          "ties": "stable_descending_exact_ceil"
+        }
+      },
+      "state_checksum": "26e8430b190ed8d3d108c779d423af1c82a703f2339e5521d270042689565178",
+      "variant": "signed_gradient"
+    },
+    {
+      "optimizer": {
+        "converged_not_claimed": true,
+        "gradient_inf": 0.12402872956076988,
+        "history_checksum": "625d858a242334b6f6d5dd982743fd662d26714378819bc6ba6910379c276f0d",
+        "learning_rate": 0.5028518310729629,
+        "objective": 1.085522547980851,
+        "risk_mean": 1.0855191859514963,
+        "risk_population_variance": 8.76089627599933e-05,
+        "risks": [
+          1.0983245161903383,
+          1.076212888237266,
+          1.082020153426885
+        ],
+        "status": "FIXED_HORIZON_COMPLETE",
+        "steps": 200,
+        "success": true,
+        "training": {
+          "feature_fraction": 0.3333333333333333,
+          "initialization": "same_known_source_ERM",
+          "learning_rate": "1/(0.5*weighted_augmented_train_trace+ridge)",
+          "mask_gradient": "stop",
+          "optimizer": "fixed_full_batch_SGD",
+          "ridge": 0.001,
+          "row_fraction": 0.3333333333333333,
+          "selection": "last_iterate",
+          "steps": 200,
+          "ties": "stable_descending_exact_ceil"
+        }
+      },
+      "state_checksum": "36902002fce5f39f2692215ec6c32001a0f353cf24bf98561ec3ccc9f323877c",
+      "variant": "contribution"
+    }
+  ],
+  "scope": "SYNTHETIC_ENGINEERING_ONLY"
+}
