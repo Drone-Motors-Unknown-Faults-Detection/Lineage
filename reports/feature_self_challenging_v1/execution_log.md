@@ -13,3 +13,5 @@
 21:58:39／21:58:50啟動完整acceptance，目前執行中；未提前宣稱全套通過或開始正式M fit。曾在unittest輸出檔尚未產生時唯讀讀取，得到file-not-found，沒有重跑或更改測試；以完成後environment.json作驗收。先完成驗收、commit/push工程，再lock協定與逐階段正式執行。
 
 22:00:48／22:01:09完整acceptance完成；Python3.10.19／3.14.6各618 passed、0 failed，unittest本體75.999／76.890秒；各39命令exit0，pip check／37既有CLI與完整tests均PASS。本批help及smoke另行驗證，未混進既有39命令數。早期mechanical replacement誤把protocol version留下exp20，封存前改為exp21，沒有生成錯版formal lock。來源／score／policy程式與兩native驗收證據先提交push，再lock精確216條件。新fit預計72fixed-horizon＋18ERM warm，不把重推算新fit。
+
+工程commit `9e086915f1f305ab0b0c982809ea0f4b907e0ee8`已push／remote一致；22:01:49–22:02:11 lock完成，`output/fault_type_self_challenging_lock/2026-10-04-22-01-49/protocol.json`，semantic checksum `e3099ce35f8c8d4bf71ccb71c314d475b56e98fba1c211c202643100fc596f4d`。封存五份implementation來源SHA、固定參數／216方法格、原CONTRACT及歷史曝露。此後不修改sealed core／runner／manual／warm依賴；先提交push本協定再fit data/formal_local。當前formal M fit與outer均0。

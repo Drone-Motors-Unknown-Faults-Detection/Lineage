@@ -1,7 +1,7 @@
 {
   "version": "continuous_state_v1",
-  "phase": "Q及solver／E至K已交付；L162逐筆重推完成、18方法FAILED、6ZIP360members完成，交付待push",
-  "head": "f7973c792d027c583784710465e1fb4139e70d16",
+  "phase": "L162已交付、18FAILED；M自挑戰618驗收完成、216協定封存，formal fit待開始",
+  "head": "9e086915f1f305ab0b0c982809ea0f4b907e0ee8",
   "head_scope": "last verified results commit; subsequent documentation-only delivery checkpoint recorded in git history",
   "main_todo_commit": "80bdf54fdf43d466ea19549fb7c0b4e391394799",
   "inventory": "output/fault_type_continuous_inventory/2026-10-02-18-33-25/inventory.json",
@@ -14,11 +14,11 @@
   "report": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/summary.json.gz",
   "solver_protocol": "output/fault_type_solver_lock/2026-10-02-23-46-28/protocol.json",
   "solver_delivery": "reports/continuous_research/solver_result_index.json",
-  "next": "提交push L交付；完成RSC原文與作者程式source card，事前手冊／commit後才有限特徵自挑戰改編",
+  "next": "提交push M216協定，再known fit／actual source proof／提交push，才outer；sealed程式與原CONTRACT不改",
   "current_issue": 22,
   "goal_runtime_status": "使用者要求持續；歷史usageLimited不作本輪停止條件，未宣稱R2完成",
   "latest_delivery": "reports/rpm_risk_extrapolation_v1/result_index.json",
-  "active_state": "reports/rpm_risk_extrapolation_v1/execution_log.md",
+  "active_state": "reports/feature_self_challenging_v1/research_state.json",
   "known_blockers": [
     "fresh independent test unavailable",
     "raw provenance UNKNOWN"

@@ -1,8 +1,11 @@
 {
   "batch_id": "exp21_feature_self_challenging_v1",
-  "current_stage": "兩native各618／39命令PASS；工程提交後lock正式216協定，formal fit仍0",
+  "current_stage": "216協定已封存，提交push後正式72fine＋18warm fit，outer仍0",
   "manual_commit": "a210b7a41dd50a28b2168663722a043fcb9be1c2",
   "core_commit": "bc8eed323cdd9adaf95cf283e06b04e81c1de59e",
+  "engineering_commit": "9e086915f1f305ab0b0c982809ea0f4b907e0ee8",
+  "protocol": "output/fault_type_self_challenging_lock/2026-10-04-22-01-49/protocol.json",
+  "protocol_checksum": "e3099ce35f8c8d4bf71ccb71c314d475b56e98fba1c211c202643100fc596f4d",
   "planned_evaluations": 216,
   "completed_evaluations": 0,
   "planned_fixed_horizon_fits": 72,

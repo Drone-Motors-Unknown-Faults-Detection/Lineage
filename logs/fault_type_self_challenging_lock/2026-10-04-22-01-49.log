@@ -1,0 +1,4 @@
+2026-10-04 22:01:49 | INFO    | Logger initialized: fault_type_self_challenging_lock
+2026-10-04 22:01:49 | INFO    | log_file=logs\fault_type_self_challenging_lock\2026-10-04-22-01-49.log
+2026-10-04 22:01:49 | INFO    | output_dir=output\fault_type_self_challenging_lock\2026-10-04-22-01-49
+2026-10-04 22:02:11 | INFO    | lock 完成，輸出 output\fault_type_self_challenging_lock\2026-10-04-22-01-49
