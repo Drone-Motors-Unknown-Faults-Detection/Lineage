@@ -19,3 +19,13 @@ M 已有 216 completed、2,081,520 records、28,910 unique rows。22:17:39–22:
 盤點提交 63f1e2e9a161b31e4a5a8c23c7d31a5918770630 已 push，remote exact。新增文件編排只讀 sealed summary，來源 SHA 全部重核；早期僅 healthy→UNKNOWN 的分數欄標 NA，不冒充完整誤報。M result_index／final_findings、continuous state／ledger 及 N 封存註記更新；N 0 fits／0 evaluations。報告以同一 Markdown 來源生成可編輯 Word，未更改方法或研究分數。
 
 文件 formatter 增加百分比／NA 及早期誤報分母測試後，Python3.10.19／3.14.6 各 11 項全部 PASS。最終新增測試數為11；9項是前一盤點階段，不混成完整科學驗收。來源 B28 本回合由 Wiley 出版頁核對五位作者與出版日期，補完整書目。
+
+M 收尾提交 4023bd7cc0627fd60934c01374f282f1e3b5de75 已 push／remote exact。補齊附錄的 score-only 支線及缺失 arms；總計250個 batch／method 身分，不把這些身分當獨立資料。原報告與新稿保留，不覆寫歷史模型／預測。
+
+documents skill 導引使用 bundled runtime、可編輯表格與原生公式，沒有動科學環境。artifact authoring marker 成功且只執行一次。22:48:43 初稿：37表格／751列逐格與 Markdown EXACT、5原生公式、40文獻 hyperlinks、DOCX ZIP CRC PASS。22:50:48 新版本加入自動逐格核對與實際建立日期，原稿保留；再次結構 PASS。最終11項相關測試兩環境均 PASS。
+
+正式 render_docx.py 的初次及後續呼叫均 exit1：FileNotFoundError，LibreOffice soffice.exe was not found on PATH。僅允許 bundled override／fallback 和 System32 PATH，未啟動或修改 desktop LibreOffice。沒有產生 PNG，LAYOUT_UNVERIFIED；Word／Markdown內容、引用、原生元素與ZIP已核對，不能宣稱逐頁視覺驗收。最終 renderer 錯誤與 metadata 保存於交付目錄。
+
+22:53:29 最終文件版：37表格／751列 EXACT、5原生公式、40文獻 hyperlinks、250 batch／method 身分，無簡體候選。五份 sealed M implementations 的SHA逐一與protocol吻合。22:54:00 新增文件與小型證據備份，22:54:25 fixed_delivery：1 ZIP／16members whole／member SHA／CRC PASS，4,822,044 bytes。原檔與前兩份Word版本保留。
+
+使用者接續要求報告寫 .md 在 GitHub 專案內；新增 reports/research_closeout_20261005/final_report.md，與22:53:29 Word的Markdown來源文字逐字相同，並加入兩處文件索引。Word原稿保留，主要閱讀入口改為GitHub內的Markdown。未以此要求啟動新演算法。

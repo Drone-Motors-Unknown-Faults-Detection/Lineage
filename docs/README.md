@@ -10,7 +10,8 @@
 
 | 文件 | 內容 |
 |---|---|
-| [單顆馬達研究收尾](experiments/research_closeout.md) | 唯讀盤點、原契約判定及繁體中文 Word 交付；不新增演算法訓練 |
+| [單顆馬達研究收尾手冊](experiments/research_closeout.md) | 唯讀盤點、原契約判定與文件交付；不新增演算法訓練 |
+| [單顆馬達跨馬達研究完整報告](../reports/research_closeout_20261005/final_report.md) | 十二批證據、完整方法與來源、M216／1,134配對、24方法 FAILED；B 路徑封存 |
 | [exp22 已知群組穩健損失](experiments/exp22_known_group_dro.md) | 已規劃未實作並封存；未進入訓練或測試，保留原假說與來源 |
 | [exp21 有限表格特徵自挑戰](experiments/exp21_feature_self_challenging.md) | 216 評估／逐筆核驗、1,134 配對完成，24 方法可靠性 FAILED；結果見 reports/feature_self_challenging_v1 |
 | [exp20 RPM風險差異](experiments/exp20_rpm_risk_extrapolation.md) | REx原文與負面證據；固定等RPM／等class softmax入口、用途／來源測試，formal成績另記reports/rpm_risk_extrapolation_v1 |

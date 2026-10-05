@@ -245,6 +245,7 @@ def main():
     parser.add_argument('--document-runtime', type=Path)
     parser.add_argument('--inventory', type=Path)
     parser.add_argument('--word', action='store_true')
+    parser.add_argument('--renderer', type=Path)
     args = parser.parse_args()
     log, paths = setup_run('fault_type_research_closeout')
     if args.document_runtime:
@@ -253,6 +254,7 @@ def main():
         command = [str(args.document_runtime), 'reports/research_closeout_20261005/build_report.py',
                    '--inventory', str(args.inventory), '--output', str(paths.output_dir)]
         if args.word: command.append('--word')
+        if args.renderer: command += ['--renderer', str(args.renderer)]
         completed = subprocess.run(command, capture_output=True, text=True, encoding='utf-8')
         log.info('文件編排 stdout：{}', completed.stdout)
         if completed.returncode:

@@ -1,0 +1,5 @@
+2026-10-05 22:48:43 | INFO    | Logger initialized: fault_type_research_closeout
+2026-10-05 22:48:43 | INFO    | log_file=logs\fault_type_research_closeout\2026-10-05-22-48-43.log
+2026-10-05 22:48:43 | INFO    | output_dir=output\fault_type_research_closeout\2026-10-05-22-48-43
+2026-10-05 22:48:46 | INFO    | 文件編排 stdout：{"output": "output\\fault_type_research_closeout\\2026-10-05-22-48-43", "word": true, "qa": {"numbers_from_sealed_summaries": true, "matching_m_rows": 72, "fold_test_support": 28910, "m_completed": 216, "paired": 1134, "gate_counts": {"FAILED": 24}, "simplified_candidates": [], "layout_status": "NOT_RENDERED", "historical_full_tests_rerun": false, "source_catalog_sha256": "67647ab8b706e85afc7f0563f9106a2b2f4ff84d5687219d004fa5b278a1ec0c", "markdown_sha256": "b008939c590541a59e301bdcfa47dfdb2a1ec964769eae773140dd2d085fe9e6", "docx": "output\\fault_type_research_closeout\\2026-10-05-22-48-43\\research_report.docx", "docx_sha256": "6e7c824441a5359d68ba3872e7db98cdadb33144a94cd5a2a6f381dde6474efb", "editable_tables": 37, "native_equations": 5, "hyperlink_count": 40, "zip_crc": "PASS", "structural_status": "PASS"}}
+

@@ -34,5 +34,6 @@
   "fresh_final_test": false,
   "production_replacement": false,
   "reliable_improvement_reached": false,
-  "next": "本研究階段收尾，交付 Word；不啟動 N。來源獨立性 UNKNOWN，fresh final INCOMPLETE"
+  "next": "本研究階段已收尾，報告入 GitHub；不啟動 N。來源獨立性 UNKNOWN，fresh final INCOMPLETE，Word 排版未驗收",
+  "final_report": "reports/research_closeout_20261005/final_report.md"
 }

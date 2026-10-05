@@ -1,0 +1,19 @@
+{
+  "archive_count": 1,
+  "archives": [
+    {
+      "bytes": 4822044,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-05\\research_closeout_20261005\\archives\\fault_type_2026-10-05-22-53-29.zip",
+      "sha256": "6754a0bd8e6d0148563c889e903fc89a2008c217aa2f55b3f0c2d73fb6e43c40",
+      "source_files": 16,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_research_closeout\\2026-10-05-22-53-29",
+      "whole_sha_status": "PASS"
+    }
+  ],
+  "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+  "source_files_removed": false,
+  "status": "PASS",
+  "verified_members": 16
+}
