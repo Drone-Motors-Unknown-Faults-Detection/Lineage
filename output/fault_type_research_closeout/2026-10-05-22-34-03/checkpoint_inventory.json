@@ -1,0 +1,1213 @@
+{
+  "date": "2026-10-05",
+  "timezone": "Asia/Taipei",
+  "head": "4fb72015d8461846d90f19dd9fac7e25dcd56a8e",
+  "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+  "fingerprint_scope": "已封存來源核驗；本盤點不重新載入 data",
+  "batches": [
+    {
+      "index": "reports\\literature_expansion\\result_index.json",
+      "index_sha256": "aa1fc6d98d10076b10b2d347a10feb1615ecfb97765da7a3a64c3e0ee0f5c611",
+      "checks": [
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_registry\\2026-10-02-01-26-16\\protocol.json",
+          "sha256": "baff959b4aa05ef61945dee538ae19e4f3a2bcaa92b21617a35c3af6b4a9d9fa",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\locked_study.json",
+          "sha256": "75efe200f00f05af8c978a5084bf94b10e3024712c5868bf6d2d0a36f0c7b669",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14\\evaluation.json",
+          "sha256": "0b45185884ae4e30ccfd25bd98b8cf4f3acd4bb3692caa90e25be2cfb48a1535",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json",
+          "sha256": "299c609588c40588c310612d9b36d176bef248c39c55f022ba55eaecafae7097",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json.gz",
+          "sha256": "4ca299a35ab8668ceb674132e590e783fe8f9eddf2eee7a658cecceeefa68f92",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json",
+          "sha256": "198409bcb3cde6c94719d1a4de54cd4ef191567d52df0a5e3301eac23afdc008",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json.gz",
+          "sha256": "31038fdb1006f37cc12980fc10eb64012b6e135ec16b39c5bf0a61fa69c9514d",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\report.md",
+          "sha256": "f168b4df71bb6c3c803b097d543d36fb9f8394fe4639e87e4b3f98575da6fb68",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42\\diagnosis.json",
+          "sha256": "fbfe60d64b101270153da13d43db6bcbb2adb4804f61cb0397f253c4321b5ee0",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_summary\\2026-10-02-01-01-35\\summary.json.gz",
+          "sha256": "fb047d6fa0672252a20433ecdb153eaac579f46f58227ba780c34fce4f9d760f",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources.md",
+          "sha256": "3278220fc6089499fde3f2fcd497899df1d11fb95b66d35710562965eaae74c0",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources_addendum.md",
+          "sha256": "7de3f471711d11df680e90459c9b89842c32a67a7faa385eea832ac5a0c7ef49",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\final_findings.md",
+          "sha256": "5915d278a4fa5dd4c7819b890aff04c2e9e7db7d1bf358cff970bb3ae5e703f3",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\reproduction.md",
+          "sha256": "db6732b11183ca091f5ae9224a0da3520eaf730e88b133cb30a1992aaff014f1",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-12-27-43\\member_verification.json",
+          "sha256": "6a494eade5e40c8f05f4ee1244786c7b71499bbcce0971574d332055c94314b5",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_10_19\\2026-10-02-12-26-34\\environment.json",
+          "sha256": "8482b25bb26826fe7747919576be06cb811aac3a0657dc0e121fab84b56ad47f",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_14_6\\2026-10-02-12-26-34\\environment.json",
+          "sha256": "8c7fa73adcfb3d8948e060ac880e08a13fc54f7c56f37386f7273e31af846f40",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_10_19\\2026-10-02-12-26-34\\environment.json",
+          "sha256": "8482b25bb26826fe7747919576be06cb811aac3a0657dc0e121fab84b56ad47f",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_14_6\\2026-10-02-12-26-34\\environment.json",
+          "sha256": "8c7fa73adcfb3d8948e060ac880e08a13fc54f7c56f37386f7273e31af846f40",
+          "status": "VERIFIED"
+        }
+      ],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json.gz",
+      "summary_sha256": "31038fdb1006f37cc12980fc10eb64012b6e135ec16b39c5bf0a61fa69c9514d",
+      "semantic_key": "summary_checksum",
+      "semantic_seal": "be1ae2f68ace1e9420b69e2d8269be6d1821d881ff8654aea4c175367db06f49",
+      "completed": 624,
+      "prediction_records": 6013647,
+      "unique_samples": 28910,
+      "protocol": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_registry\\2026-10-02-01-26-16\\protocol.json",
+      "protocol_sha256": "baff959b4aa05ef61945dee538ae19e4f3a2bcaa92b21617a35c3af6b4a9d9fa",
+      "protocol_checksum": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+      "stages": {
+        "fit": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\locked_study.json",
+          "sha256": "75efe200f00f05af8c978a5084bf94b10e3024712c5868bf6d2d0a36f0c7b669",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "48ba96ab8c3eb8b2a4a25e8a17a95b5083e2e6f6318aba6bdd6e08b1b9be44da"
+        },
+        "evaluate": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14\\evaluation.json",
+          "sha256": "0b45185884ae4e30ccfd25bd98b8cf4f3acd4bb3692caa90e25be2cfb48a1535",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "294a41c2a6c870c89e77c957402ce3764ddc96a1a126d24eeeeb1067f10cf0cb"
+        },
+        "verify": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json",
+          "sha256": "299c609588c40588c310612d9b36d176bef248c39c55f022ba55eaecafae7097",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        },
+        "report": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json",
+          "sha256": "198409bcb3cde6c94719d1a4de54cd4ef191567d52df0a5e3301eac23afdc008",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "summary_checksum",
+          "semantic_seal": "be1ae2f68ace1e9420b69e2d8269be6d1821d881ff8654aea4c175367db06f49"
+        }
+      },
+      "stage_evidence": {
+        "paths": {
+          "protocol": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_registry\\2026-10-02-01-26-16\\protocol.json",
+          "locked": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\locked_study.json",
+          "evaluation": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14\\evaluation.json",
+          "verified": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json",
+          "verified_compact": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json.gz",
+          "summary": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json",
+          "summary_compact": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json.gz",
+          "all_method_report": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\report.md",
+          "diagnosis": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42\\diagnosis.json",
+          "prior_summary": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_summary\\2026-10-02-01-01-35\\summary.json.gz",
+          "sources": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources.md",
+          "sources_addendum": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources_addendum.md",
+          "final_findings": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\final_findings.md",
+          "reproduction": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\reproduction.md",
+          "backup_verification": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-12-27-43\\member_verification.json",
+          "acceptance_310": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_10_19\\2026-10-02-12-26-34\\environment.json",
+          "acceptance_314": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_14_6\\2026-10-02-12-26-34\\environment.json",
+          "data_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\data\\formal_local",
+          "exposure_ledger": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_exposure\\2026-10-01-01-10-40\\exposure_ledger.json.gz"
+        },
+        "phase_commits": [
+          {
+            "phase": "literature scope",
+            "sha": "25f05965b9d7e7ba68d01bfd6f4f198f7de5fa5c",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "engine and preregistered protocol",
+            "sha": "94487305f9ba648705e195cfb69bfa70d08b880b",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "model lock before test",
+            "sha": "acf8c7e771546f658f72b5b4d8463c06dc3f2eca",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "readonly diagnosis",
+            "sha": "994505391a0c201a010a5624223fcb1333bd8f34",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "control report engineering, annotation superseded",
+            "sha": "71787fe394ef8a77e034a56357298815ddea7ac8",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "verified results and corrected per-RPM interpretation",
+            "sha": "686dd9aaf46b015164ddd3a9fe52ec9cb53cf393",
+            "push": "VERIFIED_REMOTE_MATCH"
+          }
+        ]
+      }
+    },
+    {
+      "index": "reports\\mechanism_research_v2\\result_index.json",
+      "index_sha256": "26c0a0a969047b7d4498ab292601a5dd306b34d63a30116e3697b89f06c7f5b3",
+      "checks": [
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_registry\\2026-10-02-17-49-29\\protocol.json",
+          "sha256": "b69788b25fb39be8eeb24d85173baa20ba5d9d47288daee0c6d3157961440b02",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\locked_study.json",
+          "sha256": "7708d232083a11adf369ef69229a3ca74f144fb65677bf557b83f83eba5444a5",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_evaluate\\2026-10-02-17-53-06\\evaluation.json",
+          "sha256": "93199c1a2229ba175a34f809e12e3e0b963d52e761a627c74ce8a10079b1eab1",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_verify\\2026-10-02-17-55-10\\verified.json",
+          "sha256": "2a17aa0b135bc110eaa9f52065a366b177416408cc8db2246e94886b7d3c647b",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\summary.json",
+          "sha256": "0bbcfc665d816086b12748c3774428c3ce94de2a600eead1389568a4bf3a8d9c",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\summary.json.gz",
+          "sha256": "182fc8cebb2b87968ac62ec3df6a92e5c1d03bb7dda2728bb79853a85cfad507",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\tradeoff.csv",
+          "sha256": "1220703f21ec9021cc5a1ce70a2abf34db90918c3e23e21e2b0e9561b687b657",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metrics_v2\\2026-10-02-12-51-52\\metrics_v2.json",
+          "sha256": "3733521f2201d1182faf159b0483b12e12f3188e353b2204bfdcc7af0356a2e0",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_diagnosis\\2026-10-02-12-53-20\\mechanism_diagnosis.json",
+          "sha256": "a55ca81ef38bf1c9570725da8c3936e9c92ab6925f2d8cd672afa46b464d552b",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_10_19\\2026-10-02-18-00-37\\environment.json",
+          "sha256": "44dee9d74a61517c1acc4d801b4a834b29124ac4857d24f2b915874e32da9ed4",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\environment.json",
+          "sha256": "dd65c2ebb28994bbff198e468a766c8a40ca037f9a971b8ad7256b39d6ea883d",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-18-03-58\\archive_index.json",
+          "sha256": "3b087a251a2b7bb1555e6c21046753bc6f41d0d88cfa1e8fd69c40a9fa25fe23",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-18-04-29\\archive_index.json",
+          "sha256": "700eb0908279faeba321786655ad200d500181192894118600fb282cc4ea1f5d",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-18-04-44\\member_verification.json",
+          "sha256": "7f01cd3d6a71866c8bc1bae19cc87c4a16f6a8a90977a8120709c2f7232836d2",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\result_index.json",
+          "sha256": "aa1fc6d98d10076b10b2d347a10feb1615ecfb97765da7a3a64c3e0ee0f5c611",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\final_findings.md",
+          "sha256": "eb26d860bf55bc0e8ce6f889e4b6154c28cf2d2c30521f4b7ee0dd23a410bf5c",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\reproduction.md",
+          "sha256": "b58c1e2b9390963d27919b8601075586eb654df5ae84357ba9ca3385bb148ece",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\delivery.md",
+          "sha256": "f68b913a0da28494b89dfa8757685d123b342fb7dcafc6e481310a677b1cdf14",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\attempt_ledger.json",
+          "sha256": "308bd70db7451ead381f59de2b6c01aae4dc224deff9e194c985281f307495fd",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\failure_list.json",
+          "sha256": "71e7d25b0b47e48c00f121102d4f4e596e97ccff818dba9d81b5799bea9c9e68",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\source_ledger.md",
+          "sha256": "aa1bc4bfc281e8bba9fbe590b54dfda76b7350262f517446e06cd75d9c6b294d",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\adoption_matrix.md",
+          "sha256": "603b0a3d483551c59bbd34e6e06fac73752de1148c6d31355422e5e342106dc7",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\adaptation_cards.md",
+          "sha256": "9a98e2387b0faaee734ec403e67e82a1559807f4ffe6f26159a2c37c0055a648",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\hypothesis_cards.md",
+          "sha256": "90377d42fca624cf390c2fbf01e9f7d3934b9d792ba3200a2cc865f897555dda",
+          "status": "VERIFIED"
+        }
+      ],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\summary.json.gz",
+      "summary_sha256": "182fc8cebb2b87968ac62ec3df6a92e5c1d03bb7dda2728bb79853a85cfad507",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "69e4b6d126dc1129ed2bceb0c1ff6621a946a263496bc72c1f859bbe9a6f40a8",
+      "completed": 81,
+      "prediction_records": 780570,
+      "unique_samples": 28910,
+      "protocol": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_registry\\2026-10-02-17-49-29\\protocol.json",
+      "protocol_sha256": "b69788b25fb39be8eeb24d85173baa20ba5d9d47288daee0c6d3157961440b02",
+      "protocol_checksum": "ff6ddc29ca101f73c8a3ca6f818147dc4f6cd81032581966757b5f72087e1b91",
+      "stages": {
+        "fit": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\locked_study.json",
+          "sha256": "7708d232083a11adf369ef69229a3ca74f144fb65677bf557b83f83eba5444a5",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "c1d47ead2bbeeb8d82fb63fa5040272cd732a504ccaac0a182a1b8ed083278e1"
+        },
+        "evaluate": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_evaluate\\2026-10-02-17-53-06\\evaluation.json",
+          "sha256": "93199c1a2229ba175a34f809e12e3e0b963d52e761a627c74ce8a10079b1eab1",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "2ff6fdca458d449254cbcc83259719d8d91562db82105712c07f64f99b809076"
+        },
+        "verify": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_verify\\2026-10-02-17-55-10\\verified.json",
+          "sha256": "2a17aa0b135bc110eaa9f52065a366b177416408cc8db2246e94886b7d3c647b",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "1ff5c7fdb4df8b8cc64810858b58fd0067fa618b9f85c2d87103068192d17a9e"
+        },
+        "report": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\summary.json",
+          "sha256": "0bbcfc665d816086b12748c3774428c3ce94de2a600eead1389568a4bf3a8d9c",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "69e4b6d126dc1129ed2bceb0c1ff6621a946a263496bc72c1f859bbe9a6f40a8"
+        },
+        "backup": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-18-04-44\\member_verification.json",
+          "sha256": "7f01cd3d6a71866c8bc1bae19cc87c4a16f6a8a90977a8120709c2f7232836d2",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        }
+      },
+      "stage_evidence": {
+        "counts": {
+          "planned": 81,
+          "completed": 81,
+          "failed": 0,
+          "incomplete_runs": 0,
+          "prediction_records": 780570,
+          "unique_samples": 28910,
+          "reinferred_records": 780570,
+          "paired_comparisons": 243,
+          "report_methods_including_controls": 16
+        },
+        "tests": {
+          "python_3_10_19": {
+            "passed": 349,
+            "failed": 0,
+            "pip_check": "PASS",
+            "cli_help_passed": 28
+          },
+          "python_3_14_6": {
+            "passed": 349,
+            "failed": 0,
+            "pip_check": "PASS",
+            "cli_help_passed": 28
+          },
+          "cross_version_joblib_load": false
+        }
+      }
+    },
+    {
+      "index": "reports\\continuous_research\\result_index.json",
+      "index_sha256": "7a4057b9d8b7e4cf534788950a0a30dbd4b8b3418f5c2f6fc341fdb144890880",
+      "checks": [],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "output\\fault_type_continuous_report_v2\\2026-10-02-23-30-52\\summary.json.gz",
+      "summary_sha256": "b242c0262d85192ccd47ca2d158aec759a507e35daa04322d0e4950d405021f2",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "88d34b9ef3e25a3e6e0376da6ede26e20dfdb399a38741704aa1001898e88ab9",
+      "completed": 60,
+      "prediction_records": 576144,
+      "unique_samples": 28910,
+      "protocol": "output\\fault_type_continuous_registry\\2026-10-02-18-40-41\\protocol.json",
+      "protocol_sha256": "bb9b5fb3f562cbb7a19b26ded22087cba979e757dab0092355abd86fcc9564ff",
+      "protocol_checksum": "b7870298906f8255340ef30cbbf96d424ff76fa67925377b8ea3a62d77e5364d",
+      "stages": {
+        "fit": {
+          "path": "output/fault_type_continuous_fit/2026-10-02-18-42-53/locked_study.json",
+          "sha256": "f912fb77deba806003157fd4c32c2249f345baf7c5c5aadf17b0d89f117e9e09",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "564796435099fa7d85657f0ea3c907fa8dcff57d732ab47c68496eb2a6b7ea09"
+        },
+        "evaluate": {
+          "path": "output/fault_type_continuous_evaluate/2026-10-02-18-47-45/evaluation.json",
+          "sha256": "6130e99e92e6600186c99b0515aed379c6d6232b5370045a908f32076a684fb7",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "b4ef4ce09bc85969f90d81158acb4bcfd0c5c2f1492feb6530e0386558abf2de"
+        },
+        "verify": {
+          "path": "output/fault_type_continuous_verify/2026-10-02-23-26-52/verified.json",
+          "sha256": "b03e68bb854daf895ae4ceaf86afa2e1b6466c3e5d6d4f2b2e1133ad1b4fff4a",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "9592116f9bcc9bb389dd13f7e9f80e6fd051e090f2f9ce6d5de15bfa60868112"
+        },
+        "report": {
+          "path": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/summary.json.gz",
+          "sha256": "b242c0262d85192ccd47ca2d158aec759a507e35daa04322d0e4950d405021f2",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "88d34b9ef3e25a3e6e0376da6ede26e20dfdb399a38741704aa1001898e88ab9"
+        }
+      },
+      "stage_evidence": {
+        "paths": {
+          "protocol": "output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json",
+          "locked": "output/fault_type_continuous_fit/2026-10-02-18-42-53/locked_study.json",
+          "evaluation": "output/fault_type_continuous_evaluate/2026-10-02-18-47-45/evaluation.json",
+          "verification": "output/fault_type_continuous_verify/2026-10-02-23-26-52/verified.json",
+          "summary": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/summary.json.gz",
+          "summary_index": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/result_index.json",
+          "archive_index": "output/fault_type_archive/2026-10-02-23-36-18/archive_index.json",
+          "member_verification": "output/fault_type_fixed_delivery/2026-10-02-23-36-43/member_verification.json"
+        }
+      }
+    },
+    {
+      "index": "reports\\metric_classification_v1\\result_index.json",
+      "index_sha256": "04c1fbdd7c092136c3ded8318172bf4f27ab4afa848f118081071ac9deb1a4d4",
+      "checks": [],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "output\\fault_type_metric_classification_report\\2026-10-03-10-12-38\\summary.json.gz",
+      "summary_sha256": "1048843ea9f1359ee3a9432a5be5f84c010f2101892f6c694ab2846405e39563",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "cc05eabc98cfce711dda0999032fec524d0ea3ac720d82cf285365a7fa4b277c",
+      "completed": 108,
+      "prediction_records": 1040760,
+      "unique_samples": 28910,
+      "protocol": "output\\fault_type_metric_classification_lock\\2026-10-03-09-42-02\\protocol.json",
+      "protocol_sha256": "b6ef36bcb983e55d7145c1058436b0af18b1c5cdfd9fbb87b086ddca908795b7",
+      "protocol_checksum": "9ca9be082013349680b642e509be761d84ca150a947429251bd1c50f86ed1a8b",
+      "stages": {
+        "evaluate": {
+          "path": "output/fault_type_metric_classification_evaluate/2026-10-03-09-55-17/evaluation.json.gz",
+          "sha256": "e652b46c1ae4aacb1495b71317b597a9f2c686aa0076d3fd4ea9c9e0708bbf56",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "f7b055a5f3081d0c0718fa52d0705c0edd29528f2cbc5cdfb9617101a41cb60a"
+        },
+        "verify": {
+          "path": "output/fault_type_metric_classification_verify/2026-10-03-10-06-11/verified.json.gz",
+          "sha256": "7ac5c0fb553f1e6f88afc9be8b55c7906a06ce3f978fe62ea4a8bc6f548afb50",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "66b5dce1ce08d3d0dd778faac7b13ab3893e5097372c46ae1d275ec65cd084d5"
+        },
+        "report": {
+          "path": "output/fault_type_metric_classification_report/2026-10-03-10-12-38/summary.json.gz",
+          "sha256": "1048843ea9f1359ee3a9432a5be5f84c010f2101892f6c694ab2846405e39563",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "cc05eabc98cfce711dda0999032fec524d0ea3ac720d82cf285365a7fa4b277c"
+        },
+        "backup": {
+          "path": "output/fault_type_fixed_delivery/2026-10-03-15-10-24/member_verification.json",
+          "sha256": "52b6ab866cf166f54d96185fb5afb8cfccd88c785923cdbce274174ec10944ff",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        }
+      },
+      "stage_evidence": {
+        "archive_indices": [
+          "output/fault_type_archive/2026-10-03-10-12-10/archive_index.json",
+          "output/fault_type_archive/2026-10-03-10-18-19/archive_index.json",
+          "output/fault_type_archive/2026-10-03-15-09-47/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-15-10-24/member_verification.json",
+        "tests": {
+          "Python3.10.19": 437,
+          "Python3.14.6": 437
+        }
+      }
+    },
+    {
+      "index": "reports\\local_fisher_v1\\result_index.json",
+      "index_sha256": "2b9da653d41c4f50fa18dd066d263883dbe08d983628ea2600c41b92b2226c8a",
+      "checks": [],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "output\\fault_type_local_fisher_report\\2026-10-03-15-09-03\\summary.json.gz",
+      "summary_sha256": "78c6f442099554beca0514dc23ab8b7b6203867d9eb6ea300800ee63329beef6",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "7a5c3019d4eeefd2abf710c4c385c3fe9eecba4a426f61c71c30cc596da32731",
+      "completed": 144,
+      "prediction_records": 1387680,
+      "unique_samples": 28910,
+      "protocol": "output\\fault_type_local_fisher_lock\\2026-10-03-10-08-32\\protocol.json",
+      "protocol_sha256": "40af9047397fffa52dc4460c15fdde63196227e2bf07fb24e044e8f53caa8f02",
+      "protocol_checksum": "3423a82e3ee76f7590902b1d0c091fb17c6b39d9407ad736f0285fd6e1489db4",
+      "stages": {
+        "fit": {
+          "path": "output/fault_type_local_fisher_fit/2026-10-03-10-15-15/locked_study.json",
+          "sha256": "70ff6effa1fb512b984bc0f94783f5651a78d7c2a016b075674e6fbb3f8d37b2",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "20e8c482c7667dfefed89456f0cf121931d3f49a368098abc9310fbe9a1c3cf9"
+        },
+        "source_proof": {
+          "path": "output/fault_type_local_fisher_source_verify/2026-10-03-10-17-52/source_verified.json",
+          "sha256": "31c1869e3a4b3f3d3d19b09fd5dfdf3e3812f8f34100ecb6466c0398e96f6a7c",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "source_verification_checksum",
+          "semantic_seal": "552ae98eb5dd75490d0e179773181b94d9bd539f8fa947941e6d1f4bcbe00501"
+        },
+        "evaluate": {
+          "path": "output/fault_type_local_fisher_evaluate/2026-10-03-10-21-09/evaluation.json.gz",
+          "sha256": "f4e5d07e0e5434e3c9891827dcc10116a81e58a461e38488210f261463092ef1",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "6db88bb6d5b8f43d302dace9f2680f52c73faa5fdc4a687bc84096f478d266ef"
+        },
+        "verify": {
+          "path": "output/fault_type_local_fisher_verify/2026-10-03-15-06-27/verified.json.gz",
+          "sha256": "e31566949c7d2686034de022c0c2908d9c707f71676f4403707fac3d4f2334ed",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "bb78f9365f2d56e7f5e70c70e7a844e1c69682628c8422ed477e5e45337033b6"
+        },
+        "report": {
+          "path": "output/fault_type_local_fisher_report/2026-10-03-15-09-03/summary.json.gz",
+          "sha256": "78c6f442099554beca0514dc23ab8b7b6203867d9eb6ea300800ee63329beef6",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "7a5c3019d4eeefd2abf710c4c385c3fe9eecba4a426f61c71c30cc596da32731"
+        },
+        "backup": {
+          "path": "output/fault_type_fixed_delivery/2026-10-03-15-14-54/member_verification.json",
+          "sha256": "4fa38f207f7cd0b955e5684c84405df96b033ddf9be39289538f102614763277",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        }
+      },
+      "stage_evidence": {
+        "archive_indices": [
+          "output/fault_type_local_fisher_backup/2026-10-03-15-09-14/archive_index.json",
+          "output/fault_type_archive/2026-10-03-15-13-39/archive_index.json",
+          "output/fault_type_archive/2026-10-03-15-13-40/archive_index.json",
+          "reports/local_fisher_v1/recovered_archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-15-14-54/member_verification.json",
+        "tests": {
+          "Python3.10.19": 437,
+          "Python3.14.6": 437
+        }
+      }
+    },
+    {
+      "index": "reports\\discriminative_prototypes_v1\\result_index.json",
+      "index_sha256": "dbe3a1555b8f1ac2faaf3b4f686d699d839bebcd36fd9e551b23e4a741fb24ef",
+      "checks": [
+        {
+          "path": "output\\fault_type_discriminative_prototypes_lock\\2026-10-03-15-23-33\\protocol.json",
+          "sha256": "d5abd3f023c44ee4b8465c64adb313134f4b655bffe40866aa6ee9adf7cf5537",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_discriminative_prototypes_fit\\2026-10-03-15-28-56\\locked_study.json",
+          "sha256": "82af444fa9dcad983e1ef734469453d39894cbb121763035e7c7fcaae173a19f",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_discriminative_prototypes_source_verify\\2026-10-03-15-31-33\\source_verified.json",
+          "sha256": "cbab7b2447d5027b044b8b2a3cdec5cc2c2bf0b95070be25ef2b4c57544a50c0",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_discriminative_prototypes_evaluate\\2026-10-03-15-33-56\\evaluation.json.gz",
+          "sha256": "663c8fc50afaf66a4095588b4d3bb1ac0b87c36b9cc3b4092bedd898c9086afc",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_discriminative_prototypes_verify\\2026-10-03-15-37-22\\verified.json.gz",
+          "sha256": "26f3d6cbd9e415a15e503a9048bb6e39d8422d0313ef0b3ed8276ea511e93b70",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_discriminative_prototypes_report\\2026-10-03-15-39-29\\summary.json.gz",
+          "sha256": "107452f0eb55d4bb457eb0d30d18ff56b9e50a2ee7fad12186024fc52afc0ef5",
+          "status": "VERIFIED"
+        }
+      ],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "output\\fault_type_discriminative_prototypes_report\\2026-10-03-15-39-29\\summary.json.gz",
+      "summary_sha256": "107452f0eb55d4bb457eb0d30d18ff56b9e50a2ee7fad12186024fc52afc0ef5",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "3158ea1a6de6fc35be12cd84dc577955f1db566710bfc0cbf7b626440960d30a",
+      "completed": 216,
+      "prediction_records": 2081520,
+      "unique_samples": 28910,
+      "protocol": "output\\fault_type_discriminative_prototypes_lock\\2026-10-03-15-23-33\\protocol.json",
+      "protocol_sha256": "d5abd3f023c44ee4b8465c64adb313134f4b655bffe40866aa6ee9adf7cf5537",
+      "protocol_checksum": "98acdccd2201bfdc701c384256196eb7397c19dadf0b5c28865996ecb2c49e08",
+      "stages": {
+        "backup": {
+          "path": "output/fault_type_fixed_delivery/2026-10-03-15-45-12/member_verification.json",
+          "sha256": "540591b3a6575822c405425b4cb77091b272ab233e74f2cb52a65ce58ec63d43",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        },
+        "fit": {
+          "path": "output/fault_type_discriminative_prototypes_fit/2026-10-03-15-28-56/locked_study.json",
+          "sha256": "82af444fa9dcad983e1ef734469453d39894cbb121763035e7c7fcaae173a19f",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "dfa6c1fd6dc1101c29abe11d148cbc317ceab91938cdb151c99807dbcb86f78b"
+        },
+        "source_proof": {
+          "path": "output/fault_type_discriminative_prototypes_source_verify/2026-10-03-15-31-33/source_verified.json",
+          "sha256": "cbab7b2447d5027b044b8b2a3cdec5cc2c2bf0b95070be25ef2b4c57544a50c0",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "source_verification_checksum",
+          "semantic_seal": "ad3e3502918fc04d7b641478d99ce67089d5443d95815b78dce3fa68a358d47b"
+        },
+        "evaluate": {
+          "path": "output/fault_type_discriminative_prototypes_evaluate/2026-10-03-15-33-56/evaluation.json.gz",
+          "sha256": "663c8fc50afaf66a4095588b4d3bb1ac0b87c36b9cc3b4092bedd898c9086afc",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "1d53dd512b0434dd65450de5926815e0352f189c784793f96c1135bf3a55bc87"
+        },
+        "verify": {
+          "path": "output/fault_type_discriminative_prototypes_verify/2026-10-03-15-37-22/verified.json.gz",
+          "sha256": "26f3d6cbd9e415a15e503a9048bb6e39d8422d0313ef0b3ed8276ea511e93b70",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "438d5aea5f348557742693b35272cd6cbe95361247493f4bf825237cbcdd9c18"
+        },
+        "report": {
+          "path": "output/fault_type_discriminative_prototypes_report/2026-10-03-15-39-29/summary.json.gz",
+          "sha256": "107452f0eb55d4bb457eb0d30d18ff56b9e50a2ee7fad12186024fc52afc0ef5",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "3158ea1a6de6fc35be12cd84dc577955f1db566710bfc0cbf7b626440960d30a"
+        }
+      },
+      "stage_evidence": {
+        "archive_indices": [
+          "output/fault_type_discriminative_prototypes_backup/2026-10-03-15-39-40/archive_index.json",
+          "output/fault_type_archive/2026-10-03-15-44-44/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-15-45-12/member_verification.json"
+      }
+    },
+    {
+      "index": "reports\\smooth_l1_v1\\result_index.json",
+      "index_sha256": "c4c0721d3576119ce1881adc64c71020f12f1b92ba182fc3149b94016c397f8b",
+      "checks": [
+        {
+          "path": "output\\fault_type_smooth_l1_lock\\2026-10-03-15-53-46\\protocol.json",
+          "sha256": "ee507b9229a84cc49539cc168646878d108c51bbe5d660e29ed282b7dcea578b",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_smooth_l1_fit\\2026-10-03-15-54-51\\locked_study.json",
+          "sha256": "2a4051ab70c22c988f7de8a9ce7fd4fcf83ec3b48d5693830b5d1dbecd7df039",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_smooth_l1_source_verify\\2026-10-03-20-13-55\\source_verified.json",
+          "sha256": "1184322e200670142d4d461dedd14f50cb07897efc93393b37e0e7c5e584a210",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_smooth_l1_evaluate\\2026-10-03-20-19-06\\evaluation.json.gz",
+          "sha256": "63fc6de85b1fc5267cf4e607139571e78f72ca5e4a5c566f0f03c30090ff37ee",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_smooth_l1_verify\\2026-10-03-20-21-11\\verified.json.gz",
+          "sha256": "f1e2af3bb958ed15cd1f07d09f4e3718f41ef20c345175e0d1ce78f5e6e35404",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_smooth_l1_report\\2026-10-03-20-23-56\\summary.json.gz",
+          "sha256": "5ba006c127d5824b06bff2a9db4966e78e7937ba85e8e600785528dbd118921d",
+          "status": "VERIFIED"
+        }
+      ],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "output\\fault_type_smooth_l1_report\\2026-10-03-20-23-56\\summary.json.gz",
+      "summary_sha256": "5ba006c127d5824b06bff2a9db4966e78e7937ba85e8e600785528dbd118921d",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "7b97119c177080ff9b8694ada9c98dece45c0996a07224fc94c853358b87f116",
+      "completed": 108,
+      "prediction_records": 1040760,
+      "unique_samples": 28910,
+      "protocol": "output\\fault_type_smooth_l1_lock\\2026-10-03-15-53-46\\protocol.json",
+      "protocol_sha256": "ee507b9229a84cc49539cc168646878d108c51bbe5d660e29ed282b7dcea578b",
+      "protocol_checksum": "71b1618d165ef1dd2e309bac9a5ec8e8b8adcd2e8a01084d3939235268437a8b",
+      "stages": {
+        "backup": {
+          "path": "output/fault_type_fixed_delivery/2026-10-03-20-28-18/member_verification.json",
+          "sha256": "b56b9a5fee43ffab07452629eafa6f66a00873c5ee836db5db0b4d4d6aa7e5cf",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        },
+        "fit": {
+          "path": "output/fault_type_smooth_l1_fit/2026-10-03-15-54-51/locked_study.json",
+          "sha256": "2a4051ab70c22c988f7de8a9ce7fd4fcf83ec3b48d5693830b5d1dbecd7df039",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "aa6373bcff8a24e356142977555e76e7ae5f62aa520e520017c692bdfe61985b"
+        },
+        "source_proof": {
+          "path": "output/fault_type_smooth_l1_source_verify/2026-10-03-20-13-55/source_verified.json",
+          "sha256": "1184322e200670142d4d461dedd14f50cb07897efc93393b37e0e7c5e584a210",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "source_verification_checksum",
+          "semantic_seal": "b6f2388099da6d5f17191df5b96a8ea8a919f992d30da716879ec978fc1b697e"
+        },
+        "evaluate": {
+          "path": "output/fault_type_smooth_l1_evaluate/2026-10-03-20-19-06/evaluation.json.gz",
+          "sha256": "63fc6de85b1fc5267cf4e607139571e78f72ca5e4a5c566f0f03c30090ff37ee",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "e05c094f53d10af9060e9a432d622cdbf229eb29406d7e2bdac4b57fdcfd204e"
+        },
+        "verify": {
+          "path": "output/fault_type_smooth_l1_verify/2026-10-03-20-21-11/verified.json.gz",
+          "sha256": "f1e2af3bb958ed15cd1f07d09f4e3718f41ef20c345175e0d1ce78f5e6e35404",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "e95e46e2d5656be1d52dbe962e7b8ba51a04586d1f86c976e6c268c688c14043"
+        },
+        "report": {
+          "path": "output/fault_type_smooth_l1_report/2026-10-03-20-23-56/summary.json.gz",
+          "sha256": "5ba006c127d5824b06bff2a9db4966e78e7937ba85e8e600785528dbd118921d",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "7b97119c177080ff9b8694ada9c98dece45c0996a07224fc94c853358b87f116"
+        }
+      },
+      "stage_evidence": {
+        "successful_training_models": 108,
+        "archive_indices": [
+          "output/fault_type_smooth_l1_backup/2026-10-03-20-24-08/archive_index.json",
+          "output/fault_type_archive/2026-10-03-20-27-31/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-20-28-18/member_verification.json",
+        "protocol_commit": "7ace8972194ff75f8f1cda5d990f177d705eb342",
+        "source_commit": "36605fd37106872f620daabe7cb2fa834bf98b9e"
+      }
+    },
+    {
+      "index": "reports\\context_prototypes_v1\\result_index.json",
+      "index_sha256": "124eded7ae38a608c0797da3894ab2e3a3dc56914f3c14980d9559694ac62d06",
+      "checks": [
+        {
+          "path": "output\\fault_type_context_prototypes_lock\\2026-10-03-20-33-01\\protocol.json",
+          "sha256": "63e1a35914c2f930c25da395d624e0730ebe4d2383b44c6e694dacf9731bc051",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_prototypes_fit\\2026-10-03-20-34-21\\locked_study.json",
+          "sha256": "73cd40095a53e8810e9a42a532557ca89f0c28b599e6fa5f0e2272a56ecbca84",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_prototypes_source_verify\\2026-10-03-20-38-00\\source_verified.json",
+          "sha256": "9c4e3f0ee1bf42569e902904764473c4c7c856f8063f34956b2f97a31df34d7a",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_prototypes_evaluate\\2026-10-03-20-40-45\\evaluation.json.gz",
+          "sha256": "070fad7c9699beb215c9c6dd1486bb4a62652c55df65d1b92506538dbb03f970",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_prototypes_verify\\2026-10-03-20-42-59\\verified.json.gz",
+          "sha256": "53a51fa49799a485aacd87e1027d1d196266f3589cfd30f8c5d79e86845b68bb",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_prototypes_report\\2026-10-03-20-44-37\\summary.json.gz",
+          "sha256": "b9f27b7eba6fb735c5ef7b74f795c3ff9afa6cfb318eeaa733f190334fcfd4a7",
+          "status": "VERIFIED"
+        }
+      ],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "output\\fault_type_context_prototypes_report\\2026-10-03-20-44-37\\summary.json.gz",
+      "summary_sha256": "b9f27b7eba6fb735c5ef7b74f795c3ff9afa6cfb318eeaa733f190334fcfd4a7",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "726495aafcf1f16f8485db47236fa794dd710eb16b8fbc7ee407ab289ad9ddda",
+      "completed": 108,
+      "prediction_records": 1040760,
+      "unique_samples": 28910,
+      "protocol": "output\\fault_type_context_prototypes_lock\\2026-10-03-20-33-01\\protocol.json",
+      "protocol_sha256": "63e1a35914c2f930c25da395d624e0730ebe4d2383b44c6e694dacf9731bc051",
+      "protocol_checksum": "f2c3d40bddc99066e2a94fa0bc9b240b35cfd1c8e62a1ce8297c99ac4addef25",
+      "stages": {
+        "backup": {
+          "path": "output/fault_type_fixed_delivery/2026-10-03-20-47-22/member_verification.json",
+          "sha256": "d863a5a0c61d12f5801d79901d01ba6cc6f86f35c70c32debd7933fd35acba6e",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        },
+        "fit": {
+          "path": "output/fault_type_context_prototypes_fit/2026-10-03-20-34-21/locked_study.json",
+          "sha256": "73cd40095a53e8810e9a42a532557ca89f0c28b599e6fa5f0e2272a56ecbca84",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "66c265da94df081dbadfb97807ad8f199c6afba8ea91a28d2ec30748d2315b6a"
+        },
+        "source_proof": {
+          "path": "output/fault_type_context_prototypes_source_verify/2026-10-03-20-38-00/source_verified.json",
+          "sha256": "9c4e3f0ee1bf42569e902904764473c4c7c856f8063f34956b2f97a31df34d7a",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "source_verification_checksum",
+          "semantic_seal": "b02f3805f4218cdd673bbe998429588014774f2bebaacf1af16c73e69941c4d2"
+        },
+        "evaluate": {
+          "path": "output/fault_type_context_prototypes_evaluate/2026-10-03-20-40-45/evaluation.json.gz",
+          "sha256": "070fad7c9699beb215c9c6dd1486bb4a62652c55df65d1b92506538dbb03f970",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "b41d2a656acb926bbf81e983f2117f1bdf6a17f99303f4013a715a3471e53064"
+        },
+        "verify": {
+          "path": "output/fault_type_context_prototypes_verify/2026-10-03-20-42-59/verified.json.gz",
+          "sha256": "53a51fa49799a485aacd87e1027d1d196266f3589cfd30f8c5d79e86845b68bb",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "61fdea5242bda912c3548a9e5d76ae40f62ee6a35ea8fe3e880636d1395d1a3e"
+        },
+        "report": {
+          "path": "output/fault_type_context_prototypes_report/2026-10-03-20-44-37/summary.json.gz",
+          "sha256": "b9f27b7eba6fb735c5ef7b74f795c3ff9afa6cfb318eeaa733f190334fcfd4a7",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "726495aafcf1f16f8485db47236fa794dd710eb16b8fbc7ee407ab289ad9ddda"
+        }
+      },
+      "stage_evidence": {
+        "successful_training_models": 108,
+        "archive_indices": [
+          "output/fault_type_context_prototypes_backup/2026-10-03-20-44-56/archive_index.json",
+          "output/fault_type_archive/2026-10-03-20-47-05/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-20-47-22/member_verification.json",
+        "protocol_commit": "b2896ebac31e9f944babf5b3f560023681cddfe7",
+        "source_commit": "0462e4b97c988476e4ad222ca596d8c93060fa52"
+      }
+    },
+    {
+      "index": "reports\\context_rejection_v1\\result_index.json",
+      "index_sha256": "10b8e973b5c1b66ffe9f83a4fbf4c99b5f9847292e9435a5ac4ce4053bcb8671",
+      "checks": [
+        {
+          "path": "output\\fault_type_context_rejection_lock\\2026-10-03-20-57-37\\protocol.json",
+          "sha256": "6176ca4a5ec125d0e703c27b2032ef9a1bb23511a25e4cea2f6d0a5bcda44a7a",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_rejection_calibrate\\2026-10-03-20-59-06\\locked_study.json",
+          "sha256": "5987fb7e1afe6a646b0f756122931ba7d27ecd53c531f5eb318071fb3fbaf0cd",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_rejection_source_verify\\2026-10-03-21-02-51\\source_verified.json",
+          "sha256": "c7b1e118d1b3dd84bae3c7caf413f22083fbbcd42e15616648cb174b8364f6cc",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_rejection_evaluate\\2026-10-03-21-07-31\\evaluation.json.gz",
+          "sha256": "31ddec74d7bf88b4d46621a876322c406935866e82f8716611c12452ab1fd6e5",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_rejection_verify\\2026-10-04-16-26-08\\verified.json.gz",
+          "sha256": "162ba0c80d0845837de136086d92567bfbcdba88d5aba273995eb013e6ae9a9f",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_context_rejection_report\\2026-10-04-16-29-39\\summary.json.gz",
+          "sha256": "59c134cf5921011ba457c526e8e905585fa0b060de294ae15baf34e3f91133ff",
+          "status": "VERIFIED"
+        }
+      ],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "output\\fault_type_context_rejection_report\\2026-10-04-16-29-39\\summary.json.gz",
+      "summary_sha256": "59c134cf5921011ba457c526e8e905585fa0b060de294ae15baf34e3f91133ff",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "cf61244a7296c047490edf79ebf88d0d5b1058b62a4a03787cc3ab179f478fd9",
+      "completed": 324,
+      "prediction_records": 3122280,
+      "unique_samples": 28910,
+      "protocol": "output\\fault_type_context_rejection_lock\\2026-10-03-20-57-37\\protocol.json",
+      "protocol_sha256": "6176ca4a5ec125d0e703c27b2032ef9a1bb23511a25e4cea2f6d0a5bcda44a7a",
+      "protocol_checksum": "8b80faa1c6baab0978439e169c7634f9d699ab7e987f285eed735d9348870077",
+      "stages": {
+        "backup": {
+          "path": "output/fault_type_fixed_delivery/2026-10-04-16-33-40/member_verification.json",
+          "sha256": "2729ee057298fd657cd6182eb1d373813c1e9eb3ca2ff256b9480d829d986f9e",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        },
+        "fit": {
+          "path": "output/fault_type_context_rejection_calibrate/2026-10-03-20-59-06/locked_study.json",
+          "sha256": "5987fb7e1afe6a646b0f756122931ba7d27ecd53c531f5eb318071fb3fbaf0cd",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "13c1519c1128ea1fd54e2707cd84149506fd57df6c080b7fe30c8b3abd008a71"
+        },
+        "source_proof": {
+          "path": "output/fault_type_context_rejection_source_verify/2026-10-03-21-02-51/source_verified.json",
+          "sha256": "c7b1e118d1b3dd84bae3c7caf413f22083fbbcd42e15616648cb174b8364f6cc",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "source_verification_checksum",
+          "semantic_seal": "33bedd625b41b323a5905071e0d0a41292a47974248cf84f9e8f14fc088aef9b"
+        },
+        "evaluate": {
+          "path": "output/fault_type_context_rejection_evaluate/2026-10-03-21-07-31/evaluation.json.gz",
+          "sha256": "31ddec74d7bf88b4d46621a876322c406935866e82f8716611c12452ab1fd6e5",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "aafb282e42eb9bdf8750b3ba1f0fad1212b9b1c3644a51364579e70e79220baf"
+        },
+        "verify": {
+          "path": "output/fault_type_context_rejection_verify/2026-10-04-16-26-08/verified.json.gz",
+          "sha256": "162ba0c80d0845837de136086d92567bfbcdba88d5aba273995eb013e6ae9a9f",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "11f3527c47cb2d0ab42178078972a2377e41ca36d9d337345a76441056dd0693"
+        },
+        "report": {
+          "path": "output/fault_type_context_rejection_report/2026-10-04-16-29-39/summary.json.gz",
+          "sha256": "59c134cf5921011ba457c526e8e905585fa0b060de294ae15baf34e3f91133ff",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "cf61244a7296c047490edf79ebf88d0d5b1058b62a4a03787cc3ab179f478fd9"
+        }
+      },
+      "stage_evidence": {
+        "new_classifier_fits": 0,
+        "archive_indices": [
+          "output/fault_type_context_rejection_backup/2026-10-04-16-30-00/archive_index.json",
+          "output/fault_type_archive/2026-10-04-16-33-24/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-04-16-33-40/member_verification.json",
+        "protocol_commit": "98da5c9c09cee9b9c7fb81315dbc6ddfa95fe246",
+        "source_commit": "d81fbcc0c61fbf4c55b7c65863a0e0cbf3951ff0"
+      }
+    },
+    {
+      "index": "reports\\axis_invariant_kernel_v1\\result_index.json",
+      "index_sha256": "c89e004ad2dd5a45cb5f766afadd34c62a12e6239f6eda375fbfd6e51cb9589b",
+      "checks": [
+        {
+          "path": "output\\fault_type_axis_kernel_lock\\2026-10-04-16-46-00\\protocol.json",
+          "sha256": "9328c3f0147603b4c23f8a24111f5dc696dbb060ea8b36a2f477c101ac693ab1",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_axis_kernel_fit\\2026-10-04-16-47-14\\locked_study.json",
+          "sha256": "f8d112cd6001370e57f786f3c87b339f8ae96eb3ac146f3b6de3cdead6392315",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_axis_kernel_source_verify\\2026-10-04-16-52-44\\source_verified.json",
+          "sha256": "8c0faf1def1dff47f808e240f01018935e199ec5e06e632653b82150c7dcae61",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_axis_kernel_evaluate\\2026-10-04-17-04-00\\evaluation.json.gz",
+          "sha256": "c2caf0dc78527a552ebe2079d46832f947a45a7d46bec830c756650a35f668d9",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_axis_kernel_verify\\2026-10-04-17-09-01\\verified.json.gz",
+          "sha256": "c286282d3fa8157b293c02047752d41b6cb0f240ad826a736cbb6ff165e377ec",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_axis_kernel_report\\2026-10-04-21-32-27\\summary.json.gz",
+          "sha256": "0a682b596eeca4387a4ea7684e621a9fa23bb410c3f8b31ba6c0b051606c08a5",
+          "status": "VERIFIED"
+        }
+      ],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "output\\fault_type_axis_kernel_report\\2026-10-04-21-32-27\\summary.json.gz",
+      "summary_sha256": "0a682b596eeca4387a4ea7684e621a9fa23bb410c3f8b31ba6c0b051606c08a5",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "4ae0663e984090036e8318849d4f584fb0662ff02b13591ed3d5d454a2a70c87",
+      "completed": 81,
+      "prediction_records": 780570,
+      "unique_samples": 28910,
+      "protocol": "output\\fault_type_axis_kernel_lock\\2026-10-04-16-46-00\\protocol.json",
+      "protocol_sha256": "9328c3f0147603b4c23f8a24111f5dc696dbb060ea8b36a2f477c101ac693ab1",
+      "protocol_checksum": "2dab6753530bc6736b88881b57e61d9488253ceb9a459276b3fcd0d8b0f00abf",
+      "stages": {
+        "backup": {
+          "path": "output/fault_type_fixed_delivery/2026-10-04-21-36-37/member_verification.json",
+          "sha256": "b3b3df36ebf7aa910d1438dac6bcf695d0dad0873faf498dbe34e3529a464c7f",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        },
+        "fit": {
+          "path": "output/fault_type_axis_kernel_fit/2026-10-04-16-47-14/locked_study.json",
+          "sha256": "f8d112cd6001370e57f786f3c87b339f8ae96eb3ac146f3b6de3cdead6392315",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "21f30fb76c1bdcffcdb25a956afe7c8a46fe26497a0f2bab99b0d2f601636f49"
+        },
+        "source_proof": {
+          "path": "output/fault_type_axis_kernel_source_verify/2026-10-04-16-52-44/source_verified.json",
+          "sha256": "8c0faf1def1dff47f808e240f01018935e199ec5e06e632653b82150c7dcae61",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "source_verification_checksum",
+          "semantic_seal": "8e19b4cebac79443fe60f6345424fcc2f655af4bf8c9c39ed1b9282bb32324ee"
+        },
+        "evaluate": {
+          "path": "output/fault_type_axis_kernel_evaluate/2026-10-04-17-04-00/evaluation.json.gz",
+          "sha256": "c2caf0dc78527a552ebe2079d46832f947a45a7d46bec830c756650a35f668d9",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "1d87b45bc16b64ca41580120fcf10354526bcbd962b69e51ea58817ad5e07d92"
+        },
+        "verify": {
+          "path": "output/fault_type_axis_kernel_verify/2026-10-04-17-09-01/verified.json.gz",
+          "sha256": "c286282d3fa8157b293c02047752d41b6cb0f240ad826a736cbb6ff165e377ec",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "0653d9bcfe97268048a3e9f6c9cbb9ae1d46435c8eea89144d45c028ac62b408"
+        },
+        "report": {
+          "path": "output/fault_type_axis_kernel_report/2026-10-04-21-32-27/summary.json.gz",
+          "sha256": "0a682b596eeca4387a4ea7684e621a9fa23bb410c3f8b31ba6c0b051606c08a5",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "4ae0663e984090036e8318849d4f584fb0662ff02b13591ed3d5d454a2a70c87"
+        }
+      },
+      "stage_evidence": {
+        "new_classifier_fits": 27,
+        "archive_indices": [
+          "output/fault_type_axis_kernel_backup/2026-10-04-21-33-45/archive_index.json",
+          "output/fault_type_archive/2026-10-04-21-36-20/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-04-21-36-37/member_verification.json",
+        "protocol_commit": "060fe0e3807132c77151bb6fb0b5c62c9f5fc1ca",
+        "source_commit": "c5b1f88e0e2dbbe5adee8a1ad00344ab540972a5"
+      }
+    },
+    {
+      "index": "reports\\rpm_risk_extrapolation_v1\\result_index.json",
+      "index_sha256": "52b6fb85d99733f4fa4228d492b7c93829d2f6fb079caad0c138d51bdd2539ed",
+      "checks": [
+        {
+          "path": "output\\fault_type_risk_extrapolation_lock\\2026-10-04-17-11-45\\protocol.json",
+          "sha256": "2b52fc91a949241d37e57a4a31f896f683f5e38f15bc5f31cc5d38303743072c",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_risk_extrapolation_fit\\2026-10-04-17-12-57\\locked_study.json",
+          "sha256": "36dd3014e4578a4c4f11d59b9f10900f0979f154b1d510088b90355785e5af21",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_risk_extrapolation_source_verify\\2026-10-04-21-32-16\\source_verified.json",
+          "sha256": "b6d959499d40d091a8018f936dfd191698db47519a7f44addba7c64b0f36ec19",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_risk_extrapolation_evaluate\\2026-10-04-21-34-45\\evaluation.json.gz",
+          "sha256": "d26ae9bbbc9144f1679bde7071f133947636fb31847f654ba99fd37dce69f5f0",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_risk_extrapolation_verify\\2026-10-04-21-36-48\\verified.json.gz",
+          "sha256": "341f24039f5b2cfa3a65d1e2bd350d7a3bf10eaaea9784715978af05ae987c62",
+          "status": "VERIFIED"
+        },
+        {
+          "path": "output\\fault_type_risk_extrapolation_report\\2026-10-04-21-40-24\\summary.json.gz",
+          "sha256": "ed78e1ec756ea35d430f2f473971144e061351ee4ef989f8b12bf0b03044d209",
+          "status": "VERIFIED"
+        }
+      ],
+      "archive_scope": "沿已保存 whole／member SHA／CRC 驗收；本盤點不重新解包歷史 ZIP",
+      "summary": "output\\fault_type_risk_extrapolation_report\\2026-10-04-21-40-24\\summary.json.gz",
+      "summary_sha256": "ed78e1ec756ea35d430f2f473971144e061351ee4ef989f8b12bf0b03044d209",
+      "semantic_key": "report_checksum",
+      "semantic_seal": "2007258c995dc99d0f756787a8f9e766a6c6623274c875e1d89c9fc26a28d919",
+      "completed": 162,
+      "prediction_records": 1561140,
+      "unique_samples": 28910,
+      "protocol": "output\\fault_type_risk_extrapolation_lock\\2026-10-04-17-11-45\\protocol.json",
+      "protocol_sha256": "2b52fc91a949241d37e57a4a31f896f683f5e38f15bc5f31cc5d38303743072c",
+      "protocol_checksum": "20757999cf3795589151c7ab8898746cf7f5539e8f78a9f4b0627293313d5987",
+      "stages": {
+        "backup": {
+          "path": "output/fault_type_fixed_delivery/2026-10-04-21-46-01/member_verification.json",
+          "sha256": "9452f3cbb76936677fc49b9ca1c2fe532fc089e501180a7b85fe50ac24c88bc2",
+          "status": "SAVED_EVIDENCE_SHA_RECORDED",
+          "semantic_key": null,
+          "semantic_seal": null
+        },
+        "fit": {
+          "path": "output/fault_type_risk_extrapolation_fit/2026-10-04-17-12-57/locked_study.json",
+          "sha256": "36dd3014e4578a4c4f11d59b9f10900f0979f154b1d510088b90355785e5af21",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "locked_checksum",
+          "semantic_seal": "83c100b725ec66f4be239318a13a2e4a90b9fbcc329cce73ce6004b63a6d0817"
+        },
+        "source_proof": {
+          "path": "output/fault_type_risk_extrapolation_source_verify/2026-10-04-21-32-16/source_verified.json",
+          "sha256": "b6d959499d40d091a8018f936dfd191698db47519a7f44addba7c64b0f36ec19",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "source_verification_checksum",
+          "semantic_seal": "3f92a86e367159aaa0ffa58dd05d4daa21ad2da7aa4d1a1b6d2a42ac8fbf20d7"
+        },
+        "evaluate": {
+          "path": "output/fault_type_risk_extrapolation_evaluate/2026-10-04-21-34-45/evaluation.json.gz",
+          "sha256": "d26ae9bbbc9144f1679bde7071f133947636fb31847f654ba99fd37dce69f5f0",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "evaluation_checksum",
+          "semantic_seal": "6a0e15b03bec4970ec2b828a33cfc64902c7ff01122fb90086c78adf10cab5b8"
+        },
+        "verify": {
+          "path": "output/fault_type_risk_extrapolation_verify/2026-10-04-21-36-48/verified.json.gz",
+          "sha256": "341f24039f5b2cfa3a65d1e2bd350d7a3bf10eaaea9784715978af05ae987c62",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "verification_checksum",
+          "semantic_seal": "77c35bc29d66cbd3ef553099bcc52374991a0ef73ed50fb2950c7f5e15c31b0a"
+        },
+        "report": {
+          "path": "output/fault_type_risk_extrapolation_report/2026-10-04-21-40-24/summary.json.gz",
+          "sha256": "ed78e1ec756ea35d430f2f473971144e061351ee4ef989f8b12bf0b03044d209",
+          "status": "VERIFIED_SEAL",
+          "semantic_key": "report_checksum",
+          "semantic_seal": "2007258c995dc99d0f756787a8f9e766a6c6623274c875e1d89c9fc26a28d919"
+        }
+      },
+      "stage_evidence": {
+        "new_classifier_fits": 54,
+        "archive_indices": [
+          "output/fault_type_risk_extrapolation_backup/2026-10-04-21-40-35/archive_index.json",
+          "output/fault_type_archive/2026-10-04-21-45-49/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-04-21-46-01/member_verification.json",
+        "protocol_commit": "d81df1d9badeb44e551eda170323d1ab3fdc204e",
+        "source_commit": "32925fd46d8f47bef2b681e4495a392d6010c309"
+      }
+    },
+    {
+      "batch": "feature_self_challenging_v1",
+      "summary": "output\\fault_type_self_challenging_report\\2026-10-05-22-17-39\\summary.json.gz",
+      "summary_sha256": "1fb611a2b93d98deba6d4e395ee268275cba466f22549d197bb2a140508a0fff",
+      "semantic_seal": "81f8952b904ed4b24983013632f25c5a20983c2cb053ca8e12ff9998d1cfb22b",
+      "completed": 216,
+      "prediction_records": 2081520,
+      "unique_samples": 28910
+    }
+  ],
+  "retraining": false,
+  "old_full_tests_rerun": false,
+  "historical_exposure": true,
+  "new_independent_data": false
+}

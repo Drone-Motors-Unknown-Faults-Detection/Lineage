@@ -1,0 +1,4 @@
+2026-10-05 22:28:40 | INFO    | Logger initialized: fault_type_research_closeout
+2026-10-05 22:28:40 | INFO    | log_file=logs\fault_type_research_closeout\2026-10-05-22-28-40.log
+2026-10-05 22:28:40 | INFO    | output_dir=output\fault_type_research_closeout\2026-10-05-22-28-40
+2026-10-05 22:29:09 | INFO    | 盤點完成 12 批，沒有新增訓練；輸出 output\fault_type_research_closeout\2026-10-05-22-28-40

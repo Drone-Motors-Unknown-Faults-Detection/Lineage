@@ -1,0 +1,185 @@
+[
+  {
+    "fold": 0,
+    "manifest_checksum": "1bbc605a31dc634d9e69c70034a6c06332c402cbb750b6f9f870071b3cf2b4e2",
+    "roles": {
+      "train": {
+        "samples": 5935,
+        "classes": {
+          "1screws": 1034,
+          "3screws": 905,
+          "3_14screws": 1027,
+          "2screws": 980,
+          "8screws": 991,
+          "4screws": 998
+        },
+        "rpms": {
+          "6000rpm": 2043,
+          "11000rpm": 2063,
+          "8000rpm": 1829
+        },
+        "sample_ids_sha256": "2cb18ae803e811a5bc4a5653854a76aa563ac3dad9312069b695ab94a9ae9a6f"
+      },
+      "calibration": {
+        "samples": 6007,
+        "classes": {
+          "3screws": 1030,
+          "8screws": 945,
+          "2screws": 1020,
+          "4screws": 955,
+          "3_14screws": 1054,
+          "1screws": 1003
+        },
+        "rpms": {
+          "11000rpm": 1956,
+          "8000rpm": 2081,
+          "6000rpm": 1970
+        },
+        "sample_ids_sha256": "31b45b9dcfc1d86478c32f41f865a6bde529f1c8ff256ccdd426c5a0bc5148c5"
+      },
+      "test": {
+        "samples": 9294,
+        "classes": {
+          "5screws": 932,
+          "4_146screws": 923,
+          "6screws": 940,
+          "3screws": 994,
+          "1screws": 949,
+          "3_14screws": 940,
+          "2screws": 985,
+          "7screws": 895,
+          "8screws": 886,
+          "4screws": 850
+        },
+        "rpms": {
+          "8000rpm": 3225,
+          "6000rpm": 2941,
+          "11000rpm": 3128
+        },
+        "sample_ids_sha256": "0192e6e67d7509aee60fff6ac8209c0c92ef3069678b6a5422974c4f59a4948b"
+      }
+    }
+  },
+  {
+    "fold": 1,
+    "manifest_checksum": "e6de00d97ee80d5ae72972715019cd4aa11e72db3a9ddb2f1ddcd12b98306f35",
+    "roles": {
+      "train": {
+        "samples": 6007,
+        "classes": {
+          "3screws": 1030,
+          "8screws": 945,
+          "2screws": 1020,
+          "4screws": 955,
+          "3_14screws": 1054,
+          "1screws": 1003
+        },
+        "rpms": {
+          "11000rpm": 1956,
+          "8000rpm": 2081,
+          "6000rpm": 1970
+        },
+        "sample_ids_sha256": "31b45b9dcfc1d86478c32f41f865a6bde529f1c8ff256ccdd426c5a0bc5148c5"
+      },
+      "calibration": {
+        "samples": 5604,
+        "classes": {
+          "3screws": 994,
+          "1screws": 949,
+          "3_14screws": 940,
+          "2screws": 985,
+          "8screws": 886,
+          "4screws": 850
+        },
+        "rpms": {
+          "6000rpm": 1812,
+          "11000rpm": 1897,
+          "8000rpm": 1895
+        },
+        "sample_ids_sha256": "04edb78f5bca4a2fe8a56b0d12a5ee786504e9d5a8049c91417ec6488ce21b41"
+      },
+      "test": {
+        "samples": 9759,
+        "classes": {
+          "7screws": 978,
+          "4_146screws": 1028,
+          "1screws": 1034,
+          "6screws": 944,
+          "5screws": 874,
+          "3screws": 905,
+          "3_14screws": 1027,
+          "2screws": 980,
+          "8screws": 991,
+          "4screws": 998
+        },
+        "rpms": {
+          "6000rpm": 3358,
+          "11000rpm": 3352,
+          "8000rpm": 3049
+        },
+        "sample_ids_sha256": "a4f58085abc472b8ccb5371657d3848227050adda1395fb2511195ef1347688c"
+      }
+    }
+  },
+  {
+    "fold": 2,
+    "manifest_checksum": "c8d141c6497365132088cbd8390d0be07ef4f03cb8e702c1642c46b4d6143b95",
+    "roles": {
+      "train": {
+        "samples": 5604,
+        "classes": {
+          "3screws": 994,
+          "1screws": 949,
+          "3_14screws": 940,
+          "2screws": 985,
+          "8screws": 886,
+          "4screws": 850
+        },
+        "rpms": {
+          "6000rpm": 1812,
+          "11000rpm": 1897,
+          "8000rpm": 1895
+        },
+        "sample_ids_sha256": "04edb78f5bca4a2fe8a56b0d12a5ee786504e9d5a8049c91417ec6488ce21b41"
+      },
+      "calibration": {
+        "samples": 5935,
+        "classes": {
+          "1screws": 1034,
+          "3screws": 905,
+          "3_14screws": 1027,
+          "2screws": 980,
+          "8screws": 991,
+          "4screws": 998
+        },
+        "rpms": {
+          "6000rpm": 2043,
+          "11000rpm": 2063,
+          "8000rpm": 1829
+        },
+        "sample_ids_sha256": "2cb18ae803e811a5bc4a5653854a76aa563ac3dad9312069b695ab94a9ae9a6f"
+      },
+      "test": {
+        "samples": 9857,
+        "classes": {
+          "6screws": 992,
+          "3screws": 1030,
+          "4_146screws": 1010,
+          "8screws": 945,
+          "5screws": 1084,
+          "7screws": 764,
+          "2screws": 1020,
+          "4screws": 955,
+          "3_14screws": 1054,
+          "1screws": 1003
+        },
+        "rpms": {
+          "8000rpm": 3250,
+          "11000rpm": 3418,
+          "6000rpm": 3189
+        },
+        "sample_ids_sha256": "795ca22c7246ecf9c50c5486cbf8665698e87e395addd5b22478ee9282e2b1d5"
+      }
+    }
+  }
+]
