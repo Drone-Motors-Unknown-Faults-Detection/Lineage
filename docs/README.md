@@ -11,8 +11,8 @@
 | 文件 | 內容 |
 |---|---|
 | [單顆馬達研究收尾](experiments/research_closeout.md) | 唯讀盤點、原契約判定及繁體中文 Word 交付；不新增演算法訓練 |
-| [exp22 已知群組穩健損失](experiments/exp22_known_group_dro.md) | Group DRO 原文與作者碼、等群組ERM／ridge配對；先行手冊，尚無本批程式或formal成績 |
-| [exp21 有限表格特徵自挑戰](experiments/exp21_feature_self_challenging.md) | RSC原文、作者程式差異、匹配遮蔽消融與216格先行規格；尚無本批程式或formal成績 |
+| [exp22 已知群組穩健損失](experiments/exp22_known_group_dro.md) | 已規劃未實作並封存；未進入訓練或測試，保留原假說與來源 |
+| [exp21 有限表格特徵自挑戰](experiments/exp21_feature_self_challenging.md) | 216 評估／逐筆核驗、1,134 配對完成，24 方法可靠性 FAILED；結果見 reports/feature_self_challenging_v1 |
 | [exp20 RPM風險差異](experiments/exp20_rpm_risk_extrapolation.md) | REx原文與負面證據；固定等RPM／等class softmax入口、用途／來源測試，formal成績另記reports/rpm_risk_extrapolation_v1 |
 | [exp19 三軸排列不變核](experiments/exp19_axis_invariant_kernel.md) | 固定0／0.5／1群平均核與SVM；33小測試／native smoke完成，尚無formal成績 |
 | [exp18 RPM原型距離與聯合拒絕](experiments/exp18_context_rejection.md) | 324評估／逐筆重推完成、36方法全FAILED；[報告](../reports/context_rejection_v1/final_findings.md)，保留健康誤報與未知召回限制 |

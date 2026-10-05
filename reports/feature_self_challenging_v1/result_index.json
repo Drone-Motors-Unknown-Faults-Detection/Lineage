@@ -1,0 +1,69 @@
+{
+  "batch": "exp21_feature_self_challenging_v1",
+  "path": "B",
+  "completed": 216,
+  "failed_runs": 0,
+  "prediction_records": 2081520,
+  "unique_samples": 28910,
+  "paired_comparisons": 1134,
+  "reliability_failed_methods": 24,
+  "artifacts": {
+    "protocol": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_lock\\2026-10-04-22-01-49\\protocol.json",
+      "sha256": "9d32f19808b921d15b26f618e3b21b7194e27a0d248fa49cf97e3847ffa07032",
+      "bytes": 9585
+    },
+    "fit": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_fit\\2026-10-04-22-03-00\\locked_study.json",
+      "sha256": "b42c9c2058d7eaa424c770cfd0aaa7197d1b2c6108780355532c3b4a20c4a5c3",
+      "bytes": 12111
+    },
+    "source_proof": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_source_verify\\2026-10-04-22-09-26\\source_verified.json",
+      "sha256": "212b703894e128ca31c317c050167189ebd2fb1639420a1ffda982e364f31a04",
+      "bytes": 224290
+    },
+    "evaluate": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_evaluate\\2026-10-04-22-16-34\\evaluation.json.gz",
+      "sha256": "7b405ea0f39311ce5ae26f37e6bab8105e4c274b4477b6df16dfb2860e4118ab",
+      "bytes": 331630
+    },
+    "verify": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_verify\\2026-10-04-22-18-59\\verified.json.gz",
+      "sha256": "5f2124752c31b6281d1a53b4eff3c3f9ca958b418455a9586ed7aa5f3beda472",
+      "bytes": 331624
+    },
+    "report": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_report\\2026-10-05-22-17-39\\summary.json.gz",
+      "sha256": "1fb611a2b93d98deba6d4e395ee268275cba466f22549d197bb2a140508a0fff",
+      "bytes": 250652
+    },
+    "backup": {
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-05-22-32-32\\member_verification.json",
+      "sha256": "732a2b1866ffd975d91437b7900b16768b15a4c5d39ba4bbe8277b5f871079b7",
+      "bytes": 3916
+    }
+  },
+  "semantic_seals": {
+    "protocol_checksum": "e3099ce35f8c8d4bf71ccb71c314d475b56e98fba1c211c202643100fc596f4d",
+    "evaluation_checksum": "697dae9a02e2ff29e0b3989b2ec91c242ab9d1d6df265072348a92953185103c",
+    "verification_checksum": "df87512beddb7d30f8312578eb259a2a193b0fc93c777b0295d6f0f1f404f152",
+    "report_checksum": "81f8952b904ed4b24983013632f25c5a20983c2cb053ca8e12ff9998d1cfb22b"
+  },
+  "backup_indices": [
+    "output/fault_type_self_challenging_backup/2026-10-05-22-24-22/archive_index.json",
+    "output/fault_type_archive/2026-10-05-22-28-54/archive_index.json"
+  ],
+  "backup_verification": {
+    "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-05-22-32-32\\member_verification.json",
+    "sha256": "732a2b1866ffd975d91437b7900b16768b15a4c5d39ba4bbe8277b5f871079b7",
+    "bytes": 3916
+  },
+  "decision_record": "output\\fault_type_research_closeout\\2026-10-05-22-34-03\\decision_record.json",
+  "findings": "output\\fault_type_research_closeout\\2026-10-05-22-42-46\\m_final_findings.md",
+  "inventory": "output\\fault_type_research_closeout\\2026-10-05-22-34-03",
+  "group_dro": "已規劃未實作，本階段收尾，未進入訓練或測試",
+  "production_replacement": false,
+  "reliable_improvement_reached": false,
+  "fresh_final_test": false
+}

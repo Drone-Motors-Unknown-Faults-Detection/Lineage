@@ -1,0 +1,7 @@
+2026-10-05 22:24:22 | INFO    | Logger initialized: fault_type_self_challenging_backup
+2026-10-05 22:24:22 | INFO    | log_file=logs\fault_type_self_challenging_backup\2026-10-05-22-24-22.log
+2026-10-05 22:24:22 | INFO    | output_dir=output\fault_type_self_challenging_backup\2026-10-05-22-24-22
+2026-10-05 22:24:31 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\feature_self_challenging_v1\archives\fault_type_2026-10-04-22-03-00.zip bytes=294231694 files=28
+2026-10-05 22:24:47 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\feature_self_challenging_v1\archives\fault_type_2026-10-04-22-16-34.zip bytes=213415030 files=434
+2026-10-05 22:24:47 | INFO    | verified archive D:\schoolshit\專題\src\lineage_fault_type_artifacts\2026-10-04\feature_self_challenging_v1\archives\fault_type_2026-10-04-22-18-59.zip bytes=10641957 files=2
+2026-10-05 22:24:51 | INFO    | backup 完成，輸出 output\fault_type_self_challenging_backup\2026-10-05-22-24-22

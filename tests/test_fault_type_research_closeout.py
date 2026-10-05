@@ -5,9 +5,20 @@ import unittest
 from pathlib import Path
 from core.fault_type_final_guard import seal
 from experiments.fault_type_research_closeout import inspect_index, decision, numeric_methods, check_summary, sha
+from reports.research_closeout_20261005.build_report import pct, decimal, macro
 
 
 class CloseoutTests(unittest.TestCase):
+    def test_percent_and_missing_denominator_format(self):
+        self.assertEqual(pct(.3125287386556079), '31.25')
+        self.assertEqual(decimal(.26656112494836653), '0.2666')
+        self.assertEqual(pct(None), 'NA')
+        self.assertEqual(pct(0), '0.00')
+
+    def test_old_unknown_alarm_is_not_total_healthy_alarm(self):
+        values=macro({'equal_motor_descriptive': {'healthy_safety.false_positive_rate': {'mean': .02}}})
+        self.assertNotIn('healthy_total_alarm', values)
+
     def test_sha_tampering_rejected(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / 'source.json'

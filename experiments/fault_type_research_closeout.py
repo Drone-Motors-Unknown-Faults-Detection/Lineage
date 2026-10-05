@@ -242,8 +242,23 @@ def run(pools, *, m_report, output):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--m-report', type=Path, required=True)
+    parser.add_argument('--document-runtime', type=Path)
+    parser.add_argument('--inventory', type=Path)
+    parser.add_argument('--word', action='store_true')
     args = parser.parse_args()
     log, paths = setup_run('fault_type_research_closeout')
+    if args.document_runtime:
+        if not args.inventory:
+            parser.error('文件編排需要 --inventory')
+        command = [str(args.document_runtime), 'reports/research_closeout_20261005/build_report.py',
+                   '--inventory', str(args.inventory), '--output', str(paths.output_dir)]
+        if args.word: command.append('--word')
+        completed = subprocess.run(command, capture_output=True, text=True, encoding='utf-8')
+        log.info('文件編排 stdout：{}', completed.stdout)
+        if completed.returncode:
+            log.error('文件編排 stderr：{}', completed.stderr)
+            raise RuntimeError('文件編排未完成')
+        return
     result = run(GROUPS, m_report=args.m_report, output=paths.output_dir)
     log.info('盤點完成 {} 批，沒有新增訓練；輸出 {}', len(result['batches']), paths.output_dir)
 

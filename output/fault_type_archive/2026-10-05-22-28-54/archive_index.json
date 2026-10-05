@@ -1,0 +1,31 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\feature_self_challenging_v1\\archives\\fault_type_2026-10-04-22-01-49.zip",
+      "sha256": "7a94600fab44e180f1e069bec3f503c27a248d5c48a847d35f905d9556c771d0",
+      "bytes": 10357,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_lock\\2026-10-04-22-01-49",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\feature_self_challenging_v1\\archives\\fault_type_2026-10-04-22-09-26.zip",
+      "sha256": "6d2b6e7e957b6c45eabee2c214a6e26fa2cc30fbd901ae9da879702e2895b253",
+      "bytes": 225094,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_source_verify\\2026-10-04-22-09-26",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\\u5c08\u984c\\src\\lineage_fault_type_artifacts\\2026-10-04\\feature_self_challenging_v1\\archives\\fault_type_2026-10-05-22-17-39.zip",
+      "sha256": "91cef360b57e877a3259b9ca26ccba95a9142aa56b2fb94e32c8a72587e8f12b",
+      "bytes": 5096689,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\\u5c08\u984c\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_report\\2026-10-05-22-17-39",
+      "source_files": 2,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false
+}

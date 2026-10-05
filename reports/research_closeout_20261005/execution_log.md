@@ -15,3 +15,7 @@ M 已有 216 completed、2,081,520 records、28,910 unique rows。22:17:39–22:
 22:24:22 及 22:28:54 新增六份 D 槽備份；22:32:32–22:32:36 fixed_delivery 核對 6 ZIP／468 members，whole SHA、member SHA、CRC 均 PASS。原檔與舊備份保留，同機 D 槽不稱異地備份。
 
 既有 282 tracked deletions 均未 stage。正式 105 維資料、Mahalanobis–Ledoit–Wolf 預設、k-NN factory、PolarMap 與五份 sealed M 來源不改。
+
+盤點提交 63f1e2e9a161b31e4a5a8c23c7d31a5918770630 已 push，remote exact。新增文件編排只讀 sealed summary，來源 SHA 全部重核；早期僅 healthy→UNKNOWN 的分數欄標 NA，不冒充完整誤報。M result_index／final_findings、continuous state／ledger 及 N 封存註記更新；N 0 fits／0 evaluations。報告以同一 Markdown 來源生成可編輯 Word，未更改方法或研究分數。
+
+文件 formatter 增加百分比／NA 及早期誤報分母測試後，Python3.10.19／3.14.6 各 11 項全部 PASS。最終新增測試數為11；9項是前一盤點階段，不混成完整科學驗收。來源 B28 本回合由 Wiley 出版頁核對五位作者與出版日期，補完整書目。

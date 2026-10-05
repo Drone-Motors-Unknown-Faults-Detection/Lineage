@@ -1,6 +1,6 @@
 {
   "batch_id": "exp22_known_group_dro_v1",
-  "current_stage": "先行手冊與兩索引，尚未實作",
+  "current_stage": "已規劃未實作，本階段收尾，未進入訓練或測試；保留手冊與來源卡",
   "source_card": "reports/continuous_research/group_dro_source_card_20261004.md",
   "manual": "docs/experiments/exp22_known_group_dro.md",
   "planned_evaluations": 216,
@@ -11,5 +11,5 @@
   "fresh_final_test": false,
   "production_replacement": false,
   "reliable_improvement_reached": false,
-  "next": "先行手冊commit/push；M交付後實作core/fault_type_group_dro.py及公式測試，依exp22固定500step／平均iterate／ridge與matched controls"
+  "next": "封存計畫；後續是否啟用由使用者另行決定，不算 FAILED 演算法"
 }
