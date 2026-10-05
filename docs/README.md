@@ -10,6 +10,7 @@
 
 | 文件 | 內容 |
 |---|---|
+| [單顆馬達研究收尾](experiments/research_closeout.md) | 唯讀盤點、原契約判定及繁體中文 Word 交付；不新增演算法訓練 |
 | [exp22 已知群組穩健損失](experiments/exp22_known_group_dro.md) | Group DRO 原文與作者碼、等群組ERM／ridge配對；先行手冊，尚無本批程式或formal成績 |
 | [exp21 有限表格特徵自挑戰](experiments/exp21_feature_self_challenging.md) | RSC原文、作者程式差異、匹配遮蔽消融與216格先行規格；尚無本批程式或formal成績 |
 | [exp20 RPM風險差異](experiments/exp20_rpm_risk_extrapolation.md) | REx原文與負面證據；固定等RPM／等class softmax入口、用途／來源測試，formal成績另記reports/rpm_risk_extrapolation_v1 |

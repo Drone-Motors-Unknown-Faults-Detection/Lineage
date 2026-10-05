@@ -6,6 +6,7 @@
 
 | 模組 | 手冊 |
 |---|---|
+| 研究收尾：`experiments/fault_type_research_closeout.py`（本次新增） | [證據盤點與文件交付](research_closeout.md) |
 | exp22：`experiments/fault_type_group_dro.py`（預定，尚未實作） | [已知群組穩健損失](exp22_known_group_dro.md) |
 | exp21：`experiments/fault_type_self_challenging.py` | [有限表格特徵自挑戰](exp21_feature_self_challenging.md) |
 | exp20：`experiments/fault_type_risk_extrapolation.py` | [RPM風險差異與固定softmax](exp20_rpm_risk_extrapolation.md) |
