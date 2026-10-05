@@ -14,6 +14,8 @@
 
 此稽核本身是專案工程程序，沒有演算法論文來源。LMNN、MMMF scalar、Invariant Kernel、REx、RSC、MSP 等取用差異以原文章節及實際程式核對。封存程式與資料不改，必要勘誤另存。
 
+`--verify-existing` 另用既有 formal catalog 重算 90 份 CSV 指紋，並核對 exp13 protocol／evaluation／verification／summary seals、九份 hard600 權重 SHA，以及歷史三個 matrix index。僅驗證、讀摘要，不重新訓練或重新產生預測；檢查與新文書輸出同樣使用 setup_run 保存。
+
 ## 預期與反證
 
 預期每個實際找到的引用候選有 paper 或待辨識項目，且每篇有閱讀深度與主張判定。無法辨識、官方站無法取得、重要公式未確認均保留未解，不得以 URL 可打開宣布全文相符。既有成績不變；只讀彙總不得接觸 fit／cal／test 選參。
