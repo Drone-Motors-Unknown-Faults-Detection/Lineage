@@ -51,6 +51,7 @@
     "sources_removed": false
   },
   "verified_prior_commits": ["4fb72015d8461846d90f19dd9fac7e25dcd56a8e", "63f1e2e9a161b31e4a5a8c23c7d31a5918770630", "4023bd7cc0627fd60934c01374f282f1e3b5de75"],
-  "final_delivery_commit": "本檔新增提交與其後執行紀錄；由Git歷史核對，避免自引用",
+  "final_delivery_commit": "0eea1b7ef236fa2fba82ce3914096bd0cbf751f3",
+  "final_report_git_blob": "59455ae1f65be87f51daa8410aa378d53b369326",
   "preexisting_tracked_deletions_not_staged": 282
 }

@@ -2,4 +2,3 @@
 2026-10-05 22:42:46 | INFO    | log_file=logs\fault_type_research_closeout\2026-10-05-22-42-46.log
 2026-10-05 22:42:46 | INFO    | output_dir=output\fault_type_research_closeout\2026-10-05-22-42-46
 2026-10-05 22:42:47 | INFO    | 文件編排 stdout：{"output": "output\\fault_type_research_closeout\\2026-10-05-22-42-46", "word": false, "qa": {"numbers_from_sealed_summaries": true, "matching_m_rows": 72, "fold_test_support": 28910, "m_completed": 216, "paired": 1134, "gate_counts": {"FAILED": 24}, "simplified_candidates": [], "layout_status": "NOT_RENDERED", "historical_full_tests_rerun": false, "source_catalog_sha256": "67647ab8b706e85afc7f0563f9106a2b2f4ff84d5687219d004fa5b278a1ec0c", "markdown_sha256": "0bb2db16d7d519ba9a3750de1144b2f3d9d7576aa105fbeebe5199689f2b14f0"}}
-

@@ -256,7 +256,7 @@ def main():
         if args.word: command.append('--word')
         if args.renderer: command += ['--renderer', str(args.renderer)]
         completed = subprocess.run(command, capture_output=True, text=True, encoding='utf-8')
-        log.info('文件編排 stdout：{}', completed.stdout)
+        log.info('文件編排 stdout：{}', completed.stdout.rstrip())
         if completed.returncode:
             log.error('文件編排 stderr：{}', completed.stderr)
             raise RuntimeError('文件編排未完成')
