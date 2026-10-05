@@ -34,6 +34,8 @@
 
 ## 各實驗的檔案位置
 
+文件稽核：[exp23 引用來源與證據](exp23_citation_evidence_audit.md)，入口 `experiments/fault_type_citation_audit.py`；測試 `tests/test_fault_type_citation_audit.py`；紀錄與輸出 `logs/fault_type_citation_audit/`、`output/fault_type_citation_audit/`。本項不訓練模型、不新增展示。
+
 | 編號 | 入口與共用邏輯 | 測試、紀錄與輸出 | 展示 |
 |---|---|---|---|
 | exp22（預定） | `experiments/fault_type_group_dro.py`、`core/fault_type_group_dro.py` | `tests/test_fault_type_group_dro.py`、`tests/test_fault_type_group_dro_runner.py`、`logs/fault_type_group_dro_*/`、`output/fault_type_group_dro_*/` | N/A；尚未實作 |

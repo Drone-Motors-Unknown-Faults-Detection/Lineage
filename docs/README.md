@@ -8,6 +8,8 @@
 
 ## 現行文件
 
+新增文件稽核：[exp23 引用來源與證據](experiments/exp23_citation_evidence_audit.md)。這是 #19／#20／#22 的唯讀交付入口，不改變已封存研究或 Albert 的主線程式。
+
 | 文件 | 內容 |
 |---|---|
 | [單顆馬達研究收尾手冊](experiments/research_closeout.md) | 唯讀盤點、原契約判定與文件交付；不新增演算法訓練 |
