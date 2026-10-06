@@ -1,5 +1,7 @@
 {
   "checked_date": "2026-10-06",
+  "last_state_check": "2026-10-06 18:43:27 Asia/Taipei之後重新GET",
+  "audit_commit_pushed_verified": "83846b2967bb1f925e457db8093cfdb2d430c1bc",
   "timezone": "Asia/Taipei",
   "document_commit": "e7ee971d2ed41d5ce80e3a56f912eb4dc1c038dc",
   "branch": "research-improvements-20260920",
@@ -8,7 +10,7 @@
     {"number": 22, "state": "closed", "state_reason": "completed", "comment": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22#issuecomment-6014389681", "scope": "有限研究收尾及hard600外層證據核對；不代表可靠模型通過"},
     {"number": 20, "state": "closed", "state_reason": "completed", "comment": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/20#issuecomment-6014390411", "scope": "老師兩問題獨立Markdown與可編輯Word交付"},
     {"number": 19, "state": "open", "comment": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/19#issuecomment-6014390968", "scope": "清冊及部分內容核對已交付；關鍵全文及引用身分仍未全數驗收"},
-    {"number": 30, "state": "open", "scope": "17項唯讀重驗完成；程式issue發布及main文件整合未完成"}
+    {"number": 30, "state": "open", "comment": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/30#issuecomment-6014555436", "first_checkbox": "checked", "remaining_checkboxes": "unchecked", "updated_at": "2026-10-06T10:43:27Z", "scope": "17項唯讀重驗完成；程式issue發布及main文件整合未完成"}
   ],
   "teacher": {
     "markdown": "reports/teacher_reply_20261005/reply.md",
