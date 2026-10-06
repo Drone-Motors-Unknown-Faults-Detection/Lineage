@@ -14,6 +14,12 @@
 
 | 文件 | 內容 |
 |---|---|
+| [七問實驗總覽](navigation/實驗總覽.md) | 各實驗資料、角色、方法、標準與結果；[白話解讀](navigation/結果白話解讀.md)、[來源](navigation/來源索引.md) |
+| [研究流程圖](navigation/研究流程圖.md) | 健康、未知、隔離、候選、確認、完整池重擬合與趨勢分支；Mermaid/SVG |
+| [逐步導覽操作](navigation/UI操作腳本.md) | 獨立web.guide三入口、兩模式與錯誤復原；不覆寫PR #36 |
+| [導覽資料契約](experiments/navigation_data_contract.md) | 唯讀資格檢查／來源SHA與既有split索引 |
+| [導覽配對回歸](experiments/navigation_regression.md) | 同來源與seed的LW/kNN、確認前後及A/B逐筆一致性 |
+| [exp24 導覽範圍](experiments/exp24_experiment_navigation.md) | 模組／逐批盤點與有界導覽驗收 |
 | [單顆馬達研究收尾手冊](experiments/research_closeout.md) | 唯讀盤點、原契約判定與文件交付；不新增演算法訓練 |
 | [單顆馬達跨馬達研究完整報告](../reports/research_closeout_20261005/final_report.md) | 十二批證據、完整方法與來源、M216／1,134配對、24方法 FAILED；B 路徑封存 |
 | [exp22 已知群組穩健損失](experiments/exp22_known_group_dro.md) | 已規劃未實作並封存；未進入訓練或測試，保留原假說與來源 |

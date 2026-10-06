@@ -6,6 +6,8 @@
 
 | 模組 | 手冊 |
 |---|---|
+| experiments/navigation_data_contract.py | [唯讀導覽資料契約](navigation_data_contract.md) |
+| experiments/navigation_regression.py | [原展示／新導覽有界配對](navigation_regression.md) |
 | exp24：既有實驗盤點與獨立導覽 | [七題總覽與導覽規格](exp24_experiment_navigation.md) |
 | 研究收尾：`experiments/fault_type_research_closeout.py`（本次新增） | [證據盤點與文件交付](research_closeout.md) |
 | 研究收尾實際報告 | [單顆馬達訓練與跨馬達校準的開放集故障辨識研究](../../reports/research_closeout_20261005/final_report.md) |

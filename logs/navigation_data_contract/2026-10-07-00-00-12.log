@@ -1,0 +1,4 @@
+2026-10-07 00:00:12 | INFO    | Logger initialized: navigation_data_contract
+2026-10-07 00:00:12 | INFO    | log_file=logs\navigation_data_contract\2026-10-07-00-00-12.log
+2026-10-07 00:00:12 | INFO    | output_dir=output\navigation_data_contract\2026-10-07-00-00-12
+2026-10-07 00:00:12 | INFO    | 唯讀資料契約完成；沒有訓練或評估
