@@ -8,6 +8,11 @@ import json
 import os
 import re
 import subprocess
+from datetime import datetime, timezone
+from concurrent.futures import ThreadPoolExecutor
+from html.parser import HTMLParser
+from urllib.parse import quote, urlparse
+from urllib.request import Request, urlopen
 from pathlib import Path
 
 from core.logger import setup_run
@@ -16,19 +21,27 @@ ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {".md", ".html", ".py", ".json", ".txt", ".bib", ".ipynb"}
 EXCLUDED = {"output", "logs", "data", "venv", ".venv310", ".git", ".codex", ".aws"}
 PATTERN = re.compile(
-    r"doi\.org|arxiv\.org|jmlr|proceedings\.mlr|papers\.nips|neurips|"
+    r"https?://|\bDOI\s*:?\s*10\.|doi\.org|arxiv\.org|jmlr|proceedings\.mlr|papers\.nips|neurips|"
     r"references|citation|bibliography|參考文獻|引用文獻|"
     r"(?:[A-Z][a-z]+[^\n]{0,50}(?:19[0-9]{2}|20[0-9]{2}))|"
     r"(?:LMNN|RSC|REx|HDBSCAN|EWMA|CUSUM|t-SNE|Conformal)",
     re.IGNORECASE,
 )
-URL = re.compile(r"https?://[^\s<>\]\"'`。；，]+")
+URL = re.compile(r"https?://[^\s<>\]\"'`。；，）」、]+")
 
 
 def extract_urls(text):
     """保留 DOI 內的括號，只移除 Markdown 外層括號及句末標點。"""
     result = []
     for value in URL.findall(text):
+        # Markdown 的第一個未配對右括號結束 URL；DOI 內括號保留。
+        depth = 0
+        for index, token in enumerate(value):
+            if token == "(": depth += 1
+            elif token == ")":
+                if depth == 0:
+                    value = value[:index]; break
+                depth -= 1
         value = value.rstrip(",;.")
         while value.endswith(")") and value.count(")") > value.count("("):
             value = value[:-1]
@@ -36,21 +49,87 @@ def extract_urls(text):
     return result
 
 
+class CitationMeta(HTMLParser):
+    def __init__(self):
+        super().__init__(); self.values = {}; self.in_title = False; self.title = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "meta":
+            key = attrs.get("name", attrs.get("property", "")).lower()
+            if key.startswith(("citation_", "dc.", "dc:")):
+                self.values.setdefault(key, []).append(attrs.get("content", ""))
+        self.in_title = tag == "title" or self.in_title
+
+    def handle_endtag(self, tag):
+        if tag == "title": self.in_title = False
+
+    def handle_data(self, data):
+        if self.in_title: self.title.append(data)
+
+
+def canonical_source(url):
+    """只合併明確 URL aliases；不猜相似題名或作者年分。"""
+    url = url.rstrip("/.,;")
+    match = re.search(r"doi\.org/(10\..+)", url, re.I)
+    if match: return "doi:"+match[1].lower()
+    match = re.search(r"arxiv\.org/(?:abs|html|pdf)/([0-9]{4}\.[0-9]{4,5})(?:v[0-9]+)?", url)
+    if match: return "arxiv:"+match[1]
+    match = re.search(r"proceedings\.mlr\.press/(v[0-9]+)/([^/.]+)", url)
+    if match: return "pmlr:"+match[1]+"/"+match[2]
+    return url.replace("https://www.jmlr.org/", "https://jmlr.org/")
+
+
+def source_metadata(url):
+    """讀書目，不把網頁存活視為論文全文正確。"""
+    key = canonical_source(url)
+    result = {"source_id": key, "original_url": url, "queried_at_utc": datetime.now(timezone.utc).isoformat(),
+              "content_status": "UNVERIFIED", "full_text_read": False}
+    if key.startswith("doi:"):
+        endpoint = "https://api.crossref.org/works/"+quote(key[4:], safe="")
+    elif key.startswith("arxiv:"):
+        endpoint = "https://arxiv.org/abs/"+key[6:]
+    elif key.startswith("pmlr:"):
+        endpoint = "https://proceedings.mlr.press/"+key[5:]+".html"
+    else:
+        endpoint = url
+    result["query_url"] = endpoint
+    try:
+        with urlopen(Request(endpoint, headers={"User-Agent": "Lineage-citation-evidence-audit/1.0"}), timeout=18) as response:
+            body = response.read(15*1024*1024+1)
+            result.update(response_url=response.url, http_status=response.status,
+                          response_sha256=hashlib.sha256(body).hexdigest())
+        if len(body) > 15*1024*1024: raise ValueError("超過 metadata 讀取上限")
+        if key.startswith("doi:"):
+            value = json.loads(body)["message"]
+            result.update(existence="METADATA_VERIFIED", metadata={k:value.get(k) for k in
+                ["DOI", "title", "author", "container-title", "published", "volume", "issue", "page", "type", "URL"]})
+        elif body.startswith(b"%PDF"):
+            result.update(existence="PRIMARY_PDF_RETRIEVED", depth="只取得 PDF bytes；本步未閱讀全文")
+        else:
+            parser = CitationMeta(); parser.feed(body.decode("utf-8", errors="replace"))
+            result.update(metadata=parser.values, page_title="".join(parser.title).strip(),
+                          existence="METADATA_VERIFIED" if parser.values.get("citation_title") else "PAGE_ONLY_UNVERIFIED")
+    except Exception as error:
+        result.update(existence="UNVERIFIED", error=str(error))
+    return result
+
+
 def git(*args, input=None, cwd=ROOT):
-    result = subprocess.run(["git", *args], cwd=cwd, input=input, capture_output=True)
+    result = subprocess.run(["git", "-c", "core.quotepath=false", *args], cwd=cwd, input=input, capture_output=True)
     if result.returncode:
         raise RuntimeError(result.stderr.decode("utf-8", errors="replace"))
     return result.stdout
 
 
 def notebook_lines(text):
-    """只讀 Markdown 與 code 註解；不執行、不納入保存的 cell outputs。"""
+    """只讀 source；不執行、不納入保存的 cell outputs。"""
     document = json.loads(text)
     for cell_index, cell in enumerate(document.get("cells", [])):
         source = cell.get("source", [])
         source = source if isinstance(source, str) else "".join(source)
         for line_number, line in enumerate(source.splitlines(), 1):
-            if cell.get("cell_type") == "markdown" or line.lstrip().startswith("#"):
+            if cell.get("cell_type") in {"markdown", "code"}:
                 yield {"cell": cell_index, "line": line_number, "text": line}
 
 
@@ -58,7 +137,10 @@ def occurrences(text, path):
     lines = notebook_lines(text) if path.endswith(".ipynb") else (
         {"line": number, "text": line} for number, line in enumerate(text.splitlines(), 1)
     )
-    return [{**line, "urls": extract_urls(line["text"]), "review_status": "UNREVIEWED"}
+    return [{**line, "urls": extract_urls(line["text"]),
+             "bare_dois": [extract_urls("https://doi.org/"+doi)[0].split("doi.org/", 1)[1]
+                 for doi in re.findall(r"\bDOI\s*:?\s*(10\.[0-9]{4,9}/[^\s\"'{}\[\]，。；：]+)", line["text"], re.I)],
+             "review_status": "UNREVIEWED"}
             for line in lines if PATTERN.search(line["text"])]
 
 
@@ -176,7 +258,7 @@ def verify_existing():
             "trained_models": 0, "new_predictions": 0, "raw_independence": "UNKNOWN", "fresh_final_test": "INCOMPLETE"}
 
 
-def run(pools=None, *, refs, preload=False, snapshot=False, verify=False):
+def run(pools=None, *, refs, preload=False, snapshot=False, verify=False, metadata=False):
     logger, paths = setup_run("fault_type_citation_audit")
     scopes, found = [], []
     for spec in refs:
@@ -189,7 +271,8 @@ def run(pools=None, *, refs, preload=False, snapshot=False, verify=False):
     # 候選原句屬 immutable 來源摘錄，只保留短定位。新內容筆記另用繁體中文。
     with gzip.open(target/"citation_candidates.json.gz", "wt", encoding="utf-8") as stream:
         json.dump(found, stream, ensure_ascii=False)
-    urls = sorted({url.rstrip("。，；,;") for row in found for url in row["urls"]})
+    urls = sorted({url.rstrip("。，；,;") for row in found for url in row["urls"]}
+                  | {"https://doi.org/"+doi.rstrip(",;.") for row in found for doi in row["bare_dois"]})
     (target/"candidate_urls.json").write_text(json.dumps(urls, ensure_ascii=False, indent=2),
                                              encoding="utf-8")
     if snapshot:
@@ -199,6 +282,18 @@ def run(pools=None, *, refs, preload=False, snapshot=False, verify=False):
     if verify:
         with gzip.open(target/"existing_evidence_verified.json.gz", "wt", encoding="utf-8") as stream:
             json.dump(verify_existing(), stream, ensure_ascii=False)
+    if metadata:
+        software_hosts = {"github.com", "scikit-learn.org", "contrib.scikit-learn.org", "json-schema.org", "sklearn-lvq.readthedocs.io"}
+        queries = {}
+        for url in urls:
+            host = urlparse(url).hostname
+            if (host not in software_hosts and "bnext.com.tw" not in url
+                    and host not in {"localhost", "127.0.0.1", "0.0.0.0", "::1"} and "{" not in url):
+                queries.setdefault(canonical_source(url), url)
+        with ThreadPoolExecutor(max_workers=4) as executor:
+            inventory = list(executor.map(source_metadata, queries.values()))
+        (target/"metadata_inventory.json").write_text(json.dumps(inventory, ensure_ascii=False, indent=2), encoding="utf-8")
+        logger.info("書目來源 {} 筆；全文與主張另行判定", len(inventory))
     result = {"output": str(target), "scope_count": len(scopes), "candidates": len(found),
               "urls": len(urls), "full_content_review": False, "trained_models": 0}
     (target/"summary.json").write_text(json.dumps(result, ensure_ascii=False, indent=2),
@@ -213,9 +308,10 @@ def main(argv=None):
     parser.add_argument("--preload", action="store_true")
     parser.add_argument("--github-snapshot", action="store_true")
     parser.add_argument("--verify-existing", action="store_true")
+    parser.add_argument("--metadata", action="store_true")
     args = parser.parse_args(argv)
     result = run(refs=json.loads(args.refs.read_text(encoding="utf-8")),
-                 preload=args.preload, snapshot=args.github_snapshot, verify=args.verify_existing)
+                 preload=args.preload, snapshot=args.github_snapshot, verify=args.verify_existing, metadata=args.metadata)
     print(json.dumps(result, ensure_ascii=False))
 
 

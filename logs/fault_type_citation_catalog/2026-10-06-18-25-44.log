@@ -1,0 +1,4 @@
+2026-10-06 18:25:44 | INFO    | Logger initialized: fault_type_citation_catalog
+2026-10-06 18:25:44 | INFO    | log_file=logs\fault_type_citation_catalog\2026-10-06-18-25-44.log
+2026-10-06 18:25:44 | INFO    | output_dir=output\fault_type_citation_catalog\2026-10-06-18-25-44
+2026-10-06 18:25:44 | INFO    | 清冊完成，仍有未核內容：{'scan': 'output\\fault_type_citation_audit\\2026-10-06-00-04-16', 'papers': 117, 'occurrences': 5592, 'ambiguous_occurrences': 5028, 'existence_counts': {'UNVERIFIED': 28, 'METADATA_ONLY': 66, 'VERIFIED': 21, 'AMBIGUOUS': 2}, 'orphan_ids': 0, 'all_content_reviewed': False, 'issue19_status': 'OPEN', 'trained_models': 0, 'new_predictions': 0}

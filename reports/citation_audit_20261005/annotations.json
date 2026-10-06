@@ -1,0 +1,54 @@
+{
+ "schema_version":"citation_annotations_v1",
+ "date":"2026-10-06",
+ "aliases":{
+  "B02":["https://doi.org/10.1016/S0047-259X(03)00096-4"],
+  "B03":["https://doi.org/10.1109/TIT.1967.1053964"],
+  "B08":["https://link.springer.com/article/10.1007/BF00994018"],
+  "B10":["https://zenodo.org/records/1430636"],
+  "B12":["https://statistics.stanford.edu/technical-reports/regularized-discriminant-analysis"],
+  "B13":["https://arxiv.org/abs/1807.03888"],
+  "B14":["https://arxiv.org/abs/2106.09022"],
+  "B16":["https://doi.org/10.1109/ICDM.2008.17"],
+  "B15":["https://doi.org/10.1109/TSP.2010.2053029"],
+  "B22":["https://arxiv.org/abs/2010.03759","https://proceedings.neurips.cc/paper/2020/file/f5496252609c43eb8a3d147ab9b9c006-Paper.pdf"],
+  "B17":["https://doi.org/10.1145/335191.335388"],
+  "B26":["https://jmlr.org/papers/v10/weinberger09a.html"],
+  "B34":["https://doi.org/10.1007/s10994-007-5009-7"],
+  "B36":["https://arxiv.org/abs/2007.02454","https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123470120.pdf"]
+ },
+ "reviewed_sections":{
+  "B26":"§3.1–3.2 Eq.10–13、§4.1 Eq.15、Appendix A",
+  "B27":"§3.3 Eq.9；只取 scalar loss，沒有 MMMF",
+  "B34":"Eq.2、Proposition 11；S3 有限群與共享 scaler 條件",
+  "B35":"§2.5、§3.1 Eq.8、§3.2；mean/sum 與 RPM domain 適配",
+  "B36":"arXiv v1 §3.1 Eq.1–5、Algorithm 1；固定手工特徵 200 steps",
+  "B20":"v3 §3 baseline 與 PR 定義；1−MSP/q95 的本地適配",
+  "B32":"原 PDF 六頁，Eq.4；登錄題名變體另記"
+ },
+ "supplementary":[
+  {"id":"S01","title":"Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure","authors":["Roberts, D. R.","等"],"year":2017,"venue":"Ecography","url":"https://doi.org/10.1111/ecog.02881","reading_scope":"出版摘要與結構化切分條件；非全文","content_status":"PARTIAL","use":"teacher 第4節的群組切分理由"},
+  {"id":"S02","title":"Impact of Data Leakage in Vibration Signals Used for Bearing Fault Diagnosis","authors":["Wheat, Lesley","Martin von Mohrenschildt","Saeid Habibi","Dhafar Al-Ani"],"year":2024,"venue":"IEEE Access 12:169879–169895","url":"https://doi.org/10.1109/ACCESS.2024.3497716","aliases":["https://macsphere.mcmaster.ca/bitstream/11375/31458/1/Impact_of_Data_Leakage_in_Vibration_Signals_Used_for_Bearing_Fault_Diagnosis.pdf"],"reading_scope":"作者機構頁及摘要／切分問題；不移植成績","content_status":"PARTIAL","use":"teacher 第5節資料洩漏研究背景"},
+  {"id":"S03","title":"Deep Nearest Neighbors for Out-of-Distribution Detection","authors":["Sun, Yiyou","Ming, Yifei","Zhu, Xiaojin","Li, Yixuan"],"year":2022,"venue":"ICML, PMLR 162","url":"https://proceedings.mlr.press/v162/sun22d.html","reading_scope":"§方法的 normalized deep embedding／第k距離；非全文","content_status":"PARTIAL","use":"factory 逐類 mean-k 距離與原法差異"},
+  {"id":"S04","title":"Overcoming catastrophic forgetting in neural networks","authors":["Kirkpatrick, James","等"],"year":2017,"venue":"PNAS 114(13):3521–3526","url":"https://doi.org/10.1073/pnas.1611835114","reading_scope":"出版摘要與 EWC 權重保護方法說明；非全文","content_status":"PARTIAL","use":"rehearsal 不等於 EWC"},
+  {"id":"S05","title":"iCaRL: Incremental Classifier and Representation Learning","authors":["Rebuffi, Sylvestre-Alvise","Kolesnikov, Alexander","Sperl, Georg","Lampert, Christoph H."],"year":2017,"venue":"CVPR:2001–2010","url":"https://openaccess.thecvf.com/content_cvpr_2017/html/Rebuffi_iCaRL_Incremental_Classifier_CVPR_2017_paper.html","reading_scope":"官方摘要及 exemplar／representation 方法；非全文","content_status":"PARTIAL","use":"全資料重fit不是完整iCaRL"},
+  {"id":"S06","title":"Visualizing Data using t-SNE","authors":["van der Maaten, Laurens","Hinton, Geoffrey"],"year":2008,"venue":"JMLR 9(86):2579–2605","url":"https://jmlr.org/papers/v9/vandermaaten08a.html","reading_scope":"官方書目與摘要；不以投影證明分類可靠","content_status":"PARTIAL","use":"issue #16 的可視化背景；未接手其程式"},
+  {"id":"S07","title":"Density-Based Clustering Based on Hierarchical Density Estimates","authors":["Campello, Ricardo J. G. B.","Moulavi, Davoud","Sander, Joerg"],"year":2013,"venue":"PAKDD, LNCS 7819:160–172","url":"https://doi.org/10.1007/978-3-642-37456-2_14","reading_scope":"出版書目與摘要；全文訂閱受限","content_status":"UNVERIFIED","use":"HDBSCAN原始來源；本站參數階梯屬本地約定"},
+  {"id":"S08","title":null,"authors":["Gebraeel"],"year":2005,"venue":null,"url":null,"reading_scope":"README只給作者年份，未能唯一定位","content_status":"UNVERIFIED","use":"退化模型背景，身分 AMBIGUOUS"},
+  {"id":"S09","title":null,"authors":["Wang"],"year":2008,"venue":null,"url":null,"reading_scope":"README只給作者年份；可能候選未作唯一合併","content_status":"UNVERIFIED","use":"退化模型背景，身分 AMBIGUOUS"},
+  {"id":"S10","title":"A review on machinery diagnostics and prognostics implementing condition-based maintenance","authors":["Jardine, Andrew K. S.","Lin, Daming","Banjevic, Dragan"],"year":2006,"venue":"Mechanical Systems and Signal Processing 20(7):1483–1510","url":"https://doi.org/10.1016/j.ymssp.2005.09.012","reading_scope":"出版書目與摘要；非全文","content_status":"UNVERIFIED","use":"PHM背景，不能支持本資料RUL"},
+  {"id":"S11","title":"Prognostics and health management design for rotary machinery systems—Reviews, methodology and applications","authors":["Lee, Jay","Wu, Fangji","Zhao, Wenyu","Ghaffari, Masoud","Liao, Linxia","Siegel, David"],"year":2014,"venue":"Mechanical Systems and Signal Processing 42:314–334","url":"https://doi.org/10.1016/j.ymssp.2013.06.004","reading_scope":"出版書目與摘要；非全文","content_status":"UNVERIFIED","use":"PHM背景，不保證本站健康指數已具真值"},
+  {"id":"S12","title":"Machinery health prognostics: A systematic review from data acquisition to RUL prediction","authors":["Lei, Yaguo","Li, Naipeng","Guo, Liang","Li, Ningbo","Yan, Tao","Lin, Jing"],"year":2018,"venue":"Mechanical Systems and Signal Processing 104:799–834","url":"https://doi.org/10.1016/j.ymssp.2017.11.016","reading_scope":"出版書目與摘要；非全文","content_status":"UNVERIFIED","use":"RUL所需資料背景"},
+  {"id":"S13","title":"A review of novelty detection","authors":["Pimentel, Marco A. F.","Clifton, David A.","Clifton, Lei","Tarassenko, Lionel"],"year":2014,"venue":"Signal Processing 99:215–249","url":"https://doi.org/10.1016/j.sigpro.2013.12.026","reading_scope":"出版書目與摘要；非全文","content_status":"UNVERIFIED","use":"冷啟動未知偵測背景"},
+  {"id":"S14","title":"Support Vector Data Description","authors":["Tax, David M. J.","Duin, Robert P. W."],"year":2004,"venue":"Machine Learning 54:45–66","url":"https://research.tudelft.nl/en/publications/support-vector-data-description/","reading_scope":"作者機構書目；非全文","content_status":"UNVERIFIED","use":"未當作已用 OC-SVM 的相同方法"},
+  {"id":"S15","title":"The Mahalanobis–Taguchi Strategy: A Pattern Technology System","authors":["Taguchi, Genichi","Jugulum, Rajesh"],"year":2002,"venue":"Wiley book","url":"https://onlinelibrary.wiley.com/doi/book/10.1002/9780470172247","reading_scope":"出版社書目與介紹；全書未取得","content_status":"UNVERIFIED","use":"背景，不等同本站逐類LW"},
+  {"id":"S16","title":"Stochastic modelling and analysis of degradation for highly reliable products","authors":["Ye, Zhi-Sheng","Xie, Min"],"year":2015,"venue":"Applied Stochastic Models in Business and Industry 31:16–32","url":"https://doi.org/10.1002/asmb.2063","reading_scope":"出版社書目；online2014／volume2015分開","content_status":"UNVERIFIED","use":"背景；本站無退化生命週期"}
+ ],
+ "important_unresolved":[
+  "Ancestor論文轉錄沒有p.89以後參考表；正文作者年分只能保存原定位",
+  "EWMA、CUSUM及部分原始Mahalanobis來源需原文章節；失敗取得不是不存在",
+  "部分付費文章、書籍與跨語言候選只有metadata或取得失敗",
+  "未精讀的B來源保留歷史閱讀聲明，不當本輪全文閱讀",
+  "沒有URL的作者年分與方法名稱需要人工判定是否正式引用"
+ ]
+}
