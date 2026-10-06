@@ -35,6 +35,7 @@ class GuideHub(Hub):
         self.scenario_end = None
         self.audit_dir = None
         self.preview = None
+        self.busy_state = None
 
     def candidate_id(self):
         if self.demo is None or self.demo.session.candidate is None:
@@ -96,6 +97,9 @@ class GuideHub(Hub):
         return "資料已檢查；各來源筆數與SHA可查看，尚未建立新基準"
 
     def full_state(self):
+        if self.busy and self.busy_state is not None:
+            step = "檢查資料中" if self.operation == "inspect" else "建基準中" if self.operation == "build" else "更新中"
+            return {**self.busy_state, "busy": True, "running": False, "step": step}
         step = "待建基準" if self.datasets else "缺少資料"
         state = {"type": "state", "datasets": [{"motor": d["motor"], "rpm": d["rpm"]} for d in self.datasets],
                  "seed": self.seed, "busy": self.busy, "running": self.running,
@@ -160,7 +164,7 @@ class GuideHub(Hub):
         super().broadcast({"type": "event", "guide_safe": True, "level": level, "text": text})
 
     def tick(self):
-        if not self.demo:
+        if not self.demo or self.busy:
             return
         super().tick()
         if self.scenario_end is not None and self.demo.t >= self.scenario_end:
@@ -195,6 +199,7 @@ class GuideSocket(tornado.websocket.WebSocketHandler):
 
     async def heavy(self, command, fn):
         h = self.hub
+        h.busy_state = h.full_state()
         h.busy, h.operation, h.running = True, command, False
         h.broadcast(h.full_state())
         try:

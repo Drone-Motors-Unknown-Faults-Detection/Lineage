@@ -2,6 +2,7 @@
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 import numpy as np
@@ -116,6 +117,15 @@ class GuideTests(unittest.TestCase):
         self.hub.event("error", "串流錯誤，已暫停：測試")
         self.assertEqual(self.hub.full_state()["step"], "錯誤")
         self.assertFalse(self.hub.running)
+
+    def test_busy_does_not_read_half_updated_model(self):
+        self.hub.build("T1", "8000rpm")
+        self.hub.busy_state = self.hub.full_state()
+        self.hub.busy, self.hub.operation = True, "confirm"
+        with patch.object(self.hub.demo.session.monitor, "summary",
+                          side_effect=AssertionError("不可讀取更新中的模型")):
+            self.hub.tick()
+            self.assertEqual(self.hub.full_state()["step"], "更新中")
 
     def test_same_source_seed_prediction_and_pause(self):
         self.hub.build("T1", "8000rpm")
