@@ -14,9 +14,11 @@
 
 ## 保存位置
 
-原D槽未掛載，無權限提升繞過；正常權限唯讀查核也只有C槽，D備份本輪未完成。新3ZIP暫存於C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/lineage_document_backups/2026-10-06。這是本機暫存，非長期或異地備份；正式小型文件與完整稽核JSON／gz另外推至GitHub。
+18:29時D槽未掛載，新3ZIP先暫存C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/lineage_document_backups/2026-10-06。使用者接回D槽後，18:45已補存至D:/schoolshit/專題/src/lineage_document_backups/2026-10-06；3ZIP／18來源成員的SHA與CRC通過，C槽原包保留。D槽這份為本機備份，不稱異地備份；正式小型文件與完整稽核JSON／gz另外推至GitHub。
 
 whole SHA、所有成員SHA與CRC結果見output/fault_type_archive/2026-10-06-18-29-09/archive_index.json及其verification索引。沒有覆寫舊D槽備份、data或sealed models。
+
+D槽新索引與驗證見[d_backup_20261006.json](d_backup_20261006.json)。C／D包內全部成員bytes相同；BUNDLE_INDEX.json的ZIP時間戳不同，整包SHA因此不同。D槽新whole SHA獨立記錄，沒有把不同ZIP當逐位元副本。重新保存不改模型可靠性或Word排版驗收狀態。
 
 ## 尚未解決
 

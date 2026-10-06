@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-06",
+  "timezone": "Asia/Taipei",
+  "destination": "D:/schoolshit/專題/src/lineage_document_backups/2026-10-06",
+  "archive_index": "output/fault_type_archive/2026-10-06-18-45-18/archive_index.json",
+  "d_verification": "output/fault_type_fixed_delivery/2026-10-06-18-45-29/member_verification.json",
+  "c_and_d_verification": "output/fault_type_fixed_delivery/2026-10-06-18-45-58/member_verification.json",
+  "d_archive_count": 3,
+  "d_verified_source_members": 18,
+  "whole_sha_status": "PASS",
+  "member_sha_status": "PASS",
+  "crc_status": "PASS",
+  "c_d_member_inventory_and_bytes_identical": true,
+  "c_d_whole_zip_identical": false,
+  "difference": "BUNDLE_INDEX.json的ZIP date_time由18:29:08改為18:45:18；全部成員內容相同，包括BUNDLE_INDEX.json。整包SHA分別保存，不宣稱逐位元相同ZIP。",
+  "archives": [
+    {"name": "fault_type_2026-10-06-18-27-42.zip", "bytes": 304701, "source_files": 7, "sha256": "b4aca58a8db401d82a59aecd320e4ba524583ca22224fc0abb9b984a2d59dcae", "contents": "完整研究及老師Markdown、Word、QA與renderer失敗log"},
+    {"name": "fault_type_2026-10-06-18-25-44.zip", "bytes": 1184242, "source_files": 6, "sha256": "c0d4015ec73ee8796431c10b9a3ab15250621c9fa9dd4499f617d60aa396f2b1", "contents": "引用清冊與未解項索引"},
+    {"name": "fault_type_2026-10-06-00-04-16.zip", "bytes": 790033, "source_files": 5, "sha256": "94149be9fc1c58743761a36f0c284de442baba4efc96932f56b62ff8f8ef2d19", "contents": "引用掃描與HTTP書目查詢證據"}
+  ],
+  "original_c_archives_preserved": true,
+  "old_d_archives_overwritten": false,
+  "formal_data_modified": false,
+  "models_modified": false,
+  "offsite_backup": false,
+  "word_layout_status": "LAYOUT_UNVERIFIED",
+  "archive_test": {"python": "3.10.19", "passed": 1, "failed": 0}
+}

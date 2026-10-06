@@ -27,3 +27,5 @@
 18:40–18:41最後24項tests各Python3.10.19／3.14.6均通過、0失敗／0跳過；詳細命令與界線見validation_20261006.md。沒有重跑main全套或模型訓練。final renderer兩份錯誤log補入Git，保留實際失敗證據。
 
 18:43發布#30回報6014555436後，只將逐項重驗checkbox勾選，其餘兩項維持未勾，state仍open；重新GET #22／#20確認closed completed，#19仍open。全程未關閉#9、未合併main、未發布R1–R10程式issue、未改assignee。最後收據另獨立提交；各文件均已推至研究分支，沒有新模型效能主張。
+
+18:45使用者接回D槽後，Get-PSDrive／Test-Path確認D:/schoolshit/專題/src可用，以既有fault_type_archive CLI補存3包至lineage_document_backups/2026-10-06，未覆寫舊包。fault_type_fixed_delivery先驗D的3包18來源成員，再聯合驗C／D的6包36來源成員，whole／member SHA與CRC均PASS。最初C／D整包SHA比較不相同，逐檔核對確認全部成員bytes相同，唯BUNDLE_INDEX.json的ZIP時間戳不同；保留兩組whole SHA與實際差異，不把封裝差異當文件內容改動。Python3.10.19的1項archive regression通過。沒有刪C暫存、覆寫data或新訓練；Word排版仍LAYOUT_UNVERIFIED。
