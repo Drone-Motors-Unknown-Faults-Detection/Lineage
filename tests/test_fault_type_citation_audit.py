@@ -4,6 +4,7 @@ import unittest
 
 from experiments.fault_type_citation_audit import CitationMeta, canonical_source, eligible, extract_urls, notebook_lines, occurrences
 from experiments.fault_type_citation_catalog import catalogue
+from reports.issue_delivery_20261005.word_format import inline, visible
 
 
 class CitationAuditTests(unittest.TestCase):
@@ -101,6 +102,17 @@ class CitationAuditTests(unittest.TestCase):
         papers, rows, unknown = catalogue([row], [], [], {"aliases":{}, "reviewed_sections":{}, "supplementary":[]})
         self.assertEqual(rows[0]["classification"], "SOFTWARE_LINK")
         self.assertEqual(papers, [])
+
+    def test_word_hyperlink_keeps_doi_parentheses(self):
+        parts = inline("來源 [LW](https://doi.org/10.1016/S0047-259X(03)00096-4)。")
+        self.assertIn(("LW", "https://doi.org/10.1016/S0047-259X(03)00096-4"), parts)
+        self.assertEqual(visible("來源 [LW](https://doi.org/10.1016/S0047-259X(03)00096-4)。"),"來源 LW。")
+
+    def test_word_plain_math_and_identifiers_not_removed(self):
+        self.assertEqual(visible("**FAILED** x − μ 0.2404"),"FAILED x − μ 0.2404")
+
+    def test_incomplete_markdown_link_not_silently_dropped(self):
+        self.assertEqual(visible("[x](https://example.org"),"[x](https://example.org")
 
 
 if __name__ == "__main__":

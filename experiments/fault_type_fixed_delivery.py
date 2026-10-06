@@ -38,7 +38,8 @@ def run(pools, *, indices):
         archives.extend(verify_archive(item) for item in index['archives'])
     return {'status':'PASS','archives':archives,'archive_count':len(archives),
             'verified_members':sum(a['source_files'] for a in archives),'source_files_removed':False,
-            'backup_scope':'single D volume; not offsite backup; indices retain original source paths'}
+            'backup_scope':{'volumes':sorted({Path(a['path']).drive for a in archives}),
+                'offsite_backup':False,'note':'僅驗證本機保存的實際路徑；索引保留原來源路徑'}}
 
 
 def main():

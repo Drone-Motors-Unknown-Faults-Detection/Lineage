@@ -6,10 +6,14 @@
 |---|---|---|
 | 範圍與事前手冊 | c02862614238e975f0de6c1e0b8e99d310e665c7 | exact stage、diff check、push、ls-remote一致 |
 | hard600原待辦＋來源盤點 | b550c80587d69e10f7468fa459ae83b3c7fdd722 | formal90/28910 fingerprint一致；E108seals、九權重SHA、2490歷史index唯讀核對；push一致 |
-| 清冊工具與內容 | 本段提交後在下階段補SHA | 15 tests各Python3.10.19／3.14.6 PASS；清冊無孤兒ID，全部內容未驗收 |
+| 清冊工具與內容 | 79442ac7365e236dee805562c2c266cd7c6bbc85 | 15 tests各Python3.10.19／3.14.6 PASS；清冊無孤兒ID，全部內容未驗收；push與remote一致 |
 
 最新main於2026-10-06接續時重新fetch仍64cb71d84663e1745ec54db74abad68def67e8e6，AGENT全文核對；研究remote仍b550。既有282 tracked deletions保留。不stage資料、unrelated tmp或既有來源不明檔案。
 
 引用source HTTP metadata保存日期、response SHA與失敗。早期URL抽取錯誤與漏中文路徑只影響盤點，不影響模型。中途新清冊檔因工具暫存變數失效寫到workspace內undefined子目錄，兩份本人新檔以明確Move-Item移回正確repo，不覆寫其他資料；新清冊CLI與tests重新通過。
 
 文書用bundled Python／python-docx，不升級科學環境。原完整Markdown與歷史Word不覆寫；新版本另保存。renderer實際結果與備份待交付段補登。沒有新訓練、沒有新predictions，也沒有效能增加的本輪主張。
+
+2026-10-06 18:27兩份Word生成。marker在首次create前僅執行一次，expected2；後續改分頁comment後重新生成至18-27-42。Word和Markdown表格逐格一致、CRC／OMML結構通過；renderer兩份均exit1，soffice.exe缺失，LAYOUT_UNVERIFIED。不能宣稱逐頁QA完成。新增hyperlink括號及文字解析3測試，合計18項兩Python均通過。
+
+18:28原D槽備份失敗（WinError3）；require_escalated唯讀Get-PSDrive／Test-Path仍只有C槽。18:29替代C槽workspace新3ZIP保存18個source members，原D長期備份待掛載；沒有聲稱D槽成功。verification的固定D文字改為實際drive清單，不改SHA／CRC驗證。正式文件本輪將隨commit推GitHub。

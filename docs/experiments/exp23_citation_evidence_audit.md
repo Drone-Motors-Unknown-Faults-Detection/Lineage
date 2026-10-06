@@ -42,3 +42,5 @@ CLI：`.venv310/Scripts/python.exe -m experiments.fault_type_citation_audit --he
 `experiments.fault_type_issue_documents` 使用 setup_run 建立交付目錄，呼叫 bundled Python 的純文書函數，把既有完整報告加本輪勘誤、以及獨立老師 Markdown 轉成兩份可編輯 Word。`reports/issue_delivery_20261005/word_format.py` 只處理版面、表格、超連結與 OMML，不訓練、不改指標。表格逐格與 Markdown 比對，ZIP CRC 與公式數檢查；render_docx.py 另做排版驗證。renderer 不可用時記錄 LAYOUT_UNVERIFIED，不用結構檢查取代視覺 QA。
 
 CLI：`.venv310/Scripts/python.exe -m experiments.fault_type_citation_catalog --scan output/fault_type_citation_audit/2026-10-06-00-04-16 --annotations reports/citation_audit_20261005/annotations.json`；文件入口 `python -m experiments.fault_type_issue_documents --help`。兩者只讀原 ML 產物。預期機器索引無孤兒 ID；反證為未登錄 paper ID、表格不一致、公式遺失或 renderer 失敗。後者明確保留未驗收狀態。
+
+備份沿用fault_type_archive及fault_type_fixed_delivery的whole／member SHA與CRC；只改verification的backup_scope敘述為實際drive清單，不改驗證數學。D槽未掛載時新文件先存C槽workspace明確目錄，不能稱D槽或長期／異地備份已完成。

@@ -1,0 +1,5 @@
+2026-10-06 18:27:42 | INFO    | Logger initialized: fault_type_issue_documents
+2026-10-06 18:27:42 | INFO    | log_file=logs\fault_type_issue_documents\2026-10-06-18-27-42.log
+2026-10-06 18:27:42 | INFO    | output_dir=output\fault_type_issue_documents\2026-10-06-18-27-42
+2026-10-06 18:27:45 | INFO    | research_report：結構PASS；版面LAYOUT_UNVERIFIED
+2026-10-06 18:27:46 | INFO    | teacher_reply：結構PASS；版面LAYOUT_UNVERIFIED

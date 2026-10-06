@@ -1,0 +1,45 @@
+{
+  "archive_count": 3,
+  "archives": [
+    {
+      "bytes": 304701,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-06\\fault_type_2026-10-06-18-27-42.zip",
+      "sha256": "c52b38dfa714f6084448500277adc99bbe1062f80e4e99f9a7a06f6f754b0f3b",
+      "source_files": 7,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_issue_documents\\2026-10-06-18-27-42",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 1184242,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-06\\fault_type_2026-10-06-18-25-44.zip",
+      "sha256": "3442d9923d42c5600d3d845bac72977e42838b5a50374700a115b610a4992bc4",
+      "source_files": 6,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_citation_catalog\\2026-10-06-18-25-44",
+      "whole_sha_status": "PASS"
+    },
+    {
+      "bytes": 790033,
+      "crc_status": "PASS",
+      "member_sha_status": "PASS",
+      "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-06\\fault_type_2026-10-06-00-04-16.zip",
+      "sha256": "e00128b0f0b22419f88bc7667a473984d3087bc257ab78567cd6848d060afe2e",
+      "source_files": 5,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_citation_audit\\2026-10-06-00-04-16",
+      "whole_sha_status": "PASS"
+    }
+  ],
+  "backup_scope": {
+    "note": "僅驗證本機保存的實際路徑；索引保留原來源路徑",
+    "offsite_backup": false,
+    "volumes": [
+      "C:"
+    ]
+  },
+  "source_files_removed": false,
+  "status": "PASS",
+  "verified_members": 18
+}
