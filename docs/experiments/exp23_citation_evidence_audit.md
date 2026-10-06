@@ -44,3 +44,5 @@ CLI：`.venv310/Scripts/python.exe -m experiments.fault_type_citation_audit --he
 CLI：`.venv310/Scripts/python.exe -m experiments.fault_type_citation_catalog --scan output/fault_type_citation_audit/2026-10-06-00-04-16 --annotations reports/citation_audit_20261005/annotations.json`；文件入口 `python -m experiments.fault_type_issue_documents --help`。兩者只讀原 ML 產物。預期機器索引無孤兒 ID；反證為未登錄 paper ID、表格不一致、公式遺失或 renderer 失敗。後者明確保留未驗收狀態。
 
 備份沿用fault_type_archive及fault_type_fixed_delivery的whole／member SHA與CRC；只改verification的backup_scope敘述為實際drive清單，不改驗證數學。D槽未掛載時新文件先存C槽workspace明確目錄，不能稱D槽或長期／異地備份已完成。
+
+三項指定issue回報後，fault_type_issue_triage入口只GET GitHub所有open issues／comments、PR36與merged PR8/32，固定main與歷史SHA讀文字及AST。main函數只抽取已讀的_is_complete、fingerprint、load_pools與aggregate純路徑，在output內合成fixture核對，不呼叫模型fit或正式data。Stage2只以stub攔截寫入位置，不真正寫越界檔案，不據此虛稱所有攻擊樣例已證實。產出issue_receipts、snapshot、main source SHA與函數行號、fixture結果；17項人工判定和R1–R10草稿另存。沒有批次建立新issue、修改Albert程式或把PR head當main。

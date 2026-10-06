@@ -1,0 +1,39 @@
+{
+  "checked_date": "2026-10-06",
+  "timezone": "Asia/Taipei",
+  "document_commit": "e7ee971d2ed41d5ce80e3a56f912eb4dc1c038dc",
+  "branch": "research-improvements-20260920",
+  "main_unchanged": "64cb71d84663e1745ec54db74abad68def67e8e6",
+  "issues": [
+    {"number": 22, "state": "closed", "state_reason": "completed", "comment": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22#issuecomment-6014389681", "scope": "有限研究收尾及hard600外層證據核對；不代表可靠模型通過"},
+    {"number": 20, "state": "closed", "state_reason": "completed", "comment": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/20#issuecomment-6014390411", "scope": "老師兩問題獨立Markdown與可編輯Word交付"},
+    {"number": 19, "state": "open", "comment": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/19#issuecomment-6014390968", "scope": "清冊及部分內容核對已交付；關鍵全文及引用身分仍未全數驗收"},
+    {"number": 30, "state": "open", "scope": "17項唯讀重驗完成；程式issue發布及main文件整合未完成"}
+  ],
+  "teacher": {
+    "markdown": "reports/teacher_reply_20261005/reply.md",
+    "docx": "reports/teacher_reply_20261005/reply.docx",
+    "markdown_lf_output_sha256": "a3bc39b68d348354701ac9b4bf600af2cd106aa32bf56f7e5040b4685e23aff0",
+    "markdown_crlf_worktree_sha256": "6e00788476f68fe8f2f7cf2ce5dbeec5fc36339aa8ff4d17158eb2259439b7ed",
+    "markdown_git_blob": "5a17558e6224d15357cbadc2054a8bbbad76cd3a",
+    "docx_sha256": "dacff610a6397e0f84e51d6925e8cea711f2d082889f22b359109ff54f14910d"
+  },
+  "research": {
+    "markdown": "reports/issue_delivery_20261005/research_report.md",
+    "docx": "reports/issue_delivery_20261005/research_report.docx",
+    "docx_sha256": "a8fb28b0e06f97001864809fb806c5a46794667290aeb875c5fa70b13ea5878c"
+  },
+  "word_layout": "LAYOUT_UNVERIFIED: renderer實際失敗，bundled soffice.exe缺失",
+  "backup_index": "output/fault_type_archive/2026-10-06-18-29-09/archive_index.json",
+  "backup_status": "C槽3ZIP的18成員SHA與CRC通過；D槽未掛載，長期備份未完成",
+  "full_issue_receipts": "output/fault_type_issue_triage/2026-10-06-18-34-48/issue_receipts.json",
+  "github_snapshot": "output/fault_type_issue_triage/2026-10-06-18-34-48/github_snapshot.json",
+  "main_reviews": [
+    "output/fault_type_issue_triage/2026-10-06-18-37-06/main_review.json",
+    "output/fault_type_issue_triage/2026-10-06-18-37-13/main_review.json"
+  ],
+  "formal_data_read_by_triage": false,
+  "new_training_runs": 0,
+  "new_predictions": 0,
+  "albert_programming_modified": false
+}

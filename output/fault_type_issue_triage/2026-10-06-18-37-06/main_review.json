@@ -1,0 +1,969 @@
+{
+  "main_ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+  "history_ref": "80bdf54fdf43d466ea19549fb7c0b4e391394799",
+  "source_files": [
+    {
+      "path": "core/data.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "5854520a54432c2694288dab55fcf6ee1427936d798ee017f1d8702afb1d7aea",
+      "functions": [
+        {
+          "name": "config_sort_key",
+          "line": 41,
+          "end_line": 45
+        },
+        {
+          "name": "display_name",
+          "line": 48,
+          "end_line": 51
+        },
+        {
+          "name": "discover_datasets",
+          "line": 54,
+          "end_line": 65
+        },
+        {
+          "name": "load_pools",
+          "line": 68,
+          "end_line": 88
+        },
+        {
+          "name": "make_split",
+          "line": 100,
+          "end_line": 104
+        },
+        {
+          "name": "__init__",
+          "line": 110,
+          "end_line": 116
+        },
+        {
+          "name": "draw",
+          "line": 118,
+          "end_line": 121
+        }
+      ]
+    },
+    {
+      "path": "core/formal_data.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "30fc17d55ed750e7453565d17ecdedb15741fc1c51733e9e1dbc30029c0ea3d9",
+      "functions": [
+        {
+          "name": "_feature_names",
+          "line": 62,
+          "end_line": 85
+        },
+        {
+          "name": "_sha256_file",
+          "line": 110,
+          "end_line": 115
+        },
+        {
+          "name": "_sha256_bytes",
+          "line": 118,
+          "end_line": 119
+        },
+        {
+          "name": "_find_outer_archive",
+          "line": 122,
+          "end_line": 131
+        },
+        {
+          "name": "discover_stage_archives",
+          "line": 134,
+          "end_line": 139
+        },
+        {
+          "name": "_find_member",
+          "line": 142,
+          "end_line": 148
+        },
+        {
+          "name": "_safe_relative_member",
+          "line": 151,
+          "end_line": 158
+        },
+        {
+          "name": "_ensure_output_not_source",
+          "line": 161,
+          "end_line": 167
+        },
+        {
+          "name": "_write_bytes",
+          "line": 170,
+          "end_line": 178
+        },
+        {
+          "name": "_copy_clean_features",
+          "line": 181,
+          "end_line": 226
+        },
+        {
+          "name": "_statistical_features",
+          "line": 229,
+          "end_line": 253
+        },
+        {
+          "name": "_fft_features",
+          "line": 256,
+          "end_line": 271
+        },
+        {
+          "name": "_clean_feature_frame",
+          "line": 274,
+          "end_line": 286
+        },
+        {
+          "name": "_channel_key",
+          "line": 289,
+          "end_line": 303
+        },
+        {
+          "name": "_condition_from_member",
+          "line": 306,
+          "end_line": 311
+        },
+        {
+          "name": "_convert_condition",
+          "line": 314,
+          "end_line": 393
+        },
+        {
+          "name": "_convert_stage2",
+          "line": 396,
+          "end_line": 430
+        },
+        {
+          "name": "materialize",
+          "line": 433,
+          "end_line": 480
+        },
+        {
+          "name": "_parse_condition",
+          "line": 483,
+          "end_line": 489
+        },
+        {
+          "name": "main",
+          "line": 492,
+          "end_line": 508
+        }
+      ]
+    },
+    {
+      "path": "core/runner.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "f6b148511bf7f74e5fe0c8af51b021631e125bd0df5e53397268f31af18bce87",
+      "functions": [
+        {
+          "name": "add_dataset_args",
+          "line": 18,
+          "end_line": 22
+        },
+        {
+          "name": "add_openset_args",
+          "line": 25,
+          "end_line": 48
+        },
+        {
+          "name": "resolve_dataset",
+          "line": 51,
+          "end_line": 59
+        },
+        {
+          "name": "save_json",
+          "line": 62,
+          "end_line": 72
+        },
+        {
+          "name": "_default",
+          "line": 63,
+          "end_line": 70
+        }
+      ]
+    },
+    {
+      "path": "core/openset.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "ee636f831d6cbfaaa8d2962cbd558a996bd4465fc17ed2ebd24f261e6bd367df",
+      "functions": [
+        {
+          "name": "canonical_openset_method",
+          "line": 40,
+          "end_line": 46
+        },
+        {
+          "name": "_as_feature_matrix",
+          "line": 77,
+          "end_line": 85
+        },
+        {
+          "name": "create_openset_detector",
+          "line": 195,
+          "end_line": 211
+        },
+        {
+          "name": "fit",
+          "line": 53,
+          "end_line": 59
+        },
+        {
+          "name": "score_samples",
+          "line": 61,
+          "end_line": 61
+        },
+        {
+          "name": "predict_known_class",
+          "line": 63,
+          "end_line": 63
+        },
+        {
+          "name": "class_summaries",
+          "line": 65,
+          "end_line": 65
+        },
+        {
+          "name": "__init__",
+          "line": 97,
+          "end_line": 105
+        },
+        {
+          "name": "_mean_neighbor_distance",
+          "line": 108,
+          "end_line": 110
+        },
+        {
+          "name": "fit",
+          "line": 112,
+          "end_line": 147
+        },
+        {
+          "name": "_normalized_scores",
+          "line": 149,
+          "end_line": 165
+        },
+        {
+          "name": "score_samples",
+          "line": 167,
+          "end_line": 172
+        },
+        {
+          "name": "predict_known_class",
+          "line": 174,
+          "end_line": 181
+        },
+        {
+          "name": "class_summaries",
+          "line": 183,
+          "end_line": 192
+        }
+      ]
+    },
+    {
+      "path": "experiments/exp1_cold_start.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "34447ea5b19450cf614307281055d9b05a4c842a57a1e97b240ca98e17665b30",
+      "functions": [
+        {
+          "name": "run",
+          "line": 25,
+          "end_line": 90
+        },
+        {
+          "name": "_auroc",
+          "line": 93,
+          "end_line": 97
+        },
+        {
+          "name": "_make_figure",
+          "line": 100,
+          "end_line": 117
+        },
+        {
+          "name": "main",
+          "line": 120,
+          "end_line": 154
+        }
+      ]
+    },
+    {
+      "path": "experiments/exp2_scale_growth.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "b44ed3765fc8dec8870fbe7e5d26a8438497bb6a1c3d1ab9ccba232cf3a18cce",
+      "functions": [
+        {
+          "name": "run",
+          "line": 206,
+          "end_line": 280
+        },
+        {
+          "name": "main",
+          "line": 283,
+          "end_line": 322
+        },
+        {
+          "name": "__init__",
+          "line": 38,
+          "end_line": 72
+        },
+        {
+          "name": "process",
+          "line": 76,
+          "end_line": 103
+        },
+        {
+          "name": "_cluster_params",
+          "line": 105,
+          "end_line": 118
+        },
+        {
+          "name": "_try_cluster",
+          "line": 120,
+          "end_line": 153
+        },
+        {
+          "name": "confirm",
+          "line": 157,
+          "end_line": 189
+        },
+        {
+          "name": "state",
+          "line": 191,
+          "end_line": 200
+        }
+      ]
+    },
+    {
+      "path": "experiments/exp3_trend.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "b44e1710f0a098cd0c8a07236e943a7c057b4b3b2902fe3981c11903dcb9624f",
+      "functions": [
+        {
+          "name": "iter_stream",
+          "line": 54,
+          "end_line": 68
+        },
+        {
+          "name": "run",
+          "line": 71,
+          "end_line": 143
+        },
+        {
+          "name": "main",
+          "line": 146,
+          "end_line": 177
+        }
+      ]
+    },
+    {
+      "path": "experiments/exp6_formal_benchmark.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "1a8401a0e322f76ff4f06f637cc08b7d91a8b55e4712f7554ba8bc31d7e8d4fa",
+      "functions": [
+        {
+          "name": "_git_sha",
+          "line": 54,
+          "end_line": 65
+        },
+        {
+          "name": "dataset_fingerprint",
+          "line": 68,
+          "end_line": 92
+        },
+        {
+          "name": "_fpr_at_tpr95",
+          "line": 95,
+          "end_line": 103
+        },
+        {
+          "name": "_validate_datasets",
+          "line": 106,
+          "end_line": 120
+        },
+        {
+          "name": "_detector_metadata",
+          "line": 123,
+          "end_line": 144
+        },
+        {
+          "name": "run",
+          "line": 147,
+          "end_line": 277
+        },
+        {
+          "name": "_figure",
+          "line": 280,
+          "end_line": 297
+        },
+        {
+          "name": "main",
+          "line": 300,
+          "end_line": 331
+        }
+      ]
+    },
+    {
+      "path": "experiments/exp6_osr_benchmark.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "b74d2e07813a73d32c50fc7400ab1d7a3cd6045a635ebebd48b03f437218bce7",
+      "functions": [
+        {
+          "name": "_fpr_at_tpr",
+          "line": 32,
+          "end_line": 34
+        },
+        {
+          "name": "run",
+          "line": 37,
+          "end_line": 82
+        },
+        {
+          "name": "_figure",
+          "line": 85,
+          "end_line": 103
+        },
+        {
+          "name": "main",
+          "line": 106,
+          "end_line": 128
+        }
+      ]
+    },
+    {
+      "path": "experiments/exp6_matrix.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "9cce735bfa4fcb3915eeb0cd51d2afa4d5bd5cc9b343b7a34d7ad6db2a7719d3",
+      "functions": [
+        {
+          "name": "_atomic_json",
+          "line": 28,
+          "end_line": 41
+        },
+        {
+          "name": "expected_run_matrix",
+          "line": 44,
+          "end_line": 74
+        },
+        {
+          "name": "_is_complete",
+          "line": 77,
+          "end_line": 100
+        },
+        {
+          "name": "_write_run_csv",
+          "line": 103,
+          "end_line": 107
+        },
+        {
+          "name": "run_matrix",
+          "line": 110,
+          "end_line": 219
+        },
+        {
+          "name": "main",
+          "line": 222,
+          "end_line": 249
+        }
+      ]
+    },
+    {
+      "path": "experiments/aggregate_exp6.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "7dfc4c1b3adcdf8c5a0981f9a2c859704ffbf49b4424d71e106d48b4610058d9",
+      "functions": [
+        {
+          "name": "_read_json",
+          "line": 26,
+          "end_line": 30
+        },
+        {
+          "name": "_summary_path",
+          "line": 33,
+          "end_line": 37
+        },
+        {
+          "name": "_finite",
+          "line": 40,
+          "end_line": 44
+        },
+        {
+          "name": "_mean_std",
+          "line": 47,
+          "end_line": 49
+        },
+        {
+          "name": "_round",
+          "line": 52,
+          "end_line": 53
+        },
+        {
+          "name": "load_matrix",
+          "line": 56,
+          "end_line": 100
+        },
+        {
+          "name": "aggregate",
+          "line": 103,
+          "end_line": 163
+        },
+        {
+          "name": "write_aggregate",
+          "line": 166,
+          "end_line": 183
+        },
+        {
+          "name": "main",
+          "line": 186,
+          "end_line": 193
+        }
+      ]
+    },
+    {
+      "path": "web/live.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "b41c3a7012d56985844cd24c4a61fd6d19a8cac24d53c3503dc5e0daa82c7bd7",
+      "functions": [
+        {
+          "name": "_event",
+          "line": 40,
+          "end_line": 41
+        },
+        {
+          "name": "__init__",
+          "line": 45,
+          "end_line": 65
+        },
+        {
+          "name": "_build",
+          "line": 67,
+          "end_line": 92
+        },
+        {
+          "name": "_open_sample_log",
+          "line": 96,
+          "end_line": 106
+        },
+        {
+          "name": "_log_sample",
+          "line": 108,
+          "end_line": 113
+        },
+        {
+          "name": "_snapshot_model",
+          "line": 115,
+          "end_line": 121
+        },
+        {
+          "name": "close",
+          "line": 123,
+          "end_line": 128
+        },
+        {
+          "name": "_refresh_samplers",
+          "line": 130,
+          "end_line": 138
+        },
+        {
+          "name": "set_source",
+          "line": 142,
+          "end_line": 150
+        },
+        {
+          "name": "start_scenario",
+          "line": 152,
+          "end_line": 160
+        },
+        {
+          "name": "confirm",
+          "line": 162,
+          "end_line": 170
+        },
+        {
+          "name": "_draw_config",
+          "line": 174,
+          "end_line": 195
+        },
+        {
+          "name": "tick",
+          "line": 197,
+          "end_line": 286
+        },
+        {
+          "name": "phase",
+          "line": 290,
+          "end_line": 295
+        },
+        {
+          "name": "state",
+          "line": 297,
+          "end_line": 337
+        },
+        {
+          "name": "state_msg",
+          "line": 339,
+          "end_line": 340
+        },
+        {
+          "name": "metrics_msg",
+          "line": 342,
+          "end_line": 359
+        }
+      ]
+    },
+    {
+      "path": "web/server.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "e81cc5ea2c9118a0041313b45776b66d7801dacad90e5ed4617b49af221708c7",
+      "functions": [
+        {
+          "name": "main",
+          "line": 294,
+          "end_line": 351
+        },
+        {
+          "name": "__init__",
+          "line": 43,
+          "end_line": 62
+        },
+        {
+          "name": "broadcast",
+          "line": 66,
+          "end_line": 72
+        },
+        {
+          "name": "full_state",
+          "line": 74,
+          "end_line": 83
+        },
+        {
+          "name": "event",
+          "line": 85,
+          "end_line": 87
+        },
+        {
+          "name": "tick",
+          "line": 91,
+          "end_line": 104
+        },
+        {
+          "name": "set_rate",
+          "line": 106,
+          "end_line": 111
+        },
+        {
+          "name": "get",
+          "line": 118,
+          "end_line": 121
+        },
+        {
+          "name": "__init__",
+          "line": 127,
+          "end_line": 130
+        },
+        {
+          "name": "set_default_headers",
+          "line": 137,
+          "end_line": 139
+        },
+        {
+          "name": "reply",
+          "line": 141,
+          "end_line": 143
+        },
+        {
+          "name": "get",
+          "line": 147,
+          "end_line": 150
+        },
+        {
+          "name": "post",
+          "line": 154,
+          "end_line": 178
+        },
+        {
+          "name": "get",
+          "line": 182,
+          "end_line": 186
+        },
+        {
+          "name": "check_origin",
+          "line": 190,
+          "end_line": 191
+        },
+        {
+          "name": "open",
+          "line": 193,
+          "end_line": 196
+        },
+        {
+          "name": "on_close",
+          "line": 198,
+          "end_line": 199
+        },
+        {
+          "name": "on_message",
+          "line": 201,
+          "end_line": 207
+        },
+        {
+          "name": "dispatch",
+          "line": 209,
+          "end_line": 237
+        },
+        {
+          "name": "_heavy",
+          "line": 239,
+          "end_line": 255
+        },
+        {
+          "name": "_do_confirm",
+          "line": 259,
+          "end_line": 270
+        },
+        {
+          "name": "_do_reset",
+          "line": 273,
+          "end_line": 276
+        },
+        {
+          "name": "_do_dataset",
+          "line": 279,
+          "end_line": 291
+        }
+      ]
+    },
+    {
+      "path": "docs/README.md",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "0e2d5f52b764ef85e5d068dc62508f08d8d9f40a8013b20e0222e67e4f975718",
+      "functions": []
+    },
+    {
+      "path": "docs/health_and_reports.md",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "5203c6f4cc648659433060082e70c31f45b43bf31933429748b272f93cdd07ff",
+      "functions": []
+    },
+    {
+      "path": "README.md",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "d3e04d4be57dd91cb96f0e6186acf55cec0414b86414ef2cb0e283c2475afddf",
+      "functions": []
+    },
+    {
+      "path": "build_uv.sh",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "366256bde1c8809b3825810e19b89e5109f63545a269da7fd96e7e928fa03fe9",
+      "functions": []
+    },
+    {
+      "path": "build_uv_mac.sh",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "65b9ec3c70b3a3f421f17c8c9aab2443777e30aaa56aebc2f6e02caa6b5cfb53",
+      "functions": []
+    },
+    {
+      "path": "run_web.sh",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "8e54907080d9311c7f48f411fd57a3bd548abeb3aed7478d71808d4ce8e7c9e0",
+      "functions": []
+    },
+    {
+      "path": "pyproject.toml",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "163f1f9996ae80a99de142dc932522d371fa41878bf30d055e9d879a6c92892f",
+      "functions": []
+    }
+  ],
+  "main_test_files": [
+    "tests/__init__.py",
+    "tests/test_aggregate_exp6.py",
+    "tests/test_exp6_benchmark.py",
+    "tests/test_exp6_matrix.py",
+    "tests/test_formal_data.py",
+    "tests/test_geometry.py",
+    "tests/test_health_benchmark.py",
+    "tests/test_health_calibration.py",
+    "tests/test_health_diagnosis.py",
+    "tests/test_health_evaluation.py",
+    "tests/test_health_index.py",
+    "tests/test_health_matrix.py",
+    "tests/test_health_schema.py",
+    "tests/test_health_severity.py",
+    "tests/test_health_trajectory.py",
+    "tests/test_openset.py",
+    "tests/test_web_experiments.py"
+  ],
+  "current_docs_index_links": [
+    {
+      "link": "Experiments_Guide.md",
+      "target": "docs/Experiments_Guide.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/README.md",
+      "target": "docs/experiments/README.md",
+      "exists": true
+    },
+    {
+      "link": "../README.md",
+      "target": "README.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/README.md",
+      "target": "docs/experiments/README.md",
+      "exists": true
+    },
+    {
+      "link": "Experiments_Guide.md",
+      "target": "docs/Experiments_Guide.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp1_cold_start.md",
+      "target": "docs/experiments/exp1_cold_start.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp2_scale_growth.md",
+      "target": "docs/experiments/exp2_scale_growth.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp3_trend.md",
+      "target": "docs/experiments/exp3_trend.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp4_polar_map.md",
+      "target": "docs/experiments/exp4_polar_map.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp5_cross_condition.md",
+      "target": "docs/experiments/exp5_cross_condition.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp6_osr_benchmark.md",
+      "target": "docs/experiments/exp6_osr_benchmark.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp6_formal_benchmark.md",
+      "target": "docs/experiments/exp6_formal_benchmark.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp6_matrix.md",
+      "target": "docs/experiments/exp6_matrix.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp6_aggregate.md",
+      "target": "docs/experiments/exp6_aggregate.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp7_compare_openset.md",
+      "target": "docs/experiments/exp7_compare_openset.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp8_health_index_benchmark.md",
+      "target": "docs/experiments/exp8_health_index_benchmark.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp8_health_index_matrix.md",
+      "target": "docs/experiments/exp8_health_index_matrix.md",
+      "exists": true
+    },
+    {
+      "link": "experiments/exp8_health_monitor.md",
+      "target": "docs/experiments/exp8_health_monitor.md",
+      "exists": true
+    },
+    {
+      "link": "exp8_health_monitoring_workflow.md",
+      "target": "docs/exp8_health_monitoring_workflow.md",
+      "exists": true
+    },
+    {
+      "link": "health_and_reports.md",
+      "target": "docs/health_and_reports.md",
+      "exists": true
+    },
+    {
+      "link": "Step1_Data_Preprocessing.md",
+      "target": "docs/Step1_Data_Preprocessing.md",
+      "exists": true
+    },
+    {
+      "link": "Step2_Feature_Extraction.md",
+      "target": "docs/Step2_Feature_Extraction.md",
+      "exists": true
+    },
+    {
+      "link": "Step3_Model_Training.md",
+      "target": "docs/Step3_Model_Training.md",
+      "exists": true
+    },
+    {
+      "link": "Step4_Unknown_Detection.md",
+      "target": "docs/Step4_Unknown_Detection.md",
+      "exists": true
+    },
+    {
+      "link": "Step5_Random_Sampling_Detection.md",
+      "target": "docs/Step5_Random_Sampling_Detection.md",
+      "exists": true
+    },
+    {
+      "link": "Step6_Model_Retraining.md",
+      "target": "docs/Step6_Model_Retraining.md",
+      "exists": true
+    },
+    {
+      "link": "Tensorflow.md",
+      "target": "docs/Tensorflow.md",
+      "exists": true
+    },
+    {
+      "link": "Mahalanobis_Improvement.md",
+      "target": "docs/Mahalanobis_Improvement.md",
+      "exists": true
+    },
+    {
+      "link": "Model_Choice_Analysis.md",
+      "target": "docs/Model_Choice_Analysis.md",
+      "exists": true
+    },
+    {
+      "link": "OpenSet_Recognition.md",
+      "target": "docs/OpenSet_Recognition.md",
+      "exists": true
+    }
+  ],
+  "fixture_results": {
+    "summary_without_csv_log_accepted": true,
+    "same_size_mtime_different_bytes_fingerprint_equal": true,
+    "arbitrary_schema_healthy_only_loaded": [
+      "8screws"
+    ],
+    "discovered_partial_conditions": 1,
+    "tampered_manifest_fingerprint_published": "TAMPERED",
+    "stage2_arbitrary_config_accepted": "..",
+    "stage2_unequal_widths_rows": 2,
+    "stage2_stub_write_targets": [
+      "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_issue_triage\\2026-10-06-18-37-06\\fixtures\\materialized\\Step-2\\myfeature\\T2\\T2_Group_feature_data_clean.csv"
+    ],
+    "stage2_real_feature_math": false,
+    "actual_outside_files_written": false,
+    "formal_data_read": false,
+    "models_fit": 0
+  },
+  "programming_changed": false
+}

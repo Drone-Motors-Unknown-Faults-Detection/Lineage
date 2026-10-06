@@ -8,6 +8,7 @@
 - [給張老師的說明Markdown](../teacher_reply_20261005/reply.md)與同目錄reply.docx：兩個問題在第2–5節直接回答，第8節列完成度。獨立文件含七個明確分頁，八個邏輯段落；沒有渲染結果，不聲稱實際八頁。
 - [文獻清冊與尚未完成事項](../citation_audit_20261005/README.md)：#19仍OPEN。
 - [結構與內容QA](document_qa.json)：完整報告39表／773列／5原生OMML公式；老師回覆7表／39列。全部表格逐格一致，ZIP CRC通過。
+- [GitHub完成收據](delivery_receipts.json)、[剩餘issue分工](remaining_issue_triage.md)、[main的17項重驗](main_reaudit.md)與[R1–R10草稿](roadmap_issue_drafts.md)。#22與#20已closed completed；#19與#30保持OPEN。
 
 兩份Word已用bundled renderer實際嘗試，均找不到soffice.exe。LAYOUT_UNVERIFIED代表逐頁排版未驗收，正式內容核對完成。沒有使用使用者桌面LibreOffice或更動科學依賴。閱讀Word時仍需檢查換頁、長表、公式與字型；不將內容完成稱全部版面驗收通過。
 
