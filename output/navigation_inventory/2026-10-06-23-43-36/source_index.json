@@ -1,0 +1,3906 @@
+{
+  "research_ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+  "main_ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+  "modules": [
+    {
+      "path": "experiments/aggregate_exp6.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "9a920a5b65dfda8ec7427b91d98e2c288102055402ed66eb18f261c0b3da0ba4",
+      "functions": [
+        "_read_json",
+        "_summary_path",
+        "_finite",
+        "_mean_std",
+        "_round",
+        "load_matrix",
+        "aggregate",
+        "write_aggregate",
+        "main"
+      ],
+      "run": false,
+      "main": true
+    },
+    {
+      "path": "experiments/calibration_ablation.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "b21afef516b42e838a802568f189ac90ea20e6b2e65cf76fa65e6f1b0bf869bb",
+      "functions": [
+        "_commit_sha",
+        "_load_split",
+        "_metrics",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/compare_openset.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "a06641db282b75ae8678696dfd18c23b63bada0d2c483f328b6b44b5a4e5143e",
+      "functions": [
+        "_fpr_at_tpr95",
+        "evaluate_method",
+        "run",
+        "_make_figure",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/continual_learning.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "ce168192fb957e4254c345e11421a4461c0446cd300cbdb7586bbd25fc265b2a",
+      "functions": [
+        "load_records",
+        "arrival_order",
+        "nested_arrivals",
+        "select_replay",
+        "_fit_model",
+        "_evaluate",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/detector_comparison.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "f47cac98ed1cdb7bc863aa79038dff28da174ae6407b07e7cd0003e353850009",
+      "functions": [
+        "_fpr_at_95_tpr",
+        "_metrics",
+        "_fit_score",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp1_cold_start.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "5ce1b23603be1fa45539838e2db90deb402a973b2fd0b544a834022f8667d756",
+      "functions": [
+        "run",
+        "_auroc",
+        "_make_figure",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp2_scale_growth.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "acd43764e62e36b769e6d08db1c4be4afd548449c062573695ff0e7e035d44d7",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp3_trend.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "3a2f1f5e994eb396306a6226c29bfccb5d6c09b87f75f0e0751d3b6e358850ea",
+      "functions": [
+        "iter_stream",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp6_matrix.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "a81d15355af7e7e7b15b647d1fe737e2ad93be60b464d94e5bc8f9ba5e87c415",
+      "functions": [
+        "_atomic_json",
+        "expected_run_matrix",
+        "_is_complete",
+        "_write_run_csv",
+        "run_matrix",
+        "main"
+      ],
+      "run": false,
+      "main": true
+    },
+    {
+      "path": "experiments/exp6_osr_benchmark.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "fdd152f3d421efb85b738c4b900db6906821539de65e5727585cc54044e4ad05",
+      "functions": [
+        "_git_sha",
+        "dataset_fingerprint",
+        "_fpr_at_tpr95",
+        "_validate_datasets",
+        "_detector_metadata",
+        "run",
+        "_figure",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_accuracy_acceptance.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "a2f04d461d0225a2acce62c48721024958eba5c36d40e6edda781344951a1960",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_accuracy_baseline.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "3565858ad90fd35ba25699570bdcaa44049d2cfab37b5071496f5ddc4512edec",
+      "functions": [
+        "context",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_accuracy_diagnosis.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "b9b6f35424c4ed1ce32a6996126977917f127bbff3df0f852c1640f08d7ad105",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_accuracy_registry.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "96ed6f14a65e2bd36db2cacabb0292321f4d1b985e8c5fc3ed799dd619d73d00",
+      "functions": [
+        "classifier",
+        "build_registry",
+        "check_registry",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_accuracy_report.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "ab7897cc2a17d5e5bd21645957a6eaa4de6728262861864ff80712aa246455e3",
+      "functions": [
+        "verify_rows",
+        "describe",
+        "paired_differences",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_accuracy_smoke.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "02d756403581c08753e8f2596febd543fe2fb65ec51fb98f1597cb0e217ac366",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_accuracy_study.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "20eedd560d569db3417cc7649fe75bef1518e2d2d463aacfcbf38da1d231279c",
+      "functions": [
+        "fit_classifier",
+        "fit_a",
+        "run",
+        "fit_b",
+        "main",
+        "validate_lock",
+        "resolved_model",
+        "evaluate"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_accuracy_summary.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "846cce9db415af4274ab8eac380631154e1641eedc6ae0136564a453bf5fcd8e",
+      "functions": [
+        "save_summary",
+        "run_entry",
+        "pareto",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_archive.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "de62ecc9f06aa0cb1a27db62bb41e61503504ac0556c59bfd4e9c07aad56c6cc",
+      "functions": [
+        "_sha",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_axis_kernel.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "3a4ff6602d7e6ac72eaa8c32f96fda5341c8141573ad857152f42b65e7d36fe5",
+      "functions": [
+        "read",
+        "normalized",
+        "build",
+        "check",
+        "expected_audits",
+        "budget",
+        "source_arrays",
+        "fit_nodes",
+        "load_model",
+        "validate_lock",
+        "fit",
+        "factory_signature",
+        "verify_actual_sources",
+        "source_verify",
+        "infer",
+        "evaluate",
+        "report",
+        "paired_methods",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_citation_audit.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "cc75bf81a9d84a14844bd75e70a635a3929c141d76dbb40533fc6a9d4bacd56d",
+      "functions": [
+        "extract_urls",
+        "canonical_source",
+        "source_metadata",
+        "git",
+        "notebook_lines",
+        "occurrences",
+        "eligible",
+        "scan_ref",
+        "github_snapshot",
+        "verify_existing",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_citation_catalog.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "78896189ee33ccb39ef904a647982d151b38d37f774ac5a89ecbd8b8d13976df",
+      "functions": [
+        "load",
+        "dump",
+        "catalogue",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_context_prototypes.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "09a936c82e842bf56998823272ca81079d9782725e0aa94a0eee43b1cb0e6338",
+      "functions": [
+        "build",
+        "validate_policy",
+        "check",
+        "rpm_values",
+        "expected_audits",
+        "fit_node",
+        "verify_node",
+        "budget",
+        "source_arrays",
+        "load_model",
+        "fit",
+        "source_verify",
+        "infer",
+        "evaluate",
+        "report",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_context_rejection.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "c202be3bf42eee3ed24aa2a4dc4311f0252d2ba3ec869d23414ac05754fcb4e1",
+      "functions": [
+        "build",
+        "check",
+        "parent_for",
+        "expected_audits",
+        "calibrate_nodes",
+        "verify_nodes",
+        "budget",
+        "load_model",
+        "calibrate",
+        "source_verify",
+        "infer",
+        "evaluate",
+        "check_components",
+        "report",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_continuous_acceptance.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "b1c4c6e236e58a179262df83e209152930534d49f38a7835f2a5807eaa3bdfb8",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_continuous_inventory.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "d62b3a4ad3d3737200059eed140d5b6247e88d5c1e96b51fe263294a2d4d64d5",
+      "functions": [
+        "dependencies",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_continuous_registry.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "a1f7ddee12228fc05bc3ec177e7755ab5323bdc599fa09fe2a92f5b77e2874f5",
+      "functions": [
+        "build",
+        "check",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_continuous_report.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "4b841ffb5740d3625bb277cbb5e591e6693f74738598a5b24abc44877daa3b75",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_continuous_report_v2.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "b216aef4b5edeeb6376ad3357b3bf041366763e800158af637f220c15685ba79",
+      "functions": [
+        "paired_delta",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_continuous_smoke.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "7caabfb7e3a4690914fb0272641e9f4dfe947a3f51485cb68bc5044494ab044b",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_continuous_study.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "47e41f0fb209c920ac0a210cca8786ac9dc3abdc8f0f1fe46830695ca681b417",
+      "functions": [
+        "budget",
+        "check_audit",
+        "load_new",
+        "fit",
+        "infer",
+        "evaluate",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_controlled_eval.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "578f4bc3d127df264046bd41310ee8224706e29ea06f6acc3addaa578aadb9d5",
+      "functions": [
+        "_check_locked",
+        "run",
+        "paired_predictions",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_discriminative_prototypes.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "33671dca3f8793ee13de3f88dc878ac1f3fbff479948a15172e3a78b878cc58b",
+      "functions": [
+        "build",
+        "check",
+        "expected_audits",
+        "fit_node",
+        "verify_node",
+        "source_arrays",
+        "budget",
+        "load_model",
+        "validate_lock",
+        "fit",
+        "source_verify",
+        "infer",
+        "evaluate",
+        "report",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_exposure.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "3d87ef5564fa58002f4b0bfa98a9590b3571b3a3c8a74bf23401fe61ea946ec1",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_feature_audit.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "b64f7cf66eb7c4658ffad7355a3f699ec6037c57f980b8dbf4392ce8cf453e42",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_fixed_acceptance.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "a39a9da012fee79e73bfe53a57eaca75304ce688ad513197b09ab156b7388049",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_fixed_calibration.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "34b981e7bec9301e35f1b78bc701b1bf724e8905c89b1b30276a15b0ee786190",
+      "functions": [
+        "build_protocol",
+        "check_protocol",
+        "verify_sources",
+        "raw_class_scores",
+        "run",
+        "load_bound_model",
+        "evaluate",
+        "metrics_for",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_fixed_delivery.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "7a9066c15fc19f9e369b6618fbd2926edfd0a2a522e181d0f42a4ac86f074fb7",
+      "functions": [
+        "verify_archive",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_fixed_diagnosis.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "e2104d2510b5f33b240ab7959169a7d31697e0e98d199ce764a84cba777af50f",
+      "functions": [
+        "score_groups",
+        "healthy_shift",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_fixed_report.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "c0ba1011ff44e83c4fef44010a026d1bbca35e65535329a3f24a9f4a69607330",
+      "functions": [
+        "nested",
+        "load_predictions",
+        "verify_rows",
+        "verify_report",
+        "historical_difference",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_fixed_smoke.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "3ce54f6a729b693f6c23844979fac07384f775b47fe55f2c63c6bfcbc42db185",
+      "functions": [
+        "fixture",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_followup_acceptance.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "8a0b4e789a097f5ce06297d3ba4c7308e27df09e33fe9eba89b8f24855c3a1bb",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_followup_report.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "bb6bfb98fafcda71bca73e163662736a449718ffa7a182acba6805a7148dcd03",
+      "functions": [
+        "paired_differences",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_fresh.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "8bda3e8c699bc32967a04b27f684652303041ededff07871fdea843b17934a6d",
+      "functions": [
+        "validate_history_scope",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_ingest.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "75a9bb52781d003a19d57da0c3642a487315e4adc92f332175848f5869ebcb48",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_issue_documents.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "d258e6106268549980d60d082a9e42f811b40fd553ce5cc8bae1d329f3bf385a",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_issue_triage.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "ea7ac82d5ff6f4412e6d2308a73d4d5a93d71e0516be9c01b750a52bcafc503a",
+      "functions": [
+        "api",
+        "selected",
+        "fixtures",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_leakage_audit.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "0f18f72ab4deeba351c30d57e37e134d321c8a99667ee736bdba8a16b0cef130",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_literature_acceptance.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "05c9de02a6c1061f125d8a8fae461806e3796793ae81c6455fa22c52210d1ccb",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_literature_diagnosis.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "7d9c95ba88068a71da3a70e55e088b978cd9b5be55d739ddc4db1ac22fe021d4",
+      "functions": [
+        "distribution",
+        "summarize",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_literature_registry.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "b6b86bc2b0c23f7f3686e538e185ba64fe66d84eace4f41b4f48f32c4da95991",
+      "functions": [
+        "classifier",
+        "build",
+        "check",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_literature_report.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "ab846928bd4a262833df140a88fe93358677f2bbc625fe41fe8740f94335c766",
+      "functions": [
+        "value",
+        "pct",
+        "metric",
+        "read",
+        "historical_comparison",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_literature_smoke.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "4b1e718cbad5f95efb59bd4cf54b2857320923077506d4878b791ae60ba7f529",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_literature_study.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "1a9b0161cca51d8d7fff32d403a56c6c76e5fd5c28c88f051bbabba8503bf079",
+      "functions": [
+        "artifact",
+        "write_gzip",
+        "read_gzip",
+        "audit_roles",
+        "fit",
+        "validate_lock",
+        "load_bundle",
+        "infer",
+        "make_rows",
+        "metrics",
+        "evaluate",
+        "verify_rows",
+        "verify",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_local_fisher.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "9eaa68c4352d98536987f1047eca45ae1a6ddc37565bf58696a9f20de5d91b7a",
+      "functions": [
+        "build",
+        "check",
+        "expected_audits",
+        "indices",
+        "fit_representation",
+        "detector_state",
+        "verify_numeric",
+        "load_model",
+        "budget",
+        "fit",
+        "validate_lock",
+        "source_verify",
+        "infer",
+        "evaluate",
+        "report",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_matrix.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "f14c3ebf7dd1c8efd06b8a9f5ed8cb2dc022ac4112886874ca5e5f29f898dacf",
+      "functions": [
+        "_digest",
+        "_write_json",
+        "cap_fold",
+        "make_plan",
+        "verify_saved",
+        "_slim_predictions",
+        "summarize_matrix",
+        "annotate_pooled_task_count",
+        "run_matrix",
+        "main"
+      ],
+      "run": false,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_mechanism_acceptance.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "277297d47be4377ac6ff901c9133b56027d91202a6108247192108de93f61d84",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_mechanism_diagnosis.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "7e4c247f5a9b7c70b42c205166e0dc62e64bbb9ea55284e2bfd06956ebe3fb2f",
+      "functions": [
+        "distribution",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_mechanism_registry.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "6f03403828f9e14d061aedfe1fb2cbc07eaa594ac29c391760734ff620c1bfee",
+      "functions": [
+        "read",
+        "parents",
+        "build",
+        "check",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_mechanism_report.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "c2c7624456d1aac37f9bbb9a88d504fb357d961d86a909a912b7ef01ab9769cf",
+      "functions": [
+        "predictions",
+        "summarize",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_mechanism_smoke.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "39b9b3ae33262b0893774f756d669b0a251e715db4dee1cf979e58ab8fbeca2f",
+      "functions": [
+        "fixture",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_mechanism_study.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "5a36e064097ffc326ddf2cdf6f4ef26375becdfaead90cfd775788ef4f58b60a",
+      "functions": [
+        "check_audit",
+        "save_immutable",
+        "transforms",
+        "load_new",
+        "fit",
+        "infer",
+        "summarized",
+        "check_rows",
+        "evaluate",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_metric_classification.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "16c4e5502966b31eb2e6f60c7e2a16532aee4074737fc52a757085e9642505ee",
+      "functions": [
+        "build",
+        "check",
+        "weight_cell",
+        "expected_audits",
+        "check_audits",
+        "budget",
+        "load_model",
+        "fit",
+        "infer",
+        "evaluate",
+        "report",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_metric_failure_diagnosis.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "02f609cac62d54379a9f7b6cee0631f3b22509f81deeddf4d529ed6a6a17f550",
+      "functions": [
+        "distribution",
+        "paired_equal",
+        "verify_run_binding",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_metric_source_verification.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "1660048b32a292828d1797e6a73cbcad9c7b827e9b20ecbb725f4d7ecee22169",
+      "functions": [
+        "equal",
+        "verify_arrays",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_metrics.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "fcc69977ab46ec8422b8108432af085cfc18bb24547313e4b2b8ada3c70566c9",
+      "functions": [
+        "_stable_labels",
+        "_json_label",
+        "_finite_score",
+        "_unknown_prediction",
+        "_normalise_predictions",
+        "interpolated_fpr_at_tpr",
+        "_classification_metrics",
+        "_score_distribution",
+        "_unknown_label_analysis",
+        "evaluate_fault_type_predictions",
+        "_nested_value",
+        "_mean_ci95",
+        "_run_id",
+        "_canonical_detector",
+        "_prediction_sample_ids",
+        "paired_mahalanobis_knn",
+        "aggregate_fault_type_runs"
+      ],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/fault_type_metrics_v2.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "82cf2463f5d7a95db585629b1c3d0de446b3e074cdc21c4a9fc4b2c828ecf182",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_model_selection.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "90cfa6e8993d95943d5a365ffdda19ece2c5a969b79efe15278399b0c108400e",
+      "functions": [
+        "build_registry",
+        "estimator",
+        "select_candidate",
+        "run",
+        "lock_result",
+        "load_prior_manifests",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_navigation_inventory.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "dd4a2cd689cb71050b6314553702f626c36c9ad7a6ba2d74c8d03b63b6dbb3c3",
+      "functions": [
+        "git",
+        "describe",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_openset.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "ed9160b337f2253a8cdbcca6794595dffcefc86d13ee77e1c49a92682d2d3233",
+      "functions": [
+        "_load",
+        "run",
+        "save_result",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_provenance.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "8b6462d52adbe4e746b5f28aa50e1bb1f2c48ac9ac454ff24c2a00614dd356a9",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_report.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "8799a849007e087e31137c60a4f5610ae96284261e8e0b16df4a297c9343ab67",
+      "functions": [
+        "_write_json",
+        "_write_csv",
+        "run",
+        "_condition_analysis",
+        "_nested",
+        "_fmt",
+        "_plot_sweep",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_representation_report.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "b4cf78fa26c6ab0d8bb07ce36b36d0f444ebb35746495ed8e005663f5eadb4f3",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_representations.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "4acef4efbbbb1260a14b6c65d45a33e9bc936574ffa2c480842b64c999eeede7",
+      "functions": [
+        "build_registry",
+        "_check",
+        "run",
+        "evaluate",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_research_closeout.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "3f1417d927a4a6993582b649b6b172521f7178ef72b3faddc34dae0e01229eaf",
+      "functions": [
+        "read",
+        "sha",
+        "entries",
+        "inspect_index",
+        "summary_path",
+        "protocol_path",
+        "numeric_methods",
+        "check_summary",
+        "stage_paths",
+        "decision",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_risk_extrapolation.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "3240c1933ff64747fccc60dea23827a40f294f0576f5c56775d51d345d6d1835",
+      "functions": [
+        "read",
+        "normalized",
+        "build",
+        "check",
+        "expected_audits",
+        "check_rpm_coverage",
+        "budget",
+        "source_arrays",
+        "representation_signature",
+        "novelty_signature",
+        "node_signature",
+        "fit_nodes",
+        "load_model",
+        "validate_lock",
+        "fit",
+        "verify_actual_sources",
+        "source_verify",
+        "infer",
+        "evaluate",
+        "report",
+        "paired_methods",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_self_challenging.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "3e44714445ca2ac7163831c00ceadef1cd40ee1c957cf5af9b44178cd95c5ec2",
+      "functions": [
+        "read",
+        "normalized",
+        "build",
+        "check",
+        "expected_audits",
+        "check_rpm_coverage",
+        "budget",
+        "source_arrays",
+        "representation_signature",
+        "novelty_signature",
+        "node_signature",
+        "fit_nodes",
+        "load_model",
+        "validate_lock",
+        "fit",
+        "verify_actual_sources",
+        "source_verify",
+        "infer",
+        "evaluate",
+        "report",
+        "paired_methods",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_smooth_l1.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "bf32240b097530e10cdcc50970dc2de00d8ffd4f6b334f72ca12b22ee8f93c41",
+      "functions": [
+        "validate_parent_source",
+        "build",
+        "check",
+        "expected_audits",
+        "fit_node",
+        "verify_node",
+        "budget",
+        "parent_bundle",
+        "load_model",
+        "validate_lock",
+        "fit",
+        "source_verify",
+        "infer",
+        "evaluate",
+        "report",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_solver_diagnosis.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "ae88beb4ad9b4f766958655a2491a403d93a7fd93184b1805ad248afbe537677",
+      "functions": [
+        "build",
+        "check",
+        "audit",
+        "verify_cell",
+        "run",
+        "smoke",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_solver_report.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "85f935052d080ccf59ecab7f4478b009aba8e0e894550ec4360c3a81f27125f1",
+      "functions": [
+        "verify_losses",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/fault_type_source_audit.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "61bef8998cdbea589fb59c0523db4f422404f1980a1acd2c289d009f715db48f",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/field_scenarios.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "538e6f25cafc7c355e7b5cdb9aa647404af6658cdf3c4cd4a764a871ec03b38a",
+      "functions": [
+        "_fit_baseline",
+        "_purity",
+        "_mixed_unknown",
+        "_arrival_order_results",
+        "_condition_shift",
+        "_contamination",
+        "_sensor_scenarios",
+        "_transient_persistent",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/health_index_benchmark.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "9cdd6ad3ac6a537619ae0cb08c4fe314654adf924b73c50d71dbcbf1e3d8086d",
+      "functions": [
+        "_git_sha",
+        "_validate_datasets",
+        "_health_distribution",
+        "_effect_size",
+        "run",
+        "_dataset_fingerprint",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/health_index_matrix.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "1700ffe87d6ee4d5203222f5edccb28ec83f663032cfd61ace56630c923bf605",
+      "functions": [
+        "_atomic_json",
+        "expected_run_ids",
+        "run_matrix",
+        "main"
+      ],
+      "run": false,
+      "main": true
+    },
+    {
+      "path": "experiments/health_monitor.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "0699607fabb4133c9bbf791be232a13acc99b641b5ad7fd36ca94f131b916077",
+      "functions": [
+        "_dataset",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/score_separation.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "bc0b917fcb5da2cf8ff4350e839a1894a88d0eb96a996eed73dfb42e5acda68b",
+      "functions": [
+        "_load_records",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/synchronized_acceptance.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "76055f83cba2602568cb9d642c3fa38eeddd3f4aebd70ae6374fbbbb094d1727",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/synchronized_compatibility.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "1011b2480179154d56b0049046173dc3f3ff3f7b1fe8dcb2db536d687e6b475a",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/synchronized_features.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "ede0ccac60a2fb93ca0d6cd4f0f5120c53e891b833a07d2f2c908e60473f37af",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/synchronized_fixture.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "a42a010ee1c6a78e3ab5ad8d31935e738d532b941c4768d5d8321302aba05dab",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/synchronized_raw.py",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "a4c38fbc445873e2a1952b6e97a2e956d6d7e79b74b660c87ea5a4515685c973",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    }
+  ],
+  "main_modules": [
+    {
+      "path": "experiments/__init__.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/aggregate_exp6.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "7dfc4c1b3adcdf8c5a0981f9a2c859704ffbf49b4424d71e106d48b4610058d9",
+      "functions": [
+        "_read_json",
+        "_summary_path",
+        "_finite",
+        "_mean_std",
+        "_round",
+        "load_matrix",
+        "aggregate",
+        "write_aggregate",
+        "main"
+      ],
+      "run": false,
+      "main": true
+    },
+    {
+      "path": "experiments/compare_openset.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "2ee7535f57eb242e99e41d536c31eee204e10951e6015085a783395c828a6ea1",
+      "functions": [
+        "_fpr_at_tpr95",
+        "evaluate_method",
+        "run",
+        "_make_figure",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp1_cold_start.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "34447ea5b19450cf614307281055d9b05a4c842a57a1e97b240ca98e17665b30",
+      "functions": [
+        "run",
+        "_auroc",
+        "_make_figure",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp2_scale_growth.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "b44ed3765fc8dec8870fbe7e5d26a8438497bb6a1c3d1ab9ccba232cf3a18cce",
+      "functions": [
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp3_trend.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "b44e1710f0a098cd0c8a07236e943a7c057b4b3b2902fe3981c11903dcb9624f",
+      "functions": [
+        "iter_stream",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp4_polar_map.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "7c8e4a76bc0485435a8c4f0494f475c1c036524df10662f7a0e395dc3bcf3e1c",
+      "functions": [
+        "_fit_monitor",
+        "run_geometry",
+        "run_direction",
+        "run_severity",
+        "_figure",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp5_cross_condition.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "9b6a67740475e143129e37032491a6f2ac0cd6919d79d8c439bf4677842d7014",
+      "functions": [
+        "_dataset_key",
+        "_load_all",
+        "_fit_healthy_monitor",
+        "_evaluate",
+        "run_matrix",
+        "_pooled_monitor",
+        "run_strategy",
+        "run_drift",
+        "_figure",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp6_formal_benchmark.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "1a8401a0e322f76ff4f06f637cc08b7d91a8b55e4712f7554ba8bc31d7e8d4fa",
+      "functions": [
+        "_git_sha",
+        "dataset_fingerprint",
+        "_fpr_at_tpr95",
+        "_validate_datasets",
+        "_detector_metadata",
+        "run",
+        "_figure",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/exp6_matrix.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "9cce735bfa4fcb3915eeb0cd51d2afa4d5bd5cc9b343b7a34d7ad6db2a7719d3",
+      "functions": [
+        "_atomic_json",
+        "expected_run_matrix",
+        "_is_complete",
+        "_write_run_csv",
+        "run_matrix",
+        "main"
+      ],
+      "run": false,
+      "main": true
+    },
+    {
+      "path": "experiments/exp6_osr_benchmark.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "b74d2e07813a73d32c50fc7400ab1d7a3cd6045a635ebebd48b03f437218bce7",
+      "functions": [
+        "_fpr_at_tpr",
+        "run",
+        "_figure",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/health/__init__.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "482f49cae8e7fd73c4bae83e50d06103424e320cf505dc769978bc60e7de7cae",
+      "functions": [],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health/calibration.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "bb4bd243c2daddad4ca4e8a2f1fd19f9fd42c6b09e1b921da700854a1f8a3133",
+      "functions": [],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health/config.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "104ef7820081205d8fd47991c608bed40daf9851c721a370c20b26fe16b2dc70",
+      "functions": [],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health/diagnosis.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "15631764dd0aff9b8ea819c8ff42936d99000ecabc7ae57f2b81b073e90400d7",
+      "functions": [],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health/evaluation.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "58b3797edb7e5342df338c6aea57f755db085fd24c7d5ac27fc7b4dcc22b1036",
+      "functions": [
+        "_binary",
+        "evaluate_open_set",
+        "evaluate_trajectory",
+        "_time_value",
+        "evaluate_event_metrics",
+        "evaluate_results",
+        "assert_group_disjoint",
+        "assert_temporal_order"
+      ],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health/index.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "de5e6ec413e884e81ec3320e909cda393bd4a9782646a9a1d1fa257ba9c30237",
+      "functions": [
+        "_matrix",
+        "relative_severity",
+        "_decision_margin_confidence"
+      ],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health/interfaces.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "379deee77403e381e525d85abe26b5bf21f204a3b6e455ca8ee1770b594c9a75",
+      "functions": [],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health/schema.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "fbf308f1d08468ec9c4580240f09bce5076cf607bb9b2594a0e059a77f8be2b0",
+      "functions": [
+        "_bounded"
+      ],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health/severity.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "1798bf6eb5cf9045b12e675bacdd7d4a6edbcf951f357170c9b9b1e71154b359",
+      "functions": [],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health/trajectory.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "3f94495df9d991928965e894d12b0c362b541adb1e71f4cbe7e746f60d473e88",
+      "functions": [],
+      "run": false,
+      "main": false
+    },
+    {
+      "path": "experiments/health_index_benchmark.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "c8cc16c6def3ddb509a8ff06f5101f1511becd07044ff446813b1da16a449dfc",
+      "functions": [
+        "_git_sha",
+        "_validate_datasets",
+        "_health_distribution",
+        "_effect_size",
+        "run",
+        "_dataset_fingerprint",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    },
+    {
+      "path": "experiments/health_index_matrix.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "8afcf1d4237da7552ec528688218261fe3d17055b1210105265044c69cb76395",
+      "functions": [
+        "_atomic_json",
+        "expected_run_ids",
+        "run_matrix",
+        "main"
+      ],
+      "run": false,
+      "main": true
+    },
+    {
+      "path": "experiments/health_monitor.py",
+      "ref": "64cb71d84663e1745ec54db74abad68def67e8e6",
+      "sha256": "7bb37962b91fecea3a95cac8534a5cb64d5bebc3bd91adb1dc4f5a57587c66a4",
+      "functions": [
+        "_dataset",
+        "run",
+        "main"
+      ],
+      "run": true,
+      "main": true
+    }
+  ],
+  "registries": [
+    {
+      "path": "reports/axis_invariant_kernel_v1/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "c89e004ad2dd5a45cb5f766afadd34c62a12e6239f6eda375fbfd6e51cb9589b",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "exp19_axis_invariant_kernel_delivery_v1",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+        "planned_evaluations": 81,
+        "completed_evaluations": 81,
+        "incomplete_evaluations": 0,
+        "new_classifier_fits": 27,
+        "shared_bundles": 9,
+        "prediction_records": 780570,
+        "unique_samples": 28910,
+        "paired_comparisons": 378,
+        "reliability_main_screen": "9方法全部FAILED",
+        "fresh_final_test": false,
+        "production_replacement": false,
+        "compact_files": [
+          {
+            "path": "output/fault_type_axis_kernel_lock/2026-10-04-16-46-00/protocol.json",
+            "sha256": "9328c3f0147603b4c23f8a24111f5dc696dbb060ea8b36a2f477c101ac693ab1",
+            "bytes": 7252
+          },
+          {
+            "path": "output/fault_type_axis_kernel_fit/2026-10-04-16-47-14/locked_study.json",
+            "sha256": "f8d112cd6001370e57f786f3c87b339f8ae96eb3ac146f3b6de3cdead6392315",
+            "bytes": 11844
+          },
+          {
+            "path": "output/fault_type_axis_kernel_source_verify/2026-10-04-16-52-44/source_verified.json",
+            "sha256": "8c0faf1def1dff47f808e240f01018935e199ec5e06e632653b82150c7dcae61",
+            "bytes": 15541
+          },
+          {
+            "path": "output/fault_type_axis_kernel_evaluate/2026-10-04-17-04-00/evaluation.json.gz",
+            "sha256": "c2caf0dc78527a552ebe2079d46832f947a45a7d46bec830c756650a35f668d9",
+            "bytes": 111994
+          },
+          {
+            "path": "output/fault_type_axis_kernel_verify/2026-10-04-17-09-01/verified.json.gz",
+            "sha256": "c286282d3fa8157b293c02047752d41b6cb0f240ad826a736cbb6ff165e377ec",
+            "bytes": 111991
+          },
+          {
+            "path": "output/fault_type_axis_kernel_report/2026-10-04-21-32-27/summary.json.gz",
+            "sha256": "0a682b596eeca4387a4ea7684e621a9fa23bb410c3f8b31ba6c0b051606c08a5",
+            "bytes": 108596
+          }
+        ],
+        "semantic_seals": {
+          "protocol_checksum": "2dab6753530bc6736b88881b57e61d9488253ceb9a459276b3fcd0d8b0f00abf",
+          "locked_checksum": "21f30fb76c1bdcffcdb25a956afe7c8a46fe26497a0f2bab99b0d2f601636f49",
+          "source_verification_checksum": "8e19b4cebac79443fe60f6345424fcc2f655af4bf8c9c39ed1b9282bb32324ee",
+          "evaluation_checksum": "1d87b45bc16b64ca41580120fcf10354526bcbd962b69e51ea58817ad5e07d92",
+          "verification_checksum": "0653d9bcfe97268048a3e9f6c9cbb9ae1d46435c8eea89144d45c028ac62b408",
+          "report_checksum": "4ae0663e984090036e8318849d4f584fb0662ff02b13591ed3d5d454a2a70c87"
+        },
+        "primary_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-04/axis_invariant_kernel_v1/workspace/output",
+        "archives": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-04/axis_invariant_kernel_v1/archives",
+        "archive_indices": [
+          "output/fault_type_axis_kernel_backup/2026-10-04-21-33-45/archive_index.json",
+          "output/fault_type_archive/2026-10-04-21-36-20/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-04-21-36-37/member_verification.json",
+        "archive_count": 6,
+        "member_count": 198,
+        "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
+        "protocol_commit": "060fe0e3807132c77151bb6fb0b5c62c9f5fc1ca",
+        "source_commit": "c5b1f88e0e2dbbe5adee8a1ad00344ab540972a5",
+        "acceptance_before_K_fit": [
+          "output/fault_type_continuous_acceptance_py3_10_19/2026-10-04-16-41-57/environment.json",
+          "output/fault_type_continuous_acceptance_py3_14_6/2026-10-04-16-41-58/environment.json"
+        ],
+        "tests_before_K_fit_each": 553,
+        "no_cross_runtime_model_load": true
+      }
+    },
+    {
+      "path": "reports/context_prototypes_v1/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "124eded7ae38a608c0797da3894ab2e3a3dc56914f3c14980d9559694ac62d06",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "exp17_context_prototypes_delivery_v1",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+        "planned_evaluations": 108,
+        "completed_evaluations": 108,
+        "incomplete_evaluations": 0,
+        "successful_training_models": 108,
+        "maximum_optimizer_iterations": 172,
+        "prediction_records": 1040760,
+        "unique_samples": 28910,
+        "paired_comparisons": 720,
+        "reliability_main_screen": "12方法全部FAILED",
+        "fresh_final_test": false,
+        "production_replacement": false,
+        "semantic_seals": {
+          "protocol": "f2c3d40bddc99066e2a94fa0bc9b240b35cfd1c8e62a1ce8297c99ac4addef25",
+          "locked_study": "66c265da94df081dbadfb97807ad8f199c6afba8ea91a28d2ec30748d2315b6a",
+          "actual_source_verification": "b02f3805f4218cdd673bbe998429588014774f2bebaacf1af16c73e69941c4d2",
+          "report": "726495aafcf1f16f8485db47236fa794dd710eb16b8fbc7ee407ab289ad9ddda",
+          "evaluation": "b41d2a656acb926bbf81e983f2117f1bdf6a17f99303f4013a715a3471e53064",
+          "verification": "61fdea5242bda912c3548a9e5d76ae40f62ee6a35ea8fe3e880636d1395d1a3e"
+        },
+        "compact_files": [
+          {
+            "path": "output/fault_type_context_prototypes_lock/2026-10-03-20-33-01/protocol.json",
+            "sha256": "63e1a35914c2f930c25da395d624e0730ebe4d2383b44c6e694dacf9731bc051",
+            "bytes": 8567
+          },
+          {
+            "path": "output/fault_type_context_prototypes_fit/2026-10-03-20-34-21/locked_study.json",
+            "sha256": "73cd40095a53e8810e9a42a532557ca89f0c28b599e6fa5f0e2272a56ecbca84",
+            "bytes": 19820
+          },
+          {
+            "path": "output/fault_type_context_prototypes_source_verify/2026-10-03-20-38-00/source_verified.json",
+            "sha256": "9c4e3f0ee1bf42569e902904764473c4c7c856f8063f34956b2f97a31df34d7a",
+            "bytes": 108326
+          },
+          {
+            "path": "output/fault_type_context_prototypes_evaluate/2026-10-03-20-40-45/evaluation.json.gz",
+            "sha256": "070fad7c9699beb215c9c6dd1486bb4a62652c55df65d1b92506538dbb03f970",
+            "bytes": 159581
+          },
+          {
+            "path": "output/fault_type_context_prototypes_verify/2026-10-03-20-42-59/verified.json.gz",
+            "sha256": "53a51fa49799a485aacd87e1027d1d196266f3589cfd30f8c5d79e86845b68bb",
+            "bytes": 159574
+          },
+          {
+            "path": "output/fault_type_context_prototypes_report/2026-10-03-20-44-37/summary.json.gz",
+            "sha256": "b9f27b7eba6fb735c5ef7b74f795c3ff9afa6cfb318eeaa733f190334fcfd4a7",
+            "bytes": 186157
+          }
+        ],
+        "primary_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/context_prototypes_v1/workspace/output",
+        "archives": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/context_prototypes_v1/archives",
+        "archive_indices": [
+          "output/fault_type_context_prototypes_backup/2026-10-03-20-44-56/archive_index.json",
+          "output/fault_type_archive/2026-10-03-20-47-05/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-20-47-22/member_verification.json",
+        "archive_count": 6,
+        "member_count": 252,
+        "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
+        "protocol_commit": "b2896ebac31e9f944babf5b3f560023681cddfe7",
+        "source_commit": "0462e4b97c988476e4ad222ca596d8c93060fa52",
+        "acceptance_before_I_fit": [
+          "output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-20-26-06/environment.json",
+          "output/fault_type_continuous_acceptance_py3_14_6/2026-10-03-20-26-17/environment.json"
+        ],
+        "tests_before_I_fit_each": 492,
+        "no_cross_runtime_model_load": true
+      }
+    },
+    {
+      "path": "reports/context_rejection_v1/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "10b8e973b5c1b66ffe9f83a4fbf4c99b5f9847292e9435a5ac4ce4053bcb8671",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "exp18_context_rejection_delivery_v1",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+        "planned_evaluations": 324,
+        "completed_evaluations": 324,
+        "incomplete_evaluations": 0,
+        "new_classifier_fits": 0,
+        "inherited_classifiers": 108,
+        "prediction_records": 3122280,
+        "unique_samples": 28910,
+        "paired_comparisons": 1836,
+        "reliability_main_screen": "36方法全部FAILED",
+        "fresh_final_test": false,
+        "production_replacement": false,
+        "semantic_seals": {
+          "protocol": "8b80faa1c6baab0978439e169c7634f9d699ab7e987f285eed735d9348870077",
+          "locked_study": "13c1519c1128ea1fd54e2707cd84149506fd57df6c080b7fe30c8b3abd008a71",
+          "actual_source_verification": "33bedd625b41b323a5905071e0d0a41292a47974248cf84f9e8f14fc088aef9b",
+          "evaluation": "aafb282e42eb9bdf8750b3ba1f0fad1212b9b1c3644a51364579e70e79220baf",
+          "verification": "11f3527c47cb2d0ab42178078972a2377e41ca36d9d337345a76441056dd0693",
+          "report": "cf61244a7296c047490edf79ebf88d0d5b1058b62a4a03787cc3ab179f478fd9"
+        },
+        "compact_files": [
+          {
+            "path": "output/fault_type_context_rejection_lock/2026-10-03-20-57-37/protocol.json",
+            "sha256": "6176ca4a5ec125d0e703c27b2032ef9a1bb23511a25e4cea2f6d0a5bcda44a7a",
+            "bytes": 16009
+          },
+          {
+            "path": "output/fault_type_context_rejection_calibrate/2026-10-03-20-59-06/locked_study.json",
+            "sha256": "5987fb7e1afe6a646b0f756122931ba7d27ecd53c531f5eb318071fb3fbaf0cd",
+            "bytes": 27885
+          },
+          {
+            "path": "output/fault_type_context_rejection_source_verify/2026-10-03-21-02-51/source_verified.json",
+            "sha256": "c7b1e118d1b3dd84bae3c7caf413f22083fbbcd42e15616648cb174b8364f6cc",
+            "bytes": 120480
+          },
+          {
+            "path": "output/fault_type_context_rejection_evaluate/2026-10-03-21-07-31/evaluation.json.gz",
+            "sha256": "31ddec74d7bf88b4d46621a876322c406935866e82f8716611c12452ab1fd6e5",
+            "bytes": 482093
+          },
+          {
+            "path": "output/fault_type_context_rejection_verify/2026-10-04-16-26-08/verified.json.gz",
+            "sha256": "162ba0c80d0845837de136086d92567bfbcdba88d5aba273995eb013e6ae9a9f",
+            "bytes": 482082
+          },
+          {
+            "path": "output/fault_type_context_rejection_report/2026-10-04-16-29-39/summary.json.gz",
+            "sha256": "59c134cf5921011ba457c526e8e905585fa0b060de294ae15baf34e3f91133ff",
+            "bytes": 520281
+          }
+        ],
+        "primary_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/context_rejection_v1/workspace/output",
+        "archives": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/context_rejection_v1/archives",
+        "archive_indices": [
+          "output/fault_type_context_rejection_backup/2026-10-04-16-30-00/archive_index.json",
+          "output/fault_type_archive/2026-10-04-16-33-24/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-04-16-33-40/member_verification.json",
+        "archive_count": 6,
+        "member_count": 684,
+        "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
+        "protocol_commit": "98da5c9c09cee9b9c7fb81315dbc6ddfa95fe246",
+        "source_commit": "d81fbcc0c61fbf4c55b7c65863a0e0cbf3951ff0",
+        "acceptance_before_J_fit": [
+          "output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-20-54-40/environment.json",
+          "output/fault_type_continuous_acceptance_py3_14_6/2026-10-03-20-54-51/environment.json"
+        ],
+        "tests_before_J_fit_each": 520,
+        "no_cross_runtime_model_load": true
+      }
+    },
+    {
+      "path": "reports/continuous_research/global_attempt_ledger.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "db3466fae774fd3da5508a76440e16d52b00cc976f2695b2204c73a20b934bf0",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "continuous_attempts_v1",
+        "inherited_indices": [
+          "reports/literature_expansion/result_index.json",
+          "reports/mechanism_research_v2/result_index.json"
+        ],
+        "batches": [
+          {
+            "id": "Q",
+            "arms": [
+              "Q01",
+              "Q02",
+              "Q03",
+              "Q04",
+              "Q05",
+              "Q06",
+              "Q07",
+              "Q08"
+            ],
+            "status": "VERIFIED_EXPLORATORY; no reliability PASS",
+            "planned_evaluations": 72,
+            "completed_evaluations": 60,
+            "incomplete_evaluations": 12,
+            "metric_failed_training_fits": 6,
+            "shared_fit_bundles": 9,
+            "prediction_records": 576144,
+            "unique_samples": 28910,
+            "reinference_is_not_new_training": true,
+            "report_checksum": "88d34b9ef3e25a3e6e0376da6ede26e20dfdb399a38741704aa1001898e88ab9"
+          }
+        ],
+        "training_only_diagnostics": [
+          {
+            "id": "solver_v1",
+            "training_fits": 27,
+            "converged": {
+              "hard150": 3,
+              "smooth150": 5,
+              "hard600": 9
+            },
+            "nonconverged": 10,
+            "new_outer_evaluations": 0,
+            "delivery": "reports/continuous_research/solver_result_index.json"
+          }
+        ],
+        "subsequent_batch_indices": [
+          {
+            "id": "E",
+            "planned_evaluations": 108,
+            "completed_evaluations": 108,
+            "incomplete_evaluations": 0,
+            "index": "reports/metric_classification_v1/result_index.json",
+            "reliability": "12方法全部FAILED"
+          },
+          {
+            "id": "F",
+            "planned_evaluations": 144,
+            "completed_evaluations": 144,
+            "incomplete_evaluations": 0,
+            "index": "reports/local_fisher_v1/result_index.json",
+            "reliability": "16方法全部FAILED"
+          },
+          {
+            "id": "G",
+            "planned_evaluations": 216,
+            "completed_evaluations": 216,
+            "incomplete_evaluations": 0,
+            "index": "reports/discriminative_prototypes_v1/result_index.json",
+            "reliability": "24方法全部FAILED"
+          },
+          {
+            "id": "H",
+            "planned_evaluations": 108,
+            "completed_evaluations": 108,
+            "incomplete_evaluations": 0,
+            "prediction_records": 1040760,
+            "unique_samples": 28910,
+            "index": "reports/smooth_l1_v1/result_index.json",
+            "reliability": "12方法全部FAILED"
+          },
+          {
+            "id": "I",
+            "planned_evaluations": 108,
+            "completed_evaluations": 108,
+            "incomplete_evaluations": 0,
+            "prediction_records": 1040760,
+            "unique_samples": 28910,
+            "index": "reports/context_prototypes_v1/result_index.json",
+            "reliability": "12方法全部FAILED"
+          },
+          {
+            "id": "J",
+            "planned_evaluations": 324,
+            "completed_evaluations": 324,
+            "incomplete_evaluations": 0,
+            "prediction_records": 3122280,
+            "unique_samples": 28910,
+            "index": "reports/context_rejection_v1/result_index.json",
+            "reliability": "36方法全部FAILED"
+          },
+          {
+            "id": "K",
+            "planned_evaluations": 81,
+            "completed_evaluations": 81,
+            "incomplete_evaluations": 0,
+            "prediction_records": 780570,
+            "unique_samples": 28910,
+            "index": "reports/axis_invariant_kernel_v1/result_index.json",
+            "reliability": "9方法全部FAILED"
+          },
+          {
+            "id": "L",
+            "planned_evaluations": 162,
+            "completed_evaluations": 162,
+            "incomplete_evaluations": 0,
+            "prediction_records": 1561140,
+            "unique_samples": 28910,
+            "index": "reports/rpm_risk_extrapolation_v1/result_index.json",
+            "reliability": "18方法全部FAILED"
+          },
+          {
+            "id": "M",
+            "planned_evaluations": 216,
+            "completed_evaluations": 216,
+            "verified_evaluations": 216,
+            "failed_runs": 0,
+            "prediction_records": 2081520,
+            "unique_samples": 28910,
+            "paired_comparisons": 1134,
+            "completed_fixed_horizon_fits": 72,
+            "completed_warm_fits": 18,
+            "status": "工程 VERIFIED；24 方法可靠性 FAILED；B 路徑封存",
+            "index": "reports/feature_self_challenging_v1/result_index.json",
+            "source": "docs/experiments/exp21_feature_self_challenging.md"
+          }
+        ],
+        "repeated_predictions_are_not_independent_data": true,
+        "keep_all_failures": true,
+        "phase_decision": "B；尚未找到通過契約的方法，本研究階段收尾",
+        "unimplemented_plans": [
+          {
+            "id": "N",
+            "status": "已規劃未實作，本階段收尾，未進入訓練或測試",
+            "planned_evaluations": 216,
+            "completed_evaluations": 0,
+            "completed_classifier_fits": 0,
+            "state": "reports/known_group_dro_v1/research_state.json"
+          }
+        ]
+      }
+    },
+    {
+      "path": "reports/continuous_research/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "7a4057b9d8b7e4cf534788950a0a30dbd4b8b3418f5c2f6fc341fdb144890880",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "continuous_Q_delivery_v1",
+        "repo": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree",
+        "branch": "research-improvements-20260920",
+        "completed": 60,
+        "incomplete": 12,
+        "predictions": 576144,
+        "unique_samples": 28910,
+        "paths": {
+          "protocol": "output/fault_type_continuous_registry/2026-10-02-18-40-41/protocol.json",
+          "locked": "output/fault_type_continuous_fit/2026-10-02-18-42-53/locked_study.json",
+          "evaluation": "output/fault_type_continuous_evaluate/2026-10-02-18-47-45/evaluation.json",
+          "verification": "output/fault_type_continuous_verify/2026-10-02-23-26-52/verified.json",
+          "summary": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/summary.json.gz",
+          "summary_index": "output/fault_type_continuous_report_v2/2026-10-02-23-30-52/result_index.json",
+          "archive_index": "output/fault_type_archive/2026-10-02-23-36-18/archive_index.json",
+          "member_verification": "output/fault_type_fixed_delivery/2026-10-02-23-36-43/member_verification.json"
+        },
+        "seals": {
+          "protocol": "b7870298906f8255340ef30cbbf96d424ff76fa67925377b8ea3a62d77e5364d",
+          "locked": "564796435099fa7d85657f0ea3c907fa8dcff57d732ab47c68496eb2a6b7ea09",
+          "evaluation": "b4ef4ce09bc85969f90d81158acb4bcfd0c5c2f1492feb6530e0386558abf2de",
+          "verification": "9592116f9bcc9bb389dd13f7e9f80e6fd051e090f2f9ce6d5de15bfa60868112",
+          "report": "88d34b9ef3e25a3e6e0376da6ede26e20dfdb399a38741704aa1001898e88ab9"
+        },
+        "backup": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/continuous_research",
+        "parent_dependencies": [
+          "reports/literature_expansion/result_index.json",
+          "reports/mechanism_research_v2/result_index.json"
+        ],
+        "self_contained_without_parents": false,
+        "fresh_final_test": false,
+        "production_replaced": false
+      }
+    },
+    {
+      "path": "reports/discriminative_prototypes_v1/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "dbe3a1555b8f1ac2faaf3b4f686d699d839bebcd36fd9e551b23e4a741fb24ef",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "schema_version": "exp15_result_index_v1",
+        "date": "2026-10-03",
+        "timezone": "Asia/Taipei",
+        "planned_runs": 216,
+        "completed_runs": 216,
+        "failed_runs": 0,
+        "prediction_records": 2081520,
+        "unique_samples": 28910,
+        "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+        "sealed_checksums": {
+          "protocol": "98acdccd2201bfdc701c384256196eb7397c19dadf0b5c28865996ecb2c49e08",
+          "locked_study": "dfa6c1fd6dc1101c29abe11d148cbc317ceab91938cdb151c99807dbcb86f78b",
+          "source_verification": "ad3e3502918fc04d7b641478d99ce67089d5443d95815b78dce3fa68a358d47b",
+          "evaluation": "1d53dd512b0434dd65450de5926815e0352f189c784793f96c1135bf3a55bc87",
+          "verification": "438d5aea5f348557742693b35272cd6cbe95361247493f4bf825237cbcdd9c18",
+          "report": "3158ea1a6de6fc35be12cd84dc577955f1db566710bfc0cbf7b626440960d30a"
+        },
+        "compact_files": [
+          {
+            "path": "output/fault_type_discriminative_prototypes_lock/2026-10-03-15-23-33/protocol.json",
+            "sha256": "d5abd3f023c44ee4b8465c64adb313134f4b655bffe40866aa6ee9adf7cf5537",
+            "bytes": 8936
+          },
+          {
+            "path": "output/fault_type_discriminative_prototypes_fit/2026-10-03-15-28-56/locked_study.json",
+            "sha256": "82af444fa9dcad983e1ef734469453d39894cbb121763035e7c7fcaae173a19f",
+            "bytes": 12102
+          },
+          {
+            "path": "output/fault_type_discriminative_prototypes_source_verify/2026-10-03-15-31-33/source_verified.json",
+            "sha256": "cbab7b2447d5027b044b8b2a3cdec5cc2c2bf0b95070be25ef2b4c57544a50c0",
+            "bytes": 112563
+          },
+          {
+            "path": "output/fault_type_discriminative_prototypes_evaluate/2026-10-03-15-33-56/evaluation.json.gz",
+            "sha256": "663c8fc50afaf66a4095588b4d3bb1ac0b87c36b9cc3b4092bedd898c9086afc",
+            "bytes": 399076
+          },
+          {
+            "path": "output/fault_type_discriminative_prototypes_verify/2026-10-03-15-37-22/verified.json.gz",
+            "sha256": "26f3d6cbd9e415a15e503a9048bb6e39d8422d0313ef0b3ed8276ea511e93b70",
+            "bytes": 399072
+          },
+          {
+            "path": "output/fault_type_discriminative_prototypes_report/2026-10-03-15-39-29/summary.json.gz",
+            "sha256": "107452f0eb55d4bb457eb0d30d18ff56b9e50a2ee7fad12186024fc52afc0ef5",
+            "bytes": 232051
+          }
+        ],
+        "primary_output": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/discriminative_prototypes_v1/workspace/output",
+        "archive_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/discriminative_prototypes_v1/archives",
+        "archive_indices": [
+          "output/fault_type_discriminative_prototypes_backup/2026-10-03-15-39-40/archive_index.json",
+          "output/fault_type_archive/2026-10-03-15-44-44/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-15-45-12/member_verification.json",
+        "archive_count": 6,
+        "verified_members": 468,
+        "previous_result_indices": [
+          "reports/metric_classification_v1/result_index.json",
+          "reports/local_fisher_v1/result_index.json"
+        ],
+        "unchanged_parent_dependencies": [
+          "output/fault_type_metric_classification_lock/2026-10-03-09-42-02/protocol.json",
+          "harmonic69/base75父模型與其fit audits",
+          "hard600 optimizer artifacts",
+          "既有sample manifests與exposure ledger"
+        ],
+        "selection_policy": "none",
+        "reliability_main_screen": "24方法全部FAILED",
+        "fresh_final_test": false,
+        "production_replacement": false,
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED"
+      }
+    },
+    {
+      "path": "reports/fault_type_accuracy_study/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "234223c375a7730f2cb00eeca13f972f1b57aa730a0fe38e8351e34598452af6",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "date": "2026-10-02",
+        "timezone": "Asia/Taipei",
+        "repo": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree",
+        "branch": "research-improvements-20260920",
+        "remote": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage.git",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "protocol_version": "fault_type_accuracy_study_v2_json_contract",
+        "registry_checksum": "8418b7539670a3b4fd952e4a087b83bc18cb1870fbc4ef5eb4f44530b9523e5a",
+        "locked_checksum": "6cac7419a437779ed4e2e83300ea40895a16a96694720c869b4fffe8906f25a7",
+        "verified_report_checksum": "afc7887098bc5161d7819bcbc60facdf0e444f1fe34be5340086b2ff1e2cb11b",
+        "diagnosis_checksum": "d940baa61f0fccc83c4e6bfa7b15000ad38e9a29d963ee8032a3b0048f33116c",
+        "summary_checksum": "d72ae718b04dac97ba5ad3c2b1ba25b1515d7afbe31efaa4bcc63174880767e7",
+        "summary_gzip_sha256": "fb047d6fa0672252a20433ecdb153eaac579f46f58227ba780c34fce4f9d760f",
+        "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+        "source_files": 90,
+        "unique_test_ids": 28910,
+        "new_completed_evaluations": 198,
+        "failed_evaluations": 0,
+        "new_prediction_records": 1908060,
+        "baseline_A0_reused_evaluations": 18,
+        "historical_2490_rerun": false,
+        "classifier_fits": 198,
+        "factory_reference_fits": 180,
+        "pooled_covariance_fits": 27,
+        "representation_fits": 90,
+        "new_score_calibrations": 162,
+        "physical_model_bundles": 81,
+        "fit_audit_nodes": 225,
+        "shared_reference_checks": 72,
+        "paired_difference_records": 225,
+        "selection_policy": "none",
+        "selection_sample_ids": [],
+        "fresh_final_test": false,
+        "independent_validation_status": "INCOMPLETE",
+        "raw_acquisition": "UNKNOWN",
+        "production_default_changed": false,
+        "preexisting_tracked_deletions_preserved": 282,
+        "python_science": "3.10.19 / sklearn 1.7.2",
+        "python_compatibility": "3.14.6 / sklearn 1.9.1; synthetic engineering only, no cross-runtime joblib",
+        "final_test_counts": {
+          "3.10.19": 272,
+          "3.14.6": 272
+        },
+        "pip_check": "PASS both runtimes",
+        "cli_help_checks": 16,
+        "checkpoint_remote_matches": {
+          "P0": "3737fc216f002cc98ef1155967db46bae2ab8f08",
+          "P1": "67ddf2d50bcb09729c52a07be2a30173f2cf2286",
+          "P2": "793fbe7870cd844371374c0dc97828c761331b64",
+          "P3": "a0f2a4aeb3af4490f7ee756c456fb65ffac1f5c5",
+          "P4_engine_and_v2_registry": "5082df46fd2b605ec2d6aa56c331be943c94b4e5",
+          "P4_model_lock_before_test": "0a08a3b57173eb9de46f710c14c7d1069af34643",
+          "P5_formatter_fix": "2431ef62e5d664aadb20da4a9a96b9812c04113b",
+          "P4_verified_results": "9bcd4e735655d3d46f9d9531643699840780f037",
+          "P5_report_delivery": "8a69b2cbd1b5a26faee6e68e11074b100e51c321"
+        },
+        "paths": {
+          "formal_data": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/data/formal_local",
+          "baseline": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_baseline/2026-10-01-20-57-02/baseline_index.json",
+          "registry": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_registry/2026-10-02-00-32-58/registry.json",
+          "locked": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_study/2026-10-02-00-35-14/locked_study.json",
+          "model_root": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_study/2026-10-02-00-35-14",
+          "fit_audits": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_study/2026-10-02-00-35-14/fit_audits.json.gz",
+          "evaluation": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_study/2026-10-02-00-43-18/evaluation_report.json",
+          "prediction_root": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_study/2026-10-02-00-43-18",
+          "verified": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_report/2026-10-02-00-51-38/verified_results.json",
+          "diagnosis": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_diagnosis/2026-10-02-00-57-33/diagnosis.json",
+          "summary": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_summary/2026-10-02-01-01-35/summary.json",
+          "summary_gzip": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_summary/2026-10-02-01-01-35/summary.json.gz",
+          "exposure_ledger": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_exposure/2026-10-01-01-10-40/exposure_ledger.json.gz",
+          "backup_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/fault_type_accuracy_study",
+          "backup_verification": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_fixed_delivery/2026-10-02-01-02-41/member_verification.json",
+          "archive_indices": [
+            "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_archive/2026-10-02-00-42-27/archive_index.json",
+            "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_archive/2026-10-02-00-51-48/archive_index.json",
+            "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_archive/2026-10-02-00-57-45/archive_index.json",
+            "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_archive/2026-10-02-01-02-00/archive_index.json"
+          ],
+          "acceptance_py310": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_acceptance_py3_10_19/2026-10-02-00-58-31/environment.json",
+          "acceptance_py314": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_accuracy_acceptance_py3_14_6/2026-10-02-00-58-42/environment.json"
+        },
+        "backup_validation": {
+          "status": "PASS",
+          "archives": 5,
+          "members": 286,
+          "whole_sha": "PASS",
+          "crc": "PASS",
+          "member_sha": "PASS",
+          "source_removed": false
+        },
+        "archive_note": "Full model/predictions/verified/diagnosis/readable summary are preserved outside Git. Git includes compact gzip summary and SHA/restore indices. Original absolute paths are retained; see reproduction.md before restoration.",
+        "next_candidates_implemented": false
+      }
+    },
+    {
+      "path": "reports/feature_self_challenging_v1/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "70d990e844af14af10da4edf4d7ee28d1f9cc1484c01984e5bdaed958981100c",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "batch": "exp21_feature_self_challenging_v1",
+        "path": "B",
+        "completed": 216,
+        "failed_runs": 0,
+        "prediction_records": 2081520,
+        "unique_samples": 28910,
+        "paired_comparisons": 1134,
+        "reliability_failed_methods": 24,
+        "artifacts": {
+          "protocol": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_lock\\2026-10-04-22-01-49\\protocol.json",
+            "sha256": "9d32f19808b921d15b26f618e3b21b7194e27a0d248fa49cf97e3847ffa07032",
+            "bytes": 9585
+          },
+          "fit": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_fit\\2026-10-04-22-03-00\\locked_study.json",
+            "sha256": "b42c9c2058d7eaa424c770cfd0aaa7197d1b2c6108780355532c3b4a20c4a5c3",
+            "bytes": 12111
+          },
+          "source_proof": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_source_verify\\2026-10-04-22-09-26\\source_verified.json",
+            "sha256": "212b703894e128ca31c317c050167189ebd2fb1639420a1ffda982e364f31a04",
+            "bytes": 224290
+          },
+          "evaluate": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_evaluate\\2026-10-04-22-16-34\\evaluation.json.gz",
+            "sha256": "7b405ea0f39311ce5ae26f37e6bab8105e4c274b4477b6df16dfb2860e4118ab",
+            "bytes": 331630
+          },
+          "verify": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_verify\\2026-10-04-22-18-59\\verified.json.gz",
+            "sha256": "5f2124752c31b6281d1a53b4eff3c3f9ca958b418455a9586ed7aa5f3beda472",
+            "bytes": 331624
+          },
+          "report": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_self_challenging_report\\2026-10-05-22-17-39\\summary.json.gz",
+            "sha256": "1fb611a2b93d98deba6d4e395ee268275cba466f22549d197bb2a140508a0fff",
+            "bytes": 250652
+          },
+          "backup": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-05-22-32-32\\member_verification.json",
+            "sha256": "732a2b1866ffd975d91437b7900b16768b15a4c5d39ba4bbe8277b5f871079b7",
+            "bytes": 3916
+          }
+        },
+        "semantic_seals": {
+          "protocol_checksum": "e3099ce35f8c8d4bf71ccb71c314d475b56e98fba1c211c202643100fc596f4d",
+          "evaluation_checksum": "697dae9a02e2ff29e0b3989b2ec91c242ab9d1d6df265072348a92953185103c",
+          "verification_checksum": "df87512beddb7d30f8312578eb259a2a193b0fc93c777b0295d6f0f1f404f152",
+          "report_checksum": "81f8952b904ed4b24983013632f25c5a20983c2cb053ca8e12ff9998d1cfb22b"
+        },
+        "backup_indices": [
+          "output/fault_type_self_challenging_backup/2026-10-05-22-24-22/archive_index.json",
+          "output/fault_type_archive/2026-10-05-22-28-54/archive_index.json"
+        ],
+        "backup_verification": {
+          "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-05-22-32-32\\member_verification.json",
+          "sha256": "732a2b1866ffd975d91437b7900b16768b15a4c5d39ba4bbe8277b5f871079b7",
+          "bytes": 3916
+        },
+        "decision_record": "output\\fault_type_research_closeout\\2026-10-05-22-34-03\\decision_record.json",
+        "findings": "output\\fault_type_research_closeout\\2026-10-05-22-42-46\\m_final_findings.md",
+        "inventory": "output\\fault_type_research_closeout\\2026-10-05-22-34-03",
+        "group_dro": "已規劃未實作，本階段收尾，未進入訓練或測試",
+        "production_replacement": false,
+        "reliable_improvement_reached": false,
+        "fresh_final_test": false
+      }
+    },
+    {
+      "path": "reports/fixed_motor_calibration/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "9dde5e028ab9adab4a094ccf51bfb0632b478f6be57e0b3b788935fabe6415fe",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "date": "2026-10-01",
+        "timezone": "Asia/Taipei",
+        "repo": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree",
+        "branch": "research-improvements-20260920",
+        "remote": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage.git",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "protocol_version": "fixed_methods_motor_calibration_v1",
+        "protocol_checksum": "3b6cde9f5c19e627c0694f7488660b783228ae2354e96b8fa25b9dd1085edf1e",
+        "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+        "file_count": 90,
+        "unique_rows": 28910,
+        "feature_dimension": 105,
+        "selection_policy": "none",
+        "validation_sample_ids": [],
+        "selection_sample_ids": [],
+        "shared_validation_calibration": false,
+        "classifier_fits": 18,
+        "detector_evaluations": 36,
+        "failed_evaluations": 0,
+        "saved_prediction_records": 346920,
+        "fresh_final_test": false,
+        "independent_validation_status": "INCOMPLETE",
+        "t1_unknown_recall_all_four_methods": 0.0,
+        "source_data_modified": false,
+        "production_defaults_modified": false,
+        "historical_predictions_modified": false,
+        "unrelated_tracked_deletions_preserved": 282,
+        "tests_final": {
+          "python_3_10_19": 246,
+          "python_3_14_6": 246,
+          "pip_check": "PASS",
+          "scope": "full discovery per runtime; never cross-runtime joblib"
+        },
+        "teacher": {
+          "N5_primary_comparison": "COMPLETED_EXPLORATORY_NOT_RELIABLE",
+          "other_N": "HISTORICAL_DONE_NOT_RERUN_THIS_ROUND",
+          "split_basis": "PARTIALLY_COMPLETED_RAW_AND_GROUP_LIMITS_REMAIN"
+        },
+        "paths": {
+          "protocol": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_fixed_calibration/2026-10-01-15-32-22/protocol.json",
+          "locked_fit_root": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_fixed_calibration/2026-10-01-19-31-08",
+          "evaluation_root": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_fixed_calibration/2026-10-01-19-32-25",
+          "verified_report": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_fixed_report/2026-10-01-19-34-14/verified_results.json",
+          "diagnosis_root": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_fixed_diagnosis/2026-10-01-19-36-47",
+          "exposure_ledger": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_exposure/2026-10-01-01-10-40/exposure_ledger.json.gz",
+          "reports": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/reports/fixed_motor_calibration",
+          "python310_acceptance": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_fixed_acceptance/2026-10-01-19-41-26",
+          "python314_acceptance": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_fixed_acceptance/2026-10-01-19-41-37",
+          "backup": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-01/fixed_motor_calibration"
+        },
+        "verified_phase_commits": {
+          "P0": "08aa1d5529a1764ddf93c50f2f10376bdb0c583f",
+          "P1": "c24584b9a0898c430ecead5186d1694f283dcfd1",
+          "P2": "414c30f24c31bb7441432400862303040bea4e5c",
+          "P3_fit_lock": "b1eec1b2a3c110b05108570617a6d15cdd28a96a",
+          "P3": "4044600dea9dd2c899ed529955fc7298434db9ac",
+          "P4": "341e76336c20d7ba05e32906478e6717ba023dde",
+          "P5": "1b803a595770263da8d8b024c3de7cb2e62e76c0"
+        },
+        "backup_indexes": [
+          "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_archive/2026-10-01-19-31-56/archive_index.json",
+          "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_archive/2026-10-01-19-35-57/archive_index.json",
+          "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_archive/2026-10-01-19-39-48/archive_index.json",
+          "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_archive/2026-10-01-19-45-30/archive_index.json"
+        ],
+        "archive_verification": {
+          "archive_count": 11,
+          "verified_members": 131,
+          "status": "PASS",
+          "path": "C:/Users/andy0/AppData/Local/Temp/codex-d-drive/schoolshit/專題/src/_lineage_compare/p1_worktree/output/fault_type_fixed_delivery/2026-10-01-19-46-09/member_verification.json",
+          "includes_old_three_audit_archives_unchanged": true
+        },
+        "P5_commit_note": "Recorded after successful push in execution_log/Git; this index cannot contain its own commit SHA."
+      }
+    },
+    {
+      "path": "reports/literature_expansion/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "aa1fc6d98d10076b10b2d347a10feb1615ecfb97765da7a3a64c3e0ee0f5c611",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "literature_expansion_delivery_v1",
+        "date": "2026-10-02",
+        "timezone": "Asia/Taipei",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "repository": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree",
+        "branch": "research-improvements-20260920",
+        "remote": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage.git",
+        "evidence_commit_local_remote_verified": "686dd9aaf46b015164ddd3a9fe52ec9cb53cf393",
+        "delivery_commit_note": "The subsequent commit containing this index/final findings is the delivery commit; verify git rev-parse HEAD and git ls-remote, not a self-referential SHA.",
+        "paths": {
+          "protocol": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_registry\\2026-10-02-01-26-16\\protocol.json",
+          "locked": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\locked_study.json",
+          "evaluation": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14\\evaluation.json",
+          "verified": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json",
+          "verified_compact": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json.gz",
+          "summary": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json",
+          "summary_compact": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json.gz",
+          "all_method_report": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\report.md",
+          "diagnosis": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42\\diagnosis.json",
+          "prior_summary": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_summary\\2026-10-02-01-01-35\\summary.json.gz",
+          "sources": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources.md",
+          "sources_addendum": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources_addendum.md",
+          "final_findings": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\final_findings.md",
+          "reproduction": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\reproduction.md",
+          "backup_verification": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-12-27-43\\member_verification.json",
+          "acceptance_310": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_10_19\\2026-10-02-12-26-34\\environment.json",
+          "acceptance_314": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_14_6\\2026-10-02-12-26-34\\environment.json",
+          "data_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\data\\formal_local",
+          "exposure_ledger": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_exposure\\2026-10-01-01-10-40\\exposure_ledger.json.gz"
+        },
+        "artifacts": {
+          "protocol": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_registry\\2026-10-02-01-26-16\\protocol.json",
+            "sha256": "baff959b4aa05ef61945dee538ae19e4f3a2bcaa92b21617a35c3af6b4a9d9fa",
+            "bytes": 46733
+          },
+          "locked": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19\\locked_study.json",
+            "sha256": "75efe200f00f05af8c978a5084bf94b10e3024712c5868bf6d2d0a36f0c7b669",
+            "bytes": 6297
+          },
+          "evaluation": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14\\evaluation.json",
+            "sha256": "0b45185884ae4e30ccfd25bd98b8cf4f3acd4bb3692caa90e25be2cfb48a1535",
+            "bytes": 39037049
+          },
+          "verified": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json",
+            "sha256": "299c609588c40588c310612d9b36d176bef248c39c55f022ba55eaecafae7097",
+            "bytes": 89495295
+          },
+          "verified_compact": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33\\verified.json.gz",
+            "sha256": "4ca299a35ab8668ceb674132e590e783fe8f9eddf2eee7a658cecceeefa68f92",
+            "bytes": 3201122
+          },
+          "summary": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json",
+            "sha256": "198409bcb3cde6c94719d1a4de54cd4ef191567d52df0a5e3301eac23afdc008",
+            "bytes": 50437596
+          },
+          "summary_compact": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\summary.json.gz",
+            "sha256": "31038fdb1006f37cc12980fc10eb64012b6e135ec16b39c5bf0a61fa69c9514d",
+            "bytes": 1311860
+          },
+          "all_method_report": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09\\report.md",
+            "sha256": "f168b4df71bb6c3c803b097d543d36fb9f8394fe4639e87e4b3f98575da6fb68",
+            "bytes": 26224
+          },
+          "diagnosis": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42\\diagnosis.json",
+            "sha256": "fbfe60d64b101270153da13d43db6bcbb2adb4804f61cb0397f253c4321b5ee0",
+            "bytes": 8120887
+          },
+          "prior_summary": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_accuracy_summary\\2026-10-02-01-01-35\\summary.json.gz",
+            "sha256": "fb047d6fa0672252a20433ecdb153eaac579f46f58227ba780c34fce4f9d760f",
+            "bytes": 426342
+          },
+          "sources": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources.md",
+            "sha256": "3278220fc6089499fde3f2fcd497899df1d11fb95b66d35710562965eaae74c0",
+            "bytes": 11977
+          },
+          "sources_addendum": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\sources_addendum.md",
+            "sha256": "7de3f471711d11df680e90459c9b89842c32a67a7faa385eea832ac5a0c7ef49",
+            "bytes": 2379
+          },
+          "final_findings": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\final_findings.md",
+            "sha256": "5915d278a4fa5dd4c7819b890aff04c2e9e7db7d1bf358cff970bb3ae5e703f3",
+            "bytes": 18237
+          },
+          "reproduction": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\reproduction.md",
+            "sha256": "db6732b11183ca091f5ae9224a0da3520eaf730e88b133cb30a1992aaff014f1",
+            "bytes": 5147
+          },
+          "backup_verification": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-12-27-43\\member_verification.json",
+            "sha256": "6a494eade5e40c8f05f4ee1244786c7b71499bbcce0971574d332055c94314b5",
+            "bytes": 4989
+          },
+          "acceptance_310": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_10_19\\2026-10-02-12-26-34\\environment.json",
+            "sha256": "8482b25bb26826fe7747919576be06cb811aac3a0657dc0e121fab84b56ad47f",
+            "bytes": 14931
+          },
+          "acceptance_314": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_14_6\\2026-10-02-12-26-34\\environment.json",
+            "sha256": "8c7fa73adcfb3d8948e060ac880e08a13fc54f7c56f37386f7273e31af846f40",
+            "bytes": 14677
+          }
+        },
+        "dataset": {
+          "fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+          "files": 90,
+          "unique_rows": 28910,
+          "input_dimensions": 105,
+          "all_historically_test_exposed": true,
+          "fresh_final_test": false,
+          "physical_independence": "UNKNOWN",
+          "documented_motor_identity": "T1/T2/T3 are different motors; T1 new, T2/T3 old; age and identity confounded"
+        },
+        "protocol": {
+          "version": "literature_expansion_v1_fixed_no_selection",
+          "checksum": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+          "known_labels": [
+            "8screws",
+            "1screws",
+            "2screws",
+            "3_14screws",
+            "3screws",
+            "4screws"
+          ],
+          "unknown_labels": [
+            "4_146screws",
+            "5screws",
+            "6screws",
+            "7screws"
+          ],
+          "folds": [
+            {
+              "counts": {
+                "calibration": 6007,
+                "test": 9294,
+                "train": 5935
+              },
+              "fold": 0,
+              "motors": {
+                "calibration": "T2",
+                "test": "T3",
+                "train": "T1"
+              },
+              "partition_id_checksums": {
+                "calibration": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933",
+                "test": "0a21e58997eedf0964d214ba412ca3bc56ef17e5ff200341ce2592f3d6b54bd2",
+                "train": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470"
+              },
+              "prior_manifest_checksum": "ade300cfeadc4b8bc08d032fcaf5f2f8fae57b37e8b32df58f0e96d042fec840"
+            },
+            {
+              "counts": {
+                "calibration": 5604,
+                "test": 9759,
+                "train": 6007
+              },
+              "fold": 1,
+              "motors": {
+                "calibration": "T3",
+                "test": "T1",
+                "train": "T2"
+              },
+              "partition_id_checksums": {
+                "calibration": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b",
+                "test": "b6ffa3400d7c679caf826e1cd872857ad46b01e2fad9e76e7086e6854d7febc5",
+                "train": "bda367b35ae30bdea9ff871f787dc76344b9713e9fbce74fbca468109a435933"
+              },
+              "prior_manifest_checksum": "4e102a237cf9ac3024f41d4e10ef120ed67c934a6b48591dfd7f085603b4cdb8"
+            },
+            {
+              "counts": {
+                "calibration": 5935,
+                "test": 9857,
+                "train": 5604
+              },
+              "fold": 2,
+              "motors": {
+                "calibration": "T1",
+                "test": "T2",
+                "train": "T3"
+              },
+              "partition_id_checksums": {
+                "calibration": "11ac31903e7df0a846b41067450c74c887ef1324362036669f8f627a13e5f470",
+                "test": "9e4e17a36e1a1f5cb7b1b6b44c9a75742fb9d9699bfa8d4aa023ff9d7e51498b",
+                "train": "f675148237f73449e7e9bb9cb6abe2a97cea394cf7a16377513062a814b2c41b"
+              },
+              "prior_manifest_checksum": "69d0488c3f0dd20b9892a51a00e52bd96ecb5f855531f0dfafd6b8a843d97e5f"
+            }
+          ],
+          "seeds": [
+            0,
+            1,
+            2
+          ],
+          "rpms": [
+            "6000rpm",
+            "8000rpm",
+            "11000rpm"
+          ],
+          "selection_policy": "none",
+          "selection_ids": [],
+          "validation_ids": [],
+          "shared_validation_calibration": false
+        },
+        "seals": {
+          "protocol": "bf98e897a1d984a8e72e521cb184636f3d1e2df6cd377b071ee2a1d99670f4ba",
+          "locked": "48ba96ab8c3eb8b2a4a25e8a17a95b5083e2e6f6318aba6bdd6e08b1b9be44da",
+          "evaluation": "294a41c2a6c870c89e77c957402ce3764ddc96a1a126d24eeeeb1067f10cf0cb",
+          "verified": "efb92da2c9fa1007829c83c9c3aedb41b390046bfa3ef65b5366f8d7c97928be",
+          "summary": "be1ae2f68ace1e9420b69e2d8269be6d1821d881ff8654aea4c175367db06f49",
+          "diagnosis": "a02a8068515e8057ac0129bd4c16381c6d640c5b178f4a69b8fe6e5c2efcb5da"
+        },
+        "results": {
+          "planned_evaluations": 630,
+          "completed_evaluations": 624,
+          "incomplete_evaluations": [
+            {
+              "arm_id": "R17",
+              "fit_reasons": [
+                {
+                  "arm_id": "R17",
+                  "fold_id": "fixed-fold0",
+                  "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+                  "rpm": "mixed",
+                  "seed": 0,
+                  "status": "INCOMPLETE"
+                }
+              ],
+              "fold_id": "fixed-fold0",
+              "score_id": "R17",
+              "seed": 0,
+              "status": "INCOMPLETE"
+            },
+            {
+              "arm_id": "R17",
+              "fit_reasons": [
+                {
+                  "arm_id": "R17",
+                  "fold_id": "fixed-fold0",
+                  "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+                  "rpm": "mixed",
+                  "seed": 1,
+                  "status": "INCOMPLETE"
+                }
+              ],
+              "fold_id": "fixed-fold0",
+              "score_id": "R17",
+              "seed": 1,
+              "status": "INCOMPLETE"
+            },
+            {
+              "arm_id": "R17",
+              "fit_reasons": [
+                {
+                  "arm_id": "R17",
+                  "fold_id": "fixed-fold0",
+                  "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+                  "rpm": "mixed",
+                  "seed": 2,
+                  "status": "INCOMPLETE"
+                }
+              ],
+              "fold_id": "fixed-fold0",
+              "score_id": "R17",
+              "seed": 2,
+              "status": "INCOMPLETE"
+            },
+            {
+              "arm_id": "R17",
+              "fit_reasons": [
+                {
+                  "arm_id": "R17",
+                  "fold_id": "fixed-fold2",
+                  "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+                  "rpm": "mixed",
+                  "seed": 0,
+                  "status": "INCOMPLETE"
+                }
+              ],
+              "fold_id": "fixed-fold2",
+              "score_id": "R17",
+              "seed": 0,
+              "status": "INCOMPLETE"
+            },
+            {
+              "arm_id": "R17",
+              "fit_reasons": [
+                {
+                  "arm_id": "R17",
+                  "fold_id": "fixed-fold2",
+                  "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+                  "rpm": "mixed",
+                  "seed": 1,
+                  "status": "INCOMPLETE"
+                }
+              ],
+              "fold_id": "fixed-fold2",
+              "score_id": "R17",
+              "seed": 1,
+              "status": "INCOMPLETE"
+            },
+            {
+              "arm_id": "R17",
+              "fit_reasons": [
+                {
+                  "arm_id": "R17",
+                  "fold_id": "fixed-fold2",
+                  "reason": "INCOMPLETE missing predicted calibration class; no fallback",
+                  "rpm": "mixed",
+                  "seed": 2,
+                  "status": "INCOMPLETE"
+                }
+              ],
+              "fold_id": "fixed-fold2",
+              "score_id": "R17",
+              "seed": 2,
+              "status": "INCOMPLETE"
+            }
+          ],
+          "prediction_records": 6013647,
+          "unique_test_rows": 28910,
+          "classifier_pipelines": 24,
+          "additional_score_variants": 22,
+          "composite_methods": 70,
+          "fit_counts": {
+            "classifier_fits": 234,
+            "factory_reference_fits": 180,
+            "novelty_reference_fits": 174,
+            "representation_fits": 81
+          },
+          "fit_bundle_seconds": 169.7478382999834,
+          "historical_control_checks": [
+            {
+              "classification_matches": true,
+              "expected_entire_method_match": true,
+              "historical": "A0/mahalanobis",
+              "matches": true,
+              "mean_differences": {
+                "final_open_set_classification.accuracy": 0,
+                "healthy_safety.false_positive_rate": 0,
+                "known_classification.accuracy": 0,
+                "known_classification.balanced_accuracy": 0,
+                "known_classification.macro_f1": 0,
+                "known_fault_classification.accuracy": 0,
+                "known_fault_classification.balanced_accuracy": 0,
+                "known_fault_classification.macro_f1": 0,
+                "known_rejection_rate": 0,
+                "open_set_classification_rate": 0,
+                "selective.accuracy_all_accepted": 0,
+                "selective.coverage": 0,
+                "unknown_rejection.aupr_unknown_positive": 0,
+                "unknown_rejection.auroc_unknown_positive": 0,
+                "unknown_rejection.fpr_at_95_tpr": 0,
+                "unknown_rejection.unknown_f1": 0,
+                "unknown_rejection.unknown_precision": 0,
+                "unknown_rejection.unknown_recall": 0
+              },
+              "new": "C02/mahalanobis",
+              "reference_scope_note": "C02 and A0 both mixed-RPM references",
+              "scope": "saved historical summaries; not refit historical study"
+            },
+            {
+              "classification_matches": true,
+              "expected_entire_method_match": true,
+              "historical": "A0/knn",
+              "matches": true,
+              "mean_differences": {
+                "final_open_set_classification.accuracy": 0,
+                "healthy_safety.false_positive_rate": 0,
+                "known_classification.accuracy": 0,
+                "known_classification.balanced_accuracy": 0,
+                "known_classification.macro_f1": 0,
+                "known_fault_classification.accuracy": 0,
+                "known_fault_classification.balanced_accuracy": 0,
+                "known_fault_classification.macro_f1": 0,
+                "known_rejection_rate": 0,
+                "open_set_classification_rate": 0,
+                "selective.accuracy_all_accepted": 0,
+                "selective.coverage": 0,
+                "unknown_rejection.aupr_unknown_positive": 0,
+                "unknown_rejection.auroc_unknown_positive": 0,
+                "unknown_rejection.fpr_at_95_tpr": 0,
+                "unknown_rejection.unknown_f1": 0,
+                "unknown_rejection.unknown_precision": 0,
+                "unknown_rejection.unknown_recall": 0
+              },
+              "new": "C02/knn",
+              "reference_scope_note": "C02 and A0 both mixed-RPM references",
+              "scope": "saved historical summaries; not refit historical study"
+            },
+            {
+              "classification_matches": true,
+              "expected_entire_method_match": true,
+              "historical": "A7/mahalanobis",
+              "matches": true,
+              "mean_differences": {
+                "final_open_set_classification.accuracy": 0,
+                "healthy_safety.false_positive_rate": 0,
+                "known_classification.accuracy": 0,
+                "known_classification.balanced_accuracy": 0,
+                "known_classification.macro_f1": 0,
+                "known_fault_classification.accuracy": 0,
+                "known_fault_classification.balanced_accuracy": 0,
+                "known_fault_classification.macro_f1": 0,
+                "known_rejection_rate": 0,
+                "open_set_classification_rate": 0,
+                "selective.accuracy_all_accepted": 0,
+                "selective.coverage": 0,
+                "unknown_rejection.aupr_unknown_positive": 0,
+                "unknown_rejection.auroc_unknown_positive": 0,
+                "unknown_rejection.fpr_at_95_tpr": 0,
+                "unknown_rejection.unknown_f1": 0,
+                "unknown_rejection.unknown_precision": 0,
+                "unknown_rejection.unknown_recall": 0
+              },
+              "new": "C24/mahalanobis",
+              "reference_scope_note": "C24 separately fits/calibrates RPM references; historical A7 shared the per-RPM A1 reference (A1 rpm_strategy=separate). Classifier and detector scopes are both identical; sharing a fitted reference does not mean pooling RPMs. Full metrics should reproduce.",
+              "scope": "saved historical summaries; not refit historical study"
+            },
+            {
+              "classification_matches": true,
+              "expected_entire_method_match": true,
+              "historical": "A7/knn",
+              "matches": true,
+              "mean_differences": {
+                "final_open_set_classification.accuracy": 0,
+                "healthy_safety.false_positive_rate": 0,
+                "known_classification.accuracy": 0,
+                "known_classification.balanced_accuracy": 0,
+                "known_classification.macro_f1": 0,
+                "known_fault_classification.accuracy": 0,
+                "known_fault_classification.balanced_accuracy": 0,
+                "known_fault_classification.macro_f1": 0,
+                "known_rejection_rate": 0,
+                "open_set_classification_rate": 0,
+                "selective.accuracy_all_accepted": 0,
+                "selective.coverage": 0,
+                "unknown_rejection.aupr_unknown_positive": 0,
+                "unknown_rejection.auroc_unknown_positive": 0,
+                "unknown_rejection.fpr_at_95_tpr": 0,
+                "unknown_rejection.unknown_f1": 0,
+                "unknown_rejection.unknown_precision": 0,
+                "unknown_rejection.unknown_recall": 0
+              },
+              "new": "C24/knn",
+              "reference_scope_note": "C24 separately fits/calibrates RPM references; historical A7 shared the per-RPM A1 reference (A1 rpm_strategy=separate). Classifier and detector scopes are both identical; sharing a fitted reference does not mean pooling RPMs. Full metrics should reproduce.",
+              "scope": "saved historical summaries; not refit historical study"
+            }
+          ],
+          "descriptive_highlights_not_selection": [
+            {
+              "method_id": "C02/mahalanobis",
+              "equal_motor_means": {
+                "final_open_set_classification.accuracy": 0.24845580853926685,
+                "healthy_safety.false_positive_rate": 0,
+                "known_classification.accuracy": 0.34153197431620147,
+                "known_classification.balanced_accuracy": 0.34502869566566435,
+                "known_classification.macro_f1": 0.3027907554631271,
+                "known_fault_classification.accuracy": 0.26612557155218064,
+                "known_fault_classification.balanced_accuracy": 0.26777506352379615,
+                "known_fault_classification.macro_f1": 0.2404009640093674,
+                "known_rejection_rate": 0.12821246177975962,
+                "open_set_classification_rate": 0.2903602625599789,
+                "selective.accuracy_all_accepted": 0.20128039193807482,
+                "selective.coverage": 0.8499697674449237,
+                "unknown_rejection.aupr_unknown_positive": 0.4396753223698475,
+                "unknown_rejection.auroc_unknown_positive": 0.5745878889175445,
+                "unknown_rejection.fpr_at_95_tpr": 0.8640218370305742,
+                "unknown_rejection.unknown_f1": 0.21195925822296655,
+                "unknown_rejection.unknown_precision": 0.27853651344770847,
+                "unknown_rejection.unknown_recall": 0.18436724973310337
+              }
+            },
+            {
+              "method_id": "C17/mahalanobis",
+              "equal_motor_means": {
+                "final_open_set_classification.accuracy": 0.27144552117863024,
+                "healthy_safety.false_positive_rate": 0,
+                "known_classification.accuracy": 0.3928628023985816,
+                "known_classification.balanced_accuracy": 0.39979442840052487,
+                "known_classification.macro_f1": 0.3792675812798332,
+                "known_fault_classification.accuracy": 0.30431489352487695,
+                "known_fault_classification.balanced_accuracy": 0.3080052534930132,
+                "known_fault_classification.macro_f1": 0.28519080183679363,
+                "known_rejection_rate": 0.049382301265543105,
+                "open_set_classification_rate": 0.39262487710712307,
+                "selective.accuracy_all_accepted": 0.2550178823301143,
+                "selective.coverage": 0.9369150395014244,
+                "unknown_rejection.aupr_unknown_positive": 0.4498242340907814,
+                "unknown_rejection.auroc_unknown_positive": 0.5756499496047137,
+                "unknown_rejection.fpr_at_95_tpr": 0.9082244447144575,
+                "unknown_rejection.unknown_f1": 0.13634313098216946,
+                "unknown_rejection.unknown_precision": 0.36150975752391773,
+                "unknown_rejection.unknown_recall": 0.08435833362662631
+              }
+            },
+            {
+              "method_id": "C24/mahalanobis",
+              "equal_motor_means": {
+                "final_open_set_classification.accuracy": 0.24042026923585139,
+                "healthy_safety.false_positive_rate": 0.08994708994708994,
+                "known_classification.accuracy": 0.321677580666541,
+                "known_classification.balanced_accuracy": 0.3244100398037442,
+                "known_classification.macro_f1": 0.29130168484573166,
+                "known_fault_classification.accuracy": 0.30909077348934916,
+                "known_fault_classification.balanced_accuracy": 0.3120848727840252,
+                "known_fault_classification.macro_f1": 0.2866434331384656,
+                "known_rejection_rate": 0.1873307376622745,
+                "open_set_classification_rate": 0.25982459972246746,
+                "selective.accuracy_all_accepted": 0.214724533234226,
+                "selective.coverage": 0.8034532033456813,
+                "unknown_rejection.aupr_unknown_positive": 0.4197033138245359,
+                "unknown_rejection.auroc_unknown_positive": 0.538823773312093,
+                "unknown_rejection.fpr_at_95_tpr": 0.8808263736934104,
+                "unknown_rejection.unknown_f1": 0.22396487485556107,
+                "unknown_rejection.unknown_precision": 0.2913240652958084,
+                "unknown_rejection.unknown_recall": 0.21071504827602391
+              }
+            },
+            {
+              "method_id": "R02/R02",
+              "equal_motor_means": {
+                "final_open_set_classification.accuracy": 0.18733413126040901,
+                "healthy_safety.false_positive_rate": 0,
+                "known_classification.accuracy": 0.22977605597892062,
+                "known_classification.balanced_accuracy": 0.23415172263169728,
+                "known_classification.macro_f1": 0.19585928991594106,
+                "known_fault_classification.accuracy": 0.16251130988327098,
+                "known_fault_classification.balanced_accuracy": 0.16467272018217194,
+                "known_fault_classification.macro_f1": 0.14254094915480767,
+                "known_rejection_rate": 0.1355843631986882,
+                "open_set_classification_rate": 0.21475041236294526,
+                "selective.accuracy_all_accepted": 0.15144422026796533,
+                "selective.coverage": 0.8607059672860012,
+                "unknown_rejection.aupr_unknown_positive": 0.46681258587942276,
+                "unknown_rejection.auroc_unknown_positive": 0.5900507716750024,
+                "unknown_rejection.fpr_at_95_tpr": 0.8933926858410857,
+                "unknown_rejection.unknown_f1": 0.21390387733556102,
+                "unknown_rejection.unknown_precision": 0.40891313029785925,
+                "unknown_rejection.unknown_recall": 0.1450831731021036
+              }
+            },
+            {
+              "method_id": "R09/R09",
+              "equal_motor_means": {
+                "final_open_set_classification.accuracy": 0.19000841155989087,
+                "healthy_safety.false_positive_rate": 0.08912404467960022,
+                "known_classification.accuracy": 0.22977605597892062,
+                "known_classification.balanced_accuracy": 0.23415172263169728,
+                "known_classification.macro_f1": 0.19585928991594106,
+                "known_fault_classification.accuracy": 0.16251130988327098,
+                "known_fault_classification.balanced_accuracy": 0.16467272018217194,
+                "known_fault_classification.macro_f1": 0.14254094915480767,
+                "known_rejection_rate": 0.05508272838375583,
+                "open_set_classification_rate": 0.21886286211250552,
+                "selective.accuracy_all_accepted": 0.14101473477083445,
+                "selective.coverage": 0.9092047154446306,
+                "unknown_rejection.aupr_unknown_positive": 0.525833507950098,
+                "unknown_rejection.auroc_unknown_positive": 0.6042514122502155,
+                "unknown_rejection.fpr_at_95_tpr": 0.8825084033007959,
+                "unknown_rejection.unknown_f1": 0.1740566108031513,
+                "unknown_rejection.unknown_precision": 0.2481165214185085,
+                "unknown_rejection.unknown_recall": 0.14656499176824378
+              }
+            },
+            {
+              "method_id": "R18/R18",
+              "equal_motor_means": {
+                "final_open_set_classification.accuracy": 0.30622456186699804,
+                "healthy_safety.false_positive_rate": 0.09494062058906381,
+                "known_classification.accuracy": 0.3928628023985816,
+                "known_classification.balanced_accuracy": 0.39979442840052487,
+                "known_classification.macro_f1": 0.3792675812798332,
+                "known_fault_classification.accuracy": 0.30431489352487695,
+                "known_fault_classification.balanced_accuracy": 0.3080052534930132,
+                "known_fault_classification.macro_f1": 0.28519080183679363,
+                "known_rejection_rate": 0.12082761320443274,
+                "open_set_classification_rate": 0.35711743377373156,
+                "selective.accuracy_all_accepted": 0.26131857160820915,
+                "selective.coverage": 0.8372574567364853,
+                "unknown_rejection.aupr_unknown_positive": 0.47860477919325745,
+                "unknown_rejection.auroc_unknown_positive": 0.5714226932360901,
+                "unknown_rejection.fpr_at_95_tpr": 0.9296434500669236,
+                "unknown_rejection.unknown_f1": 0.303474111660669,
+                "unknown_rejection.unknown_precision": 0.6529051691886941,
+                "unknown_rejection.unknown_recall": 0.22679330333351153
+              }
+            }
+          ],
+          "all_saved_predictions_reinferred": true,
+          "shared_samples_are_not_independent_trials": true,
+          "diagnosis_distribution_sets": 351,
+          "diagnosis_models_refit": false,
+          "diagnosis_thresholds_modified": false
+        },
+        "acceptance": [
+          {
+            "artifact": {
+              "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_10_19\\2026-10-02-12-26-34\\environment.json",
+              "sha256": "8482b25bb26826fe7747919576be06cb811aac3a0657dc0e121fab84b56ad47f",
+              "bytes": 14931
+            },
+            "python": "3.10.19",
+            "status": "PASS",
+            "tests_passed": 310,
+            "tests_failed": 0,
+            "cli_help_count": 21,
+            "all_command_exit_codes_zero": true
+          },
+          {
+            "artifact": {
+              "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_acceptance_py3_14_6\\2026-10-02-12-26-34\\environment.json",
+              "sha256": "8c7fa73adcfb3d8948e060ac880e08a13fc54f7c56f37386f7273e31af846f40",
+              "bytes": 14677
+            },
+            "python": "3.14.6",
+            "status": "PASS",
+            "tests_passed": 310,
+            "tests_failed": 0,
+            "cli_help_count": 21,
+            "all_command_exit_codes_zero": true
+          }
+        ],
+        "backup": {
+          "destination": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-02/literature_expansion",
+          "archive_indices": [
+            {
+              "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-03-16\\archive_index.json",
+              "sha256": "86e9af4ce47b078b091589c2efdb2eec954772d3f60ecdd8eafab54d0e4440b4"
+            },
+            {
+              "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-07-35\\archive_index.json",
+              "sha256": "83ea8a8b66ae414442e94930138077b0d6a4e54701463459567c55696c2df153"
+            },
+            {
+              "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-15-21\\archive_index.json",
+              "sha256": "6ea0993f617de1703fbd9355a3102b29b1989c7e08e5bdaf8012dd58d95fc52f"
+            },
+            {
+              "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-16-43\\archive_index.json",
+              "sha256": "868e20bd000d18ef5c6469eecc644cd6b176123fe65202c6a1d02ce7a60adc7c"
+            },
+            {
+              "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-24-52\\archive_index.json",
+              "sha256": "5d29de38a8ea464450d3569fda4e2aa31bee09718e826970232b35f80d2cec1d"
+            },
+            {
+              "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-12-27-10\\archive_index.json",
+              "sha256": "2973de4977158fd587df6c3d87c766eb3ac52573334538db35f667fc2e5471da"
+            }
+          ],
+          "verification": {
+            "archive_count": 8,
+            "archives": [
+              {
+                "bytes": 219837952,
+                "crc_status": "PASS",
+                "member_sha_status": "PASS",
+                "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-01-23-17.zip",
+                "sha256": "9c6c7a9c737d4a0b448101c865a72cc1b5570b8290d52412e84b32f80d30a243",
+                "source_files": 646,
+                "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_smoke_py3_10_19\\2026-10-02-01-23-17",
+                "whole_sha_status": "PASS"
+              },
+              {
+                "bytes": 216511421,
+                "crc_status": "PASS",
+                "member_sha_status": "PASS",
+                "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-11-57-36.zip",
+                "sha256": "2e0e59771ce88e856b10a596fa6cf86b443ba1af90553b5cf90778027d7dad85",
+                "source_files": 646,
+                "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_smoke_py3_14_6\\2026-10-02-11-57-36",
+                "whole_sha_status": "PASS"
+              },
+              {
+                "bytes": 628817824,
+                "crc_status": "PASS",
+                "member_sha_status": "PASS",
+                "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-01-19.zip",
+                "sha256": "11020258e95624ec392144359c4ea553380939c8a808dd8c9ab96b0a2223f159",
+                "source_files": 11,
+                "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_fit\\2026-10-02-12-01-19",
+                "whole_sha_status": "PASS"
+              },
+              {
+                "bytes": 8147440,
+                "crc_status": "PASS",
+                "member_sha_status": "PASS",
+                "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-15-03.zip",
+                "sha256": "123f68bee928a41db9a18cc9992cbb0a9c70fd2d478ce81a4a53f2ecb64ddf4e",
+                "source_files": 1,
+                "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-15-03",
+                "whole_sha_status": "PASS"
+              },
+              {
+                "bytes": 554478066,
+                "crc_status": "PASS",
+                "member_sha_status": "PASS",
+                "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-09-14.zip",
+                "sha256": "0ab4b22fb55899d51c51f178714b3232003094b58074cf2367762cbf32ae5109",
+                "source_files": 625,
+                "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_evaluate\\2026-10-02-12-09-14",
+                "whole_sha_status": "PASS"
+              },
+              {
+                "bytes": 92697503,
+                "crc_status": "PASS",
+                "member_sha_status": "PASS",
+                "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-16-33.zip",
+                "sha256": "175f9555f6266e9d1f3f865bf0a2873f25f0d6d1cc2d789342fbe182c28536ae",
+                "source_files": 2,
+                "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_verify\\2026-10-02-12-16-33",
+                "whole_sha_status": "PASS"
+              },
+              {
+                "bytes": 51777051,
+                "crc_status": "PASS",
+                "member_sha_status": "PASS",
+                "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-26-09.zip",
+                "sha256": "4649c36c1bfe0a56b9396755225e424a1d9d731581965282998699bd2adaf399",
+                "source_files": 3,
+                "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_report\\2026-10-02-12-26-09",
+                "whole_sha_status": "PASS"
+              },
+              {
+                "bytes": 8121664,
+                "crc_status": "PASS",
+                "member_sha_status": "PASS",
+                "path": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\literature_expansion\\fault_type_2026-10-02-12-24-42.zip",
+                "sha256": "f5280525bd6522bbbc2c3dbc756c7beeeba66ca977a1a28765f35ac9d6926842",
+                "source_files": 1,
+                "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_literature_diagnosis\\2026-10-02-12-24-42",
+                "whole_sha_status": "PASS"
+              }
+            ],
+            "backup_scope": "single D volume; not offsite backup; indices retain original source paths",
+            "source_files_removed": false,
+            "status": "PASS",
+            "verified_members": 1935
+          },
+          "not_offsite": true,
+          "source_removed": false
+        },
+        "defaults": {
+          "modified": false,
+          "formal": "105 dimensions / linear / Mahalanobis Ledoit-Wolf",
+          "knn_factory_switch_preserved": true,
+          "binary_and_polarmap_preserved": true,
+          "protected_files_unchanged_in_commits": [
+            "core/openset.py",
+            "core/mahalanobis.py",
+            "core/monitor.py",
+            "core/runner.py",
+            "web/static/index.html",
+            "experiments/fault_type_openset.py"
+          ]
+        },
+        "existing_dirty_state": {
+          "tracked_deletions_preserved_not_staged": 282
+        },
+        "conclusions": {
+          "VERIFIED": [
+            "fixed known-only fitting; dedicated motor calibration; no shared/global selector",
+            "source bytes and paired IDs; sealed model re-inference and saved metrics",
+            "bounded actual execution, runtime tests, CRC/member backups"
+          ],
+          "FAILED_OR_INCOMPLETE": [
+            "weak fault classification; class/RPM zeros",
+            "six predicted-calibration group failures",
+            "one test motor/fold below >=2 groups requirement",
+            "all historical exposure; no fresh final test"
+          ],
+          "UNKNOWN": [
+            "independent session/run; raw boundaries/overlap; removal masks/IQR; physical units/mount/load/rate/timing"
+          ]
+        },
+        "superseded_interpretation_report": "output/fault_type_literature_report/2026-10-02-12-24-31; values unchanged but A1 mixed-RPM annotation incorrect; use 12-26-09",
+        "phase_commits": [
+          {
+            "phase": "literature scope",
+            "sha": "25f05965b9d7e7ba68d01bfd6f4f198f7de5fa5c",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "engine and preregistered protocol",
+            "sha": "94487305f9ba648705e195cfb69bfa70d08b880b",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "model lock before test",
+            "sha": "acf8c7e771546f658f72b5b4d8463c06dc3f2eca",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "readonly diagnosis",
+            "sha": "994505391a0c201a010a5624223fcb1333bd8f34",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "control report engineering, annotation superseded",
+            "sha": "71787fe394ef8a77e034a56357298815ddea7ac8",
+            "push": "VERIFIED_REMOTE_MATCH"
+          },
+          {
+            "phase": "verified results and corrected per-RPM interpretation",
+            "sha": "686dd9aaf46b015164ddd3a9fe52ec9cb53cf393",
+            "push": "VERIFIED_REMOTE_MATCH"
+          }
+        ],
+        "delivery_index_checksum": "438c92c4e8b9bb6f42a7289ff7e389f89b8cb7aa4cc227df97db8510bf1e72aa"
+      }
+    },
+    {
+      "path": "reports/local_fisher_v1/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "2b9da653d41c4f50fa18dd066d263883dbe08d983628ea2600c41b92b2226c8a",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "exp14_local_fisher_v1_delivery",
+        "date": "2026-10-03",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "protocol": "output/fault_type_local_fisher_lock/2026-10-03-10-08-32/protocol.json",
+        "fit_lock": "output/fault_type_local_fisher_fit/2026-10-03-10-15-15/locked_study.json",
+        "source_verification": "output/fault_type_local_fisher_source_verify/2026-10-03-10-17-52/source_verified.json",
+        "evaluation": "output/fault_type_local_fisher_evaluate/2026-10-03-10-21-09/evaluation.json.gz",
+        "verification": "output/fault_type_local_fisher_verify/2026-10-03-15-06-27/verified.json.gz",
+        "summary": "output/fault_type_local_fisher_report/2026-10-03-15-09-03/summary.json.gz",
+        "primary_output_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/local_fisher_v1/workspace/output",
+        "backup_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/local_fisher_v1/archives",
+        "archive_indices": [
+          "output/fault_type_local_fisher_backup/2026-10-03-15-09-14/archive_index.json",
+          "output/fault_type_archive/2026-10-03-15-13-39/archive_index.json",
+          "output/fault_type_archive/2026-10-03-15-13-40/archive_index.json",
+          "reports/local_fisher_v1/recovered_archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-15-14-54/member_verification.json",
+        "verified_archives": 6,
+        "verified_archive_members": 324,
+        "completed_runs": 144,
+        "failed_model_runs": 0,
+        "prediction_records": 1387680,
+        "unique_samples": 28910,
+        "main_screen": "FAILED_ALL_16_METHODS",
+        "independent_final_validation": "INCOMPLETE",
+        "raw_acquisition_independence": "UNKNOWN",
+        "production_replacement": false,
+        "tests": {
+          "Python3.10.19": 437,
+          "Python3.14.6": 437
+        }
+      }
+    },
+    {
+      "path": "reports/mechanism_research_v2/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "26c0a0a969047b7d4498ab292601a5dd306b34d63a30116e3697b89f06c7f5b3",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "delivery_index_checksum": "4669b72d498665f3bfcdc618810c62849f81d040877a0fa5865859e5883f0ff8",
+        "schema_version": "mechanism_research_v2_delivery_v1",
+        "date": "2026-10-02",
+        "timezone": "Asia/Taipei",
+        "repo_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree",
+        "branch": "research-improvements-20260920",
+        "remote": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage.git",
+        "report_commit": "cec005b91c539df762704f39ade85c5ae45bda2f",
+        "final_commit": "see final response; cannot self-reference delivery commit",
+        "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "selection_policy": "none",
+        "validation_sample_ids": [],
+        "selection_sample_ids": [],
+        "known_labels": [
+          "8screws",
+          "1screws",
+          "2screws",
+          "3_14screws",
+          "3screws",
+          "4screws"
+        ],
+        "unknown_labels": [
+          "4_146screws",
+          "5screws",
+          "6screws",
+          "7screws"
+        ],
+        "folds": [
+          {
+            "fold": 0,
+            "train": "T1",
+            "calibration": "T2",
+            "test": "T3"
+          },
+          {
+            "fold": 1,
+            "train": "T2",
+            "calibration": "T3",
+            "test": "T1"
+          },
+          {
+            "fold": 2,
+            "train": "T3",
+            "calibration": "T1",
+            "test": "T2"
+          }
+        ],
+        "rpms": [
+          6000,
+          8000,
+          11000
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "new_arms": [
+          "D01",
+          "D02",
+          "D03",
+          "P01",
+          "P02",
+          "P03",
+          "G01",
+          "G02",
+          "G03"
+        ],
+        "counts": {
+          "planned": 81,
+          "completed": 81,
+          "failed": 0,
+          "incomplete_runs": 0,
+          "prediction_records": 780570,
+          "unique_samples": 28910,
+          "reinferred_records": 780570,
+          "paired_comparisons": 243,
+          "report_methods_including_controls": 16
+        },
+        "tests": {
+          "python_3_10_19": {
+            "passed": 349,
+            "failed": 0,
+            "pip_check": "PASS",
+            "cli_help_passed": 28
+          },
+          "python_3_14_6": {
+            "passed": 349,
+            "failed": 0,
+            "pip_check": "PASS",
+            "cli_help_passed": 28
+          },
+          "cross_version_joblib_load": false
+        },
+        "scientific_status": {
+          "engineering": "VERIFIED",
+          "research_health_gate": "FAILED",
+          "fresh_final_test": "INCOMPLETE",
+          "minimum_two_test_groups_per_class": "INCOMPLETE",
+          "raw_session_window_device_provenance": "UNKNOWN",
+          "production_replacement": false
+        },
+        "production_default_changed": false,
+        "knn_factory_preserved": true,
+        "polarmap_preserved": true,
+        "unrelated_tracked_deletions_preserved": 282,
+        "backup": {
+          "root": "D:\\schoolshit\\專題\\src\\lineage_fault_type_artifacts\\2026-10-02\\mechanism_research_v2",
+          "archive_count": 14,
+          "verified_members": 301,
+          "total_bytes": 480240398,
+          "whole_sha_crc_member_sha": "PASS",
+          "source_files_removed": false,
+          "old_eight_archives_unchanged": true,
+          "offsite": false
+        },
+        "seals": {
+          "protocol": "ff6ddc29ca101f73c8a3ca6f818147dc4f6cd81032581966757b5f72087e1b91",
+          "lock": "c1d47ead2bbeeb8d82fb63fa5040272cd732a504ccaac0a182a1b8ed083278e1",
+          "evaluation": "2ff6fdca458d449254cbcc83259719d8d91562db82105712c07f64f99b809076",
+          "verification": "1ff5c7fdb4df8b8cc64810858b58fd0067fa618b9f85c2d87103068192d17a9e",
+          "report": "69e4b6d126dc1129ed2bceb0c1ff6621a946a263496bc72c1f859bbe9a6f40a8"
+        },
+        "artifacts": {
+          "protocol": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_registry\\2026-10-02-17-49-29\\protocol.json",
+            "bytes": 77860,
+            "sha256": "b69788b25fb39be8eeb24d85173baa20ba5d9d47288daee0c6d3157961440b02"
+          },
+          "lock": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_fit\\2026-10-02-17-50-41\\locked_study.json",
+            "bytes": 12796,
+            "sha256": "7708d232083a11adf369ef69229a3ca74f144fb65677bf557b83f83eba5444a5"
+          },
+          "evaluation": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_evaluate\\2026-10-02-17-53-06\\evaluation.json",
+            "bytes": 3862580,
+            "sha256": "93199c1a2229ba175a34f809e12e3e0b963d52e761a627c74ce8a10079b1eab1"
+          },
+          "verification": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_verify\\2026-10-02-17-55-10\\verified.json",
+            "bytes": 21022,
+            "sha256": "2a17aa0b135bc110eaa9f52065a366b177416408cc8db2246e94886b7d3c647b"
+          },
+          "report": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\summary.json",
+            "bytes": 6109096,
+            "sha256": "0bbcfc665d816086b12748c3774428c3ce94de2a600eead1389568a4bf3a8d9c"
+          },
+          "report_gzip": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\summary.json.gz",
+            "bytes": 252466,
+            "sha256": "182fc8cebb2b87968ac62ec3df6a92e5c1d03bb7dda2728bb79853a85cfad507"
+          },
+          "tradeoff": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_report\\2026-10-02-17-58-59\\tradeoff.csv",
+            "bytes": 2793,
+            "sha256": "1220703f21ec9021cc5a1ce70a2abf34db90918c3e23e21e2b0e9561b687b657"
+          },
+          "metrics_v2": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_metrics_v2\\2026-10-02-12-51-52\\metrics_v2.json",
+            "bytes": 27499109,
+            "sha256": "3733521f2201d1182faf159b0483b12e12f3188e353b2204bfdcc7af0356a2e0"
+          },
+          "diagnosis": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_diagnosis\\2026-10-02-12-53-20\\mechanism_diagnosis.json",
+            "bytes": 146045,
+            "sha256": "a55ca81ef38bf1c9570725da8c3936e9c92ab6925f2d8cd672afa46b464d552b"
+          },
+          "acceptance_310": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_10_19\\2026-10-02-18-00-37\\environment.json",
+            "bytes": 18725,
+            "sha256": "44dee9d74a61517c1acc4d801b4a834b29124ac4857d24f2b915874e32da9ed4"
+          },
+          "acceptance_314": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_mechanism_acceptance_py3_14_6\\2026-10-02-18-00-48\\environment.json",
+            "bytes": 18436,
+            "sha256": "dd65c2ebb28994bbff198e468a766c8a40ca037f9a971b8ad7256b39d6ea883d"
+          },
+          "archive_index_12": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-18-03-58\\archive_index.json",
+            "bytes": 6518,
+            "sha256": "3b087a251a2b7bb1555e6c21046753bc6f41d0d88cfa1e8fd69c40a9fa25fe23"
+          },
+          "archive_index_2": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_archive\\2026-10-02-18-04-29\\archive_index.json",
+            "bytes": 1222,
+            "sha256": "700eb0908279faeba321786655ad200d500181192894118600fb282cc4ea1f5d"
+          },
+          "archive_verification": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\fault_type_fixed_delivery\\2026-10-02-18-04-44\\member_verification.json",
+            "bytes": 8526,
+            "sha256": "7f01cd3d6a71866c8bc1bae19cc87c4a16f6a8a90977a8120709c2f7232836d2"
+          },
+          "parent_result_index": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\literature_expansion\\result_index.json",
+            "bytes": 41412,
+            "sha256": "aa1fc6d98d10076b10b2d347a10feb1615ecfb97765da7a3a64c3e0ee0f5c611"
+          },
+          "final_findings": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\final_findings.md",
+            "bytes": 9500,
+            "sha256": "eb26d860bf55bc0e8ce6f889e4b6154c28cf2d2c30521f4b7ee0dd23a410bf5c"
+          },
+          "reproduction": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\reproduction.md",
+            "bytes": 3506,
+            "sha256": "b58c1e2b9390963d27919b8601075586eb654df5ae84357ba9ca3385bb148ece"
+          },
+          "delivery": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\delivery.md",
+            "bytes": 4294,
+            "sha256": "f68b913a0da28494b89dfa8757685d123b342fb7dcafc6e481310a677b1cdf14"
+          },
+          "attempt_ledger": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\attempt_ledger.json",
+            "bytes": 1656,
+            "sha256": "308bd70db7451ead381f59de2b6c01aae4dc224deff9e194c985281f307495fd"
+          },
+          "failure_list": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\failure_list.json",
+            "bytes": 975,
+            "sha256": "71e7d25b0b47e48c00f121102d4f4e596e97ccff818dba9d81b5799bea9c9e68"
+          },
+          "source_ledger": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\source_ledger.md",
+            "bytes": 8685,
+            "sha256": "aa1bc4bfc281e8bba9fbe590b54dfda76b7350262f517446e06cd75d9c6b294d"
+          },
+          "adoption_matrix": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\adoption_matrix.md",
+            "bytes": 2074,
+            "sha256": "603b0a3d483551c59bbd34e6e06fac73752de1148c6d31355422e5e342106dc7"
+          },
+          "adaptation_cards": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\adaptation_cards.md",
+            "bytes": 3124,
+            "sha256": "9a98e2387b0faaee734ec403e67e82a1559807f4ffe6f26159a2c37c0055a648"
+          },
+          "hypothesis_cards": {
+            "path": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\reports\\mechanism_research_v2\\hypothesis_cards.md",
+            "bytes": 1917,
+            "sha256": "90377d42fca624cf390c2fbf01e9f7d3934b9d792ba3200a2cc865f897555dda"
+          }
+        }
+      }
+    },
+    {
+      "path": "reports/metric_classification_v1/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "04c1fbdd7c092136c3ded8318172bf4f27ab4afa848f118081071ac9deb1a4d4",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "exp13_metric_classification_v1_delivery",
+        "date": "2026-10-03",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "protocol": "output/fault_type_metric_classification_lock/2026-10-03-09-42-02/protocol.json",
+        "evaluation": "output/fault_type_metric_classification_evaluate/2026-10-03-09-55-17/evaluation.json.gz",
+        "verification": "output/fault_type_metric_classification_verify/2026-10-03-10-06-11/verified.json.gz",
+        "summary": "output/fault_type_metric_classification_report/2026-10-03-10-12-38/summary.json.gz",
+        "diagnosis": "output/fault_type_metric_failure_diagnosis/2026-10-03-15-07-58/diagnosis.json",
+        "archive_indices": [
+          "output/fault_type_archive/2026-10-03-10-12-10/archive_index.json",
+          "output/fault_type_archive/2026-10-03-10-18-19/archive_index.json",
+          "output/fault_type_archive/2026-10-03-15-09-47/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-15-10-24/member_verification.json",
+        "backup_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/metric_classification_v1",
+        "completed_runs": 108,
+        "failed_model_runs": 0,
+        "prediction_records": 1040760,
+        "unique_samples": 28910,
+        "main_screen": "FAILED_ALL_12_METHODS",
+        "independent_final_validation": "INCOMPLETE",
+        "raw_acquisition_independence": "UNKNOWN",
+        "production_replacement": false,
+        "tests": {
+          "Python3.10.19": 437,
+          "Python3.14.6": 437
+        },
+        "historical_diagnostic_exclusions": [
+          {
+            "path": "output/fault_type_metric_failure_diagnosis/2026-10-03-10-21-25",
+            "status": "INVALID_IMPLEMENTATION_BINDING"
+          },
+          {
+            "path": "output/fault_type_metric_failure_diagnosis/2026-10-03-10-23-33",
+            "status": "FAILED_SCHEMA_BINDING_CHECK"
+          }
+        ]
+      }
+    },
+    {
+      "path": "reports/research_closeout_20261005/delivery_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "d3a40dea35b99d8ba9613d358dacf611f0c96cbc9508cfaf138576af6b8016cd",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "date": "2026-10-05",
+        "timezone": "Asia/Taipei",
+        "branch": "research-improvements-20260920",
+        "remote": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage.git",
+        "decision": "B",
+        "reliable_improvement_reached": false,
+        "primary_report": {
+          "path": "reports/research_closeout_20261005/final_report.md",
+          "local_file_sha256": "97da301ce06e44b9c28700159f99635855ce5482bb34a77939e2ca6eda05e6c1",
+          "markdown_word_source_text_exact": true,
+          "sha_scope": "交付時本地檔案位元組；Git文字換行正規化與此物理SHA分開"
+        },
+        "word_original": {
+          "path": "output/fault_type_research_closeout/2026-10-05-22-53-29/research_report.docx",
+          "sha256": "1fb38265cfe01f2a3234cb9bf0a6ebe1fde8402d3105b6dbf7c8e3cfd1bb328f",
+          "editable_tables": 37,
+          "all_table_rows_exact": 751,
+          "native_equations": 5,
+          "hyperlinks": 40,
+          "zip_crc": "PASS",
+          "layout_status": "LAYOUT_UNVERIFIED",
+          "renderer_error": "FileNotFoundError: LibreOffice soffice.exe was not found on PATH",
+          "desktop_libreoffice_used": false,
+          "qa": "output/fault_type_research_closeout/2026-10-05-22-53-29/content_qa.json"
+        },
+        "inventory": "output/fault_type_research_closeout/2026-10-05-22-53-29/checkpoint_inventory_final.json",
+        "method_catalog": "output/fault_type_research_closeout/2026-10-05-22-34-03/method_catalog.json.gz",
+        "methods_and_scores_in_arm_inventory": 250,
+        "all_methods_are_independent_data": false,
+        "m_result_index": "reports/feature_self_challenging_v1/result_index.json",
+        "m_completed_evaluations": 216,
+        "m_paired_comparisons": 1134,
+        "m_reliability_failed_methods": 24,
+        "new_training_this_turn": false,
+        "group_dro": "已規劃未實作，本階段收尾，未進入訓練或測試",
+        "fresh_final": "INCOMPLETE",
+        "raw_acquisition_independence": "UNKNOWN",
+        "default_changed": false,
+        "new_tests": {
+          "Python3.10.19": {
+            "passed": 11,
+            "failed": 0
+          },
+          "Python3.14.6": {
+            "passed": 11,
+            "failed": 0
+          }
+        },
+        "historical_full_science_tests": {
+          "Python3.10.19": 618,
+          "Python3.14.6": 618,
+          "rerun_this_turn": false
+        },
+        "m_backup": {
+          "archives": 6,
+          "members": 468,
+          "sha_crc": "PASS",
+          "index": "output/fault_type_fixed_delivery/2026-10-05-22-32-32/member_verification.json"
+        },
+        "document_backup": {
+          "path": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-05/research_closeout_20261005/archives/fault_type_2026-10-05-22-53-29.zip",
+          "sha256": "6754a0bd8e6d0148563c889e903fc89a2008c217aa2f55b3f0c2d73fb6e43c40",
+          "bytes": 4822044,
+          "members": 16,
+          "whole_member_sha_crc": "PASS",
+          "verification": "output/fault_type_fixed_delivery/2026-10-05-22-54-25/member_verification.json",
+          "offsite": false,
+          "sources_removed": false
+        },
+        "verified_prior_commits": [
+          "4fb72015d8461846d90f19dd9fac7e25dcd56a8e",
+          "63f1e2e9a161b31e4a5a8c23c7d31a5918770630",
+          "4023bd7cc0627fd60934c01374f282f1e3b5de75"
+        ],
+        "final_delivery_commit": "0eea1b7ef236fa2fba82ce3914096bd0cbf751f3",
+        "final_report_git_blob": "59455ae1f65be87f51daa8410aa378d53b369326",
+        "preexisting_tracked_deletions_not_staged": 282
+      }
+    },
+    {
+      "path": "reports/rpm_risk_extrapolation_v1/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "52b6fb85d99733f4fa4228d492b7c93829d2f6fb079caad0c138d51bdd2539ed",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "exp20_rpm_risk_extrapolation_delivery_v1",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+        "planned_evaluations": 162,
+        "completed_evaluations": 162,
+        "incomplete_evaluations": 0,
+        "new_classifier_fits": 54,
+        "shared_bundles": 9,
+        "prediction_records": 1561140,
+        "unique_samples": 28910,
+        "paired_comparisons": 756,
+        "reliability_main_screen": "18方法全部FAILED",
+        "fresh_final_test": false,
+        "production_replacement": false,
+        "compact_files": [
+          {
+            "path": "output/fault_type_risk_extrapolation_lock/2026-10-04-17-11-45/protocol.json",
+            "sha256": "2b52fc91a949241d37e57a4a31f896f683f5e38f15bc5f31cc5d38303743072c",
+            "bytes": 7552
+          },
+          {
+            "path": "output/fault_type_risk_extrapolation_fit/2026-10-04-17-12-57/locked_study.json",
+            "sha256": "36dd3014e4578a4c4f11d59b9f10900f0979f154b1d510088b90355785e5af21",
+            "bytes": 12018
+          },
+          {
+            "path": "output/fault_type_risk_extrapolation_source_verify/2026-10-04-21-32-16/source_verified.json",
+            "sha256": "b6d959499d40d091a8018f936dfd191698db47519a7f44addba7c64b0f36ec19",
+            "bytes": 96604
+          },
+          {
+            "path": "output/fault_type_risk_extrapolation_evaluate/2026-10-04-21-34-45/evaluation.json.gz",
+            "sha256": "d26ae9bbbc9144f1679bde7071f133947636fb31847f654ba99fd37dce69f5f0",
+            "bytes": 248334
+          },
+          {
+            "path": "output/fault_type_risk_extrapolation_verify/2026-10-04-21-36-48/verified.json.gz",
+            "sha256": "341f24039f5b2cfa3a65d1e2bd350d7a3bf10eaaea9784715978af05ae987c62",
+            "bytes": 248328
+          },
+          {
+            "path": "output/fault_type_risk_extrapolation_report/2026-10-04-21-40-24/summary.json.gz",
+            "sha256": "ed78e1ec756ea35d430f2f473971144e061351ee4ef989f8b12bf0b03044d209",
+            "bytes": 194413
+          }
+        ],
+        "semantic_seals": {
+          "protocol_checksum": "20757999cf3795589151c7ab8898746cf7f5539e8f78a9f4b0627293313d5987",
+          "locked_checksum": "83c100b725ec66f4be239318a13a2e4a90b9fbcc329cce73ce6004b63a6d0817",
+          "source_verification_checksum": "3f92a86e367159aaa0ffa58dd05d4daa21ad2da7aa4d1a1b6d2a42ac8fbf20d7",
+          "evaluation_checksum": "6a0e15b03bec4970ec2b828a33cfc64902c7ff01122fb90086c78adf10cab5b8",
+          "verification_checksum": "77c35bc29d66cbd3ef553099bcc52374991a0ef73ed50fb2950c7f5e15c31b0a",
+          "report_checksum": "2007258c995dc99d0f756787a8f9e766a6c6623274c875e1d89c9fc26a28d919"
+        },
+        "primary_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-04/rpm_risk_extrapolation_v1/workspace/output",
+        "archives": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-04/rpm_risk_extrapolation_v1/archives",
+        "archive_indices": [
+          "output/fault_type_risk_extrapolation_backup/2026-10-04-21-40-35/archive_index.json",
+          "output/fault_type_archive/2026-10-04-21-45-49/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-04-21-46-01/member_verification.json",
+        "archive_count": 6,
+        "member_count": 360,
+        "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
+        "protocol_commit": "d81df1d9badeb44e551eda170323d1ab3fdc204e",
+        "source_commit": "32925fd46d8f47bef2b681e4495a392d6010c309",
+        "acceptance_before_L_fit": [
+          "output/fault_type_continuous_acceptance_py3_10_19/2026-10-04-17-08-09/environment.json",
+          "output/fault_type_continuous_acceptance_py3_14_6/2026-10-04-17-08-20/environment.json"
+        ],
+        "tests_before_L_fit_each": 582,
+        "no_cross_runtime_model_load": true
+      }
+    },
+    {
+      "path": "reports/smooth_l1_v1/result_index.json",
+      "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+      "sha256": "c4c0721d3576119ce1881adc64c71020f12f1b92ba182fc3149b94016c397f8b",
+      "functions": [],
+      "run": false,
+      "main": false,
+      "saved_index": {
+        "version": "exp16_smooth_l1_delivery_v1",
+        "scope": "EXPLORATORY_HISTORICAL_TEST_EXPOSED",
+        "dataset_fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+        "planned_evaluations": 108,
+        "completed_evaluations": 108,
+        "incomplete_evaluations": 0,
+        "successful_training_models": 108,
+        "prediction_records": 1040760,
+        "unique_samples": 28910,
+        "paired_comparisons": 756,
+        "reliability_main_screen": "12方法全部FAILED",
+        "fresh_final_test": false,
+        "production_replacement": false,
+        "semantic_seals": {
+          "protocol": "71b1618d165ef1dd2e309bac9a5ec8e8b8adcd2e8a01084d3939235268437a8b",
+          "locked_study": "aa6373bcff8a24e356142977555e76e7ae5f62aa520e520017c692bdfe61985b",
+          "actual_source_verification": "b6f2388099da6d5f17191df5b96a8ea8a919f992d30da716879ec978fc1b697e",
+          "evaluation": "e05c094f53d10af9060e9a432d622cdbf229eb29406d7e2bdac4b57fdcfd204e",
+          "reinference_verification": "e95e46e2d5656be1d52dbe962e7b8ba51a04586d1f86c976e6c268c688c14043",
+          "report": "7b97119c177080ff9b8694ada9c98dece45c0996a07224fc94c853358b87f116"
+        },
+        "compact_files": [
+          {
+            "path": "output/fault_type_smooth_l1_lock/2026-10-03-15-53-46/protocol.json",
+            "sha256": "ee507b9229a84cc49539cc168646878d108c51bbe5d660e29ed282b7dcea578b",
+            "bytes": 8366
+          },
+          {
+            "path": "output/fault_type_smooth_l1_fit/2026-10-03-15-54-51/locked_study.json",
+            "sha256": "2a4051ab70c22c988f7de8a9ce7fd4fcf83ec3b48d5693830b5d1dbecd7df039",
+            "bytes": 19496
+          },
+          {
+            "path": "output/fault_type_smooth_l1_source_verify/2026-10-03-20-13-55/source_verified.json",
+            "sha256": "1184322e200670142d4d461dedd14f50cb07897efc93393b37e0e7c5e584a210",
+            "bytes": 111038
+          },
+          {
+            "path": "output/fault_type_smooth_l1_evaluate/2026-10-03-20-19-06/evaluation.json.gz",
+            "sha256": "63fc6de85b1fc5267cf4e607139571e78f72ca5e4a5c566f0f03c30090ff37ee",
+            "bytes": 194868
+          },
+          {
+            "path": "output/fault_type_smooth_l1_verify/2026-10-03-20-21-11/verified.json.gz",
+            "sha256": "f1e2af3bb958ed15cd1f07d09f4e3718f41ef20c345175e0d1ce78f5e6e35404",
+            "bytes": 194863
+          },
+          {
+            "path": "output/fault_type_smooth_l1_report/2026-10-03-20-23-56/summary.json.gz",
+            "sha256": "5ba006c127d5824b06bff2a9db4966e78e7937ba85e8e600785528dbd118921d",
+            "bytes": 208824
+          }
+        ],
+        "primary_root": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/smooth_l1_v1/workspace/output",
+        "archives": "D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-10-03/smooth_l1_v1/archives",
+        "archive_indices": [
+          "output/fault_type_smooth_l1_backup/2026-10-03-20-24-08/archive_index.json",
+          "output/fault_type_archive/2026-10-03-20-27-31/archive_index.json"
+        ],
+        "archive_verification": "output/fault_type_fixed_delivery/2026-10-03-20-28-18/member_verification.json",
+        "archive_count": 6,
+        "member_count": 252,
+        "runtime": ".venv310/Scripts/python.exe; Python3.10.19; sklearn1.7.2",
+        "protocol_commit": "7ace8972194ff75f8f1cda5d990f177d705eb342",
+        "source_commit": "36605fd37106872f620daabe7cb2fa834bf98b9e",
+        "acceptance_before_H_fit": [
+          "output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-15-48-08/environment.json",
+          "output/fault_type_continuous_acceptance_py3_14_6/2026-10-03-15-48-19/environment.json"
+        ],
+        "acceptance_after_I_runner": [
+          "output/fault_type_continuous_acceptance_py3_10_19/2026-10-03-20-26-06/environment.json",
+          "output/fault_type_continuous_acceptance_py3_14_6/2026-10-03-20-26-17/environment.json"
+        ],
+        "dependencies": [
+          "reports/discriminative_prototypes_v1/result_index.json",
+          "reports/metric_classification_v1/result_index.json",
+          "reports/local_fisher_v1/result_index.json"
+        ],
+        "restore": "核對archive index、整檔SHA／CRC／member SHA，還原至記錄的D primary paths；需parent artifacts，禁止覆寫formal資料或舊lock"
+      }
+    }
+  ],
+  "arm_inventory": {
+    "path": "output/fault_type_research_closeout/2026-10-05-22-53-29/arm_inventory.json",
+    "ref": "5be4c7865a721afaab3404a5481377f39ded7abd",
+    "sha256": "552dae731b60c709c8922e510f753b0e6767ad2a96a7d2b6a3b8f086fc48a216",
+    "functions": [],
+    "run": false,
+    "main": false
+  },
+  "arm_count": 250,
+  "plans_are_not_completed": true,
+  "new_training": 0,
+  "new_predictions": 0,
+  "current_deleted_tracked_files": 282
+}

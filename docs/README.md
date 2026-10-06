@@ -8,6 +8,8 @@
 
 ## 現行文件
 
+新導覽：[實驗總覽與三流程操作](navigation/範圍與分工.md)，[exp24事前範圍](experiments/exp24_experiment_navigation.md)。不改PR36與正式模型。
+
 新增文件稽核：[exp23 引用來源與證據](experiments/exp23_citation_evidence_audit.md)。這是 #19／#20／#22 的唯讀交付入口，不改變已封存研究或 Albert 的主線程式。
 
 | 文件 | 內容 |
