@@ -7,3 +7,5 @@
 CLI：python -m experiments.navigation_regression --data-root data/formal_local。run(dataset, seed=42)返回兩方法比較；main透過setup_run("navigation_regression")保存summary。來源是既有core/experiments/web.live計算，方法原始文獻見exp1–3／exp24。GuideHub引用僅為被測操作層；算法仍在core與既有experiments。
 
 範圍：新增experiments/navigation_regression.py；唯讀web/guide.py、web/live.py與正式資料。
+
+2026-10-07補充事前修補範圍：Windows中止程序可能跳過finally；既有CSV每15筆才flush，最後未滿15筆可能尚未落盤。只在新GuideHub的暫停、劇本結束及最後client斷線時flush既有檔案，不改web/live.py、樣本序列、判定或指標。busy時不讀worker的file，重任務開始前先flush。驗收用3筆fixture（未達15筆）確認暫停後CSV已有3筆；兩方法有界配對與兩Python完整測試另行驗證。舊缺尾筆紀錄保留並標記，不補造。

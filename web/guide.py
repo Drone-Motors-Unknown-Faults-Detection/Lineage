@@ -163,12 +163,20 @@ class GuideHub(Hub):
         logger.info(text)
         super().broadcast({"type": "event", "guide_safe": True, "level": level, "text": text})
 
+    def pause(self):
+        """停止逐筆呼叫並落盤；busy時不讀worker正在更新的檔案。"""
+        self.running = False
+        if self.demo is not None and not self.busy:
+            sample_file = self.demo._sample_file
+            if sample_file is not None and not sample_file.closed:
+                sample_file.flush()
+
     def tick(self):
         if not self.demo or self.busy:
             return
         super().tick()
         if self.scenario_end is not None and self.demo.t >= self.scenario_end:
-            self.running = False
+            self.pause()
             self.scenario_end = None
             self.event("info", "劇本窗口播畢，已暫停；這是劇本結果，不是物理時間")
             self.broadcast(self.demo.metrics_msg())
@@ -177,7 +185,7 @@ class GuideHub(Hub):
     def close_client(self, client):
         self.clients.discard(client)
         if not self.clients:
-            self.running = False
+            self.pause()
 
 
 class GuideSocket(tornado.websocket.WebSocketHandler):
@@ -199,6 +207,7 @@ class GuideSocket(tornado.websocket.WebSocketHandler):
 
     async def heavy(self, command, fn):
         h = self.hub
+        h.pause()
         h.busy_state = h.full_state()
         h.busy, h.operation, h.running = True, command, False
         h.broadcast(h.full_state())
@@ -227,7 +236,7 @@ class GuideSocket(tornado.websocket.WebSocketHandler):
             elif h.demo is None:
                 raise ValueError("請先選資料並建立健康基準")
             elif cmd == "pause":
-                h.running = False
+                h.pause()
             elif cmd == "reset":
                 def reset():
                     h.demo._build()

@@ -1,4 +1,5 @@
 """導覽的來源、答案遮蔽、狀態與原計算一致性驗收。"""
+import csv
 import json
 import tempfile
 import unittest
@@ -111,6 +112,20 @@ class GuideTests(unittest.TestCase):
         first = self.hub.candidate_id()
         self.hub.demo.session.candidate = {"size": 25, "indices": [0, 1], "t_range": [60, 70]}
         self.assertNotEqual(first, self.hub.candidate_id())
+
+    def test_pause_flushes_short_log_without_refit(self):
+        with tempfile.TemporaryDirectory() as folder:
+            self.hub.out_dir = Path(folder)
+            self.hub.build("T1", "8000rpm")
+            demo = self.hub.demo
+            for _ in range(3):
+                demo.tick()
+            self.hub.pause()
+            with (Path(folder) / "session001/samples_epoch01.csv").open(encoding="utf-8") as file:
+                self.assertEqual(len(list(csv.DictReader(file))), 3)
+            self.assertIs(self.hub.demo, demo)
+            self.assertEqual(demo.t, 3)
+            self.hub.demo.close()
 
     def test_stream_error_blocks_continuation(self):
         self.hub.build("T1", "8000rpm")
