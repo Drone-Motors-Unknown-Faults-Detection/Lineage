@@ -1,0 +1,4 @@
+2026-10-07 08:15:55 | INFO    | Logger initialized: web_guide
+2026-10-07 08:15:55 | INFO    | log_file=logs\web_guide\2026-10-07-08-15-55.log
+2026-10-07 08:15:55 | INFO    | output_dir=output\web_guide\2026-10-07-08-15-55
+2026-10-07 08:15:55 | INFO    | 逐步導覽：http://127.0.0.1:8601；尚未擬合

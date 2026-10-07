@@ -43,3 +43,5 @@ flush最終驗證：Python3.10.19完整671項265.109秒、Python3.14.6完整671�
 62074f49f123aa9387e1c17f8b84a3a1331d2be2補核log範圍，已push／remote一致。37個本輪已tracked文件／程式／log逐檔Copy-Item到新的output/navigation_delivery/2026-10-07-navigation-delivery，複製SHA相同，另加快照README；沒有複製data或改另一checkout。
 
 08-13-33執行python -m experiments.fault_type_archive，以12個明確output roots封存到D:/schoolshit/專題/src/lineage_document_backups/2026-10-07-navigation，原始archive_index與log入庫。另讀ZIP核整包SHA、CRC、BUNDLE_INDEX每個檔SHA：12包、91檔、4037822 bytes全部PASS。來源沒有刪除，舊D槽三份稽核ZIP未覆寫。新backup_index保留全部絕對路徑與SHA；CRC不替舊中斷紀錄取得PASS。
+
+e637663f888c42c128cd650e4a706098da2bee70備份索引已push／ls-remote一致。GitHub API確認final_report存在，issue37更新連結與備份證據，仍OPEN。重新啟動08-15-55互動導覽（4筆/秒、seed42、8601），沒有自動fit或播放；這是交接入口，不是新的研究run，未封存為實驗結果。最後啟動log只保存當時狀態，使用者後續操作會新增紀錄。本段提交為最終交接記錄，其SHA以Git與最終回覆的remote核對為準，避免寫入自身SHA循環。
