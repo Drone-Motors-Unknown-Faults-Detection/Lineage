@@ -8,7 +8,7 @@
 
 ## 現行文件
 
-新導覽：[實驗總覽與三流程操作](navigation/範圍與分工.md)，[exp24事前範圍](experiments/exp24_experiment_navigation.md)。不改PR36與正式模型。
+新導覽：[給老師與實際操作入口](navigation/README.md)，[實驗總覽與三流程分工](navigation/範圍與分工.md)，[exp24事前範圍](experiments/exp24_experiment_navigation.md)。不改PR36與正式模型。
 
 新增文件稽核：[exp23 引用來源與證據](experiments/exp23_citation_evidence_audit.md)。這是 #19／#20／#22 的唯讀交付入口，不改變已封存研究或 Albert 的主線程式。
 
@@ -17,6 +17,7 @@
 | [七問實驗總覽](navigation/實驗總覽.md) | 各實驗資料、角色、方法、標準與結果；[白話解讀](navigation/結果白話解讀.md)、[來源](navigation/來源索引.md) |
 | [研究流程圖](navigation/研究流程圖.md) | 健康、未知、隔離、候選、確認、完整池重擬合與趨勢分支；Mermaid/SVG |
 | [逐步導覽操作](navigation/UI操作腳本.md) | 獨立web.guide三入口、兩模式與錯誤復原；不覆寫PR #36 |
+| [核心示範腳本](navigation/示範腳本.md) | 健康→未知→候選→模擬確認→完整池更新；[實際交付驗收](../reports/navigation_20261007/final_report.md) |
 | [導覽資料契約](experiments/navigation_data_contract.md) | 唯讀資格檢查／來源SHA與既有split索引 |
 | [導覽配對回歸](experiments/navigation_regression.md) | 同來源與seed的LW/kNN、確認前後及A/B逐筆一致性 |
 | [exp24 導覽範圍](experiments/exp24_experiment_navigation.md) | 模組／逐批盤點與有界導覽驗收 |

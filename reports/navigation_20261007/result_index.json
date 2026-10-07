@@ -1,0 +1,136 @@
+{
+  "schema": "navigation_delivery_v1",
+  "date": "2026-10-07",
+  "timezone": "Asia/Taipei",
+  "branch": "research-improvements-20260920",
+  "delivery_issue": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/37",
+  "baseline_head": "5be4c7865a721afaab3404a5481377f39ded7abd",
+  "code_head": "01862fefcc6368bf46ab5cc8dd9f8f60a97cb80a",
+  "main_head": "64cb71d84663e1745ec54db74abad68def67e8e6",
+  "formal_data": {
+    "fingerprint": "c4145d6efcbf02d294e77e5d83fdab5636bba6d9a58b1707752dd34b836f0b2d",
+    "csv": 90,
+    "rows": 28910,
+    "features": 105,
+    "modified": false,
+    "fresh_final": "INCOMPLETE",
+    "raw_session_independence": "UNKNOWN"
+  },
+  "inventory": {
+    "at_baseline": true,
+    "research_modules": 91,
+    "main_modules": 24,
+    "result_registries": 16,
+    "method_score_entries": 250,
+    "overview_family_rows": 24,
+    "meaning": "模組含工具；方法與重複窗口不是獨立馬達"
+  },
+  "sources": [
+    {
+      "path": "output/navigation_inventory/2026-10-06-23-43-36/source_index.json",
+      "sha256": "deb63162c6ae95838d9ad578c9aeee138d404917aa713e98d4cd3269ae1e3e2f"
+    },
+    {
+      "path": "output/navigation_inventory/2026-10-06-23-43-36/method_inventory.json.gz",
+      "sha256": "a2f62f676442919c7254dd0f530d98ecc2d06a55c4b898504745594cbf2ec070"
+    },
+    {
+      "path": "output/navigation_data_contract/2026-10-07-00-00-12/data_contract.json",
+      "sha256": "d711635b267b3bc1c3e68507bc87e9a87fdc26746c6a0352216dfd7ad9d35409"
+    },
+    {
+      "path": "output/navigation_regression/2026-10-07-08-03-05/summary.json",
+      "sha256": "7ef02cfc7b7cf217a50f0b164b96001a8717af54b9d3e08878aac3a76d76c081"
+    },
+    {
+      "path": "output/web_guide/2026-10-07-08-03-40/session001/samples_epoch01.csv",
+      "sha256": "252428455f4981da8d03c199ce5cee3244aa509f26c59f4ea1ace183622fb579"
+    }
+  ],
+  "tests": [
+    {
+      "python": "3.10.19",
+      "passed": 671,
+      "failed": 0,
+      "seconds": 265.109
+    },
+    {
+      "python": "3.14.6",
+      "passed": 671,
+      "failed": 0,
+      "seconds": 280.713
+    }
+  ],
+  "pip_check": "PASS",
+  "navigation_tests": {
+    "passed": 19,
+    "failed": 0
+  },
+  "regression": {
+    "methods": [
+      "mahalanobis",
+      "knn"
+    ],
+    "paired_samples_per_method": 595,
+    "mismatches": 0,
+    "summary_unchanged_from": "output/navigation_regression/2026-10-07-00-06-37/summary.json",
+    "claim": "工程一致，非準確率提高"
+  },
+  "gui": {
+    "final_run": "output/web_guide/2026-10-07-08-03-40",
+    "rows": 567,
+    "healthy": {
+      "rows": 40,
+      "accepted": 36,
+      "rejected": 4
+    },
+    "unknown_before_confirm": {
+      "rows": 271,
+      "rejected": 271,
+      "candidate_size": 51
+    },
+    "after_confirm": {
+      "rows": 256,
+      "accepted": 250,
+      "rejected": 6
+    },
+    "reconnect_preserved": true,
+    "console_errors_warnings": [],
+    "screenshots": "output/navigation_qa/2026-10-07",
+    "partial_runs": [
+      {
+        "path": "output/web_guide/2026-10-07-00-12-33",
+        "status": "INTERRUPTED",
+        "claim": "只有未知累積，未確認"
+      },
+      {
+        "path": "output/web_guide/2026-10-07-07-59-20",
+        "status": "PARTIAL",
+        "display_rows": 391,
+        "saved_rows": 390,
+        "missing_tail_rows": 1,
+        "reason": "修補前Windows中止未落盤；沒有補造"
+      }
+    ]
+  },
+  "defaults_changed": false,
+  "pr36": {
+    "state": "OPEN",
+    "merged": false,
+    "head": "544d4ed8c6516622e2f46c095351f9483a61635c",
+    "overlapping_files_modified": false,
+    "main_integration": "PENDING"
+  },
+  "deliverables": [
+    "docs/navigation/實驗總覽.md",
+    "docs/navigation/結果白話解讀.md",
+    "docs/navigation/研究流程圖.mmd",
+    "docs/navigation/研究流程圖.svg",
+    "docs/navigation/UI操作腳本.md",
+    "docs/navigation/示範腳本.md",
+    "web/guide.py",
+    "reports/navigation_20261007/final_report.md"
+  ],
+  "backup_manifest": "reports/navigation_20261007/backup_index.json",
+  "backup_note": "以後續實際CRC/SHA清單為準，當前索引不先宣告備份成功"
+}
