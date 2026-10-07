@@ -39,7 +39,3 @@ flush最終驗證：Python3.10.19完整671項265.109秒、Python3.14.6完整671�
 依AGENT建立導覽交付issue #37：https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/37。已完成項勾選，主線整合保持待辦；沒有關閉#19/#30或合併PR36。
 
 7256aaea7a832238b6871c066c0a5f93a2addc71交付文件與15張截圖，已push且遠端一致。封存前CSV逐檔補核：23-58-23為1005而非畫面1009；00-03-06為255；00-05-41 A260／B150（B畫面160）；00-12-33中斷後背景仍累積到5040，未確認，不當有界預演成功。這些修補前資料標部分／中斷前綴；08-03-40最終567完整與CLI配對作計算驗收。CRC只保證檔案未損壞，不補上缺少筆數。
-
-62074f49f123aa9387e1c17f8b84a3a1331d2be2補核log範圍，已push／remote一致。37個本輪已tracked文件／程式／log逐檔Copy-Item到新的output/navigation_delivery/2026-10-07-navigation-delivery，複製SHA相同，另加快照README；沒有複製data或改另一checkout。
-
-08-13-33執行python -m experiments.fault_type_archive，以12個明確output roots封存到D:/schoolshit/專題/src/lineage_document_backups/2026-10-07-navigation，原始archive_index與log入庫。另讀ZIP核整包SHA、CRC、BUNDLE_INDEX每個檔SHA：12包、91檔、4037822 bytes全部PASS。來源沒有刪除，舊D槽三份稽核ZIP未覆寫。新backup_index保留全部絕對路徑與SHA；CRC不替舊中斷紀錄取得PASS。

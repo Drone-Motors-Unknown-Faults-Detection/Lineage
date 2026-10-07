@@ -11,8 +11,6 @@
 
 文件位置：docs/navigation/README.md、實驗總覽.md、結果白話解讀.md、研究流程圖.md、UI操作腳本.md、示範腳本.md；reports/navigation_20261007/final_report.md與execution_log.md。
 
-[給老師與操作入口](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/research-improvements-20260920/docs/navigation/README.md)；[完整交付報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/research-improvements-20260920/reports/navigation_20261007/final_report.md)。文件／截圖7256aae與log缺口補核62074f4已推送。D槽12個ZIP／91檔已逐包CRC與整包、逐檔SHA驗證；backup_index另入庫，不覆蓋舊備份。
-
 目前沒有fresh final，raw/session依據UNKNOWN，T1跨馬達unknown零召回未解決。此issue只追蹤導覽交付與主線整合，不關閉既有研究可靠性／引用稽核issue。舊部分QA log缺尾筆如實保留標PARTIAL；新導覽flush修補不改科學計算。
 
 Co-authored-by: Codex <codex@openai.com>

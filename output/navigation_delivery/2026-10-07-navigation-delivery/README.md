@@ -1,0 +1,7 @@
+# 導覽交付快照
+
+文件／截圖交付ref：62074f49f123aa9387e1c17f8b84a3a1331d2be2；可執行程式ref：01862fefcc6368bf46ab5cc8dd9f8f60a97cb80a。此包是本輪導覽文件、程式與log快照，不是完整Lineage環境；執行需完整repository與既有正式資料。沒有raw／formal data或secrets。
+
+其他ZIP分別保存inventory、data contract、配對summary、QA截圖與六個GUI session。舊GUI部分log缺尾筆及中斷5040筆狀態見reports/navigation_20261007/result_index.json；CRC不代表它們成為完整／獨立實驗。最終08-03-40 GUI567筆完整。
+
+備份索引在來源repository的reports/navigation_20261007/backup_index.json，於ZIP建立後保存，因此不嵌入自身SHA以免循環。來源檔案沒有刪除，舊D槽備份沒有覆蓋。

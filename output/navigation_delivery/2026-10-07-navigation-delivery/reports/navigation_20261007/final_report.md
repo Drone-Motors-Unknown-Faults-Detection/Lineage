@@ -81,9 +81,3 @@ venv/Scripts/python.exe -m unittest discover -s tests
 最終Python3.10.19／3.14.6各671項PASS、0 failed（265.109／280.713秒）；相關19項PASS，兩pip check正常。flush修補01862fe已推送並核對遠端。截圖15為最終重連，後段分母256，session/epoch/t567及兩known保留；console error/warn查詢仍空。其餘逐階段交付與外部ZIP證據由後續交付索引記錄，不把尚未執行的備份先寫PASS。
 
 導覽交付[issue #37](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/37)：五個已完成項已勾選；保留PR36後主線整合待辦，所以issue仍OPEN。這不等於其他研究issue已完成。
-
-## D槽備份已驗證
-
-目的地：D:/schoolshit/專題/src/lineage_document_backups/2026-10-07-navigation。12個ZIP、91個來源檔、4,037,822 bytes。原archive工具驗CRC；另重新開每個ZIP，核整包SHA及BUNDLE_INDEX的91個檔案SHA，全部PASS。[完整路徑與SHA](backup_index.json)。來源檔案未刪、舊備份未覆蓋、未打包raw/formal data。
-
-文件快照固定62074f4，程式01862fe；備份索引在ZIP完成後入Git，不嵌入自身checksum。ZIP保留舊部分／中斷前綴，不能把CRC當完整實驗證明。已驗證的導覽工作完成後停止本輪，不自動接其他programming issue。

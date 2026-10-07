@@ -170,6 +170,6 @@
     "reports/navigation_20261007/final_report.md"
   ],
   "backup_manifest": "reports/navigation_20261007/backup_index.json",
-  "backup_note": "12包91檔；CRC、整包與逐檔SHA已驗證。詳backup_index；舊部分紀錄仍不完整。",
+  "backup_note": "以後續實際CRC/SHA清單為準，當前索引不先宣告備份成功",
   "delivery_commit_before_backup": "7256aaea7a832238b6871c066c0a5f93a2addc71"
 }

@@ -1,0 +1,117 @@
+{
+  "archives": [
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07-navigation-delivery.zip",
+      "sha256": "9e7690e5d55d41b3d59b837eb5b942a417186df4349a270971feb7993fd4d82e",
+      "bytes": 142578,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\navigation_delivery\\2026-10-07-navigation-delivery",
+      "source_files": 38,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-06-23-43-36.zip",
+      "sha256": "04b0e7c5c1f5848952a3e6173ab5fef11f7f9e5323dfa40e80f16f4becced699",
+      "bytes": 180856,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\navigation_inventory\\2026-10-06-23-43-36",
+      "source_files": 2,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07-00-00-12.zip",
+      "sha256": "e467dc0e4e1d2042687ae68282fa5569eef50bba6696cf19ab305ad44c29a164",
+      "bytes": 6540,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\navigation_data_contract\\2026-10-07-00-00-12",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07-00-06-37.zip",
+      "sha256": "218676a3ea22483530a429f8ef91df238ab13511c8202b49d2762a3da5a3f886",
+      "bytes": 8855,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\navigation_regression\\2026-10-07-00-06-37",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07-08-03-05.zip",
+      "sha256": "bd55698ae6a808629e68c848dedcae46c499a0c1ae94a55bc5b9d9dd8fad28b2",
+      "bytes": 8855,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\navigation_regression\\2026-10-07-08-03-05",
+      "source_files": 1,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07.zip",
+      "sha256": "34d04894addb7dc65a5476743a5166e69a987e7df5abc7a364681c441d1c44b1",
+      "bytes": 3115263,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\navigation_qa\\2026-10-07",
+      "source_files": 15,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-06-23-58-23.zip",
+      "sha256": "3a91afc568234eb1a715c5c348a65913ebef4a23b50a590888065403e5a663c8",
+      "bytes": 83068,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\web_guide\\2026-10-06-23-58-23",
+      "source_files": 6,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07-00-03-06.zip",
+      "sha256": "83042d0dab5a546b20ca266462df2c29ac90eedaa7ef790ede73a95b2a04a916",
+      "bytes": 27696,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\web_guide\\2026-10-07-00-03-06",
+      "source_files": 4,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07-00-05-41.zip",
+      "sha256": "973a770493bb5349964af08a8027b3bae0b7730cd0d386b5cf5c5bf3b23e13c7",
+      "bytes": 43245,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\web_guide\\2026-10-07-00-05-41",
+      "source_files": 7,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07-00-12-33.zip",
+      "sha256": "b96f1eb61a668f4f914d39610ff10b078f97a77c7c69f56560708a4c45b46fb8",
+      "bytes": 316949,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\web_guide\\2026-10-07-00-12-33",
+      "source_files": 4,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07-07-59-20.zip",
+      "sha256": "e8f716c2256457fe6c3f44aa6561c719b91b744cbcb0ccdccf36919f5e3f4664",
+      "bytes": 46859,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\web_guide\\2026-10-07-07-59-20",
+      "source_files": 6,
+      "crc_status": "PASS"
+    },
+    {
+      "path": "D:\\schoolshit\\專題\\src\\lineage_document_backups\\2026-10-07-navigation\\fault_type_2026-10-07-08-03-40.zip",
+      "sha256": "d30c6199d46a59dd5713467a449a126cb64be8d216cf9b56461fa84eb9b4381f",
+      "bytes": 57058,
+      "source_root": "C:\\Users\\andy0\\AppData\\Local\\Temp\\codex-d-drive\\schoolshit\\專題\\src\\_lineage_compare\\p1_worktree\\output\\web_guide\\2026-10-07-08-03-40",
+      "source_files": 6,
+      "crc_status": "PASS"
+    }
+  ],
+  "source_files_removed": false,
+  "contains_raw_data": false,
+  "contains_synthetic_raw_fixtures": false,
+  "schema": "navigation_backup_v1",
+  "date": "2026-10-07",
+  "delivery_snapshot_ref": "62074f49f123aa9387e1c17f8b84a3a1331d2be2",
+  "code_ref": "01862fefcc6368bf46ab5cc8dd9f8f60a97cb80a",
+  "independent_verification": {
+    "archive_sha": "PASS",
+    "zip_crc": "PASS",
+    "embedded_file_sha": "PASS",
+    "archives": 12,
+    "source_files": 91,
+    "total_bytes": 4037822
+  },
+  "research_claim": "CRC與SHA只證明保存內容；舊PARTIAL／INTERRUPTED不變，沒有新的獨立驗證。",
+  "archive_command_index": "output/fault_type_archive/2026-10-07-08-13-33/archive_index.json"
+}
