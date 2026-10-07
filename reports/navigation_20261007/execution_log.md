@@ -37,3 +37,5 @@ flush最終驗證：Python3.10.19完整671項265.109秒、Python3.14.6完整671�
 08-03-40最後重連保留T1/8000與session1/epoch1/t567，model無重fit，完整後段metrics250/256；console error/warn=[]。確認已暫停且CSV567後停止自己的QA server；舊07-59-20缺1筆及00-12-33中斷log不覆寫。
 
 依AGENT建立導覽交付issue #37：https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/37。已完成項勾選，主線整合保持待辦；沒有關閉#19/#30或合併PR36。
+
+7256aaea7a832238b6871c066c0a5f93a2addc71交付文件與15張截圖，已push且遠端一致。封存前CSV逐檔補核：23-58-23為1005而非畫面1009；00-03-06為255；00-05-41 A260／B150（B畫面160）；00-12-33中斷後背景仍累積到5040，未確認，不當有界預演成功。這些修補前資料標部分／中斷前綴；08-03-40最終567完整與CLI配對作計算驗收。CRC只保證檔案未損壞，不補上缺少筆數。

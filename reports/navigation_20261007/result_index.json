@@ -111,6 +111,44 @@
         "missing_tail_rows": 1,
         "reason": "修補前Windows中止未落盤；沒有補造"
       }
+    ],
+    "csv_inventory": [
+      {
+        "run": "2026-10-06-23-58-23",
+        "saved": 1005,
+        "displayed": 1009,
+        "status": "PARTIAL"
+      },
+      {
+        "run": "2026-10-07-00-03-06",
+        "saved": 255,
+        "status": "DEVELOPMENT"
+      },
+      {
+        "run": "2026-10-07-00-05-41",
+        "epoch1": 260,
+        "epoch2": 150,
+        "epoch2_displayed": 160,
+        "status": "PARTIAL"
+      },
+      {
+        "run": "2026-10-07-00-12-33",
+        "saved": 5040,
+        "status": "INTERRUPTED",
+        "bounded_rehearsal_success": false
+      },
+      {
+        "run": "2026-10-07-07-59-20",
+        "saved": 390,
+        "displayed": 391,
+        "status": "PARTIAL"
+      },
+      {
+        "run": "2026-10-07-08-03-40",
+        "saved": 567,
+        "displayed": 567,
+        "status": "VERIFIED"
+      }
     ]
   },
   "defaults_changed": false,
@@ -132,5 +170,6 @@
     "reports/navigation_20261007/final_report.md"
   ],
   "backup_manifest": "reports/navigation_20261007/backup_index.json",
-  "backup_note": "以後續實際CRC/SHA清單為準，當前索引不先宣告備份成功"
+  "backup_note": "以後續實際CRC/SHA清單為準，當前索引不先宣告備份成功",
+  "delivery_commit_before_backup": "7256aaea7a832238b6871c066c0a5f93a2addc71"
 }
