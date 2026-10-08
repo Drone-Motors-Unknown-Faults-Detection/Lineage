@@ -117,6 +117,8 @@ AGENT.md「關鍵參數」表列的趨勢參數是 `TrendMonitor` 的；`Session
 | SEC-001 | Web 對所有 origin 開放 | `web/server.py:118` `check_origin` 放行、`web/server.py:261` 監聽 `0.0.0.0` | #28 |
 | ARCH-003 | `OpenSetMonitor` 未擬合就呼叫推論時沒有明確錯誤 | `core/monitor.py` 仍沒有 `_require_fitted` | #29 |
 
+2026-10-08接續固定83846b的17項重驗，以整合後main4f783c6核對來源SHA與變動：[本輪差異表與R1–R10去重草稿](issue_delivery_20261008/audit_followup.md)。PR38/39已增加獨立導覽、exp1/3/4 SSE及相關測試，因此TEST-002部分改善，DOC-001現行索引再次驗證；資料契約、矩陣完整性及metadata等未變程式沿用舊證據，不冒稱重跑。PERF未profiling、SEC-003 root escape未驗證。#30新issue草稿待使用者確認發布，沒有勾選或關閉issue。
+
 ### 2.3 研究分支上的 `reports/`
 
 `research-improvements-20260920` 分支另外有 `reports/continuous_research/`、`reports/data_independence/`、`reports/fault_type_openset/` 等 10 個子目錄，屬於 [#22](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22) 的研究，尚未併入 main，本文件不涵蓋。
