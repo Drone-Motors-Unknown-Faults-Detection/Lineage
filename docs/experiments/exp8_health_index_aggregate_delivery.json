@@ -7,6 +7,7 @@
   "手冊_commit": "aeab6eb48c27d1c63ef5fb3260632a204c8b1c3f",
   "彙總_commit": "7b59381fef93272511bc547f8099815ae05a307d",
   "最終程式_commit": "da0dc9415d53a99fb73c51db31829b58471ea751",
+  "證據交付_commit": "24b6c51d937bd636cde2f39c98a71b409852375f",
   "資料指紋": "81c9192476ecd1e23a17b3ed5a343dcd50cdc2e5b7e0cc5466e9162941898228",
   "契約_SHA256": "c58e7f8d5d97f5af8d935a71704f399162c2a6b742ea9a9c69f0d22add54be29",
   "封存檔案數": 16,
@@ -29,7 +30,9 @@
   "關閉issue數": 0,
   "重算產物": "output/exp8_health_index_aggregate/2026-10-09-03-38-52",
   "完整測試產物": "output/exp8_aggregate_validation_full/2026-10-09-03-38-55",
-  "PR": null,
+  "PR": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/41",
+  "PR狀態": "OPEN",
+  "PR已建立": true,
   "備份": {
     "path": "D:/schoolshit/專題/src/lineage_exp8_aggregate_artifacts/2026-10-09/exp8_recompute_20261009_0343.zip",
     "sha256": "11f43991eaa330eebb4d53bcf8142afa4b5fe4d98377bb171a0a3f91cb13d9ca",

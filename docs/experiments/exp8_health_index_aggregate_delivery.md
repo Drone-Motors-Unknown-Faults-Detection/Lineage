@@ -15,7 +15,7 @@
 | 手冊 | 先固定 16 檔 SHA、六 run／54 列、等權重、ddof=1、容差與 UNKNOWN 邊界 | `aeab6eb48c27d1c63ef5fb3260632a204c8b1c3f`；已 push，ls-remote 相符 |
 | 程式與 fixtures | 獨立彙總入口、來源與 CSV 檢查、失敗稽核、37 項 fixtures；無 fit/predict | `7b59381fef93272511bc547f8099815ae05a307d`；已 push，ls-remote 相符 |
 | 來源換行補充 | 核對 16 個固定 main Git blob，補列 LF SHA；保留原 CRLF SHA，不改公式或容差；新增一項 fixture | `da0dc9415d53a99fb73c51db31829b58471ea751`；已 push，ls-remote 相符 |
-| 實際重算與交付 | 兩次各六 run／54 列；349 欄中 347 吻合、2 不同；三個結果檔兩次 SHA 完全相同 | 最終 `output/exp8_health_index_aggregate/2026-10-09-03-38-52/`；文件與證據提交後建立 PR |
+| 實際重算與交付 | 兩次各六 run／54 列；349 欄中 347 吻合、2 不同；三個結果檔兩次 SHA 完全相同 | `24b6c51d937bd636cde2f39c98a71b409852375f`；已 push，遠端相符；PR #41 已建立 |
 
 ## 已執行的測試
 
@@ -93,7 +93,9 @@ python -m experiments.health_index_aggregate
 - 所有小型結果與 logs 納入本輪分支；不提交 raw、formal data、大型來源 ZIP 或其他工作樹修改。
 - D 槽補充備份：`D:\schoolshit\專題\src\lineage_exp8_aggregate_artifacts\2026-10-09\exp8_recompute_20261009_0343.zip`，12 個成員，CRC 與逐檔位元組比對通過；整包 SHA256 `11f43991eaa330eebb4d53bcf8142afa4b5fe4d98377bb171a0a3f91cb13d9ca`。只含最終重算、完整回歸輸出、契約與三個新程式／測試，不含正式資料或舊大型 ZIP。
 
-PR 建立與遠端最終核對完成後，補記 URL；目前 main 尚未合併，本輪不是「驗收全部通過」。
+[PR #41](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/41) 已建立並附加到目前聊天。回讀為 OPEN／MERGEABLE、mergedAt=null，base 仍為 `4f783c676849a27185cd28d2410b4e76639b7357`。#25 回讀仍 OPEN；本輪沒有修改任何 issue 狀態、checkbox 或發布新 issue。PR #40 的 head 仍為 `5a54cf1…`，Albert PR #36 head 仍為 `544d4ed…`。
+
+本段只補記 PR 與交付索引，不改已驗證程式或公式。提交後再 push 並以 ls-remote 與 PR head 核對；main 尚未合併，本輪不是「驗收全部通過」。各階段提交均有 Codex Co-Authors。
 
 Co-authored-by: Codex <noreply@openai.com>
 
