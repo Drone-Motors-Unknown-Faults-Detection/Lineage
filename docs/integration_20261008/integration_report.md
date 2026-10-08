@@ -1,6 +1,6 @@
 # Lineage 分支整合報告
 
-2026-10-08，Asia/Taipei。候選程式版本：`5aaf48a8a96d92997c359fcaf709e2145f41e66d`。本文件是合併前驗收；遠端合併與合併後測試另記 `delivery.md`，不能只憑此文件宣稱 main 已更新。
+2026-10-08，Asia/Taipei。候選程式版本：`5aaf48a8a96d92997c359fcaf709e2145f41e66d`。下列保留合併前驗收紀錄；PR #38 已於21:19合併，main `e1668cb` 的111項合併後測試通過，完整交付狀態見 [delivery.md](delivery.md)。
 
 ## 完成範圍
 

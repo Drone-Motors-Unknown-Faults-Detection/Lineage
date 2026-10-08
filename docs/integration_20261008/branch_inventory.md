@@ -44,3 +44,7 @@ main、兩個 Web 已合併分支及 streaming 的 AGENT blob 相同：`8f35a6bf
 2. 建立 main 基準與唯讀資料索引，鎖定可抽取的獨立工具／文件。
 3. 對研究導覽與 streaming 分別驗證，相容改動限定 import、路徑、編排與文件；#35 或其他驗證不足的部分保留來源分支。
 4. 完整候選回歸、PR、合格批次實際合入 main，再核對 main 及受影響 smoke。所有分支保留。
+
+## 整合後覆核（21:19–21:20，Asia/Taipei）
+
+PR #38 已 MERGED，main 為 `e1668cb48b91520d2500be643351d9c4c8d9494b`。研究導覽與 exp1/3/4 串流已實際整合，不再只是候選。原分支清單再次完整查詢，所有原 head SHA 與上表相同，備份仍等於 MAIN_BEFORE。PR #36 仍 OPEN、head 544d4ed 不變；issue #35 仍 OPEN。其他研究模組仍未完成主線相依驗證，沒有藉本次合併宣稱完成。完整合併後111測試與五組真實配對通過，見 [交付紀錄](delivery.md)。本節更新不改動原盤點時點的 ahead/behind。
