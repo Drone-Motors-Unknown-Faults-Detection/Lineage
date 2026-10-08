@@ -463,9 +463,9 @@ output/{program}/{YYYY-MM-DD-HH-MM-SS}/       # results.csv / summary.json / *.p
 | 共變異數估計 | Ledoit–Wolf 收縮（高維小樣本可逆、良態）| Ledoit & Wolf (2004) *J. Multivariate Analysis*；替代：Chen et al. (2010) OAS |
 | 非參數開集對照 | 逐類 k-NN 平均歐氏距離 + known-only 校準分位數 | [Cover & Hart (1967)](https://doi.org/10.1109/TIT.1967.1053964) *IEEE Transactions on Information Theory*；[Ramaswamy, Rastogi & Shim (2000)](https://doi.org/10.1145/342009.335437) *SIGMOD* |
 | 新故障分群 | HDBSCAN（自動叢集數、雜訊點標記）| Campello, Moulavi & Sander (2013) |
-| 變化點偵測 | EWMA 管制圖 + CUSUM | Roberts (1959) *Technometrics*；Page (1954) *Biometrika* |
-| 持續學習 | 全資料重擬合（= 完整 rehearsal，迴避災難性遺忘）| Kirkpatrick et al. (2017) *PNAS* EWC；Rebuffi et al. (2017) *CVPR* iCaRL |
-| 衰退外插（未來工作）| 退化軌跡模板比對、隨機退化過程 | Gebraeel et al. (2005) *IIE Trans.*；Wang et al. (2008) *PHM Conf.*；Ye & Xie (2015) |
+| 變化點偵測 | EWMA超線旗標比例；CUSUM只供展示，判別門檻由專案設定 | Roberts (1959) *Technometrics*；Page (1954) *Biometrika*；[原文與實作對照](docs/issue_delivery_20261008/citation_followup.md) |
+| 持續學習模擬 | 操作員確認後用完整配置池重擬合（oracle），未驗證消除遺忘 | EWC／iCaRL僅為背景對照，未實作：[引用核對](docs/issue_delivery_20261008/citation_followup.md) |
+| 衰退外插（未實作）| 需要同個體歷程與失效終點，現有資料不支援RUL | 明確背景候選：Gebraeel et al. (2005), *Residual-life distributions from component degradation signals: A Bayesian approach*；Wang et al. (2008), *A Similarity-Based Prognostics Approach for Remaining Useful Life Estimation of Engineered Systems*；[DOI、全文狀態與舊引用限制](docs/issue_delivery_20261008/citation_followup.md) |
 
 ---
 
@@ -500,6 +500,6 @@ repo 保存——issue 討論串（#1–#60，缺陷成因與修正驗證）也�
 4. **發散故障需要較長累積**：嚴重鬆動與複合配置在特徵空間發散，即使有自適應密度
    階梯，發現延遲（225~265 筆）仍明顯高於輕度鬆動（65~105 筆）——更快的新方向
    發現（如線上式分群）是可改進點。
-5. **衰退曲線外插未實作**：T1/T2/T3 三個壽命期資料可作為 run-to-failure 模板
-   （similarity-based prognostics），為下一步方向。
+5. **衰退曲線外插未實作**：T1/T2/T3 是不同馬達個體，個體與老化影響混雜；
+   缺同個體連續歷程及失效終點，不能當作 run-to-failure 模板或估計RUL。
 6. **單一測試台、單一故障機制**：結論外推到其他 PHM 任務需再驗證。

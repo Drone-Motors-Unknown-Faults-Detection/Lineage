@@ -21,6 +21,12 @@ logs/output由core.logger.setup_run；手寫文件只放docs。效能差異本�
 
 ## #30 完成的本輪驗證
 
+提交6863cda42280156bbe33689e2c889ad22062d220，push成功，遠端同SHA。下一部分#19未涉及模型修改。
+
 - 本輪重新測main：21-38-17，Python3.10.19，111 passed、0 failed/errors/skipped，pip check與四CLI通過。21-38-02另76舊基準測試通過，不把兩者相加成187個不同測試。
 - 唯讀證據工具21-41-10：16檔來源SHA／AST行號、5份83846b來源SHA、6個工況60份資料清冊、65相對檔案目標全存在。資料fingerprint82534111c7901bfe0709637f4979976ce73445a54353e7c377e71e40b4cf2abd不變。
 - 17項都有目前狀態、來源、限制與issue／去重草稿；health_and_reports第2.2已在交付分支補連結。PERF未profiling，root escape未驗證。僅文件收尾，不替代原稽核反例、不發布issues或勾選。
+
+## #19 完成的本輪核對
+
+9條新／繼承來源逐條對照；另列Ye & Xie與Ancestor原稿參考表缺口，不重建117條目錄。Roberts原文局部、Cover原文局部與Wang候選原文局部可讀；Page／Gebraeel全文未取得，其他只取得作者或出版社摘要者明列限制。README消除完整池重擬合防遺忘保證及三馬達run-to-failure錯誤。21-49-46連結工具69相對目標存在、0失效，資料指紋不變；git diff --check通過。沒有重訓或效能改動，issue草稿尚未發布。
