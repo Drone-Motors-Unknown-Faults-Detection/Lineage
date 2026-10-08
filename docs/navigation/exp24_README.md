@@ -14,6 +14,8 @@ python -m web.guide --data-root D:/schoolshit/專題/src/Lineage/data --port 860
 
 這是獨立導覽入口，沒有取代原python -m web.server／8600。2026-10-08 另從PR #36部分抽取exp1/3/4串流，健康監測串流因#35仍排除；詳見[整合紀錄](../integration_20261008/execution_log.md)。使用者只需瀏覽器，不需VSCode。
 
+目前main已整合`web.guide`，根README也有文件入口與啟動命令；原`web/static/index.html`尚未加入導覽按鈕。#37最後的「主線首頁整合」仍未完成，不因獨立服務能開啟就勾選。原首頁的最小後續需求是加入獨立服務的操作提示／入口，須先協調PR36重疊檔案，本輪不修改。實際本輪驗收與資料範圍見[導覽驗收](../issue_delivery_20261008/guide_acceptance.md)。
+
 健康-only展示與跨馬達多類研究分開。學會前未知拒絕率、學會後已知接受率與自身配置分類accuracy不同；不提供無真值的損壞百分比、RUL或部署保證。
 
 > 主線整合註記：這份研究摘要來自固定研究提交 `b3d68f145cfa187e208e38cae74bf33f68d7c367`。表中歷史數字不是本輪重新執行；連到研究提交的模組／報告未必已合入 main。本輪只整合獨立導覽，main 的 PolarMap 與實驗頁保留。
