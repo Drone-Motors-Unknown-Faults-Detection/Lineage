@@ -52,7 +52,7 @@ CUSUM 累積 `(score - 1)` 的正偏移，欄位給展示看，不參與 `kind` 
 
 | 路徑 | 角色 |
 |---|---|
-| `experiments/exp3_trend.py` | `SCENARIOS`、`iter_stream`、`run`、`main` |
+| `experiments/exp3_trend.py` | `SCENARIOS`、`iter_stream`、`run`、`iter_run`、`main`；`run` 把 `iter_run` 跑完取最後的 `result`（2026-10-03 起） |
 | `core/trend.py` | `TrendMonitor.update` |
 | `core/monitor.py` | 階段 0 的開集分數 |
 | `core/data.py` | `CycleSampler` |
@@ -72,3 +72,6 @@ CUSUM 累積 `(score - 1)` 的正偏移，欄位給展示看，不參與 `kind` 
 - 另一套趨勢邏輯 `experiments/health/trajectory.py` 屬於實驗八，兩者差別見 [health_and_reports.md](../health_and_reports.md) 第 1.3 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 4 節。
 - Web 實驗頁：頁首「實驗三」，`web/experiments.py` 的 `CATALOG` 項目 `exp3` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp3`；結果存到 `output/web_server/{ts}/experiments/exp3_{時間}.json`。
+- 邊跑邊畫：頁面上的「⏵ 邊跑邊畫」改走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/{id}/stream`）逐步推送，速度 20／80／400 筆/秒可選。`iter_run()` 只多吐出中間事件，計算與 `run()` 相同；`tests/test_iter_run.py` 比對兩者輸出。兩個劇本的第 1 次重複逐筆畫出分數與 EWMA，其餘重複直接計算、只列結果。
+
+2026-10-08 整合：串流來源 PR #36 / `544d4ed8c6516622e2f46c095351f9483a61635c`，本輪只抽取實驗一／三／四，不含 health_monitor（#35 尚未修復）。計算與 main 原 run 配對後才可合入；細節見 [串流整合契約](../integration_20261008/streaming_contract.md)。

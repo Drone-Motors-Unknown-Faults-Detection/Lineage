@@ -43,7 +43,7 @@ Mahalanobis 距離用類別平均與共變異數。105 維、單類、訓練筆�
 
 | 路徑 | 角色 |
 |---|---|
-| `experiments/exp1_cold_start.py` | `run`、`_auroc`、`_make_figure`、`main` |
+| `experiments/exp1_cold_start.py` | `run`、`iter_run`、`_auroc`、`_make_figure`、`main`；`run` 把 `iter_run` 跑完取最後的 `result`（2026-10-03 起） |
 | `core/monitor.py` | `OpenSetMonitor.fit_initial`、`score`、`holdout` |
 | `core/data.py` | `HEALTHY`、`make_split`、`load_pools` |
 | `core/openset.py` | `create_openset_detector` |
@@ -66,3 +66,6 @@ Mahalanobis 距離用類別平均與共變異數。105 維、單類、訓練筆�
 - 已提交紀錄：`logs/exp1_cold_start/`、`output/exp1_cold_start/`（3 次執行）。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 2 節。
 - Web 實驗頁：頁首「實驗一」，`web/experiments.py` 的 `CATALOG` 項目 `exp1` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp1`；結果存到 `output/web_server/{ts}/experiments/exp1_{時間}.json`。
+- 邊跑邊畫：頁面上的「⏵ 邊跑邊畫」改走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/{id}/stream`）逐步推送，速度 20／80／400 筆/秒可選。`iter_run()` 只多吐出中間事件，計算與 `run()` 相同；`tests/test_iter_run.py` 比對兩者輸出。每筆開集分數依序播放（先健康 holdout、再九種故障），統計列逐配置出現。
+
+2026-10-08 整合：串流來源 PR #36 / `544d4ed8c6516622e2f46c095351f9483a61635c`，本輪只抽取實驗一／三／四，不含 health_monitor（#35 尚未修復）。計算與 main 原 run 配對後才可合入；細節見 [串流整合契約](../integration_20261008/streaming_contract.md)。
