@@ -1,0 +1,122 @@
+{
+  "experiment": "exp3",
+  "no": "實驗三",
+  "code": "experiments/exp3_trend.py",
+  "params": {
+    "dataset": "T1/8000rpm",
+    "openset_method": "mahalanobis",
+    "seed": 42,
+    "n_trials": 2
+  },
+  "seconds": 0.08,
+  "finished_at": "2026-10-08T13:39:30",
+  "result": {
+    "trials": [
+      {
+        "scenario": "A",
+        "trial": 0,
+        "expected": "gradual",
+        "verdict": "gradual",
+        "correct": true,
+        "alarm_t": 101,
+        "latency": 61,
+        "transition": 46
+      },
+      {
+        "scenario": "A",
+        "trial": 1,
+        "expected": "gradual",
+        "verdict": "gradual",
+        "correct": true,
+        "alarm_t": 96,
+        "latency": 56,
+        "transition": 39
+      },
+      {
+        "scenario": "B",
+        "trial": 0,
+        "expected": "sudden",
+        "verdict": "sudden",
+        "correct": true,
+        "alarm_t": 48,
+        "latency": 8,
+        "transition": 5
+      },
+      {
+        "scenario": "B",
+        "trial": 1,
+        "expected": "sudden",
+        "verdict": "sudden",
+        "correct": true,
+        "alarm_t": 47,
+        "latency": 7,
+        "transition": 6
+      }
+    ],
+    "summary": {
+      "A": {
+        "name": "劇本 A：漸進磨損",
+        "expected": "gradual",
+        "trials": 2,
+        "alarm_rate": 1.0,
+        "correct_rate": 1.0,
+        "mean_latency": 58.5,
+        "mean_transition": 42.5
+      },
+      "B": {
+        "name": "劇本 B：突發外力",
+        "expected": "sudden",
+        "trials": 2,
+        "alarm_rate": 1.0,
+        "correct_rate": 1.0,
+        "mean_latency": 7.5,
+        "mean_transition": 5.5
+      }
+    },
+    "model": {
+      "openset_method": "mahalanobis",
+      "method": "ledoit_wolf",
+      "score_type": "normalized_class_mahalanobis",
+      "threshold": 1.0,
+      "threshold_strategy": "known_calibration_class_quantile_0.95",
+      "calibration_source": "known-only 20% calibration split",
+      "confidence": 0.95,
+      "knn_neighbors": null,
+      "random_seed": 42,
+      "split": {
+        "train": 0.6,
+        "calibration": 0.2,
+        "holdout": 0.2
+      },
+      "n_known": 1,
+      "classes": [
+        {
+          "config": "8screws",
+          "label": 0,
+          "n_train": 187,
+          "n_cal": 62,
+          "n_holdout": 64,
+          "threshold": 9.714426899739127,
+          "centroid_pca": [
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    "seed": 42,
+    "n_trials": 2,
+    "openset_method": "mahalanobis",
+    "method": "ledoit_wolf",
+    "score_type": "normalized_class_mahalanobis",
+    "threshold": 1.0,
+    "threshold_strategy": "known_calibration_class_quantile_0.95",
+    "calibration_source": "known-only 20% calibration split",
+    "split": {
+      "train": 0.6,
+      "calibration": 0.2,
+      "holdout": 0.2
+    },
+    "knn_neighbors": null
+  }
+}

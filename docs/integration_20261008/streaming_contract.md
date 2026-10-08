@@ -14,3 +14,5 @@ run 的數學計算、train/cal/holdout 與參數沿用 main 與現有實驗手�
 - 相同來源輸出若不同、SSE 不能釋放鎖或舊頁失效，該部分不合 main；不調方法讓結果對齊。
 
 影響路徑：既有 `experiments/exp1_cold_start.py`、`exp3_trend.py`、`exp4_polar_map.py`；`web/experiments.py`、`server.py`、`static/index.html`、`static/experiments.js`；三份現有手冊；新增 `tests/test_stream_integration.py`。結果納入 `output/branch_integration` 與整合報告，CLI/main/logger 不變。
+
+本機 QA 使用 `python -m web.server --bind-address 127.0.0.1 --port 8612 --data-root D:/schoolshit/專題/src/Lineage/data`。新增顯式綁定選項，原 server 的區網預設保持；測試不得使用對外監聽來繞過權限拒絕。此選項只控制網路地址，不改研究方法。

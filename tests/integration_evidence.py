@@ -56,12 +56,16 @@ def run(phase, data_root):
         suite = loader.discover("tests", pattern="test_*.py")
     started = time.monotonic()
     result = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite)
+    # 一個 test method 可以有數個 subTest 失敗，不能扣成數個未通過方法。
+    failed_tests = {id(getattr(test, "test_case", test)) for test, _ in result.failures}
+    error_tests = {id(getattr(test, "test_case", test)) for test, _ in result.errors}
     evidence = {"phase": phase, "python": platform.python_version(), "executable": sys.executable,
                 "head": command(["git", "rev-parse", "HEAD"])["stdout"].strip(),
                 "main_before": MAIN_BEFORE, "tests_run": result.testsRun,
-                "failed": len(result.failures), "errors": len(result.errors),
+                "failed": len(failed_tests), "errors": len(error_tests),
+                "failure_entries": len(result.failures), "error_entries": len(result.errors),
                 "skipped": len(result.skipped),
-                "passed": result.testsRun - len(result.failures) - len(result.errors) - len(result.skipped),
+                "passed": result.testsRun - len(failed_tests | error_tests) - len(result.skipped),
                 "skip_reasons": [(str(test), reason) for test, reason in result.skipped],
                 "seconds": time.monotonic() - started, "data": data_index(data_root),
                 "pip_check": command([sys.executable, "-m", "pip", "check"]),

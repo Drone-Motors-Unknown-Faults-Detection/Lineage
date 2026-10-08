@@ -1,0 +1,20 @@
+2026-10-08 13:37:05 | INFO    | Logger initialized: web_server
+2026-10-08 13:37:05 | INFO    | log_file=logs\web_server\2026-10-08-13-37-05.log
+2026-10-08 13:37:05 | INFO    | output_dir=output\web_server\2026-10-08-13-37-05
+2026-10-08 13:37:05 | INFO    | 載入資料集 T1/8000rpm 並擬合健康基準…
+2026-10-08 13:37:05 | INFO    | Open Set method=mahalanobis（Mahalanobis estimator=ledoit_wolf）
+2026-10-08 13:37:05 | INFO    | session 紀錄（逐筆樣本 + 模型快照）→ output\web_server\2026-10-08-13-37-05
+2026-10-08 13:37:05 | INFO    | 就緒 → http://localhost:8612  （Ctrl+C 結束）
+2026-10-08 13:37:23 | INFO    | [t=0] ▶ 串流開始
+2026-10-08 13:37:27 | INFO    | 實驗頁串流 exp1 {'dataset': 'T1/8000rpm', 'openset_method': 'mahalanobis', 'seed': 42} rate=400.0
+2026-10-08 13:37:36 | INFO    | 實驗頁串流完成 exp1 → output\web_server\2026-10-08-13-37-05\experiments\exp1_2026-10-08-13-37-36.json
+2026-10-08 13:38:03 | INFO    | [t=400] ⏸ 串流暫停
+2026-10-08 13:38:04 | INFO    | 實驗頁串流 exp1 {'dataset': 'T1/8000rpm', 'openset_method': 'mahalanobis', 'seed': 42} rate=20.0
+2026-10-08 13:38:07 | INFO    | 實驗頁串流 exp1 被瀏覽器中斷
+2026-10-08 13:38:13 | INFO    | 實驗頁串流 exp3 {'dataset': 'T1/8000rpm', 'openset_method': 'mahalanobis', 'seed': 42, 'n_trials': 2} rate=400.0
+2026-10-08 13:38:14 | INFO    | 實驗頁串流完成 exp3 → output\web_server\2026-10-08-13-37-05\experiments\exp3_2026-10-08-13-38-14.json
+2026-10-08 13:38:41 | INFO    | 實驗頁串流 exp4 {'dataset': 'T1/8000rpm', 'seed': 42} rate=80.0
+2026-10-08 13:38:42 | INFO    | 實驗頁串流完成 exp4 → output\web_server\2026-10-08-13-37-05\experiments\exp4_2026-10-08-13-38-42.json
+2026-10-08 13:39:27 | INFO    | 實驗頁串流 exp3 {'dataset': 'T1/8000rpm', 'openset_method': 'mahalanobis', 'seed': 42, 'n_trials': 0} rate=80.0
+2026-10-08 13:39:30 | INFO    | 實驗頁執行 exp3 {'dataset': 'T1/8000rpm', 'openset_method': 'mahalanobis', 'seed': 42, 'n_trials': 2}
+2026-10-08 13:39:30 | INFO    | 實驗頁完成 exp3（0.08 秒）→ output\web_server\2026-10-08-13-37-05\experiments\exp3_2026-10-08-13-39-30.json

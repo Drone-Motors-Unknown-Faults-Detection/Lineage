@@ -30,6 +30,25 @@ def run(
     openset_method: str = "mahalanobis",
     knn_neighbors: int = 5,
 ) -> dict:
+    """批次介面：把 iter_run 跑完，回傳最後的結果。"""
+    for event in iter_run(pools, seed, confidence, method, openset_method, knn_neighbors):
+        pass
+    return event["result"]
+
+
+def iter_run(
+    pools: dict[str, np.ndarray],
+    seed: int = 42,
+    confidence: float = 0.95,
+    method: str = "ledoit_wolf",
+    openset_method: str = "mahalanobis",
+    knn_neighbors: int = 5,
+):
+    """逐步產生事件，供 Web 實驗頁邊跑邊畫；計算與 run() 完全相同。
+
+    事件依序為 fitted（擬合完成）、每個配置一組 scores（逐筆開集分數）與 row
+    （該配置的統計列），最後一個是 result（與 run() 回傳值相同）。
+    """
     monitor = OpenSetMonitor(
         pools,
         seed=seed,
@@ -39,8 +58,11 @@ def run(
         knn_neighbors=knn_neighbors,
     )
     monitor.fit_initial()
+    yield {"event": "fitted", "model": monitor.summary()}
 
     healthy_scores = monitor.score(monitor.holdout(HEALTHY))
+    yield {"event": "scores", "config": HEALTHY, "display": display_name(HEALTHY),
+           "kind": "healthy-holdout", "scores": healthy_scores.tolist()}
     rows = [
         {
             "config": HEALTHY,
@@ -53,10 +75,13 @@ def run(
             "median_score": float(np.median(healthy_scores)),
         }
     ]
+    yield {"event": "row", "row": rows[-1]}
     for config, pool in pools.items():
         if config in monitor.known:
             continue
         scores = monitor.score(pool)
+        yield {"event": "scores", "config": config, "display": display_name(config),
+               "kind": "unknown-fault", "scores": scores.tolist()}
         rows.append(
             {
                 "config": config,
@@ -69,9 +94,10 @@ def run(
                 "median_score": float(np.median(scores)),
             }
         )
+        yield {"event": "row", "row": rows[-1]}
 
     fault_rows = rows[1:]
-    return {
+    yield {"event": "result", "result": {
         "rows": rows,
         "healthy_fp_rate": rows[0]["detect_rate"],
         "macro_detect_rate": float(np.mean([r["detect_rate"] for r in fault_rows])),
@@ -87,7 +113,7 @@ def run(
         "split": {"train": 0.6, "calibration": 0.2, "holdout": 0.2},
         "knn_neighbors": knn_neighbors if openset_method == "knn" else None,
         "seed": seed,
-    }
+    }}
 
 
 def _auroc(neg_scores: np.ndarray, pos_scores: np.ndarray) -> float:

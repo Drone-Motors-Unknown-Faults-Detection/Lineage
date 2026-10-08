@@ -77,6 +77,26 @@ def run(
     openset_method: str = "mahalanobis",
     knn_neighbors: int = 5,
 ) -> dict:
+    """批次介面：把 iter_run 跑完，回傳最後的結果。"""
+    for event in iter_run(pools, n_trials, seed, confidence, method, openset_method, knn_neighbors):
+        pass
+    return event["result"]
+
+
+def iter_run(
+    pools: dict[str, np.ndarray],
+    n_trials: int = 20,
+    seed: int = 42,
+    confidence: float = 0.95,
+    method: str = "ledoit_wolf",
+    openset_method: str = "mahalanobis",
+    knn_neighbors: int = 5,
+):
+    """逐步產生事件，供 Web 實驗頁邊跑邊畫；計算與 run() 完全相同。
+
+    事件依序為 fitted、每筆串流一個 tick（分數、EWMA、CUSUM、是否警報）、
+    每次重複結束一個 trial，最後一個是 result（與 run() 回傳值相同）。
+    """
     monitor = OpenSetMonitor(
         pools,
         seed=seed,
@@ -86,6 +106,7 @@ def run(
         knn_neighbors=knn_neighbors,
     )
     monitor.fit_initial()
+    yield {"event": "fitted", "model": monitor.summary()}
 
     trials = []
     for key, scen in SCENARIOS.items():
@@ -94,8 +115,12 @@ def run(
             rng = np.random.default_rng(seed + 1000 * (ord(key) - ord("A") + 1) + k)
             trend = TrendMonitor()
             verdict, alarm_t, transition = None, None, None
-            for t, (x, _truth) in enumerate(iter_stream(pools, monitor, scen["phases"], rng), 1):
-                tr = trend.update(float(monitor.score(x)[0]))
+            for t, (x, truth) in enumerate(iter_stream(pools, monitor, scen["phases"], rng), 1):
+                score = float(monitor.score(x)[0])
+                tr = trend.update(score)
+                yield {"event": "tick", "scenario": key, "trial": k, "t": t, "truth": truth,
+                       "score": score, "ewma": tr["ewma"], "cusum": tr["cusum"],
+                       "alarm_now": tr["alarm_now"], "kind": tr["kind"], "onset": onset}
                 if tr["alarm_now"]:
                     verdict, alarm_t, transition = tr["kind"], t, tr["transition"]
                     break
@@ -111,6 +136,7 @@ def run(
                     "transition": transition,
                 }
             )
+            yield {"event": "trial", "trial": trials[-1]}
 
     summary = {}
     for key, scen in SCENARIOS.items():
@@ -126,7 +152,7 @@ def run(
             "mean_transition": None if not alarmed else float(np.mean([t["transition"] for t in alarmed])),
         }
     model = monitor.summary()
-    return {
+    yield {"event": "result", "result": {
         "trials": trials,
         "summary": summary,
         "model": model,
@@ -140,7 +166,7 @@ def run(
         "calibration_source": "known-only 20% calibration split",
         "split": {"train": 0.6, "calibration": 0.2, "holdout": 0.2},
         "knn_neighbors": knn_neighbors if openset_method == "knn" else None,
-    }
+    }}
 
 
 def main() -> None:

@@ -34,3 +34,16 @@ python -m web.guide --data-root D:/schoolshit/專題/src/Lineage/data --port 861
 ## 待整合串流邊界
 
 重新讀取 #36 全文、評論、reviews、checks；head 仍為 `544d4ed8c6516622e2f46c095351f9483a61635c`，無評論／review／checks。#35 仍 OPEN，health_monitor 用健康 holdout 索引取其他較短配置。本輪不接手其修法；若抽取串流，只帶 exp1/3/4，health stream 不註冊、不改 source branch 或 #35 狀態。
+
+## 串流批次
+
+- 導覽 commit `6ed1eae58ff9e581d39ac032d6853d26026cb83b` push及ref核對完成。
+- 串流事前契約與三份手冊 commit `cb34a40587797f246bff5e2bf4ba2a32acec7576` 已push、ref相同，之後才抽取程式。
+- 抽取 PR36 的 exp1/3/4 與 Web；排除 health_monitor 檔、catalog的health stream旗標及不可達windowcollector。必要適配保留 source commit與原作者，未改原分支。
+- 負面 run `output/branch_integration/2026-10-08-13-35-16`：110個 test methods中3個方法未通過、5 failure entries、0 errors/skips；舊wrapper把subTest entries扣成105passed，實際107方法通過。原證據保留，後續wrapper分開記method及subTest計數。
+- 確認 close例外會留下JOBS.current；新增最小失敗測試後以nested finally釋放鎖，不改實驗。另拒絕非物件參數與NaN/Inf速率。保存測試的路徑assert改為解讀原API的ROOT相對路徑，不改production保存行為。
+- `2026-10-08-13-36-09`：110 passed、0 failed/errors/skipped；正常close/斷線、batch/SSE互斥及例外回歸通過。
+- 安全審查拒絕server預設0.0.0.0對外監聽的QA命令，未執行。新增顯式--bind-address（保留原預設），以127.0.0.1啟動8612完成本機QA；未繞過網路保護。
+- `2026-10-08-13-37-36`：111 passed、0 failed/errors/skipped；CLI四入口與pip check通過。node --check兩份JS皆exit0。
+- `python -m tests.stream_regression --data-root D:/schoolshit/專題/src/Lineage/data --seed42`（實際CLI為`--seed 42`）：output/stream_integration_regression/2026-10-08-13-36-22/summary.json；exp1/3的Maha/kNN與exp4三子實驗共5組對原MAIN_BEFORE，run/iter_run全部相同，60檔source SHA未變。
+- 瀏覽器主入口、背景小窗、三實驗完成、停止、無效次數、錯誤後批次恢復已實際操作。詳見 output/integration_browser/stream_qa.md；#35未關閉。
