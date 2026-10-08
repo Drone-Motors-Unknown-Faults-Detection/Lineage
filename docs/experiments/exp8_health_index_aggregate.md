@@ -43,6 +43,7 @@ AGENT.md 指定的數位時代寫作文章本輪讀取失敗（non-retryable）�
 |---|---|
 | `experiments/health_index_aggregate.py` | 新增嚴格載入、彙總、逐欄比對與 CLI |
 | `tests/test_health_index_aggregate.py` | 不依賴 data 的完整與失敗 fixtures |
+| `tests/exp8_aggregate_validation.py` | `--scope related/full` 保存實際測試 stdout/stderr 與 pip check；使用 setup_run |
 | `docs/experiments/exp8_health_index_aggregate_contract.json` | 固定來源 SHA、矩陣與統計規則 |
 | `experiments/health_index_benchmark.py`、`health_index_matrix.py`、`experiments/health/evaluation.py` | 唯讀核對來源定義，不修改 |
 | `core/logger.py` | 使用既有日誌，不修改 |
