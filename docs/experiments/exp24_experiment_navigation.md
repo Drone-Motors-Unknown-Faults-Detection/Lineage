@@ -16,6 +16,8 @@
 
 ## 程式碼與輸出
 
+2026-10-08事前驗收補充：僅在`navigation_regression`保存配對ledger，不改Web科學計算。每筆追蹤實際sampler.draw取得的特徵SHA及配置池有限值列索引（同值多列保留全部候選，不假裝唯一raw ID），比較兩入口相同seed的row IDs、分數與判定。所有fit/cal索引另存，未知配置只有確認後才能出現於fit。兩方法各自相等，方法之間不要求分數相同。本輪可用來源是T1/T3×三RPM共六工況60CSV；實際逐筆驗收以T1/8000為有界操作條件，不擴稱九工況。
+
 | 用途 | 路徑 |
 |---|---|
 | 入口 | `experiments/navigation_data_contract.py`、`experiments/navigation_regression.py`（run/main/setup_run） |

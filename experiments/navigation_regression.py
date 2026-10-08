@@ -2,11 +2,14 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+
+import numpy as np
 
 from core.data import discover_datasets
 from core.logger import setup_run
-from experiments.navigation_data_contract import run as contract
+from experiments.navigation_data_contract import run as contract, split_audit
 from web.guide import GuideHub
 from web.live import LiveDemo
 
@@ -19,6 +22,31 @@ class Collector:
         msg = json.loads(raw)
         if msg["type"] == "sample":
             self.sample = msg
+
+
+def tick_with_row(demo, tick):
+    """只記錄既有draw結果，不改RNG或科學計算；同值列保留全部索引。"""
+    rows = []
+    originals = []
+    for config, sampler in demo.samplers.items():
+        draw = sampler.draw
+        originals.append((sampler, draw))
+
+        def recorded(draw=draw, config=config):
+            x = draw()
+            candidates = np.flatnonzero(np.all(demo.pools[config] == x, axis=1)).tolist()
+            rows.append({"config": config, "finite_row_indices": candidates,
+                         "feature_sha256": hashlib.sha256(np.asarray(x, dtype="<f8").tobytes()).hexdigest()})
+            return x
+
+        sampler.draw = recorded
+    try:
+        value = tick()
+        assert len(rows) == 1
+        return value, rows[0]
+    finally:
+        for sampler, draw in originals:
+            sampler.draw = draw
 
 
 def run(dataset, seed=42):
@@ -34,13 +62,20 @@ def run(dataset, seed=42):
         collector = Collector()
         hub.clients.add(collector)
         paired = 0
+        ledger = []
+        audits = [{"stage": "initial", "fit": split_audit(original)}]
         def tick():
             nonlocal paired
-            expected = next(m for m in original.tick() if m["type"] == "sample")
+            messages, expected_row = tick_with_row(original, original.tick)
+            expected = next(m for m in messages if m["type"] == "sample")
             hub.running = True
-            hub.tick()
+            _, guide_row = tick_with_row(hub.demo, hub.tick)
+            assert expected_row == guide_row
             assert all(expected[k] == collector.sample[k] for k in keys)
             assert original.session.monitor.summary() == hub.demo.session.monitor.summary()
+            ledger.append({"pair_id": f"{method}/{paired}", "epoch": original.epoch,
+                           "source": expected_row, "cli": {k: expected[k] for k in keys},
+                           "guide": {k: collector.sample[k] for k in keys}})
             paired += 1
         try:
             for _ in range(40):
@@ -57,6 +92,8 @@ def run(dataset, seed=42):
                 assert original.session.candidate["size"] == hub.demo.session.candidate["size"]
                 confirmed = original.confirm()
                 assert confirmed == hub.demo.confirm()
+                assert split_audit(original) == split_audit(hub.demo)
+                audits.append({"stage": "confirmed", "fit": split_audit(original)})
                 for _ in range(60):
                     tick()
             trends = {}
@@ -73,13 +110,14 @@ def run(dataset, seed=42):
                 trends[name] = hub.demo.alarms
             results.append({"method": method, "candidate_found": found,
                             "fault_arrival_count": arrival, "confirm": confirmed,
-                            "paired_samples": paired, "mismatches": 0, "trend_alarms": trends})
+                            "paired_samples": paired, "mismatches": 0, "trend_alarms": trends,
+                            "ledger": ledger, "fit_audits": audits})
         finally:
             original.close()
             hub.demo.close()
             hub.executor.shutdown()
     assert source == contract(dataset, seed)
-    return {"schema": "navigation_regression_v1", "data": source, "seed": seed,
+    return {"schema": "navigation_regression_v2", "data": source, "seed": seed,
             "paired_methods": results, "source_unchanged": True,
             "claim": "工程計算一致性，非模型可靠性或fresh盲測"}
 

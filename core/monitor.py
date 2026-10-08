@@ -39,11 +39,13 @@ class OpenSetMonitor:
         self.pca: PCA | None = None
         self.centroids: dict[str, tuple[float, float]] = {}
         self._label_to_config: dict[int, str] = {}
+        self._fitted = False
 
     # -- 擬合 ------------------------------------------------------------------
 
     def fit_initial(self, healthy: str = HEALTHY) -> None:
         """階段 0：只認識健康。"""
+        self._fitted = False
         self.known = {}
         self.splits = {}
         self._register(healthy)
@@ -66,6 +68,7 @@ class OpenSetMonitor:
         return label
 
     def _refit(self) -> None:
+        self._fitted = False
         X_tr, y_tr, X_ca, y_ca = [], [], [], []
         for config, label in self.known.items():
             pool, sp = self.pools[config], self.splits[config]
@@ -96,20 +99,28 @@ class OpenSetMonitor:
             for config, label in self.known.items()
         }
         self._label_to_config = {label: config for config, label in self.known.items()}
+        self._fitted = True
 
     # -- 推論 ------------------------------------------------------------------
 
+    def _require_fitted(self) -> None:
+        if not self._fitted:
+            raise RuntimeError("模型尚未完整擬合，請先成功呼叫 fit_initial()。")
+
     def score(self, X_raw: np.ndarray) -> np.ndarray:
         """正規化開集分數；> 1 視為未知。"""
+        self._require_fitted()
         return self.detector.score_samples(self.scaler.transform(np.atleast_2d(X_raw)))
 
     def classify(self, X_raw: np.ndarray) -> list[str | None]:
         """回傳最近的已知配置名稱；未知回傳 None。"""
+        self._require_fitted()
         labels = self.detector.predict_known_class(self.scaler.transform(np.atleast_2d(X_raw)))
         return [self._label_to_config.get(int(l)) if l >= 0 else None for l in labels]
 
     def project(self, X_raw: np.ndarray) -> np.ndarray:
         """投影到已知資料擬合出的 PCA 平面（僅供視覺化）。"""
+        self._require_fitted()
         return self.pca.transform(self.scaler.transform(np.atleast_2d(X_raw)))
 
     def holdout(self, config: str) -> np.ndarray:
@@ -118,6 +129,7 @@ class OpenSetMonitor:
 
     def summary(self) -> dict:
         """目前擬合狀態的可序列化摘要（保存用：逐類閾值與樣本數）。"""
+        self._require_fitted()
         classes = []
         for item in self.detector.class_summaries():
             label = int(item["label"])

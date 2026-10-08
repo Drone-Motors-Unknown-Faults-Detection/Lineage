@@ -1,5 +1,13 @@
 # docs/ 文件索引
 
+2026-10-08 issue交付：[17項稽核差異](issue_delivery_20261008/audit_followup.md)、[執行紀錄](issue_delivery_20261008/execution_log.md)。此輪僅透過PR交付，不自行合併或關issue。
+
+2026-10-09接續完成：[四項統一交付與證據位置](issue_delivery_20261008/delivery.md)，124項主線測試通過；#19引用缺口、#37原首頁入口仍未完成。
+
+引用收尾：[文獻與程式對照／剩餘未核實清單](issue_delivery_20261008/citation_followup.md)。
+
+導覽收尾：[實際操作與配對驗收](issue_delivery_20261008/guide_acceptance.md)。API防護：[未擬合契約與固定版本回歸](issue_delivery_20261008/monitor_guard.md)。
+
 2026-10-08 分支整合：[驗收報告](integration_20261008/integration_report.md)、[分支矩陣](integration_20261008/branch_inventory.md)、[機器索引](integration_20261008/manifest.json)。main 合併證據以後續 delivery 紀錄為準；未整合研究保留固定來源。
 
 > 實驗的白話說明在 [實驗說明手冊](Experiments_Guide.md)。
