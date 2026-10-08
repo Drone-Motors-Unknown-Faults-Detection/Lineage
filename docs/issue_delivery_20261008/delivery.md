@@ -2,6 +2,8 @@
 
 交付日期2026-10-09（Asia/Taipei），執行始於2026-10-08。工作樹`D:/schoolshit/專題/src/lineage_integration_20261008`；獨立分支`delivery/issues-30-19-37-29-20261008`，基線main `4f783c676849a27185cd28d2410b4e76639b7357`。所有手寫文件在docs；不恢復研究分支的reports。本輪建立PR供審閱，不直接推main、不合併、不關issue、不發布issue留言或更新checkbox。
 
+已建立[交付PR #40](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/40)，目前OPEN，未合併。
+
 ## 四部分與逐階段推送
 
 | 部分 | 實際完成／限制 | 提交（已push並核對遠端相同SHA） |

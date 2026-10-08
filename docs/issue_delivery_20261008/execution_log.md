@@ -56,3 +56,7 @@ computer-use瀏覽器實際驗收含三入口、兩模式、六工況選單、T1
 #29提交071d80498701ab524e181bf2f9fab28f4d4c54a6，push與遠端SHA一致。stage後diff check另發現紅燈tests.txt的一行尾端空白；PowerShell未因非零檢查自動中止後續commit，已在交付整理刪掉該空白並重新檢查整份PR差異。測試結果／trace未變，原始空白版本仍可從071d804追溯；後續提交命令加入失敗即停止檢查。
 
 03-16-10最終交付文件加入後，80個相對檔案目標0失效、六工況60CSV指紋不變。相對檔案存在不代表全歷史錨點驗證。與main基線相比，mahalanobis/openset/geometry/data及server/index/experiments.js/health_monitor皆無差異。完整PR的git diff --check已通過，新增交付文件掃描未見列出的簡體字。PR只供審閱，不合併／發布issue留言／勾選或關閉。
+
+## GitHub交付
+
+最後整理提交db1915a3d90fecc13c952f6e9d6e5d9c5cdfe7fa已push、遠端SHA相同。已建立並附加到本聊天的[PR #40](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/40)，base main、head本輪交付分支、state OPEN、mergeCommit null。最終唯讀核對main仍4f783c6、PR36仍OPEN且head544d4ed；#19／#29／#30／#37皆OPEN，沒有發布issue留言或勾選。本段後續提交只補PR連結，不改程式；該提交的SHA以Git歷史與遠端核對為準。
