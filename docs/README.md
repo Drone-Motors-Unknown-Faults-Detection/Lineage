@@ -30,6 +30,7 @@
 | 實驗七 | [exp7_compare_openset](experiments/exp7_compare_openset.md) | `experiments/compare_openset.py` |
 | 實驗八 | [exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
 | 實驗八 | [exp8_health_index_matrix](experiments/exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` |
+| 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`（本輪新增）；54 列與歷史逐欄比對 |
 | 實驗八 | [exp8_health_monitor](experiments/exp8_health_monitor.md) | `experiments/health_monitor.py` |
 | 實驗二十四 | [exp24_experiment_navigation](experiments/exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`experiments/navigation_regression.py`；獨立 `web.guide` |
 
