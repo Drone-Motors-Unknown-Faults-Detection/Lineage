@@ -2,6 +2,8 @@
 
 2026-10-08 issue交付：[17項稽核差異](issue_delivery_20261008/audit_followup.md)、[執行紀錄](issue_delivery_20261008/execution_log.md)。此輪僅透過PR交付，不自行合併或關issue。
 
+2026-10-09接續完成：[四項統一交付與證據位置](issue_delivery_20261008/delivery.md)，124項主線測試通過；#19引用缺口、#37原首頁入口仍未完成。
+
 引用收尾：[文獻與程式對照／剩餘未核實清單](issue_delivery_20261008/citation_followup.md)。
 
 導覽收尾：[實際操作與配對驗收](issue_delivery_20261008/guide_acceptance.md)。API防護：[未擬合契約與固定版本回歸](issue_delivery_20261008/monitor_guard.md)。
