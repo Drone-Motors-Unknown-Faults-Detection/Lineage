@@ -35,8 +35,20 @@ logs/output由core.logger.setup_run；手寫文件只放docs。效能差異本�
 
 ## #37 本輪驗收
 
+提交e5a09d87789dbbfcc2e254051dd707bb9eebc7d0，push成功、遠端SHA一致。
+
 先在exp24手冊固定ledger語意，再補既有regression工具。21-52-04 Maha／kNN各595筆，0差異，1190筆列ID候選與特徵SHA都保存。新增兩測試；21-55-00第一輪112 passed／1 failed，原因是測試綁定draw太早，21-56-34修正後113 passed／0 failed/errors/skipped，pip check／四CLI通過。兩輪保存，不抹除失敗。
 
 computer-use瀏覽器實際驗收含三入口、兩模式、六工況選單、T1/8000基準、匿名候選、確認兩known、重連、重設及A/B。重設工具逾時，之後log與重新開頁證明完成epoch2；引擎完整版本UNKNOWN。Maha B160筆，sudden t48／transition6／延遲8；kNN A260筆，gradual t100／transition33／延遲60。只作功能檢查，不作兩方法勝負。
 
 關閉驗收clients後Ctrl+C停止兩個本輪服務，KeyboardInterrupt exit1為人工終止，不當成測試失敗；finally關檔。21-59-04封存核對3CSV：Maha epoch1=423、epoch2=160；kNN epoch1=260，各1…末筆連續、無尾筆缺失，19檔SHA保存。21-59-05相對檔案70目標0失效、資料SHA不變，diff check通過。原首頁整合仍待協調PR36，沒有修改重疊Web／健康串流；#37草稿尚未發布。
+
+## #29 與2026-10-09接續
+
+先完成monitor_guard文件、紅燈測試22-01-46，再改core/monitor.py。紅燈11個methods含14 failure entries／18 error entries（subTest），不是32個方法。最小guard在constructor／fit_initial／_refit追蹤完整成功擬合，score/classify/project/summary一致拒絕未擬合，其他公開讀取介面不放寬或改義。22-02-10專屬11項通過，8組固定舊版條件、各16列score/PCA差0，classify/summary/splits相同。
+
+上次完整測試的提權審查因額度失敗，動作沒有執行；沒有繞過。2026-10-09使用者要求接續後，重新正常審查並執行：03-11-15全套124 passed／0 failed/errors/skipped，Python3.10.19，pip check／exp1、exp4、compare_openset、web.server四CLI通過。未重建或聲稱驗證第二Python環境。
+
+重新fetch確認main4f783c6、交付e5a09d8、PR36 head544d4ed均未變，公開PR36不含core/monitor.py；原Lineage checkout仍clean。再次閱讀AGENT，只有根指引；寫作文章再次non-retryable，依列出的五項要求，不聲稱讀全文。未重訓研究模型、未動正式資料或Albert重疊檔案。
+
+03-13-18再跑真實T1/8000導航配對：兩方法各595筆、0差異，整份JSON與guard修改前21-52-04的SHA完全相同（dbae28737e288cbf46d4dedd8d352dfce884b82a28ff4daa4a9f36b94139e8e0）。03-13-37文件檢查73相對目標0失效，資料清冊SHA不變，diff check通過。所有執行輸出依setup_run保存。
