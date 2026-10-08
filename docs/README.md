@@ -1,5 +1,7 @@
 # docs/ 文件索引
 
+2026-10-08 分支整合：[驗收報告](integration_20261008/integration_report.md)、[分支矩陣](integration_20261008/branch_inventory.md)、[機器索引](integration_20261008/manifest.json)。main 合併證據以後續 delivery 紀錄為準；未整合研究保留固定來源。
+
 > 實驗的白話說明在 [實驗說明手冊](Experiments_Guide.md)。
 > 對程式的技術報告在 [experiments/](experiments/README.md)。
 > 下面的 Step 1–6、Tensorflow 與三份 Lineage 研究筆記是論文版管線的歷史快照。

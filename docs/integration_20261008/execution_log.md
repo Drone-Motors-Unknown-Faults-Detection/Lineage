@@ -45,5 +45,14 @@ python -m web.guide --data-root D:/schoolshit/專題/src/Lineage/data --port 861
 - `2026-10-08-13-36-09`：110 passed、0 failed/errors/skipped；正常close/斷線、batch/SSE互斥及例外回歸通過。
 - 安全審查拒絕server預設0.0.0.0對外監聽的QA命令，未執行。新增顯式--bind-address（保留原預設），以127.0.0.1啟動8612完成本機QA；未繞過網路保護。
 - `2026-10-08-13-37-36`：111 passed、0 failed/errors/skipped；CLI四入口與pip check通過。node --check兩份JS皆exit0。
-- `python -m tests.stream_regression --data-root D:/schoolshit/專題/src/Lineage/data --seed42`（實際CLI為`--seed 42`）：output/stream_integration_regression/2026-10-08-13-36-22/summary.json；exp1/3的Maha/kNN與exp4三子實驗共5組對原MAIN_BEFORE，run/iter_run全部相同，60檔source SHA未變。
+- `python -m tests.stream_regression --data-root D:/schoolshit/專題/src/Lineage/data --seed 42`：output/stream_integration_regression/2026-10-08-13-36-22/summary.json；exp1/3的Maha/kNN與exp4三子實驗共5組對原MAIN_BEFORE，run/iter_run全部相同，60檔source SHA未變。
 - 瀏覽器主入口、背景小窗、三實驗完成、停止、無效次數、錯誤後批次恢復已實際操作。詳見 output/integration_browser/stream_qa.md；#35未關閉。
+
+## 封存與PR前驗收
+
+- 串流commit `5aaf48a8a96d92997c359fcaf709e2145f41e66d` 已push、ls-remote相同；保留原作者與Claude/Codex coauthors。
+- 對已提交5aaf48a重跑 `2026-10-08-13-41-48`：111 passed、0 failed/errors/skipped，四CLI及pip check通過。導覽回歸重跑`2026-10-08-13-42-01`亦1190筆差異0、來源不變。
+- 本輪證據ZIP `D:/schoolshit/專題/src/lineage_integration_backups/2026-10-08-134300/validated_evidence.zip`：29entries全CRC通過、SHA d62021a86273c6d6f69122a65f69ab2adce1015c6683407b024290e8798c6982。未覆蓋舊備份；包內為當時已完成證據，不假裝含尚未發生的merge。
+- 抽查歷史23-49-34 ZIP：11entries全CRC通過，SHA414532b03e8dbc3a7e13b22daef2934c5771bdfbddcdcfb35f4cae80108df047。其他大型ZIP僅盤點，未全CRC。
+- core、health、pyproject、AGENT、LiveDemo與exp2相對MAIN_BEFORE零diff，原exp6/exp8摘要SHA保留，無tracked deletions。原D槽checkout依舊clean/dda8910，未還原研究鏡像缺失。
+- 最後ls-remote main仍64cb71d；PR前再次核對。合併後結果另存delivery，不用mergeable代替測試或已合併狀態。
