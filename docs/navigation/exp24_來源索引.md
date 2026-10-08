@@ -1,0 +1,43 @@
+# 實驗來源索引
+
+盤點基線研究5be4c7865a721afaab3404a5481377f39ded7abd、main64cb71d84663e1745ec54db74abad68def67e8e6。完整入口與SHA：[機器索引](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/output/navigation_inventory/2026-10-06-23-43-36/source_index.json)；250項已保存方法／分數：[壓縮方法清冊](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/output/navigation_inventory/2026-10-06-23-43-36/method_inventory.json.gz)。91個研究模組與24個main模組包含稽核／報表工具，不等於115個獨立實驗。逐方法參數、來源、summary SHA完整保留；不把規劃支線當已執行。
+
+| ID | 資料、用途與實際來源 |
+|---|---|
+| S1 冷啟動 | HEAD:output/exp1_cold_start/2026-08-26-11-34-13/summary.json及results.csv，Git唯讀；T1/8000、seed42，健康187train／62cal／64holdout；九faulty 2736筆，未參與fit/cal。未確認此舊版本CSV指紋與formal90完全相同，不混用新28910分母。 |
+| S2 擴張 | HEAD:output/exp2_scale_growth/2026-08-26-14-30-15/summary.json及stages.csv；seed42同機T1/8000，循環抽未知全池；確認後完整配置池60/20/20重擬合，非只到達樣本。 |
+| S3 趨勢 | HEAD:output/exp3_trend/2026-08-26-13-17-09/summary.json及trials.csv；seed42各10次。另HEAD:output/exp3_trend/2026-08-26-11-34-24/summary.json及trials.csv各40次，39/40判對（97.5%，文件四捨五入98%）；兩批未合成。 |
+| S4 跨工況／PolarMap／七偵測器 | 固定main docs/experiments/exp4_polar_map、exp5_cross_condition、exp6_osr_benchmark.md及對應output。現行程式與舊手冊不同處按固定ref讀；未核完整最新逐樣本成績者不填假百分比。 |
+| S5 六種冷啟動比較與校準 | reports/research_improvements/detector_comparison/summary.json、calibration_ablation/summary.json；固定P1 protocol dff5656…、seeds42/123/2026，healthy-only；真實motor與ID角色見同目錄protocol，不拿此值當healthy＋5多類。 |
+| S6 初始類別矩陣 | reports/fault_type_openset/final_findings.md、reproduction.md；A N5全126組756次、其他N1014、B720，共2490；舊共用val/cal與共同selector依賴保留。 |
+| S7 固定三馬達 | reports/fixed_motor_calibration/result_index.json與output/fault_type_fixed_report/2026-10-01-19-34-14/verified_results.json；36評估、18classifier fits、346920紀錄；選擇IDs空，cal專用，非fresh。 |
+| S8 分類器／表示初輪 | reports/fault_type_accuracy_study/result_index.json；先train/validation歷史比較；global選擇用其他fold已曝光資料的問題由S7修正，不把舊winner當盲測。 |
+| S9 C與D | reports/literature_expansion/result_index.json；C的LDA／線性／SVM等固定候選，D解耦分類與拒絕；所有欄位及variants見250項清冊與完整報告。 |
+| S10 機制有限改編 | reports/mechanism_research_v2/result_index.json；幅值、形狀、原型／近鄰及RPM對照；不稱獨立新資料。 |
+| S11 Q、solver、E–M | reports/continuous_research/global_attempt_ledger.json、各result_index；[逐批原報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/issue_delivery_20261005/research_report.md)與下表。 |
+| S12 健康／持續學習／場景／同步 | reports/health_index_results/aggregate_summary.json、reports/research_improvements/continual_learning/summary.json、field_scenarios/summary.json、reports/synchronized_pipeline/evidence_registry.json。各自資料版本及arrival-only／oracle用途分開；事件時間是模擬，不宣稱真實秒。 |
+| S13 稽核 | reports/data_independence/audit_20261001.md、reports/fault_type_openset/provenance_followup.md、reports/citation_audit_20261005；已確認的特徵鏈與UNKNOWN採集條件分開。 |
+| S14 歷史深層LW/OAS/MCD | docs/Mahalanobis_Improvement.md（起點Git快照；程式已移Ancestor），18 pretrained models、T1/T3、三架構／三RPM、known8/1/2/3/4與unknown5/6/7/3_14/4_146；文件回報，不把本輪formal105／P1消融當成同一個實驗。原逐筆預測未在本輪重算。 |
+
+HEAD表示本輪起點5be4c7865a721afaab3404a5481377f39ded7abd。上述被刪本機檔以Git物件讀取，未還原。來源SHA及run metadata可由機器索引／原result_index查；主總覽不塞全部ID。文獻：既有LW、HDBSCAN、EWMA、PCA、Cover–Hart及各改編原來源見[exp23清冊](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/citation_audit_20261005/README.md)，未確認全文者不升級為VERIFIED。
+
+## 逐批保留負面結果
+
+| 批次 | 方法家族 | planned／completed／incomplete | 科學結論 |
+|---|---|---|---|
+| Q | 局部距離與比值8方法 | 72／60／12 | 六完整方法未達標；Q02/Q04訓練未收斂 |
+| solver | train-only hard／smooth | 27 fits，沒有outer | hard150 3/9、smooth150 5/9、hard600 9/9收斂；無準確率證明 |
+| E | 收斂距離與kNN／中心12方法 | 108／108／0 | 全部FAILED；subset／all-train kNN比identity下降3.507／3.655百分點 |
+| F | 局部Fisher／PCA16方法 | 144／144／0 | 全部FAILED |
+| G | 判別原型24方法 | 216／216／0 | 全部FAILED |
+| H | 平滑L1距離12方法 | 108／108／0 | 全部FAILED |
+| I | RPM相關原型12方法 | 108／108／0 | 全部FAILED |
+| J | 工況距離＋拒絕36方法 | 324／324／0 | 全部FAILED |
+| K | 三軸排列核9方法 | 81／81／0 | 全部FAILED；不是旋轉感測器實驗 |
+| L | 等RPM／風險差異18方法 | 162／162／0 | 全部FAILED |
+| M | 特徵自挑戰24方法 | 216／216／0 | 全部FAILED，1134配對；2081520紀錄仍只有28910 unique samples |
+| N | Group DRO | 規劃216／實作0 | 已規劃未實作；不可稱測過或失敗 |
+
+沒有將來源重建、重推論、備份副本當新訓練。六分類的accuracy含healthy，fault accuracy排除healthy，unknown召回只算四個未知配置，分母不能互換。
+
+> 主線整合註記：這份研究摘要來自固定研究提交 `b3d68f145cfa187e208e38cae74bf33f68d7c367`。表中歷史數字不是本輪重新執行；連到研究提交的模組／報告未必已合入 main。本輪只整合獨立導覽，main 的 PolarMap 與實驗頁保留。

@@ -1,5 +1,7 @@
 # docs/ 文件索引
 
+2026-10-08 分支整合：[驗收報告](integration_20261008/integration_report.md)、[分支矩陣](integration_20261008/branch_inventory.md)、[機器索引](integration_20261008/manifest.json)。main 合併證據以後續 delivery 紀錄為準；未整合研究保留固定來源。
+
 > 實驗的白話說明在 [實驗說明手冊](Experiments_Guide.md)。
 > 對程式的技術報告在 [experiments/](experiments/README.md)。
 > 下面的 Step 1–6、Tensorflow 與三份 Lineage 研究筆記是論文版管線的歷史快照。
@@ -29,6 +31,9 @@
 | 實驗八 | [exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
 | 實驗八 | [exp8_health_index_matrix](experiments/exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` |
 | 實驗八 | [exp8_health_monitor](experiments/exp8_health_monitor.md) | `experiments/health_monitor.py` |
+| 實驗二十四 | [exp24_experiment_navigation](experiments/exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`experiments/navigation_regression.py`；獨立 `web.guide` |
+
+給老師的七問整理與示範順序：[exp24 導覽入口](navigation/exp24_README.md)。研究摘要連到固定研究提交，未將未合入主線的方法當成 main 功能。
 
 ## 現行健康監測工作流程
 

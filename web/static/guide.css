@@ -1,0 +1,12 @@
+:root{font-family:"Microsoft JhengHei",system-ui,sans-serif;color:#1b3546;background:#f1f5f6;font-size:17px}
+*{box-sizing:border-box}body{margin:0}header,main,nav{max-width:1180px;margin:auto;padding:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px}h1{font-size:1.9rem;margin:0}h2{font-size:1.35rem}h3{font-size:1rem}
+.eyebrow{font-size:.8rem;letter-spacing:.08em;color:#426a7a}nav{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:0}
+button,select{font:inherit;border:1px solid #648490;border-radius:8px;background:white;color:#173f51;padding:10px 15px}
+button{cursor:pointer}button:hover:not(:disabled){background:#d8edf1}button:disabled{opacity:.5;cursor:not-allowed}button.active{background:#164d62;color:white}
+:focus-visible{outline:3px solid #c17a00;outline-offset:3px}section{background:white;border-radius:12px;padding:22px;margin-bottom:20px;border:1px solid #d8e1e5}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0}
+.cards article{background:#edf4f7;padding:12px;border-radius:9px}.cards p{line-height:1.6;overflow-wrap:anywhere}.limit{border-left:4px solid #ae7c25;background:#fff8e9;padding:12px;font-size:.94rem;line-height:1.7}
+#step{font-weight:bold}p{line-height:1.65}canvas{width:100%;height:240px;background:#f5f8fa;border:1px solid #d9e4e8}figure{margin:20px 0}figcaption{font-size:.88rem;margin-top:10px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.85rem;max-height:500px;overflow:auto}table{border-collapse:collapse;font-size:.88rem;min-width:1050px}td,th{border:1px solid #cbdce1;padding:10px;text-align:left;vertical-align:top}.tableWrap{overflow:auto}summary{cursor:pointer;padding:12px 0}footer{font-size:.85rem}#events{max-height:220px;overflow:auto}a{color:#175b78}
+@media(max-width:760px){header{align-items:flex-start;flex-direction:column}h1{font-size:1.5rem}nav{grid-template-columns:1fr}.cards{grid-template-columns:1fr}main,header,nav{padding:14px}section{padding:16px}button,select{max-width:100%}canvas{height:180px}}

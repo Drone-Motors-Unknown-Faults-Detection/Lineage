@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lineage｜逐步研究導覽</title><link rel="stylesheet" href="/assets/guide.css"><script src="/assets/guide.js" defer></script></head>
+<body><header><div><p class="eyebrow">LINEAGE · CSV 視窗展示</p><h1>先認識健康，再處理未知</h1></div>
+<button id="mode" aria-pressed="false">切換研究模式</button></header>
+<nav aria-label="主要流程">
+<button data-flow="cold">開始冷啟動監測</button>
+<button data-flow="learning">觀看未知故障學習</button>
+<button data-flow="trend">觀看漸進／突發損壞比較</button>
+</nav>
+<main><section class="intro"><h2 id="flowTitle">請選一條流程</h2>
+<p>三條流程共用一個 session。切頁不重訓；換馬達／轉速須明確重建基準。</p>
+<p class="limit">這是現有 CSV 逐筆演算，不是硬體連線。未知不代表已確認故障原因；學成已知不代表健康恢復。</p></section>
+<section aria-labelledby="dataTitle"><h2 id="dataTitle">1．選資料，檢查後建立健康基準</h2>
+<div class="controls"><label>馬達／轉速 <select id="dataset"><option value="">尚未取得資料</option></select></label>
+<button id="inspect">確認所選資料</button><button id="build">建立健康基準</button></div>
+<p id="preview">先檢查來源、105 維、可用筆數與 seed。資料不足不能開始。</p>
+<p>建立基準只用健康配置的 train／cal；健康 holdout 供重播，未知配置不參與擬合。</p></section>
+<section aria-labelledby="sessionTitle"><h2 id="sessionTitle">2．依狀態操作</h2>
+<p id="connection" role="status">連線中</p>
+<p id="nextStep" role="status">下一步：選流程，檢查資料。</p>
+<div class="cards"><article><h3>正在做哪一步</h3><p id="step">待建基準</p></article>
+<article><h3>用什麼資料</h3><p id="data">尚無模型</p></article>
+<article><h3>判斷</h3><p id="judgment">尚未計算</p></article>
+<article><h3>為什麼</h3><p id="reason">score &gt; 1 拒絕；&gt; 2 才送隔離區。最近中心未由事件提供。</p></article>
+<article><h3>可信到哪裡</h3><p id="evidence">舊資料展示；raw/session UNKNOWN，fresh INCOMPLETE。</p></article></div>
+<div class="controls"><button id="start" disabled>開始／繼續</button><button id="pause" disabled>暫停</button>
+<button id="reset" disabled>重設健康基準</button>
+<label>重播速度 <select id="rate"><option value="4">4 筆／秒</option><option value="10">10 筆／秒</option><option value="1">1 筆／秒</option></select></label></div>
+<div id="learning"><label>訊號來源 <select id="source" disabled></select></label><button id="inject" disabled>輸入所選來源</button>
+<p id="quarantine">隔離 0 筆；分群連續失敗 0 次（成功歸零，非總嘗試）；沒有候選</p>
+<button id="confirm" disabled>模擬操作員確認</button>
+<p class="limit">至少 25 筆不保證有群。確認才顯示配置答案；既有後端有 truth 快取，分群幾何不讀 truth。確認後使用完整標記配置池重擬合，不是只學剛到達的叢集。</p></div>
+<div id="trend" hidden><button id="scenarioA" disabled>漸進劇本 A</button><button id="scenarioB" disabled>突發劇本 B</button>
+<p>比較時先重設基準，再各自播放。A 260 筆、B 160 筆後暫停；EWMA α=.08，帶 [.2,.5)，停留≤12筆判突發。不是物理磨損或壽命。</p></div>
+<figure><canvas id="chart" width="960" height="240" aria-label="正規化分數或 EWMA 隨筆數的折線圖"></canvas>
+<figcaption id="chartCaption">正規化未知分數；虛線 1 是拒絕線。圖截頂只影響顯示，判定仍用原分數。</figcaption></figure>
+<p id="alarm">趨勢警報：尚未計算</p>
+<div id="metrics"></div>
+<details><summary>操作與錯誤紀錄</summary><ol id="events"></ol></details>
+</section>
+<section id="research" hidden><h2>研究模式：同一模型，展開來源</h2>
+<p>模式切換不送計算命令。以下是既有模型 threshold、fit/cal/holdout 索引；索引是有限值列，不是 raw window。</p>
+<p>raw 距離、最近中心與完整 confusion matrix：本 session 未計算。健康損壞百分比／RUL：沒有真值，不提供。</p>
+<details><summary>參數、筆數、threshold 與資料 SHA</summary><pre id="technical"></pre></details>
+<h3>七問實驗總覽</h3><div id="overview" class="tableWrap"></div>
+<p><a href="/docs/exp24_實驗總覽.md">原始 Markdown</a> · <a href="/docs/exp24_結果白話解讀.md">結果白話解讀</a> · <a href="/docs/exp24_來源索引.md">完整來源</a>
+· <a href="/docs/exp24_研究流程圖.svg">研究流程圖 SVG</a></p>
+<p>舊研究頁仍可用：另行啟動 <code>python -m web.server</code>，原入口 <a href="http://127.0.0.1:8600">localhost:8600</a>；未啟動會無法連線。</p></section>
+<footer>本工況展示的工程驗收不等於跨馬達部署保證。三 motor×三 RPM 的九工況與九 faulty 配置不能混為一談。</footer>
+</main></body></html>

@@ -60,7 +60,7 @@ venv/bin/python -m experiments.exp4_polar_map --part a
 
 | 路徑 | 角色 |
 |---|---|
-| `experiments/exp4_polar_map.py` | `run_geometry`、`run_direction`、`run_severity`、`run`、`main` |
+| `experiments/exp4_polar_map.py` | `run_geometry`、`run_direction`、`run_severity`、`run`、`iter_run`、`main`；`run` 把 `iter_run` 跑完取最後的 `result`（2026-10-03 起） |
 | `core/geometry.py` | `PolarMap`、`Ray`、白化與餘弦 |
 | `core/mahalanobis.py` | 幾何用的 Ledoit–Wolf 模型 |
 | `core/monitor.py` | `fit_initial`、`add_class` |
@@ -81,3 +81,6 @@ venv/bin/python -m experiments.exp4_polar_map --part a
 - PolarMap 固定建在 Mahalanobis 上的經過：[實驗六進度紀錄（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/ancester_openset_exp6_progress.md) P8。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 5 節。
 - Web 實驗頁：頁首「實驗四」，`web/experiments.py` 的 `CATALOG` 項目 `exp4` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp4`；結果存到 `output/web_server/{ts}/experiments/exp4_{時間}.json`。
+- 邊跑邊畫：頁面上的「⏵ 邊跑邊畫」改走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/{id}/stream`）逐步推送，速度 20／80／400 筆/秒可選。`iter_run()` 只多吐出中間事件，計算與 `run()` 相同；`tests/test_iter_run.py` 比對兩者輸出。(a)(b)(c) 三段各自算完就先畫出來。
+
+2026-10-08 整合：串流來源 PR #36 / `544d4ed8c6516622e2f46c095351f9483a61635c`，本輪只抽取實驗一／三／四，不含 health_monitor（#35 尚未修復）。計算與 main 原 run 配對後才可合入；細節見 [串流整合契約](../integration_20261008/streaming_contract.md)。

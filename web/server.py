@@ -12,18 +12,22 @@
 experiments/ 模組的 run()；用另一個單執行緒池，跑實驗時即時展示照常串流：
     GET  /api/experiments               實驗目錄、資料集、配置清單
     POST /api/experiments/{id}/run      以 JSON 參數執行一次，回傳結果並存檔
+    GET  /api/experiments/{id}/stream   邊跑邊畫（Server-Sent Events）：?params=<JSON>&rate=<筆/秒>
     GET  /api/committed/{name}          已提交的矩陣結果（唯讀）
 """
 
 from __future__ import annotations
 
 import argparse
+import asyncio
 import json
+import math
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import tornado.ioloop
+import tornado.iostream
 import tornado.web
 import tornado.websocket
 from loguru import logger
@@ -178,6 +182,75 @@ class RunHandler(_JSONHandler):
         self.reply(payload)
 
 
+class StreamHandler(tornado.web.RequestHandler):
+    """以 Server-Sent Events 逐 frame 推送實驗進度；依 rate 控制每秒播放的樣本數。"""
+
+    def initialize(self) -> None:
+        self.closed = False
+
+    def on_connection_close(self) -> None:
+        self.closed = True
+
+    async def send(self, frame: dict) -> None:
+        self.write(f"data: {json.dumps(frame, ensure_ascii=False, allow_nan=False)}\n\n")
+        await self.flush()
+
+    async def get(self, exp_id: str) -> None:
+        self.set_header("Content-Type", "text/event-stream; charset=utf-8")
+        self.set_header("Cache-Control", "no-store")
+        try:
+            params = json.loads(self.get_argument("params", "{}"))
+            rate = float(self.get_argument("rate", "40"))
+            if not isinstance(params, dict) or not math.isfinite(rate):
+                raise ValueError("參數必須是物件且速率必須有限")
+            rate = max(1.0, min(1000.0, rate))
+        except (json.JSONDecodeError, ValueError):
+            await self.send({"event": "error", "error": "參數不是合法 JSON 或速率不是數字"})
+            return
+        if JOBS.current is not None:
+            await self.send({"event": "error", "error": f"{JOBS.current} 執行中，請稍候"})
+            return
+        JOBS.current = exp_id
+        logger.info(f"實驗頁串流 {exp_id} {params} rate={rate}")
+        loop = tornado.ioloop.IOLoop.current()
+        gen = None
+        try:
+            gen = JOBS.runner.stream(exp_id, params)
+            budget = 0.0
+            while not self.closed:
+                item = await loop.run_in_executor(JOBS.executor, next, gen, None)
+                if item is None:
+                    break
+                frame, units = item
+                await self.send(frame)
+                if frame["event"] == "done":
+                    logger.info(f"實驗頁串流完成 {exp_id} → {frame['payload']['saved']}")
+                budget += units / rate
+                if budget >= 0.02:  # 累積到 20 ms 才睡，避免每筆都排程
+                    await asyncio.sleep(budget)
+                    budget = 0.0
+            if self.closed:
+                logger.info(f"實驗頁串流 {exp_id} 被瀏覽器中斷")
+        except ValueError as exc:
+            await self.send({"event": "error", "error": str(exc)})
+        except tornado.iostream.StreamClosedError:
+            logger.info(f"實驗頁串流 {exp_id} 連線已關閉")
+        except Exception as exc:  # 展示現場永不讓伺服器死掉
+            logger.exception(f"實驗 {exp_id} 串流失敗")
+            try:
+                await self.send({"event": "error", "error": f"{exp_id} 執行失敗：{exc!r}"})
+            except tornado.iostream.StreamClosedError:
+                pass
+        finally:
+            try:
+                if gen is not None:
+                    await loop.run_in_executor(JOBS.executor, gen.close)
+            except Exception:
+                logger.exception("串流產生器關閉失敗；仍釋放執行鎖")
+            finally:
+                JOBS.current = None
+
+
 class CommittedHandler(_JSONHandler):
     def get(self, name: str) -> None:
         try:
@@ -297,6 +370,7 @@ def main() -> None:
     parser.add_argument("--motor", default="T1")
     parser.add_argument("--rpm", default="8000rpm")
     parser.add_argument("--port", type=int, default=8600)
+    parser.add_argument("--bind-address", default="0.0.0.0", help="監聽地址；本機驗證請用 127.0.0.1")
     parser.add_argument("--rate", type=int, default=4, help="每秒樣本數（1-10）")
     parser.add_argument("--seed", type=int, default=42)
     add_openset_args(parser)
@@ -338,10 +412,11 @@ def main() -> None:
         (r"/ws", WSHandler),
         (r"/api/experiments", CatalogHandler),
         (r"/api/experiments/([a-z0-9_]+)/run", RunHandler),
+        (r"/api/experiments/([a-z0-9_]+)/stream", StreamHandler),
         (r"/api/committed/([a-z0-9_]+)", CommittedHandler),
         (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": str(STATIC_DIR)}),
     ])
-    app.listen(args.port, address="0.0.0.0")
+    app.listen(args.port, address=args.bind_address)
     HUB.set_rate(args.rate)
     log.info(f"就緒 → http://localhost:{args.port}  （Ctrl+C 結束）")
     try:
