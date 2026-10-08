@@ -31,6 +31,7 @@
 | 實驗八 | [exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
 | 實驗八 | [exp8_health_index_matrix](experiments/exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` |
 | 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`（本輪新增）；54 列與歷史逐欄比對 |
+| 實驗八 | [重算驗證與給老師的說明](experiments/exp8_health_index_aggregate_delivery.md) | 149 項測試；349 項比對有兩項精度差異，#25 保持開放 |
 | 實驗八 | [exp8_health_monitor](experiments/exp8_health_monitor.md) | `experiments/health_monitor.py` |
 | 實驗二十四 | [exp24_experiment_navigation](experiments/exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`experiments/navigation_regression.py`；獨立 `web.guide` |
 

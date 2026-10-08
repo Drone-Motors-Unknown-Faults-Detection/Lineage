@@ -69,7 +69,7 @@ AGENT.md「關鍵參數」表列的趨勢參數是 `TrendMonitor` 的；`Session
 這些是現況紀錄，本次沒有改程式：
 
 - 三支 health CLI 都沒有呼叫 `core.logger.setup_run()`（鐵則 4）。`health_index_benchmark` 與 `health_monitor` 把 JSON 印到 stdout；`health_index_matrix` 預設寫到 `reports/exp8_health_index_results/`（`experiments/health_index_matrix.py:49`），不是 `output/`。
-- `reports/exp8_health_index_results/aggregate_summary.json` 與 `aggregate_by_condition.csv` 沒有對應的產生程式，`experiments/aggregate_exp6.py` 只處理 exp6。
+- 原 `reports/exp8_health_index_results/aggregate_summary.json` 與 `aggregate_by_condition.csv` 的生成程式未提交。新增 `experiments/health_index_aggregate.py` 唯讀重算並逐欄核對：349 項中 347 吻合、兩個差值欄有四捨五入順序差異，原公式仍 UNKNOWN；[手冊與驗證](experiments/exp8_health_index_aggregate_delivery.md)。`aggregate_exp6.py` 仍只處理 exp6，三支原 health CLI 的 #24 缺口本輪未改。
 - [exp8_health_monitoring_workflow.md](exp8_health_monitoring_workflow.md) 的指令是 Windows PowerShell 寫法（`.\venv\Scripts\python.exe`）且帶 `--data-root data/formal_local`；本 repo 其他文件用 `venv/bin/python`。
 - `experiments/health/config.py` 與 `experiments/health/interfaces.py` 目前只有測試或沒有使用者，是預留給未來串流 API 的介面。
 

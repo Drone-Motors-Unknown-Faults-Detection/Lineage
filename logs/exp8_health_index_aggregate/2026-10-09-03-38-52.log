@@ -1,0 +1,4 @@
+2026-10-09 03:38:52 | INFO    | Logger initialized: exp8_health_index_aggregate
+2026-10-09 03:38:52 | INFO    | log_file=logs\exp8_health_index_aggregate\2026-10-09-03-38-52.log
+2026-10-09 03:38:52 | INFO    | output_dir=output\exp8_health_index_aggregate\2026-10-09-03-38-52
+2026-10-09 03:38:52 | INFO    | 已重算六 run、54 列；比對 349 欄，差異 2 欄；未擬合模型

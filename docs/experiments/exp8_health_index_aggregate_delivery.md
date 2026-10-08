@@ -14,8 +14,8 @@
 |---|---|---|
 | 手冊 | 先固定 16 檔 SHA、六 run／54 列、等權重、ddof=1、容差與 UNKNOWN 邊界 | `aeab6eb48c27d1c63ef5fb3260632a204c8b1c3f`；已 push，ls-remote 相符 |
 | 程式與 fixtures | 獨立彙總入口、來源與 CSV 檢查、失敗稽核、37 項 fixtures；無 fit/predict | `7b59381fef93272511bc547f8099815ae05a307d`；已 push，ls-remote 相符 |
-| 來源換行補充 | 核對 16 個固定 main Git blob，補列 LF SHA；保留原 CRLF SHA，不改公式或容差；新增一項 fixture | 相關 57 項、完整 149 項通過；本階段提交後記錄 SHA |
-| 實際重算與交付 | 已提交程式第一次重算：349 欄中 347 吻合、2 不同；來源未變 | `output/exp8_health_index_aggregate/2026-10-09-03-35-14/`；PR 尚待建立 |
+| 來源換行補充 | 核對 16 個固定 main Git blob，補列 LF SHA；保留原 CRLF SHA，不改公式或容差；新增一項 fixture | `da0dc9415d53a99fb73c51db31829b58471ea751`；已 push，ls-remote 相符 |
+| 實際重算與交付 | 兩次各六 run／54 列；349 欄中 347 吻合、2 不同；三個結果檔兩次 SHA 完全相同 | 最終 `output/exp8_health_index_aggregate/2026-10-09-03-38-52/`；文件與證據提交後建立 PR |
 
 ## 已執行的測試
 
@@ -54,6 +54,48 @@ python -m experiments.health_index_aggregate
 發現 Windows checkout SHA 與 Git LF blob SHA 不同。例如 seed_42/knn.json：checkout `80d8759f…`、main blob `a3bed57d…`。16 檔逐一核對，內容只差 LF/CRLF。契約補列固定 main 的 16 個 LF SHA，程式接受原 SHA 或這份明列的 SHA，不使用模糊正規化。新增 fixture 確認已登錄換行可接受、額外空白仍被拒絕。`reports/` 完全未修改。
 
 補充後相關 57 項、完整 149 項與 pip check 通過：`output/exp8_aggregate_validation_related/2026-10-09-03-36-59/`、`output/exp8_aggregate_validation_full/2026-10-09-03-37-03/`。summary 保存 HEAD、當時程式與測試 SHA；此次補充尚未提交，HEAD 仍為 `7b59381…`。提交後再保存正式重算與回歸證據。
+
+### 最終提交版驗證
+
+使用 `da0dc9415d53a99fb73c51db31829b58471ea751` 再跑封存重算與完整回歸；契約 SHA `c58e7f8d5d97f5af8d935a71704f399162c2a6b742ea9a9c69f0d22add54be29`。完整測試 149 項、0 failures/errors/skipped，pip check 通過，證據 `output/exp8_aggregate_validation_full/2026-10-09-03-38-55/{validation_summary.json,check_0.txt,check_1.txt}`。這 149 項含 38 項本輪 fixture，不引用其他 PR 的 124 項作本輪成績。
+
+最後重算仍是 DIFFERENT、CLI exit=3；來源六個 JSON 的 schema 全為 1、每個九列、各自保存當時 commit/Python，完整清冊在 `output/exp8_health_index_aggregate/2026-10-09-03-38-52/source_inventory.json`。程式未 import benchmark、detector、資料載入或 sklearn；沒有訓練或故障資料選參。
+
+| 兩次結果相同的檔案 | 實際檔案 SHA256 |
+|---|---|
+| aggregate_summary.json | `deeee196d4766f29da3783ceb1bd821d6e1a2364727c5bd8fed3a2272a7e30db` |
+| aggregate_by_condition.csv | `e9895dcfc3bdbcd27699bf3ef636428083d3dbb2e657f8ce997f88ee40a2ce1b` |
+| field_differences.csv | `d022661538c5c27c808e802f84eb19421841ac7a8f601863eaeab164f3579844` |
+
+實際 Python 3.10.19；numpy 2.2.6、pandas 2.3.3、scikit-learn 1.7.2、scipy 1.15.3、matplotlib 3.10.9、hdbscan 0.8.44、loguru 0.7.3、tornado 6.5.10。彙總計算本身使用標準函式庫與既有 logger；列出其他套件是記錄完整執行環境，不代表都用於彙總。
+
+## 驗收判定與其餘 issue
+
+| 項目 | 判定 | 證據／缺口 |
+|---|---|---|
+| 程式已寫、來源完整、可重算 | VERIFIED | 六 run、54 列、16 檔 SHA；run/main、logger、嚴格失敗與 38 fixtures |
+| 本輪指標、權重、NaN、ddof、容差 | VERIFIED | 手冊先提交；數值差異未回填改規則 |
+| 與歷史全部欄位相符 | FAILED | 349 項有兩個差值欄超出容差；CSV 逐工況數字吻合 |
+| 歷史差值的原始生成操作 | UNKNOWN | 先四捨五入可解釋舊值，沒有原程式確證 |
+| 未知配置逐名／窗口／採集來源 | UNKNOWN | 封存沒保存；不填造 |
+| main 整合、#25 全部驗收 | INCOMPLETE | 需 PR 審閱與整合；歷史差值規則仍須確認，不擅自合併或關單 |
+
+本輪實際關閉 **0 個 issue**。回讀 15 個開放 issue 與 PR #40/#36 的本文、留言、檔案後，未發現新 #25 公開實作；main、PR heads 均未變。#29 等 PR #40 整合；#30 的新追蹤議題仍需另授權發布。#19 原文引用、#13～16 研究分支完整驗收、#26 版本／鎖版及 #27 CI 本輪沒有實作。#24/#28/#35/#37 涉及既有重疊或主首頁整合，保留不修改。
+
+本輪只改彙總入口、fixtures、驗證工具、exp8 文件索引與 logs/output。正式 105 維 CSV、Mahalanobis/LW 預設、k-NN factory、PolarMap、health_monitor.py、web/server.py、index.html、experiments.js 及歷史 reports 的 diff 為零。沒有新的 reliable fault-type 或 fresh final 主張。
+
+## 路徑與交付
+
+- repo 根：`D:\schoolshit\專題\src\lineage_integration_20261008`。
+- 最後重算：`D:\schoolshit\專題\src\lineage_integration_20261008\output\exp8_health_index_aggregate\2026-10-09-03-38-52`。
+- 最後完整測試：`D:\schoolshit\專題\src\lineage_integration_20261008\output\exp8_aggregate_validation_full\2026-10-09-03-38-55`。
+- 機器索引：[exp8_health_index_aggregate_delivery.json](exp8_health_index_aggregate_delivery.json)。完整來源 SHA 在契約與 source_inventory，不縮寫作驗證。
+- 所有小型結果與 logs 納入本輪分支；不提交 raw、formal data、大型來源 ZIP 或其他工作樹修改。
+- D 槽補充備份：`D:\schoolshit\專題\src\lineage_exp8_aggregate_artifacts\2026-10-09\exp8_recompute_20261009_0343.zip`，12 個成員，CRC 與逐檔位元組比對通過；整包 SHA256 `11f43991eaa330eebb4d53bcf8142afa4b5fe4d98377bb171a0a3f91cb13d9ca`。只含最終重算、完整回歸輸出、契約與三個新程式／測試，不含正式資料或舊大型 ZIP。
+
+PR 建立與遠端最終核對完成後，補記 URL；目前 main 尚未合併，本輪不是「驗收全部通過」。
+
+Co-authored-by: Codex <noreply@openai.com>
 
 ## 未確認事項
 
