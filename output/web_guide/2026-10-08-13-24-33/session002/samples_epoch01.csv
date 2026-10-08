@@ -1,0 +1,5 @@
+epoch,t,truth,score,verdict,predicted,ewma,cusum,quarantine,n_known,source_mode,dir_radius,dir_ray,dir_cos
+1,1,8screws,0.8033,healthy,8screws,0.0,0.0,0,1,manual,8.157,,
+1,2,8screws,0.8792,healthy,8screws,0.0,0.0,0,1,manual,8.928,,
+1,3,8screws,0.992,healthy,8screws,0.0,0.0,0,1,manual,10.074,,
+1,4,8screws,1.0467,unknown,,0.08,0.05,0,1,manual,10.629,,
