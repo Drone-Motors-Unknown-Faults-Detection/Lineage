@@ -21,3 +21,9 @@ Python 為 3.10.19，使用既有 `D:/schoolshit/專題/src/tmp/lineage_integrat
 AGENT.md 指定的《數位時代》寫作文章本輪無法取得全文；依 AGENT.md 明列的五項規則撰寫。正式預設、Ledoit–Wolf、k-NN factory 與 PolarMap 未變。這些驗證支持工程行為一致，不支持 fresh final、來源獨立性或準確率提高。
 
 合併後須在實際 main commit 再測，才關閉 #29；#19、#30、#37 仍有各自缺口。後續紀錄追加於本頁，不改寫既有結果。
+
+### P0-A 合併後
+
+審閱與測試證據 commit `ac4c2728a2bbdee44e6f8659dfce080745661d6e` 已 push 並核對遠端 SHA。PR #40 已合併，main commit 為 `c68b7cdbb5bddf1034a9e713c8e8efd5acc61c87`。
+
+在上述 main 重跑 `tests.integration_evidence --phase post_merge`：124 passed，0 failed/error/skipped，pip check 與四個 CLI help 成功；[主線驗證](../../output/branch_integration/2026-10-09-04-13-00/validation.json)。另重跑 guard 的 11 項測試與 8 組成功擬合等價比較，見 [guard 證據](../../output/monitor_guard_evidence/2026-10-09-04-13-12/evidence.json)。此後用獨立文件分支保存 main 驗證，不直接 push main。
