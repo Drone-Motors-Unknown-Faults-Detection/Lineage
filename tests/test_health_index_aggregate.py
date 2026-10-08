@@ -110,6 +110,7 @@ def _refresh(root, path, contract=None):
         contract = json.loads(path.read_text(encoding="utf-8"))
     contract["source_sha256"] = {file.relative_to(root).as_posix(): hashlib.sha256(file.read_bytes()).hexdigest()
                                  for file in root.rglob("*") if file.is_file()}
+    contract["source_git_lf_sha256"] = dict(contract["source_sha256"])
     _write_json(path, contract)
 
 
@@ -352,6 +353,19 @@ class HealthAggregateTests(unittest.TestCase):
     def test_cli_reports_difference_exit_three(self):
         with patch.object(aggregate, "run", return_value={"comparison_status": "DIFFERENT"}), patch("sys.stdout", new=__import__("io").StringIO()):
             self.assertEqual(aggregate.main(["--source-root", str(self.root), "--contract", str(self.contract)]), 3)
+
+    def test_only_explicit_known_line_endings_are_accepted(self):
+        # 工程 fixture 的兩種完整位元組 SHA 都先登錄，任意空白仍不能通過。
+        contract = json.loads(self.contract.read_text(encoding="utf-8"))
+        path = self.root / "seed_42/knn.csv"
+        lf = path.read_bytes().replace(b"\r\n", b"\n")
+        contract["source_git_lf_sha256"]["seed_42/knn.csv"] = hashlib.sha256(lf).hexdigest()
+        _write_json(self.contract, contract)
+        path.write_bytes(lf)
+        self.assertEqual(len(self.load()[1]), 54)
+        path.write_bytes(lf+b" ")
+        with self.assertRaisesRegex(ValueError, "來源 SHA"):
+            self.load()
 
 
 if __name__ == "__main__":

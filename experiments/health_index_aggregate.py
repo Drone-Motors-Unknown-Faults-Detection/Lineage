@@ -112,6 +112,9 @@ def _contract(data: bytes) -> dict:
     hashes = contract.get("source_sha256", {})
     _require(isinstance(hashes, dict) and set(hashes) == names, "契約必須列出完整 16 檔")
     _require(all(re.fullmatch(r"[0-9a-f]{64}", str(value)) for value in hashes.values()), "契約 SHA 格式錯誤")
+    git_hashes = contract.get("source_git_lf_sha256", {})
+    _require(isinstance(git_hashes, dict) and set(git_hashes) == names, "契約必須列出完整 Git LF SHA")
+    _require(all(re.fullmatch(r"[0-9a-f]{64}", str(value)) for value in git_hashes.values()), "契約 Git SHA 格式錯誤")
     return contract
 
 
@@ -124,7 +127,7 @@ def _snapshot(root: Path, contract: dict) -> dict[str, bytes]:
         path = (root / name).resolve()
         _require(path.is_relative_to(root), f"來源路徑超出目錄：{name}")
         data = path.read_bytes()
-        _require(_sha(data) == checksum, f"來源 SHA 不符：{name}")
+        _require(_sha(data) in (checksum, contract["source_git_lf_sha256"][name]), f"來源 SHA 不符：{name}")
         snapshot[name] = data
     return snapshot
 

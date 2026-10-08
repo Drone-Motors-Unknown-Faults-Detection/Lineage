@@ -13,8 +13,9 @@
 | 階段 | 實際內容 | commit／推送 |
 |---|---|---|
 | 手冊 | 先固定 16 檔 SHA、六 run／54 列、等權重、ddof=1、容差與 UNKNOWN 邊界 | `aeab6eb48c27d1c63ef5fb3260632a204c8b1c3f`；已 push，ls-remote 相符 |
-| 程式與 fixtures | 獨立彙總入口、來源與 CSV 檢查、失敗稽核、37 項 fixtures；無 fit/predict | 本階段提交後記錄固定 SHA |
-| 實際重算與交付 | 使用已提交程式重算封存、核對每欄與來源不變、建立 PR | 尚待執行，不先寫完成 |
+| 程式與 fixtures | 獨立彙總入口、來源與 CSV 檢查、失敗稽核、37 項 fixtures；無 fit/predict | `7b59381fef93272511bc547f8099815ae05a307d`；已 push，ls-remote 相符 |
+| 來源換行補充 | 核對 16 個固定 main Git blob，補列 LF SHA；保留原 CRLF SHA，不改公式或容差；新增一項 fixture | 相關 57 項、完整 149 項通過；本階段提交後記錄 SHA |
+| 實際重算與交付 | 已提交程式第一次重算：349 欄中 347 吻合、2 不同；來源未變 | `output/exp8_health_index_aggregate/2026-10-09-03-35-14/`；PR 尚待建立 |
 
 ## 已執行的測試
 
@@ -35,8 +36,27 @@ python -m experiments.health_index_aggregate
 
 完整測試需要允許本機 HTTP/WebSocket；Windows fixture 暫存也須有正常 ACL。遇到拒絕應使用正常權限流程，不改測試標準。
 
-## 待核對與限制
+## 第一次封存重算
 
-實際重算尚未完成；先不報差異數或新準確率。原彙總生成程式沒有提交，ddof 與精度順序的歷史證據仍 UNKNOWN。九個未知配置逐名清單與逐窗來源不在六份 JSON 裡；本輪驗證工況、配置數、方法與封存指紋，不能填造採集來源。
+程式 HEAD `7b59381fef93272511bc547f8099815ae05a307d`，原契約 SHA `3805b5d00e0b86bf75c844378911956570df908f2f99a70fe25ce2a5bbad2f7e`。6 run、54 列、18 組工況摘要完整；16 檔 SHA 前後不變。逐欄比對 349 項：347 項通過容差，2 項超出。CLI exit=3 表示比較 DIFFERENT，非來源驗證失敗；wrapper 的 throw 保留，未抹去。
+
+| 不一致欄位（k-NN 減 Mahalanobis） | 封存 | 本輪事前公式 | 差值 | 容差 |
+|---|---:|---:|---:|---:|
+| health_gap_known_minus_unknown | 0.018513 | 0.018512 | -0.000001 | 0.0000005 |
+| known_health_mean | 0.018513 | 0.018512 | -0.000001 | 0.0000005 |
+
+全部 global 平均與 ddof=1 標準差、逐工況 CSV 都在事前容差內。只讀診斷：k-NN 原列平均 `0.6016565185185185`、Mahalanobis `0.5831444444444445`，先相減得到 `0.01851207407407407`，四捨五入為 `0.018512`。如果先各自四捨五入，`0.601657−0.583144=0.018513`，可重現舊差值。這支持「四捨五入順序不同」的解釋；原生成程式缺失，仍不能確證歷史操作。未改本輪事前公式、未放大容差、未覆寫舊結果。兩欄尚有定義差異，#25 保持 OPEN。
+
+精度不同不代表模型表現改變。本輪沒有 fit、predict 或讀正式 105 維 CSV；準確率變動 0。舊二元 open-set accuracy 的等權均值仍是 Mahalanobis 0.998849、k-NN 0.998842，AUROC／未知召回仍是 1.0；這些是封存數字重算，不是新實驗。
+
+## 來源換行與後續驗證
+
+發現 Windows checkout SHA 與 Git LF blob SHA 不同。例如 seed_42/knn.json：checkout `80d8759f…`、main blob `a3bed57d…`。16 檔逐一核對，內容只差 LF/CRLF。契約補列固定 main 的 16 個 LF SHA，程式接受原 SHA 或這份明列的 SHA，不使用模糊正規化。新增 fixture 確認已登錄換行可接受、額外空白仍被拒絕。`reports/` 完全未修改。
+
+補充後相關 57 項、完整 149 項與 pip check 通過：`output/exp8_aggregate_validation_related/2026-10-09-03-36-59/`、`output/exp8_aggregate_validation_full/2026-10-09-03-37-03/`。summary 保存 HEAD、當時程式與測試 SHA；此次補充尚未提交，HEAD 仍為 `7b59381…`。提交後再保存正式重算與回歸證據。
+
+## 未確認事項
+
+原彙總生成程式沒有提交，ddof 與精度順序的歷史證據仍 UNKNOWN。九個未知配置逐名清單與逐窗來源不在六份 JSON 裡；本輪驗證工況、配置數、方法與封存指紋，不能填造採集來源。
 
 給老師的本輪說明放在這份文件；七問與研究背景仍見 [exp24 導覽](../navigation/exp24_README.md)。本輪驗收只處理封存重算，不能把 exp8 的接近 100% 二元結果當成可靠 fault-type、RUL 或 fresh final。

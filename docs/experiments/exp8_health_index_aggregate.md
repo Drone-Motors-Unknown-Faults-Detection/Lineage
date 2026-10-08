@@ -6,6 +6,8 @@
 
 唯讀輸入是 `reports/exp8_health_index_results/` 的 manifest、六個 JSON、六個 CSV、舊彙總及 README，共 16 檔。以 [來源契約](exp8_health_index_aggregate_contract.json) 的 SHA256 鎖定位元組，載入前核對；資料指紋是 `81c9192476ecd1e23a17b3ed5a343dcd50cdc2e5b7e0cc5466e9162941898228`。此指紋屬於 exp8 封存，不混用後續 fault-type 資料的 `c4145d6e…`。
 
+執行後補充來源位元組契約：Windows checkout 是 CRLF，main 固定提交的 Git blob 是 LF，16 檔各有兩個不同 SHA。契約保留原 Windows SHA，另外列出 `4f783c6…` 的 Git LF SHA。載入只接受這兩個已核實的完整檔案 hash，不做一般文字正規化、不忽略空白、不改來源。來源清冊仍記錄實際位元組的 SHA。這項補充支援 Git 換行設定，不改權重、公式、容差或已查到的兩項差異。
+
 - schema 為 1；seed 固定 42、123、2026，方法固定 Mahalanobis、k-NN。唯一 run 鍵是 `(seed, method)`，唯一列鍵是 `(seed, method, motor, rpm)`。
 - 工況是 T1/T2/T3 × 6000/8000/11000rpm。`dataset` 必須對上 motor/rpm；六 run 各九列，共 54 列。方法間與 seed 間的樣本數必須一致。健康配置 `8screws` 的依據是既有 benchmark；每列 `n_unknown_classes=9`。JSON 未存未知配置名稱、逐窗 ID 或原始視窗，不填造這些欄位。
 - run 必備欄位含 schema、experiment、status、seed、method、confidence、formal_condition_count、dataset_root、dataset_fingerprint、score_direction、health_direction、unknown_calibration_leakage、rul_available、commit_sha、python、rows。列必須具備 benchmark 原有的全部 33 欄，型別、方向、參數與數值範圍要檢查。
