@@ -1,19 +1,24 @@
 {
   "schema": "lineage_branch_integration_v1",
   "date_timezone": "2026-10-08 Asia/Taipei",
-  "status": "READY_FOR_PR",
+  "status": "MERGED_AND_POST_MERGE_VERIFIED",
   "repo": "Drone-Motors-Unknown-Faults-Detection/Lineage",
   "main_before": "64cb71d84663e1745ec54db74abad68def67e8e6",
   "backup_ref": "backup/main-before-integration-20261008-131410",
   "backup_sha": "64cb71d84663e1745ec54db74abad68def67e8e6",
-  "main_after": null,
+  "main_after": "e1668cb48b91520d2500be643351d9c4c8d9494b",
+  "main_after_scope": "PR #38 功能合併且已完整驗收的 main；後續交付證據提交不改程式，最新遠端 SHA 以 PR 與 ref 查詢為準",
+  "merged_pr": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/38",
+  "merged_at": "2026-10-08T13:19:08Z",
+  "pr_tested_head": "92a9ba561a1d6eb23a86cb28cfb05e76ab2078ef",
   "integration_ref": "integration/branches-20261008-131410",
   "tested_code_head": "5aaf48a8a96d92997c359fcaf709e2145f41e66d",
   "phase_commits": {
     "inventory": "e8d08f1a6152888b6d475091f0937e271f5a5882",
     "guide": "6ed1eae58ff9e581d39ac032d6853d26026cb83b",
     "streaming_contract": "cb34a40587797f246bff5e2bf4ba2a32acec7576",
-    "streaming": "5aaf48a8a96d92997c359fcaf709e2145f41e66d"
+    "streaming": "5aaf48a8a96d92997c359fcaf709e2145f41e66d",
+    "pre_merge_report": "92a9ba561a1d6eb23a86cb28cfb05e76ab2078ef"
   },
   "branches": [
     {"branch":"backup_260806","sha":"3a699ab81c16503fff4ba2c2b8ec566202c24d7d","decision":"歷史備份保留"},
@@ -28,6 +33,9 @@
     "python": "3.10.19",
     "baseline_tests": {"passed":76,"failed":0,"errors":0,"skipped":0,"path":"output/branch_integration/2026-10-08-13-21-54"},
     "candidate_tests": {"passed":111,"failed":0,"errors":0,"skipped":0,"path":"output/branch_integration/2026-10-08-13-41-48"},
+    "exact_pr_head_tests": {"passed":111,"failed":0,"errors":0,"skipped":0,"path":"output/branch_integration/2026-10-08-21-17-25"},
+    "post_merge_tests": {"head":"e1668cb48b91520d2500be643351d9c4c8d9494b","passed":111,"failed":0,"errors":0,"skipped":0,"path":"output/branch_integration/2026-10-08-21-19-15"},
+    "post_merge_stream_comparison": "output/stream_integration_regression/2026-10-08-21-19-45/summary.json",
     "cli_exit_codes": [0,0,0,0],
     "pip_check": 0,
     "js_syntax_exit_codes": [0,0],

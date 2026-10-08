@@ -56,3 +56,18 @@ python -m web.guide --data-root D:/schoolshit/專題/src/Lineage/data --port 861
 - 抽查歷史23-49-34 ZIP：11entries全CRC通過，SHA414532b03e8dbc3a7e13b22daef2934c5771bdfbddcdcfb35f4cae80108df047。其他大型ZIP僅盤點，未全CRC。
 - core、health、pyproject、AGENT、LiveDemo與exp2相對MAIN_BEFORE零diff，原exp6/exp8摘要SHA保留，無tracked deletions。原D槽checkout依舊clean/dda8910，未還原研究鏡像缺失。
 - 最後ls-remote main仍64cb71d；PR前再次核對。合併後結果另存delivery，不用mergeable代替測試或已合併狀態。
+
+## 實際 PR 合併與 main 驗收
+
+- 報告commit `92a9ba561a1d6eb23a86cb28cfb05e76ab2078ef` 已push/ref相符。21:17執行確切HEAD全測試，PR #38在測試執行中建立與附加，但等111 passed、0 failed/errors/skipped、四CLI與pip check通過後才merge。首次讀validation時檔案尚未產生，未當成驗收成功。
+- 合併前 main/backup皆64cb71d，protection回404 Branch not protected、rulesets空；PR非draft、CLEAN/MERGEABLE、零checks/reviews。沒有CI配置，不寫CI成功；沒有admin bypass或delete-branch。
+- `gh pr merge 38 --merge --match-head-commit 92a9ba561a1d6eb23a86cb28cfb05e76ab2078ef` 完成，GitHub state=MERGED、merge=`e1668cb48b91520d2500be643351d9c4c8d9494b`、時間2026-10-08T13:19:08Z。
+- fetch後在獨立整合worktree fast-forward origin/main，HEAD exact e1668cb。`tests.integration_evidence --phase post_merge` 產物21-19-15：Python3.10.19，111 passed/0 failed/errors/skipped、pip check/四CLI通過，資料60檔SHA不變。
+- `tests.stream_regression --seed 42` 產物21-19-45：五組對原main配對相同，來源未變。再次查詢所有branches、PR #36、issue #35，來源head與OPEN狀態不變；原D槽checkout仍clean。
+- 合併後證據及delivery另以文件PR提交，不改core/Web/experiments/tests實作。Git記錄與最終遠端查詢分開，避免把未發生的提交寫成已完成。
+
+## 文件交付 PR #39
+
+- 文件commit `0edb4d8f7daca5f191552afa8e008ceadccb6d9e` 已push，ls-remote相符；建立並附加PR #39，base e1668cb。CLEAN/MERGEABLE、非draft、checks/reviews空，保護規則仍無新增。
+- 對確切0edb4d8執行完整候選驗收21-22-14：111 passed、0 failed/errors/skipped、pip check與四CLI通過、60檔SHA不變。程式tree與已驗收e1668cb相同。
+- 最後加入本輪log/output及此說明後，仍只增加證據；再做無新logger產物的完整unittest驗收，核對HEAD與main，正常merge。最終merge SHA由PR #39的mergeCommit與遠端main查詢給出，不在提交內假造未存在SHA。
