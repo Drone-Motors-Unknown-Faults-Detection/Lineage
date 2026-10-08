@@ -29,3 +29,5 @@
 ## 交付證據 PR 驗收規則
 
 文件PR只允許本目錄交付文件及上述小型logs/output證據。合併前再次核對其程式tree與e1668cb完全相同、main未前進、沒有新增required checks/reviews，正常merge且保留head。合併後核對PR state、最新main ref、e1668cb祖先鏈及CLI smoke；最後SHA以GitHub PR mergeCommit及遠端ref為準，避免在提交內填寫尚不存在的自身SHA。
+
+交付證據PR為 [#39](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/39)。文件候選0edb4d8的完整111測試保存於[驗收結果](../../output/branch_integration/2026-10-08-21-22-14/validation.json)，0 failed/errors/skipped，四CLI及pip check通過。最後證據提交不改程式；PR最終head另以完整unittest查核，公開合併狀態及最終SHA可直接從該PR核對。

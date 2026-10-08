@@ -65,3 +65,9 @@ python -m web.guide --data-root D:/schoolshit/專題/src/Lineage/data --port 861
 - fetch後在獨立整合worktree fast-forward origin/main，HEAD exact e1668cb。`tests.integration_evidence --phase post_merge` 產物21-19-15：Python3.10.19，111 passed/0 failed/errors/skipped、pip check/四CLI通過，資料60檔SHA不變。
 - `tests.stream_regression --seed 42` 產物21-19-45：五組對原main配對相同，來源未變。再次查詢所有branches、PR #36、issue #35，來源head與OPEN狀態不變；原D槽checkout仍clean。
 - 合併後證據及delivery另以文件PR提交，不改core/Web/experiments/tests實作。Git記錄與最終遠端查詢分開，避免把未發生的提交寫成已完成。
+
+## 文件交付 PR #39
+
+- 文件commit `0edb4d8f7daca5f191552afa8e008ceadccb6d9e` 已push，ls-remote相符；建立並附加PR #39，base e1668cb。CLEAN/MERGEABLE、非draft、checks/reviews空，保護規則仍無新增。
+- 對確切0edb4d8執行完整候選驗收21-22-14：111 passed、0 failed/errors/skipped、pip check與四CLI通過、60檔SHA不變。程式tree與已驗收e1668cb相同。
+- 最後加入本輪log/output及此說明後，仍只增加證據；再做無新logger產物的完整unittest驗收，核對HEAD與main，正常merge。最終merge SHA由PR #39的mergeCommit與遠端main查詢給出，不在提交內假造未存在SHA。
