@@ -29,4 +29,14 @@ logs/output由core.logger.setup_run；手寫文件只放docs。效能差異本�
 
 ## #19 完成的本輪核對
 
+提交c003e63a2506c5d89f991c33158a80f55d9558a9，push及遠端同SHA。
+
 9條新／繼承來源逐條對照；另列Ye & Xie與Ancestor原稿參考表缺口，不重建117條目錄。Roberts原文局部、Cover原文局部與Wang候選原文局部可讀；Page／Gebraeel全文未取得，其他只取得作者或出版社摘要者明列限制。README消除完整池重擬合防遺忘保證及三馬達run-to-failure錯誤。21-49-46連結工具69相對目標存在、0失效，資料指紋不變；git diff --check通過。沒有重訓或效能改動，issue草稿尚未發布。
+
+## #37 本輪驗收
+
+先在exp24手冊固定ledger語意，再補既有regression工具。21-52-04 Maha／kNN各595筆，0差異，1190筆列ID候選與特徵SHA都保存。新增兩測試；21-55-00第一輪112 passed／1 failed，原因是測試綁定draw太早，21-56-34修正後113 passed／0 failed/errors/skipped，pip check／四CLI通過。兩輪保存，不抹除失敗。
+
+computer-use瀏覽器實際驗收含三入口、兩模式、六工況選單、T1/8000基準、匿名候選、確認兩known、重連、重設及A/B。重設工具逾時，之後log與重新開頁證明完成epoch2；引擎完整版本UNKNOWN。Maha B160筆，sudden t48／transition6／延遲8；kNN A260筆，gradual t100／transition33／延遲60。只作功能檢查，不作兩方法勝負。
+
+關閉驗收clients後Ctrl+C停止兩個本輪服務，KeyboardInterrupt exit1為人工終止，不當成測試失敗；finally關檔。21-59-04封存核對3CSV：Maha epoch1=423、epoch2=160；kNN epoch1=260，各1…末筆連續、無尾筆缺失，19檔SHA保存。21-59-05相對檔案70目標0失效、資料SHA不變，diff check通過。原首頁整合仍待協調PR36，沒有修改重疊Web／健康串流；#37草稿尚未發布。
