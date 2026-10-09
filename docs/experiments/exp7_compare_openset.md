@@ -1,65 +1,38 @@
-# 實驗七：單工況 Open Set 對照
+# 實驗七：單工況Mahalanobis與k-NN對照
 
-程式：`experiments/compare_openset.py`。在一個工況、同一組健康切分上，把 `core.openset` 允許的方法各跑一次。
+想先在一個馬達／RPM看兩種Open Set方法的差異，用這個入口即可；九工況與多seed比較看[實驗六正式版](exp6_formal_benchmark.md)。這裡只認識healthy，不訓練九種故障名稱分類器。
 
-它和 [exp6_formal_benchmark.md](exp6_formal_benchmark.md) 用同一套工廠與同一條 `score > 1` 規則。差別是這裡只跑 CLI 指定的那一個資料集，輸出走 `setup_run("openset_comparison")`，不寫 54 格矩陣，也不算健康指數。
+## 資料與建立順序
 
-## 實驗方法
+資料是單工況的105維clean特徵，每列、單位、清理與未去重限制見[實驗一](exp1_cold_start.md#資料與載入)。同來源／seed下，每方法各建OpenSetMonitor，健康列洗牌60/20/20一致；seed預設42。RobustScaler及參考模型只fit train；healthy cal定confidence0.95門檻；healthy holdout與其他配置全池只評估。unknown不選參、不fit、不校準。不同motor是不同個體，這不是跨馬達群組切分。
 
-1. `resolve_dataset` 載入 `--motor` / `--rpm` 的 `pools`。
-2. `--openset-methods` 預設是 `SUPPORTED_OPENSET_METHODS`，也就是 `mahalanobis` 與 `knn` 都跑。可以只留一個。
-3. 每個方法各自建一個 `OpenSetMonitor` 並 `fit_initial()`。預設 `--confidence 0.95`、`--method ledoit_wolf`、`--knn-neighbors 5`、`--seed 42`。`--method` 還可以選 `legacy`、`oas`、`mcd`，只影響 Mahalanobis 的共變異數估計。
-4. 健康分數只用 holdout。未知配置逐一打分，再拼成正類。未知不進擬合。
-5. `evaluate_method` 計算 AUROC、未知為正類的 AUPR、ROC 上的 FPR@TPR95、open-set accuracy、未知 precision / recall / F1，以及健康誤報率。`details` 另給每個未知配置的 recall 與分數中位數。
+mahalanobis用LW中心／共變異數；knn保存train庫、平均歐氏距離，k=5且資料少時縮減；score>1判未知，等於1接受。--method可選legacy／ledoit_wolf／oas／mcd，只影響馬氏方法。legacy用train定線、label=-1，classify無法對應healthy，因此known_class_accuracy可能為0；fairness欄的known-only calibration宣告不適用此例外。正式矩陣拒絕legacy。顯示PCA train-only，MCD另有train-only降維；沒有神經網路epoch。
+
+## 怎麼執行與使用
+
+在repo根目錄準備[uv環境](../runtime_policy.md)與資料：
 
 ```bash
-venv/bin/python -m experiments.compare_openset --motor T1 --rpm 8000rpm
-venv/bin/python -m experiments.compare_openset --motor T1 --rpm 8000rpm --openset-methods mahalanobis knn
+uv run --locked python -m experiments.compare_openset --help
+uv run --locked python -m experiments.compare_openset --data-root data --motor T1 --rpm 8000rpm --seed 42 --openset-methods mahalanobis knn --method ledoit_wolf --knn-neighbors 5 --confidence 0.95
 ```
 
-## 理論
+--openset-methods可只留一法；不是單數的--openset-method。API run(pools,methods=("mahalanobis","knn"),seed=42,confidence=0.95,mahalanobis_method="ledoit_wolf",knn_neighbors=5)回傳results／details／fairness，不保存模型或檔案。
 
-同一工況、同一 seed 的兩次 `fit_initial` 用同一組索引，所以訓練、校準、holdout 的列號一致。方法差只來自分數怎麼算：橢球距離，或到訓練集 k 近鄰的平均距離。共變異數若改成 `oas` 或 `mcd`，比的就不再是主線預設的 Ledoit–Wolf，讀圖時要看 summary 裡的 `method` 欄。
+Web依[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)啟動，選「實驗七」、資料集／seed按「▶ 執行」，一次對照兩法。沒有串流、續跑或取消；重跑重新fit。找不到工況／healthy、unknown空或資料太少，先查來源，不用其他工況補空集合。
 
-`legacy` 在這支 CLI 沒有被擋下。正式矩陣會拒絕它。單工況對照若要和 `output/exp6_formal_matrix/` 並排，應維持 `ledoit_wolf`。
+## 輸出與指標
 
-## 參考論文
+main經setup_run寫logs/openset_comparison/{ts}.log、output/openset_comparison/{ts}/environment.json、summary.csv、details.csv、summary.json與method_comparison.png。Web另寫web_server的experiments JSON。
 
-- 馬氏距離、Ledoit–Wolf、k 近鄰出處同 [exp1_cold_start.md](exp1_cold_start.md)。
-- Y. Chen, A. Wiesel, Y. C. Eldar, and A. O. Hero (2010), “Shrinkage Algorithms for MMSE Covariance Estimation,” *IEEE Transactions on Signal Processing*, 58(10), 5016–5029。DOI [10.1109/TSP.2010.2053029](https://doi.org/10.1109/TSP.2010.2053029)。對應 `--method oas`。
-- P. J. Rousseeuw and K. Van Driessen (1999), “A Fast Algorithm for the Minimum Covariance Determinant Estimator,” *Technometrics*, 41(3), 212–223。DOI [10.1080/00401706.1999.10485670](https://doi.org/10.1080/00401706.1999.10485670)。對應 `--method mcd`。
-- 三種收縮在本資料上的比較紀錄見 [Mahalanobis_Improvement.md](../Mahalanobis_Improvement.md)。預設仍是 Ledoit–Wolf。
+results的auroc／aupr_unknown_positive是unknown正類排序／平均精確率；AUPR與open_set_accuracy受fault比例影響。unknown_recall／precision／f1_unknown按score>1算，零分母為0；known_class_accuracy按classify是否回healthy算。details的healthy列unknown_recall其實是健康誤報率，fault列才是未知召回率，並列n與無因次median_score。
 
-## 預期成果
+fpr_at_95_tpr取ROC上TPR≥0.95的最小FPR，是事後評估點，不修改門檻；與正式版用unknown分位數的近似算法不同，有ties時不應要求兩入口完全同值。class_thresholds是原距離線，正規化線為1。
 
-兩種方法都應給出有限的 AUROC 與 F1。在 T1/8000 rpm 這種健康與故障已分開的工況上，AUROC 會接近 1，長條圖的差距會很小。若 `legacy` 的健康誤報遠高於 `ledoit_wolf`，現象應和七偵測器比較裡的 `maha_legacy` 同一方向。這個單工況圖不能代替九工況矩陣。
+預期兩法產生有限分數，unknown高於healthy且誤報低；沒有通用成功數字。不按這張圖自動換預設；同工況好分數不代表跨馬達、fresh final或真實損壞辨識。既有九工況結果查[固定正式包](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/1fa9431bb7b86959f29540d07b2b9290ab39ce42/output/exp6_formal_matrix)，不是本單工況新實測。
 
-## 已記錄的實測
+## 方法來源與程式碼
 
-本程式沒有一份被指定為正式結論的彙總檔。九工況的數字以 `output/exp6_formal_matrix/aggregate/aggregate.md` 為準，說明見 [exp6_formal_benchmark.md](exp6_formal_benchmark.md)。
+LW／馬氏／近鄰見[實驗一](exp1_cold_start.md#方法來源與程式定位)。Chen等（2010），*Shrinkage Algorithms for MMSE Covariance Estimation*，IEEE TSP58,5016–5029，[DOI](https://doi.org/10.1109/TSP.2010.2053029)對應OAS；Rousseeuw與Van Driessen（1999），*A Fast Algorithm for the Minimum Covariance Determinant Estimator*，Technometrics41,212–223，[DOI](https://doi.org/10.1080/00401706.1999.10485670)對應MCD。切分與正規化為Lineage操作約定。
 
-## 程式碼與輸出
-
-| 路徑 | 角色 |
-|---|---|
-| `experiments/compare_openset.py` | `evaluate_method`、`run`、`_make_figure`、`main` |
-| `core/monitor.py` | `OpenSetMonitor` |
-| `core/openset.py` | `SUPPORTED_OPENSET_METHODS` |
-| `core/mahalanobis.py` | `legacy` / `ledoit_wolf` / `oas` / `mcd` |
-| `core/runner.py` | `add_dataset_args`、`resolve_dataset` |
-
-輸出：
-
-- `logs/openset_comparison/{時間戳}.log`
-- `output/openset_comparison/{時間戳}/summary.csv`
-- `output/openset_comparison/{時間戳}/details.csv`
-- `output/openset_comparison/{時間戳}/summary.json`
-- `output/openset_comparison/{時間戳}/method_comparison.png`
-
-### 散在其他位置的相關檔案
-
-- 測試：`tests/test_openset.py` 匯入 `experiments.compare_openset.run`。
-- 已提交紀錄：沒有。`logs/openset_comparison/`、`output/openset_comparison/` 目前不在 repo；目錄名沿用 `setup_run("openset_comparison")`，沒有帶實驗編號。
-- 正式版 9 工況比較在實驗六：[exp6_formal_benchmark](exp6_formal_benchmark.md)。
-- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 8 節。
-- Web 實驗頁：頁首「實驗七」，`web/experiments.py` 的 `CATALOG` 項目 `exp7` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp7`；結果存到 `output/web_server/{ts}/experiments/exp7_{時間}.json`。
+[compare_openset](../../experiments/compare_openset.py)評估與writer；[monitor](../../core/monitor.py)建基準；[openset](../../core/openset.py)共用factory；[web/experiments](../../web/experiments.py)編排；[test_openset](../../tests/test_openset.py)及[test_web_experiments](../../tests/test_web_experiments.py)驗證入口，不證明採集獨立。
