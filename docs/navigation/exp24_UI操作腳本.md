@@ -25,3 +25,9 @@
 程式核對補充：cluster_attempts是連續分群失敗次數，成功即歸零，不能當總嘗試。新頁使用精確名稱；候選t_range是重播筆數索引，不是raw時間。inspect先唯讀檢查，build才擬合。未完成模型時不可播放劇本；有錯誤時先明確重建／重設。
 
 速度只調 tick 間隔，不改樣本順序或門檻。沒有候選就等待或暫停，不降低門檻。操作示例以 T1/8000rpm、seed42、LW/q95 為條件；實際筆數以資料檢查與 session 紀錄為準。這些操作說明不構成新一次模型評估。
+
+### 暫停與保存
+
+樣本以 session 目錄、epoch、t 識別。`LiveDemo.tick()` 同步完成預測與 CSV 寫入後，才送出 sample；每 15 筆 flush 一次。`Hub.pause()` 停止新 tick，再 flush 尾批，成功後才回覆暫停。最後一個 WebSocket 離線會保存並保留模型，重連不重訓。正常停止 IOLoop 或 Ctrl+C 經 `serve()` 等背景工作完成後關檔。
+
+`persistence.written_t` 是已交給 CSV writer 的最後索引，`flushed_t` 是已完成 flush 的索引；未設定輸出目錄時 `enabled=false`，不能宣稱已保存。保存失敗會留下錯誤、停止串流並阻止直接恢復。重複暫停／關閉不追加樣本。此契約保證正常暫停／關閉後可重新開檔讀取，不包含強制終止、作業系統故障或掉電的零遺失保證；沒有執行 fsync。

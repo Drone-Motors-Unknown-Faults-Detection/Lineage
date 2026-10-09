@@ -62,6 +62,7 @@ class LiveDemo:
         self.out_dir = Path(out_dir) if out_dir else None
         self.epoch = 0
         self._sample_file = None
+        self._closed = False
         self._build()
 
     def _build(self) -> None:
@@ -98,6 +99,9 @@ class LiveDemo:
             self._sample_file.close()
             self._sample_file = None
         self._sample_writer = None
+        self._closed = False
+        self._write_error = None
+        self.written_t = self.flushed_t = 0
         if self.out_dir is None:
             return
         path = self.out_dir / f"samples_epoch{self.epoch:02d}.csv"
@@ -108,9 +112,22 @@ class LiveDemo:
     def _log_sample(self, row: list) -> None:
         if self._sample_writer is None:
             return
-        self._sample_writer.writerow(row)
+        try:
+            self._sample_writer.writerow(row)
+        except Exception as exc:
+            self._write_error = exc
+            raise
+        self.written_t = self.t
         if self.t % 15 == 0:
+            self.flush()
+
+    def flush(self) -> None:
+        """讓已寫入列可重新開檔讀取；不保證強制終止或掉電耐久性。"""
+        if self._write_error is not None:
+            raise RuntimeError("樣本寫入失敗，不能確認完整保存") from self._write_error
+        if self._sample_file is not None:
             self._sample_file.flush()
+            self.flushed_t = self.written_t
 
     def _snapshot_model(self, tag: str) -> None:
         if self.out_dir is None:
@@ -121,11 +138,12 @@ class LiveDemo:
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
     def close(self) -> None:
+        self.flush()
         if self._sample_file is not None:
-            self._sample_file.flush()
             self._sample_file.close()
             self._sample_file = None
             self._sample_writer = None
+        self._closed = True
 
     def _refresh_samplers(self) -> None:
         """已知配置只從 holdout 抽（未參與擬合），未知配置從整池抽。"""
@@ -195,6 +213,8 @@ class LiveDemo:
         return pick, msgs
 
     def tick(self) -> list[dict]:
+        if self._closed or self._write_error is not None:
+            raise RuntimeError("session 已關閉或寫入失敗，不接受新樣本")
         config, msgs = self._draw_config()
         was_known = config in self.session.monitor.known
         prev_attempts = self.session.cluster_attempts
@@ -301,6 +321,8 @@ class LiveDemo:
             "openset": self.session.monitor.summary(),
             "t": self.t,
             "epoch": self.epoch,
+            "persistence": {"enabled": self.out_dir is not None,
+                            "written_t": self.written_t, "flushed_t": self.flushed_t},
             "phase": self.phase(),
             "source": self.source,
             "scenario": None if self.scenario is None else {

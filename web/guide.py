@@ -18,7 +18,7 @@ from core.runner import add_openset_args
 from experiments.navigation_data_contract import run as data_contract, split_audit
 from experiments.exp3_trend import SCENARIOS
 from web.live import LiveDemo
-from web.server import Hub
+from web.server import Hub, serve
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -164,12 +164,7 @@ class GuideHub(Hub):
         super().broadcast({"type": "event", "guide_safe": True, "level": level, "text": text})
 
     def pause(self):
-        """停止逐筆呼叫並落盤；busy時不讀worker正在更新的檔案。"""
-        self.running = False
-        if self.demo is not None and not self.busy:
-            sample_file = self.demo._sample_file
-            if sample_file is not None and not sample_file.closed:
-                sample_file.flush()
+        super().pause()
 
     def tick(self):
         if not self.demo or self.busy:
@@ -183,9 +178,7 @@ class GuideHub(Hub):
         self.broadcast(self.full_state())
 
     def close_client(self, client):
-        self.clients.discard(client)
-        if not self.clients:
-            self.pause()
+        super().close_client(client)
 
 
 class GuideSocket(tornado.websocket.WebSocketHandler):
@@ -220,6 +213,7 @@ class GuideSocket(tornado.websocket.WebSocketHandler):
             h.event("error", h.error)
         finally:
             h.busy, h.operation = False, None
+        h.pause()
         h.broadcast(h.full_state())
 
     async def on_message(self, raw):
@@ -302,12 +296,7 @@ def main():
     application(hub).listen(args.port, address="127.0.0.1")
     hub.set_rate(args.rate)
     log.info(f"逐步導覽：http://127.0.0.1:{args.port}；尚未擬合")
-    try:
-        tornado.ioloop.IOLoop.current().start()
-    finally:
-        if hub.demo:
-            hub.demo.close()
-        hub.executor.shutdown(wait=True)
+    serve(tornado.ioloop.IOLoop.current(), hub)
 
 
 if __name__ == "__main__":
