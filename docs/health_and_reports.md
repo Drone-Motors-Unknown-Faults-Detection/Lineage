@@ -121,7 +121,11 @@ AGENT.md「關鍵參數」表列的趨勢參數是 `TrendMonitor` 的；`Session
 
 ### 2.3 研究分支上的 `reports/`
 
+2026-10-09 接續：#29 的 guard 已由 PR #40 合入 main，124 項測試與成功擬合等價比較通過；上方 2026-10-03 表為歷史狀態。#25 的唯讀彙總由 PR #41 合入 main，main 162 項通過，六 run／54 列可重算；兩個 `0.018513 → 0.018512` 差異仍回報，歷史公式 UNKNOWN，工程 issue 已 completed。固定 commit 與產物見 [本輪紀錄](project_closeout_20261009/execution_log.md)。#30 §2.2 已在 main，追蹤議題尚待發布；不把其餘缺口寫成全部修好。
+
 `research-improvements-20260920` 分支另外有 `reports/continuous_research/`、`reports/data_independence/`、`reports/fault_type_openset/` 等 10 個子目錄，屬於 [#22](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22) 的研究，尚未併入 main，本文件不涵蓋。
+
+#22 已於 2026-10-06 完成有限研究收尾：[hard600 固定證據](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/e7ee971d2ed41d5ce80e3a56f912eb4dc1c038dc/reports/issue_delivery_20261005/hard600_closeout.md)。subset/all-train outer 已執行，fault accuracy 下降 3.507／3.655 個百分點，沒有可靠提升；本輪只校正 TODO，不搬入整批研究程式、模型或產物。#9 來源與 fresh final 缺口仍開放。
 
 ---
 
