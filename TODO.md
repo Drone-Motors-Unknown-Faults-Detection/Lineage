@@ -3,6 +3,8 @@
 專題目標（未知故障辨識、性能指標、視覺化）對照現況後的待辦清單，加上 repo 其他 open issues。2026-10-02 建立，細節見各 issue。
 依 [AGENT.md](AGENT.md)「實驗手冊」規定，每一項都要先在 `docs/experiments/` 寫手冊、在 `docs/README.md` 加一列，再改程式。
 
+2026-10-09 主線收尾：PR #40/#41 已合併並在 main 重測，#29/#25 已 completed；[#22 固定研究證據](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/e7ee971d2ed41d5ce80e3a56f912eb4dc1c038dc/reports/issue_delivery_20261005/hard600_closeout.md) 已確認，有限研究交付完成，未得到可靠提升。見 [主線驗收紀錄](docs/project_closeout_20261009/execution_log.md)。其他 issue 不能由這兩個 PR 推定完成。
+
 ## 1. 未知故障辨識與遷移學習
 
 已有：只用健康資料的冷啟動偵測（`exp1_cold_start`）、HDBSCAN 新故障發現（`exp2_scale_growth`）、七種單類偵測器比較（`exp6_osr_benchmark`，含 PCA 重建 `core/detectors.py:127`）。
@@ -59,7 +61,7 @@
 
 工作分支：`research-improvements-20260920`。依 main 的 AGENT.md（blob `f3b92347582bceff98ede6513f06458cdefdeac5`）先寫實驗手冊，再修改方法。相關來源問題保留在 [#9](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/9)。
 
-- [ ] [#22](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22) 持續研究：局部距離學習、幅值比值與配對驗證
+- [x] [#22](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22) 持續研究：有限比較與失敗分析已交付（2026-10-06 closed；研究程式未整批合入 main）
   - [x] 完成 [#11](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/11)：分支總覽、README 與 docs 索引；補充同步 raw schema 的實際用途與限制。
   - [x] 補齊現行 continuous_research 各模組手冊；已有程式的手冊註明補寫日期，後續改動先寫手冊。
   - [x] 核對已封存 Q01–Q08 配對評估：72 格預定；12 格因訓練最佳化未收斂而 INCOMPLETE，不補零、不換參數填回。
@@ -69,8 +71,8 @@
   - 已有 28,910 筆資料全部有 test 曝露歷史。新比較皆為 exploratory；來源未知與獨立 test groups 不足不改成 PASS。此項不依賴重新採集，也不宣稱可靠模型已完成。
   - 2026-10-03接續：Q 60格／576,144筆重推論與配對報告完成，六完整方法均未通過可靠性門檻；原12格INCOMPLETE保留。
   - train-only solver診斷27fits：hard150 3/9、smooth150 5/9、hard600 9/9收斂；27loss/gradient重算及原Q三成功weights exact。兩Python各396tests/37CLI/pip check PASS。
-  - [ ] 新協定hard600 subset/all-train kNN完整outer配對比較尚未實作／執行，訓練收斂不等於accuracy改善。
-  - 研究結果commit8bd6d14042e61a40548e37e989a1f2db2d7a4fbb已push；[Q報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/final_findings.md)、[solver報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/solver_findings.md)。#22維持OPEN；未合併研究分支到main。
+  - [x] hard600 subset/all-train k-NN outer 已實際執行 E02/E04 並封存；seed0 三 motor 等權 fault accuracy 分別下降 3.507／3.655 個百分點，T1 unknown recall 仍為 0%。[固定收尾證據](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/e7ee971d2ed41d5ce80e3a56f912eb4dc1c038dc/reports/issue_delivery_20261005/hard600_closeout.md)。
+  - 原 Q／solver 結果保留：[Q報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/final_findings.md)、[solver報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8bd6d14042e61a40548e37e989a1f2db2d7a4fbb/reports/continuous_research/solver_findings.md)。#22 已因有限研究交付關閉；沒有通過可靠性契約，不關閉 #9，不整批合併研究分支。
 
 ## 6. 文件：`experiments/health/` 與 `reports/`
 
@@ -80,3 +82,10 @@
   - [x] 2026-10-03 `health/` 搬到 `experiments/health/`；`reports/` 只保留 `exp8_health_index_results/`，稽核紀錄刪除（可從 commit `80bdf54` 取回）
   - 文件記下的不一致已另開 issue：[#24](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/24) health CLI 未走 `setup_run`、[#25](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/25) 健康指數彙總檔沒有產生程式、[#26](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/26)–[#29](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/29) 抽查仍成立的稽核發現、[#30](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/30) 重驗其餘 17 項。
 - [x] 實驗編號：`compare_openset` 定為實驗七、健康指數三支定為實驗八；規劃中的 #13–#16 順延為實驗九～十二。相關文件改名為 `expN_` 開頭，`docs/experiments/README.md` 加各實驗檔案位置表。程式檔名不變。
+
+## 7. 主線工程驗收（2026-10-09）
+
+- [x] [#29](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/29)：PR #40 已合併 `c68b7cdbb5bddf1034a9e713c8e8efd5acc61c87`，main 124 項與 11 項 guard 驗證通過；未擬合／失敗重擬合有明確 RuntimeError，成功擬合分數及投影不變。
+- [x] [#25](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/25)：PR #41 已合併 `ae53b92eea7dd68cd7ffefe8d5c24b3f7157428d`，main 162 項通過；六 run／54 列可重算，349 比對有 2 精度差異，原公式 UNKNOWN。依「有差異回報」驗收關單，未改歷史彙總。
+- [ ] [#30](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/30)：§2.2 與 17 項重驗已入 main；R1–R10 追蹤議題發布仍待接續。
+- #19 尚缺原參考表／合法全文；#9 仍缺獨立新資料與採集證據；#24/#28/#35/#37 原首頁部分等待 Albert PR #36 定案。測試通過不消除這些限制。

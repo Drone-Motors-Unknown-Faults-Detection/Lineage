@@ -2,7 +2,7 @@
 
 2026-10-08 issue交付：[17項稽核差異](issue_delivery_20261008/audit_followup.md)、[執行紀錄](issue_delivery_20261008/execution_log.md)。此輪僅透過PR交付，不自行合併或關issue。
 
-2026-10-09接續完成：[四項統一交付與證據位置](issue_delivery_20261008/delivery.md)，124項主線測試通過；#19引用缺口、#37原首頁入口仍未完成。
+2026-10-09 主線狀態：[本輪驗收與 commit](project_closeout_20261009/execution_log.md)、[給老師的完成／限制說明](project_closeout_20261009/README.md)。PR #40/#41 已合併，main 最後 162 項測試通過；#29/#25 completed，兩項彙總差異保留，#19 引用缺口、#37 原首頁入口仍未完成。先前 [四項交付](issue_delivery_20261008/delivery.md) 保留其日期狀態。
 
 引用收尾：[文獻與程式對照／剩餘未核實清單](issue_delivery_20261008/citation_followup.md)。
 
@@ -39,7 +39,7 @@
 | 實驗八 | [exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
 | 實驗八 | [exp8_health_index_matrix](experiments/exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` |
 | 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`（本輪新增）；54 列與歷史逐欄比對 |
-| 實驗八 | [重算驗證與給老師的說明](experiments/exp8_health_index_aggregate_delivery.md) | 149 項測試；349 項比對有兩項精度差異，#25 保持開放 |
+| 實驗八 | [重算驗證與給老師的說明](experiments/exp8_health_index_aggregate_delivery.md) | PR #41 已合 main，162 項測試通過；349 比對有兩項差異，#25 工程 completed，歷史公式 UNKNOWN |
 | 實驗八 | [exp8_health_monitor](experiments/exp8_health_monitor.md) | `experiments/health_monitor.py` |
 | 實驗二十四 | [exp24_experiment_navigation](experiments/exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`experiments/navigation_regression.py`；獨立 `web.guide` |
 
