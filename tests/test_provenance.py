@@ -83,7 +83,8 @@ class ProvenanceTests(unittest.TestCase):
             self.assertEqual(len(public["content_aliases"]), 1)
             self.assertEqual(public["raw_session_independence"], "UNKNOWN")
             self.assertNotIn(directory, json.dumps(public))
-            self.assertTrue(Path(private["resolved_data_root"]).is_relative_to(root))
+            # Windows TEMP 可能為 8.3 別名；兩側都以實際解析根比較。
+            self.assertTrue(Path(private["resolved_data_root"]).is_relative_to(root.resolve(strict=True)))
 
     def test_legacy_manifests_are_readonly_and_portable(self):
         for version in (None, 1, "formal_materialization_v1", "formal_materialization_v2", MATERIALIZATION_VERSION):
