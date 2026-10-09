@@ -29,6 +29,10 @@ venv/bin/python -m experiments.exp6_formal_benchmark --openset-method knn --seed
 
 ## 理論
 
+### 2026-10-09 輸入契約修訂（先於程式）
+
+正式 `require_nine=True` 入口另驗每工況完整10個配置，cold-start與顯式partial入口允許健康資料或較少配置，但記錄缺類。ordered105維header、finite/nonempty與alias政策見 [正式特徵契約](../formal_feature_schema_contract.md)。不改健康train／cal／holdout、q95、模型、指標或既有數值；不是新的研究比較。預期非法資料明確拒絕、合法來源逐元素與切分不變，達不到即工程驗收失敗。
+
 兩種偵測器共用工廠 `create_openset_detector`，共用「越大越未知、超過 1 就拒絕」。Mahalanobis 估的是類別橢球。k-NN 估的是到該類訓練集 k 個近鄰的平均歐氏距離，每類用自己的校準分位數正規化，再取最小正規化分數。健康-only 時只有一類，最小分數就是那一類的分數。
 
 這次比較不包含 One-Class SVM、Isolation Forest、LOF、PCA 重建，也不包含 `core/detectors.py` 的 `knn_dist`。那些留在廣度比較。`polarmap_base_method` 在摘要裡固定寫 `mahalanobis`，因為幾何模組不跟著這次的拒絕器切換。
