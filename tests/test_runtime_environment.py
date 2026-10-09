@@ -2,15 +2,14 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+from importlib import metadata
 import hashlib
-import io
 import json
 import os
 from pathlib import Path
 import subprocess
 import shutil
 import tempfile
-import tokenize
 import unittest
 from unittest.mock import Mock, patch
 
@@ -54,8 +53,8 @@ class RuntimeEnvironmentTests(unittest.TestCase):
     def test_verified_dirty_and_constraints_sha(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            payload = b"numpy==2.2.6\n"
-            (root / "runtime-constraints.txt").write_bytes(payload)
+            payload = b'[[package]]\nname = "numpy"\nversion = "2.2.6"\n'
+            (root / "uv.lock").write_bytes(payload)
             with patch.object(runtime, "_git", side_effect=[directory, "a" * 40, " M core/logger.py"]):
                 result = runtime.collect_environment(root)
         self.assertTrue(result["git"]["tracked_dirty"])
@@ -102,36 +101,31 @@ class RuntimeEnvironmentTests(unittest.TestCase):
             self.assertFalse(Path("output").exists())
 
     def test_constraints_are_exact_and_unique(self):
-        requirements = [Requirement(line) for line in (ROOT / "runtime-constraints.txt").read_text(encoding="utf-8").splitlines()
-                        if line.strip() and not line.startswith("#")]
-        names = [item.name.lower() for item in requirements]
+        try:
+            import tomllib
+        except ModuleNotFoundError:
+            import tomli as tomllib
+        packages = tomllib.loads((ROOT / "uv.lock").read_text(encoding="utf-8"))["package"]
+        names = [item["name"].lower() for item in packages]
         self.assertEqual(len(names), len(set(names)))
-        for item in requirements:
-            with self.subTest(package=item.name):
-                specifiers = list(item.specifier)
-                self.assertEqual(len(specifiers), 1)
-                self.assertEqual(specifiers[0].operator, "==")
-                self.assertNotIn("*", specifiers[0].version)
+        for item in packages:
+            with self.subTest(package=item["name"]):
+                self.assertIn("version", item)
+                self.assertNotIn("*", item["version"])
         self.assertIn("cloudpickle", names)
-        self.assertTrue({"pip", "setuptools", "wheel"}.issubset(names))
+        self.assertTrue({"pytest", "ruff"}.issubset(names))
 
     def test_active_dependency_closure_is_pinned(self):
-        from importlib import metadata
-        requirements = [Requirement(line) for line in (ROOT / "runtime-constraints.txt").read_text(encoding="utf-8").splitlines()
-                        if line.strip() and not line.startswith("#")]
-        names = {item.name.lower().replace("_", "-") for item in requirements}
-        for parent in requirements:
-            if parent.marker is not None and not parent.marker.evaluate():
-                continue
-            # 舊環境可能沒有 wheel；它沒有正式執行期依賴，乾淨驗證入口另檢版本。
-            if parent.name == "wheel":
-                continue
-            for entry in metadata.requires(parent.name) or []:
+        locked = set(runtime.lock_versions(ROOT))
+        installed = {dist.metadata["Name"].lower().replace("_", "-")
+                     for dist in metadata.distributions() if dist.metadata.get("Name")}
+        for parent in sorted(locked & installed):
+            for entry in metadata.requires(parent) or []:
                 child = Requirement(entry)
                 if child.marker is not None and not child.marker.evaluate({"extra": ""}):
                     continue
-                with self.subTest(parent=parent.name, child=child.name):
-                    self.assertIn(child.name.lower().replace("_", "-"), names)
+                with self.subTest(parent=parent, child=child.name):
+                    self.assertIn(child.name.lower().replace("_", "-"), locked)
 
     def test_python_policy_is_minor_not_patch(self):
         text = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
@@ -142,13 +136,6 @@ class RuntimeEnvironmentTests(unittest.TestCase):
         self.assertNotIn("3.9.0", policy)
         self.assertNotIn("3.14.0", policy)
 
-    def test_constraints_decode_under_legacy_windows_locale(self):
-        # 首次真實安裝曾在 pip 23／cp950 解碼失敗；保留最小反例。
-        payload = (ROOT / "runtime-constraints.txt").read_bytes()
-        self.assertIn(b"coding: utf-8", payload.splitlines()[0])
-        encoding, _ = tokenize.detect_encoding(io.BytesIO(payload).readline)
-        self.assertEqual(payload.decode(encoding), payload.decode("utf-8"))
-
     def test_build_scripts_do_not_delete_existing_environments(self):
         for name in ("build_uv.sh", "build_uv_mac.sh", "build_uv.ps1"):
             text = (ROOT / name).read_text(encoding="utf-8")
@@ -157,8 +144,7 @@ class RuntimeEnvironmentTests(unittest.TestCase):
                 self.assertNotIn("Remove-Item", text)
         for name in ("build_uv.sh", "build_uv.ps1"):
             text = (ROOT / name).read_text(encoding="utf-8")
-            self.assertIn("runtime-constraints.txt", text)
-            self.assertIn("--no-build-isolation", text)
+            self.assertIn("--locked", text)
         self.assertIn(".venv310/", (ROOT / ".gitignore").read_text(encoding="utf-8"))
 
     def test_run_and_main_preserve_environment_contract(self):

@@ -12,9 +12,8 @@ function Invoke-Checked([string]$Executable, [string[]]$Arguments) {
     if ($LASTEXITCODE -ne 0) { throw "安裝指令失敗，exit=$LASTEXITCODE；保留已建立檔案供診斷" }
 }
 Invoke-Checked $Python @('-c', 'import sys; assert sys.version_info[:2] == (3, 10), "正式安裝要求 Python 3.10.x"')
-Invoke-Checked uv @('venv', '--seed', '--python', $Python, $VenvDir)
+$env:UV_PROJECT_ENVIRONMENT = $VenvDir
+Invoke-Checked uv @('sync', '--python', $Python, '--extra', 'test', '--locked')
 $VenvPython = Join-Path $VenvDir 'Scripts/python.exe'
-Invoke-Checked uv @('pip', 'install', '--python', $VenvPython, '-c', 'runtime-constraints.txt', 'pip', 'setuptools', 'wheel')
-Invoke-Checked uv @('pip', 'install', '--python', $VenvPython, '--no-build-isolation', '-c', 'runtime-constraints.txt', '.[test]')
-Invoke-Checked $VenvPython @('-m', 'pip', 'check')
+Invoke-Checked uv @('pip', 'check', '--python', $VenvPython)
 Invoke-Checked $VenvPython @('-m', 'core.runtime_environment')

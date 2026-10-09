@@ -30,15 +30,14 @@ jobs:
         uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
           enable-cache: true
-          cache-dependency-glob: runtime-constraints.txt
-      - name: 依單一 constraints 建立新環境
+          cache-dependency-glob: uv.lock
+      - name: 依 uv.lock 建立新環境
+        env:
+          UV_PROJECT_ENVIRONMENT: venv
         run: |
           uv python install 3.10
-          uv venv --seed --python 3.10 venv
-          VENV_BIN="$PWD/venv/bin"
-          uv pip install --python "$VENV_BIN/python" -c runtime-constraints.txt pip setuptools wheel
-          uv pip install --python "$VENV_BIN/python" --no-build-isolation -c runtime-constraints.txt ".[test]"
-          echo "$VENV_BIN" >> "$GITHUB_PATH"
+          uv sync --python 3.10 --extra test --locked
+          echo "$PWD/venv/bin" >> "$GITHUB_PATH"
       - name: Pytest
         run: ./run_pytest.sh
       - name: Ruff
