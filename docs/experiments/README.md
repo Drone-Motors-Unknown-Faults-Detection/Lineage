@@ -26,7 +26,7 @@
 | 實驗十二 | [exp12_confusion_tsne](exp12_confusion_tsne.md) | `experiments/exp12_confusion_tsne.py` | 開集混淆矩陣與 t-SNE 視覺化，模型區分正常與故障的效果看不看得出來 |
 | 實驗二十四 | [exp24_experiment_navigation](exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`navigation_regression.py` | 獨立導覽與原主線計算是否一致；整理歷史七問，不新增研究成績 |
 
-實驗七、八在 2026-10-03 補上編號，依程式加入 repo 的時間排：`compare_openset` 是 2026-09-17，健康指數三支是 2026-09-20。程式檔名沒有改，報告檔名與標題帶編號。實驗九～十二（#13～#16）已在本輪完成：AE 偵測器 AUROC 持平、誤報略低；中心平移遷移修好了排序但沒修好校準，不如目標端從零冷啟動；Ancestor 協定下 Ledoit–Wolf 相對 legacy 的 Balanced Accuracy／macro-F1 絕對提升超過 78 pp，遠超 5 pp 門檻；混淆矩陣把這個落差變成可見的畫面。
+實驗七比較同條件開集方法；實驗八提供健康量尺與趨勢。實驗九～十二分別檢查非線性重建、跨工況遷移、Ancestor協定及混淆矩陣／投影。各手冊列方法、CLI與限制；單次分數依固定版本產物解讀，不把此索引當最新驗收或可靠性證明。
 
 ## 共用模型生命週期
 

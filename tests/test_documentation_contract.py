@@ -84,6 +84,23 @@ class DocumentationContractTests(unittest.TestCase):
             self.assertFalse([row for row in local_links(path, ROOT) if not row["exists"]], path)
         self.assertTrue(all((ROOT / name).is_file() for name in ci_documents))
 
+    def test_each_original_delivery_has_one_summary_and_no_deleted_draft_reader(self):
+        expected = {
+            "reports/Andy_20261008_分支整合": "integration_report.md",
+            "reports/Andy_20261008_議題交付": "delivery.md",
+            "reports/Andy_20261009_主線交付": "README.md",
+        }
+        summary_names = {"README.md", "integration_report.md", "delivery.md", "branch_inventory.md",
+                         "audit_followup.md", "audit_followups.md", "runtime_delivery.md", "pr_description.md"}
+        for directory, name in expected.items():
+            actual = {path.name for path in (ROOT / directory).glob("*.md")} & summary_names
+            self.assertEqual(actual, {name})
+        for name in ("ci_evidence.py", "project_closeout_evidence.py", "audit_followup_evidence.py"):
+            text = (ROOT / "tests" / name).read_text(encoding="utf-8")
+            self.assertNotIn("/runtime_delivery.md", text)
+            self.assertNotIn("/audit_followups.md", text)
+            self.assertNotIn('主線交付/issues', text)
+
     def test_backup_manifest_preserves_bytes_and_paths(self):
         path = "reports/Andy_20261009_主線交付/backup_manifest.json"
         original = subprocess.check_output(

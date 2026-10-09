@@ -27,7 +27,7 @@ DOCUMENTS = ("TODO.md", "docs/README.md", "docs/health_and_reports.md",
              "docs/runtime_policy.md", "docs/ci_contract.md",
              "reports/Andy_20261009_主線交付/README.md",
              "reports/Andy_20261009_主線交付/execution_log.md",
-             "reports/Andy_20261009_主線交付/runtime_delivery.md")
+             "docs/formal_materialization_contract.md")
 
 
 def execute(arguments: list[str], timeout: int = 600, tool: str | None = None) -> dict:

@@ -50,7 +50,7 @@ PR #41 經 `471c04b...` 更新至 PR #40 後 main，兩側文件索引保留。�
 
 ## P1-A：#30 追蹤契約先提交
 
-重新讀最新 AGENT、main、相關 issue 與 open PR，19 個議題含 closed 去重；目前只 PR #36 open，head 未變，不接手其同檔。七份新 issue 本文與三份既有 issue 補充先保存於 `issues/`。[接續判定與發布契約](audit_followups.md) 明列 17 項狀態，沒有把 git blob 相同當反例重跑。[16 份來源及相對目標](../../output/audit_followup_evidence/2026-10-09-11-41-15/evidence.json) 可回算；仍缺 profiling 與 root escape 證據。
+重新讀最新 AGENT、main、相關 issue 與 open PR，19 個議題含 closed 去重；目前只 PR #36 open，head 未變，不接手其同檔。七份新 issue 本文與三份既有 issue 補充先保存於 `issues/`。[接續判定與發布契約](README.md#已發布追蹤與去重補充) 明列 17 項狀態，沒有把 git blob 相同當反例重跑。[16 份來源及相對目標](../../output/audit_followup_evidence/2026-10-09-11-41-15/evidence.json) 可回算；仍缺 profiling 與 root escape 證據。
 
 契約 commit `1a9c59c15ab1dc31e9017a4c24c49d86fe863a5a` 已 push；七個議題實際為 #43–#49，回讀皆 OPEN；三則去重補充與 PR #36 協調 URL 見發布清冊。提交後完整162項及pip/CLI通過，來源16檔及15相對目標通過。清冊與§2.2現況接續入庫，不覆寫原稽核表。等待本輪文件PR/main驗證後關 #30。
 
@@ -70,6 +70,6 @@ PR #50 的交付 head 為 `058affde052717213187fa72d98d7bdf3e607746`，已合併
 
 乾淨安裝第一輪在 pip 23 的 cp950 解碼失敗；新增 UTF-8 coding 宣告與回歸，失敗環境及產物保留。第二個新目錄安裝仍須驗證。POSIX 腳本在受限權限下無法啟動 Git Bash；正常權限 `bash -n` 成功，只代表語法，不代表 Linux／macOS 安裝完成。#26 尚未完成每支入口覆蓋，不關單。
 
-程式 commit `815a548e29ee427387b33c14229feb1fe32efdb0` 已 push 並核對。最終全新環境與179項結果、兩次文件檢查及失敗原因見 [環境交付](runtime_delivery.md)。實驗／Web 相對基線的 diff 為空，core 只新增環境模組與 logger sidecar；不改正式105維資料或模型預設。只更新預設新 venv 的忽略規則與文件驗證範圍。交付 PR 不使用自動關 #26 的關鍵字。
+程式 commit `815a548e29ee427387b33c14229feb1fe32efdb0` 已 push 並核對。最終全新環境與179項結果、兩次文件檢查及失敗原因見 [環境交付](README.md#當時環境驗收)。實驗／Web 相對基線的 diff 為空，core 只新增環境模組與 logger sidecar；不改正式105維資料或模型預設。只更新預設新 venv 的忽略規則與文件驗證範圍。交付 PR 不使用自動關 #26 的關鍵字。
 
-PR #51 的 head `26320e7...` 已合 main `3ceea37ab1d4b52b7a414a74310eec8401b5b751`；合併後179項、pip／四個CLI、17環境fixture、版本核對、11guard與8組配對，以及7文件109目標全部成功，見 [固定產物連結與限制](runtime_delivery.md)。#26不關單。main差異338檔備份到D槽，逐檔解壓SHA一致、ZIP CRC檢查成功；第一次36檔不完整包保留並標FAILED，見 [機器索引](backup_manifest.json)。
+PR #51 的 head `26320e7...` 已合 main `3ceea37ab1d4b52b7a414a74310eec8401b5b751`；合併後179項、pip／四個CLI、17環境fixture、版本核對、11guard與8組配對，以及7文件109目標全部成功，見 [固定產物連結與限制](README.md#當時環境驗收)。#26不關單。main差異338檔備份到D槽，逐檔解壓SHA一致、ZIP CRC檢查成功；第一次36檔不完整包保留並標FAILED，見 [機器索引](backup_manifest.json)。

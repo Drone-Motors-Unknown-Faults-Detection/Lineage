@@ -18,7 +18,7 @@ def run() -> dict:
     names = ("TODO.md", "docs/README.md", "docs/health_and_reports.md",
              "reports/Andy_20261009_主線交付/README.md",
              "reports/Andy_20261009_主線交付/execution_log.md", "docs/runtime_policy.md",
-             "reports/Andy_20261009_主線交付/runtime_delivery.md")
+             "docs/ci_contract.md")
     documents = [root / name for name in names]
     links = [row for path in documents for row in local_links(path, root)]
     result = {

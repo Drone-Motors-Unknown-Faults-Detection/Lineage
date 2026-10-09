@@ -9,8 +9,9 @@
 以下連到 reports/ 的原交付與失敗紀錄，只適用其記載日期、來源及受測版本。
 
 - [整合來源與舊驗收](../reports/Andy_20261008_分支整合/integration_report.md)、[歷史manifest](../reports/Andy_20261008_分支整合/manifest.json)。
-- [當時引用核對](../reports/Andy_20261008_議題交付/citation_followup.md)、[導覽驗收](../reports/Andy_20261008_議題交付/guide_acceptance.md)、[未擬合契約及舊回歸](experiments/README.md#共用模型生命週期)。
+- [當時引用核對](../reports/Andy_20261008_議題交付/citation_followup.md)、[導覽驗收](../reports/Andy_20261008_議題交付/guide_acceptance.md)、[未擬合舊回歸](../reports/Andy_20261008_議題交付/execution_log.md#未擬合防護的原驗收邊界)。現行操作見[共用模型生命週期](experiments/README.md#共用模型生命週期)。
 - [當時給老師的說明](../reports/Andy_20261009_主線交付/README.md)、[當時執行紀錄](../reports/Andy_20261009_主線交付/execution_log.md)。
+- [封存彙總重算的原交付說明](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/experiments/exp8_health_index_aggregate_delivery.md)保存該次差異與驗收；現行操作見下表重算手冊。
 
 老師要看程式如何操作，先用[導覽入口與示範腳本](navigation/exp24_README.md)；歷史研究分數只在固定來源下解讀，不當成新增盲測結果。
 
@@ -42,8 +43,7 @@
 | 實驗七 | [exp7_compare_openset](experiments/exp7_compare_openset.md) | `experiments/compare_openset.py` |
 | 實驗八 | [exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
 | 實驗八 | [exp8_health_index_matrix](experiments/exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` |
-| 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`（本輪新增）；54 列與歷史逐欄比對 |
-| 實驗八 | [重算驗證與給老師的說明](experiments/exp8_health_index_aggregate_delivery.md) | PR #41 已合 main，162 項測試通過；349 比對有兩項差異，#25 工程 completed，歷史公式 UNKNOWN |
+| 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`；來源完整性、重算定義及差異輸出 |
 | 實驗八 | [exp8_health_monitor](experiments/exp8_health_monitor.md) | `experiments/health_monitor.py` |
 | 實驗九 | [exp9_autoencoder](experiments/exp9_autoencoder.md) | `core/detectors.py`（`MLPAutoencoderDet`，`experiments/exp6_osr_benchmark.py` 自動納入） |
 | 實驗十 | [exp10_transfer](experiments/exp10_transfer.md) | `experiments/exp10_transfer.py` |
@@ -57,7 +57,7 @@
 
 | 文件 | 內容 |
 |---|---|
-| [exp8_health_monitoring_workflow](exp8_health_monitoring_workflow.md) | 實驗八總覽：Level A 資料能力、Health Index、趨勢/告警、正式 9×3×2 結果、限制與 CLI |
+| [exp8_health_monitoring_workflow](exp8_health_monitoring_workflow.md) | 實驗八資料能力、Health Index、趨勢／告警、矩陣方法、限制與 CLI |
 | [health_and_reports](health_and_reports.md) | `experiments/health/` 各模組、兩套趨勢的差別、CLI輸出位置與封存結果讀法 |
 
 ## 論文版管線文件（程式碼在 Ancestor）
@@ -76,7 +76,7 @@
 
 | 文件 | 內容 | 對新專案的貢獻 |
 |---|---|---|
-| [Mahalanobis_Improvement](Mahalanobis_Improvement.md) | Ledoit–Wolf / OAS / MCD 三法實測比較 | **`core/mahalanobis.py` 預設 `ledoit_wolf` 的實驗依據**（開集準確率 0.951 → 0.986）|
+| [Mahalanobis_Improvement](Mahalanobis_Improvement.md) | 歷史深層特徵的 Ledoit–Wolf / OAS / MCD 比較 | `core/mahalanobis.py` 採用收縮估計的背景；不是現行105維跨馬達多類成績 |
 | [Model_Choice_Analysis](Model_Choice_Analysis.md) | 45 模型實測：閉集準確率飽和、開集分離度才是關鍵 | 「換模型／調參無益，該動特徵與判定機制」——新專案改用 105 維手工特徵冷啟動的背景 |
 | [OpenSet_Recognition](OpenSet_Recognition.md) | OpenMax、能量分數等五種 OSR 替代方案評估 | 新專案的未來方向清單（README「限制與未來工作」）|
 
