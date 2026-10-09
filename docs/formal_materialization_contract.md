@@ -39,3 +39,19 @@ output_root 本身由呼叫者明確指定並 resolve，不能在唯讀 source_r
 本機與兩平台 CI 分別報實際通過／skip／未驗證，不將缺少 symlink 權限說成通過。
 程式可交付候選 PR，但 #45 必須等 main 整合與全部驗收後才可關閉。
 本項是工程安全契約，不增加實驗編號，不產生新研究準確率。
+
+## 實作、失敗紀錄與 main 驗收
+
+契約 `a32f478`、實作 `e460107`、Windows 路徑別名修正 `85734aed94ca9f64ce05fb73d2a04c5d70fd0360`，已由遠端合併 [PR #54](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/54) 至 main `22a253b14eb5df14058800f5a086bf4d7afeae58`。
+新增17項工程測試；等長 fixture 的 CSV bytes 與固定舊版 `0282209` 完全一致，來源 ZIP 前後 SHA 相同。沒有重新物化正式資料。
+
+[初次 Windows 失敗](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891517073) 保留：208項中中斷清理案例的兩個子測試出錯，Ubuntu 成功。公開摘要只保存失敗ID，沒有例外全文，不能宣稱看過封存的原始 traceback。
+程式確認詞法路徑曾與 resolve 後的根混用，Windows 8.3 TMP 別名可令合法路徑誤拒絕。修正後分開詞法／解析根，加入真實 GetShortPathNameW 別名案例與呼叫者 root symlink 案例；根下 symlink 仍拒絕。
+[修正後 PR CI](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891809175) 與 [main CI](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891990633) 均為兩平台成功。
+main CPython 3.10.11／Windows：210項通過、0 skip；CPython3.10.22／Ubuntu：207通過、3個 Windows 專用 skip。所有平台的 failed／errors 均為0，pip／CLI／文件檢查成功。
+本機3.10.19：210項、207通過、3個 symlink 權限 skip，不把 skip 算通過。數值、LW／q95、k-NN factory 與 PolarMap 未修改。
+
+重現：`python -m unittest tests.test_formal_materialization_safety`；完整入口 `python -m tests.ci_evidence`。
+證據：`output/ci_evidence/2026-10-09-14-11-18/public_summary.json`、`output/ci_remote_evidence/2026-10-09-14-11-08/remote_runs.json`、`output/ci_remote_evidence/2026-10-09-14-12-42/remote_runs.json`，對應 logs 同時間戳。
+遠端 artifact 含已版控的舊摘要；只以各摘要的 HEAD／OS 判斷其對應執行，不能把193項歷史摘要當成210項當次結果。
+#45 的宣告工程驗收與 main 整合已符合，可關閉。原始通道同步仍 UNKNOWN；惡意並行寫入與整批磁碟交易不在本契約保證範圍。

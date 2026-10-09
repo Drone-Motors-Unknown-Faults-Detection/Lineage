@@ -63,3 +63,11 @@ Python 沿用已安裝的 CPython 3.10.19 鎖版環境，不重新建置既有 v
 初版 workflow 只在失敗上傳摘要，因此初次成功run的逐項計數未保存為artifact；後續改成成功／失敗都只保存白名單摘要並在log列skip。不可為舊綠燈補造artifact。
 遠端證據入口為 `python -m tests.ci_remote_evidence --run-id RUN_ID`；輸出 `output/ci_remote_evidence/*/remote_runs.json`，保留真實 head／run／job／artifact與摘要。
 #27 候選工程條件已交付；尚未合 main，issue 維持 OPEN，macOS 未驗證。模型／準確率變動為0。
+
+## main 整合後驗收（2026-10-09）
+
+上述「尚未合 main」是候選交付當下狀態。遠端後續合併 PR #53 為 `68e4211324b1c9c547cfb59d0a827482e019c9a2`，PR #54 為 `22a253b14eb5df14058800f5a086bf4d7afeae58`；代理未執行合併。
+[main 真實 CI](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891990633) 的兩平台均成功，完整 suite 為210項：Windows CPython 3.10.11 通過210項、skip 0；Ubuntu CPython 3.10.22 通過207項、skip 3（Windows 專用案例）。pip check、七個 CLI 與文件目標檢查均成功。正式政策支援 3.10.x，不把本機3.10.19寫成遠端實際版本。
+證據位於 `output/ci_remote_evidence/2026-10-09-14-12-42/remote_runs.json`。artifact 同時含先前已版控摘要，必須以 `environment.git.head=22a253b14eb5df14058800f5a086bf4d7afeae58` 辨識本次 main 結果，不能把舊193項摘要再算一次。
+本機相同程式樹 `85734ae` 的再驗為210項、207通過、3項因 symlink 權限 skip、0失敗；原始限制保留。main 測試已實際覆蓋 Windows symlink。
+#27 的列明工程驗收與 main 整合已符合，可依授權關閉；任意 Origin 的現況仍留 #28，未宣稱 Web 安全完成。
