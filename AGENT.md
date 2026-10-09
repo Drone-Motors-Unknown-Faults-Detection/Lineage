@@ -43,8 +43,8 @@ web/             即時展示與實驗頁（live.py 串流編排、experiments.p
 tests/           pytest 單元測試；其中需要留存證據的驗證腳本（*_evidence.py 等）
                  一樣經 core.logger.setup_run() 寫 logs/ 與 output/，不得改成手寫報告
 docs/            實驗技術報告在 docs/experiments/（每個 experiments/*.py 一份 .md）
-                 ＋論文版技術文件快照、Lineage 研究文件，與交付/整合紀錄
-                 （integration_20261008、issue_delivery_20261008、project_closeout_20261009、navigation）。
+                 ＋論文版技術文件快照、Lineage 研究文件及 navigation 操作導覽；
+                 單次交付與整合紀錄放 reports/。
                  歷史快照見 docs/README.md；快照裡的程式路徑不對應現行架構，勿據以改碼
 data/            特徵資料（git 忽略；由論文版管線產出，本專案唯讀）
 logs/ output/    每次執行的日誌與結果（納入版控）。output/ 只能是程式碼寫出的檔案，見鐵則 9

@@ -1,21 +1,21 @@
 # Lineage 導覽入口
 
-給老師先讀：[實驗總覽](exp24_實驗總覽.md) → [結果白話解讀](exp24_結果白話解讀.md) → [研究流程圖](exp24_研究流程圖.md) → [示範腳本](exp24_示範腳本.md)。原始老師問題逐項回覆仍在[teacher reply](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/teacher_reply_20261005/reply.md)，本輪沒有覆寫。
+給老師先讀：[實驗總覽](exp24_實驗總覽.md) → [結果白話解讀](exp24_結果白話解讀.md) → [研究流程圖](exp24_研究流程圖.md) → [示範腳本](exp24_示範腳本.md)。逐項回覆老師問題的歷史證據見[固定版本回覆](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/teacher_reply_20261005/reply.md)，完整數值由[來源索引](exp24_來源索引.md)查閱。
 
-實際操作：[UI操作腳本](exp24_UI操作腳本.md)，驗收與限制：[交付報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/navigation_20261007/final_report.md)。原稿Mermaid及SVG都在本目錄。研究模式可展開完整七問表，不改計算。
+## 啟動與操作
 
-在本專案 checkout 根目錄執行：
+依[環境政策](../runtime_policy.md)準備 uv 與已鎖版環境，在 checkout 根目錄執行：
 
-```powershell
-python -m web.guide --data-root D:/schoolshit/專題/src/Lineage/data --port 8601 --seed 42
+```bash
+uv run --locked python -m web.guide --data-root data --port 8601 --seed 42
 ```
 
-開啟 http://127.0.0.1:8601 。先選T1/8000rpm、確認資料、建立健康基準。預設LW／q95，kNN另用--openset-method knn，仍透過原factory。換方法需新server/session，不暗改目前模型。
+開啟 http://127.0.0.1:8601 。資料根目錄可改成實際唯讀位置；空資料目錄顯示「缺少資料」，不能建立模型。先選 motor／RPM，按「確認所選資料」，核對筆數與 SHA 後才建立健康基準。預設 Mahalanobis–LW、q95；k-NN 對照在啟動時加 --openset-method knn，仍使用 core.openset factory。更換方法需明確重啟服務，不暗改現有 session。
 
-這是獨立導覽入口，沒有取代原python -m web.server／8600。2026-10-08 另從PR #36部分抽取exp1/3/4串流，健康監測串流因#35仍排除；詳見[整合紀錄](../integration_20261008/execution_log.md)。使用者只需瀏覽器，不需VSCode。
+三個入口為冷啟動、未知學習、漸進／突發比較，共用同一 session。詳見[UI 操作腳本](exp24_UI操作腳本.md)。研究模式展開參數及七問表，切換模式不重擬合、不改計算。原 python -m web.server／8600 展示及 PolarMap 仍可使用；本入口不取代它們。
 
-目前main已整合`web.guide`，根README也有文件入口與啟動命令；原`web/static/index.html`尚未加入導覽按鈕。#37最後的「主線首頁整合」仍未完成，不因獨立服務能開啟就勾選。原首頁的最小後續需求是加入獨立服務的操作提示／入口，須先協調PR36重疊檔案，本輪不修改。實際本輪驗收與資料範圍見[導覽驗收](../issue_delivery_20261008/guide_acceptance.md)。
+## 復原與限制
 
-健康-only展示與跨馬達多類研究分開。學會前未知拒絕率、學會後已知接受率與自身配置分類accuracy不同；不提供無真值的損壞百分比、RUL或部署保證。
+暫停後可沿原順序繼續；重設或換工況會明確重建。斷線後不自動播放。更新失敗先停止，按錯誤狀態明確重建，不連續重送確認；[共用模型生命週期](../experiments/README.md#共用模型生命週期)說明重訓失敗的限制。
 
-> 主線整合註記：這份研究摘要來自固定研究提交 `b3d68f145cfa187e208e38cae74bf33f68d7c367`。表中歷史數字不是本輪重新執行；連到研究提交的模組／報告未必已合入 main。本輪只整合獨立導覽，main 的 PolarMap 與實驗頁保留。
+輸入是 CSV 重播，沒有連接實體馬達。健康-only 展示與跨馬達多類研究分開；學前未知拒絕、學後已知接受、自身配置分類 accuracy 的分母不同。沒有物理損壞百分比、RUL 或部署保證。歷史人工驗收見[固定導覽報告](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/navigation_20261007/final_report.md)，不代表目前所有環境已重新驗收。

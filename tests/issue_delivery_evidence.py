@@ -71,7 +71,7 @@ def run(data_root):
     log, paths = setup_run("issue_delivery_evidence")
     root = Path.cwd().resolve()
     documents = [root / "docs/README.md", root / "docs/health_and_reports.md",
-                 root / "README.md", *sorted((root / "docs/issue_delivery_20261008").glob("*.md")),
+                 root / "README.md", *sorted((root / "reports/Andy_20261008_議題交付").glob("*.md")),
                  *sorted((root / "docs/navigation").glob("*.md"))]
     links = [row for path in documents for row in local_links(path, root)]
     data = data_index(data_root)

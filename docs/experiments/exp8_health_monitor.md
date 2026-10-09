@@ -65,8 +65,8 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 ### 散在其他位置的相關檔案
 
 - 測試：`tests/test_health_trajectory.py`、`tests/test_health_schema.py`；`tests/test_health_monitor.py` 測 #35 的窗口取樣、`iter_run` 與 `run` 一致、Web 串流 `done` 與批次結果一致。
-- 套件：`experiments/health/`，見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
-- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；原始稽核見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
+- 套件：`experiments/health/`，見[模組資料流](../health_and_reports.md#模組資料流)。
+- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；封存結果與預期讀法見[reports與預期成果](../health_and_reports.md#reports與預期成果)。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
 - Web 實驗頁：頁首「實驗八」的 8-3，`web/experiments.py` 的 `CATALOG` 項目 `exp8_monitor` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp8_monitor`；結果存到 `output/web_server/{ts}/experiments/exp8_monitor_{時間}.json`。
 - 邊跑邊畫：卡片上的「⏵ 邊跑邊畫」走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/exp8_monitor/stream`）逐窗推送，畫面在 `web/static/experiments.js` 的 `LIVE.exp8_monitor`。播完存檔內容與「▶ 執行」相同，另加 `streamed: true`。

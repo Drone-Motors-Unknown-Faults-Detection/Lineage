@@ -1,13 +1,13 @@
 # UI操作腳本
 
-2026-10-06事前腳本。獨立入口web.guide，重用LiveDemo／Hub；不修改PR #36的server.py、index.html、experiments.js或iter_run。既有python -m web.server與原始頁面保留；首頁整合等PR #36處理後再決定。
+獨立入口 web.guide 重用 LiveDemo／Hub；原 web.server 展示仍可使用。啟動方式見[導覽入口](exp24_README.md#啟動與操作)。
 
 首頁只有三個主要操作：冷啟動、未知學習、漸進／突發比較。三條流程共用一session；切頁不新增worker。展示／研究切換只改畫面，不送重設或擬合指令。研究頁另連實驗總覽、來源及原研究入口。
 
 | 步驟ID／前置 | 按什麼 | 資料角色 | 呼叫／事件 | 畫面 | 判斷原因 | 可信度／限制 | 下一步／錯誤與復原 |
 |---|---|---|---|---|---|---|---|
 | U0未選資料 | 三入口之一 | catalog motor/RPM | state | 三入口、資料選單 | 尚無模型 | CSV重播，不連硬體 | 選資料；空catalog阻止 |
-| U1待建基準 | 確認所選資料／建立健康基準 | healthy；顯示105維、各匿名配置筆數、CSV SHA、seed | build→busy→state | 建基準中，其他操作停用 | 檔案載入／既有fit | load_pools驗證105/有限值；少健康阻止 | 失敗顯示error、重選或重試 |
+| U1待建基準 | 確認所選資料／建立健康基準 | healthy；顯示105維、各匿名配置筆數、CSV SHA、seed | inspect檢查；build→busy→state擬合 | 建基準中，其他操作停用 | 檔案載入／既有fit | 驗證105數值欄、過濾非有限列，各池至少10筆；不證明物理語意一致 | 失敗顯示error、重選或重試 |
 | U2可輸入 | 開始健康重播 | healthy holdout；train/cal不重播 | start／sample | 分數主圖、normalized threshold=1 | core.openset score與classify | 本工況展示；非跨motor可靠性 | 暫停／改匿名訊號來源 |
 | U3監測／累積 | 輸入匿名異常來源 | 未知配置全池，從未fit | source→tick | 未知/已知文字、隔離數、分群嘗試 | >1拒絕、>2隔離；核心HDBSCAN | unknown不等已確認原因；感測品質未驗證 | 無候選等待，沒有強制確認 |
 | U4待確認 | 模擬操作員確認 | 候選ID、size；答案尚不顯示 | confirm(candidate_id)→busy | 更新中 | 現有confirm揭示配置／判斷退回 | 後端已有truth快取；僅UI遮蔽 | stale/重複確認拒絕；已知群退回 |
@@ -24,6 +24,4 @@
 
 程式核對補充：cluster_attempts是連續分群失敗次數，成功即歸零，不能當總嘗試。新頁使用精確名稱；候選t_range是重播筆數索引，不是raw時間。inspect先唯讀檢查，build才擬合。未完成模型時不可播放劇本；有錯誤時先明確重建／重設。
 
-驗收先固定T1/8000rpm、seed42、預設LW、q95、k5。匿名源對應由backend保存，確認後才揭示。不得降低門檻促成候選。兩模式需同data/seed結果；速度只調tick間隔。需實際瀏覽器冷啟動→無候選→候選→確認→前後監測、A/B、暫停/重設/斷線/窄屏檢查。完整來源與每步結果寫驗收報告，不用HTTP成功代替。
-
-> 主線整合註記：這份研究摘要來自固定研究提交 `b3d68f145cfa187e208e38cae74bf33f68d7c367`。表中歷史數字不是本輪重新執行；連到研究提交的模組／報告未必已合入 main。本輪只整合獨立導覽，main 的 PolarMap 與實驗頁保留。
+速度只調 tick 間隔，不改樣本順序或門檻。沒有候選就等待或暫停，不降低門檻。操作示例以 T1/8000rpm、seed42、LW/q95 為條件；實際筆數以資料檢查與 session 紀錄為準。這些操作說明不構成新一次模型評估。

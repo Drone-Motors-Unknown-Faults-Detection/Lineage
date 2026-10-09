@@ -471,9 +471,9 @@ output/{program}/{YYYY-MM-DD-HH-MM-SS}/       # results.csv / summary.json / *.p
 | 共變異數估計 | Ledoit–Wolf 收縮（高維小樣本可逆、良態）| Ledoit & Wolf (2004) *J. Multivariate Analysis*；替代：Chen et al. (2010) OAS |
 | 非參數開集對照 | 逐類 k-NN 平均歐氏距離 + known-only 校準分位數 | [Cover & Hart (1967)](https://doi.org/10.1109/TIT.1967.1053964) *IEEE Transactions on Information Theory*；[Ramaswamy, Rastogi & Shim (2000)](https://doi.org/10.1145/342009.335437) *SIGMOD* |
 | 新故障分群 | HDBSCAN（自動叢集數、雜訊點標記）| Campello, Moulavi & Sander (2013) |
-| 變化點偵測 | EWMA超線旗標比例；CUSUM只供展示，判別門檻由專案設定 | Roberts (1959) *Technometrics*；Page (1954) *Biometrika*；[原文與實作對照](docs/issue_delivery_20261008/citation_followup.md) |
-| 持續學習模擬 | 操作員確認後用完整配置池重擬合（oracle），未驗證消除遺忘 | EWC／iCaRL僅為背景對照，未實作：[引用核對](docs/issue_delivery_20261008/citation_followup.md) |
-| 衰退外插（未實作）| 需要同個體歷程與失效終點，現有資料不支援RUL | 明確背景候選：Gebraeel et al. (2005), *Residual-life distributions from component degradation signals: A Bayesian approach*；Wang et al. (2008), *A Similarity-Based Prognostics Approach for Remaining Useful Life Estimation of Engineered Systems*；[DOI、全文狀態與舊引用限制](docs/issue_delivery_20261008/citation_followup.md) |
+| 變化點偵測 | EWMA超線旗標比例；CUSUM只供展示，判別門檻由專案設定 | Roberts (1959) *Technometrics*；Page (1954) *Biometrika*；[原文與實作對照](reports/Andy_20261008_議題交付/citation_followup.md) |
+| 持續學習模擬 | 操作員確認後用完整配置池重擬合（oracle），未驗證消除遺忘 | EWC／iCaRL僅為背景對照，未實作：[引用核對](reports/Andy_20261008_議題交付/citation_followup.md) |
+| 衰退外插（未實作）| 需要同個體歷程與失效終點，現有資料不支援RUL | 明確背景候選：Gebraeel et al. (2005), *Residual-life distributions from component degradation signals: A Bayesian approach*；Wang et al. (2008), *A Similarity-Based Prognostics Approach for Remaining Useful Life Estimation of Engineered Systems*；[DOI、全文狀態與舊引用限制](reports/Andy_20261008_議題交付/citation_followup.md) |
 
 ---
 
