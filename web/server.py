@@ -99,7 +99,7 @@ class Hub:
 
     # -- 節拍 ------------------------------------------------------------------
 
-    def pause(self) -> None:
+    def pause(self, *, publish=True) -> None:
         """IOLoop 的同步 tick 先完成；停止後才確認尾批資料已保存。"""
         self.running = False
         if self.busy:
@@ -110,7 +110,8 @@ class Hub:
             except Exception as exc:
                 self.error = f"保存失敗：{exc!r}"
                 raise
-            self.broadcast(self.full_state())
+            if publish:
+                self.broadcast(self.full_state())
 
     def close_client(self, client) -> None:
         self.clients.discard(client)
@@ -331,7 +332,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             HUB.running = True
             HUB.event("info", "▶ 串流開始")
         elif cmd == "pause":
-            HUB.pause()
+            HUB.pause(publish=False)
             HUB.event("info", "⏸ 串流暫停；已寫入樣本完成 flush")
         elif cmd == "rate":
             HUB.set_rate(msg.get("value", 4))
@@ -359,7 +360,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         if HUB.busy:
             HUB.event("warn", f"{label}略過：另一項工作進行中")
             return
-        HUB.pause()
+        HUB.pause(publish=False)
         HUB._busy_state = HUB.full_state()
         HUB.busy = True
         HUB.broadcast(HUB.full_state())
@@ -373,7 +374,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             HUB.event("error", f"{label}失敗：{exc!r}")
         finally:
             HUB.busy = False
-        HUB.pause()
+        HUB.pause(publish=False)
         HUB.broadcast(HUB.full_state())
         HUB.broadcast(HUB.demo.metrics_msg())
 

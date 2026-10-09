@@ -172,8 +172,8 @@ class GuideHub(Hub):
         logger.info(text)
         super().broadcast({"type": "event", "guide_safe": True, "level": level, "text": text})
 
-    def pause(self):
-        super().pause()
+    def pause(self, *, publish=True):
+        super().pause(publish=publish)
 
     def tick(self):
         if not self.demo or self.busy:
@@ -207,7 +207,7 @@ class GuideSocket(tornado.websocket.WebSocketHandler):
 
     async def heavy(self, command, fn):
         h = self.hub
-        h.pause()
+        h.pause(publish=False)
         h.busy_state = h.full_state()
         h.busy, h.operation, h.running = True, command, False
         h.broadcast(h.full_state())
@@ -223,7 +223,7 @@ class GuideSocket(tornado.websocket.WebSocketHandler):
             h.event("error", h.error)
         finally:
             h.busy, h.operation = False, None
-        h.pause()
+        h.pause(publish=False)
         h.broadcast(h.full_state())
 
     async def on_message(self, raw):
@@ -240,7 +240,7 @@ class GuideSocket(tornado.websocket.WebSocketHandler):
             elif h.demo is None:
                 raise ValueError("請先選資料並建立健康基準")
             elif cmd == "pause":
-                h.pause()
+                h.pause(publish=False)
             elif cmd == "reset":
                 def reset():
                     h.demo._build()
