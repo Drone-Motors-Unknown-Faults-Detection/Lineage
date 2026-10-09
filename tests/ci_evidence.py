@@ -30,10 +30,10 @@ DOCUMENTS = ("TODO.md", "docs/README.md", "docs/health_and_reports.md",
              "docs/project_closeout_20261009/runtime_delivery.md")
 
 
-def execute(arguments: list[str], timeout: int = 600) -> dict:
+def execute(arguments: list[str], timeout: int = 600, tool: str | None = None) -> dict:
     env = dict(os.environ, PYTHONUTF8="1", PYTHONIOENCODING="utf-8", MPLBACKEND="Agg")
     try:
-        result = subprocess.run([sys.executable, *arguments], cwd=ROOT, env=env,
+        result = subprocess.run([tool or sys.executable, *arguments], cwd=ROOT, env=env,
                                 capture_output=True, text=True, encoding="utf-8",
                                 errors="replace", timeout=timeout)
         output = result.stdout + "\n" + result.stderr
@@ -74,7 +74,14 @@ def run() -> dict:
         try:
             for name in previous_tmp:
                 os.environ[name] = directory
-            checks.append(execute(["-m", "pip", "check"]))
+            # uv sync 不把 pip 裝進最終 venv，改用 uv pip check；傳相對路徑避免洩漏絕對路徑。
+            # 不對 sys.executable 呼叫 resolve()：uv 建的 venv 裡 python 是指向共用安裝目錄的
+            # symlink，resolve 後的路徑會跑到 ROOT 之外，uv pip check 反而認得這個相對路徑。
+            try:
+                python_rel = str(Path(sys.executable).relative_to(ROOT))
+                checks.append(execute(["pip", "check", "--python", python_rel], tool="uv"))
+            except ValueError:
+                checks.append({"arguments": ["pip", "check"], "returncode": -1, "error_type": "PythonNotUnderRoot"})
             checks.extend(execute(["-m", module, "--help"], 60) for module in CLIS)
         finally:
             for name, old in previous_tmp.items():

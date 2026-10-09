@@ -4,15 +4,15 @@
 
 ## 執行流程
 
-push／pull_request 觸發 Ubuntu、CPython 3.10 的 contracts job。checkout 取完整 Git 歷史供固定舊版回歸使用；測試不依賴被忽略的正式 data。workflow 用 uv 建立 venv，依 runtime-constraints.txt 安裝建置工具與 test extras，再依序執行獨立步驟：
+push／pull_request 觸發 Ubuntu、CPython 3.10 的 contracts job。checkout 取完整 Git 歷史供固定舊版回歸使用；測試不依賴被忽略的正式 data。workflow 用 uv sync --locked 建立 venv，依 uv.lock 安裝專案與 test extras，再執行獨立步驟：
 
 ```bash
-./run_ruff.sh
 ./run_pytest.sh -ra --tb=short
+./run_ruff.sh
 venv/bin/python -m tests.ci_evidence
 ```
 
-`tests.ci_evidence` 只執行 pip check、七個 CLI 的 --help，以及選定文件的相對目標檢查，不在其中重跑 pytest／ruff。CLI 清單為 exp1、exp2、exp3、exp4、compare_openset、exp6_formal_benchmark、web.server，尚未涵蓋所有實驗。正式資料不能拿來補 fixture。本機先依 [環境操作](runtime_policy.md) 安裝 test 依賴。
+`tests.ci_evidence` 只執行 uv pip check、七個 CLI 的 --help，以及選定文件的相對目標檢查，不在其中重跑 pytest／ruff。CLI 清單為 exp1、exp2、exp3、exp4、compare_openset、exp6_formal_benchmark、web.server，尚未涵蓋所有實驗。正式資料不能拿來補 fixture。本機先依 [環境操作](runtime_policy.md) 安裝 test 依賴。
 
 ## 輸出與判定
 
