@@ -114,6 +114,7 @@ class GuideHub(Hub):
             if not self.running:
                 step = "已更新" if self.last_action == "learned" else "可輸入" if d.t == 0 else "暫停"
             state.update(t=d.t, epoch=d.epoch, meta=d.meta, openset=d.session.monitor.summary(),
+                         persistence=d.state()["persistence"],
                          configs=[self.public_config(c["config"]) for c in self.contract["configs"]],
                          source=self.public_config(d.source)["id"],
                          known=list(d.session.monitor.known), quarantine=len(d.session.quarantine_X),

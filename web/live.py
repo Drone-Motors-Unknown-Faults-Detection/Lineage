@@ -128,6 +128,15 @@ class LiveDemo:
         if self._sample_file is not None:
             self._sample_file.flush()
             self.flushed_t = self.written_t
+            payload = {"epoch": self.epoch, "t": self.t, "dataset": self.meta,
+                       "source": self.source, "scenario": None if self.scenario is None else self.scenario["key"],
+                       "seed": self.seed, "written_t": self.written_t, "flushed_t": self.flushed_t,
+                       "openset_method": self.openset_method, "mahalanobis_method": self.mahalanobis_method,
+                       "confidence": self.confidence, "knn_neighbors": self.knn_neighbors}
+            path = self.out_dir / f"session_epoch{self.epoch:02d}.json"
+            temporary = path.with_suffix(".json.tmp")
+            temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+            temporary.replace(path)
 
     def _snapshot_model(self, tag: str) -> None:
         if self.out_dir is None:
@@ -165,6 +174,7 @@ class LiveDemo:
         self.switch_t = self.t
         self.fault_onset_t = self.t if config != HEALTHY else None
         self.trend.rearm()
+        self.flush()
         return [_event("info", f"注入來源切換 → {display_name(config)}", self.t)]
 
     def start_scenario(self, key: str) -> list[dict]:
@@ -175,6 +185,7 @@ class LiveDemo:
         self.switch_t = self.t
         self.fault_onset_t = self.t + scen["phases"][0][2]
         self.trend.rearm()
+        self.flush()
         return [_event("info", f"▶ 啟動{scen['name']}（先回到健康基線）", self.t)]
 
     def confirm(self) -> dict:

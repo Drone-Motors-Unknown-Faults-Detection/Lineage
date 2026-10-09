@@ -1,5 +1,6 @@
 """暫停、斷線及正常結束的實際 CSV 保存契約。"""
 import csv
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -69,6 +70,16 @@ class PersistenceTests(unittest.TestCase):
         self.assertFalse(self.hub.running)
         self.assertFalse(self.demo._closed)
 
+    def test_source_snapshot_matches_saved_metadata_and_csv(self):
+        self.demo.set_source("5screws")
+        self.ticks(3)
+        self.hub.pause()
+        saved = json.loads((self.out / "session_epoch01.json").read_text(encoding="utf-8"))
+        self.assertEqual(saved["source"], self.hub.full_state()["source"])
+        self.assertEqual(saved["dataset"], self.hub.full_state()["meta"])
+        self.assertEqual(saved["flushed_t"], len(self.rows()))
+        self.assertEqual({row["truth"] for row in self.rows()}, {saved["source"]})
+
     def test_normal_stop_and_repeated_close(self):
         self.ticks(24)
         serve(Mock(), self.hub)
@@ -122,4 +133,3 @@ class PersistenceTests(unittest.TestCase):
         self.hub.error = "保存失敗"
         with patch("web.server.HUB", self.hub), self.assertRaises(ValueError):
             asyncio.run(WSHandler.dispatch(Mock(), {"cmd": "start"}))
-

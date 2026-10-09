@@ -31,3 +31,7 @@
 樣本以 session 目錄、epoch、t 識別。`LiveDemo.tick()` 同步完成預測與 CSV 寫入後，才送出 sample；每 15 筆 flush 一次。`Hub.pause()` 停止新 tick，再 flush 尾批，成功後才回覆暫停。最後一個 WebSocket 離線會保存並保留模型，重連不重訓。正常停止 IOLoop 或 Ctrl+C 經 `serve()` 等背景工作完成後關檔。
 
 `persistence.written_t` 是已交給 CSV writer 的最後索引，`flushed_t` 是已完成 flush 的索引；未設定輸出目錄時 `enabled=false`，不能宣稱已保存。保存失敗會留下錯誤、停止串流並阻止直接恢復。重複暫停／關閉不追加樣本。此契約保證正常暫停／關閉後可重新開檔讀取，不包含強制終止、作業系統故障或掉電的零遺失保證；沒有執行 fsync。
+
+### 來源恢復
+
+重連以後端 state 的 session／epoch、馬達／轉速、source 與方法為準。選單尚未套用的值另標「待套用」，按「輸入所選來源」才會改後端。來源不在清單時顯示不可用選項，不自動切回健康資料；舊 WebSocket 的事件不更新新連線。每次 flush 同時寫 `session_epochNN.json`，記錄實際配置代碼、工況、方法與已保存索引；此檔只供伺服器端追溯，導覽 UI 仍遮蔽未知配置答案。前端回歸測試由 pytest 呼叫 Node.js 執行真正的 `guide.js`，需要 PATH 中有 Node.js。

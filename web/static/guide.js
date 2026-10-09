@@ -1,6 +1,7 @@
 "use strict";
 const el = id => document.getElementById(id);
 let state = {}, flow = "cold", ws, research = false, samples = [], lastVersion = "";
+let pendingSource = null;
 const names = {cold:"冷啟動：只有健康基準",learning:"未知學習：候選需要確認",trend:"趨勢：比較兩種 CSV 劇本"};
 function send(cmd, extra={}) {if(ws && ws.readyState===1) ws.send(JSON.stringify({cmd,...extra}));}
 function selectedData(){const v=el("dataset").value.split("|");return {motor:v[0],rpm:v[1]};}
@@ -9,6 +10,27 @@ function options(select, rows, value, label) {
   const old=select.value;
   select.replaceChildren(...rows.map(r=>{const o=document.createElement("option");o.value=value(r);o.textContent=label(r);return o;}));
   if([...select.options].some(o=>o.value===old))select.value=old;
+}
+function sourceOptions(restore){
+  const rows=state.configs||[], active=state.source;
+  if(restore)pendingSource=null;
+  options(el("source"),rows,r=>r.id,r=>`${r.name}（${r.n}筆）`);
+  const wanted=pendingSource??active;
+  if(rows.some(r=>r.id===wanted))el("source").value=wanted;
+  else {
+    const unavailable=document.createElement("option");
+    unavailable.value="";unavailable.textContent=`目前來源 ${active} 不在可選清單；請選可用來源`;
+    unavailable.disabled=true;el("source").prepend(unavailable);el("source").value="";
+    pendingSource=null;
+  }
+  const method=state.openset.openset_method==="knn"?`k-NN（k=${state.openset.knn_neighbors}）`:`Mahalanobis（${state.openset.method}）`;
+  el("sourceStatus").textContent=`已套用來源：${active}；方法 ${method}。`+(pendingSource&&pendingSource!==active?`待套用：${pendingSource}，須按「輸入所選來源」。`:"選單與目前來源一致；選其他來源後須明確套用。");
+  el("inject").disabled ||= !el("source").value;
+}
+function older(m, reference){
+  if(m.session_id===undefined||m.epoch===undefined||!reference.meta)return false;
+  return m.session_id<reference.session_id || (m.session_id===reference.session_id &&
+    (m.epoch<reference.epoch || (m.epoch===reference.epoch && m.t<reference.t)));
 }
 function render(){
   const ready=!!state.openset, busy=state.busy, online=ws && ws.readyState===1;
@@ -27,8 +49,8 @@ function render(){
   el("nextStep").textContent=busy?"正在處理，請等待。":!ready?"下一步：確認所選資料 → 建立健康基準。":!matches?"所選工況不同：先檢查並重建，原模型不能判新工況。":state.error?"操作失敗：查看紀錄後明確重設／重建。":flow==="trend"?(state.running?"劇本演算中；可暫停，不在比較途中確認／重訓。":"下一步：記錄警報 → 重設健康基準 → 選劇本A或B。候選只在未知學習流程確認。"):state.candidate?"下一步：模擬操作員確認，或暫停等待。":state.running?"逐筆監測中；可暫停，或選匿名訊號來源。":"下一步：開始／繼續；觀看未知學習時可輸入匿名來源。";
   if(state.rate)el("rate").value=String(state.rate);
   el("quarantine").textContent=`隔離 ${state.quarantine||0} 筆；分群連續失敗 ${state.attempts||0} 次（成功歸零，非總嘗試）；`+(state.candidate?`候選 ${state.candidate.id}：${state.candidate.size} 筆，重播索引 ${JSON.stringify(state.candidate.t_range)}`:"沒有候選；可持續等待或暫停");
-  if(ready)options(el("source"),state.configs,r=>r.id,r=>`${r.name}（${r.n}筆）`);
-  el("technical").textContent=JSON.stringify({data:state.data,preview:state.preview,configs:state.configs,fit:state.fit_audit},null,2);
+  if(ready)sourceOptions(false);
+  el("technical").textContent=JSON.stringify({data:state.data,preview:state.preview,configs:state.configs,fit:state.fit_audit,persistence:state.persistence,active_source:state.source},null,2);
   const version=`${state.session_id}/${state.epoch}/${state.known?.length||0}`;
   if(version!==lastVersion){samples=[];lastVersion=version;el("judgment").textContent="尚未計算";el("metrics").replaceChildren();el("alarm").textContent="趨勢警報：尚未計算";}
   draw();
@@ -45,17 +67,21 @@ function draw(){
 }
 function mode(){research=!research;el("research").hidden=!research;el("mode").textContent=research?"返回展示模式":"切換研究模式";el("mode").setAttribute("aria-pressed",String(research));}
 function connect(){
- ws=new WebSocket((location.protocol==="https:"?"wss://":"ws://")+location.host+"/ws");
- ws.onopen=()=>{el("connection").textContent="已連線 · 逐筆呼叫既有核心";render();};
- ws.onclose=()=>{el("connection").textContent="已斷線，最後一個瀏覽器離線會暫停；重連不重訓";render();setTimeout(connect,1500);};
- ws.onmessage=e=>{
+ const socket=new WebSocket((location.protocol==="https:"?"wss://":"ws://")+location.host+"/ws");
+ ws=socket;let firstSnapshot=true;
+ socket.onopen=()=>{if(ws!==socket)return;el("connection").textContent="已連線 · 逐筆呼叫既有核心";render();};
+ socket.onclose=()=>{if(ws!==socket)return;el("connection").textContent="已斷線，最後一個瀏覽器離線會暫停；重連不重訓";render();setTimeout(()=>{if(ws===socket)connect();},1500);};
+ socket.onmessage=e=>{
+  if(ws!==socket)return;
   const m=JSON.parse(e.data);
   if(m.type==="state"){
+   if(!firstSnapshot&&older(m,state))return;
+   const restore=firstSnapshot||m.session_id!==state.session_id||m.epoch!==state.epoch||m.source!==state.source;
    state=m;
-   if(!el("dataset").value){
-    options(el("dataset"),m.datasets,r=>r.motor+"|"+r.rpm,r=>r.motor+" / "+r.rpm);
-    if(m.meta)el("dataset").value=m.meta.motor+"|"+m.meta.rpm;
-   }
+   options(el("dataset"),m.datasets||[],r=>r.motor+"|"+r.rpm,r=>r.motor+" / "+r.rpm);
+   if(restore&&m.meta)el("dataset").value=m.meta.motor+"|"+m.meta.rpm;
+   if(restore)pendingSource=null;
+   firstSnapshot=false;
    render();
   }else if(m.type==="sample"){
    samples.push(m);if(samples.length>400)samples.shift();el("judgment").textContent=`${m.prediction}；score ${m.score}，threshold 1`;draw();
@@ -71,6 +97,7 @@ el("mode").onclick=mode;
 el("inspect").onclick=()=>send("inspect",selectedData());
 el("build").onclick=()=>{if(state.openset&&!confirm("將明確重建所選工況的基準，停止原監測；舊紀錄保留。要繼續嗎？"))return;send("build",selectedData());};
 el("dataset").onchange=render;
+el("source").onchange=()=>{pendingSource=el("source").value;render();};
 el("start").onclick=()=>send("start");
 el("pause").onclick=()=>send("pause");
 el("reset").onclick=()=>{if(confirm("重新擬合健康基準，清除本session隔離區；舊紀錄保留。要重設嗎？"))send("reset");};
