@@ -100,11 +100,12 @@ def inspect(root: Path) -> dict:
             category, evidence = "DOCUMENTED_EXTERNAL_SCREENSHOT", []
         if group == "integration_browser" and path.name in {"guide_qa.md", "stream_qa.md"}:
             category, evidence = "CONFIRMED_MANUAL_QA_PR58", []
-        log = root / "logs" / group / (path.relative_to(output).parts[1] + ".log")
+        parts = path.relative_to(output).parts
+        log = root / "logs" / group / (parts[1] + ".log") if len(parts) > 1 else None
         rows.append({"path": relative, "sha256_bytes": sha(path), "bytes": path.stat().st_size,
                      "tracked": relative in tracked, "category": category,
-                     "candidate_writers": evidence, "log": log.relative_to(root).as_posix() if log.is_file() else None,
-                     "log_sha256": sha(log) if log.is_file() else None, "action": "KEEP"})
+                     "candidate_writers": evidence, "log": log.relative_to(root).as_posix() if log and log.is_file() else None,
+                     "log_sha256": sha(log) if log and log.is_file() else None, "action": "KEEP"})
     return {"schema": "output_inventory_v1", "head": subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=root, text=True).strip(),
         "scope": "僅指定 checkout 的 output；writer 相符不保證歷史版本、命令或完整來源鏈",
@@ -130,7 +131,7 @@ def verify_cleanup(root: Path) -> dict:
     manifest = json.loads((root / "docs/integration_20261008/manifest.json").read_text(encoding="utf-8"))
     targets = manifest["verification"]["browser_qa"]
     from tests.issue_delivery_evidence import local_links
-    documents = [root / "docs/integration_20261008/output_inventory_20261009.md", root / "docs/integration_20261008/browser_qa/guide_qa.md",
+    documents = [root / "docs/integration_20261008/browser_qa/guide_qa.md",
                  root / "docs/integration_20261008/browser_qa/stream_qa.md"]
     links = [row for document in documents for row in local_links(document, root)]
     external = verify_external_relocations(root, "791216cf5602c370091fa516264f1ce6aaad6ab1")
@@ -144,8 +145,7 @@ def verify_cleanup(root: Path) -> dict:
 
 def run(root: Path) -> dict:
     result = inspect(root)
-    if (root / "docs/integration_20261008/output_inventory_20261009.md").is_file():
-        result["cleanup_verification"] = verify_cleanup(root)
+    result["cleanup_verification"] = verify_cleanup(root)
     log, paths = setup_run("output_inventory_evidence")
     (paths.output_dir / "inventory.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -157,16 +157,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
     result = run(parser.parse_args().root)
-    verification = result.get("cleanup_verification")
-    if verification is not None:
-        valid = (verification["other_tracked_output_unchanged"] and verification["manifest_targets_exist"]
-                 and not verification["broken_links"] and all(
-                     row["same_git_content"] and row["old_absent"] and row["new_exists"]
-                     for row in verification["moves"]) and all(
-                         row["same_bytes"] and row["old_absent"]
-                         for row in verification["external_relocations"]))
-        return 0 if valid else 1
-    return 0
+    verification = result["cleanup_verification"]
+    valid = (verification["other_tracked_output_unchanged"] and verification["manifest_targets_exist"]
+             and not verification["broken_links"] and all(
+                 row["same_git_content"] and row["old_absent"] and row["new_exists"]
+                 for row in verification["moves"]) and all(
+                     row["same_bytes"] and row["old_absent"]
+                     for row in verification["external_relocations"]))
+    return 0 if valid else 1
 
 
 if __name__ == "__main__":

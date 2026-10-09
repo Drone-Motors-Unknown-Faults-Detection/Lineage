@@ -5,17 +5,34 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from tests.output_inventory_evidence import inspect, verify_external_relocations
+from tests.output_inventory_evidence import inspect, main, run, verify_external_relocations
 
 
 class OutputInventoryTests(unittest.TestCase):
+    def test_absent_manual_report_does_not_disable_verification(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with patch("tests.output_inventory_evidence.inspect", return_value={"files": []}), \
+                    patch("tests.output_inventory_evidence.verify_cleanup", side_effect=ValueError("來源損壞")) as verify:
+                with self.assertRaisesRegex(ValueError, "來源損壞"):
+                    run(root)
+            verify.assert_called_once_with(root)
+
+    def test_invalid_relocation_fails_cli_without_manual_report(self):
+        verification = {"other_tracked_output_unchanged": True, "manifest_targets_exist": True,
+                        "broken_links": [], "moves": [],
+                        "external_relocations": [{"same_bytes": False, "old_absent": True}]}
+        with patch("tests.output_inventory_evidence.run", return_value={"cleanup_verification": verification}), \
+                patch("sys.argv", ["output_inventory_evidence"]):
+            self.assertEqual(main(), 1)
+
     def test_writer_unknown_and_screenshot_separate(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "tests").mkdir()
             (root / "tests/example.py").write_text('def run():\n    target.write_text("results.json")\n', encoding="utf-8")
             for name in ("example/run/results.json", "example/run/manual.md", "integration_browser/guide_trend_a.png",
-                         "integration_browser/run/image.png"):
+                         "integration_browser/run/image.png", ".gitkeep"):
                 path = root / "output" / name
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(b"fixture")
@@ -26,6 +43,8 @@ class OutputInventoryTests(unittest.TestCase):
             self.assertEqual(by_name["output/example/run/manual.md"]["category"], "UNKNOWN_HISTORY")
             self.assertEqual(by_name["output/integration_browser/guide_trend_a.png"]["category"], "DOCUMENTED_EXTERNAL_SCREENSHOT")
             self.assertEqual(by_name["output/integration_browser/run/image.png"]["category"], "UNKNOWN_HISTORY")
+            self.assertIsNone(by_name["output/.gitkeep"]["log"])
+            self.assertEqual(by_name["output/.gitkeep"]["category"], "UNKNOWN_HISTORY")
             self.assertTrue(all(row["action"] == "KEEP" for row in result["files"]))
             self.assertNotIn(str(root), json.dumps(result))
 
