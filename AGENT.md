@@ -180,3 +180,10 @@ WebSocket `/ws`，JSON 訊息：
 3. `logs/` 與 `output/` 納入版控，不需要加入 .gitignore；`data/` 維持忽略。
 4. Agent 進行 GitHub 相關操作時，將自己加入 Co-Authors。
 5. legacy 的 issue 討論串在 [Ancestor](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor)，查缺陷成因時到該處。
+
+
+---
+
+## MCP 、 Skills 與 Plugin
+
+允使調用所有的 MCP 、 Skills 與 Plugin 為專案維護更順暢。
