@@ -111,6 +111,9 @@ class ProvenanceTests(unittest.TestCase):
 
     def test_corrupt_unknown_missing_duplicate_and_tampered_manifest_rejected(self):
         variants = [lambda v: v.update(schema_version="future_99"),
+                    lambda v: v.update(schema_version=[]),
+                    lambda v: v.update(schema_version={}),
+                    lambda v: v.update(schema_version=True),
                     lambda v: v.update(files=[]),
                     lambda v: v["files"].append(v["files"][0]),
                     lambda v: v["files"][0].update(output_sha256="0" * 64),

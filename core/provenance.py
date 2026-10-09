@@ -74,7 +74,8 @@ def capture_source(data_root: Path | str) -> tuple[dict, dict]:
         if not isinstance(manifest, dict):
             raise ProvenanceError("manifest必須為object")
         manifest_schema = manifest.get("schema_version")
-        if manifest_schema not in {None, 1, "formal_materialization_v1", "formal_materialization_v2", MATERIALIZATION_VERSION}:
+        if (not isinstance(manifest_schema, (type(None), int, str)) or isinstance(manifest_schema, bool)
+                or manifest_schema not in {None, 1, "formal_materialization_v1", "formal_materialization_v2", MATERIALIZATION_VERSION}):
             raise ProvenanceError("未知materialization schema")
         if manifest_schema is None:
             if not all(key in manifest for key in ("archive_sha256", "formal_contract", "files")):
