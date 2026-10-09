@@ -30,7 +30,7 @@ from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath, PureWindowsPath
 import stat
 import tempfile
-from typing import Iterable, Iterator, Sequence
+from typing import Iterable, Sequence
 from zipfile import ZipFile, ZipInfo
 
 import numpy as np

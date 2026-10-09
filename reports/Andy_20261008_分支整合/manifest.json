@@ -1,0 +1,83 @@
+{
+  "schema": "lineage_branch_integration_v1",
+  "date_timezone": "2026-10-08 Asia/Taipei",
+  "status": "MERGED_AND_POST_MERGE_VERIFIED",
+  "repo": "Drone-Motors-Unknown-Faults-Detection/Lineage",
+  "main_before": "64cb71d84663e1745ec54db74abad68def67e8e6",
+  "backup_ref": "backup/main-before-integration-20261008-131410",
+  "backup_sha": "64cb71d84663e1745ec54db74abad68def67e8e6",
+  "main_after": "e1668cb48b91520d2500be643351d9c4c8d9494b",
+  "main_after_scope": "PR #38 功能合併且已完整驗收的 main；後續交付證據提交不改程式，最新遠端 SHA 以 PR 與 ref 查詢為準",
+  "merged_pr": "https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/38",
+  "merged_at": "2026-10-08T13:19:08Z",
+  "pr_tested_head": "92a9ba561a1d6eb23a86cb28cfb05e76ab2078ef",
+  "integration_ref": "integration/branches-20261008-131410",
+  "tested_code_head": "5aaf48a8a96d92997c359fcaf709e2145f41e66d",
+  "phase_commits": {
+    "inventory": "e8d08f1a6152888b6d475091f0937e271f5a5882",
+    "guide": "6ed1eae58ff9e581d39ac032d6853d26026cb83b",
+    "streaming_contract": "cb34a40587797f246bff5e2bf4ba2a32acec7576",
+    "streaming": "5aaf48a8a96d92997c359fcaf709e2145f41e66d",
+    "pre_merge_report": "92a9ba561a1d6eb23a86cb28cfb05e76ab2078ef"
+  },
+  "branches": [
+    {"branch":"backup_260806","sha":"3a699ab81c16503fff4ba2c2b8ec566202c24d7d","decision":"歷史備份保留"},
+    {"branch":"feat/web-experiment-pages","sha":"926da639c76e3642c5854c541fc732bb3eac6c55","decision":"先前已整合","pr":33},
+    {"branch":"feat/web-fit-notice","sha":"f65ab1538c7c973085ca2674c4f601692d2ac14c","decision":"先前已整合","pr":34},
+    {"branch":"refactor/exp8-health-into-experiments","sha":"12c97d6adbd954c23a78bb29cc09e27be8bc13eb","decision":"先前已整合","pr":32},
+    {"branch":"feat/web-streaming","sha":"544d4ed8c6516622e2f46c095351f9483a61635c","decision":"部分抽取","pr":36,"excluded":["experiments/health_monitor.py","health stream註冊","health串流手冊"],"reason":"#35索引缺陷未修，保留原PR與source branch"},
+    {"branch":"research-improvements-20260920","sha":"b3d68f145cfa187e208e38cae74bf33f68d7c367","decision":"部分抽取導覽","excluded_reason":"其他研究模組及稽核相依閉包尚未完成主線驗證；3128檔tip差異含舊路徑、刪除與大量產物，不整批覆蓋main"},
+    {"branch":"main","sha":"64cb71d84663e1745ec54db74abad68def67e8e6","decision":"已備份的整合基底"}
+  ],
+  "verification": {
+    "python": "3.10.19",
+    "baseline_tests": {"passed":76,"failed":0,"errors":0,"skipped":0,"path":"output/branch_integration/2026-10-08-13-21-54"},
+    "candidate_tests": {"passed":111,"failed":0,"errors":0,"skipped":0,"path":"output/branch_integration/2026-10-08-13-41-48"},
+    "exact_pr_head_tests": {"passed":111,"failed":0,"errors":0,"skipped":0,"path":"output/branch_integration/2026-10-08-21-17-25"},
+    "post_merge_tests": {"head":"e1668cb48b91520d2500be643351d9c4c8d9494b","passed":111,"failed":0,"errors":0,"skipped":0,"path":"output/branch_integration/2026-10-08-21-19-15"},
+    "post_merge_stream_comparison": "output/stream_integration_regression/2026-10-08-21-19-45/summary.json",
+    "cli_exit_codes": [0,0,0,0],
+    "pip_check": 0,
+    "js_syntax_exit_codes": [0,0],
+    "guide_paired_samples": 1190,
+    "guide_mismatches": 0,
+    "guide_repeat": "output/navigation_regression/2026-10-08-13-42-01/summary.json",
+    "original_main_stream_comparisons": 5,
+    "stream_mismatches": 0,
+    "stream_result": "output/stream_integration_regression/2026-10-08-13-36-22/summary.json",
+    "browser_qa": ["reports/Andy_20261008_分支整合/browser_qa/guide_qa.md","reports/Andy_20261008_分支整合/browser_qa/stream_qa.md"],
+    "browser_screenshot_locations": ["reports/Andy_20261008_分支整合/browser_qa/screenshots", "reports/Andy_20261008_議題交付/browser_screenshots"],
+    "negative_evidence_preserved": ["output/branch_integration/2026-10-08-13-20-42","output/branch_integration/2026-10-08-13-35-16"],
+    "aborted_runs": ["2026-10-08-13-22-14","web_guide/2026-10-08-13-22-51"]
+  },
+  "data": {
+    "root": "D:/schoolshit/專題/src/Lineage/data",
+    "file_count": 60,
+    "inventory_sha256": "82534111c7901bfe0709637f4979976ce73445a54353e7c377e71e40b4cf2abd",
+    "unchanged": true,
+    "note": "T1/T3三RPM，非歷史90檔；本輪未重建T2或重跑2490研究",
+    "raw_independence": "UNKNOWN",
+    "fresh_final": "INCOMPLETE"
+  },
+  "unchanged_scope": ["core/","experiments/health/","experiments/health_monitor.py","experiments/exp2_scale_growth.py","web/live.py","AGENT.md","pyproject.toml"],
+  "preserved_artifacts": [
+    {"path":"output/exp6_formal_matrix/aggregate/aggregate.json","sha256_worktree":"5fcf3462f0d1edbf766b9853090b14c2fe3dda7861c9c795e49512ea2abb6e98","runs":54},
+    {"path":"reports/exp8_health_index_results/aggregate_summary.json","sha256_worktree":"5c2b41ee23877d8cf150677360f9f771a745583862b4b648f58383c06627c377","rows":54}
+  ],
+  "external_evidence_backup": {
+    "path": "D:/schoolshit/專題/src/lineage_integration_backups/2026-10-08-134300/validated_evidence.zip",
+    "sha256": "d62021a86273c6d6f69122a65f69ab2adce1015c6683407b024290e8798c6982",
+    "entries":29,
+    "crc":"VERIFIED",
+    "scope":"已驗證摘要、QA、導覽文件與整合紀錄，不含raw、venv或全部大型歷史產物"
+  },
+  "historical_archive_spotcheck": {
+    "path":"D:/schoolshit/專題/src/lineage_fault_type_artifacts/2026-09-30/fault_type_2026-09-30-23-49-34.zip",
+    "sha256":"414532b03e8dbc3a7e13b22daef2934c5771bdfbddcdcfb35f4cae80108df047",
+    "entries":11,
+    "crc":"VERIFIED",
+    "other_large_archives_full_crc":"NOT_RUN"
+  },
+  "rollback":"核對merge及parent後在新分支正常revert並建PR，不force push或reset main",
+  "limits": ["#35未修復","#36僅部分抽取","其他研究模組未全量主線驗證","來源窗口獨立性未知","準確率差異0不代表跨馬達可靠性提升","沒有部署"]
+}

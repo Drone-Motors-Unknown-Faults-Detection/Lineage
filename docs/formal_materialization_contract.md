@@ -1,41 +1,43 @@
-# #45：archive 物化的路徑與通道契約
+# 正式 archive 物化操作與安全契約
 
-日期：2026-10-09。程式基線 main `0282209`；本分支接在 #27 候選 `d2647f3`，讓 Windows／Ubuntu CI 能驗證新 fixture。兩個 PR 分開審查，不自行合併。
-已重讀 AGENT.md、#45 本文、PR #36／#53 公開 diff；目前沒有 #45 的其他公開實作。不能確認他人未推送工作。
+core/formal_data.py 從既有階段ZIP取得105維特徵：Stage1／3複製clean特徵，Stage2依既有五通道流程轉換。本頁說明用途與拒絕條件，不授權重新覆寫正式資料。
 
-## 已由程式確認的缺口
+## 入口與結果
 
-`core/formal_data.py` 的 `_convert_condition()` 從 archive member 倒數第二節直接取 config，未先驗證 archive 路徑；`n_windows=min(widths)` 靜默裁短。
-既有反例只證明 `..` 可離開 RPM 子目錄，沒有證明曾在 output_root 外實寫。
-研究分支 `b3d68f1` 的 `core/synchronized_raw.py` 已拒絕沒有 clock bridge 的分檔通道，並只讓 shared rows 經明確 timebase／quality 規則切窗。本次不搬整套研究管線，也不把此 adapter 的同長通道當成同步證據。
+API為 materialize(source_root, output_root, *, stages, conditions, force=False)；run(...)加上日誌。先看CLI：
 
-## 寫入路徑盤點與政策
+```bash
+uv run --locked python -m core.formal_data --help
+```
 
-1. Stage1／3：外層 ZIP → myfeature.zip → `myfeature/MOTOR/RPM/CONFIG/檔名` → output_root/Step-N/myfeature/相對路徑。
-2. Stage2：外層 ZIP → csv.zip → MOTOR/RPM.zip → CONFIG/五通道 CSV → output_root/Step-2/myfeature/MOTOR/RPM/CONFIG/特徵檔。
-3. manifest：output_root/formal_materialization_manifest.json。
-4. 每個檔案的原子暫存：已驗證目標的同目錄；失敗／中斷清除暫存檔。
-5. 執行證據：run/main 由 setup_run 寫 logs/formal_materialization 與 output/formal_materialization，不把來源路徑寫入公開摘要。
+需要另建資料版本時，明確提供唯讀來源與新的目的目錄，例如：
 
-ZIP 路徑一律使用 `/`。拒絕空節、`.`、`..`、反斜線、絕對路徑、Windows drive／UNC、冒號與 ZIP symlink；所有層級都驗證，不能只檢查最後輸出檔。
-MOTOR／RPM／CONFIG 只接受目前程式定義及已存在的 `1screw` alias；不把輸入字串當任意目錄。
-所有目的檔案先 resolve，再 relative_to 解析後的 output_root；字串前綴相似不算包含。拒絕 output_root 內沿途任何 symlink（即使指向根內），避免別名或覆寫連結。
-output_root 本身由呼叫者明確指定並 resolve，不能在唯讀 source_root 內。無法消除同時有惡意本機寫入者造成的 TOCTOU；此介面不是敵對多使用者安全隔離。
-讀取／驗證／計算完成後才開始寫入；所有待寫目的地先檢查。錯誤來源不得先寫合法子集再失敗。
-個別寫入採同目錄唯一暫存與 os.replace；中斷不保留該檔暫存。若磁碟故障發生在多檔提交途中，可能保留已完成的檔案，但不發布 completed manifest；不宣稱整批資料庫交易。
-正式來源與舊產物不覆寫；測試只用 TemporaryDirectory。既有 `force` 是顯式操作選項，本輪不對正式資料使用。
+```bash
+uv run --locked python -m core.formal_data --source-root SOURCE --output-root NEW_DEST --stage 2 --condition T2/8000rpm/8screws
+```
 
-## 通道政策 equal_window_counts_v1
+SOURCE、NEW_DEST是呼叫者替換的路徑；不要直接使用既存正式data作目的地。--force是覆寫選項，不應用於封存正式資料。
 
-五個通道的窗口數和每窗口 sample row 數必須全部相等且非空；不同直接拒絕，沒有隱藏 truncate 選項。
-拒絕訊息保存各通道原始 shape、丟棄數為 0 與原因；成功 manifest 保存 shape、政策版本與 `alignment_status=UNKNOWN`。
-同長只證形狀相容；沒有原始時間戳／clock bridge，不能宣稱物理同步已通過。
-合法等長 fixture 的 CSV bytes／SHA 必須和固定 main 程式相同；不改統計量、FFT、IQR、列順序或欄位順序。
+特徵及formal_materialization_manifest.json寫到指定目的地。main目前為formal_materialization_v2，記錄archive SHA、各檔與通道形狀、清理規則及同步未知狀態；manifest仍含本機絕對路徑，不宜直接公開。內容SHA／公開私人分離由 [#46](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/46) 追蹤，不把候選PR寫成main已完成。
 
-## 事前驗收與影響檔案
+run()／CLI另經setup_run("formal_materialization")保存logs、environment與去除私人路徑的summary。直接materialize()不初始化該執行紀錄。
 
-新增 `tests/test_formal_materialization_safety.py`：traversal、absolute、drive、UNC、根字串前綴別名、symlink、正常路徑、2／3 窗口拒絕、不同 sample 長度、重複通道、錯誤前零檔案、原子寫入中斷清理、來源 SHA 前後相同，以及 run/main。
-修改只限 `core/formal_data.py`、工程 fixture／證據入口與本契約；不改正式 data、Web、health、LW／k-NN／PolarMap。
-本機與兩平台 CI 分別報實際通過／skip／未驗證，不將缺少 symlink 權限說成通過。
-程式可交付候選 PR，但 #45 必須等 main 整合與全部驗收後才可關閉。
-本項是工程安全契約，不增加實驗編號，不產生新研究準確率。
+## 路徑與寫入
+
+ZIP各層拒絕空節、.、..、反斜線、絕對路徑、drive／UNC、冒號與symlink。MOTOR／RPM／CONFIG須符合程式允許值及既有1screw alias。目的檔resolve後須在解析後output_root內，根下沿途symlink即使指向根內也拒絕；output_root不得在來源根內。
+
+全部來源讀取、驗證及計算後才開始寫入；來源SHA前後不符即拒絕。個別檔案用同目錄唯一暫存與os.replace，中斷清除該檔暫存。多檔提交途中磁碟失敗可能保留已完成檔案，但不發布完成manifest；不是整批交易或敵對多使用者隔離。
+
+## 通道契約
+
+Stage2的equal_window_counts_v1要求五通道窗口數、每窗口樣本數皆相等且非空，不同直接拒絕，不裁成最短通道。同形狀只代表計算相容；缺時間戳或clock bridge時alignment_status=UNKNOWN，不能宣稱物理同步。
+
+預期成功結果是版本化特徵及轉換紀錄，不是新的獨立採集。既有FFT、統計量及IQR不由本頁修改。
+
+## 驗證與歷史
+
+```bash
+uv run --locked python -m pytest tests/test_formal_materialization_safety.py -q
+```
+
+fixture涵蓋惡意路徑、symlink、通道差異、拒絕前零寫入、中斷清理、來源不變與舊版數值等價；缺權限而跳過的案例列未驗證。歷史失敗與修正見 [改寫前固定版本](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/791216cf5602c370091fa516264f1ce6aaad6ab1/docs/formal_materialization_contract.md)，原logs/output保留。

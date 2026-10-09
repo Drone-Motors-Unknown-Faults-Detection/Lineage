@@ -1,18 +1,19 @@
 # docs/ 文件索引
 
-#26 接續：[正式 Python／依賴與環境紀錄契約](runtime_policy.md)、[第一階段工程與剩餘入口缺口](project_closeout_20261009/runtime_delivery.md)。#30 已完成追蹤交付並關單，新 #43–#49 的缺陷仍待修補。
+先找操作說明：[安裝與版本紀錄](runtime_policy.md)、[CI執行與輸出](ci_contract.md)、[archive物化安全契約](formal_materialization_contract.md)、[健康監測模組](health_and_reports.md)、[導覽操作](navigation/exp24_README.md)。各頁說明程式用途、操作、預期輸出與限制。
 
-2026-10-08 issue交付：[17項稽核差異](issue_delivery_20261008/audit_followup.md)、[執行紀錄](issue_delivery_20261008/execution_log.md)。此輪僅透過PR交付，不自行合併或關issue。
+當前缺口與交付狀態請查 [GitHub issues](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues) 及各 PR 的受測 SHA，不把歷史測試次數當成最新 main 驗收。
 
-2026-10-09 主線狀態：[本輪驗收與 commit](project_closeout_20261009/execution_log.md)、[給老師的完成／限制說明](project_closeout_20261009/README.md)。PR #40/#41 已合併，main 最後 162 項測試通過；#29/#25 completed，兩項彙總差異保留，#19 引用缺口、#37 原首頁入口仍未完成。先前 [四項交付](issue_delivery_20261008/delivery.md) 保留其日期狀態。
+## 歷史交付附件（不作現行操作手冊）
 
-引用收尾：[文獻與程式對照／剩餘未核實清單](issue_delivery_20261008/citation_followup.md)。
+以下連到 reports/ 的原交付與失敗紀錄，只適用其記載日期、來源及受測版本。
 
-#30 接續：[最新17項判定與七個追蹤議題](project_closeout_20261009/audit_followups.md)，R5/R6/R9 已補入既有 #27/#28/#26，原稽核與負面證據不覆寫。
+- [整合來源與舊驗收](../reports/Andy_20261008_分支整合/integration_report.md)、[歷史manifest](../reports/Andy_20261008_分支整合/manifest.json)。
+- [當時引用核對](../reports/Andy_20261008_議題交付/citation_followup.md)、[導覽驗收](../reports/Andy_20261008_議題交付/guide_acceptance.md)、[未擬合舊回歸](../reports/Andy_20261008_議題交付/execution_log.md#未擬合防護的原驗收邊界)。現行操作見[共用模型生命週期](experiments/README.md#共用模型生命週期)。
+- [當時給老師的說明](../reports/Andy_20261009_主線交付/README.md)、[當時執行紀錄](../reports/Andy_20261009_主線交付/execution_log.md)。
+- [封存彙總重算的原交付說明](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/experiments/exp8_health_index_aggregate_delivery.md)保存該次差異與驗收；現行操作見下表重算手冊。
 
-導覽收尾：[實際操作與配對驗收](issue_delivery_20261008/guide_acceptance.md)。API防護：[未擬合契約與固定版本回歸](issue_delivery_20261008/monitor_guard.md)。
-
-2026-10-08 分支整合：[驗收報告](integration_20261008/integration_report.md)、[分支矩陣](integration_20261008/branch_inventory.md)、[機器索引](integration_20261008/manifest.json)。main 合併證據以後續 delivery 紀錄為準；未整合研究保留固定來源。
+老師要看程式如何操作，先用[導覽入口與示範腳本](navigation/exp24_README.md)；歷史研究分數只在固定來源下解讀，不當成新增盲測結果。
 
 > 實驗的白話說明在 [實驗說明手冊](Experiments_Guide.md)。
 > 對程式的技術報告在 [experiments/](experiments/README.md)。
@@ -26,7 +27,7 @@
 
 ## 現行實驗技術報告
 
-`experiments/` 的每一支程式各有一份，目錄與各實驗散在 `core/`、`experiments/health/`、`web/`、`tests/`、`reports/` 的檔案位置在 [experiments/README.md](experiments/README.md)。白話版仍是 [Experiments_Guide.md](Experiments_Guide.md)。
+[experiments/README.md](experiments/README.md)列出13個現行實驗編號（1～12及24）、19份方法／操作手冊及程式位置。實驗六、八的矩陣與彙總共用原編號；實驗九共用實驗六runner。每份手冊說明資料與用途切分、模型建立、CLI／API／Web操作、輸出及限制。[Experiments_Guide.md](Experiments_Guide.md)提供總覽，實際參數與例外以對應手冊及程式為準。
 
 | 編號 | 文件 | 程式 |
 |---|---|---|
@@ -42,9 +43,12 @@
 | 實驗七 | [exp7_compare_openset](experiments/exp7_compare_openset.md) | `experiments/compare_openset.py` |
 | 實驗八 | [exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
 | 實驗八 | [exp8_health_index_matrix](experiments/exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` |
-| 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`（本輪新增）；54 列與歷史逐欄比對 |
-| 實驗八 | [重算驗證與給老師的說明](experiments/exp8_health_index_aggregate_delivery.md) | PR #41 已合 main，162 項測試通過；349 比對有兩項差異，#25 工程 completed，歷史公式 UNKNOWN |
+| 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`；來源完整性、54 列重算定義及差異輸出 |
 | 實驗八 | [exp8_health_monitor](experiments/exp8_health_monitor.md) | `experiments/health_monitor.py` |
+| 實驗九 | [exp9_autoencoder](experiments/exp9_autoencoder.md) | `core/detectors.py`（`MLPAutoencoderDet`，`experiments/exp6_osr_benchmark.py` 自動納入） |
+| 實驗十 | [exp10_transfer](experiments/exp10_transfer.md) | `experiments/exp10_transfer.py` |
+| 實驗十一 | [exp11_ancestor_comparison](experiments/exp11_ancestor_comparison.md) | `experiments/exp11_ancestor_comparison.py` |
+| 實驗十二 | [exp12_confusion_tsne](experiments/exp12_confusion_tsne.md) | `experiments/exp12_confusion_tsne.py` |
 | 實驗二十四 | [exp24_experiment_navigation](experiments/exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`experiments/navigation_regression.py`；獨立 `web.guide` |
 
 給老師的七問整理與示範順序：[exp24 導覽入口](navigation/exp24_README.md)。研究摘要連到固定研究提交，未將未合入主線的方法當成 main 功能。
@@ -53,8 +57,8 @@
 
 | 文件 | 內容 |
 |---|---|
-| [exp8_health_monitoring_workflow](exp8_health_monitoring_workflow.md) | 實驗八總覽：Level A 資料能力、Health Index、趨勢/告警、正式 9×3×2 結果、限制與 CLI |
-| [health_and_reports](health_and_reports.md) | `experiments/health/` 各模組與呼叫端、兩套趨勢邏輯的差別、`reports/` 保留的實驗八結果與已刪除稽核紀錄的取回連結 |
+| [exp8_health_monitoring_workflow](exp8_health_monitoring_workflow.md) | 實驗八資料能力、Health Index、趨勢／告警、矩陣方法、限制與 CLI |
+| [health_and_reports](health_and_reports.md) | `experiments/health/` 各模組、兩套趨勢的差別、CLI輸出位置與封存結果讀法 |
 
 ## 論文版管線文件（程式碼在 Ancestor）
 
@@ -72,7 +76,7 @@
 
 | 文件 | 內容 | 對新專案的貢獻 |
 |---|---|---|
-| [Mahalanobis_Improvement](Mahalanobis_Improvement.md) | Ledoit–Wolf / OAS / MCD 三法實測比較 | **`core/mahalanobis.py` 預設 `ledoit_wolf` 的實驗依據**（開集準確率 0.951 → 0.986）|
+| [Mahalanobis_Improvement](Mahalanobis_Improvement.md) | 歷史深層特徵的 Ledoit–Wolf / OAS / MCD 比較 | `core/mahalanobis.py` 採用收縮估計的背景；不是現行105維跨馬達多類成績 |
 | [Model_Choice_Analysis](Model_Choice_Analysis.md) | 45 模型實測：閉集準確率飽和、開集分離度才是關鍵 | 「換模型／調參無益，該動特徵與判定機制」——新專案改用 105 維手工特徵冷啟動的背景 |
 | [OpenSet_Recognition](OpenSet_Recognition.md) | OpenMax、能量分數等五種 OSR 替代方案評估 | 新專案的未來方向清單（README「限制與未來工作」）|
 

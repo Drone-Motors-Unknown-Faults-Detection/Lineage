@@ -10,6 +10,16 @@ import platform
 import subprocess
 
 
+def lock_versions(root: Path) -> dict[str, str]:
+    """讀取 uv.lock 鎖定的套件版本；只供測試／驗證入口呼叫，不在正式執行路徑上。"""
+    try:
+        import tomllib
+    except ModuleNotFoundError:
+        import tomli as tomllib
+    data = tomllib.loads((root / "uv.lock").read_text(encoding="utf-8"))
+    return {pkg["name"].lower().replace("_", "-"): pkg["version"] for pkg in data.get("package", [])}
+
+
 def _git(root: Path, *args: str) -> str | None:
     try:
         result = subprocess.run(
@@ -27,7 +37,7 @@ def collect_environment(root: Path | None = None) -> dict:
     top = _git(root, "rev-parse", "--show-toplevel")
     head = _git(root, "rev-parse", "HEAD") if top else None
     dirty = _git(root, "status", "--porcelain", "--untracked-files=no") if top else None
-    constraint = Path(top) / "runtime-constraints.txt" if top else root / "runtime-constraints.txt"
+    constraint = Path(top) / "uv.lock" if top else root / "uv.lock"
     constraint_sha = hashlib.sha256(constraint.read_bytes()).hexdigest() if constraint.is_file() else None
     packages = {}
     for distribution in metadata.distributions():

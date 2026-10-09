@@ -301,6 +301,10 @@ AUROC 皆 1.0；所有 unknown 的健康指數都是 0.0，分得開但排不出
 | 6 | **極座標健康地圖**：方向=故障類型、半徑=嚴重度；錨點效應發現 | exp4（輕錨 AUROC 0.997、重錨反轉 0.146）|
 | 7 | **跨工況泛化分析**：9×9 遷移矩陣、部署策略比較、老化漂移量化 | exp5（逐工況策略最優；老機健康 100% 判未知）|
 | 8 | **OSR 基準與校準診斷**：legacy 自校準在冷啟動失效的證據 | exp6（83.1% vs 7.1% 誤報）|
+| 9 | **非線性 AutoEncoder 偵測器**：瓶頸重建誤差，健康誤報比既有七種方法都低 | exp9（AUROC 1.0、健康誤報 5.8%，八法最低）|
+| 10 | **跨工況遷移學習定量化**：目標端少量健康資料時，中心平移 vs 從零冷啟動的具體落差 | exp10（N=50 時健康接受率 9.3% vs 87.9%，支持逐工況冷啟動）|
+| 11 | **Ancestor 協定 Accuracy/F1 對照**：Ledoit–Wolf 相對 legacy 的提升遠超專題 5~10% 門檻 | exp11（Balanced Accuracy +78.38 pp、macro-F1 +82.18 pp，Wilcoxon p≈0）|
+| 12 | **開集混淆矩陣與 t-SNE**：把「legacy 無法做多類判別」的結論變成可見的畫面 | exp12（legacy 開集混淆矩陣對角線全 0，ledoit_wolf 已知類別互不混淆）|
 
 另附即時展示系統（web/）與可重現實驗框架（seed 決定論、logs/output 全留檔）。
 
@@ -403,7 +407,7 @@ Lineage/
 ├── output/                      # 每次執行的結果檔與圖表（納入版控）
 ├── run_web.sh                   # 啟動展示伺服器
 ├── build_uv.sh / build_uv_mac.sh# 建立 venv（--legacy 可加裝論文版管線依賴）
-└── pyproject.toml               # 正式 Python 3.10.x；runtime-constraints.txt 固定版本
+└── pyproject.toml               # 正式 Python 3.10.x；版本訂死，完整依賴樹鎖在 uv.lock
 ```
 
 ---
@@ -467,9 +471,9 @@ output/{program}/{YYYY-MM-DD-HH-MM-SS}/       # results.csv / summary.json / *.p
 | 共變異數估計 | Ledoit–Wolf 收縮（高維小樣本可逆、良態）| Ledoit & Wolf (2004) *J. Multivariate Analysis*；替代：Chen et al. (2010) OAS |
 | 非參數開集對照 | 逐類 k-NN 平均歐氏距離 + known-only 校準分位數 | [Cover & Hart (1967)](https://doi.org/10.1109/TIT.1967.1053964) *IEEE Transactions on Information Theory*；[Ramaswamy, Rastogi & Shim (2000)](https://doi.org/10.1145/342009.335437) *SIGMOD* |
 | 新故障分群 | HDBSCAN（自動叢集數、雜訊點標記）| Campello, Moulavi & Sander (2013) |
-| 變化點偵測 | EWMA超線旗標比例；CUSUM只供展示，判別門檻由專案設定 | Roberts (1959) *Technometrics*；Page (1954) *Biometrika*；[原文與實作對照](docs/issue_delivery_20261008/citation_followup.md) |
-| 持續學習模擬 | 操作員確認後用完整配置池重擬合（oracle），未驗證消除遺忘 | EWC／iCaRL僅為背景對照，未實作：[引用核對](docs/issue_delivery_20261008/citation_followup.md) |
-| 衰退外插（未實作）| 需要同個體歷程與失效終點，現有資料不支援RUL | 明確背景候選：Gebraeel et al. (2005), *Residual-life distributions from component degradation signals: A Bayesian approach*；Wang et al. (2008), *A Similarity-Based Prognostics Approach for Remaining Useful Life Estimation of Engineered Systems*；[DOI、全文狀態與舊引用限制](docs/issue_delivery_20261008/citation_followup.md) |
+| 變化點偵測 | EWMA超線旗標比例；CUSUM只供展示，判別門檻由專案設定 | Roberts (1959) *Technometrics*；Page (1954) *Biometrika*；[原文與實作對照](reports/Andy_20261008_議題交付/citation_followup.md) |
+| 持續學習模擬 | 操作員確認後用完整配置池重擬合（oracle），未驗證消除遺忘 | EWC／iCaRL僅為背景對照，未實作：[引用核對](reports/Andy_20261008_議題交付/citation_followup.md) |
+| 衰退外插（未實作）| 需要同個體歷程與失效終點，現有資料不支援RUL | 明確背景候選：Gebraeel et al. (2005), *Residual-life distributions from component degradation signals: A Bayesian approach*；Wang et al. (2008), *A Similarity-Based Prognostics Approach for Remaining Useful Life Estimation of Engineered Systems*；[DOI、全文狀態與舊引用限制](reports/Andy_20261008_議題交付/citation_followup.md) |
 
 ---
 

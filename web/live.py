@@ -308,8 +308,8 @@ class LiveDemo:
                 "name": SCENARIOS[self.scenario["key"]]["name"],
             },
             "known": [
-                {"config": c, "display": display_name(c), "label": l}
-                for c, l in mon.known.items()
+                {"config": c, "display": display_name(c), "label": label}
+                for c, label in mon.known.items()
             ],
             "configs": [
                 {"config": c, "display": display_name(c), "n": int(len(p)),

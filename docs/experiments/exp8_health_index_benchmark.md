@@ -1,75 +1,41 @@
-# 實驗八：健康指數 benchmark
+# 實驗八：把異常分數轉成相對健康指數
 
-程式：`experiments/health_index_benchmark.py`。它在正式版 Open Set 的分數上再套一層 `CalibratedHealthIndex`，多報相對健康指數與 known−unknown 的健康差距。
+Open Set分數越大越偏離健康；本實驗把它轉成0～1的健康指數，方便讀圖。它衡量相對校準健康群的偏離，不能稱為損壞百分比、故障機率或剩餘壽命。多seed由[矩陣](exp8_health_index_matrix.md)保存，逐窗狀態見[監測](exp8_health_monitor.md)。
 
-單次 `run()` 只跑一種方法、一個 seed，涵蓋資料根裡的九個工況。六次呼叫的寫檔在 [exp8_health_index_matrix.md](exp8_health_index_matrix.md)。逐窗串流在 [exp8_health_monitor.md](exp8_health_monitor.md)。
+## 資料、切分與fit
 
-## 實驗方法
+來源是每個motor／RPM的105維clean池，資料列、未知單位、非有限列過濾及未去重限制見[實驗一](exp1_cold_start.md#資料與載入)。CLI預設要求九工況；--allow-partial只放寬數量，仍可能回status=completed，不能把部分工程測試當完整九格。T1／T2／T3是不同個體，不代表一條退化軌跡。
 
-1. 工況必須是 9，除非 `--allow-partial`。排序鍵是 `(motor, rpm)`。
-2. 每個工況只用 `8screws` 的 train 與 calibration。標籤傳進 `CalibratedHealthIndex.fit` 時全是 0。`legacy` 共變異數直接拒絕。
-3. 擬合順序寫在 `experiments/health/index.py`：訓練集擬合 `RobustScaler` 與 `create_openset_detector`；校準集分數交給 `HealthIndexCalibrator`。健康錨點是校準分數的第 10 百分位，critical 錨點是第 95 百分位（`confidence=0.95`）。分數越高，健康指數越低。`degradation_score = 1 - health_index`。
-4. 已知測驗是健康 holdout，未知測驗是其餘配置直向疊起。兩者都只在 `predict` 之後進入 `evaluate_open_set`。
-5. 每一列同時有健康分布（平均、標準差、中位數、`≥ 0.8` 的比例、`< 0.2` 的比例）、`health_gap_known_minus_unknown`、Cohen 式效果量，以及 open-set accuracy、AUROC、AUPR、unknown recall、unknown F1。`rul_available` 固定 false。
+排序motor／rpm後，一個default_rng(seed=42)連續把各健康池列洗牌60/20/20。train只fit RobustScaler與LW中心／共變異數，或k=5的k-NN參考；cal只定confidence0.95距離線，並把同一cal的正規化分數交HealthIndexCalibrator。healthy holdout與其他配置全部列只predict與算指標，unknown不fit／選參／校準；legacy因train定線被拒絕。這不是獨立馬達train／cal／test。
+
+健康錨點a是cal score第10百分位、critical錨點b是第95百分位；health=clip(1−(score−a)/(b−a),0,1)。若兩錨點相同，程式加極小間距；仍可能大量飽和。detector與健康映射**共用cal**，不是兩份獨立校準。沒有神經網路epoch。degradation_score=1−health。
+
+## 怎麼執行與使用
+
+在repo根目錄準備[uv環境](../runtime_policy.md)與資料：
 
 ```bash
-venv/bin/python -m experiments.health_index_benchmark --data-root data/formal_local --seed 42 --openset-method mahalanobis
-venv/bin/python -m experiments.health_index_benchmark --data-root data/formal_local --seed 42 --openset-method knn
+uv run --locked python -m experiments.health_index_benchmark --help
+uv run --locked python -m experiments.health_index_benchmark --data-root data/formal_local --seed 42 --openset-method mahalanobis --method ledoit_wolf --confidence 0.95
+uv run --locked python -m experiments.health_index_benchmark --data-root data/formal_local --seed 42 --openset-method knn --knn-neighbors 5
 ```
 
-`main()` 只把 status、列數、方法與 seed 印到 stdout。檔案要由矩陣程式寫，見下一節的輸出路徑。
+API run(data_root,seed=42,openset_method="mahalanobis",mahalanobis_method="ledoit_wolf",confidence=0.95,knn_neighbors=5,require_nine=True)回傳九列dict。**單次CLI只印status／列數／方法／seed，不保存完整結果，也未setup_run**；需要持久化請用矩陣入口，不能假設stdout含逐窗預測。這是與現行日誌慣例的缺口。
 
-## 理論
+Web依[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)啟動，實驗八8-1選方法／seed後按「▶ 執行」，跑伺服器root；Web允許部分工況，須看列數。沒有中途取消、串流或續跑；8-3是另一個逐窗入口。Web由ExperimentRunner保存JSON到output/web_server/{ts}/experiments/。
 
-Open Set 分數已經能拒絕未知。健康指數是把這份分數壓進 `[0, 1]` 的單調函數，錨點只從已知校準集來。低於健康錨點的分數映成 1，高於 critical 錨點的分數映成 0，中間線性下降。它描述的是「相對這批健康校準窗口有多偏」，不是損壞百分比，也不是剩餘壽命。
+缺九工況、healthy／unknown空、錨點非有限或維度不符時先查資料；不修改fault來配合校準。指紋沿用[正式版的限制](exp6_formal_benchmark.md#輸出怎麼讀)，沒有原始錄製／逐窗ID證明。
 
-嚴重度門檻是展示政策：`≥ 0.8` healthy、`≥ 0.5` early_warning、`≥ 0.2` degraded，其餘 critical。本 benchmark 的列裡沒有逐窗 stage，那些出現在 `health_monitor` 的 JSON。資料裡沒有ordinal 嚴重度標籤，所以這些門檻不能當成真實損壞等級。
+## 輸出怎麼看
 
-`dataset_fingerprint` 直接呼叫 `experiments.exp6_formal_benchmark.dataset_fingerprint`，讓健康指數結果和正式 Open Set 矩陣能對上同一份資料。
+rows逐工況記n_train／n_calibration／n_known_test／n_unknown_test、方法、seed、原score與健康分布。known_health_mean等是組內窗口平均；std用ddof=0。health_gap_known_minus_unknown是兩組健康平均差。health_effect_size用兩組population variance平均的平方根作分母，接近0則null，不能當經獨立採集驗證的效應量。
 
-## 參考論文
+open_set_accuracy是score>1的健康／fault二元正確率；AUROC、AUPR、unknown recall／F1用原score，不用health反推。零分母F1設0；單真值類時排序指標不可得，但正常完整benchmark須有健康與fault。unknown_calibration_leakage=false是本流程宣告，不是全來源防洩漏稽核結果。
 
-- 馬氏距離、Ledoit–Wolf、k 近鄰出處同 [exp1_cold_start.md](exp1_cold_start.md)。
-- 分數到 `[0, 1]` 的分位數錨點、第 10 與第 95 百分位、`degradation_score = 1 - health_index`：本專案操作約定，寫在 `experiments/health/calibration.py` 的 `HealthIndexCalibrator`。
-- 不能把指數說成物理損傷或 RUL：資料能力寫在 [exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md) 與 [health_monitoring_data_capability.md（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/health_monitoring_data_capability.md)。
+健康stage政策為≥0.8 healthy、≥0.5 early_warning、≥0.2 degraded、其餘critical；benchmark只報≥0.8及<0.2比例，不含逐窗stage。沒有ordinal損傷真值，rul_available=false。
 
-## 預期成果
+預期健康平均高於unknown、health gap為正，數值在[0,1]；沒有預登錄可靠性門檻。unknown全貼0只能支持此映射超過critical錨點，無法排序不同故障嚴重度。完整歷史結果見[固定封存包](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/1fa9431bb7b86959f29540d07b2b9290ab39ce42/reports/exp8_health_index_results)，不把它當本輪重跑或多類fault-type結果。
 
-九列都完成，`unknown_calibration_leakage` 為 false，健康指數落在 `[0, 1]`。已知類的健康平均應高於未知類，`health_gap_known_minus_unknown` 為正。若未知窗口的健康指數全部貼在 0，表示它們的 Open Set 分數已經超過 critical 錨點，分離是有的，未知配置之間的高低仍然排不出來。
+## 方法來源與程式碼
 
-兩種方法的健康差距若只差約 0.02，而 open-set accuracy 的差距在 0.00001 這一量級，就不足以把預設偵測器從 Mahalanobis 換成 k-NN。
-
-## 已記錄的實測
-
-`reports/exp8_health_index_results/README.md` 對 9 工況 × 3 seed 的平均：
-
-| method | health gap known−unknown | open-set accuracy | AUROC | unknown recall |
-|---|---:|---:|---:|---:|
-| Mahalanobis + Ledoit–Wolf | 0.583144 ± 0.073301 | 0.998849 ± 0.000887 | 1.000000 | 1.000000 |
-| k-NN | 0.601657 ± 0.071637 | 0.998842 ± 0.000937 | 1.000000 | 1.000000 |
-
-k-NN 的健康差距高 0.018513。Mahalanobis 的 accuracy 高 0.000007。同一份 README 寫明：held-out unknown 的健康指數在這組錨點下都飽和到 0.0。資料指紋 `81c9192476ecd1e23a17b3ed5a343dcd50cdc2e5b7e0cc5466e9162941898228`。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
-|---|---|
-| `experiments/health_index_benchmark.py` | `run`、`_health_distribution`、`_effect_size`、`main` |
-| `experiments/health/index.py` | `CalibratedHealthIndex.fit` / `predict` |
-| `experiments/health/calibration.py` | `HealthIndexCalibrator` |
-| `experiments/health/evaluation.py` | `evaluate_open_set` |
-| `experiments/health/severity.py` | 相對 stage 門檻 |
-| `experiments/exp6_formal_benchmark.py` | `dataset_fingerprint` |
-| `core/openset.py` | 偵測器工廠 |
-| `core/data.py` | 載入與 `make_split` |
-
-單次 CLI 不寫 `output/`。矩陣寫到 `reports/exp8_health_index_results/seed_{seed}/{method}.json` 與同名 CSV。
-
-### 散在其他位置的相關檔案
-
-- 套件：`experiments/health/` 全部模組，對照表見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
-- 測試：`tests/test_health_benchmark.py`，以及 `tests/test_health_{calibration,diagnosis,evaluation,index,schema,severity}.py`。
-- 結果：`reports/exp8_health_index_results/`。
-- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；原始稽核見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
-- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
-- Web 實驗頁：頁首「實驗八」的 8-1，`web/experiments.py` 的 `CATALOG` 項目 `exp8` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp8`；結果存到 `output/web_server/{ts}/experiments/exp8_{時間}.json`。同頁還有 8-2 正式矩陣（唯讀）與 8-3 逐窗監測。
+LW與近鄰文獻見[實驗一](exp1_cold_start.md#方法來源與程式定位)；10%／95%錨點、stage與健康映射是Lineage操作約定。[benchmark](../../experiments/health_index_benchmark.py)管迴圈／摘要；[index](../../experiments/health/index.py)fit與predict；[calibration](../../experiments/health/calibration.py)映射；[evaluation](../../experiments/health/evaluation.py)指標；[test_health_benchmark](../../tests/test_health_benchmark.py)與[test_health_index](../../tests/test_health_index.py)核對known-only與輸出。Web編排在[web/experiments](../../web/experiments.py)，不另訓練模型。

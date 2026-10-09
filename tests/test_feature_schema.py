@@ -18,7 +18,7 @@ from loguru import logger
 
 from core.data import load_pools, make_split, run
 from core.feature_schema import (SCHEMAS, CONFIGURATIONS, FeatureSchemaError,
-                                 read_feature_csv, validate_pool_coverage)
+                                 validate_pool_coverage)
 from core.formal_data import FEATURE_NAMES
 from experiments.exp6_formal_benchmark import run as formal_run
 

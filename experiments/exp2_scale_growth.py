@@ -25,7 +25,7 @@ import argparse
 import hdbscan
 import numpy as np
 
-from core.data import CONFIG_ORDER, HEALTHY, CycleSampler, config_sort_key, display_name
+from core.data import HEALTHY, CycleSampler, config_sort_key, display_name
 from core.geometry import PolarMap
 from core.logger import setup_run
 from core.monitor import OpenSetMonitor
@@ -191,8 +191,8 @@ class ScaleGrowthSession:
     def state(self) -> dict:
         return {
             "known": [
-                {"config": c, "display": display_name(c), "label": l}
-                for c, l in self.monitor.known.items()
+                {"config": c, "display": display_name(c), "label": label}
+                for c, label in self.monitor.known.items()
             ],
             "quarantine": len(self.quarantine_X),
             "candidate": self.candidate
@@ -256,8 +256,8 @@ def run(
                 "samples_to_candidate": found_at,
                 "cluster_size": res["size"],
                 "cluster_purity": res["purity"],
-                "own_holdout_acc": float(np.mean([l == res["config"] for l in own])),
-                "healthy_holdout_acc": float(np.mean([l == HEALTHY for l in healthy])),
+                "own_holdout_acc": float(np.mean([label == res["config"] for label in own])),
+                "healthy_holdout_acc": float(np.mean([label == HEALTHY for label in healthy])),
                 "known_after": len(session.monitor.known),
             }
         )

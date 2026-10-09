@@ -7,10 +7,24 @@ from pathlib import Path
 import shutil
 import sys
 
-from packaging.requirements import Requirement
-
 from core.logger import setup_run
+from core.runtime_environment import lock_versions
 from tests.integration_evidence import command
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def _mismatches(packages: dict) -> list[dict]:
+    """比對實際安裝版本與 uv.lock 鎖定版本；忽略 lock 沒有的名稱（如本機殘留套件）。"""
+    lock = lock_versions(ROOT)
+    found = []
+    for name, actual in packages.items():
+        if name == "lineage":
+            continue
+        expected = lock.get(name)
+        if expected is not None and actual != expected:
+            found.append({"package": name, "expected": expected, "actual": actual})
+    return found
 
 
 def run(mode: str, python: str, venv: str | None = None) -> dict:
@@ -28,22 +42,11 @@ def run(mode: str, python: str, venv: str | None = None) -> dict:
         results.append(command([powershell, "-NoProfile", "-File", "build_uv.ps1", "-Python", python, "-VenvDir", venv]))
         if results[-1]["returncode"] == 0:
             installed = str(Path(venv) / "Scripts/python.exe")
-            results.append(command([installed, "-m", "pip", "check"]))
-            results.append(command([installed, "-m", "pip", "freeze", "--all"]))
+            results.append(command(["uv", "pip", "check", "--python", installed]))
             versions = command([installed, "-c", "import json; from core.runtime_environment import collect_environment; print(json.dumps(collect_environment()))"])
             results.append(versions)
             if versions["returncode"] == 0:
-                packages = json.loads(versions["stdout"])["packages"]
-                for line in Path("runtime-constraints.txt").read_text(encoding="utf-8").splitlines():
-                    if not line.strip() or line.startswith("#"):
-                        continue
-                    requirement = Requirement(line)
-                    if requirement.marker is not None and not requirement.marker.evaluate():
-                        continue
-                    name = requirement.name.lower().replace("_", "-")
-                    actual = packages.get(name)
-                    if actual is None or actual not in requirement.specifier:
-                        mismatches.append({"package": name, "expected": str(requirement.specifier), "actual": actual})
+                mismatches.extend(_mismatches(json.loads(versions["stdout"])["packages"]))
     else:
         empty_data = paths.output_dir / "empty_data"
         empty_data.mkdir()
@@ -55,16 +58,7 @@ def run(mode: str, python: str, venv: str | None = None) -> dict:
         # verify 必須由受測的新環境本身呼叫；不把外層 runner 的版本當作子行程版本。
         if Path(python).resolve() != Path(sys.executable).resolve():
             raise ValueError("verify 必須使用目前 Python executable")
-        for line in Path("runtime-constraints.txt").read_text(encoding="utf-8").splitlines():
-            if not line.strip() or line.startswith("#"):
-                continue
-            requirement = Requirement(line)
-            if requirement.marker is not None and not requirement.marker.evaluate():
-                continue
-            name = requirement.name.lower().replace("_", "-")
-            actual = environment["packages"].get(name)
-            if actual is None or actual not in requirement.specifier:
-                mismatches.append({"package": name, "expected": str(requirement.specifier), "actual": actual})
+        mismatches.extend(_mismatches(environment["packages"]))
     evidence = {"mode": mode, "scope": "工程驗證，不依賴 ignored data；不重新訓練研究模型",
                 "environment": environment,
                 "commands": results, "constraint_mismatches": mismatches,

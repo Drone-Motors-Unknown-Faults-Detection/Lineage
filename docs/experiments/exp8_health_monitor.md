@@ -1,67 +1,49 @@
-# 實驗八串流：健康監測逐窗輸出
+# 實驗八逐窗監測：看健康指數與告警狀態
 
-程式：`experiments/health_monitor.py`。它對一個工況擬合 `CalibratedHealthIndex`，再用 `SessionTrajectoryMonitor` 把 holdout 窗口一筆一筆送進去，把每筆結果印成一行 JSON。
+這個入口把CSV特徵逐列交給健康模型，再平滑指數、計算趨勢和告警。它展示同一操作session的狀態，不證明CSV具有連續物理時間；批次九工況指標看[benchmark](exp8_health_index_benchmark.md)。
 
-它不寫 `reports/exp8_health_index_results/`。那裡的 54 列是 [exp8_health_index_matrix.md](exp8_health_index_matrix.md) 的批次評估。本程式看的是同一套指數在一條序列上的平滑、斜率與告警。
+## 資料與建立順序
 
-## 實驗方法
+選一個motor／RPM與config。來源、105維每列、缺值／未去重與未知單位見[實驗一](exp1_cold_start.md#資料與載入)。T1／T2／T3為不同個體；時間戳、raw錄製順序與視窗重疊未確認，不能把它們接成同一條退化曲線。
 
-1. `--data-root` 預設 `data/formal_local`。`--motor`、`--rpm` 必填。轉速可以寫 `8000` 或 `8000rpm`，程式會補上 `rpm`。`discover_datasets` 必須正好找到一組。
-2. `--config` 預設 `8screws`。擬合永遠只用該工況的 `8screws` train/calibration，與 `--config` 無關。`--config` 決定送進監測器的 holdout 來自哪一個池。
-3. 預設 `--openset-method mahalanobis`、`--method ledoit_wolf`、`--knn-neighbors 5`、`--seed 42`。
-4. `SessionTrajectoryMonitor.update` 需要 `motor_id` 與 `session_id` 才會把歷史接在同一條序列上。沒給又沒有 `--allow-no-identity` 時，`require_identity=True`，趨勢維持資料不足，不把不同馬達串在一起。
-5. `--max-windows` 只截 holdout 的前段，省略則全送。`--output-mode` 為 `binary`、`health` 或 `full`（預設）。
+seed42洗牌healthy池60/20/20；不論--config選什麼，永遠只用healthy train fit RobustScaler與LW（或k-NN k5）參考，healthy cal定0.95距離線與10%／95%健康錨點。unknown不fit、不校準、不選參。健康映射細節見[benchmark](exp8_health_index_benchmark.md#資料切分與fit)；legacy可由此CLI傳入，會回到train距離與label=-1例外，不作公平正式比較。
+
+串流healthy使用自身holdout的洗牌順序；fault使用該配置**全池原列順序**，不再套健康索引，max_windows只截前段。這些順序不是確認過的時間。每次run重新fit、建立SessionTrajectoryMonitor；沒有持久模型恢復。CalibratedHealthIndex是統計／近鄰與分位數映射，沒有epoch。
+
+## 平滑、趨勢與告警怎麼算
+
+有motor_id與session_id才累積該鍵的歷史，缺身份即使allow-no-identity也**不會累積時間狀態**；require_identity=True另標data_quality=insufficient。自填展示ID不是新增採集證據。
+
+先取最近兩筆raw health加當前值的median，再EWMA alpha0.2，最多留120筆。滿5筆對平滑history線性擬合，degradation_rate=負斜率，單位為健康指數／筆；>0.005 worsening、<−0.005 recovering，其餘stable。前四筆insufficient_history。
+
+normal下smoothed<0.5為warning候選、<0.2為critical候選，連續3筆候選才進入當前級別；warning以≥0.6連續3筆解除，critical以≥0.3連續3筆解除為warning或normal。**目前warning狀態分支沒有再升critical的轉移**，不能描述成完整雙向分級告警；這是待修程式限制，本輪不改行為。前值smoothed−當前median≥0.15連續兩筆記confirmed變點，一筆candidate；不代表物理故障事件已確認。
+
+## 怎麼操作
+
+repo根目錄準備[uv環境](../runtime_policy.md)與資料：
 
 ```bash
-venv/bin/python -m experiments.health_monitor --data-root data/formal_local --motor T1 --rpm 8000rpm --config 1screws --openset-method mahalanobis --output-mode full --motor-id motor-001 --session-id session-001 --max-windows 20
-venv/bin/python -m experiments.health_monitor --data-root data/formal_local --motor T1 --rpm 8000rpm --config 8screws --output-mode binary --allow-no-identity --max-windows 5
+uv run --locked python -m experiments.health_monitor --help
+uv run --locked python -m experiments.health_monitor --data-root data/formal_local --motor T1 --rpm 8000rpm --config 8screws --openset-method mahalanobis --method ledoit_wolf --motor-id demo-T1 --session-id demo-001 --max-windows 20 --output-mode full
+uv run --locked python -m experiments.health_monitor --data-root data/formal_local --motor T1 --rpm 8000rpm --config 5screws --openset-method knn --knn-neighbors 5 --max-windows 5 --output-mode binary --allow-no-identity
 ```
 
-`full` 印 `HealthMonitoringResult.to_dict("full")` 再加 `window_index`。`health` 只留故障旗標、健康指數、劣化分數、stage、趨勢、告警與變點。`binary` 只留 `is_fault`。
+motor／rpm必填，rpm可8000或8000rpm；config須實際存在，max_windows須正整數。API run(data_root,motor,rpm,config,...)回傳逐窗列表，iter_run先yield fitted再window；**CLI先把run收集完，才逐行印JSON**，並非計算到一筆即stdout一筆。full含全部欄位；health含指數／狀態等；binary僅is_fault。
 
-## 理論
+此CLI沒有setup_run、logs或output持久檔；不假造自動JSONL保存。Web依[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)啟動，8-3選工況／配置／方法／seed／筆數，按「▶ 執行」或「⏵ 邊跑邊畫」看逐窗；Web使用web-demo及資料集-config的展示session ID，不能當採集身分證明。「■ 停止」取消後續SSE，未done不算完整；完成JSON由web_server保存，重跑重新開始。
 
-單窗健康指數的定義同 [exp8_health_index_benchmark.md](exp8_health_index_benchmark.md)。時間部分在 `experiments/health/trajectory.py`。
+## 輸出怎麼讀
 
-狀態鍵是 `(motor_id, session_id)`。平滑先取最近值的 rolling median，再做 EWMA，`α = 0.2`。歷史少於 `min_history = 5` 時，趨勢是 `insufficient_history`，斜率不做。滿 5 筆之後用線性斜率：絕對斜率小於 `stable_slope = 0.005` 視為持平，負斜率是變差，正斜率是回升。
+window_index從0開始；openset_score>1表示偏離已知，health_index為平滑後指數，raw_health_index為單窗映射；is_fault與is_unknown_fault不是由平滑告警決定。severity_stage是相對展示政策，不是已標定損傷。prediction_confidence=|score−1|/(1+|score−1|)，uncertainty=1−它，**不是校準機率**。
 
-告警進入與解除都要連續 3 筆。warning 進入線 0.5、解除線 0.6；critical 進入線 0.2、解除線 0.3。解除線高於進入線，避免在門檻上來回跳。健康值相對近期下降超過 0.15，一筆記 `change_point_state=candidate`，連續兩筆記 `confirmed`。
+timestamp固定None，estimated_rul=None／rul_available=false。不能算每小時誤報、秒級延遲或剩餘壽命。故障指數若飽和0，持平斜率0不表示馬達健康；要分開看is_fault、raw／smoothed、alarm與history。
 
-時間戳在這支 CLI 裡固定傳 `None`。沒有真實時間軸時，延遲與每小時誤報不要從這些行計算。`estimated_rul` 維持 null。
+預期健康holdout誤報少、unknown指數較低；工程驗收為取樣正確、模式欄位與API／Web一致，不是通用可靠性門檻。缺healthy、配置不存在或工況不唯一時核對來源，不借別的motor補資料。歷史批次分離度查[固定包](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/1fa9431bb7b86959f29540d07b2b9290ab39ce42/reports/exp8_health_index_results)，不是本CLI逐窗長期驗證。
 
-## 參考論文
+## 方法來源與程式碼
 
-- 健康指數的馬氏距離、Ledoit–Wolf、k 近鄰出處同 [exp1_cold_start.md](exp1_cold_start.md)。
-- S. W. Roberts (1959), “Control Chart Tests Based on Geometric Moving Averages,” *Technometrics*, 1(3), 239–250。DOI [10.1080/00401706.1959.10489860](https://doi.org/10.1080/00401706.1959.10489860)。這裡的 `α` 是 0.2，和實驗三 `TrendMonitor` 的 0.08 不是同一個物件。
-- rolling median、5 筆才算斜率、3 筆持續、0.15 的變點：本專案操作約定，寫在 `TrajectoryConfig`。
+LW／近鄰來源見[實驗一](exp1_cold_start.md#方法來源與程式定位)；Roberts（1959），*Control Chart Tests Based on Geometric Moving Averages*，Technometrics1,239–250，[DOI](https://doi.org/10.1080/00401706.1959.10489860)支持EWMA遞迴。median、alpha0.2與告警政策是Lineage約定，與[實驗三](exp3_trend.md)alpha0.08不同。
 
-## 預期成果
+[health_monitor](../../experiments/health_monitor.py)取樣／CLI；[trajectory](../../experiments/health/trajectory.py)狀態；[index](../../experiments/health/index.py)單窗模型；[schema](../../experiments/health/schema.py)模式；[web/experiments](../../web/experiments.py)編排；[test_health_monitor](../../tests/test_health_monitor.py)、[test_health_trajectory](../../tests/test_health_trajectory.py)與[test_health_schema](../../tests/test_health_schema.py)驗證工程行為，不提供實體退化真值。
 
-`--config 8screws` 且給了身份時，多數窗口的 `health_index` 應高、`is_fault` 應少，趨勢在前 4 筆是歷史不足，第 5 筆之後才有斜率標籤。`--config` 換成故障配置時，健康指數應下降，`is_unknown_fault` 應為真；若校準錨點把這些分數都送到 0，連續窗口的斜率會是持平的 0，不會出現一段慢慢下降的曲線。
-
-沒有 `motor_id` / `session_id` 又未允許缺身份時，不應把多筆合成一條惡化曲線。`binary` 模式不應冒出健康指數欄位。
-
-## 已記錄的實測
-
-本 CLI 沒有進版的逐窗 JSONL。批次分離度見 `reports/exp8_health_index_results/`，說明見 [exp8_health_index_benchmark.md](exp8_health_index_benchmark.md)。那份結果裡的 unknown 健康指數飽和在 0.0，所以用故障配置來播這支程式時，預期會看到貼底的指數，而不是一條分級下降的軌跡。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
-|---|---|
-| `experiments/health_monitor.py` | `run`、`main`、三種 `output-mode` |
-| `experiments/health/index.py` | `CalibratedHealthIndex` |
-| `experiments/health/trajectory.py` | `SessionTrajectoryMonitor`、`TrajectoryConfig` |
-| `experiments/health/schema.py` | `HealthMonitoringResult.to_dict` |
-| `experiments/health/severity.py` | stage 門檻 |
-| `core/data.py` | `discover_datasets`、`load_pools`、`make_split`、`HEALTHY` |
-
-沒有 `logs/health_monitor/` 或 `output/health_monitor/`。結果是 stdout 的 JSON 行。要留檔時由呼叫端導向。
-
-### 散在其他位置的相關檔案
-
-- 測試：`tests/test_health_trajectory.py`、`tests/test_health_schema.py`；CLI 本身沒有測試。
-- 套件：`experiments/health/`，見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
-- 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；原始稽核見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
-- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
-- Web 實驗頁：頁首「實驗八」的 8-3，`web/experiments.py` 的 `CATALOG` 項目 `exp8_monitor` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp8_monitor`；結果存到 `output/web_server/{ts}/experiments/exp8_monitor_{時間}.json`。
+共用模組與資料流見[模組資料流](../health_and_reports.md#模組資料流)；封存結果的讀法見[reports與預期成果](../health_and_reports.md#reports與預期成果)。串流停止與復原見[Web 串流生命週期](README.md#web-串流生命週期)。
