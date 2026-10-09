@@ -9,7 +9,7 @@
 以下連到 reports/ 的原交付與失敗紀錄，只適用其記載日期、來源及受測版本。
 
 - [整合來源與舊驗收](../reports/Andy_20261008_分支整合/integration_report.md)、[歷史manifest](../reports/Andy_20261008_分支整合/manifest.json)。
-- [當時引用核對](../reports/Andy_20261008_議題交付/citation_followup.md)、[導覽驗收](../reports/Andy_20261008_議題交付/guide_acceptance.md)、[未擬合契約及舊回歸](../reports/Andy_20261008_議題交付/monitor_guard.md)。
+- [當時引用核對](../reports/Andy_20261008_議題交付/citation_followup.md)、[導覽驗收](../reports/Andy_20261008_議題交付/guide_acceptance.md)、[未擬合契約及舊回歸](experiments/README.md#共用模型生命週期)。
 - [當時給老師的說明](../reports/Andy_20261009_主線交付/README.md)、[當時執行紀錄](../reports/Andy_20261009_主線交付/execution_log.md)。
 
 老師要看程式如何操作，先用[導覽入口與示範腳本](navigation/exp24_README.md)；歷史研究分數只在固定來源下解讀，不當成新增盲測結果。

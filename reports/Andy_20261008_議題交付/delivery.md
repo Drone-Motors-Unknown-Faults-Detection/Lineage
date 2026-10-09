@@ -34,7 +34,7 @@ python -m tests.issue_delivery_evidence --data-root D:/schoolshit/專題/src/Lin
 
 下面均相對本repo；本機絕對根為`D:/schoolshit/專題/src/lineage_integration_20261008`。
 
-- [稽核與去重草稿](audit_followup.md)、[引用判定與剩餘清單](citation_followup.md)、[導覽QA](guide_acceptance.md)、[未擬合契約](monitor_guard.md)。
+- [稽核與去重草稿](audit_followup.md)、[引用判定與剩餘清單](citation_followup.md)、[導覽QA](guide_acceptance.md)、[未擬合契約](../../docs/experiments/README.md#共用模型生命週期)。
 - 最後完整測試：`output/branch_integration/2026-10-09-03-11-15/{validation.json,tests.txt}`、對應`logs/branch_integration/2026-10-09-03-11-15.log`。
 - guard紅／綠燈：`output/monitor_guard_evidence/2026-10-08-22-01-46`、`22-02-10`；原紅燈有subTest failures/errors，保留不改成PASS。
 - 導覽修改前後1190筆ledger：`output/navigation_regression/2026-10-08-21-52-04/summary.json`及`2026-10-09-03-13-18/summary.json`；SHA `dbae28737e288cbf46d4dedd8d352dfce884b82a28ff4daa4a9f36b94139e8e0`。

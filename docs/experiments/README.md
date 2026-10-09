@@ -28,6 +28,24 @@
 
 實驗七、八在 2026-10-03 補上編號，依程式加入 repo 的時間排：`compare_openset` 是 2026-09-17，健康指數三支是 2026-09-20。程式檔名沒有改，報告檔名與標題帶編號。實驗九～十二（#13～#16）已在本輪完成：AE 偵測器 AUROC 持平、誤報略低；中心平移遷移修好了排序但沒修好校準，不如目標端從零冷啟動；Ancestor 協定下 Ledoit–Wolf 相對 legacy 的 Balanced Accuracy／macro-F1 絕對提升超過 78 pp，遠超 5 pp 門檻；混淆矩陣把這個落差變成可見的畫面。
 
+## 共用模型生命週期
+
+`core.monitor.OpenSetMonitor` 建構後尚未擬合。`score()`、`classify()`、`project()`、`summary()` 都要求完整成功的擬合，否則丟出 `RuntimeError` 並要求成功呼叫 `fit_initial()`。健康基準只用 healthy train 擬合 scaler、detector 與 PCA，known calibration 設門檻；未知資料不參與擬合與校準。
+
+`fit_initial()` 與 `_refit()` 開始即撤銷有效旗標，所有模型及摘要狀態完成後才恢復。重擬合失敗時禁止混用前次模型與新 scaler；操作者須明確重新建立健康基準。`add_class()` 使用已確認配置的完整資料池重新擬合，沒有原子回滾保證；失敗後已改動的 known／splits 不能當作有效模型。無效或重複配置若在註冊前被拒，原模型仍可使用。
+
+`holdout(config)` 只讀既有 splits，不使用推論 guard，未註冊配置保留 `KeyError`。成功擬合後，Mahalanobis-LW／k-NN 均以正規化分數大於 1 拒絕；PolarMap 幾何不受本生命週期說明改動。回歸入口為 `tests/test_monitor_guard.py`、`tests/test_openset.py` 與 `tests/test_geometry.py`。
+
+## Web 串流生命週期
+
+`web.experiments.CATALOG` 的 stream 旗標決定可播放的實驗：exp1、exp3、exp4、exp8_monitor。既有 `run()` 批次與 `iter_run()` 逐步計算共用實驗邏輯；展示編排不自行計算另一套指標。使用 `python -m web.server --bind-address 127.0.0.1 --data-root data --port 8600` 啟動本機展示，再在實驗卡片選批次執行或「邊跑邊畫」。
+
+`GET /api/experiments/{id}/stream` 接受 JSON 物件 params 與有限 rate；速率限制在 1～1000 筆／秒，只控制播放節奏。SSE 事件從 start 開始，再推送 scores／tick／window 等實驗事件，完成才發 done。done 的 payload 已由 runner 存入 `output/web_server/{時間戳}/experiments/`，帶 `streamed: true`；停止或失敗沒有 done 就不得當作完整結果。
+
+批次與 SSE 使用同一執行鎖，另一工作執行中即拒絕。瀏覽器停止或斷線時中止後續播放；已交給 executor 的一次計算可能仍需完成。finally 關閉 generator，即使 close 丟例外也釋放鎖。完成、取消或錯誤後，待伺服器釋放鎖再重試；不能以重新點擊掩蓋中斷。回歸入口為 `tests/test_stream_integration.py`、`tests/test_iter_run.py`、`tests/test_health_monitor.py`。
+
+獨立導覽另用 [UI 操作腳本](../navigation/exp24_UI操作腳本.md) 的 WebSocket session：重連不自動播放，模型失敗須明確重設或重建。兩個入口均為 CSV 重播，不保證實體時間、原始視窗獨立或部署誤報率。現行 server／guide 的部分錯誤會把例外文字傳給 client，可能包含私人路徑；這項限制仍由 [#28](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/28) 追蹤，不能宣稱全部錯誤回應已去敏。
+
 ## 各實驗的檔案位置
 
 實驗八重算補充：`experiments/health_index_aggregate.py`、`tests/test_health_index_aggregate.py`、`docs/experiments/exp8_health_index_aggregate_contract.json`；紀錄寫入 `logs/exp8_health_index_aggregate/` 與 `output/exp8_health_index_aggregate/`，不經 web 層。
