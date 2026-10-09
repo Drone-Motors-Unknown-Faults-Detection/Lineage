@@ -38,9 +38,9 @@ jobs:
           VENV_BIN="$PWD/.venv310/bin"
           uv pip install --python "$VENV_BIN/python" -c runtime-constraints.txt pip setuptools wheel
           uv pip install --python "$VENV_BIN/python" --no-build-isolation -c runtime-constraints.txt .
-          uv pip install --python "$VENV_BIN/python" -c runtime-constraints.txt pytest
+          uv pip install --python "$VENV_BIN/python" -c runtime-constraints.txt pytest ruff
           echo "$VENV_BIN" >> "$GITHUB_PATH"
-      - name: 套件、完整 pytest、CLI 與文件目標
+      - name: 套件、ruff、完整 pytest、CLI 與文件目標
         run: python -m tests.ci_evidence
       - name: 成功或失敗均只保存去敏摘要
         if: always()

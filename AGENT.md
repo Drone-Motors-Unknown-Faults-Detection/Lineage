@@ -91,6 +91,10 @@ build_uv_mac.sh  macOS 版安裝入口，與 build_uv.sh 同一套 runtime-const
     `uv venv` / `uv pip install`，不要退回 `python -m venv` 配 `pip install`；版本仍以單一
     `runtime-constraints.txt` 鎖定（`uv pip install -c runtime-constraints.txt ...`）。
     細節見 `build_uv.sh`／`build_uv.ps1`／`docs/runtime_policy.md`。
+12. **`ruff check .` 必須零錯誤才能合併。** 規則集合固定在 `pyproject.toml` 的
+    `[tool.ruff.lint] select`（`E4`／`E7`／`E9`／`F`），不依賴 ruff 版本的預設集合。
+    CI 的 `tests/ci_evidence.py` 會跑這關；提交前本機先跑
+    `venv/bin/python -m ruff check .`，有錯就地修掉，不要用 `# noqa` 繞過真正的問題。
 
 ---
 
@@ -175,6 +179,10 @@ venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn
 # 環境
 ./build_uv.sh --python python3.10 --venv venv  # 只建立新目錄；正式支援 3.10.x
 ./build_uv.sh --legacy --venv venv-legacy     # legacy extras 非本輪正式鎖版驗證範圍
+
+# 提交前檢查
+venv/bin/python -m ruff check .
+venv/bin/python -m pytest tests
 ```
 
 ---

@@ -71,6 +71,7 @@ def run() -> dict:
             for name in previous_tmp:
                 os.environ[name] = directory
             checks.append(execute(["-m", "pip", "check"]))
+            checks.append(execute(["-m", "ruff", "check", "."]))
             checks.append(execute(["-m", "pytest", "tests", "-ra", "--tb=short"]))
             checks.extend(execute(["-m", module, "--help"], 60) for module in CLIS)
         finally:
@@ -88,7 +89,7 @@ def run() -> dict:
               "scope": "工程契約；任意Origin現狀不代表安全，無新模型成績，macOS未驗證"}
     (paths.output_dir / "public_summary.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    suite = checks[1]
+    suite = checks[2]
     logger.info("CI 工程驗證：{}；測試數={}；failed={}；errors={}；skipped={}；失效目標={}",
                 result["status"], suite.get("tests_run"), suite.get("failed"), suite.get("errors"), suite.get("skipped"), len(broken))
     for check in checks:

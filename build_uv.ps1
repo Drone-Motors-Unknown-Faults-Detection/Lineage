@@ -15,6 +15,6 @@ Invoke-Checked $Python @('-c', 'import sys; assert sys.version_info[:2] == (3, 1
 Invoke-Checked uv @('venv', '--seed', '--python', $Python, $VenvDir)
 $VenvPython = Join-Path $VenvDir 'Scripts/python.exe'
 Invoke-Checked uv @('pip', 'install', '--python', $VenvPython, '-c', 'runtime-constraints.txt', 'pip', 'setuptools', 'wheel')
-Invoke-Checked uv @('pip', 'install', '--python', $VenvPython, '--no-build-isolation', '-c', 'runtime-constraints.txt', '.')
+Invoke-Checked uv @('pip', 'install', '--python', $VenvPython, '--no-build-isolation', '-c', 'runtime-constraints.txt', '.[test]')
 Invoke-Checked $VenvPython @('-m', 'pip', 'check')
 Invoke-Checked $VenvPython @('-m', 'core.runtime_environment')

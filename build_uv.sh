@@ -22,10 +22,10 @@ command -v uv >/dev/null 2>&1 || { echo "需要先安裝 uv：https://docs.astra
 "$PYTHON_BIN" -c 'import sys; assert sys.version_info[:2] == (3, 10), "正式安裝要求 Python 3.10.x"'
 uv venv --seed --python "$PYTHON_BIN" "$VENV_DIR"
 uv pip install --python "$VENV_DIR/bin/python" -c runtime-constraints.txt pip setuptools wheel
-TARGET="."
+TARGET=".[test]"
 if [ -n "$EXTRA" ]; then
     echo "legacy extras 未完整鎖版，不屬於正式驗證環境" >&2
-    TARGET=".[$EXTRA]"
+    TARGET=".[test,$EXTRA]"
 fi
 uv pip install --python "$VENV_DIR/bin/python" --no-build-isolation -c runtime-constraints.txt "$TARGET"
 "$VENV_DIR/bin/python" -m pip check
