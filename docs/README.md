@@ -45,6 +45,10 @@
 | 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`（本輪新增）；54 列與歷史逐欄比對 |
 | 實驗八 | [重算驗證與給老師的說明](experiments/exp8_health_index_aggregate_delivery.md) | PR #41 已合 main，162 項測試通過；349 比對有兩項差異，#25 工程 completed，歷史公式 UNKNOWN |
 | 實驗八 | [exp8_health_monitor](experiments/exp8_health_monitor.md) | `experiments/health_monitor.py` |
+| 實驗九 | [exp9_autoencoder](experiments/exp9_autoencoder.md) | `core/detectors.py`（`MLPAutoencoderDet`，`experiments/exp6_osr_benchmark.py` 自動納入） |
+| 實驗十 | [exp10_transfer](experiments/exp10_transfer.md) | `experiments/exp10_transfer.py` |
+| 實驗十一 | [exp11_ancestor_comparison](experiments/exp11_ancestor_comparison.md) | `experiments/exp11_ancestor_comparison.py` |
+| 實驗十二 | [exp12_confusion_tsne](experiments/exp12_confusion_tsne.md) | `experiments/exp12_confusion_tsne.py` |
 | 實驗二十四 | [exp24_experiment_navigation](experiments/exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`experiments/navigation_regression.py`；獨立 `web.guide` |
 
 給老師的七問整理與示範順序：[exp24 導覽入口](navigation/exp24_README.md)。研究摘要連到固定研究提交，未將未合入主線的方法當成 main 功能。
