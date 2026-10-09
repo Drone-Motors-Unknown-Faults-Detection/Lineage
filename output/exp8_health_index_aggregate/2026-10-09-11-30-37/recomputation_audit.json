@@ -1,0 +1,36 @@
+{
+  "status": "COMPLETED",
+  "comparison_status": "DIFFERENT",
+  "runs": 6,
+  "rows": 54,
+  "condition_groups": 18,
+  "compared_fields": 349,
+  "mismatches": 2,
+  "source_unchanged": true,
+  "historical_formula_status": "UNKNOWN",
+  "source_root": "D:\\schoolshit\\專題\\src\\lineage_integration_20261008\\reports\\exp8_health_index_results",
+  "contract_path": "D:\\schoolshit\\專題\\src\\lineage_integration_20261008\\docs\\experiments\\exp8_health_index_aggregate_contract.json",
+  "contract_sha256": "dc0c2a54482356a5ad0cea267bb00d71d2f9c4b82a3effadc45bdea267ee1b1f",
+  "commit_sha": "471c04b0c3e0098d8da9a3b796094726f43003be",
+  "python": "3.10.19",
+  "packages": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.9",
+    "hdbscan": "0.8.44",
+    "loguru": "0.7.3",
+    "tornado": "6.5.10"
+  },
+  "argv": [
+    "D:\\schoolshit\\專題\\src\\lineage_integration_20261008\\experiments\\health_index_aggregate.py"
+  ],
+  "model_fit_performed": false,
+  "data_loaded": false,
+  "limitations": [
+    "原生成程式與 ddof 未提交；吻合不證實歷史公式",
+    "配置名稱、逐窗與採集來源仍未記錄",
+    "未提供新的可靠性或盲測證據"
+  ]
+}

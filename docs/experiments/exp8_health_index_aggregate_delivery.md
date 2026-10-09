@@ -104,3 +104,19 @@ Co-authored-by: Codex <noreply@openai.com>
 原彙總生成程式沒有提交，ddof 與精度順序的歷史證據仍 UNKNOWN。九個未知配置逐名清單與逐窗來源不在六份 JSON 裡；本輪驗證工況、配置數、方法與封存指紋，不能填造採集來源。
 
 給老師的本輪說明放在這份文件；七問與研究背景仍見 [exp24 導覽](../navigation/exp24_README.md)。本輪驗收只處理封存重算，不能把 exp8 的接近 100% 二元結果當成可靠 fault-type、RUL 或 fresh final。
+
+## P0-B：更新至 PR #40 合併後的 main
+
+以下為 2026-10-09 後續交付，不改寫上方歷史狀態。使用者已澄清 #25 驗收包含「有差異就回報」，不要求零差異；工程完成不等於原始公式已證實。
+
+PR #40 已合併至 `c68b7cdbb5bddf1034a9e713c8e8efd5acc61c87`。PR #41 以非破壞性 merge 更新，commit 為 `471c04b0c3e0098d8da9a3b796094726f43003be`；`docs/README.md` 與 `docs/health_and_reports.md` 自動合併，逐項檢查保留兩側索引及 §2.2。正式資料、封存來源與組員檔案未修改。
+
+受限權限下的相關測試有 Windows 暫存 ACL 錯誤，保存 [失敗紀錄](../../output/exp8_aggregate_validation_related/2026-10-09-11-29-22/check_0.txt)，不算通過。正常權限重跑，Python 3.10.19：相關 57 項與 pip check 通過，完整 **162 項**、0 failure/error/skipped 與 pip check 通過，見 [相關驗證](../../output/exp8_aggregate_validation_related/2026-10-09-11-29-45/validation_summary.json)、[完整驗證](../../output/exp8_aggregate_validation_full/2026-10-09-11-29-50/validation_summary.json)。
+
+兩次可分辨的重算目錄為 [11-29-59](../../output/exp8_health_index_aggregate/2026-10-09-11-29-59/recomputation_audit.json) 與 [11-30-37](../../output/exp8_health_index_aggregate/2026-10-09-11-30-37/recomputation_audit.json)。最初緊接的兩次 CLI 落在同一秒，既有 logger 使用秒級目錄，因此另跑一次並核對兩個不同目錄；未將同一目錄當兩份獨立產物。
+
+每次六 run、54 列、18 工況摘要，349 比對中 347 吻合、2 差異；三個結果 SHA 與上方封存表完全一致。兩欄仍為 `0.018513 → 0.018512`，歷史公式 UNKNOWN、CLI exit=3。契約內容未改；checkout 經 Git 轉為 CRLF，位元組 SHA 為 `dc0c2a54482356a5ad0cea267bb00d71d2f9c4b82a3effadc45bdea267ee1b1f`，不冒用先前 LF SHA。16 份來源前後 SHA 不變，`git diff -- reports/exp8_health_index_results` 為空。
+
+本次審閱支持工程交付；需 PR #41 合併及真正 main 再測後才能關閉 #25。沒有 fit、新準確率、fresh final 或新可靠性證明。
+
+另以 `tests.integration_evidence --phase candidate` 保存 [162 項完整測試及四個 CLI](../../output/branch_integration/2026-10-09-11-31-10/validation.json)，所有檢查成功。此產物記錄受測 commit `471c04b...`，不把之後純文件提交當成已重跑模型。
