@@ -7,13 +7,13 @@ core/formal_data.py 從既有階段ZIP取得105維特徵：Stage1／3複製clean
 API為 materialize(source_root, output_root, *, stages, conditions, force=False)；run(...)加上日誌。先看CLI：
 
 ```bash
-python -m core.formal_data --help
+uv run --locked python -m core.formal_data --help
 ```
 
 需要另建資料版本時，明確提供唯讀來源與新的目的目錄，例如：
 
 ```bash
-python -m core.formal_data --source-root SOURCE --output-root NEW_DEST --stage 2 --condition T2/8000rpm/8screws
+uv run --locked python -m core.formal_data --source-root SOURCE --output-root NEW_DEST --stage 2 --condition T2/8000rpm/8screws
 ```
 
 SOURCE、NEW_DEST是呼叫者替換的路徑；不要直接使用既存正式data作目的地。--force是覆寫選項，不應用於封存正式資料。
@@ -37,7 +37,7 @@ Stage2的equal_window_counts_v1要求五通道窗口數、每窗口樣本數皆�
 ## 驗證與歷史
 
 ```bash
-python -m pytest tests/test_formal_materialization_safety.py -q
+uv run --locked python -m pytest tests/test_formal_materialization_safety.py -q
 ```
 
 fixture涵蓋惡意路徑、symlink、通道差異、拒絕前零寫入、中斷清理、來源不變與舊版數值等價；缺權限而跳過的案例列未驗證。歷史失敗與修正見 [改寫前固定版本](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/791216cf5602c370091fa516264f1ce6aaad6ab1/docs/formal_materialization_contract.md)，原logs/output保留。

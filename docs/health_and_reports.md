@@ -36,9 +36,9 @@ TrajectoryConfig另有history_window120、min_history5、stable_slope0.005、cha
 ## CLI與輸出位置
 
 ```bash
-python -m experiments.health_index_benchmark --help
-python -m experiments.health_index_matrix --help
-python -m experiments.health_monitor --help
+uv run --locked python -m experiments.health_index_benchmark --help
+uv run --locked python -m experiments.health_index_matrix --help
+uv run --locked python -m experiments.health_monitor --help
 ```
 
 三支health入口尚未統一setup_run：benchmark與monitor主要印stdout，matrix預設reports/exp8_health_index_results/。不要對封存reports重跑覆寫；新研究應指定新版本路徑，輸出慣例缺口由 [#24](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/24) 追蹤。
