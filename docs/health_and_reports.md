@@ -119,9 +119,11 @@ AGENT.md「關鍵參數」表列的趨勢參數是 `TrendMonitor` 的；`Session
 
 2026-10-08接續固定83846b的17項重驗，以整合後main4f783c6核對來源SHA與變動：[本輪差異表與R1–R10去重草稿](issue_delivery_20261008/audit_followup.md)。PR38/39已增加獨立導覽、exp1/3/4 SSE及相關測試，因此TEST-002部分改善，DOC-001現行索引再次驗證；資料契約、矩陣完整性及metadata等未變程式沿用舊證據，不冒稱重跑。PERF未profiling、SEC-003 root escape未驗證。#30新issue草稿待使用者確認發布，沒有勾選或關閉issue。
 
-### 2.3 研究分支上的 `reports/`
+2026-10-09 #30 追蹤已發布：R1 [#43](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/43)、R2 [#44](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/44)、R3 [#45](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/45)、R4 [#46](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/46)、R7 [#47](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/47)、R8 [#48](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/48)、R10 [#49](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/49)；R5/R6/R9 去重補入 #27/#28/#26。[最新17項判定與發布證據](project_closeout_20261009/audit_followups.md)。這些程式缺口仍 open，不能以追蹤發布代表全部修補。
 
 2026-10-09 接續：#29 的 guard 已由 PR #40 合入 main，124 項測試與成功擬合等價比較通過；上方 2026-10-03 表為歷史狀態。#25 的唯讀彙總由 PR #41 合入 main，main 162 項通過，六 run／54 列可重算；兩個 `0.018513 → 0.018512` 差異仍回報，歷史公式 UNKNOWN，工程 issue 已 completed。固定 commit 與產物見 [本輪紀錄](project_closeout_20261009/execution_log.md)。#30 §2.2 已在 main，追蹤議題尚待發布；不把其餘缺口寫成全部修好。
+
+### 2.3 研究分支上的 `reports/`
 
 `research-improvements-20260920` 分支另外有 `reports/continuous_research/`、`reports/data_independence/`、`reports/fault_type_openset/` 等 10 個子目錄，屬於 [#22](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/22) 的研究，尚未併入 main，本文件不涵蓋。
 
