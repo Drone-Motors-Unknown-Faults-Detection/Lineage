@@ -23,7 +23,9 @@
 ```
 core/            共用零件：data / mahalanobis / monitor / openset / geometry / detectors / formal_data /
                  trend / logger / runner / runtime_environment
-reports/         只剩實驗八結果 reports/exp8_health_index_results/；一般實驗輸出不放這裡
+reports/         單次實驗結果／單次說明／更新紀錄，每篇一個資料夾，命名
+                 `<Author Name>_<YYYYMMDD>_<Report Subject>`；見「docs／reports／note 分工」
+note/            個人記事，非專案全局變動；每人一個資料夾（例如 note/JW-Albert/）
 experiments/     實驗模組（exp1 冷啟動 exp1_cold_start.py、exp2 量尺擴張 exp2_scale_growth.py、
                  exp3 趨勢 exp3_trend.py、exp4 極座標 exp4_polar_map.py、
                  exp5 跨工況 exp5_cross_condition.py、
@@ -47,7 +49,8 @@ docs/            實驗技術報告在 docs/experiments/（每個 experiments/*.
 data/            特徵資料（git 忽略；由論文版管線產出，本專案唯讀）
 logs/ output/    每次執行的日誌與結果（納入版控）。output/ 只能是程式碼寫出的檔案，見鐵則 9
 run_web.sh       啟動展示伺服器
-build_uv.sh      保留入口名稱，改用官方 venv 與 runtime-constraints.txt；不刪除既有目錄
+build_uv.sh      保留入口名稱；環境管理工具固定為 uv（`uv venv` / `uv pip install`），
+                 單一 runtime-constraints.txt；不刪除既有目錄
 build_uv.ps1     Windows PowerShell 7 的同版安裝入口；詳見 docs/runtime_policy.md
 build_uv_mac.sh  macOS 版安裝入口，與 build_uv.sh 同一套 runtime-constraints.txt
 ```
@@ -84,6 +87,25 @@ build_uv_mac.sh  macOS 版安裝入口，與 build_uv.sh 同一套 runtime-const
     檔名 `test_<module>.py`，對應 `core/`、`experiments/`、`experiments/health/` 或 `web/` 裡被改動的
     模組；提交前跑 `venv/bin/python -m pytest tests/`（或至少跑到相關檔案）確認全部通過，
     不要留下失敗或被跳過的測試就視為完成。
+11. **Python 環境管理工具固定為 [uv](https://docs.astral.sh/uv/)。** 建環境、裝套件一律用
+    `uv venv` / `uv pip install`，不要退回 `python -m venv` 配 `pip install`；版本仍以單一
+    `runtime-constraints.txt` 鎖定（`uv pip install -c runtime-constraints.txt ...`）。
+    細節見 `build_uv.sh`／`build_uv.ps1`／`docs/runtime_policy.md`。
+
+---
+
+## docs／reports／note 分工
+
+`docs/` 的目的是說明程式碼如何運作、程式碼的目的，以及期望的成果。`docs/` 不是用於稽核；
+不是單次實驗的結果（實驗結果反映出需要改進，開 issue，不是回頭改文件掩蓋）；也不是單次的
+說明或更新紀錄。
+
+單次實驗結果、單次說明、更新紀錄等屬於專案全局變動的，放進 `reports/`，每一篇都要有自己的
+資料夾，命名格式 `<Author Name>_<YYYYMMDD>_<Report Subject>`
+（例如 `JW-Albert_20261009_exp8_health_index_results`）。
+
+不是專案全局變動、只是個人記事的，放進 `note/`，且要放在自己的資料夾裡
+（例如 `note/JW-Albert/`），不要混進 `docs/` 或 `reports/`。
 
 ---
 

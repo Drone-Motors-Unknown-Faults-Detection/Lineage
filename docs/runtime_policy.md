@@ -18,15 +18,15 @@ Windows 預定入口（PowerShell 7）：
 
 ```powershell
 ./build_uv.ps1 -Python 'C:/path/to/python3.10.exe' -VenvDir '.venv310'
-./.venv310/Scripts/python.exe -m unittest discover -s tests -t .
+./.venv310/Scripts/python.exe -m pytest tests
 ./.venv310/Scripts/python.exe -m pip check
 ```
 
-POSIX 預定入口（尚未在本機驗證）：
+POSIX 預定入口：
 
 ```bash
 ./build_uv.sh --python python3.10 --venv .venv310
-.venv310/bin/python -m unittest discover -s tests -t .
+.venv310/bin/python -m pytest tests
 .venv310/bin/python -m pip check
 ```
 
@@ -62,3 +62,25 @@ POSIX 預定入口（尚未在本機驗證）：
 新環境第一次測試 [失敗紀錄](../output/runtime_policy_evidence/2026-10-09-12-06-39/evidence.json) 是測試引用 pip 23 的私有解碼模組，該模組在固定 pip 25.3 已移除。正式依賴版本均相符，工程測試仍記 FAILED；修正 fixture 改驗公開的 coding 宣告與標準庫解碼，不依賴 pip 私有 API。新乾淨安裝仍會從 bootstrap pip 23 實際讀取這份檔案，提供真正安裝回歸。
 
 修正後新環境 `lineage_clean310_20261009_retry1` 完成 [179 項全套測試](../output/branch_integration/2026-10-09-12-08-25/validation.json)，0 failed/error/skipped，pip check 與四個 CLI help 成功；[17 個環境 fixture 與固定版本核對](../output/runtime_policy_evidence/2026-10-09-12-08-22/evidence.json) 無 constraints 差異。guard [11 項及 8 組](../output/monitor_guard_evidence/2026-10-09-12-08-53/evidence.json) 與封存基線相同，score／PCA 最大差值均為 0。這些產物是在事前契約 HEAD `49fec06` 加上程式 working-tree 差異下執行，正式程式 commit 封存後另測。
+
+## 環境管理工具改為 uv（2026-10-10）
+
+Python 環境管理工具固定改為 [uv](https://docs.astral.sh/uv/)，取代先前「改用官方 venv」的決定（本頁上方歷史記錄保留不改，這是後續決定）。`build_uv.sh`／`build_uv.ps1`（`build_uv_mac.sh` 透過 `--legacy-mac` 轉呼叫 `build_uv.sh`，不必另改）改成：
+
+1. `uv venv --seed --python <PYTHON_BIN> <VENV_DIR>`：建立新環境，`--seed` 讓 pip／setuptools／wheel 隨 venv 一起裝進去（純 `uv venv` 不帶這三個套件，既有測試與 `core/runtime_environment.py` 都假設它們在使用中的直譯器裡可被 `importlib.metadata` 查到）。
+2. `uv pip install --python <VENV_DIR>/bin/python -c runtime-constraints.txt pip setuptools wheel`：把 `uv venv --seed` 裝的最新版換成 constraints 鎖定的版本。
+3. `uv pip install --python <VENV_DIR>/bin/python --no-build-isolation -c runtime-constraints.txt .`（或 `.[legacy-linux]`／`.[legacy-mac]`）：沿用同一份 `runtime-constraints.txt`，不新增 `uv.lock`。
+
+沒有改用 `uv lock`／`uv sync` 的專案原生工作流：`pyproject.toml` 的 `legacy-linux`／`legacy-mac` extras 要求的 numpy 範圍跟主依賴衝突（tensorflow 2.18 要 `numpy<2.1`，主依賴鎖 `numpy>=2.2,<2.3`），`uv lock` 預設會嘗試算出一份能滿足「任意 extras 組合同時成立」的 universal lock，這兩個 extra 本來就無法在這個前提下解出來（`uv lock` 直接報 unsatisfiable）。既有政策本來就寫明 legacy extras「未完整鎖版、非本輪正式驗證範圍」，所以維持 `uv pip install -c runtime-constraints.txt ".[extra]"` 這種單次解析、不進 universal lock 的路徑，不勉強湊一份涵蓋 legacy 的鎖檔。
+
+CI（`.github/workflows/ci.yml`）改用官方 [astral-sh/setup-uv](https://github.com/astral-sh/setup-uv) action 安裝 uv（取代 `actions/setup-python`），用 `uv python install 3.10` 下載受管的 CPython 3.10，其餘步驟與本機 `build_uv.sh` 相同指令。
+
+### 實測
+
+本機（既有 CPython 3.10.19，`~/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/`）：
+
+- `uv lock` 若保留 `legacy-linux`／`legacy-mac` 在 `[project.optional-dependencies]`：確認真的無解（`Because lineage[legacy-mac] depends on tensorflow==2.18.0 ... we can conclude that your project's requirements are unsatisfiable`），因此不採 `uv lock`／`uv.lock` 路徑。
+- `uv venv --seed --python 3.10 <dir>` + 上述三個 `uv pip install` 步驟，重建出的環境與既有 `runtime-constraints.txt` 版本逐一比對 `pip`／`setuptools`／`wheel`／`numpy`／`pytest` 均相符。
+- 同一環境跑 `python -m pytest tests -ra -q`：230 passed、3 skipped（Windows 專用案例）、0 failed、160 subtests passed，46~53 秒；`test_active_dependency_closure_is_pinned`（需要 `pip`/`setuptools`/`wheel` 的 metadata 可查）通過，確認 `--seed` 補的三個套件版本正確。
+- 實跑 `build_uv.sh --venv .venv_script_test`（已刪除，非正式環境）：`pip check` 通過、`core.runtime_environment` 寫出 `output/environment_install/2026-10-09-15-13-28/environment.json`，記錄的套件版本與上一步一致。
+- 尚未在真實 GitHub Actions 跑過改用 `astral-sh/setup-uv` 後的 workflow；下一次 push／PR 的 Actions run 是第一次真實驗證，macOS 與 Windows 的 uv 路徑本輪同樣未在實機驗證，風險與既有「macOS 未驗證」相同。
