@@ -11,7 +11,6 @@ from pathlib import Path
 from typing import Sequence
 
 import numpy as np
-import pandas as pd
 
 from core.data import HEALTHY, discover_datasets, load_pools, make_split
 from core.openset import canonical_openset_method

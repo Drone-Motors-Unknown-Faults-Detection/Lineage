@@ -1,13 +1,13 @@
-# #44：正式105維特徵載入契約
+# 正式105維特徵載入契約
 
-日期：2026-10-09；基線 main `22a253b14eb5df14058800f5a086bf4d7afeae58`。已重讀根 AGENT.md、#44 與公開 PR；只有 Albert #36 涉及保留 Web／health 檔，本項不修改那些檔案，無法確認未公開工作。
+給資料匯入與 loader 維護者：本頁說明合法欄位、拒絕原因與完整配置檢查。`core/data.py:load_pools` 使用 `core/feature_schema.py:SCHEMAS` 驗證 CSV；程式執行時不讀取本頁或[欄位清冊](formal_feature_schema.json)。JSON 提供可審閱的完整欄名，`tests/test_feature_schema.py` 將其與程式 registry 比對。實驗六的模型、切分、指標與執行方式見[正式比較手冊](experiments/exp6_formal_benchmark.md)，不在此重複。
 
-## 事前固定的合法輸入
+## 合法輸入
 
 完整 ordered columns 在 [版本清冊](formal_feature_schema.json)。只接受兩個完整版本，不以數值欄數、欄名前綴或大小寫猜測相容，不排序／重排欄。
 
-- `historical_clean_v1`：唯讀盤點現有60份 CSV 的同一 header。對照 `Step2_Feature_Extraction_8000_2.py` 的 `feature_name`；來源 SHA 與 header SHA 見清冊。三個 `current` 小寫與 Y／Z FFT 的 X 後綴是原始命名，不代表改用 X 軸訊號。
-- `adapter_generated_v1`：固定 main `core/formal_data.py:FEATURE_NAMES`。位置語意相同，三個 Current 為大寫，FFT 後綴依 Y／Z 軸命名。合法舊檔不改名、不重產。
+- `historical_clean_v1`：對照 `Step2_Feature_Extraction_8000_2.py` 的 `feature_name`；來源 SHA 與 header SHA 見清冊。三個 `current` 小寫與 Y／Z FFT 的 X 後綴是原始命名，欄名本身不能證明訊號取自哪個軸。
+- `adapter_generated_v1`：對照 `core/formal_data.py:FEATURE_NAMES`。三個 Current 為大寫，FFT 後綴依 Y／Z 軸命名。合法舊檔不改名、不重產。
 
 105個位置依序為 Current15、Vibration_X25、Vibration_Y25、Vibration_Z25、Delta_T15；各通道先15統計量，振動再10倍頻幅值。完整計算差異已由研究分支 `b3d68f1` 的 `reports/fault_type_openset/provenance_followup.md` 記錄，本項不重做公式研究、不修歷史命名。
 採樣率、物理單位、安裝軸向、負載與 session／raw-window獨立性仍 UNKNOWN；schema通過僅證格式，不證量測一致。
@@ -19,22 +19,13 @@
 `load_pools(..., require_complete=False)` 保持 cold-start healthy-only 可用；`validate_pool_coverage(..., require_complete=True)` 另驗10個canonical類別。正式 exp6 在 `require_nine=True` 時同時要求每工況完整配置；明確 partial入口仍回報缺類。不能用 healthy-only 通過完整正式矩陣。工況數另由既有9工況檢查負責，不把類別數當工況數。
 檔案逐一先驗header／row width，再沿用 pandas 原解析與 float矩陣，不更改有限合法值、列順序或 make_split 隨機數消耗。標記在來源相對檔名與原始 row index，既有來源檔SHA／樣本身分規則不改。
 
-## 驗收與影響範圍
+## 操作與驗證範圍
 
-先 fixture 驗所有拒絕案例、兩header版本、alias、coverage、determinism與CLI可理解錯誤；再全套、pip check與既有CLI。fixture只住 TemporaryDirectory。更新既有數值fixture的假欄名為已核實header，保留數值與seed，不放寬正式schema以遷就fixture。
-唯讀實際60份來源，逐檔SHA前後相同、和固定 main 舊loader逐元素／split索引完全相等；只跑載入與切分，不重fit模型、不用未知選參。不冒稱已稽核90份或9工況。
-修改 `core/feature_schema.py`、`core/data.py`、`experiments/exp6_formal_benchmark.py` 的coverage呼叫、對應fixtures／測試；工程證據入口 `tests/feature_schema_evidence.py` 經 setup_run 寫 logs/output。實驗六手冊先記錄新增輸入檢查；模型、參考論文、方法與指標不變。本項為工程契約，不占exp9–12。
-程式交付、PR建立、main合併與全部驗收分開回報；#44需合main才能關閉。
+`tests/test_feature_schema.py` 以暫存 fixture 檢查兩套 header、拒絕案例、alias、coverage、重現與 CLI 錯誤，不依賴 ignored data。預期非法輸入整批拒絕、合法數值與列順序不變；格式通過不等於採集獨立性通過。`tests/feature_schema_evidence.py` 是唯讀載入與切分的證據入口，經 setup_run 寫 logs/output，不擬合模型。
 
 `rejected_rows` 指已查明的違規列數；錯header時整檔列都違規，數值問題則另列零起算的 `rejected_row_indices`。遇到錯誤整個載入失敗、不回傳合法子集；其他尚未讀檔列數不能由此計數推定。無法讀取的來源不補造列數。`discarded_rows=0` 表示沒有清洗／刪點；不等於整批輸入已被接受。
-CLI：`python -m core.data --dataset <RPM目錄>`；完整配置加 `--require-complete`。API失敗拋 `FeatureSchemaError`，可由 `audit={}` 取得portable拒絕紀錄；CLI保存 `output/formal_schema_audit/*/schema_audit.json` 並exit 1。
+CLI：`uv run --locked python -m core.data --dataset <RPM目錄>`；完整配置加 `--require-complete`。API失敗拋 `FeatureSchemaError`，可由 `audit={}` 取得portable拒絕紀錄；CLI保存 `output/formal_schema_audit/*/schema_audit.json` 並exit 1。回歸檢查：`uv run --locked --extra test python -m pytest tests/test_feature_schema.py`。
 
-## 本輪實測與交付
+## 固定版本證據
 
-契約 `1d14bd45baca9398679bd1f598887712ea11bff1`；實作 `06189bda0b3e83f620ccd08679fcf4bee935dc0a`；[PR #56](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/56)。只以程式／來源證據建立兩版本映射，遵守唯讀來源要求，沒有清洗或改檔。
-固定實作HEAD重算實際來源60份、T1／T3各三轉速共6工況、19,053列。60份全部為 `historical_clean_v1`、每工況10個配置。來源前後SHA完全相同，與main固定舊loader逐元素完全相同；seed42／123／2026的train／cal／holdout索引SHA全部相同。這是載入與切分驗證，模型fit=0，不是重跑90份／9工況研究。
-來源腳本AST僅讀 `feature_name` assignment，不執行Ancestor程式；SHA與事前清冊相同。證據：`output/feature_schema_evidence/2026-10-09-14-20-46/schema_evidence.json`，對應log同時間戳。
-
-fixture初次49項測試出現15個失敗、6個錯誤：Windows csv.writer 的CRLF再經預設文字換行造成空列，另有fixture日誌sink未釋放。修測試為 `newline=""` 並明確關閉sink後，相關49項通過；未放寬正式空列拒絕政策。再新增健康only／complete CLI與不可讀來源測試。
-最新13項格式測試全通過；完整 `python -m tests.ci_evidence` 共223項，220通過、3個本機symlink權限skip、0 failed／errors，pip check、七CLI與8份文件目標成功。摘要 `output/ci_evidence/2026-10-09-14-19-35/public_summary.json`；先前221項摘要保留，不冒充最新總數。
-本機 CPython3.10.19；遠端兩平台結果待Actions完成後追加，不以本機替代。未合main前#44維持OPEN。
+原交付、失敗原因與當時測試邊界保留於[固定版本說明](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8126908591f855dba920bff87a4c098f176c8d67/docs/formal_feature_schema_contract.md#本輪實測與交付)；機器可讀的逐檔來源與切分證據見[固定輸出](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/8126908591f855dba920bff87a4c098f176c8d67/output/feature_schema_evidence/2026-10-09-14-20-46/schema_evidence.json)。它們只代表該次版本，不取代最新 PR 的驗證與合併狀態。

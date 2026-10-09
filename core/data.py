@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
-from core.feature_schema import (FEATURE_DIM, REGISTRY_VERSION, CONFIGURATIONS, CONFIG_ALIASES,
+from core.feature_schema import (FEATURE_DIM as FEATURE_DIM, REGISTRY_VERSION, CONFIGURATIONS, CONFIG_ALIASES,
                                  FeatureSchemaError, read_feature_csv, validate_pool_coverage)
 
 HEALTHY = "8screws"

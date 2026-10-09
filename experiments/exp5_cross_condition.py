@@ -192,7 +192,8 @@ def _figure(matrix, drift):
     im = axes[0].imshow(M, vmin=0.5, vmax=1.0, cmap="viridis")
     axes[0].set_xticks(range(len(keys)), keys, rotation=45, ha="right")
     axes[0].set_yticks(range(len(keys)), keys)
-    axes[0].set_xlabel("evaluated on"); axes[0].set_ylabel("baseline trained on")
+    axes[0].set_xlabel("evaluated on")
+    axes[0].set_ylabel("baseline trained on")
     for i in range(len(keys)):
         for j in range(len(keys)):
             axes[0].text(j, i, f"{M[i,j]:.2f}", ha="center", va="center",
@@ -207,7 +208,9 @@ def _figure(matrix, drift):
     axes[1].axhline(1, ls="--", c="#94a3b8", lw=1)
     axes[1].set_yscale("log")
     axes[1].set_title("(c) Aging drift: T1 healthy baseline vs T1/T2/T3 'healthy' data")
-    axes[1].set_ylabel("median open-set score (log)"); axes[1].legend(); axes[1].grid(alpha=.3)
+    axes[1].set_ylabel("median open-set score (log)")
+    axes[1].legend()
+    axes[1].grid(alpha=.3)
     fig.tight_layout()
     return fig
 

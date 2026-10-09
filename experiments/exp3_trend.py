@@ -19,7 +19,7 @@ import argparse
 
 import numpy as np
 
-from core.data import HEALTHY, CycleSampler, display_name
+from core.data import HEALTHY, CycleSampler
 from core.logger import setup_run
 from core.monitor import OpenSetMonitor
 from core.runner import add_dataset_args, add_openset_args, resolve_dataset, save_json

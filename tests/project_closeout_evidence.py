@@ -16,9 +16,9 @@ def run() -> dict:
     logger, paths = setup_run("project_closeout_evidence")
     root = Path(__file__).resolve().parents[1]
     names = ("TODO.md", "docs/README.md", "docs/health_and_reports.md",
-             "docs/project_closeout_20261009/README.md",
-             "docs/project_closeout_20261009/execution_log.md", "docs/runtime_policy.md",
-             "docs/project_closeout_20261009/runtime_delivery.md")
+             "reports/Andy_20261009_主線交付/README.md",
+             "reports/Andy_20261009_主線交付/execution_log.md", "docs/runtime_policy.md",
+             "docs/ci_contract.md")
     documents = [root / name for name in names]
     links = [row for path in documents for row in local_links(path, root)]
     result = {

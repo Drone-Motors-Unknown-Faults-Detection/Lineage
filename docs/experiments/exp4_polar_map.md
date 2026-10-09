@@ -1,86 +1,52 @@
-# 實驗四：極座標健康地圖
+# 實驗四：用極座標描述偏離方向
 
-程式：`experiments/exp4_polar_map.py`。幾何定義在 `core/geometry.py` 的 `PolarMap`。
+偵測器回答「是否超出已知範圍」，PolarMap另外回答「往哪個已知配置方向偏離」。本實驗檢查方向、幾何關係與配置排序；它不診斷真實故障原因，也沒有把分數標定成損壞百分比。
 
-問題：在健康分布白化之後，故障配置會不會各自沿一條射線離開原點；只認識部分故障時，方向餘弦能否把「均勻鬆動家族」和 `4_146screws` 分開；只給輕、重兩個錨點時，半徑或投影能否排出中間配置的鬆動順序。
+## 資料與建立順序
 
-## 實驗方法
+使用一個馬達／RPM的105維clean特徵。每列意義、非有限值移除、未去重、單位與raw視窗來源限制見[實驗一](exp1_cold_start.md#資料與載入)。T1／T2／T3是不同個體，不能串成生命週期。
 
-CLI `--part` 預設 `abc`，可只跑其中幾個字母。資料是單一工況，文件對照是 T1/8000 rpm，`--seed 42`。`PolarMap` 的幾何一律用 Ledoit–Wolf Mahalanobis，不跟 `--openset-method` 走。本檔的 `main()` 沒有接 `add_openset_args`。
+[exp4](../../experiments/exp4_polar_map.py)依各部分的known清單建立OpenSetMonitor：healthy先列洗牌60/20/20，再逐一加入known配置並重新fit。seed預設42；RobustScaler只fit當次所有known train；所有known的cal用來校準LW距離。unknown不參與這些fit。顯示PCA不取代105維判定。
 
-**(a) `run_geometry`**  
-把除了 `8screws` 以外的配置全部 `add_class`，再算射線兩兩餘弦。彙總中段均勻族（6、5、4、3、2 screws）的族內平均、中段對 `7screws` / `1screws`、均勻族對 `3_14screws` 與 `4_146screws`。
+[PolarMap](../../core/geometry.py)另建LW馬氏幾何，使用已縮放的healthy train中心及共變異數，把其他known train中心轉成射線。每條射線的方向接受線tau，卻使用該known類別**holdout**餘弦的第5百分位。此holdout已參與方向校準，不能同時宣稱為未碰過的獨立方向測試。此工具沒有epoch、loss或optimizer。
 
-**(b) `run_direction`**  
-已知集輪流是 `["7screws"]`、`["1screws"]`、兩者同時、`["5screws"]`、`["3_14screws"]`。對其餘配置算每個樣本對已知射線的最大餘弦。正類是尚未加入的均勻鬆動，負類是 `4_146screws`。`3_14screws` 只報告中位數，不進 AUROC。
+## 三部分實際比較什麼
 
-**(c) `run_severity`**  
-錨點固定 `7screws` 與 `1screws`。對 `UNIFORM` 階梯算三種嚴重度的中位數，再用 Spearman ρ 對配置順位（7 最輕、1 最重）看排序是否一致：
+| 部分 | 建模／評估資料 | 回答的問題與限制 |
+|---|---|---|
+| a 幾何 | 所有fault配置加入known；比較類別中心射線 | 均勻鬆動與複合配置方向是否接近；沒有unknown測試 |
+| b 方向 | known依序為7、1、7+1、5、3_14配置；其餘配置全池計算最大餘弦 | 其他均勻配置為正組、4_146為負組的方向AUROC；3_14另列，不是全部fault的開集AUROC |
+| c 排序 | 7與1配置當方向錨點；7至1的均勻配置全池評估 | 距離或投影是否隨指定配置順序增加；包含錨點已用於fit／cal的樣本 |
 
-- `radius`：白化空間到原點的距離，除以最重錨點的半徑
-- `best_ray`：`PolarMap.analyze` 的沿最佳射線投影
-- `bundle`：兩錨點方向的平均單位向量上的投影，用最重錨點在該方向的投影長度正規化
+表中7／1等指7screws／1screws，不是編碼成數值特徵。程式硬列UNIFORM與COMPOUND名單，未全面兼容1screw別名；缺配置可能KeyError，應核對資料名稱，不改名冒充來源。
+
+c部分比較radius、best_ray、bundle三種數值。radius以嚴重錨點距離作除數；best_ray沿選中射線投影；bundle沿均勻配置平均方向投影。Spearman相關使用**逐樣本**分數與重複的配置rank（7至1列為0至6），不是只對七個median計算。rank是本專案排序約定，沒有實測磨損量。投影可為負或超過1。
+
+新樣本先轉到健康白化空間，再取與已知射線最大餘弦；超過該射線tau回same_ray，否則new_direction。只有healthy時沒有射線，best_ray／severity可能None。這個verdict與Open Set score>1分開解讀，不能用方向相似取代異常偵測。
+
+## 怎麼跑與怎麼用
+
+在repo根目錄依[環境政策](../runtime_policy.md)準備uv與資料：
 
 ```bash
-venv/bin/python -m experiments.exp4_polar_map --motor T1 --rpm 8000rpm
-venv/bin/python -m experiments.exp4_polar_map --part a
+uv run --locked python -m experiments.exp4_polar_map --help
+uv run --locked python -m experiments.exp4_polar_map --data-root data --motor T1 --rpm 8000rpm --seed 42 --part abc
 ```
 
-## 理論
+--part可選a、b、c的組合。此CLI固定LW／confidence0.95，**沒有**openset-method、knn-neighbors或method選項；不要照其他實驗的參數直接貼入。API為run(pools,seed=42,parts="abc")，iter_run依part_start／part／result送事件。run回傳dict，不自行寫檔。
 
-白化用健康類 precision 的 Cholesky。已標準化的向量 `x` 映成
+Web啟動見[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)。選實驗四、資料集與seed，按「▶ 執行」看三部分；「⏵ 邊跑邊畫」按部分回傳，並非逐筆感測串流。「■ 停止」取消後續串流，未收到done不算完整；批次沒有中途停止入口。重跑會重新fit，沒有模型恢復功能。只跑b時不產生組合圖；圖需要a與c都存在。
 
-`z(x) = W (x − μ_H)`，`W = chol(P_H)^T`
+## 輸出與判讀
 
-半徑 `r = ‖z‖` 就是到健康中心的馬氏距離。已知故障 c 的射線是類中心白化後的單位向量 `u_c`。樣本方向與射線的餘弦是 `⟨z/‖z‖, u_c⟩`。
+main經setup_run寫logs/exp4_polar_map/{ts}.log與output/exp4_polar_map/{ts}/，含environment.json、summary.json；a+c齊全時另有polar_map.png。Web另寫web_server的experiments子目錄。geometry列中心／射線夾角關係，direction列餘弦分布與方向AUROC，severity列配置median與逐樣本Spearman。餘弦、正規化距離、rank相關都是無因次量。
 
-`same_ray` 用該類 holdout 餘弦的低百分位當 `τ_c`。沿射線的嚴重度是投影長除以類中心半徑：類中心附近約 1，健康附近約 0，比類中心更遠則大於 1。所有餘弦都低時，程式把這筆留給隔離區，不在本地硬指定新故障名稱。
+預期均勻配置方向接近、複合配置較不同，且配置rank與severity正相關；程式沒有預登錄通用成功門檻。結果反向或不同工況不一致時，這些假說不受支持，不能只挑好看的投影。完整舊數字見[固定紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/experiments/exp4_polar_map.md#已記錄的實測)；本手冊不把它重列成新成績。
 
-健康樣本只有一類時沒有故障射線。`tests/test_geometry.py` 鎖住這件事，也鎖住 k-NN 監測器與 Mahalanobis 監測器算出同一套幾何。
+## 方法來源與程式碼
 
-## 參考論文
+LW與馬氏距離來源見[實驗一](exp1_cold_start.md#方法來源與程式定位)。Spearman（1904），*The Proof and Measurement of Association between Two Things*，American Journal of Psychology15(1),72–101，[DOI](https://doi.org/10.2307/1412159)。健康白化、射線、tau與三種severity組合是Lineage操作方法，不宣稱上述論文提出整個PolarMap。
 
-- 馬氏距離與 Ledoit–Wolf 出處同 [exp1_cold_start.md](exp1_cold_start.md)。
-- C. Spearman (1904), “The Proof and Measurement of Association between Two Things,” *The American Journal of Psychology*, 15(1), 72–101。DOI [10.2307/1412159](https://doi.org/10.2307/1412159)。
-- 射線閾值用 holdout 餘弦的低百分位、三個嚴重度定義、`3_14` 不進 (b) 的 AUROC：本專案操作約定，寫在 `core/geometry.py` 與 `run_direction`。
+[exp4](../../experiments/exp4_polar_map.py)負責三部分與writer；[core/geometry](../../core/geometry.py)實作射線；[core/monitor](../../core/monitor.py)供known切分與scaler；[web/experiments](../../web/experiments.py)編排。驗證入口為[test_geometry](../../tests/test_geometry.py)、[test_stream_integration](../../tests/test_stream_integration.py)、[test_web_experiments](../../tests/test_web_experiments.py)。視覺幾何測試不能證明獨立馬達泛化或損壞標定。
 
-## 預期成果
-
-(a) 中段均勻鬆動的兩兩餘弦應高於它們對 `4_146screws` 的餘弦。若均勻族內部已經散成多束，星狀圖就只是畫法，不能拿來當家族判據。
-
-(b) 以輕度或中度錨點當已知射線時，家族對 `4_146` 的 AUROC 應高。若最重錨點把 AUROC 打到 0.5 附近或更低，代表從極端鬆動望回去會把家族成員看成新方向。
-
-(c) 至少一種嚴重度的 Spearman ρ 應為正且明顯大於 0。中段若出現順位顛倒，ρ 會低於 1，這仍然可以是物理配置的距離關係，不必改成單調插值。
-
-## 已記錄的實測
-
-[Experiments_Guide.md](../Experiments_Guide.md) 記載 T1/8000 rpm：中段均勻族餘弦約 0.92，對 `4_146` 約 0.49，對 `3_14` 約 0.76。以最輕故障當羅盤時，家族對 `4_146` 的 AUROC 為 0.997；中度錨點 1.000；以最重故障當羅盤時降到 0.146。純距離對鬆動順位的 Spearman ρ 為 0.877，手冊寫中段有 5 顆比 4 顆更遠的倒置。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
-|---|---|
-| `experiments/exp4_polar_map.py` | `run_geometry`、`run_direction`、`run_severity`、`run`、`iter_run`、`main`；`run` 把 `iter_run` 跑完取最後的 `result`（2026-10-03 起） |
-| `core/geometry.py` | `PolarMap`、`Ray`、白化與餘弦 |
-| `core/mahalanobis.py` | 幾何用的 Ledoit–Wolf 模型 |
-| `core/monitor.py` | `fit_initial`、`add_class` |
-| `experiments/exp2_scale_growth.py` | 每次擴張後重建 `PolarMap`，`process` 附帶 `direction` |
-| `tests/test_geometry.py` | 健康-only 無射線；開集方法不改幾何 |
-
-`a` 與 `c` 都有結果時才畫圖。
-
-- `logs/exp4_polar_map/{時間戳}.log`
-- `output/exp4_polar_map/{時間戳}/summary.json`
-- `output/exp4_polar_map/{時間戳}/polar_map.png`
-
-### 散在其他位置的相關檔案
-
-- 測試：`tests/test_geometry.py`。
-- Web：`web/live.py` 組 `direction` 訊息；`web/static/index.html` 的「極座標健康地圖（實驗四）」與「方向熟悉度（實驗四）」。
-- 已提交紀錄：`logs/exp4_polar_map/`、`output/exp4_polar_map/`（2 次執行）。
-- PolarMap 固定建在 Mahalanobis 上的經過：[實驗六進度紀錄（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/ancester_openset_exp6_progress.md) P8。
-- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 5 節。
-- Web 實驗頁：頁首「實驗四」，`web/experiments.py` 的 `CATALOG` 項目 `exp4` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp4`；結果存到 `output/web_server/{ts}/experiments/exp4_{時間}.json`。
-- 邊跑邊畫：頁面上的「⏵ 邊跑邊畫」改走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/{id}/stream`）逐步推送，速度 20／80／400 筆/秒可選。`iter_run()` 只多吐出中間事件，計算與 `run()` 相同；`tests/test_iter_run.py` 比對兩者輸出。(a)(b)(c) 三段各自算完就先畫出來。
-
-2026-10-08 整合：串流來源 PR #36 / `544d4ed8c6516622e2f46c095351f9483a61635c`，本輪只抽取實驗一／三／四，不含 health_monitor（#35 尚未修復）。計算與 main 原 run 配對後才可合入；細節見 [串流整合契約](../integration_20261008/streaming_contract.md)。
+串流停止、錯誤復原與模型有效狀態見[Web 串流生命週期](README.md#web-串流生命週期)及[共用模型生命週期](README.md#共用模型生命週期)。當次串流整合來源與配對證據見[固定交付紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/integration_20261008/integration_report.md)。

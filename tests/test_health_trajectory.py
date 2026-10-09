@@ -31,7 +31,8 @@ def _result(health: float, timestamp: str) -> HealthMonitoringResult:
 
 class SessionTrajectoryTests(unittest.TestCase):
     def test_missing_identity_does_not_create_shared_history(self):
-        predictor = lambda features, **kwargs: _result(0.4, kwargs["timestamp"])
+        def predictor(features, **kwargs):
+            return _result(0.4, kwargs["timestamp"])
         monitor = SessionTrajectoryMonitor(predictor)
         result = monitor.update(
             np.zeros(3),
@@ -45,7 +46,8 @@ class SessionTrajectoryTests(unittest.TestCase):
         self.assertEqual(monitor.session_keys(), ())
 
     def test_sessions_are_isolated_and_worsening_trend_is_detected(self):
-        predictor = lambda features, **kwargs: _result(float(features[0]), kwargs["timestamp"])
+        def predictor(features, **kwargs):
+            return _result(float(features[0]), kwargs["timestamp"])
         monitor = SessionTrajectoryMonitor(
             predictor,
             config=TrajectoryConfig(
@@ -81,7 +83,8 @@ class SessionTrajectoryTests(unittest.TestCase):
         self.assertEqual(len(monitor.history("motor-a", "session-2")), 1)
 
     def test_change_point_requires_persistent_drop(self):
-        predictor = lambda features, **kwargs: _result(float(features[0]), kwargs["timestamp"])
+        def predictor(features, **kwargs):
+            return _result(float(features[0]), kwargs["timestamp"])
         monitor = SessionTrajectoryMonitor(
             predictor,
             config=TrajectoryConfig(
@@ -105,7 +108,8 @@ class SessionTrajectoryTests(unittest.TestCase):
         self.assertEqual(states[4], "confirmed")
 
     def test_alarm_hysteresis_requires_persistent_clear(self):
-        predictor = lambda features, **kwargs: _result(float(features[0]), kwargs["timestamp"])
+        def predictor(features, **kwargs):
+            return _result(float(features[0]), kwargs["timestamp"])
         monitor = SessionTrajectoryMonitor(
             predictor,
             config=TrajectoryConfig(

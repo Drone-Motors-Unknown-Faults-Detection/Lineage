@@ -18,7 +18,7 @@ from loguru import logger
 
 from core.data import load_pools, make_split, run
 from core.feature_schema import (SCHEMAS, CONFIGURATIONS, FeatureSchemaError,
-                                 read_feature_csv, validate_pool_coverage)
+                                 validate_pool_coverage)
 from core.formal_data import FEATURE_NAMES
 from experiments.exp6_formal_benchmark import run as formal_run
 
@@ -43,6 +43,8 @@ class FeatureSchemaTests(unittest.TestCase):
         spec = json.loads((ROOT / "docs/formal_feature_schema.json").read_text(encoding="utf-8"))
         self.assertEqual({k: list(v) for k, v in SCHEMAS.items()}, spec["schemas"])
         self.assertEqual(list(SCHEMAS["adapter_generated_v1"]), FEATURE_NAMES)
+        self.assertEqual(spec["runtime_source"], "core/feature_schema.py:SCHEMAS")
+        self.assertEqual(spec["operation_manual"], "docs/formal_feature_schema_contract.md")
 
     def test_both_exact_versions_bom_numeric_values_and_split_unchanged(self):
         values = np.random.default_rng(42).normal(size=(32, 105))

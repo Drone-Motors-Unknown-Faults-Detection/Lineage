@@ -1,0 +1,4 @@
+2026-10-09 16:26:58 | INFO    | Logger initialized: web_guide
+2026-10-09 16:26:58 | INFO    | log_file=logs\web_guide\2026-10-09-16-26-58.log
+2026-10-09 16:26:58 | INFO    | output_dir=output\web_guide\2026-10-09-16-26-58
+2026-10-09 16:26:58 | INFO    | 逐步導覽：http://127.0.0.1:8619；尚未擬合

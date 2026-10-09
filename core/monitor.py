@@ -116,7 +116,7 @@ class OpenSetMonitor:
         """回傳最近的已知配置名稱；未知回傳 None。"""
         self._require_fitted()
         labels = self.detector.predict_known_class(self.scaler.transform(np.atleast_2d(X_raw)))
-        return [self._label_to_config.get(int(l)) if l >= 0 else None for l in labels]
+        return [self._label_to_config.get(int(label)) if label >= 0 else None for label in labels]
 
     def project(self, X_raw: np.ndarray) -> np.ndarray:
         """投影到已知資料擬合出的 PCA 平面（僅供視覺化）。"""

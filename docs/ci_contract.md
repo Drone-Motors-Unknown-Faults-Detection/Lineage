@@ -1,73 +1,29 @@
-# #27：無正式資料的 CI 契約
+# CI 使用與輸出契約
 
-日期：2026-10-09。基線：main `0282209959183bf7b8654115b175a94aafa26f35`。
-已重讀該版本 AGENT.md、#27 本文及留言、開放 PR。公開實作仍只有 PR #36；不修改其待決 Web／health 檔案，也不能確認作者未推送的工作。
+本頁說明 `.github/workflows/ci.yml` 與 `tests/ci_evidence.py` 的操作、輸出及限制。各次 Actions 的受測 SHA 與結果另外保存，本頁不維護單次驗收報告。
 
-## 範圍與事前驗收
+## 執行流程
 
-本輪新增 workflow、fixture 與工程證據入口，不改任何模型或正式資料。
-Windows／Ubuntu 使用 CPython 3.10、新 venv、同一份 runtime-constraints.txt；macOS 尚未驗證。
-每個 job 執行 pip check、`python -m unittest discover -s tests -t .`、exp1～3 與既有重要 CLI help、文件相對目標檢查。
-既有測試會用 `git show` 核對歷史程式，因此 checkout 保留完整歷史；這是 Git 依賴，非 ignored data 依賴。
+push／pull_request 觸發 Ubuntu、CPython 3.10 的 contracts job。checkout 取完整 Git 歷史供固定舊版回歸使用；測試不依賴被忽略的正式 data。workflow 用 uv sync --locked 建立 venv，依 uv.lock 安裝專案與 test extras，再執行獨立步驟：
 
-新增 fixture 直接測 core.data 的掃描／多檔載入／合法 1screw 異名、exp1／3 的既有事件與資料角色、exp2 的確認前後狀態，以及真正本機 WebSocket 的 start／pause／reset／rate／錯誤 JSON／未知指令。
-目前未知指令只回 state、任意 Origin 可連線，均記為現狀特徵化；**不構成安全通過**，#28 保持待修。
-測試只寫 TemporaryDirectory，不讀正式 data。exp1～3 CLI 以 fixture 走載入與輸出；其結果只驗工程契約，不作研究成績。
+```bash
+./run_pytest.sh -ra --tb=short
+./run_ruff.sh
+venv/bin/python -m tests.ci_evidence
+```
 
-CI permissions 只有 contents:read，使用 push／pull_request，不使用 pull_request_target、不讀 secrets、不部署服務。
-官方 Actions 固定完整 commit SHA；pip cache 由 OS／Python／constraints SHA 區分，只快取下載套件。
-成功與失敗都只上傳經去敏的測試摘要，不上傳正式 CSV、模型、全部 logs/output 或 private sidecar。
-測試例外須保留類型、測試 ID、失敗狀態；私人路徑和任意例外 payload 不公開。
+`tests.ci_evidence` 只執行 uv pip check、七個 CLI 的 --help，以及選定文件的相對目標檢查，不在其中重跑 pytest／ruff。CLI 清單為 exp1、exp2、exp3、exp4、compare_openset、exp6_formal_benchmark、web.server，尚未涵蓋所有實驗。正式資料不能拿來補 fixture。本機先依 [環境操作](runtime_policy.md) 安裝 test 依賴。
 
-在獨立測試分支先提交故意失敗 fixture，等真實 Actions 紅燈；下一 commit 移除，再等綠燈。
-故障 fixture 不進正式 PR。保存兩次 SHA／run URL／job 結果，不用本機 log 代替。
-若權限或服務阻擋，交付 PARTIAL/BLOCKED 與原始原因；不降低條件。
-本輪不得自行合併 main；即使候選 CI 全通過，#27 仍待 main 整合後驗收。
+## 輸出與判定
 
-## 基線與接續紀錄
+setup_run("ci_evidence") 寫入 logs/ci_evidence/{ts}.log、output/ci_evidence/{ts}/environment.json 及 public_summary.json。摘要保存受測 HEAD／dirty、版本、命令退出碼、測試數、失敗 ID 與文件失效目標；不公開任意例外 payload、token 或私人絕對路徑。
 
-工作樹為 `lineage_integration_20261008`，由乾淨 checkout 的最新 origin/main 建立 `delivery/ci-contracts-20261009`。
-另一個 Lineage checkout 為 main `dda8910`，本輪唯讀，沒有 reset 或覆寫。
-Python 沿用已安裝的 CPython 3.10.19 鎖版環境，不重新建置既有 venv。
-既有 integration_evidence 的 `baseline` 模式只讀歷史 `64cb71d` 測試清單，本次實跑 76 項，不能當作最新全套；因此另用 discover 模式保存本輪完整基線。
-原有約束、來源 ZIP、歷史結果、先前關閉的 #25／#29／#30 均不變。
+任何命令非零或文件目標失效，CLI 回傳非零。public_summary 的 PASS 只涵蓋該入口，不證明獨立 pytest／ruff 步驟通過；須另看 Actions 的兩個步驟。pytest 的 skip 不會自動使 pytest 退出碼失敗，缺權限案例須列未驗證，不寫成全部完成。
 
-## 官方設定依據
+Actions 成功或失敗都上傳白名單 public_summary.json，保存14天。artifact 可能含 checkout 內先前已版控摘要，必須核對每份 environment.git.head，不能把舊摘要當成當次測試。
 
-- [GitHub：Python CI](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)：設定 Python 與測試步驟。
-- [GitHub：token 最小權限](https://docs.github.com/en/actions/tutorials/authenticate-with-github_token)：顯式限制 permissions。
-- [actions/setup-python](https://github.com/actions/setup-python)：python-version、pip cache-dependency-path；實際使用已存在的 v6 SHA。
-- [Python 3.10 venv](https://docs.python.org/3.10/library/venv.html)：每個 job 建立新環境。
-- [pip constraints](https://pip.pypa.io/en/stable/user_guide/#constraints-files)：constraints 控制版本，不自行安裝所有項目。
-- [actions/upload-artifact](https://github.com/actions/upload-artifact)：只上傳指定去敏檔案。
+## 支援邊界與預期成果
 
-2026-10-09 已查上述官方頁與 GitHub API 的 tag SHA。AGENT 要求的數位時代文章本次開啟回 Internal Error，未聲稱讀取全文；遵守 AGENT 已明列的五項具體寫作要求。
+現行 CI 只有 Ubuntu，不含 Windows／macOS；Windows 安裝入口仍保留，需另附實機測試。workflow 只有 contents:read，不用 secrets、不部署。WebSocket 任意 Origin 測試描述既有不安全行為，缺口仍由 [#28](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/28) 追蹤。
 
-## 影響檔案
-
-新增 `.github/workflows/ci.yml`、`tests/ci_evidence.py`、`tests/test_ci_contracts.py`；既有 fixture 視真正跨平台失敗作最小修補。
-證據沿用 `logs/ci_evidence/`、`output/ci_evidence/`，手寫結果追加本文件。
-本項沒有改實驗方法／切分／指標，不占 exp9～12。
-
-## 實測與公開交付
-
-事前契約 `d85cf83`；實作 `d2647f3`；[PR #53](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/53)。
-本輪基線 discover 實跑 179 項全通過；新增 14 項後本機 CPython 3.10.19 共 193 項全通過，pip check、七個 CLI help、8 份文件相對目標零失效。
-第一次 fixture 關閉順序曾在測試後造成 WebSocket on_close 存取已復原的 HUB，雖 unittest 仍 OK，不能忽略背景例外；已修測試自身的斷線等待與 teardown 次序，再跑四個 WS 測試與全部193項。沒有修改 Web 實作。
-
-- [候選 push 綠燈](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891076062)：`d2647f3`，Windows／Ubuntu 均成功。
-- [候選 PR 綠燈](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891111826)：相同候選的 pull_request 事件，兩平台成功。
-- [故意失敗紅燈](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891086977)：獨立分支 `8d804ace5b3568a61b965018e7ddbce4237821ea`，兩平台只因 `test_intentional_failure` 失敗；194項中新增故障fixture確實令exit非零。
-- [下一 commit 移除後綠燈](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891379134)：`42476c3739a0a0bc83b58ce7c391ab65fd6d6db4`，兩平台成功。該分支沒有 PR，故障檔不在正式交付。
-
-初版 workflow 只在失敗上傳摘要，因此初次成功run的逐項計數未保存為artifact；後續改成成功／失敗都只保存白名單摘要並在log列skip。不可為舊綠燈補造artifact。
-遠端證據入口為 `python -m tests.ci_remote_evidence --run-id RUN_ID`；輸出 `output/ci_remote_evidence/*/remote_runs.json`，保留真實 head／run／job／artifact與摘要。
-#27 候選工程條件已交付；尚未合 main，issue 維持 OPEN，macOS 未驗證。模型／準確率變動為0。
-
-## main 整合後驗收（2026-10-09）
-
-上述「尚未合 main」是候選交付當下狀態。遠端後續合併 PR #53 為 `68e4211324b1c9c547cfb59d0a827482e019c9a2`，PR #54 為 `22a253b14eb5df14058800f5a086bf4d7afeae58`；代理未執行合併。
-[main 真實 CI](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891990633) 的兩平台均成功，完整 suite 為210項：Windows CPython 3.10.11 通過210項、skip 0；Ubuntu CPython 3.10.22 通過207項、skip 3（Windows 專用案例）。pip check、七個 CLI 與文件目標檢查均成功。正式政策支援 3.10.x，不把本機3.10.19寫成遠端實際版本。
-證據位於 `output/ci_remote_evidence/2026-10-09-14-12-42/remote_runs.json`。artifact 同時含先前已版控摘要，必須以 `environment.git.head=22a253b14eb5df14058800f5a086bf4d7afeae58` 辨識本次 main 結果，不能把舊193項摘要再算一次。
-本機相同程式樹 `85734ae` 的再驗為210項、207通過、3項因 symlink 權限 skip、0失敗；原始限制保留。main 測試已實際覆蓋 Windows symlink。
-#27 的列明工程驗收與 main 整合已符合，可依授權關閉；任意 Origin 的現況仍留 #28，未宣稱 Web 安全完成。
+預期成果是可重現的工程測試及明確失敗訊號，不是模型準確率或部署可靠性證明。歷史紅燈／綠燈與整合紀錄見 [改寫前固定版本](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/791216cf5602c370091fa516264f1ce6aaad6ab1/docs/ci_contract.md)，相關 logs/output 保留。
