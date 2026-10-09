@@ -138,6 +138,7 @@ CATALOG: list[dict] = [
         "doc": "docs/experiments/exp8_health_monitor.md",
         "fits": "單一工況的開集偵測器與健康指數刻度；逐窗趨勢狀態只存在這次執行",
         "seconds": 0.2,
+        "stream": True,
         "params": [_DATASET, _OPENSET, _SEED,
                    {"name": "config", "label": "注入配置", "type": "config", "default": HEALTHY},
                    {"name": "max_windows", "label": "最多窗口數", "type": "int",
@@ -315,6 +316,7 @@ class ExperimentRunner:
         t0 = time.time()
         yield {"event": "start", "params": params}, 0
         result: Any = None
+        windows: list[dict] = []
         for event in self._dispatch(exp_id, params, entry="iter_run"):
             event = jsonable(event)
             kind = event["event"]
@@ -329,8 +331,13 @@ class ExperimentRunner:
                 # 每個劇本只播第一次重複；其餘重複照算，只送 trial 結果
                 if event["trial"] == 0:
                     yield event, 1
+            elif kind == "window":
+                windows.append(event["window"])
+                yield event, 1
             else:
                 yield event, 0
+        if exp_id == "exp8_monitor":
+            result = windows  # 與 health_monitor.run() 的回傳同格式
         payload = {
             "experiment": exp_id,
             "no": spec["no"],

@@ -7,10 +7,12 @@
 ## 實驗方法
 
 1. `--data-root` 預設 `data/formal_local`。`--motor`、`--rpm` 必填。轉速可以寫 `8000` 或 `8000rpm`，程式會補上 `rpm`。`discover_datasets` 必須正好找到一組。
-2. `--config` 預設 `8screws`。擬合永遠只用該工況的 `8screws` train/calibration，與 `--config` 無關。`--config` 決定送進監測器的 holdout 來自哪一個池。
+2. `--config` 預設 `8screws`。擬合永遠只用該工況的 `8screws` train/calibration，與 `--config` 無關。`--config` 決定送進監測器的窗口來自哪一個池：
+   - `8screws`：送健康池 `make_split` 切出的 holdout，與擬合用的 train/cal 不重疊。
+   - 其他配置：這些配置沒有參與擬合，依池內原順序送全部窗口。2026-10-09 以前的版本拿健康池的 holdout 索引去取故障池，樣本數少於索引最大值的配置（例如 T1/8000rpm 的 5screws，212 筆、索引到 253）會 `IndexError`，見 [#35](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/35)。這條是本專案的操作約定。
 3. 預設 `--openset-method mahalanobis`、`--method ledoit_wolf`、`--knn-neighbors 5`、`--seed 42`。
 4. `SessionTrajectoryMonitor.update` 需要 `motor_id` 與 `session_id` 才會把歷史接在同一條序列上。沒給又沒有 `--allow-no-identity` 時，`require_identity=True`，趨勢維持資料不足，不把不同馬達串在一起。
-5. `--max-windows` 只截 holdout 的前段，省略則全送。`--output-mode` 為 `binary`、`health` 或 `full`（預設）。
+5. `--max-windows` 只截上述窗口序列的前段，省略則全送。`--output-mode` 為 `binary`、`health` 或 `full`（預設）。
 
 ```bash
 venv/bin/python -m experiments.health_monitor --data-root data/formal_local --motor T1 --rpm 8000rpm --config 1screws --openset-method mahalanobis --output-mode full --motor-id motor-001 --session-id session-001 --max-windows 20
@@ -39,6 +41,8 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 
 `--config 8screws` 且給了身份時，多數窗口的 `health_index` 應高、`is_fault` 應少，趨勢在前 4 筆是歷史不足，第 5 筆之後才有斜率標籤。`--config` 換成故障配置時，健康指數應下降，`is_unknown_fault` 應為真；若校準錨點把這些分數都送到 0，連續窗口的斜率會是持平的 0，不會出現一段慢慢下降的曲線。
 
+`8screws` 的逐窗輸出在 #35 修正前後應逐欄相同；故障配置不論樣本數多少都不應 `IndexError`，窗口數等於 `min(池大小, max_windows)`。
+
 沒有 `motor_id` / `session_id` 又未允許缺身份時，不應把多筆合成一條惡化曲線。`binary` 模式不應冒出健康指數欄位。
 
 ## 已記錄的實測
@@ -49,7 +53,7 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 
 | 路徑 | 角色 |
 |---|---|
-| `experiments/health_monitor.py` | `run`、`main`、三種 `output-mode` |
+| `experiments/health_monitor.py` | `run`、`iter_run`、`main`、三種 `output-mode`；`run` 收集 `iter_run` 的 `window` 事件 |
 | `experiments/health/index.py` | `CalibratedHealthIndex` |
 | `experiments/health/trajectory.py` | `SessionTrajectoryMonitor`、`TrajectoryConfig` |
 | `experiments/health/schema.py` | `HealthMonitoringResult.to_dict` |
@@ -60,8 +64,9 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 
 ### 散在其他位置的相關檔案
 
-- 測試：`tests/test_health_trajectory.py`、`tests/test_health_schema.py`；CLI 本身沒有測試。
+- 測試：`tests/test_health_trajectory.py`、`tests/test_health_schema.py`；`tests/test_health_monitor.py` 測 #35 的窗口取樣、`iter_run` 與 `run` 一致、Web 串流 `done` 與批次結果一致。
 - 套件：`experiments/health/`，見 [health_and_reports.md](../health_and_reports.md) 第 1.1 節。
 - 資料能力與限制：[exp8_health_monitoring_workflow.md](../exp8_health_monitoring_workflow.md)；原始稽核見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 9 節。
 - Web 實驗頁：頁首「實驗八」的 8-3，`web/experiments.py` 的 `CATALOG` 項目 `exp8_monitor` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp8_monitor`；結果存到 `output/web_server/{ts}/experiments/exp8_monitor_{時間}.json`。
+- 邊跑邊畫：卡片上的「⏵ 邊跑邊畫」走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/exp8_monitor/stream`）逐窗推送，畫面在 `web/static/experiments.js` 的 `LIVE.exp8_monitor`。播完存檔內容與「▶ 執行」相同，另加 `streamed: true`。
