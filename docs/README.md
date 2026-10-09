@@ -2,6 +2,8 @@
 
 #26 接續：[正式 Python／依賴與環境紀錄契約](runtime_policy.md)、[第一階段工程與剩餘入口缺口](project_closeout_20261009/runtime_delivery.md)。#30 已完成追蹤交付並關單，新 #43–#49 的缺陷仍待修補。
 
+#46 接續：[內容來源契約](content_provenance_contract.md)、[正式入口交付與剩餘缺口](content_provenance_delivery_20261009.md)。子項完成不代表所有 runner 或 main 已驗收。
+
 2026-10-08 issue交付：[17項稽核差異](issue_delivery_20261008/audit_followup.md)、[執行紀錄](issue_delivery_20261008/execution_log.md)。此輪僅透過PR交付，不自行合併或關issue。
 
 2026-10-09 主線狀態：[本輪驗收與 commit](project_closeout_20261009/execution_log.md)、[給老師的完成／限制說明](project_closeout_20261009/README.md)。PR #40/#41 已合併，main 最後 162 項測試通過；#29/#25 completed，兩項彙總差異保留，#19 引用缺口、#37 原首頁入口仍未完成。先前 [四項交付](issue_delivery_20261008/delivery.md) 保留其日期狀態。
