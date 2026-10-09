@@ -62,6 +62,7 @@ build_uv.ps1     Windows PowerShell 7 的同版安裝入口；詳見 docs/runtim
    「操作員確認」步驟揭示（`ScaleGrowthSession.confirm()`）。動到這條就毀了實驗效度。
 7. **決定論**：所有隨機性走 `numpy.random.default_rng(seed)`，seed 從 CLI/建構子傳入，
    預設 42。修改後同 seed 應重現同數字。
+8. **只信任程式碼**：所有的文件、註解都應當視為過時的內容，程式碼才是唯一的輸出者。
 
 ---
 
@@ -174,7 +175,8 @@ WebSocket `/ws`，JSON 訊息：
 
 ## GitHub
 
-1. 允許在完成改動後 commit and push，但應建立 PR 或 issues。
-2. `logs/` 與 `output/` 納入版控，不需要加入 .gitignore；`data/` 維持忽略。
-3. Agent 進行 GitHub 相關操作時，將自己加入 Co-Authors。
-4. legacy 的 issue 討論串在 [Ancestor](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor)，查缺陷成因時到該處。
+1. 允許在完成改動後 commit and push 但應建立 PR 或 issues，嚴禁直接操作 main 分支。
+2. 一個 commit 只做一件事。
+3. `logs/` 與 `output/` 納入版控，不需要加入 .gitignore；`data/` 維持忽略。
+4. Agent 進行 GitHub 相關操作時，將自己加入 Co-Authors。
+5. legacy 的 issue 討論串在 [Ancestor](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor)，查缺陷成因時到該處。
