@@ -2,6 +2,8 @@
 
 這支runner只用健康建立基準，透過同一個core.openset factory比較兩種偵測器，保留設定與工況指標。它與[八方法廣度比較](exp6_osr_benchmark.md)分開；不是多類故障配置分類，也不修改正式預設。
 
+這份手冊給執行實驗六正式版的組員，回答資料如何切分、如何建立模型、如何執行與解讀輸出。`docs/experiments/README.md`、`docs/README.md` 及 `web/experiments.py:CATALOG[exp6_formal].doc` 引用本頁；runner 不讀取 Markdown，也不從本頁取得模型參數。完整欄名與通用載入拒絕政策另見[正式特徵契約](../formal_feature_schema_contract.md)，本頁只說明實驗六如何使用該契約。
+
 ## 資料、切分與模型
 
 從data-root掃描105維clean特徵。CLI要求九個不同motor／RPM組合，API require_nine=False可作部分工程測試；九個數量通過不等於已驗證指定三馬達×三RPM全格、來源或視窗獨立。列的物理語意、未知單位與loader限制見[實驗一](exp1_cold_start.md#資料與載入)。
@@ -21,6 +23,10 @@ uv run --locked python -m experiments.exp6_formal_benchmark --data-root data/for
 ```
 
 API run(data_root,seed=42,confidence=0.95,openset_method="mahalanobis",mahalanobis_method="ledoit_wolf",knn_neighbors=5,require_nine=True)回傳dict，不寫CLI檔案。confidence須在0與1間；缺九工況、healthy、unknown或非有限score明確失敗，先查來源，不借test調門檻。
+
+### 輸入契約
+
+正式 `require_nine=True` 入口另驗每工況完整10個配置，cold-start與顯式partial入口允許健康資料或較少配置，但記錄缺類。ordered105維header、finite/nonempty與alias政策見 [正式特徵契約](../formal_feature_schema_contract.md)。不改健康train／cal／holdout、q95、模型、指標或既有數值；不是新的研究比較。預期非法資料明確拒絕、合法來源逐元素與切分不變，達不到即工程驗收失敗。
 
 Web啟動見[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)，選「實驗六正式版」、方法／seed後「▶ 執行」。Web用require_nine=False，因此看見成功不代表正式九工況完整；須看formal_condition_count。沒有逐筆串流、取消或續跑。多seed持久化由[矩陣](exp6_matrix.md)負責，不用手動覆寫歷史目錄。
 

@@ -177,7 +177,8 @@ def run(
     rng = np.random.default_rng(seed)
     rows: list[dict] = []
     for dataset in datasets:
-        pools = load_pools(dataset["path"])
+        input_audit = {}
+        pools = load_pools(dataset["path"], require_complete=require_nine, audit=input_audit)
         if HEALTHY not in pools:
             raise ValueError(f"{dataset['motor']}/{dataset['rpm']} lacks {HEALTHY}")
         split = make_split(len(pools[HEALTHY]), rng)
@@ -241,6 +242,7 @@ def run(
                 "inference_seconds": round(float(inference_seconds), 6),
                 "peak_memory_mb": None,
                 "status": "completed",
+                "input_schema_audit": input_audit,
                 **metadata,
             }
         )

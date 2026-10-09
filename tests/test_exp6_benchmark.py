@@ -11,13 +11,14 @@ import numpy as np
 import pandas as pd
 
 from core.openset import create_openset_detector
+from core.feature_schema import SCHEMAS
 from experiments.exp6_formal_benchmark import _fpr_at_tpr95, run
 
 
 def _fixture(root: Path) -> Path:
     directory = root / "Step-1" / "myfeature" / "T1" / "8000rpm"
     rng = np.random.default_rng(7)
-    columns = [f"f{i}" for i in range(105)]
+    columns = SCHEMAS["historical_clean_v1"]
     for config, center in (("8screws", 0.0), ("7screws", 5.0)):
         target = directory / config
         target.mkdir(parents=True)
