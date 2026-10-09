@@ -97,7 +97,7 @@ def verify_cleanup(root: Path) -> dict:
         moves.append({"old": old, "new": new, "old_blob": old_blob, "new_normalized_blob": new_blob,
                       "same_git_content": old_blob == new_blob, "old_absent": not (root / old).exists(),
                       "new_exists": (root / new).is_file()})
-    changed = subprocess.check_output(["git", "diff", "--name-only", baseline, "HEAD", "--", "output"],
+    changed = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=MDR", baseline, "HEAD", "--", "output"],
                                       cwd=root, text=True).splitlines()
     manifest = json.loads((root / "docs/integration_20261008/manifest.json").read_text(encoding="utf-8"))
     targets = manifest["verification"]["browser_qa"]
@@ -125,8 +125,16 @@ def run(root: Path) -> dict:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
-    run(parser.parse_args().root)
+    result = run(parser.parse_args().root)
+    verification = result.get("cleanup_verification")
+    if verification is not None:
+        valid = (verification["other_tracked_output_unchanged"] and verification["manifest_targets_exist"]
+                 and not verification["broken_links"] and all(
+                     row["same_git_content"] and row["old_absent"] and row["new_exists"]
+                     for row in verification["moves"]))
+        return 0 if valid else 1
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
