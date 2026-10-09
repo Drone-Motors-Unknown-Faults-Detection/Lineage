@@ -38,11 +38,22 @@ def execute(arguments: list[str], timeout: int = 600) -> dict:
         failures = re.search(r"FAILED \(([^\r\n]+)\)", output)
         totals = {key: int(value) for key, value in
                   re.findall(r"(failures|errors|skipped)=(\d+)", failures.group(1) if failures else output[-1000:])}
+        tests_run = int(count.group(1)) if count else None
+        failed, errors, skipped = totals.get("failures", 0), totals.get("errors", 0), totals.get("skipped", 0)
+        failure_ids = re.findall(r"^(?:FAIL|ERROR): ([\w]+) \(([\w.]+)\)", output, re.MULTILINE)
+        if tests_run is None:
+            # pytest 摘要列格式：「X passed, Y failed, Z error(s), W skipped in Ns」。
+            pytest_counts = {label: int(value) for value, label in
+                             re.findall(r"(\d+) (passed|failed|skipped|errors?)\b", output)}
+            if pytest_counts:
+                failed = pytest_counts.get("failed", 0)
+                errors = pytest_counts.get("error", pytest_counts.get("errors", 0))
+                skipped = pytest_counts.get("skipped", 0)
+                tests_run = pytest_counts.get("passed", 0) + failed + errors + skipped
+                failure_ids = re.findall(r"^(?:FAILED|ERROR) (\S+)", output, re.MULTILINE)
         return {"arguments": arguments, "returncode": result.returncode,
-                "tests_run": int(count.group(1)) if count else None,
-                "failed": totals.get("failures", 0), "errors": totals.get("errors", 0),
-                "skipped": totals.get("skipped", 0),
-                "failure_ids": re.findall(r"^(?:FAIL|ERROR): ([\w]+) \(([\w.]+)\)", output, re.MULTILINE),
+                "tests_run": tests_run, "failed": failed, "errors": errors, "skipped": skipped,
+                "failure_ids": failure_ids,
                 "output_sha256": hashlib.sha256(output.encode("utf-8")).hexdigest(),
                 "diagnostic_policy": "原始輸出只留行程記憶體；公開摘要不收錄任意例外文字"}
     except (OSError, subprocess.TimeoutExpired) as exc:
@@ -60,7 +71,7 @@ def run() -> dict:
             for name in previous_tmp:
                 os.environ[name] = directory
             checks.append(execute(["-m", "pip", "check"]))
-            checks.append(execute(["-m", "unittest", "discover", "-s", "tests", "-t", "."]))
+            checks.append(execute(["-m", "pytest", "tests", "-ra", "--tb=short"]))
             checks.extend(execute(["-m", module, "--help"], 60) for module in CLIS)
         finally:
             for name, old in previous_tmp.items():

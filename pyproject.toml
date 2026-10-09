@@ -19,6 +19,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# CI 與本機跑 tests/ 用；正式執行期不需要
+test = [
+    "pytest>=9.1,<10",
+]
 # 重跑論文版管線（Ancestor repo）才需要的額外套件：
 #   ./build_uv.sh --legacy    （Linux, GPU）
 legacy-linux = [
