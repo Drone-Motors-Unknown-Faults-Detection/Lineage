@@ -50,7 +50,7 @@
 
 實驗八重算補充：`experiments/health_index_aggregate.py`、`tests/test_health_index_aggregate.py`、`docs/experiments/exp8_health_index_aggregate_contract.json`；紀錄寫入 `logs/exp8_health_index_aggregate/` 與 `output/exp8_health_index_aggregate/`，不經 web 層。
 
-一個實驗的程式常分散在 `experiments/`、`core/`、`experiments/health/`、`web/`、`tests/` 與 `reports/`。2026-10-03 刪除的稽核紀錄不列在表內，清單見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。下表列出每個實驗用到的全部位置；各報告的「程式碼與輸出」節有逐函式說明。
+一個實驗的程式常分散在 `experiments/`、`core/`、`experiments/health/`、`web/`、`tests/` 與 `reports/`。下表列出入口與相關位置；健康監測的封存結果讀法見[reports與預期成果](../health_and_reports.md#reports與預期成果)，各手冊的「程式碼與輸出」節說明用途。
 
 | 編號 | 入口 | 邏輯 | 測試 | Web | 已提交的紀錄與結果 | 其他文件 |
 |---|---|---|---|---|---|---|

@@ -71,7 +71,7 @@ CUSUM 累積 `(score - 1)` 的正偏移，欄位給展示看，不參與 `kind` 
 - 測試：沒有專屬測試。
 - Web：`web/live.py` 用 `TrendMonitor` 與 `SCENARIOS`；`web/static/index.html` 的「變化點分析（實驗三）」卡。
 - 已提交紀錄：`logs/exp3_trend/`、`output/exp3_trend/`（3 次執行）。
-- 另一套趨勢邏輯 `experiments/health/trajectory.py` 屬於實驗八，兩者差別見 [health_and_reports.md](../health_and_reports.md) 第 1.3 節。
+- 另一套趨勢邏輯 `experiments/health/trajectory.py` 屬於實驗八，兩者差別見[兩套趨勢](../health_and_reports.md#兩套趨勢)。
 - 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 4 節。
 - Web 實驗頁：頁首「實驗三」，`web/experiments.py` 的 `CATALOG` 項目 `exp3` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp3`；結果存到 `output/web_server/{ts}/experiments/exp3_{時間}.json`。
 - 邊跑邊畫：頁面上的「⏵ 邊跑邊畫」改走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/{id}/stream`）逐步推送，速度 20／80／400 筆/秒可選。`iter_run()` 只多吐出中間事件，計算與 `run()` 相同；`tests/test_iter_run.py` 比對兩者輸出。兩個劇本的第 1 次重複逐筆畫出分數與 EWMA，其餘重複直接計算、只列結果。
