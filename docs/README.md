@@ -1,6 +1,6 @@
 # docs/ 文件索引
 
-#26 接續：[正式 Python／依賴與環境紀錄契約](runtime_policy.md)。#30 已完成追蹤交付並關單，新 #43–#49 的缺陷仍待修補。
+#26 接續：[正式 Python／依賴與環境紀錄契約](runtime_policy.md)、[第一階段工程與剩餘入口缺口](project_closeout_20261009/runtime_delivery.md)。#30 已完成追蹤交付並關單，新 #43–#49 的缺陷仍待修補。
 
 2026-10-08 issue交付：[17項稽核差異](issue_delivery_20261008/audit_followup.md)、[執行紀錄](issue_delivery_20261008/execution_log.md)。此輪僅透過PR交付，不自行合併或關issue。
 

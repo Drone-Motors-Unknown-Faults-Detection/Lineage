@@ -159,6 +159,7 @@ class RuntimeEnvironmentTests(unittest.TestCase):
             text = (ROOT / name).read_text(encoding="utf-8")
             self.assertIn("runtime-constraints.txt", text)
             self.assertIn("--no-build-isolation", text)
+        self.assertIn(".venv310/", (ROOT / ".gitignore").read_text(encoding="utf-8"))
 
     def test_run_and_main_preserve_environment_contract(self):
         with tempfile.TemporaryDirectory() as directory, working_directory(directory):

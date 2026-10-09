@@ -69,3 +69,5 @@ PR #50 的交付 head 為 `058affde052717213187fa72d98d7bdf3e607746`，已合併
 新增環境 fixture 16 項；[178 項完整回歸、pip check、四個 CLI help](../../output/branch_integration/2026-10-09-12-02-50/validation.json) 全通過、0 failed/error/skipped；[驗證入口](../../output/runtime_policy_evidence/2026-10-09-12-02-46/evidence.json) 不讀正式資料，清冊為 0 檔。guard 另 [11 項與 8 組原版等價](../../output/monitor_guard_evidence/2026-10-09-12-03-32/evidence.json)，score／PCA 差值 0。此處受測 HEAD 為事前契約 commit，程式差異尚在 working tree，不能冒稱已封存程式 commit。
 
 乾淨安裝第一輪在 pip 23 的 cp950 解碼失敗；新增 UTF-8 coding 宣告與回歸，失敗環境及產物保留。第二個新目錄安裝仍須驗證。POSIX 腳本在受限權限下無法啟動 Git Bash；正常權限 `bash -n` 成功，只代表語法，不代表 Linux／macOS 安裝完成。#26 尚未完成每支入口覆蓋，不關單。
+
+程式 commit `815a548e29ee427387b33c14229feb1fe32efdb0` 已 push 並核對。最終全新環境與179項結果、兩次文件檢查及失敗原因見 [環境交付](runtime_delivery.md)。實驗／Web 相對基線的 diff 為空，core 只新增環境模組與 logger sidecar；不改正式105維資料或模型預設。只更新預設新 venv 的忽略規則與文件驗證範圍。交付 PR 不使用自動關 #26 的關鍵字。
