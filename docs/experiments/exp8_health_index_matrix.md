@@ -22,7 +22,7 @@ venv/bin/python -m experiments.health_index_matrix --data-root data/formal_local
 
 每一輪的健康映射與單次 benchmark 相同，錨點仍只來自該次 seed 的 `8screws` 校準分數。換 seed 會換切分，健康錨點與 critical 錨點會跟著變，所以 6 個檔的 `calibration_healthy_anchor` 不必相同。矩陣要保留的是這個變動，而不是把六次硬平均成一個錨點。
 
-本檔不寫跨 seed 平均，也不呼叫 `aggregate_exp6`。`reports/exp8_health_index_results/aggregate_summary.json` 與 `aggregate_by_condition.csv` 是已經提交的彙總；目前 `experiments/` 裡沒有函式負責產生這兩個檔。
+本檔不寫跨 seed 平均，也不呼叫 `aggregate_exp6`。`reports/exp8_health_index_results/aggregate_summary.json` 與 `aggregate_by_condition.csv` 是唯讀封存。新增 [exp8_health_index_aggregate](exp8_health_index_aggregate.md) 從六個 JSON 重算到新的 logs/output，逐欄比對舊檔；349 項比對中有兩個差值欄的精度順序未確證，詳見 [交付紀錄](exp8_health_index_aggregate_delivery.md)。不覆寫封存、不重跑模型。
 
 ## 參考論文
 

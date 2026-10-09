@@ -18,12 +18,15 @@
 | 實驗七 | [exp7_compare_openset](exp7_compare_openset.md) | `experiments/compare_openset.py` | 單一工況上、同一 split 的 Mahalanobis 對 k-NN |
 | 實驗八 | [exp8_health_index_benchmark](exp8_health_index_benchmark.md) | `experiments/health_index_benchmark.py` | 把 Open Set 分數映成相對健康指數後的分離度 |
 | 實驗八 | [exp8_health_index_matrix](exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` | 健康指數的 9×3×2 可續跑矩陣 |
+| 實驗八 | [exp8_health_index_aggregate](exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`（本輪新增） | 唯讀重算 54 列，逐欄核對歷史彙總與來源 SHA |
 | 實驗八 | [exp8_health_monitor](exp8_health_monitor.md) | `experiments/health_monitor.py` | 單工況逐窗輸出健康指數、趨勢與告警 |
 | 實驗二十四 | [exp24_experiment_navigation](exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`navigation_regression.py` | 獨立導覽與原主線計算是否一致；整理歷史七問，不新增研究成績 |
 
 實驗七、八在 2026-10-03 補上編號，依程式加入 repo 的時間排：`compare_openset` 是 2026-09-17，健康指數三支是 2026-09-20。程式檔名沒有改，報告檔名與標題帶編號。尚未實作的規劃接著排：實驗九 AutoEncoder（#13）、實驗十遷移學習（#14）、實驗十一 Ancestor 對照（#15）、實驗十二混淆矩陣與 t-SNE（#16），見 [TODO.md](../../TODO.md)。
 
 ## 各實驗的檔案位置
+
+實驗八重算補充：`experiments/health_index_aggregate.py`、`tests/test_health_index_aggregate.py`、`docs/experiments/exp8_health_index_aggregate_contract.json`；紀錄寫入 `logs/exp8_health_index_aggregate/` 與 `output/exp8_health_index_aggregate/`，不經 web 層。
 
 一個實驗的程式常分散在 `experiments/`、`core/`、`experiments/health/`、`web/`、`tests/` 與 `reports/`。2026-10-03 刪除的稽核紀錄不列在表內，清單見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。下表列出每個實驗用到的全部位置；各報告的「程式碼與輸出」節有逐函式說明。
 
