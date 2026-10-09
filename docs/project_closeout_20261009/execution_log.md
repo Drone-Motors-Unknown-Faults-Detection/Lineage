@@ -27,3 +27,11 @@ AGENT.md 指定的《數位時代》寫作文章本輪無法取得全文；依 A
 審閱與測試證據 commit `ac4c2728a2bbdee44e6f8659dfce080745661d6e` 已 push 並核對遠端 SHA。PR #40 已合併，main commit 為 `c68b7cdbb5bddf1034a9e713c8e8efd5acc61c87`。
 
 在上述 main 重跑 `tests.integration_evidence --phase post_merge`：124 passed，0 failed/error/skipped，pip check 與四個 CLI help 成功；[主線驗證](../../output/branch_integration/2026-10-09-04-13-00/validation.json)。另重跑 guard 的 11 項測試與 8 組成功擬合等價比較，見 [guard 證據](../../output/monitor_guard_evidence/2026-10-09-04-13-12/evidence.json)。此後用獨立文件分支保存 main 驗證，不直接 push main。
+
+## P0-B：PR #41 合併與 main 驗證
+
+PR #41 經 `471c04b...` 更新至 PR #40 後 main，兩側文件索引保留。審閱及重跑證據 commit `ad698dcfb18a47cc85bc01b34475e75200f4622f` 已 push 並與遠端相符；合併 main 為 `ae53b92eea7dd68cd7ffefe8d5c24b3f7157428d`。
+
+受測 main 在 Python 3.10.19 執行 `tests.integration_evidence --phase post_merge`，**162 passed、0 failed/error/skipped**，pip check、四個 CLI help 成功：[驗證](../../output/branch_integration/2026-10-09-11-32-29/validation.json)、[逐項測試](../../output/branch_integration/2026-10-09-11-32-29/tests.txt)。另以 `experiments.health_index_aggregate` 實際重算，[主線重算](../../output/exp8_health_index_aggregate/2026-10-09-11-32-45/recomputation_audit.json) 六 run、54 列、18 工況摘要、349 比對／2 差異，來源未變、無 fit。CLI 明確回傳 3（DIFFERENT），保留為差異證據，不計測試失敗或虛報全部吻合。
+
+#25 的「有差異就回報」工程要求已滿足；歷史兩差值 `0.018513 → 0.018512` 及原始公式 UNKNOWN 保留。沒有要求降低容差，也沒有用零差異當關單條件。先發布固定證據再關單；所有歷史文件的 OPEN 敘述保留於其日期，現況由本頁與 TODO 接續。
