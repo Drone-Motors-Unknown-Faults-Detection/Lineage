@@ -266,6 +266,7 @@ class LiveDemo:
 
         out = [{
             "type": "sample",
+            "epoch": self.epoch,
             "t": self.t,
             "score": round(float(r["score"]), 3),
             "verdict": verdict,
@@ -389,4 +390,5 @@ class LiveDemo:
                 "post_rate": None if m["post_streamed"] == 0
                 else round((1 - m["post_flagged"] / m["post_streamed"]) * 100, 1),
             })
-        return {"type": "metrics", "rows": rows, "alarms": self.alarms[-5:]}
+        return {"type": "metrics", "epoch": self.epoch, "t": self.t,
+                "meta": self.meta, "rows": rows, "alarms": self.alarms[-5:]}

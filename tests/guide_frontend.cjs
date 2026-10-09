@@ -39,4 +39,12 @@ message(sockets[1],{...initial,source:'S00',t:27});assert.equal(el('source').val
 message(sockets[1],{...initial,source:'S99',t:28});
 assert.equal(el('source').value,'');assert.equal(el('inject').disabled,true);
 assert.match(el('source').options[0].textContent,/不在可選清單/);
+const metrics=n=>({type:'metrics',session_id:1,epoch:1,t:n,alarms:[],rows:[{source:{name:'匿名來源S03'},
+  pre_streamed:n,pre_rate:100,post_streamed:0,post_rate:null}]});
+message(sockets[1],{...initial,t:29,running:false,metrics:metrics(29)});
+assert.match(el('metrics').children[0].textContent,/n=29/);
+message(sockets[1],metrics(15));
+assert.match(el('metrics').children[0].textContent,/n=29/);
+message(sockets[0],metrics(100));
+assert.match(el('metrics').children[0].textContent,/n=29/);
 console.log('來源恢復、待套用選項、過期連線與不可用來源：通過');

@@ -86,6 +86,7 @@ class Hub:
             "error": self.error,
             "rate": self.rate,
             "datasets": [{"motor": d["motor"], "rpm": d["rpm"]} for d in self.datasets],
+            "metrics": self.demo.metrics_msg(),
         })
         return state
 
@@ -106,6 +107,7 @@ class Hub:
             except Exception as exc:
                 self.error = f"保存失敗：{exc!r}"
                 raise
+            self.broadcast(self.full_state())
 
     def close_client(self, client) -> None:
         self.clients.discard(client)

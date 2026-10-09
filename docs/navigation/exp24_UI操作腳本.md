@@ -30,6 +30,8 @@
 
 樣本以 session 目錄、epoch、t 識別。`LiveDemo.tick()` 同步完成預測與 CSV 寫入後，才送出 sample；每 15 筆 flush 一次。`Hub.pause()` 停止新 tick，再 flush 尾批，成功後才回覆暫停。最後一個 WebSocket 離線會保存並保留模型，重連不重訓。正常停止 IOLoop 或 Ctrl+C 經 `serve()` 等背景工作完成後關檔。
 
+暫停 state 內含同一 t 的 `metrics` 與 `persistence`，前端立即套用，不等下一個 15 筆批次。統計分為學會前／學會後的已處理筆數，各來源兩欄合計應等於 session 的 t；隔離數是其中符合隔離條件的樣本，事件數包含控制與警報，不等於樣本數。導覽頁忽略舊 session／epoch／t 與舊連線的統計，不能讓延遲事件把最終值倒退。
+
 `persistence.written_t` 是已交給 CSV writer 的最後索引，`flushed_t` 是已完成 flush 的索引；未設定輸出目錄時 `enabled=false`，不能宣稱已保存。保存失敗會留下錯誤、停止串流並阻止直接恢復。重複暫停／關閉不追加樣本。此契約保證正常暫停／關閉後可重新開檔讀取，不包含強制終止、作業系統故障或掉電的零遺失保證；沒有執行 fsync。
 
 ### 來源恢復

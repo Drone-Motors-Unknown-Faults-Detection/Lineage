@@ -115,6 +115,7 @@ class GuideHub(Hub):
                 step = "已更新" if self.last_action == "learned" else "可輸入" if d.t == 0 else "暫停"
             state.update(t=d.t, epoch=d.epoch, meta=d.meta, openset=d.session.monitor.summary(),
                          persistence=d.state()["persistence"],
+                         metrics=self.public_metrics(d.metrics_msg()),
                          configs=[self.public_config(c["config"]) for c in self.contract["configs"]],
                          source=self.public_config(d.source)["id"],
                          known=list(d.session.monitor.known), quarantine=len(d.session.quarantine_X),
@@ -136,21 +137,26 @@ class GuideHub(Hub):
         state["step"] = step
         return state
 
+    def public_metrics(self, msg):
+        return {"type": "metrics", "session_id": self.session_id,
+                "epoch": self.demo.epoch, "t": msg.get("t", self.demo.t),
+                "rows": [
+                    {**{k: v for k, v in row.items() if k not in ("config", "display")},
+                     "source": self.public_config(row["config"])} for row in msg["rows"]],
+                "alarms": [{k: v for k, v in alarm.items() if k not in ("source", "kind_display")}
+                           for alarm in msg["alarms"]]}
+
     def broadcast(self, msg):
         kind = msg.get("type")
         if kind in ("state", "state_patch"):
             msg = self.full_state()
         elif kind == "sample":
             msg = {k: v for k, v in msg.items() if k not in ("truth", "truth_display", "health", "cls")}
+            msg.update(session_id=self.session_id, epoch=self.demo.epoch)
             msg["prediction"] = {"unknown": "未知異常：原因未確認", "healthy": "接受為健康",
                                  "known": "接受為已知配置"}[msg["verdict"]]
         elif kind == "metrics":
-            msg = {"type": "metrics", "rows": [
-                {**{k: v for k, v in row.items() if k not in ("config", "display")},
-                 "source": self.public_config(row["config"])}
-                for row in msg["rows"]],
-                "alarms": [{k: v for k, v in alarm.items() if k not in ("source", "kind_display")}
-                           for alarm in msg["alarms"]]}
+            msg = self.public_metrics(msg)
         elif kind == "event" and not msg.get("guide_safe"):
             # 既有事件可能帶配置答案／純度，僅輸出可公開的動作提示。
             msg = {"type": "event", "level": msg.get("level", "info"), "t": msg.get("t", 0),

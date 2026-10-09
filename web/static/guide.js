@@ -2,6 +2,7 @@
 const el = id => document.getElementById(id);
 let state = {}, flow = "cold", ws, research = false, samples = [], lastVersion = "";
 let pendingSource = null;
+let lastMetrics = {};
 const names = {cold:"冷啟動：只有健康基準",learning:"未知學習：候選需要確認",trend:"趨勢：比較兩種 CSV 劇本"};
 function send(cmd, extra={}) {if(ws && ws.readyState===1) ws.send(JSON.stringify({cmd,...extra}));}
 function selectedData(){const v=el("dataset").value.split("|");return {motor:v[0],rpm:v[1]};}
@@ -66,6 +67,12 @@ function draw(){
   el("chartCaption").textContent=trend?"EWMA警報線 .5；X軸是重播筆數，不是物理時間。":"正規化未知分數；虛線1是拒絕線。圖截頂不改原分數判定。";
 }
 function mode(){research=!research;el("research").hidden=!research;el("mode").textContent=research?"返回展示模式":"切換研究模式";el("mode").setAttribute("aria-pressed",String(research));}
+function showMetrics(m){
+ if(older(m,state)||older(m,lastMetrics))return;
+ lastMetrics={...m,meta:true};
+ el("metrics").replaceChildren(...m.rows.map(r=>{const p=document.createElement("p");p.textContent=`${r.source.name}：學會前拒絕為未知 ${r.pre_rate===null?"未計算":r.pre_rate+"%"}（n=${r.pre_streamed}）；已知後接受為已知 ${r.post_rate===null?"未計算":r.post_rate+"%"}（n=${r.post_streamed}）。接受率不等自身分類準確率。`;return p;}));
+ el("alarm").textContent=m.alarms.length?"趨勢警報："+m.alarms.map(a=>`${a.kind}，t=${a.t}，中間帶${a.transition}筆／延遲${a.latency??"未計算"}筆`).join("；"):"趨勢警報：目前沒有";
+}
 function connect(){
  const socket=new WebSocket((location.protocol==="https:"?"wss://":"ws://")+location.host+"/ws");
  ws=socket;let firstSnapshot=true;
@@ -77,19 +84,19 @@ function connect(){
   if(m.type==="state"){
    if(!firstSnapshot&&older(m,state))return;
    const restore=firstSnapshot||m.session_id!==state.session_id||m.epoch!==state.epoch||m.source!==state.source;
+   if(firstSnapshot)lastMetrics={};
    state=m;
    options(el("dataset"),m.datasets||[],r=>r.motor+"|"+r.rpm,r=>r.motor+" / "+r.rpm);
    if(restore&&m.meta)el("dataset").value=m.meta.motor+"|"+m.meta.rpm;
    if(restore)pendingSource=null;
    firstSnapshot=false;
    render();
+   if(m.metrics)showMetrics(m.metrics);
   }else if(m.type==="sample"){
+   if(older(m,state))return;
    samples.push(m);if(samples.length>400)samples.shift();el("judgment").textContent=`${m.prediction}；score ${m.score}，threshold 1`;draw();
   }else if(m.type==="event"){eventText(m.text);}
-  else if(m.type==="metrics"){
-   el("metrics").replaceChildren(...m.rows.map(r=>{const p=document.createElement("p");p.textContent=`${r.source.name}：學會前拒絕為未知 ${r.pre_rate===null?"未計算":r.pre_rate+"%"}（n=${r.pre_streamed}）；已知後接受為已知 ${r.post_rate===null?"未計算":r.post_rate+"%"}（n=${r.post_streamed}）。接受率不等自身分類準確率。`;return p;}));
-   el("alarm").textContent=m.alarms.length?"趨勢警報："+m.alarms.map(a=>`${a.kind}，t=${a.t}，中間帶${a.transition}筆／延遲${a.latency??"未計算"}筆`).join("；"):"趨勢警報：目前沒有";
-  }
+  else if(m.type==="metrics")showMetrics(m);
  };
 }
 document.querySelectorAll("[data-flow]").forEach(b=>b.onclick=()=>{flow=b.dataset.flow;el("flowTitle").textContent=names[flow];el("trend").hidden=flow!=="trend";el("learning").hidden=flow==="trend";document.querySelectorAll("[data-flow]").forEach(x=>x.classList.toggle("active",x===b));draw();});

@@ -88,6 +88,19 @@ class PersistenceTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             self.demo.tick()
 
+    def test_final_pause_snapshot_contains_exact_metrics(self):
+        client = Client()
+        self.hub.clients.add(client)
+        self.ticks(24)
+        self.hub.pause()
+        final = client.messages[-1]
+        self.assertFalse(final["running"])
+        self.assertEqual(final["t"], 24)
+        self.assertEqual(final["persistence"]["flushed_t"], 24)
+        self.assertEqual(sum(r["pre_streamed"] + r["post_streamed"] for r in final["metrics"]["rows"]), 24)
+        self.hub.tick()
+        self.assertEqual(client.messages[-1], final)
+
     def test_shutdown_waits_worker_before_close(self):
         self.ticks(3)
         with patch.object(self.hub.executor, "shutdown") as shutdown, patch.object(
