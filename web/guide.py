@@ -36,6 +36,7 @@ class GuideHub(Hub):
         self.audit_dir = None
         self.preview = None
         self.busy_state = None
+        self.catalog_status = "available" if datasets else "no_datasets"
 
     def candidate_id(self):
         if self.demo is None or self.demo.session.candidate is None:
@@ -108,6 +109,7 @@ class GuideHub(Hub):
                  "configs": [], "quarantine": 0, "attempts": 0,
                  "evidence": "CSV舊資料展示；來源獨立性UNKNOWN；fresh INCOMPLETE"}
         state["preview"] = self.preview
+        state["catalog_status"] = self.catalog_status
         if self.demo:
             d = self.demo
             step = "待確認" if self.candidate_id() else "累積" if d.session.quarantine_X else "監測中"
@@ -216,7 +218,10 @@ class GuideSocket(tornado.websocket.WebSocketHandler):
             h.error = None
             h.event("success", str(result))
         except Exception as exc:
-            h.error = f"操作失敗：{exc}"
+            logger.exception("導覽操作失敗")
+            h.error = (f"資料讀取失敗（{type(exc).__name__}）；請管理者確認讀取權限與正式資料。"
+                       if isinstance(exc, OSError) else
+                       f"操作失敗（{type(exc).__name__}）；可重新確認所選資料，仍失敗請查看伺服器日誌。")
             h.event("error", h.error)
         finally:
             h.busy, h.operation = False, None
@@ -300,6 +305,8 @@ def main():
     hub = GuideHub(discover_datasets(args.data_root), args.seed, args.rate, paths.output_dir,
                    {"openset_method": args.openset_method, "mahalanobis_method": args.method,
                     "confidence": args.confidence, "knn_neighbors": args.knn_neighbors})
+    if not Path(args.data_root).is_dir():
+        hub.catalog_status = "data_root_missing"
     application(hub).listen(args.port, address="127.0.0.1")
     hub.set_rate(args.rate)
     log.info(f"逐步導覽：http://127.0.0.1:{args.port}；尚未擬合")

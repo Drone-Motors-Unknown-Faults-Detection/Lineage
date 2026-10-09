@@ -33,24 +33,43 @@ function older(m, reference){
   return m.session_id<reference.session_id || (m.session_id===reference.session_id &&
     (m.epoch<reference.epoch || (m.epoch===reference.epoch && m.t<reference.t)));
 }
+function nextStep(ready,busy,online,matches,selected){
+ if(!online)return "連線尚未完成；頁面會自動重連。持續失敗時請確認伺服器，再重新整理頁面。";
+ if(busy)return "正在檢查／建立／更新，請等待完成。";
+ if(!state.datasets?.length)return state.catalog_status==="data_root_missing"?
+   "資料目錄不可用。請管理者確認 --data-root 指向現有正式 CSV 目錄並重啟伺服器，再重新整理頁面；目前不能建立基準。":
+   "沒有可用資料集。請管理者確認 --data-root 內有論文管線產出的正式 clean 特徵 CSV 並重啟伺服器，再重新整理頁面；目前不能建立基準。";
+ if(state.error)return ready?"操作失敗：查看操作紀錄；可明確重設，或重新確認所選資料後重建。資料／權限問題需管理者處理。":
+   "資料載入／檢查失敗：查看操作紀錄，可按「確認所選資料」重試或改選可用工況；資料／權限問題需管理者處理。";
+ if(!selected.motor||!selected.rpm)return "請先選擇清單中的馬達／轉速，再按「確認所選資料」。";
+ const checked=state.preview?.motor===selected.motor&&state.preview?.rpm===selected.rpm;
+ if(!ready||!matches)return checked?"資料已檢查；下一步可按「建立健康基準」。換工況需明確重建。":
+   "下一步：按「確認所選資料」；檢查成功後才可建立健康基準。";
+ if(flow==="trend")return state.running?"劇本演算中；可暫停，不在比較途中確認／重訓。":"下一步：記錄警報 → 重設健康基準 → 選劇本A或B。候選只在未知學習流程確認。";
+ if(state.candidate)return "下一步：模擬操作員確認，或暫停等待。";
+ return state.running?"逐筆監測中；可暫停，或選匿名訊號來源。":state.t===0?
+   "基準已建立，已處理 0 筆；可按「開始／繼續」重播，尚無偵測統計。":
+   "下一步：開始／繼續；觀看未知學習時可輸入匿名來源。";
+}
 function render(){
   const ready=!!state.openset, busy=state.busy, online=ws && ws.readyState===1;
   const selected=selectedData(), matches=ready && selected.motor===state.meta.motor && selected.rpm===state.meta.rpm;
   el("step").textContent=flow==="trend"&&state.scenario_completed?"劇本播畢（候選尚未確認）":state.step || "待建基準";
-  el("data").textContent=ready?`${state.meta.motor}/${state.meta.rpm} · 105維 · seed ${state.seed} · session ${state.session_id}/epoch ${state.epoch} · ${state.t}筆 · 實際來源 ${state.source}`:"尚無模型；先檢查資料";
+  el("data").textContent=ready?`${state.meta.motor}/${state.meta.rpm} · 105維 · seed ${state.seed} · session ${state.session_id}/epoch ${state.epoch} · ${state.t}筆 · 實際來源 ${state.source}`:state.datasets?.length?"尚無模型；可先檢查所選資料":"尚無模型；沒有可用資料，請管理者確認正式 CSV";
   el("evidence").textContent=state.evidence || "raw/session UNKNOWN；fresh INCOMPLETE";
   const p=state.preview;
-  el("preview").textContent=p?`${p.motor}/${p.rpm} · ${p.feature_dim}維 · seed ${p.seed} · CSV有限值來源：${p.configs.map(r=>r.id+"："+r.n+"筆").join("，")}`:"先確認資料；未擬合";
+  el("preview").textContent=p?`${p.motor}/${p.rpm} · ${p.feature_dim}維 · seed ${p.seed} · CSV有限值來源：${p.configs.map(r=>r.id+"："+r.n+"筆").join("，")}`:state.datasets?.length?"先確認所選資料；未擬合":"沒有可檢查資料；等待管理者確認資料目錄";
   el("inspect").disabled=!online||busy||!state.datasets?.length;
   el("dataset").disabled=busy;
   el("build").disabled=!online||busy||!p||p.motor!==selected.motor||p.rpm!==selected.rpm;
   for(const id of ["start","pause","reset","inject","source","scenarioA","scenarioB","rate"])el(id).disabled=!online||busy||!matches;
   el("confirm").disabled=!online||busy||!matches||!state.candidate||!!state.error;
   el("start").disabled ||= !!state.error;
-  el("nextStep").textContent=busy?"正在處理，請等待。":!ready?"下一步：確認所選資料 → 建立健康基準。":!matches?"所選工況不同：先檢查並重建，原模型不能判新工況。":state.error?"操作失敗：查看紀錄後明確重設／重建。":flow==="trend"?(state.running?"劇本演算中；可暫停，不在比較途中確認／重訓。":"下一步：記錄警報 → 重設健康基準 → 選劇本A或B。候選只在未知學習流程確認。"):state.candidate?"下一步：模擬操作員確認，或暫停等待。":state.running?"逐筆監測中；可暫停，或選匿名訊號來源。":"下一步：開始／繼續；觀看未知學習時可輸入匿名來源。";
+  el("nextStep").textContent=nextStep(ready,busy,online,matches,selected);
   if(state.rate)el("rate").value=String(state.rate);
-  el("quarantine").textContent=`隔離 ${state.quarantine||0} 筆；分群連續失敗 ${state.attempts||0} 次（成功歸零，非總嘗試）；`+(state.candidate?`候選 ${state.candidate.id}：${state.candidate.size} 筆，重播索引 ${JSON.stringify(state.candidate.t_range)}`:"沒有候選；可持續等待或暫停");
+  el("quarantine").textContent=!ready?"尚無基準，尚未開始隔離／分群。":`隔離 ${state.quarantine||0} 筆；分群連續失敗 ${state.attempts||0} 次（成功歸零，非總嘗試）；`+(state.candidate?`候選 ${state.candidate.id}：${state.candidate.size} 筆，重播索引 ${JSON.stringify(state.candidate.t_range)}`:"沒有候選；可持續等待或暫停");
   if(ready)sourceOptions(false);
+  else {el("source").replaceChildren();el("sourceStatus").textContent="尚無已套用來源；建立健康基準後才可選擇。";}
   el("technical").textContent=JSON.stringify({data:state.data,preview:state.preview,configs:state.configs,fit:state.fit_audit,persistence:state.persistence,active_source:state.source},null,2);
   const version=`${state.session_id}/${state.epoch}/${state.known?.length||0}`;
   if(version!==lastVersion){samples=[];lastVersion=version;el("judgment").textContent="尚未計算";el("metrics").replaceChildren();el("alarm").textContent="趨勢警報：尚未計算";}
