@@ -23,3 +23,6 @@ exp1–7各CLI已有setup_run環境檔；多數run API只回傳運算結果、�
 
 fixture測同stat不同bytes、同內容副本、不同root、無manifest、legacy讀取、損壞／不符manifest、private不進Git公開清冊、來源讀取失敗及無Git。對同一固定fixture比較改動前後formal rows的科學score／threshold／classify指標，排除新增metadata／耗時欄後一致；不fit正式90份。相關與完整suite／pip／CLI及兩平台CI逐次保存，保留失敗。未完成全部runner或main整合時狀態PARTIAL，#46不可關閉。
 入口遵循run/main、setup_run及logs/output，工程契約不占exp9–12。
+
+新增來源紀錄後，fixture實際觀察同一秒多次API呼叫會共用既有logger的秒級目錄。新增可選 `setup_run(..., unique=True)`：同秒採 `_001` 等尾碼並以exclusive建立保留，避免新來源紀錄覆寫；既有呼叫預設不變，其他runner同秒碰撞仍列後續。這項只影響新run的產物ID，不消耗模型rng。formal summary版本升3；舊dataset_root改固定 `formal_features` ID，真實解析根只留sidecar。
+本小步記錄傳入參數與既有有效config，不宣稱完成 #47 的統一resolved設定schema。standalone `materialize()` 回傳portable v3 manifest；只有 `core.formal_data.run/main` 額外保存本機sidecar，直接API呼叫者需自行保留其來源根。private sidecar失敗會使run失敗，但已物化的檔案可能保留，沿用非整批交易限制。
