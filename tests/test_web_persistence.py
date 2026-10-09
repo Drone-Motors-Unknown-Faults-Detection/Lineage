@@ -19,7 +19,7 @@ class PersistenceTests(unittest.TestCase):
         self.out = root / "output"
         self.out.mkdir()
         self.demo = LiveDemo(self.ds, out_dir=self.out)
-        self.hub = Hub(self.demo, [self.ds], 4, 42)
+        self.hub = Hub(self.demo, [self.ds], 4, 42, out_dir=self.out)
 
     def tearDown(self):
         self.hub.executor.shutdown(wait=True)
@@ -79,6 +79,52 @@ class PersistenceTests(unittest.TestCase):
         self.assertEqual(saved["dataset"], self.hub.full_state()["meta"])
         self.assertEqual(saved["flushed_t"], len(self.rows()))
         self.assertEqual({row["truth"] for row in self.rows()}, {saved["source"]})
+
+    def test_dataset_changes_keep_prior_csv_metadata_and_model(self):
+        self.ticks(3)
+        self.hub.pause()
+        saved = {path.name: path.read_bytes() for path in self.out.iterdir()}
+        self.hub.datasets.append({**self.ds, "motor": "T3"})
+        with patch("web.server.HUB", self.hub):
+            WSHandler._do_dataset("T3", self.ds["rpm"])
+            self.demo = self.hub.demo
+            self.assertEqual(self.demo.epoch, 2)
+            self.ticks(2)
+            self.hub.pause()
+            for name, payload in saved.items():
+                self.assertEqual((self.out / name).read_bytes(), payload)
+            with (self.out / "samples_epoch02.csv").open(encoding="utf-8", newline="") as file:
+                rows = list(csv.DictReader(file))
+            self.assertEqual([int(row["t"]) for row in rows], [1, 2])
+            self.assertEqual({int(row["epoch"]) for row in rows}, {2})
+            metadata = json.loads((self.out / "session_epoch02.json").read_text(encoding="utf-8"))
+            self.assertEqual(metadata["dataset"]["motor"], "T3")
+            self.assertEqual(metadata["flushed_t"], 2)
+            saved = {path.name: path.read_bytes() for path in self.out.iterdir()}
+            WSHandler._do_dataset(self.ds["motor"], self.ds["rpm"])
+            self.demo = self.hub.demo
+            self.assertEqual(self.demo.epoch, 3)
+            self.ticks(1)
+            self.hub.pause()
+            for name, payload in saved.items():
+                self.assertEqual((self.out / name).read_bytes(), payload)
+
+    def test_new_epoch_skips_partial_history_without_overwriting(self):
+        prior = {
+            "model_epoch02_01classes.json": b"{\"history\": true}",
+            "session_epoch03.json": b"{\"history\": true}",
+            "samples_epoch04.csv": b"epoch,t\n4,1\n",
+            "session_epoch05.json.tmp": b"{\"history\": true}",
+        }
+        for name, payload in prior.items():
+            (self.out / name).write_bytes(payload)
+        self.ticks(3)
+        self.hub.pause()
+        self.demo._build()
+        self.assertEqual(self.demo.epoch, 6)
+        self.assertEqual(len(self.rows()), 3)
+        for name, payload in prior.items():
+            self.assertEqual((self.out / name).read_bytes(), payload)
 
     def test_normal_stop_and_repeated_close(self):
         self.ticks(24)

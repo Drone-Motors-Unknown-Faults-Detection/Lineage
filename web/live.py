@@ -104,8 +104,20 @@ class LiveDemo:
         self.written_t = self.flushed_t = 0
         if self.out_dir is None:
             return
-        path = self.out_dir / f"samples_epoch{self.epoch:02d}.csv"
-        self._sample_file = open(path, "w", newline="", encoding="utf-8")
+        # 換資料集會建立新的 LiveDemo；共用目錄中的舊 epoch 不可覆寫。
+        while True:
+            metadata = self.out_dir / f"session_epoch{self.epoch:02d}.json"
+            if (metadata.exists() or metadata.with_suffix(".json.tmp").exists()
+                    or any(self.out_dir.glob(f"model_epoch{self.epoch:02d}_*.json"))):
+                self.epoch += 1
+                continue
+            path = self.out_dir / f"samples_epoch{self.epoch:02d}.csv"
+            try:
+                self._sample_file = open(path, "x", newline="", encoding="utf-8")
+            except FileExistsError:
+                self.epoch += 1
+                continue
+            break
         self._sample_writer = csv.writer(self._sample_file)
         self._sample_writer.writerow(SAMPLE_FIELDS)
 
