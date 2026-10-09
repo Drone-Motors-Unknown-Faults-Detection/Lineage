@@ -46,6 +46,7 @@
     "stream_mismatches": 0,
     "stream_result": "output/stream_integration_regression/2026-10-08-13-36-22/summary.json",
     "browser_qa": ["docs/integration_20261008/browser_qa/guide_qa.md","docs/integration_20261008/browser_qa/stream_qa.md"],
+    "browser_screenshot_locations": ["docs/integration_20261008/browser_qa/screenshots", "docs/issue_delivery_20261008/browser_screenshots"],
     "negative_evidence_preserved": ["output/branch_integration/2026-10-08-13-20-42","output/branch_integration/2026-10-08-13-35-16"],
     "aborted_runs": ["2026-10-08-13-22-14","web_guide/2026-10-08-13-22-51"]
   },

@@ -35,7 +35,7 @@
 | 完整已提交候選5aaf48a | 111 passed、0 failed/errors/skipped；pip check與四CLI通過 | 2026-10-08-13-41-48 |
 | 導覽逐樣本配對 | Maha/kNN各595、合計1190筆，差異0；重跑相同、來源未變 | output/navigation_regression/2026-10-08-13-42-01/summary.json |
 | exp1/3/4 對原main配對 | 5組：exp1/3各Maha與kNN、exp4全部三段；原run、新run、iter_run結果全相同 | output/stream_integration_regression/2026-10-08-13-36-22/summary.json |
-| 真實瀏覽器 | 導覽的build/confirm/reset/mode/dataset/reload、A/B停止；原首頁、背景小窗、三實驗完成、停止、錯誤後舊入口恢復 | [手寫導覽紀錄](browser_qa/guide_qa.md)、[手寫串流紀錄](browser_qa/stream_qa.md)；9張截圖在 output/integration_browser/ |
+| 真實瀏覽器 | 導覽的build/confirm/reset/mode/dataset/reload、A/B停止；原首頁、背景小窗、三實驗完成、停止、錯誤後舊入口恢復 | [手寫導覽紀錄](browser_qa/guide_qa.md)、[手寫串流紀錄](browser_qa/stream_qa.md)；9張外部工具截圖在 [docs 附件](browser_qa/screenshots/) |
 | 原封存摘要 | exp6=54runs、exp8=54列可讀；SHA保留、檔案未改 | manifest.json |
 
 Windows暫存權限造成的首次12 errors、沙箱TCP停滯ABORTED、串流首次3個test methods／5failure entries均保存，沒有刪除負面證據。串流修補只處理close例外鎖釋放及非有限速率／非物件JSON；保存路徑測試改為正確解讀ROOT相對路徑。未調模型、門檻或資料讓成績對齊。

@@ -28,6 +28,34 @@ WRITERS = {
     "environment_install": ["core/runtime_environment.py", "core/logger.py"],
 }
 
+# 僅列已由瀏覽器操作紀錄確認的外部截圖，不依 png 副檔名推斷來源。
+EXTERNAL_SCREENSHOTS = {
+    **{f"output/integration_browser/{name}.png":
+       f"docs/integration_20261008/browser_qa/screenshots/{name}.png" for name in (
+           "guide_reconnected", "guide_trend_a_done", "guide_trend_a", "guide_trend_b_done",
+           "stream_batch_recovered", "stream_exp1_done", "stream_exp3_done", "stream_exp4_done",
+           "stream_invalid_parameter")},
+    **{f"output/web_guide/2026-10-08-21-50-53/{name}.png":
+       f"docs/issue_delivery_20261008/browser_screenshots/2026-10-08-21-50-53/{name}.png"
+       for name in ("anonymous", "candidate", "confirmed", "reset_reconnected", "trend_b")},
+    "output/web_guide/2026-10-08-21-55-14/trend_a.png":
+    "docs/issue_delivery_20261008/browser_screenshots/2026-10-08-21-55-14/trend_a.png",
+}
+
+
+def verify_external_relocations(root, baseline, moves=None):
+    """固定版本讀取原檔 bytes；搬移不得變更內容，也不得留下 output 副本。"""
+    rows = []
+    for old, new in sorted((EXTERNAL_SCREENSHOTS if moves is None else moves).items()):
+        original = subprocess.check_output(["git", "show", f"{baseline}:{old}"], cwd=root)
+        target = root / new
+        rows.append({"old": old, "new": new, "source_ref": baseline,
+                     "source_sha256": hashlib.sha256(original).hexdigest(),
+                     "target_sha256": sha(target) if target.is_file() else None,
+                     "same_bytes": target.is_file() and original == target.read_bytes(),
+                     "old_absent": not (root / old).exists()})
+    return rows
+
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -68,7 +96,7 @@ def inspect(root: Path) -> dict:
             if sources[name]["writer_lines"] and (path.name in text or dynamic):
                 evidence.append(name)
         category = "WRITER_MATCH_HISTORY_UNCONFIRMED" if evidence else "UNKNOWN_HISTORY"
-        if group in {"integration_browser", "web_guide"} and path.suffix == ".png":
+        if relative in EXTERNAL_SCREENSHOTS:
             category, evidence = "DOCUMENTED_EXTERNAL_SCREENSHOT", []
         if group == "integration_browser" and path.name in {"guide_qa.md", "stream_qa.md"}:
             category, evidence = "CONFIRMED_MANUAL_QA_PR58", []
@@ -105,8 +133,11 @@ def verify_cleanup(root: Path) -> dict:
     documents = [root / "docs/integration_20261008/output_inventory_20261009.md", root / "docs/integration_20261008/browser_qa/guide_qa.md",
                  root / "docs/integration_20261008/browser_qa/stream_qa.md"]
     links = [row for document in documents for row in local_links(document, root)]
-    return {"baseline": baseline, "moves": moves, "changed_output_paths": changed,
-            "other_tracked_output_unchanged": sorted(changed) == sorted(row["old"] for row in moves),
+    external = verify_external_relocations(root, "791216cf5602c370091fa516264f1ce6aaad6ab1")
+    expected = [row["old"] for row in moves] + list(EXTERNAL_SCREENSHOTS)
+    return {"baseline": baseline, "moves": moves, "external_relocations": external,
+            "changed_output_paths": changed,
+            "other_tracked_output_unchanged": sorted(changed) == sorted(expected),
             "manifest_targets": targets, "manifest_targets_exist": all((root / name).is_file() for name in targets),
             "local_links": links, "broken_links": [row for row in links if not row["exists"]]}
 
@@ -118,7 +149,7 @@ def run(root: Path) -> dict:
     log, paths = setup_run("output_inventory_evidence")
     (paths.output_dir / "inventory.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    log.info("逐檔清冊 {} 份，沒有刪除或搬移", len(result["files"]))
+    log.info("逐檔唯讀清冊 {} 份；本程式沒有刪除或搬移功能", len(result["files"]))
     return result
 
 
@@ -131,7 +162,9 @@ def main():
         valid = (verification["other_tracked_output_unchanged"] and verification["manifest_targets_exist"]
                  and not verification["broken_links"] and all(
                      row["same_git_content"] and row["old_absent"] and row["new_exists"]
-                     for row in verification["moves"]))
+                     for row in verification["moves"]) and all(
+                         row["same_bytes"] and row["old_absent"]
+                         for row in verification["external_relocations"]))
         return 0 if valid else 1
     return 0
 

@@ -28,7 +28,7 @@ python -m web.guide --data-root D:/schoolshit/專題/src/Lineage/data --port 861
 - 真實配對 `output/navigation_regression/2026-10-08-13-22-25/summary.json`：Maha 與 k-NN 各 595 筆，共 1,190 筆，score/verdict/PCA/EWMA/CUSUM/quarantine 等欄位差異 0；source_unchanged=true。兩者 75 筆故障到達後有候選；A/B 警報與原 main 相同。這是同工況工程回歸，不是新模型準確率或獨立資料研究。
 - 本機實際資料為 60 檔（T1/T3 × 三 RPM × 十配置）；歷史 90 檔未完整恢復，不宣稱全部九工況驗證。完整檔案 SHA 清冊在 validation.json。
 - `tests/integration_evidence.py` 子行程使用 PYTHONIOENCODING=utf-8，避免 Windows CLI 中文被錯誤解碼；首次結果不覆寫，後續另產新 run。
-- 瀏覽器 QA 完成：匿名候選／確認、模式、reset、A260/B160播畢、T3新工況、reload同session暫停；手寫紀錄移至 [guide_qa.md](browser_qa/guide_qa.md)，截圖仍在 output/integration_browser/。負面錯誤情境由 HTTP/WebSocket fixture 覆蓋，沒有冒稱 UI 點擊。已關閉測試頁、flush後只停止自己的8611服務。
+- 瀏覽器 QA 完成：匿名候選／確認、模式、reset、A260/B160播畢、T3新工況、reload同session暫停；手寫紀錄移至 [guide_qa.md](browser_qa/guide_qa.md)，外部工具截圖移至 [docs 附件](browser_qa/screenshots/)。負面錯誤情境由 HTTP/WebSocket fixture 覆蓋，沒有冒稱 UI 點擊。已關閉測試頁、flush後只停止自己的8611服務。
 - UTF-8 修補後 `2026-10-08-13-30-10` 再跑98 passed、0 failed/errors/skipped，四CLI/pip check通過；此回合仍為工程驗收。
 
 ## 待整合串流邊界

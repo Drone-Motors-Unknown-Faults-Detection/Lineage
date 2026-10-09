@@ -1,5 +1,13 @@
 # output 接續核對紀錄
 
+## 追加清理：外部工具截圖
+
+以 main `791216cf5602c370091fa516264f1ce6aaad6ab1` 核對後，15張已由瀏覽器操作紀錄確認的截圖移出 output：`output/integration_browser/` 的9張移至 [整合附件](browser_qa/screenshots/)，`output/web_guide/2026-10-08-21-50-53`及`21-55-14`的6張移至 [導覽附件](../issue_delivery_20261008/browser_screenshots/)。沒有重新截圖或改動圖片內容；可由固定版本原blob恢復。
+
+`tests.output_inventory_evidence.EXTERNAL_SCREENSHOTS`列出15組精確路徑；`verify_external_relocations()`以Git原始bytes核對目的檔SHA及output舊檔不存在。只列明確來源的檔案，其他png不一律當作外部截圖。歷史機器清冊保留當時路徑，不改寫舊SHA與失敗紀錄；新清冊保存搬移對照。程式輸出的aggregate.md、tests.txt、模型／fit JSON、逐樣本CSV與圖表保留；兩個未核實歷史檔案仍標UNKNOWN，沒有據此刪除。
+
+本頁是PR58尚待審閱的接續紀錄，#62已另要求檢查文件保留用途；不把它當成實驗手冊或最新科學結果。
+
 2026-10-09，Asia/Taipei。本輪開始時遠端 main 為 `5a7865610fff07a455c0a23cec34fc5957ba3569`，PR #58 原提交為 `3656852b2b5e28748621775e5816f0a47ab6602c`，仍開放。根目錄 AGENT.md 與遠端相同，無子目錄指引。指定寫作文章存取失敗，依 AGENT.md 已列的五條規則撰寫，不聲稱讀過全文。
 
 ## 範圍與既有成果
