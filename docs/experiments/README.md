@@ -20,9 +20,13 @@
 | 實驗八 | [exp8_health_index_matrix](exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` | 健康指數的 9×3×2 可續跑矩陣 |
 | 實驗八 | [exp8_health_index_aggregate](exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`（本輪新增） | 唯讀重算 54 列，逐欄核對歷史彙總與來源 SHA |
 | 實驗八 | [exp8_health_monitor](exp8_health_monitor.md) | `experiments/health_monitor.py` | 單工況逐窗輸出健康指數、趨勢與告警 |
+| 實驗九 | [exp9_autoencoder](exp9_autoencoder.md) | `core/detectors.py`（`MLPAutoencoderDet`） | 非線性 AutoEncoder 重建誤差，能不能比線性 PCA 重建更分得開健康與故障 |
+| 實驗十 | [exp10_transfer](exp10_transfer.md) | `experiments/exp10_transfer.py` | 目標工況少量健康資料，中心平移遷移划不划算、還是從零冷啟動就好 |
+| 實驗十一 | [exp11_ancestor_comparison](exp11_ancestor_comparison.md) | `experiments/exp11_ancestor_comparison.py` | Ancestor 協定下 legacy vs Ledoit–Wolf 的 Accuracy/Balanced Accuracy/macro-F1 對照 |
+| 實驗十二 | [exp12_confusion_tsne](exp12_confusion_tsne.md) | `experiments/exp12_confusion_tsne.py` | 開集混淆矩陣與 t-SNE 視覺化，模型區分正常與故障的效果看不看得出來 |
 | 實驗二十四 | [exp24_experiment_navigation](exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`navigation_regression.py` | 獨立導覽與原主線計算是否一致；整理歷史七問，不新增研究成績 |
 
-實驗七、八在 2026-10-03 補上編號，依程式加入 repo 的時間排：`compare_openset` 是 2026-09-17，健康指數三支是 2026-09-20。程式檔名沒有改，報告檔名與標題帶編號。尚未實作的規劃接著排：實驗九 AutoEncoder（#13）、實驗十遷移學習（#14）、實驗十一 Ancestor 對照（#15）、實驗十二混淆矩陣與 t-SNE（#16），見 [TODO.md](../../TODO.md)。
+實驗七、八在 2026-10-03 補上編號，依程式加入 repo 的時間排：`compare_openset` 是 2026-09-17，健康指數三支是 2026-09-20。程式檔名沒有改，報告檔名與標題帶編號。實驗九～十二（#13～#16）已在本輪完成：AE 偵測器 AUROC 持平、誤報略低；中心平移遷移修好了排序但沒修好校準，不如目標端從零冷啟動；Ancestor 協定下 Ledoit–Wolf 相對 legacy 的 Balanced Accuracy／macro-F1 絕對提升超過 78 pp，遠超 5 pp 門檻；混淆矩陣把這個落差變成可見的畫面。
 
 ## 各實驗的檔案位置
 
@@ -40,6 +44,10 @@
 | 實驗六 | `experiments/exp6_osr_benchmark.py`、`exp6_formal_benchmark.py`、`exp6_matrix.py`、`aggregate_exp6.py` | `core/detectors.py`、`core/openset.py`、`core/formal_data.py` | `tests/test_exp6_benchmark.py`、`test_exp6_matrix.py`、`test_aggregate_exp6.py`、`test_formal_data.py`、`test_openset.py` | `web/experiments.py` 實驗頁 | `logs/`、`output/exp6_osr_benchmark/`；`output/exp6_formal_matrix/` | `docs/Experiments_Guide.md` §7 |
 | 實驗七 | `experiments/compare_openset.py` | `core/monitor.py`、`core/openset.py`、`core/mahalanobis.py` | `tests/test_openset.py` | `web/experiments.py` 實驗頁 | 無（輸出目錄名是 `openset_comparison`） | `docs/Experiments_Guide.md` §8 |
 | 實驗八 | `experiments/health_index_benchmark.py`、`health_index_matrix.py`、`health_monitor.py` | `experiments/health/` 全部模組、`core/openset.py` | `tests/test_health_*.py`（9 檔） | `web/experiments.py` 實驗頁 | `reports/exp8_health_index_results/` | `docs/exp8_health_monitoring_workflow.md`、`docs/health_and_reports.md`、`docs/Experiments_Guide.md` §9 |
+| 實驗九 | 無獨立入口（`core/detectors.py` 新增偵測器，透過 `experiments/exp6_osr_benchmark.py` 執行） | `core/detectors.py`（`MLPAutoencoderDet`） | `tests/test_exp9_autoencoder.py` | 無 | `logs/exp6_osr_benchmark/`、`output/exp6_osr_benchmark/`（與既有 exp6 輸出合併） | 無 |
+| 實驗十 | `experiments/exp10_transfer.py` | `core/monitor.py`、`core/data.py` | `tests/test_exp10_transfer.py` | 無 | `logs/exp10_transfer/`、`output/exp10_transfer/` | 無 |
+| 實驗十一 | `experiments/exp11_ancestor_comparison.py` | `core/monitor.py`、`core/mahalanobis.py`、`core/data.py` | `tests/test_exp11_ancestor_comparison.py` | 無 | `logs/exp11_ancestor_comparison/`、`output/exp11_ancestor_comparison/` | `docs/Mahalanobis_Improvement.md`（歷史對照） |
+| 實驗十二 | `experiments/exp12_confusion_tsne.py` | `experiments/exp11_ancestor_comparison.py`（匯入 `build_ancestor_monitor`）、`core/monitor.py`、`core/data.py` | `tests/test_exp12_confusion_tsne.py` | 無 | `logs/exp12_confusion_tsne/`、`output/exp12_confusion_tsne/` | 無 |
 | 實驗二十四 | `experiments/navigation_data_contract.py`、`navigation_regression.py` | 沿用 `core/monitor.py`、`core/openset.py`、`core/geometry.py`、exp2/3 與 `web/live.py` | `tests/test_navigation_guide.py`、`test_integration_navigation.py` | 獨立 `web/guide.py`、`guide.html/js/css` | `logs/navigation_*`、`output/navigation_*`、`logs/web_guide`、`output/web_guide` | `docs/navigation/exp24_*.md`；`docs/integration_20261008` |
 
 Web 頁首可切換即時展示與實驗一～八各頁；實驗頁的目錄與參數在 `web/experiments.py` 的 `CATALOG`，畫面在 `web/static/experiments.js`，每次執行的結果存到 `output/web_server/{ts}/experiments/`。不屬於任何編號實驗的檔案：`web/server.py` 與 `output/web_server/` 是展示本身；`logs/session_analysis/`、`output/session_analysis/`（2026-08-26）是一次 Web session 的事後分析圖，產生它的腳本不在 repo。

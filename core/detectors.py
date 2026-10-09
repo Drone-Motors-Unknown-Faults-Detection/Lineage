@@ -139,7 +139,27 @@ class PCAReconDet(_Base):
         return np.linalg.norm(X - Z, axis=1)
 
 
+class MLPAutoencoderDet(_Base):
+    """非線性 autoencoder 重建誤差（瓶頸 MLP，對照 PCAReconDet 的線性版本）。"""
+
+    name = "mlp_autoencoder"
+
+    def _fit_raw(self, X):
+        from sklearn.neural_network import MLPRegressor
+
+        self._m = MLPRegressor(
+            hidden_layer_sizes=(64, 16, 64),
+            activation="relu",
+            random_state=self.seed,
+            max_iter=2000,
+            early_stopping=True,
+        ).fit(X, X)
+
+    def _raw_score(self, X):
+        return np.linalg.norm(X - self._m.predict(X), axis=1)
+
+
 ALL_DETECTORS = [
     MahalanobisLW, MahalanobisLegacy, OneClassSVMDet,
-    IsolationForestDet, LOFDet, KNNDistanceDet, PCAReconDet,
+    IsolationForestDet, LOFDet, KNNDistanceDet, PCAReconDet, MLPAutoencoderDet,
 ]

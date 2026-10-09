@@ -21,24 +21,35 @@
 ## 目錄結構
 
 ```
-core/            共用零件：data / mahalanobis / openset / monitor / geometry / detectors / formal_data /
-                 trend / logger / runner
+core/            共用零件：data / mahalanobis / monitor / openset / geometry / detectors / formal_data /
+                 trend / logger / runner / runtime_environment
 reports/         只剩實驗八結果 reports/exp8_health_index_results/；一般實驗輸出不放這裡
-experiments/     實驗模組（exp1 冷啟動、exp2 量尺擴張、exp3 趨勢、exp4 極座標、
-                 exp5 跨工況、exp6 OSR 基準＋正式矩陣、exp7 compare_openset、
-                 exp8 health_index_* / health_monitor，邏輯在 experiments/health/：健康指數、校準、
-                 嚴重度、趨勢/告警、軌跡與診斷，見 docs/health_and_reports.md）；
-                 總覽見 docs/Experiments_Guide.md；技術報告在 docs/experiments/
+experiments/     實驗模組（exp1 冷啟動 exp1_cold_start.py、exp2 量尺擴張 exp2_scale_growth.py、
+                 exp3 趨勢 exp3_trend.py、exp4 極座標 exp4_polar_map.py、
+                 exp5 跨工況 exp5_cross_condition.py、
+                 exp6 OSR 基準＋正式矩陣＋彙整（exp6_osr_benchmark.py / exp6_formal_benchmark.py /
+                 exp6_matrix.py / aggregate_exp6.py）、exp7 compare_openset.py、
+                 exp8 health_index_* / health_monitor.py（邏輯在 experiments/health/：
+                 健康指數、校準、嚴重度、趨勢/告警、軌跡與診斷，見 docs/health_and_reports.md）、
+                 exp9 非線性 AutoEncoder 偵測器（程式在 core/detectors.py，複用 exp6_osr_benchmark.py）、
+                 exp10 跨工況遷移學習 exp10_transfer.py、
+                 exp11 Ancestor 協定對照 exp11_ancestor_comparison.py、
+                 exp12 混淆矩陣與 t-SNE 視覺化 exp12_confusion_tsne.py）；
+                 總覽見 docs/Experiments_Guide.md 與 docs/experiments/README.md；技術報告在 docs/experiments/
 web/             即時展示與實驗頁（live.py 串流編排、experiments.py 實驗頁目錄與執行、
-                 server.py Tornado+WS+HTTP API、static/index.html + experiments.js）
+                 server.py Tornado+WS+HTTP API、guide.py、static/index.html + experiments.js）
+tests/           pytest 單元測試；其中需要留存證據的驗證腳本（*_evidence.py 等）
+                 一樣經 core.logger.setup_run() 寫 logs/ 與 output/，不得改成手寫報告
 docs/            實驗技術報告在 docs/experiments/（每個 experiments/*.py 一份 .md）
-                 ＋論文版技術文件快照與 Lineage 研究文件。
+                 ＋論文版技術文件快照、Lineage 研究文件，與交付/整合紀錄
+                 （integration_20261008、issue_delivery_20261008、project_closeout_20261009、navigation）。
                  歷史快照見 docs/README.md；快照裡的程式路徑不對應現行架構，勿據以改碼
 data/            特徵資料（git 忽略；由論文版管線產出，本專案唯讀）
-logs/ output/    每次執行的日誌與結果（納入版控）
+logs/ output/    每次執行的日誌與結果（納入版控）。output/ 只能是程式碼寫出的檔案，見鐵則 9
 run_web.sh       啟動展示伺服器
 build_uv.sh      保留入口名稱，改用官方 venv 與 runtime-constraints.txt；不刪除既有目錄
 build_uv.ps1     Windows PowerShell 7 的同版安裝入口；詳見 docs/runtime_policy.md
+build_uv_mac.sh  macOS 版安裝入口，與 build_uv.sh 同一套 runtime-constraints.txt
 ```
 
 ---
@@ -63,12 +74,22 @@ build_uv.ps1     Windows PowerShell 7 的同版安裝入口；詳見 docs/runtim
 7. **決定論**：所有隨機性走 `numpy.random.default_rng(seed)`，seed 從 CLI/建構子傳入，
    預設 42。修改後同 seed 應重現同數字。
 8. **只信任程式碼**：所有的文件、註解都應當視為過時的內容，程式碼才是唯一的輸出者。
+9. **`output/` 只放程式碼產生的結果。** 目錄下每一份檔案都要能回溯到某支專案程式碼的寫入邏輯
+   （通常是 `core.logger.setup_run()` 配 `output/{program}/{ts}/`，或實驗程式自己的 `Path("output")/...`）；
+   不得手動把問答記錄、測試心得、交付說明等報告丟進 `output/`。需要留存文字說明時寫進
+   `docs/experiments/` 或對應的技術報告。新增檔案前先確認有對應的寫入程式碼，找不到就不要放進
+   `output/`（已發現的反例：`output/integration_browser/guide_qa.md`、`stream_qa.md`，
+   repo 內沒有任何程式碼寫這兩個檔案，應移除或改放 `docs/`）。
+10. **新增或修改程式碼一律要有對應的 pytest 測試，且測試要能通過。** 測試放在 `tests/`，
+    檔名 `test_<module>.py`，對應 `core/`、`experiments/`、`experiments/health/` 或 `web/` 裡被改動的
+    模組；提交前跑 `venv/bin/python -m pytest tests/`（或至少跑到相關檔案）確認全部通過，
+    不要留下失敗或被跳過的測試就視為完成。
 
 ---
 
 ## 實驗手冊
 
-任何實驗都要在 `docs/experiments/` 放一份 Markdown 技術報告，再改程式。範圍包含新的 `experiments/` 模組，以及既有實驗改了方法、資料切分或指標。每個實驗都有編號 `expN`（實驗N），新實驗取下一個未用的編號（目前已用到 exp8，exp9–exp12 已預留給 TODO.md 的規劃）。報告檔名以 `expN_` 開頭，例如 `docs/experiments/exp13_foo.md`；程式檔名不必帶編號，但報告的「程式碼與輸出」節要列出這個實驗用到的所有路徑：`experiments/` 入口、`core/` 與 `experiments/health/` 的邏輯、`web/` 的展示、`tests/`、`logs/` 與 `output/` 的紀錄與結果。同一實驗在 `docs/` 下的其他文件檔名也以 `expN_` 開頭。完成後在 `docs/experiments/README.md` 的實驗表與「各實驗的檔案位置」表、`docs/README.md` 的現行文件表各加一列。
+任何實驗都要在 `docs/experiments/` 放一份 Markdown 技術報告，再改程式。範圍包含新的 `experiments/` 模組，以及既有實驗改了方法、資料切分或指標。每個實驗都有編號 `expN`（實驗N），新實驗取下一個未用的編號（目前已用到 exp12，下一個新實驗編號為 exp13）。報告檔名以 `expN_` 開頭，例如 `docs/experiments/exp13_foo.md`；程式檔名不必帶編號，但報告的「程式碼與輸出」節要列出這個實驗用到的所有路徑：`experiments/` 入口、`core/` 與 `experiments/health/` 的邏輯、`web/` 的展示、`tests/`、`logs/` 與 `output/` 的紀錄與結果。同一實驗在 `docs/` 下的其他文件檔名也以 `expN_` 開頭。完成後在 `docs/experiments/README.md` 的實驗表與「各實驗的檔案位置」表、`docs/README.md` 的現行文件表各加一列。
 
 手冊至少寫這四項：
 
