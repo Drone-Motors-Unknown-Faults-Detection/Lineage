@@ -192,12 +192,13 @@ def _validate_condition(motor: str, rpm: str, config: str) -> None:
 def _contained_output(path: Path, output_root: Path) -> Path:
     root = output_root.resolve()
     try:
-        relative = path.absolute().relative_to(root)
+        # Windows 暫存根可能是 8.3 alias；不能把詞法路徑和 resolved 根直接比。
+        relative = path.absolute().relative_to(output_root.absolute())
         resolved = path.resolve()
         resolved.relative_to(root)
     except ValueError as exc:
         raise FormalDataError("目的路徑不在宣告的 output_root 內") from exc
-    current = root
+    current = output_root.absolute()
     for part in relative.parts:
         current = current / part
         if current.is_symlink():
@@ -215,6 +216,7 @@ def _ensure_output_not_source(source_root: Path, output_root: Path) -> None:
 
 
 def _write_bytes(path: Path, data: bytes, *, force: bool, output_root: Path) -> None:
+    requested_path = path
     path = _contained_output(path, output_root)
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists() and not force:
@@ -226,7 +228,7 @@ def _write_bytes(path: Path, data: bytes, *, force: bool, output_root: Path) -> 
         with tempfile.NamedTemporaryFile(dir=path.parent, prefix=".materialize-", suffix=".tmp", delete=False) as handle:
             temporary = Path(handle.name)
             handle.write(data)
-        _contained_output(path, output_root)
+        _contained_output(requested_path, output_root)
         os.replace(temporary, path)
     finally:
         if temporary is not None:

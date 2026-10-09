@@ -149,6 +149,31 @@ class MaterializationSafetyTests(unittest.TestCase):
                 formal._write_bytes(root / "link" / "file", b"bytes", force=False, output_root=root)
             self.assertEqual(list((root / "real").iterdir()), [])
 
+    def test_caller_declared_root_alias_resolves_consistently(self):
+        with tempfile.TemporaryDirectory() as directory:
+            parent = Path(directory)
+            real = parent / "real"
+            real.mkdir()
+            alias = parent / "alias"
+            try:
+                alias.symlink_to(real, target_is_directory=True)
+            except OSError as exc:
+                self.skipTest(f"此平台未提供 symlink 權限：{type(exc).__name__}")
+            formal._write_bytes(alias / "legal.csv", b"legal", force=False, output_root=alias)
+            self.assertEqual((real / "legal.csv").read_bytes(), b"legal")
+
+    @unittest.skipUnless(os.name == "nt", "Windows 8.3 路徑專用回歸")
+    def test_windows_short_root_alias_is_not_mixed_with_resolved_root(self):
+        import ctypes
+        with tempfile.TemporaryDirectory(prefix="lineage_long_root_") as directory:
+            output = ctypes.create_unicode_buffer(32768)
+            result = ctypes.windll.kernel32.GetShortPathNameW(str(Path(directory)), output, len(output))
+            if not result or result >= len(output) or output.value == str(Path(directory)):
+                self.skipTest("此檔案系統未提供不同的 8.3 alias")
+            root = Path(output.value)
+            formal._write_bytes(root / "keep.csv", b"content", force=False, output_root=root)
+            self.assertEqual((Path(directory) / "keep.csv").read_bytes(), b"content")
+
     def test_unequal_windows_and_sample_lengths_rejected_without_truncation(self):
         for options in ({"unequal_windows": True}, {"unequal_rows": True}):
             with self.subTest(options=options), tempfile.TemporaryDirectory() as directory:
