@@ -43,6 +43,39 @@ def run(
     max_windows: int | None = None,
     require_identity: bool = True,
 ) -> list[dict]:
+    """批次介面：把 iter_run 跑完，回傳逐窗結果列表。"""
+    return [
+        event["window"]
+        for event in iter_run(
+            data_root, motor, rpm, config, seed=seed, openset_method=openset_method,
+            mahalanobis_method=mahalanobis_method, knn_neighbors=knn_neighbors,
+            motor_id=motor_id, session_id=session_id, max_windows=max_windows,
+            require_identity=require_identity,
+        )
+        if event["event"] == "window"
+    ]
+
+
+def iter_run(
+    data_root: Path | str,
+    motor: str,
+    rpm: str,
+    config: str,
+    *,
+    seed: int = 42,
+    openset_method: str = "mahalanobis",
+    mahalanobis_method: str = "ledoit_wolf",
+    knn_neighbors: int = 5,
+    motor_id: str | None = None,
+    session_id: str | None = None,
+    max_windows: int | None = None,
+    require_identity: bool = True,
+):
+    """逐窗產生事件，供 Web 實驗頁邊跑邊畫；計算與 run() 相同。
+
+    事件依序為 fitted（健康指數模型擬合完成）與每個窗口一個 window（內容同
+    run() 列表的一筆）。
+    """
     dataset = _dataset(data_root, motor, rpm)
     pools = load_pools(dataset["path"])
     if config not in pools:
@@ -60,6 +93,7 @@ def run(
         knn_neighbors=knn_neighbors,
     )
     monitor = SessionTrajectoryMonitor(model, require_identity=require_identity)
+    yield {"event": "fitted", "model": model.metadata()}
     # 8screws 取與擬合不重疊的 holdout；其他配置沒參與擬合，依原順序取整池（#35）
     samples = healthy[split.holdout] if config == HEALTHY else pools[config]
     if max_windows is not None:
@@ -67,7 +101,6 @@ def run(
             raise ValueError("max_windows must be positive")
         samples = samples[:max_windows]
     condition = f"{motor}/{dataset['rpm']}"
-    output: list[dict] = []
     for index, sample in enumerate(samples):
         result = monitor.update(
             sample,
@@ -78,8 +111,7 @@ def run(
         )
         payload = result.to_dict("full")
         payload["window_index"] = int(index)
-        output.append(payload)
-    return output
+        yield {"event": "window", "window": payload}
 
 
 def main(argv: Sequence[str] | None = None) -> int:

@@ -72,10 +72,11 @@ class PairedStreamTests(unittest.TestCase):
         self.assertEqual([e["name"] for e in events if e["event"] == "part"],
                          ["geometry", "direction", "severity"])
 
-    def test_catalog_excludes_unfixed_health_stream(self):
-        self.assertEqual({e["id"] for e in CATALOG if e.get("stream")}, {"exp1", "exp3", "exp4"})
+    def test_catalog_streams_health_monitor_after_issue_35(self):
+        self.assertEqual({e["id"] for e in CATALOG if e.get("stream")},
+                         {"exp1", "exp3", "exp4", "exp8_monitor"})
         with self.assertRaises(ValueError):
-            list(ExperimentRunner([], "unused").stream("exp8_monitor", {}))
+            list(ExperimentRunner([], "unused").stream("exp5", {}))
 
     def test_localhost_option_is_explicit_and_original_default_retained(self):
         source = (ROOT / "web/server.py").read_text(encoding="utf-8")

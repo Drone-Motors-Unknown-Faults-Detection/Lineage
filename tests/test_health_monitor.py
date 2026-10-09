@@ -8,7 +8,8 @@ import unittest
 
 import numpy as np
 
-from experiments.health_monitor import run
+from experiments.health_monitor import iter_run, run
+from web.experiments import ExperimentRunner, jsonable
 
 BASE = "64cb71d84663e1745ec54db74abad68def67e8e6"  # #35 修正前的 main
 CONFIGS = ["8screws", "7screws", "6screws", "5screws", "4screws", "3screws",
@@ -67,6 +68,34 @@ class HealthMonitorWindows(unittest.TestCase):
             new = self.call(run, "8screws", **kwargs)
             self.assertEqual(json.dumps(old, sort_keys=True), json.dumps(new, sort_keys=True))
             self.assertEqual(len(new), kwargs.get("max_windows", 60))
+
+    def test_iter_run_matches_run(self):
+        for config in ("8screws", "5screws"):
+            events = list(iter_run(self.root, "T1", "8000rpm", config, seed=5,
+                                   motor_id="m", session_id="s", max_windows=30))
+            self.assertEqual(events[0]["event"], "fitted")
+            windows = [e["window"] for e in events if e["event"] == "window"]
+            self.assertEqual(len(windows), len(events) - 1)
+            batch = run(self.root, "T1", "8000rpm", config, seed=5,
+                        motor_id="m", session_id="s", max_windows=30)
+            self.assertEqual(json.dumps(windows, sort_keys=True), json.dumps(batch, sort_keys=True))
+
+    def test_web_stream_done_matches_batch_and_is_saved(self):
+        from core.data import discover_datasets
+        with tempfile.TemporaryDirectory() as out:
+            runner = ExperimentRunner(discover_datasets(self.root), self.root, out_dir=out)
+            params = {"dataset": "T1/8000rpm", "config": "5screws", "max_windows": 25}
+            frames = list(runner.stream("exp8_monitor", params))
+            batch = runner.run("exp8_monitor", params)
+            done = frames[-1][0]
+            self.assertEqual(done["event"], "done")
+            self.assertEqual(json.dumps(done["payload"]["result"], sort_keys=True),
+                             json.dumps(jsonable(batch["result"]), sort_keys=True))
+            self.assertEqual(sum(u for _, u in frames), 25)
+            saved = json.loads(Path(done["payload"]["saved"]).read_text(encoding="utf-8"))
+            self.assertTrue(saved["streamed"])
+            for frame, _ in frames:
+                json.dumps(frame, allow_nan=False)
 
 
 if __name__ == "__main__":
