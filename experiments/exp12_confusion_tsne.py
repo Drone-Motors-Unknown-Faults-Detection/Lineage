@@ -170,7 +170,8 @@ def _figure_tsne(tsne_by_dataset: dict[str, dict]):
             colors = [color_map[c] for c, m in zip(data["config_labels"], mask) if m]
             ax.scatter(emb[mask, 0], emb[mask, 1], c=colors, marker=marker, s=14, alpha=0.7)
         ax.set_title(key)
-        ax.set_xticks([]); ax.set_yticks([])
+        ax.set_xticks([])
+        ax.set_yticks([])
     for ax in axes.flat[len(keys):]:
         ax.axis("off")
 

@@ -1,4 +1,8 @@
-"""CI 工程證據：真實執行指定命令，只公開白名單摘要。"""
+"""CI 工程證據：真實執行指定命令，只公開白名單摘要。
+
+pytest／ruff 改由 CI yaml 的獨立 step（./run_pytest.sh、./run_ruff.sh）把關，
+不在這裡重複跑；這裡只留 pip check、CLI help 與文件相對連結檢查。
+"""
 from __future__ import annotations
 
 import argparse
@@ -71,7 +75,6 @@ def run() -> dict:
             for name in previous_tmp:
                 os.environ[name] = directory
             checks.append(execute(["-m", "pip", "check"]))
-            checks.append(execute(["-m", "pytest", "tests", "-ra", "--tb=short"]))
             checks.extend(execute(["-m", module, "--help"], 60) for module in CLIS)
         finally:
             for name, old in previous_tmp.items():
@@ -88,9 +91,7 @@ def run() -> dict:
               "scope": "工程契約；任意Origin現狀不代表安全，無新模型成績，macOS未驗證"}
     (paths.output_dir / "public_summary.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    suite = checks[1]
-    logger.info("CI 工程驗證：{}；測試數={}；failed={}；errors={}；skipped={}；失效目標={}",
-                result["status"], suite.get("tests_run"), suite.get("failed"), suite.get("errors"), suite.get("skipped"), len(broken))
+    logger.info("CI 工程驗證：{}；失效目標={}", result["status"], len(broken))
     for check in checks:
         if check["returncode"]:
             logger.error("失敗命令={}；測試ID={}", check["arguments"], check.get("failure_ids", []))

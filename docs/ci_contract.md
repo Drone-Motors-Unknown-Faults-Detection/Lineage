@@ -4,19 +4,21 @@
 
 ## 執行流程
 
-push／pull_request 觸發 Ubuntu、CPython 3.10 的 contracts job。checkout 取完整 Git 歷史供固定舊版回歸使用；測試不依賴被忽略的正式 data。workflow 建立新 .venv310，依 runtime-constraints.txt 安裝建置工具、專案與 pytest，再執行：
+push／pull_request 觸發 Ubuntu、CPython 3.10 的 contracts job。checkout 取完整 Git 歷史供固定舊版回歸使用；測試不依賴被忽略的正式 data。workflow 用 uv 建立 venv，依 runtime-constraints.txt 安裝建置工具與 test extras，再依序執行獨立步驟：
 
 ```bash
-python -m tests.ci_evidence
+./run_ruff.sh
+./run_pytest.sh -ra --tb=short
+venv/bin/python -m tests.ci_evidence
 ```
 
-入口依序執行 pip check、`python -m pytest tests -ra --tb=short`、七個 CLI 的 --help，以及選定文件的相對目標檢查。CLI 清單為 exp1、exp2、exp3、exp4、compare_openset、exp6_formal_benchmark、web.server，尚未涵蓋所有實驗。正式資料不能拿來補 fixture。本機先依 [環境操作](runtime_policy.md) 安裝 test 依賴。
+`tests.ci_evidence` 只執行 pip check、七個 CLI 的 --help，以及選定文件的相對目標檢查，不在其中重跑 pytest／ruff。CLI 清單為 exp1、exp2、exp3、exp4、compare_openset、exp6_formal_benchmark、web.server，尚未涵蓋所有實驗。正式資料不能拿來補 fixture。本機先依 [環境操作](runtime_policy.md) 安裝 test 依賴。
 
 ## 輸出與判定
 
 setup_run("ci_evidence") 寫入 logs/ci_evidence/{ts}.log、output/ci_evidence/{ts}/environment.json 及 public_summary.json。摘要保存受測 HEAD／dirty、版本、命令退出碼、測試數、失敗 ID 與文件失效目標；不公開任意例外 payload、token 或私人絕對路徑。
 
-任何命令非零或文件目標失效，CLI 回傳非零。現行 status=PASS 依命令退出碼與連結判定，pytest 的 skip 不會自動令它失敗；必須同時檢查 checks[].skipped，缺權限的案例應列未驗證，不寫成全部完成。
+任何命令非零或文件目標失效，CLI 回傳非零。public_summary 的 PASS 只涵蓋該入口，不證明獨立 pytest／ruff 步驟通過；須另看 Actions 的兩個步驟。pytest 的 skip 不會自動使 pytest 退出碼失敗，缺權限案例須列未驗證，不寫成全部完成。
 
 Actions 成功或失敗都上傳白名單 public_summary.json，保存14天。artifact 可能含 checkout 內先前已版控摘要，必須核對每份 environment.git.head，不能把舊摘要當成當次測試。
 

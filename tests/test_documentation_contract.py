@@ -18,14 +18,16 @@ class DocumentationContractTests(unittest.TestCase):
                 rows = local_links(ROOT / name, ROOT)
                 self.assertFalse([row for row in rows if not row["exists"]])
 
-    def test_historical_reports_use_fixed_revision(self):
+    def test_operations_and_history_have_separate_contracts(self):
         for name in DOCUMENTS[1:5]:
             with self.subTest(document=name):
                 content = (ROOT / name).read_text(encoding="utf-8")
-                self.assertIn("/blob/791216cf5602c370091fa516264f1ce6aaad6ab1/", content)
+                self.assertRegex(content, r"/blob/[0-9a-f]{40}/")
         runtime = (ROOT / "docs/runtime_policy.md").read_text(encoding="utf-8")
-        self.assertIn("-m pip install -c runtime-constraints.txt pytest", runtime)
+        self.assertIn("uv pip install", runtime)
         self.assertIn("-m pytest tests", runtime)
         ci = (ROOT / "docs/ci_contract.md").read_text(encoding="utf-8")
-        self.assertIn("checks[].skipped", ci)
+        self.assertIn("./run_ruff.sh", ci)
+        self.assertIn("./run_pytest.sh", ci)
+        self.assertIn("不在其中重跑 pytest／ruff", ci)
         self.assertIn("只有 Ubuntu", ci)
