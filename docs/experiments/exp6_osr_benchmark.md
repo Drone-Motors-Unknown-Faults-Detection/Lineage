@@ -1,82 +1,57 @@
-# 實驗六：七種偵測器的廣度比較
+# 實驗六：健康-only異常偵測器基準
 
-程式：`experiments/exp6_osr_benchmark.py`。七個偵測器類別在 `core/detectors.py` 的 `ALL_DETECTORS`。
+健康基準該用橢球距離、近鄰、樹、邊界，還是重建誤差？本實驗把同一工況的健康切分交給各方法，比較誤報與未知配置偵測。它不是healthy＋五種known配置的多類分類研究；正式factory兩方法比較見[正式版](exp6_formal_benchmark.md)。
 
-問題：健康-only、同一套 60/20/20、同一套「校準集第 95 百分位 = 1」之下，Ledoit–Wolf 馬氏距離的健康誤報與故障偵測，相對於另外六種單類方法站在哪。
+## 資料與fit順序
 
-這支程式不產生 `reports/exp8_health_index_results/`。正式版只比 Mahalanobis 與 k-NN、且走 `core.openset` 的那次，見 [exp6_formal_benchmark.md](exp6_formal_benchmark.md)。
+data-root依[loader](../../core/data.py)掃描單一motor／RPM的105維clean特徵池，沒有強制九工況。每列／單位／移除非有限列／未去重及來源限制見[實驗一](exp1_cold_start.md#資料與載入)。數量以rows與實際來源為準。三顆馬達是不同個體，列隨機切分不能證明錄製獨立。
 
-## 實驗方法
+run以一個default_rng(seed=42)連續處理所有工況，健康池每次列洗牌60/20/20；改變掃描集合可能改變後續切分。同工況所有方法共用同一train／cal／holdout。每個方法獨立用train fit RobustScaler和參考模型，cal只定0.95分位數門檻，healthy holdout與所有fault配置全池只評估，unknown不選參或校準。legacy是例外：用train本身距離定線。
 
-1. `discover_datasets` 掃 `--data-root`（預設 `data`）。每個資料集用同一個 `default_rng(seed)` 往下切，預設 seed 42，所以九組的切分序列是接續的，不是各自從 42 重來。
-2. 訓練集、校準集來自 `8screws`。故障池是其餘配置全部直向疊起來，只在打分之後使用。
-3. 每個偵測器 `fit(X_train, X_cal)` 後，對健康 holdout 與故障池打分。指標是 AUROC、FPR@TPR95、健康誤報 `(h > 1)`、故障偵測 `(f > 1)`。
-4. 跨資料集對四個指標取平均。AUROC 與健康誤報另外取標準差。摘要依 AUROC 平均降序、再依 FPR@TPR95 升序。
+[core/detectors.py](../../core/detectors.py)的ALL_DETECTORS目前有**八個**方法，早期「七種」是尚未加入AE的名稱：
 
-七個 `name`：
-
-| 類別 | `name` | 原始分數 |
+| 方法ID | train學什麼／原分數 | 影響重現的設定 |
 |---|---|---|
-| `MahalanobisLW` | `maha_ledoit_wolf` | 呼叫 `MahalanobisOpenSetDetector(method="ledoit_wolf")`，門檻沿用該偵測器的校準分位數 |
-| `MahalanobisLegacy` | `maha_legacy` | 同上，`method="legacy"`：訓練距離自己的分位數，校準集不決定門檻 |
-| `OneClassSVMDet` | `ocsvm` | `OneClassSVM(nu=0.05, gamma="scale")`，分數取 decision function 的相反數 |
-| `IsolationForestDet` | `iforest` | `IsolationForest(n_estimators=200)`，分數取 `score_samples` 的相反數 |
-| `LOFDet` | `lof` | `LocalOutlierFactor(n_neighbors=20, novelty=True)`，分數取 decision function 的相反數 |
-| `KNNDistanceDet` | `knn_dist` | `NearestNeighbors(n_neighbors=5)`，五個距離的平均 |
-| `PCAReconDet` | `pca_recon` | `PCA(n_components=0.95)` 的重建誤差 L2 |
+| maha_ledoit_wolf | 健康中心與LW共變異數／馬氏距離 | cal分位數 |
+| maha_legacy | 經驗共變異數＋pinv／馬氏距離 | train分位數，含既有ridge |
+| ocsvm | 健康邊界／負decision_function | nu=0.05、gamma=scale |
+| iforest | 隨機隔離樹／負score_samples | 200樹、random_state=seed |
+| lof | 健康局部密度／負decision_function | 20鄰居、novelty=True |
+| knn_dist | train近鄰庫／5鄰居平均歐氏距離 | 固定5，不是正式factory的有效k縮減 |
+| pca_recon | 保留95%變異的PCA／重建L2誤差 | full SVD、train-only |
+| mlp_autoencoder | 105→64→16→64→105重建／L2誤差 | 詳見[實驗九](exp9_autoencoder.md) |
 
-除了兩個 Mahalanobis 類別走自己的 `fit`，其餘類別都用 `_Base.fit`：`RobustScaler` 只擬合訓練集，原始分數除以校準集第 95 百分位。校準分位數 ≤ 0 時先平移再除。
+一般_Base把raw score除cal分位數；門檻≤0時先依cal最小值平移，避免負分母。LW／legacy走自己的馬氏score實作。統一score>1判未知，不表示所有方法門檻來源完全一致。kNN train少於5或LOF資料太少可能失敗；沒有靜默補樣本策略。
+
+## 怎麼執行與使用
+
+從repo根目錄依[uv環境政策](../runtime_policy.md)準備資料與鎖版環境：
 
 ```bash
-venv/bin/python -m experiments.exp6_osr_benchmark
-venv/bin/python -m experiments.exp6_osr_benchmark --data-root data --seed 42 --confidence 0.95
+uv run --locked python -m experiments.exp6_osr_benchmark --help
+uv run --locked python -m experiments.exp6_osr_benchmark --data-root data --seed 42 --confidence 0.95
 ```
 
-## 理論
+API run(data_root="data",seed=42,confidence=0.95)回傳dict。CLI沒有選單一detector或motor的參數；每次跑全部方法，含最多2000迭代的AE，可能較慢。缺healthy／fault、工況空或健康切分太小時應核對資料，不把缺格平均成完整九工況。
 
-比較要看的是偵測器，所以切分與「多大算未知」盡量鎖死。校準分位數把不同量綱的分數改成「相對這批健康校準窗口的尾部」。AUROC 看排序，不看 1.0 這條線；健康誤報與故障偵測才看這條線有沒有校準好。
+Web依[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)啟動，選「實驗六：多方法」、seed，按「▶ 執行」。跑整個伺服器data-root，沒有邊跑邊畫、續跑或中途取消；不要用切頁當取消。每次重新fit，不保存可恢復的模型。
 
-`maha_legacy` 故意留著論文版做法：門檻用訓練集自己的距離。它和另外六種不共用校準集，讀表時要把它當成對照，不能和 `maha_ledoit_wolf` 說成同一套閾值政策。`core/detectors.py` 的 `knn_dist` 是單一健康雲上的平均近鄰距離；`core/openset.py` 的 `knn` 是逐類近鄰再取最小正規化分數。兩邊的 k 都是 5，程式不是同一份。
+## 輸出與指標
 
-FPR@TPR95 的實作是：取故障分數的第 5 百分位當門檻（讓約 95% 的故障超過它），再算健康分數超過該門檻的比例。這和 ROC 曲線上插值得到的 FPR@TPR95 不一定相同。
+main經setup_run寫logs/exp6_osr_benchmark/{ts}.log、output/exp6_osr_benchmark/{ts}/environment.json、results.csv、summary.json及osr_benchmark.png。Web另存web_server的experiments子目錄。results每列是一工況×方法，非獨立馬達數。
 
-## 參考論文
+auroc衡量unknown分數是否較高；healthy_fp為健康score>1比例；fault_detect為所有fault合併後score>1比例，不是各配置等權macro。fpr_at_tpr95用**評估fault分數第5百分位**當診斷線，健康嚴格大於該線的比例；這不是部署用門檻，也不回寫模型。summary先對各列round4，再跨工況等權平均；auroc_std／healthy_fp_std用ddof=0，排序依AUROC再FPR。不是信賴區間或自動部署winner。
 
-- 馬氏距離與 Ledoit–Wolf 出處同 [exp1_cold_start.md](exp1_cold_start.md)。legacy 路徑的對照說明見 [Mahalanobis_Improvement.md](../Mahalanobis_Improvement.md)。
-- B. Schölkopf, J. C. Platt, J. Shawe-Taylor, A. J. Smola, and R. C. Williamson (2001), “Estimating the Support of a High-Dimensional Distribution,” *Neural Computation*, 13(7), 1443–1471。DOI [10.1162/089976601750264965](https://doi.org/10.1162/089976601750264965)。`nu=0.05` 是本專案選的。
-- F. T. Liu, K. M. Ting, and Z.-H. Zhou (2008), “Isolation Forest,” *IEEE ICDM*, 413–422。DOI [10.1109/ICDM.2008.17](https://doi.org/10.1109/ICDM.2008.17)。`n_estimators=200` 是本專案選的。
-- M. M. Breunig, H.-P. Kriegel, R. T. Ng, and J. Sander (2000), “LOF: Identifying Density-Based Local Outliers,” *SIGMOD Record*, 29(2), 93–104。DOI [10.1145/335191.335388](https://doi.org/10.1145/335191.335388)。
-- S. Ramaswamy, R. Rastogi, and K. Shim (2000), “Efficient Algorithms for Mining Outliers from Large Data Sets,” *SIGMOD*, 427–438。DOI [10.1145/342009.335437](https://doi.org/10.1145/342009.335437)。本程式用的是 k 個距離的平均，論文原式常取第 k 距離。
-- I. T. Jolliffe (2002), *Principal Component Analysis*, 2nd ed., Springer。DOI [10.1007/b98835](https://doi.org/10.1007/b98835)。保留 95% 變異後用重建殘差當異常分數，是本專案在 `PCAReconDet` 的操作約定。
+圖的AUROC座標從0.9開始，低分可能不顯眼，必須看JSON。預期未知排序高、健康誤報低；沒有預先固定可靠性成功門檻。完整歷史數字見[固定紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/experiments/exp6_osr_benchmark.md)。同工況健康-only高分不能推論跨馬達known fault-type成功。
 
-## 預期成果
+## 方法來源與程式碼
 
-若 105 維已經把健康和故障拉開，多個方法的 AUROC 會同時接近 1，方法差異會出現在健康誤報而不是 AUROC。`maha_legacy` 的健康誤報若遠高於用校準集定閾值的方法，就支持「門檻不要用訓練集自己的距離」這條專案約定。若某個方法 AUROC 明顯掉到 0.5 附近，那個偵測器在這份特徵上不適合當冷啟動基準。
+馬氏距離／LW來源見[實驗一](exp1_cold_start.md#方法來源與程式定位)。其餘保留方法出處：
 
-## 已記錄的實測
+- Schölkopf等（2001），*Estimating the Support of a High-Dimensional Distribution*，Neural Computation13,1443–1471，[DOI](https://doi.org/10.1162/089976601750264965)。
+- Liu、Ting、Zhou（2008），*Isolation Forest*，ICDM,413–422，[DOI](https://doi.org/10.1109/ICDM.2008.17)。
+- Breunig等（2000），*LOF: Identifying Density-Based Local Outliers*，SIGMOD,93–104，[DOI](https://doi.org/10.1145/335191.335388)。
+- Ramaswamy、Rastogi、Shim（2000），*Efficient Algorithms for Mining Outliers from Large Data Sets*，SIGMOD,427–438，[DOI](https://doi.org/10.1145/342009.335437)。本repo用平均k距離，不能稱與論文的第k距離定義完全相同。
+- Jolliffe（2002），*Principal Component Analysis*，Springer，[DOI](https://doi.org/10.1007/b98835)。重建分數／cal正規化是專案組合。
 
-[Experiments_Guide.md](../Experiments_Guide.md) 記載九組資料、seed 42：七種方法 AUROC 都是 1.0000。健康誤報 kNN 6.0%、Ledoit–Wolf 馬氏 7.1%、legacy 83.1%。手冊因此把偵測器選擇放在特徵與校準之後，主線仍用 Ledoit–Wolf，因為它保留逐類共變異數，後續極座標與量尺擴張用得到。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
-|---|---|
-| `experiments/exp6_osr_benchmark.py` | `run`、`_fpr_at_tpr`、`_figure`、`main` |
-| `core/detectors.py` | `ALL_DETECTORS` 與 `_Base.fit` |
-| `core/mahalanobis.py` | `maha_ledoit_wolf`、`maha_legacy` |
-| `core/data.py` | `discover_datasets`、`load_pools`、`make_split` |
-
-輸出：
-
-- `logs/exp6_osr_benchmark/{時間戳}.log`
-- `output/exp6_osr_benchmark/{時間戳}/results.csv`
-- `output/exp6_osr_benchmark/{時間戳}/summary.json`
-- `output/exp6_osr_benchmark/{時間戳}/osr_benchmark.png`
-
-### 散在其他位置的相關檔案
-
-- 測試：沒有專屬測試；`core/detectors.py` 沒有直接測試。
-- 已提交紀錄：`logs/exp6_osr_benchmark/`、`output/exp6_osr_benchmark/`（5 次執行，其中 2026-09-19 的出自改名前的 `exp6_formal_benchmark`）。
-- 同屬實驗六：[exp6_formal_benchmark](exp6_formal_benchmark.md)、[exp6_matrix](exp6_matrix.md)、[exp6_aggregate](exp6_aggregate.md)。
-- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 7 節。
-- Web 實驗頁：頁首「實驗六」的 6-1，`web/experiments.py` 的 `CATALOG` 項目 `exp6` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp6`；結果存到 `output/web_server/{ts}/experiments/exp6_{時間}.json`。同頁還有 6-2 正式版單次比較與 6-3 正式矩陣（唯讀）。
+[runner](../../experiments/exp6_osr_benchmark.py)負責公平切分、指標、writer；[detectors](../../core/detectors.py)實作模型；[web/experiments](../../web/experiments.py)只編排；[test_exp9_autoencoder](../../tests/test_exp9_autoencoder.py)、[test_web_experiments](../../tests/test_web_experiments.py)檢查元件與入口。正式factory的k-NN與此knn_dist不是同一類別實作，不直接混用結果。
