@@ -7,10 +7,12 @@
 ## 實驗方法
 
 1. `--data-root` 預設 `data/formal_local`。`--motor`、`--rpm` 必填。轉速可以寫 `8000` 或 `8000rpm`，程式會補上 `rpm`。`discover_datasets` 必須正好找到一組。
-2. `--config` 預設 `8screws`。擬合永遠只用該工況的 `8screws` train/calibration，與 `--config` 無關。`--config` 決定送進監測器的 holdout 來自哪一個池。
+2. `--config` 預設 `8screws`。擬合永遠只用該工況的 `8screws` train/calibration，與 `--config` 無關。`--config` 決定送進監測器的窗口來自哪一個池：
+   - `8screws`：送健康池 `make_split` 切出的 holdout，與擬合用的 train/cal 不重疊。
+   - 其他配置：這些配置沒有參與擬合，依池內原順序送全部窗口。2026-10-09 以前的版本拿健康池的 holdout 索引去取故障池，樣本數少於索引最大值的配置（例如 T1/8000rpm 的 5screws，212 筆、索引到 253）會 `IndexError`，見 [#35](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/35)。這條是本專案的操作約定。
 3. 預設 `--openset-method mahalanobis`、`--method ledoit_wolf`、`--knn-neighbors 5`、`--seed 42`。
 4. `SessionTrajectoryMonitor.update` 需要 `motor_id` 與 `session_id` 才會把歷史接在同一條序列上。沒給又沒有 `--allow-no-identity` 時，`require_identity=True`，趨勢維持資料不足，不把不同馬達串在一起。
-5. `--max-windows` 只截 holdout 的前段，省略則全送。`--output-mode` 為 `binary`、`health` 或 `full`（預設）。
+5. `--max-windows` 只截上述窗口序列的前段，省略則全送。`--output-mode` 為 `binary`、`health` 或 `full`（預設）。
 
 ```bash
 venv/bin/python -m experiments.health_monitor --data-root data/formal_local --motor T1 --rpm 8000rpm --config 1screws --openset-method mahalanobis --output-mode full --motor-id motor-001 --session-id session-001 --max-windows 20
@@ -38,6 +40,8 @@ venv/bin/python -m experiments.health_monitor --data-root data/formal_local --mo
 ## 預期成果
 
 `--config 8screws` 且給了身份時，多數窗口的 `health_index` 應高、`is_fault` 應少，趨勢在前 4 筆是歷史不足，第 5 筆之後才有斜率標籤。`--config` 換成故障配置時，健康指數應下降，`is_unknown_fault` 應為真；若校準錨點把這些分數都送到 0，連續窗口的斜率會是持平的 0，不會出現一段慢慢下降的曲線。
+
+`8screws` 的逐窗輸出在 #35 修正前後應逐欄相同；故障配置不論樣本數多少都不應 `IndexError`，窗口數等於 `min(池大小, max_windows)`。
 
 沒有 `motor_id` / `session_id` 又未允許缺身份時，不應把多筆合成一條惡化曲線。`binary` 模式不應冒出健康指數欄位。
 
