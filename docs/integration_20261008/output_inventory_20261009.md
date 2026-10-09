@@ -28,3 +28,13 @@ Python 3.10.19：`-m unittest tests.test_output_inventory` 2 passed；`-m tests.
 清理核對完成後接回 #46 的內容 SHA／來源紀錄提交與驗證，不重新執行歷史 2,490 組研究。
 
 後續驗證：[最終清冊與引用核對](../../output/output_inventory_evidence/2026-10-09-14-47-22/inventory.json) 明確回傳成功。新增本輪清冊不列為「既有產物變動」；只核對既有檔案修改／刪除。2 項 fixture 再次通過。交付提交 `038ac5c`、`3be8f46` 已推送並核對遠端 SHA；本段及最終清冊另以證據提交保存。PR58 未經本代理合併。
+
+## 遠端規定更新後的 pytest
+
+證據提交 `b26d4aa29f076886a9137b7b27d4312018a54e66` 已推送且遠端相同，Actions 37895702733／37895699382 均成功。main 後續合併 PR57 至 `8c1b8dfb5134a56c6dfd56fa37bf04fecc241020`，新增 output writer 與 pytest 鐵則；已完整讀取，不將歷史清冊假稱最新 main 的全體產物清冊。
+
+`tests.pytest_evidence` 以程式保存 pytest 摘要，對應 `tests/test_pytest_evidence.py`；只允許 tests 相對目標，trace／JUnit不公開，skip 明記 INCOMPLETE。工具版本見 [清單](../pytest_evidence_tools.txt)，以獨立 `D:/schoolshit/專題/src/tmp/lineage_pytest_tools_20261009` 載入 pytest8.4.2，不修改原鎖版 Python3.10.19 venv。
+
+`python -m tests.pytest_evidence tests/test_output_inventory.py tests/test_pytest_evidence.py`：[4 passed、0 skip](../../output/pytest_evidence/2026-10-09-14-59-00/summary.json)。完整 `tests/`：[214 collected、211 passed、3 skipped、0 failed/error](../../output/pytest_evidence/2026-10-09-14-57-36/summary.json)，狀態 INCOMPLETE，本機 symlink 權限缺口未算完成。沒有以 skip 掩蓋本輪清冊測試。pytest 可收集既有 unittest 的依據見 [官方文件](https://docs.pytest.org/en/8.4.x/how-to/unittest.html)。
+
+本輪所有新 output 為上述 writer 產物，人工紀錄留在 docs；歷史未知來源保留並明記限制。清理 PR 尚未合併，main 與未整合候選 checkout 仍可能保留原路徑，不能宣稱全分支清理完畢。
