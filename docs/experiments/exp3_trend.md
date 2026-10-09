@@ -42,7 +42,7 @@ CUSUM 累積 `(score - 1)` 的正偏移，欄位給展示看，不參與 `kind` 
 
 ## 預期成果
 
-2026-10-08引用核對：Roberts原文p.240式(1)可支持EWMA遞迴；本專案輸入為旗標、初值0，並自行設定警報與判別規則。Page原文全文本輪未取得；CUSUM欄位只供展示，不宣稱完整控制圖程序。逐條來源與尚未核實項見[引用核對](../issue_delivery_20261008/citation_followup.md)。這些資料列的順序是劇本抽樣，不證明真實馬達磨損速度或每小時警報率。
+2026-10-08引用核對：Roberts原文p.240式(1)可支持EWMA遞迴；本專案輸入為旗標、初值0，並自行設定警報與判別規則。Page原文全文本輪未取得；CUSUM欄位只供展示，不宣稱完整控制圖程序。逐條來源與尚未核實項見[引用核對](../../reports/Andy_20261008_議題交付/citation_followup.md)。這些資料列的順序是劇本抽樣，不證明真實馬達磨損速度或每小時警報率。
 
 兩個劇本的警報率都應接近 1。劇本 A 的 `kind` 應以 `gradual` 為主，劇本 B 以 `sudden` 為主。突發的警報延遲（`alarm_t - onset`）應短於漸進。若兩者的 `transition` 大量重疊，12 筆這條切線就沒有把兩種節奏分開。
 
@@ -76,4 +76,4 @@ CUSUM 累積 `(score - 1)` 的正偏移，欄位給展示看，不參與 `kind` 
 - Web 實驗頁：頁首「實驗三」，`web/experiments.py` 的 `CATALOG` 項目 `exp3` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp3`；結果存到 `output/web_server/{ts}/experiments/exp3_{時間}.json`。
 - 邊跑邊畫：頁面上的「⏵ 邊跑邊畫」改走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/{id}/stream`）逐步推送，速度 20／80／400 筆/秒可選。`iter_run()` 只多吐出中間事件，計算與 `run()` 相同；`tests/test_iter_run.py` 比對兩者輸出。兩個劇本的第 1 次重複逐筆畫出分數與 EWMA，其餘重複直接計算、只列結果。
 
-2026-10-08 整合：串流來源 PR #36 / `544d4ed8c6516622e2f46c095351f9483a61635c`，本輪只抽取實驗一／三／四，不含 health_monitor（#35 尚未修復）。計算與 main 原 run 配對後才可合入；細節見 [串流整合契約](../integration_20261008/streaming_contract.md)。
+2026-10-08 整合：串流來源 PR #36 / `544d4ed8c6516622e2f46c095351f9483a61635c`，本輪只抽取實驗一／三／四，不含 health_monitor（#35 尚未修復）。計算與 main 原 run 配對後才可合入；細節見 [串流整合契約](../../reports/Andy_20261008_分支整合/streaming_contract.md)。

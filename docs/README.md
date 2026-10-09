@@ -2,15 +2,15 @@
 
 先找操作說明：[安裝與版本紀錄](runtime_policy.md)、[CI執行與輸出](ci_contract.md)、[archive物化安全契約](formal_materialization_contract.md)、[健康監測模組](health_and_reports.md)、[導覽操作](navigation/exp24_README.md)。各頁說明程式用途、操作、預期輸出與限制。
 
-當前缺口與交付狀態請查 [GitHub issues](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues) 及各PR的受測SHA，不把歷史測試次數當成最新main驗收。文件保留用途由 [#62](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/62) 審閱。
+當前缺口與交付狀態請查 [GitHub issues](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues) 及各 PR 的受測 SHA，不把歷史測試次數當成最新 main 驗收。
 
 ## 歷史交付附件（不作現行操作手冊）
 
-以下保留當時來源及失敗紀錄，沒有據此宣稱最新狀態；是否繼續保留整個資料夾的例外理由已交由#62確認，尚未刪除或搬動封存證據。
+以下連到 reports/ 的原交付與失敗紀錄，只適用其記載日期、來源及受測版本。
 
-- [整合來源與舊驗收](integration_20261008/integration_report.md)、[歷史manifest](integration_20261008/manifest.json)。
-- [當時引用核對](issue_delivery_20261008/citation_followup.md)、[導覽驗收](issue_delivery_20261008/guide_acceptance.md)、[未擬合契約及舊回歸](issue_delivery_20261008/monitor_guard.md)。
-- [當時給老師的說明](project_closeout_20261009/README.md)、[當時執行紀錄](project_closeout_20261009/execution_log.md)。
+- [整合來源與舊驗收](../reports/Andy_20261008_分支整合/integration_report.md)、[歷史manifest](../reports/Andy_20261008_分支整合/manifest.json)。
+- [當時引用核對](../reports/Andy_20261008_議題交付/citation_followup.md)、[導覽驗收](../reports/Andy_20261008_議題交付/guide_acceptance.md)、[未擬合契約及舊回歸](../reports/Andy_20261008_議題交付/monitor_guard.md)。
+- [當時給老師的說明](../reports/Andy_20261009_主線交付/README.md)、[當時執行紀錄](../reports/Andy_20261009_主線交付/execution_log.md)。
 
 老師要看程式如何操作，先用[導覽入口與示範腳本](navigation/exp24_README.md)；歷史研究分數只在固定來源下解讀，不當成新增盲測結果。
 

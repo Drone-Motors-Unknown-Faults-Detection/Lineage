@@ -31,15 +31,15 @@ WRITERS = {
 # 僅列已由瀏覽器操作紀錄確認的外部截圖，不依 png 副檔名推斷來源。
 EXTERNAL_SCREENSHOTS = {
     **{f"output/integration_browser/{name}.png":
-       f"docs/integration_20261008/browser_qa/screenshots/{name}.png" for name in (
+       f"reports/Andy_20261008_分支整合/browser_qa/screenshots/{name}.png" for name in (
            "guide_reconnected", "guide_trend_a_done", "guide_trend_a", "guide_trend_b_done",
            "stream_batch_recovered", "stream_exp1_done", "stream_exp3_done", "stream_exp4_done",
            "stream_invalid_parameter")},
     **{f"output/web_guide/2026-10-08-21-50-53/{name}.png":
-       f"docs/issue_delivery_20261008/browser_screenshots/2026-10-08-21-50-53/{name}.png"
+       f"reports/Andy_20261008_議題交付/browser_screenshots/2026-10-08-21-50-53/{name}.png"
        for name in ("anonymous", "candidate", "confirmed", "reset_reconnected", "trend_b")},
     "output/web_guide/2026-10-08-21-55-14/trend_a.png":
-    "docs/issue_delivery_20261008/browser_screenshots/2026-10-08-21-55-14/trend_a.png",
+    "reports/Andy_20261008_議題交付/browser_screenshots/2026-10-08-21-55-14/trend_a.png",
 }
 
 
@@ -120,7 +120,7 @@ def verify_cleanup(root: Path) -> dict:
     moves = []
     for name in ("guide_qa.md", "stream_qa.md"):
         old = f"output/integration_browser/{name}"
-        new = f"docs/integration_20261008/browser_qa/{name}"
+        new = f"reports/Andy_20261008_分支整合/browser_qa/{name}"
         old_blob = subprocess.check_output(["git", "rev-parse", f"{baseline}:{old}"], cwd=root, text=True).strip()
         new_blob = subprocess.check_output(["git", "hash-object", "--path", new, new], cwd=root, text=True).strip()
         moves.append({"old": old, "new": new, "old_blob": old_blob, "new_normalized_blob": new_blob,
@@ -128,11 +128,11 @@ def verify_cleanup(root: Path) -> dict:
                       "new_exists": (root / new).is_file()})
     changed = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=MDR", baseline, "HEAD", "--", "output"],
                                       cwd=root, text=True).splitlines()
-    manifest = json.loads((root / "docs/integration_20261008/manifest.json").read_text(encoding="utf-8"))
+    manifest = json.loads((root / "reports/Andy_20261008_分支整合/manifest.json").read_text(encoding="utf-8"))
     targets = manifest["verification"]["browser_qa"]
     from tests.issue_delivery_evidence import local_links
-    documents = [root / "docs/integration_20261008/browser_qa/guide_qa.md",
-                 root / "docs/integration_20261008/browser_qa/stream_qa.md"]
+    documents = [root / "reports/Andy_20261008_分支整合/browser_qa/guide_qa.md",
+                 root / "reports/Andy_20261008_分支整合/browser_qa/stream_qa.md"]
     links = [row for document in documents for row in local_links(document, root)]
     external = verify_external_relocations(root, "791216cf5602c370091fa516264f1ce6aaad6ab1")
     expected = [row["old"] for row in moves] + list(EXTERNAL_SCREENSHOTS)

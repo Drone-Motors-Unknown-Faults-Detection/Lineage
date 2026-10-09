@@ -16,7 +16,7 @@ Related #26；本 PR 不關閉 #26，不擴大到 Albert PR #36 的待決檔案�
 
 新環境 Python 3.10.19 已有 [179 項完整測試](../../output/branch_integration/2026-10-09-12-12-10/validation.json)，0 failed/error/skipped；pip check 與四個 CLI help 成功。[17 個新增 fixture／鎖版核對](../../output/runtime_policy_evidence/2026-10-09-12-12-05/evidence.json) 無版本差異。測試使用 synthetic／暫存 fixture，資料清冊為 0，不讀 ignored data。guard 的 [11 項與 8 組](../../output/monitor_guard_evidence/2026-10-09-12-12-44/evidence.json) score／PCA 差值 0。
 
-第一次 cp950 安裝失敗、pip 私有測試 API 失敗、cloudpickle 傳遞依賴更正都保存於 [契約與實測區](../runtime_policy.md)，不刪除失敗或既有 venv。上述測試 HEAD 為 `815a548`，另有 `.gitignore` 與對應 fixture 的小幅 working-tree 更正，沒有科學程式差異。最終全新鎖版安裝仍須完成並追加證據。
+第一次 cp950 安裝失敗、pip 私有測試 API 失敗、cloudpickle 傳遞依賴更正都保存於 [契約與實測區](../../docs/runtime_policy.md)，不刪除失敗或既有 venv。上述測試 HEAD 為 `815a548`，另有 `.gitignore` 與對應 fixture 的小幅 working-tree 更正，沒有科學程式差異。最終全新鎖版安裝仍須完成並追加證據。
 
 ## 未完成與關單條件
 

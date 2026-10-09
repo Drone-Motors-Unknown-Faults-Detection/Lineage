@@ -25,7 +25,7 @@
 | 編排／畫面 | `web/guide.py`、`web/static/guide.html`、`guide.js`、`guide.css` |
 | 測試 | `tests/test_navigation_guide.py`、`tests/test_integration_navigation.py` |
 | 文件 | `docs/navigation/exp24_*.md`、流程圖 `.mmd/.svg` |
-| 紀錄／結果 | `logs/navigation_*`、`output/navigation_*`、`logs/web_guide`、`output/web_guide`；整合索引在 `docs/integration_20261008` |
+| 紀錄／結果 | `logs/navigation_*`、`output/navigation_*`、`logs/web_guide`、`output/web_guide`；整合索引在 `reports/Andy_20261008_分支整合` |
 
 ```powershell
 python -m web.guide --data-root D:/schoolshit/專題/src/Lineage/data --port 8611 --seed 42

@@ -21,7 +21,7 @@
 
 ## 檔案與備份
 
-- 給老師入口：[exp24_README](../navigation/exp24_README.md)，內含七問總覽、白話解讀與操作腳本；原逐題回覆仍在[固定研究版本](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/teacher_reply_20261005/reply.md)。
+- 給老師入口：[exp24_README](../../docs/navigation/exp24_README.md)，內含七問總覽、白話解讀與操作腳本；原逐題回覆仍在[固定研究版本](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/teacher_reply_20261005/reply.md)。
 - [整合報告](integration_report.md)、[分支矩陣](branch_inventory.md)、[機器索引](manifest.json)、[逐階段紀錄](execution_log.md)。
 - D槽證據包：`D:/schoolshit/專題/src/lineage_integration_backups/2026-10-08-134300/validated_evidence.zip`，29entries、CRC通過、SHA d62021a86273c6d6f69122a65f69ab2adce1015c6683407b024290e8798c6982。此包保存當時合併前證據，不含之後PR/merge產物；後者由本次Git文件PR封存。
 - Git備份不含data、venv、未提交修改與ignored大型模型；未將大型ZIP/raw/secrets帶入Git。回復使用核對parent後的正常revert PR，不force push或reset main。

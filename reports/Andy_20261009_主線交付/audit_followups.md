@@ -4,7 +4,7 @@
 
 ## 17 項接續判定
 
-原始反例與行號見 [上輪完整表](../issue_delivery_20261008/audit_followup.md)。`git diff 4f783c6 origin/main --` 下表涉及的科學／載入／Web／環境檔案為空；沿用相同程式的既有反例，不冒稱重跑全部舊 fixtures。重新讀 exp6 matrix、aggregate、data loader，確認檢查範圍與下列追蹤一致。來源 SHA 與函數跨度由 `python -m tests.audit_followup_evidence` 保存。
+原始反例與行號見 [上輪完整表](../Andy_20261008_議題交付/audit_followup.md)。`git diff 4f783c6 origin/main --` 下表涉及的科學／載入／Web／環境檔案為空；沿用相同程式的既有反例，不冒稱重跑全部舊 fixtures。重新讀 exp6 matrix、aggregate、data loader，確認檢查範圍與下列追蹤一致。來源 SHA 與函數跨度由 `python -m tests.audit_followup_evidence` 保存。
 
 | 發現 | 最新 main 結論 | 後續分組 |
 |---|---|---|

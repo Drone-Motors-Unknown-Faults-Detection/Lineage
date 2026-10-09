@@ -64,7 +64,7 @@ PR #50 的交付 head 為 `058affde052717213187fa72d98d7bdf3e607746`，已合併
 
 ## P1-B：環境政策第一階段
 
-先提交並 push [環境契約](../runtime_policy.md)，commit `49fec06168bfb4eb2d921a0f37b50b812fc0d75d`。正式 CPython 3.10.x 採單一 constraints；保留既有 3.10／3.12 環境，不宣稱 main 已支持 3.14。只修改共用 logger、環境紀錄、建置入口與依賴宣告，三支 health CLI 的統一入口待 #24／PR #36。
+先提交並 push [環境契約](../../docs/runtime_policy.md)，commit `49fec06168bfb4eb2d921a0f37b50b812fc0d75d`。正式 CPython 3.10.x 採單一 constraints；保留既有 3.10／3.12 環境，不宣稱 main 已支持 3.14。只修改共用 logger、環境紀錄、建置入口與依賴宣告，三支 health CLI 的統一入口待 #24／PR #36。
 
 新增環境 fixture 16 項；[178 項完整回歸、pip check、四個 CLI help](../../output/branch_integration/2026-10-09-12-02-50/validation.json) 全通過、0 failed/error/skipped；[驗證入口](../../output/runtime_policy_evidence/2026-10-09-12-02-46/evidence.json) 不讀正式資料，清冊為 0 檔。guard 另 [11 項與 8 組原版等價](../../output/monitor_guard_evidence/2026-10-09-12-03-32/evidence.json)，score／PCA 差值 0。此處受測 HEAD 為事前契約 commit，程式差異尚在 working tree，不能冒稱已封存程式 commit。
 

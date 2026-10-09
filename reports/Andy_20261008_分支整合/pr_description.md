@@ -12,7 +12,7 @@ Python3.10.19。main既有76測試、完整候選111測試均0failed/errors/skip
 
 研究defaults與core未修改：105維、Mahalanobis-LW/q95、kNN5 factory、PolarMap保留；資料唯讀60檔不是歷史90檔，未重跑2490研究。source branches、所有備份、原checkout保持，無tracked deletions／data／大型ZIP／secret提交。其他研究模組仍待主線相依驗證，保留固定來源，不升級FAILED或UNKNOWN研究結論。
 
-詳細報告 `docs/integration_20261008/integration_report.md`，機器索引manifest.json，逐批commit/ref/tests在execution_log.md。給老師入口 `docs/navigation/exp24_README.md`。D槽證據ZIP29entries全CRC通過。
+詳細報告 `reports/Andy_20261008_分支整合/integration_report.md`，機器索引manifest.json，逐批commit/ref/tests在execution_log.md。給老師入口 `docs/navigation/exp24_README.md`。D槽證據ZIP29entries全CRC通過。
 
 請以目前候選SHA核對checks/reviews；不使用admin bypass、不刪head branch。合併後fetch main再跑111項驗收與必要配對，補存delivery紀錄。
 

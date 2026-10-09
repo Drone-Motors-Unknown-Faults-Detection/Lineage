@@ -12,7 +12,7 @@ AGENT寫作文章https://www.bnext.com.tw/article/90761/how-to-fix-ai-writing-st
 
 | 階段 | 修改範圍 | 驗證 |
 |---|---|---|
-| #30 | docs/issue_delivery_20261008、health_and_reports第2.2、docs索引；tests/issue_delivery_evidence.py只作來源工具 | 固定83846b資料SHA、17項差異、現main函數行、相對檔案連結、現行完整main測試、資料清冊 |
+| #30 | reports/Andy_20261008_議題交付、health_and_reports第2.2、docs索引；tests/issue_delivery_evidence.py只作來源工具 | 固定83846b資料SHA、17項差異、現main函數行、相對檔案連結、現行完整main測試、資料清冊 |
 | #19 | 引用核對筆記、README引用表及明確主張、exp3文件註記 | 出版社／作者／合法原文，存在與內容及實作判定分開，不重訓 |
 | #37 | exp24入口／CLI／交付文件與QA產物，不改重疊Web檔案 | 瀏覽器實際操作、兩detectors各自跨入口配對、終止flush與SHA |
 | #29 | 先文件，再core/monitor.py及專屬fixture tests | prefit四入口、兩方法postfit與固定4f783c6配對、失敗fit不誤標完成、完整suite |

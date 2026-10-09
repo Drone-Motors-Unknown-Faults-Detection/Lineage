@@ -38,7 +38,7 @@ python -m tests.issue_delivery_evidence --data-root D:/schoolshit/專題/src/Lin
 - 最後完整測試：`output/branch_integration/2026-10-09-03-11-15/{validation.json,tests.txt}`、對應`logs/branch_integration/2026-10-09-03-11-15.log`。
 - guard紅／綠燈：`output/monitor_guard_evidence/2026-10-08-22-01-46`、`22-02-10`；原紅燈有subTest failures/errors，保留不改成PASS。
 - 導覽修改前後1190筆ledger：`output/navigation_regression/2026-10-08-21-52-04/summary.json`及`2026-10-09-03-13-18/summary.json`；SHA `dbae28737e288cbf46d4dedd8d352dfce884b82a28ff4daa4a9f36b94139e8e0`。
-- 外部瀏覽器截圖已移至 [docs 附件](browser_screenshots/)；模型與fit仍在`output/web_guide/2026-10-08-21-50-53`、`21-55-14`。3CSV尾筆423／160／260與19檔SHA的歷史核對：`output/guide_delivery_evidence/2026-10-08-21-59-04/evidence.json`（保留當時路徑，搬移後對照由`tests.output_inventory_evidence`產生）。
+- 外部瀏覽器截圖已移至 [驗收附件](browser_screenshots)；模型與fit仍在`output/web_guide/2026-10-08-21-50-53`、`21-55-14`。3CSV尾筆423／160／260與19檔SHA的歷史核對：`output/guide_delivery_evidence/2026-10-08-21-59-04/evidence.json`（保留當時路徑，搬移後對照由`tests.output_inventory_evidence`產生）。
 - 來源與相對目標：`output/issue_delivery_evidence/2026-10-09-03-13-37/evidence.json`，73個檔案目標0失效；不等同全部歷史遠端連結／Markdown錨點皆通過。
 
 ## 排除的重疊與後續
@@ -49,6 +49,6 @@ PR36仍open，head544d4ed；沒有修改`web/server.py`、`web/static/index.html
 
 下一個可獨立安排的小任務是#25：先固定已存健康評估資料、指紋與指標定義，再重算aggregate並核對逐run一致；本輪只建議，不宣稱已接手，也不與R1的formal exp6完整性問題混同。#26環境決策另排，#27依賴該決策。
 
-給老師的入口：[七問導覽](../navigation/exp24_README.md)，原始逐題回覆仍在[固定研究提交](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/teacher_reply_20261005/reply.md)。本輪是工程交付，不代表已取得可靠跨馬達fault-type模型或RUL。
+給老師的入口：[七問導覽](../../docs/navigation/exp24_README.md)，原始逐題回覆仍在[固定研究提交](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/b3d68f145cfa187e208e38cae74bf33f68d7c367/reports/teacher_reply_20261005/reply.md)。本輪是工程交付，不代表已取得可靠跨馬達fault-type模型或RUL。
 
 Co-authored-by: Codex <noreply@openai.com>

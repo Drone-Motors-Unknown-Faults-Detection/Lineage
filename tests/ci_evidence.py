@@ -25,9 +25,9 @@ CLIS = ("experiments.exp1_cold_start", "experiments.exp2_scale_growth",
         "experiments.compare_openset", "experiments.exp6_formal_benchmark", "web.server")
 DOCUMENTS = ("TODO.md", "docs/README.md", "docs/health_and_reports.md",
              "docs/runtime_policy.md", "docs/ci_contract.md",
-             "docs/project_closeout_20261009/README.md",
-             "docs/project_closeout_20261009/execution_log.md",
-             "docs/project_closeout_20261009/runtime_delivery.md")
+             "reports/Andy_20261009_主線交付/README.md",
+             "reports/Andy_20261009_主線交付/execution_log.md",
+             "reports/Andy_20261009_主線交付/runtime_delivery.md")
 
 
 def execute(arguments: list[str], timeout: int = 600, tool: str | None = None) -> dict:

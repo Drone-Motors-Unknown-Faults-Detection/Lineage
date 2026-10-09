@@ -24,7 +24,7 @@ python -m tests.integration_evidence --phase candidate --data-root D:/schoolshit
 - reload後session1/epoch1及423筆、兩known保留。重設操作曾遇瀏覽器工具逾時，後續log21:55:05及重新開頁一致顯示epoch2、0筆、只健康，證明重設最終完成；不掩飾工具操作延遲。
 - kNN乾淨健康基準播放A，260筆後自動暫停，顯示gradual t100／中間帶33／延遲60筆。Maha重設後播放B，結果另見同目錄產物與下方落盤核對。這是兩方法的功能操作，不以不同方法A/B成績作相互勝負。
 
-外部瀏覽器截圖在 [docs 附件](browser_screenshots/)，包括anonymous、candidate、confirmed、reset_reconnected、trend_a與trend_b；原始模型／fit檔仍在`output/web_guide/2026-10-08-21-50-53`及`21-55-14`。終止前暫停，最後關閉client／server後核對CSV與model尾筆，詳見執行紀錄。截圖不包含未匿名化的確認前答案；截圖搬移沒有改模型或CSV。
+外部瀏覽器截圖在 [驗收附件](browser_screenshots)，包括anonymous、candidate、confirmed、reset_reconnected、trend_a與trend_b；原始模型／fit檔仍在`output/web_guide/2026-10-08-21-50-53`及`21-55-14`。終止前暫停，最後關閉client／server後核對CSV與model尾筆，詳見執行紀錄。截圖不包含未匿名化的確認前答案；截圖搬移沒有改模型或CSV。
 
 ## 逐筆跨入口配對
 
