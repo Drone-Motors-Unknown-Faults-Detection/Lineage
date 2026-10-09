@@ -12,9 +12,9 @@ python -m web.guide --data-root D:/schoolshit/專題/src/Lineage/data --port 860
 
 開啟 http://127.0.0.1:8601 。先選T1/8000rpm、確認資料、建立健康基準。預設LW／q95，kNN另用--openset-method knn，仍透過原factory。換方法需新server/session，不暗改目前模型。
 
-這是獨立導覽入口，沒有取代原python -m web.server／8600。2026-10-08 另從PR #36部分抽取exp1/3/4串流，健康監測串流因#35仍排除；詳見[整合紀錄](../integration_20261008/execution_log.md)。使用者只需瀏覽器，不需VSCode。
+這是獨立導覽入口，沒有取代原python -m web.server／8600。使用者只需瀏覽器，不需VSCode。歷史抽取範圍見[整合紀錄](../integration_20261008/execution_log.md)，不要把當時排除清單當成最新main功能表。
 
-目前main已整合`web.guide`，根README也有文件入口與啟動命令；原`web/static/index.html`尚未加入導覽按鈕。#37最後的「主線首頁整合」仍未完成，不因獨立服務能開啟就勾選。原首頁的最小後續需求是加入獨立服務的操作提示／入口，須先協調PR36重疊檔案，本輪不修改。實際本輪驗收與資料範圍見[導覽驗收](../issue_delivery_20261008/guide_acceptance.md)。
+main有`web.guide`與根README啟動命令；原首頁直接導覽入口由[#37](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/37)追蹤，不因獨立服務能開啟就勾選。PR36已關閉，不能再把「等待PR36合併」當成現行前置條件。歷史驗收與資料範圍見[導覽驗收](../issue_delivery_20261008/guide_acceptance.md)，各操作仍以現行程式及實際測試為準。
 
 健康-only展示與跨馬達多類研究分開。學會前未知拒絕率、學會後已知接受率與自身配置分類accuracy不同；不提供無真值的損壞百分比、RUL或部署保證。
 

@@ -1,18 +1,18 @@
 # docs/ 文件索引
 
-#26 接續：[正式 Python／依賴與環境紀錄契約](runtime_policy.md)、[第一階段工程與剩餘入口缺口](project_closeout_20261009/runtime_delivery.md)。#30 已完成追蹤交付並關單，新 #43–#49 的缺陷仍待修補。
+先找操作說明：[安裝與版本紀錄](runtime_policy.md)、[CI執行與輸出](ci_contract.md)、[archive物化安全契約](formal_materialization_contract.md)、[健康監測模組](health_and_reports.md)、[導覽操作](navigation/exp24_README.md)。各頁說明程式用途、操作、預期輸出與限制。
 
-2026-10-08 issue交付：[17項稽核差異](issue_delivery_20261008/audit_followup.md)、[執行紀錄](issue_delivery_20261008/execution_log.md)。此輪僅透過PR交付，不自行合併或關issue。
+當前缺口與交付狀態請查 [GitHub issues](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues) 及各PR的受測SHA，不把歷史測試次數當成最新main驗收。文件保留用途由 [#62](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/62) 審閱。
 
-2026-10-09 主線狀態：[本輪驗收與 commit](project_closeout_20261009/execution_log.md)、[給老師的完成／限制說明](project_closeout_20261009/README.md)。PR #40/#41 已合併，main 最後 162 項測試通過；#29/#25 completed，兩項彙總差異保留，#19 引用缺口、#37 原首頁入口仍未完成。先前 [四項交付](issue_delivery_20261008/delivery.md) 保留其日期狀態。
+## 歷史交付附件（不作現行操作手冊）
 
-引用收尾：[文獻與程式對照／剩餘未核實清單](issue_delivery_20261008/citation_followup.md)。
+以下保留當時來源及失敗紀錄，沒有據此宣稱最新狀態；是否繼續保留整個資料夾的例外理由已交由#62確認，尚未刪除或搬動封存證據。
 
-#30 接續：[最新17項判定與七個追蹤議題](project_closeout_20261009/audit_followups.md)，R5/R6/R9 已補入既有 #27/#28/#26，原稽核與負面證據不覆寫。
+- [整合來源與舊驗收](integration_20261008/integration_report.md)、[歷史manifest](integration_20261008/manifest.json)。
+- [當時引用核對](issue_delivery_20261008/citation_followup.md)、[導覽驗收](issue_delivery_20261008/guide_acceptance.md)、[未擬合契約及舊回歸](issue_delivery_20261008/monitor_guard.md)。
+- [當時給老師的說明](project_closeout_20261009/README.md)、[當時執行紀錄](project_closeout_20261009/execution_log.md)。
 
-導覽收尾：[實際操作與配對驗收](issue_delivery_20261008/guide_acceptance.md)。API防護：[未擬合契約與固定版本回歸](issue_delivery_20261008/monitor_guard.md)。
-
-2026-10-08 分支整合：[驗收報告](integration_20261008/integration_report.md)、[分支矩陣](integration_20261008/branch_inventory.md)、[機器索引](integration_20261008/manifest.json)。main 合併證據以後續 delivery 紀錄為準；未整合研究保留固定來源。
+老師要看程式如何操作，先用[導覽入口與示範腳本](navigation/exp24_README.md)；歷史研究分數只在固定來源下解讀，不當成新增盲測結果。
 
 > 實驗的白話說明在 [實驗說明手冊](Experiments_Guide.md)。
 > 對程式的技術報告在 [experiments/](experiments/README.md)。
@@ -58,7 +58,7 @@
 | 文件 | 內容 |
 |---|---|
 | [exp8_health_monitoring_workflow](exp8_health_monitoring_workflow.md) | 實驗八總覽：Level A 資料能力、Health Index、趨勢/告警、正式 9×3×2 結果、限制與 CLI |
-| [health_and_reports](health_and_reports.md) | `experiments/health/` 各模組與呼叫端、兩套趨勢邏輯的差別、`reports/` 保留的實驗八結果與已刪除稽核紀錄的取回連結 |
+| [health_and_reports](health_and_reports.md) | `experiments/health/` 各模組、兩套趨勢的差別、CLI輸出位置與封存結果讀法 |
 
 ## 論文版管線文件（程式碼在 Ancestor）
 
