@@ -71,3 +71,5 @@ PR #50 的交付 head 為 `058affde052717213187fa72d98d7bdf3e607746`，已合併
 乾淨安裝第一輪在 pip 23 的 cp950 解碼失敗；新增 UTF-8 coding 宣告與回歸，失敗環境及產物保留。第二個新目錄安裝仍須驗證。POSIX 腳本在受限權限下無法啟動 Git Bash；正常權限 `bash -n` 成功，只代表語法，不代表 Linux／macOS 安裝完成。#26 尚未完成每支入口覆蓋，不關單。
 
 程式 commit `815a548e29ee427387b33c14229feb1fe32efdb0` 已 push 並核對。最終全新環境與179項結果、兩次文件檢查及失敗原因見 [環境交付](runtime_delivery.md)。實驗／Web 相對基線的 diff 為空，core 只新增環境模組與 logger sidecar；不改正式105維資料或模型預設。只更新預設新 venv 的忽略規則與文件驗證範圍。交付 PR 不使用自動關 #26 的關鍵字。
+
+PR #51 的 head `26320e7...` 已合 main `3ceea37ab1d4b52b7a414a74310eec8401b5b751`；合併後179項、pip／四個CLI、17環境fixture、版本核對、11guard與8組配對，以及7文件109目標全部成功，見 [固定產物連結與限制](runtime_delivery.md)。#26不關單。main差異338檔備份到D槽，逐檔解壓SHA一致、ZIP CRC檢查成功；第一次36檔不完整包保留並標FAILED，見 [機器索引](backup_manifest.json)。
