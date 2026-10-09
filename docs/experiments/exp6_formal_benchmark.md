@@ -2,6 +2,8 @@
 
 這支runner只用健康建立基準，透過同一個core.openset factory比較兩種偵測器，保留設定與工況指標。它與[八方法廣度比較](exp6_osr_benchmark.md)分開；不是多類故障配置分類，也不修改正式預設。
 
+這份手冊給執行實驗六正式版的組員，回答資料如何切分、如何建立模型、如何執行與解讀輸出。`docs/experiments/README.md`、`docs/README.md` 及 `web/experiments.py:CATALOG[exp6_formal].doc` 引用本頁；runner 不讀取 Markdown，也不從本頁取得模型參數。完整欄名與通用載入拒絕政策另見[正式特徵契約](../formal_feature_schema_contract.md)，本頁只說明實驗六如何使用該契約。
+
 ## 資料、切分與模型
 
 從data-root掃描105維clean特徵。CLI要求九個不同motor／RPM組合，API require_nine=False可作部分工程測試；九個數量通過不等於已驗證指定三馬達×三RPM全格、來源或視窗獨立。列的物理語意、未知單位與loader限制見[實驗一](exp1_cold_start.md#資料與載入)。

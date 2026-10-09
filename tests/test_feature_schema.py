@@ -43,6 +43,8 @@ class FeatureSchemaTests(unittest.TestCase):
         spec = json.loads((ROOT / "docs/formal_feature_schema.json").read_text(encoding="utf-8"))
         self.assertEqual({k: list(v) for k, v in SCHEMAS.items()}, spec["schemas"])
         self.assertEqual(list(SCHEMAS["adapter_generated_v1"]), FEATURE_NAMES)
+        self.assertEqual(spec["runtime_source"], "core/feature_schema.py:SCHEMAS")
+        self.assertEqual(spec["operation_manual"], "docs/formal_feature_schema_contract.md")
 
     def test_both_exact_versions_bom_numeric_values_and_split_unchanged(self):
         values = np.random.default_rng(42).normal(size=(32, 105))

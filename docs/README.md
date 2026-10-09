@@ -4,6 +4,8 @@
 
 當前缺口與交付狀態請查 [GitHub issues](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues) 及各 PR 的受測 SHA，不把歷史測試次數當成最新 main 驗收。
 
+匯入105維 CSV 前先讀[正式特徵載入契約](formal_feature_schema_contract.md)與[完整欄名清冊](formal_feature_schema.json)；清冊供維護者與測試比對，runtime 規則在 `core/feature_schema.py`。
+
 ## 歷史交付附件（不作現行操作手冊）
 
 以下連到 reports/ 的原交付與失敗紀錄，只適用其記載日期、來源及受測版本。
