@@ -111,6 +111,22 @@ class PersistenceTests(unittest.TestCase):
             self.hub.close()
             self.assertEqual([c[0] for c in calls.mock_calls], ["wait", "close"])
 
+    def test_busy_snapshot_does_not_read_mutating_model(self):
+        self.ticks(3)
+        self.hub.pause()
+        self.hub._busy_state = self.hub.full_state()
+        self.hub.busy = True
+        with patch.object(self.demo, "state", side_effect=AssertionError("不可讀取 worker")), patch.object(
+                self.demo, "metrics_msg", side_effect=AssertionError("不可讀取 worker")):
+            state = self.hub.full_state()
+            self.assertTrue(state["busy"])
+            self.assertEqual(state["metrics"]["t"], 3)
+
+    def test_ctrl_c_uses_same_shutdown(self):
+        self.ticks(3)
+        serve(Mock(start=Mock(side_effect=KeyboardInterrupt)), self.hub)
+        self.assertEqual(len(self.rows()), 3)
+
     def test_flush_failure_does_not_acknowledge_pause(self):
         self.ticks(3)
         with patch.object(self.demo._sample_file, "flush", side_effect=OSError("測試寫入失敗")):

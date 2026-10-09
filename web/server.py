@@ -63,6 +63,7 @@ class Hub:
         self.busy = False
         self.error = None
         self.closed = False
+        self._busy_state = None
         self.rate = rate
         self.periodic: tornado.ioloop.PeriodicCallback | None = None
         self.executor = ThreadPoolExecutor(max_workers=1)
@@ -78,6 +79,8 @@ class Hub:
                 self.clients.discard(client)
 
     def full_state(self) -> dict:
+        if self.busy and self._busy_state is not None:
+            return {**self._busy_state, "busy": True, "running": False}
         state = self.demo.state()
         state.update({
             "type": "state",
@@ -303,8 +306,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
     def open(self) -> None:
         HUB.clients.add(self)
-        self.write_message(json.dumps(HUB.full_state(), ensure_ascii=False))
-        self.write_message(json.dumps(HUB.demo.metrics_msg(), ensure_ascii=False))
+        state = HUB.full_state()
+        self.write_message(json.dumps(state, ensure_ascii=False))
+        self.write_message(json.dumps(state["metrics"], ensure_ascii=False))
 
     def on_close(self) -> None:
         HUB.close_client(self)
@@ -356,6 +360,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             HUB.event("warn", f"{label}略過：另一項工作進行中")
             return
         HUB.pause()
+        HUB._busy_state = HUB.full_state()
         HUB.busy = True
         HUB.broadcast(HUB.full_state())
         loop = tornado.ioloop.IOLoop.current()

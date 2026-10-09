@@ -201,8 +201,6 @@ class GuideSocket(tornado.websocket.WebSocketHandler):
     def open(self):
         self.hub.clients.add(self)
         self.hub.broadcast(self.hub.full_state())
-        if self.hub.demo:
-            self.hub.broadcast(self.hub.demo.metrics_msg())
 
     def on_close(self):
         self.hub.close_client(self)
