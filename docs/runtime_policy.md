@@ -8,13 +8,13 @@
 
 選用單一 `runtime-constraints.txt`，不另外維護 uv.lock。`pyproject.toml` 宣告直接依賴的可維護範圍；constraints 固定正式環境的直接、傳遞與建置工具版本。安裝必須顯式傳 `-c runtime-constraints.txt`；單獨 `pip install .` 不能稱為鎖版重現。constraints 控制版本、不自動要求安裝所有列出的套件，依 [pip 官方說明](https://pip.pypa.io/en/stable/user_guide/#constraints-files)。本輪固定版本，尚無 wheel 雜湊或離線封存，不宣稱位元級供應鏈重現。
 
-八個現有直接依賴都有現行 import：numpy、pandas、matplotlib、scipy、scikit-learn、hdbscan、loguru、tornado。既有環境的 cloudpickle 未被本專案或這八項的正式依賴使用，不納入新的最小環境。TensorFlow／Jupyter 的 legacy extras 保留為歷史相容入口，**不屬於本輪正式 lock 的驗證範圍**，不修改 Ancestor。
+八個現有直接依賴都有現行 import：numpy、pandas、matplotlib、scipy、scikit-learn、hdbscan、loguru、tornado。直接依賴保留八項；完整傳遞依賴以真實新安裝與 metadata 再核，不只檢查第一層。TensorFlow／Jupyter 的 legacy extras 保留為歷史相容入口，**不屬於本輪正式 lock 的驗證範圍**，不修改 Ancestor。
 
 ## 安裝契約
 
 使用 [Python 官方 venv](https://docs.python.org/3/library/venv.html) 建立新的目錄，已存在的目錄一律拒絕，不刪除或覆寫既有 venv。Windows 增加 `build_uv.ps1`；Linux／macOS 保留原 shell 入口名稱，使用明確 Python executable、相同 constraints 與 `python -m pip`。安裝建置工具後用 `--no-build-isolation`，避免另一套未鎖定的建置依賴。
 
-Windows 預定入口：
+Windows 預定入口（PowerShell 7）：
 
 ```powershell
 ./build_uv.ps1 -Python 'C:/path/to/python3.10.exe' -VenvDir '.venv310'
@@ -54,3 +54,11 @@ POSIX 預定入口（尚未在本機驗證）：
 ## 實測區
 
 尚未執行新的安裝／程式測試；結果待本階段實作追加。
+
+第一輪既有環境已完成 13 個新增 fixture 與完整 175 項測試，0 failed/error/skipped，pip check／四個 CLI help 成功。真實乾淨安裝第一次在 pip 23.0.1 的 cp950 預設解碼失敗；[失敗產物](../output/runtime_policy_evidence/2026-10-09-11-59-40/evidence.json) 與該新環境保留。修正 constraints 的 UTF-8 coding 宣告並新增最小回歸，第二次必須使用另一個全新目錄，不覆寫失敗環境。這是安裝問題，未涉及資料或模型。
+
+第二次 [實際安裝成功](../output/runtime_policy_evidence/2026-10-09-12-01-15/evidence.json)。原先只盤點八項直接依賴的 metadata，誤判 cloudpickle 不必要；新環境解析結果與 `joblib 1.6.0` 的 `Requires-Dist: cloudpickle>=3.0` 證實它是第二層正式依賴。已補固定 `cloudpickle==3.1.2`，新增完整 active dependency closure 回歸。此更正以實際安裝證據為準，不為了精簡去刪除必要套件；最終鎖版仍須再驗證。
+
+新環境第一次測試 [失敗紀錄](../output/runtime_policy_evidence/2026-10-09-12-06-39/evidence.json) 是測試引用 pip 23 的私有解碼模組，該模組在固定 pip 25.3 已移除。正式依賴版本均相符，工程測試仍記 FAILED；修正 fixture 改驗公開的 coding 宣告與標準庫解碼，不依賴 pip 私有 API。新乾淨安裝仍會從 bootstrap pip 23 實際讀取這份檔案，提供真正安裝回歸。
+
+修正後新環境 `lineage_clean310_20261009_retry1` 完成 [179 項全套測試](../output/branch_integration/2026-10-09-12-08-25/validation.json)，0 failed/error/skipped，pip check 與四個 CLI help 成功；[17 個環境 fixture 與固定版本核對](../output/runtime_policy_evidence/2026-10-09-12-08-22/evidence.json) 無 constraints 差異。guard [11 項及 8 組](../output/monitor_guard_evidence/2026-10-09-12-08-53/evidence.json) 與封存基線相同，score／PCA 最大差值均為 0。這些產物是在事前契約 HEAD `49fec06` 加上程式 working-tree 差異下執行，正式程式 commit 封存後另測。

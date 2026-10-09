@@ -59,3 +59,13 @@ PR #41 經 `471c04b...` 更新至 PR #40 後 main，兩側文件索引保留。�
 PR #50 的交付 head 為 `058affde052717213187fa72d98d7bdf3e607746`，已合併至 main `ebb702dae4fe2a79df44d78738d1412b0c24bd2e`。在該 main 執行 `tests.integration_evidence --phase post_merge`：[162 passed，0 failed/error/skipped，pip check 與四個 CLI help 成功](../../output/branch_integration/2026-10-09-11-46-21/validation.json)。另外驗證 [5 份文件／83 個相對目標](../../output/project_closeout_evidence/2026-10-09-11-46-19/evidence.json) 與 [16 份來源／18 個相對目標](../../output/audit_followup_evidence/2026-10-09-11-46-20/evidence.json)，失效目標均為 0。
 
 這些產物經獨立交付分支保存並 push，再以固定 commit 連結發布 #30 完成留言。#30 的完成範圍是逐項核對、去重追蹤與第 2.2 節文件；#43–#49 的程式缺陷仍未修復，PERF 尚無 profiling，SEC-003 的 root escape 仍未確認。PR #36 未獲作者新回覆，不修改其待決檔案。
+
+#30 已於本輪留言後設為 closed/completed，兩個未勾選項改為已勾選，API 回讀確認；[完成留言](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/30#issuecomment-6073908573)。固定證據 commit `4b258c944ec6cbb1ce636cf87825b92824407be6` 已 push，與遠端 SHA 相同。
+
+## P1-B：環境政策第一階段
+
+先提交並 push [環境契約](../runtime_policy.md)，commit `49fec06168bfb4eb2d921a0f37b50b812fc0d75d`。正式 CPython 3.10.x 採單一 constraints；保留既有 3.10／3.12 環境，不宣稱 main 已支持 3.14。只修改共用 logger、環境紀錄、建置入口與依賴宣告，三支 health CLI 的統一入口待 #24／PR #36。
+
+新增環境 fixture 16 項；[178 項完整回歸、pip check、四個 CLI help](../../output/branch_integration/2026-10-09-12-02-50/validation.json) 全通過、0 failed/error/skipped；[驗證入口](../../output/runtime_policy_evidence/2026-10-09-12-02-46/evidence.json) 不讀正式資料，清冊為 0 檔。guard 另 [11 項與 8 組原版等價](../../output/monitor_guard_evidence/2026-10-09-12-03-32/evidence.json)，score／PCA 差值 0。此處受測 HEAD 為事前契約 commit，程式差異尚在 working tree，不能冒稱已封存程式 commit。
+
+乾淨安裝第一輪在 pip 23 的 cp950 解碼失敗；新增 UTF-8 coding 宣告與回歸，失敗環境及產物保留。第二個新目錄安裝仍須驗證。POSIX 腳本在受限權限下無法啟動 Git Bash；正常權限 `bash -n` 成功，只代表語法，不代表 Linux／macOS 安裝完成。#26 尚未完成每支入口覆蓋，不關單。

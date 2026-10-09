@@ -11,11 +11,14 @@
 from __future__ import annotations
 
 import sys
+import json
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 
 from loguru import logger
+
+from core.runtime_environment import collect_environment
 
 
 @dataclass
@@ -57,6 +60,12 @@ def setup_run(program: str, make_output: bool = True):
     logger.info(f"log_file={log_file}")
     if output_dir is not None:
         logger.info(f"output_dir={output_dir}")
+    environment = collect_environment()
+    if output_dir is not None:
+        (output_dir / "environment.json").write_text(
+            json.dumps(environment, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    else:
+        logger.info("執行環境：{}", json.dumps(environment, ensure_ascii=False, sort_keys=True))
     return logger, paths
 
 

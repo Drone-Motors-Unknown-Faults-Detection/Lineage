@@ -1,21 +1,21 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=79,<80", "wheel>=0.45,<0.46"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "lineage"
 version = "0.2.0"
-requires-python = "==3.10.19"
+requires-python = ">=3.10,<3.11"
 # 冷啟動 PHM 專題（core / experiments / web）的依賴——不需要 TensorFlow 與 GPU
 dependencies = [
-    "numpy",
-    "pandas",
-    "matplotlib",
-    "scipy",
-    "scikit-learn",
-    "hdbscan",
-    "loguru",
-    "tornado",
+    "numpy>=2.2,<2.3",
+    "pandas>=2.3,<2.4",
+    "matplotlib>=3.10,<3.11",
+    "scipy>=1.15,<1.16",
+    "scikit-learn>=1.7,<1.8",
+    "hdbscan>=0.8.44,<0.9",
+    "loguru>=0.7.3,<0.8",
+    "tornado>=6.5,<6.6",
 ]
 
 [project.optional-dependencies]
