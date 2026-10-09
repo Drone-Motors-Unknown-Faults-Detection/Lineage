@@ -102,7 +102,7 @@ def verify_cleanup(root: Path) -> dict:
     manifest = json.loads((root / "docs/integration_20261008/manifest.json").read_text(encoding="utf-8"))
     targets = manifest["verification"]["browser_qa"]
     from tests.issue_delivery_evidence import local_links
-    documents = [root / "docs/output_cleanup_20261009.md", root / "docs/integration_20261008/browser_qa/guide_qa.md",
+    documents = [root / "docs/integration_20261008/output_inventory_20261009.md", root / "docs/integration_20261008/browser_qa/guide_qa.md",
                  root / "docs/integration_20261008/browser_qa/stream_qa.md"]
     links = [row for document in documents for row in local_links(document, root)]
     return {"baseline": baseline, "moves": moves, "changed_output_paths": changed,
@@ -113,7 +113,7 @@ def verify_cleanup(root: Path) -> dict:
 
 def run(root: Path) -> dict:
     result = inspect(root)
-    if (root / "docs/output_cleanup_20261009.md").is_file():
+    if (root / "docs/integration_20261008/output_inventory_20261009.md").is_file():
         result["cleanup_verification"] = verify_cleanup(root)
     log, paths = setup_run("output_inventory_evidence")
     (paths.output_dir / "inventory.json").write_text(
