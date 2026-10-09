@@ -48,3 +48,5 @@ main經setup_run寫logs/exp4_polar_map/{ts}.log與output/exp4_polar_map/{ts}/，
 LW與馬氏距離來源見[實驗一](exp1_cold_start.md#方法來源與程式定位)。Spearman（1904），*The Proof and Measurement of Association between Two Things*，American Journal of Psychology15(1),72–101，[DOI](https://doi.org/10.2307/1412159)。健康白化、射線、tau與三種severity組合是Lineage操作方法，不宣稱上述論文提出整個PolarMap。
 
 [exp4](../../experiments/exp4_polar_map.py)負責三部分與writer；[core/geometry](../../core/geometry.py)實作射線；[core/monitor](../../core/monitor.py)供known切分與scaler；[web/experiments](../../web/experiments.py)編排。驗證入口為[test_geometry](../../tests/test_geometry.py)、[test_stream_integration](../../tests/test_stream_integration.py)、[test_web_experiments](../../tests/test_web_experiments.py)。視覺幾何測試不能證明獨立馬達泛化或損壞標定。
+
+串流停止、錯誤復原與模型有效狀態見[Web 串流生命週期](README.md#web-串流生命週期)及[共用模型生命週期](README.md#共用模型生命週期)。當次串流整合來源與配對證據見[固定交付紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/integration_20261008/integration_report.md)。

@@ -128,3 +128,24 @@ def test_existing_indexes_reach_all_current_handbooks():
         assert handbooks.issubset(linked), (index.name, handbooks - linked)
         assert "13個現行實驗編號" in text
         assert "19份方法" in text
+
+
+def test_main_lifecycle_and_report_links_survive_handbook_sync():
+    """手冊整合必須保留主線共用契約與交付附件入口。"""
+    index = (DOCS / "README.md").read_text(encoding="utf-8")
+    assert {"共用模型生命週期", "web-串流生命週期"}.issubset(anchors(index))
+    assert "uv run --locked python -m web.server" in index
+    for name in ("exp1_cold_start.md", "exp3_trend.md", "exp4_polar_map.md"):
+        text = (DOCS / name).read_text(encoding="utf-8")
+        assert "README.md#web-串流生命週期" in text, name
+        assert "README.md#共用模型生命週期" in text, name
+    trend = (DOCS / "exp3_trend.md").read_text(encoding="utf-8")
+    assert "../health_and_reports.md#兩套趨勢" in trend
+    health = (DOCS / "exp8_health_monitor.md").read_text(encoding="utf-8")
+    for anchor in ("模組資料流", "reports與預期成果"):
+        assert f"../health_and_reports.md#{anchor}" in health
+    navigation = (DOCS / "exp24_experiment_navigation.md").read_text(encoding="utf-8")
+    assert "../../reports/Andy_20261008_分支整合/manifest.json" in navigation
+    docs_index = (ROOT / "docs/README.md").read_text(encoding="utf-8")
+    assert "../../reports/" not in docs_index
+    assert "[重算驗證與給老師的說明](experiments/exp8_health_index_aggregate_delivery.md)" not in docs_index

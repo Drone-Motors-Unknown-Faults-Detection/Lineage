@@ -26,13 +26,33 @@
 | 實驗十二 | [exp12_confusion_tsne](exp12_confusion_tsne.md) | `experiments/exp12_confusion_tsne.py` | 開集混淆矩陣與 t-SNE 視覺化，模型區分正常與故障的效果看不看得出來 |
 | 實驗二十四 | [exp24_experiment_navigation](exp24_experiment_navigation.md) | `experiments/navigation_data_contract.py`、`navigation_regression.py` | 獨立導覽與原主線計算是否一致；整理歷史七問，不新增研究成績 |
 
+實驗七比較同條件開集方法；實驗八提供健康量尺與趨勢。
+
 實驗九～十二依序檢查非線性重建、跨工況平移、Ancestor協定對照及可視化。實驗十的direct與adapted／scratch不完全共用測試健康列；實驗十一的legacy分類label固定為-1，與逐類LW的分差混合了分類API差異，不能直接解讀成共變異數估計帶來的改善。實驗十二的t-SNE使用包含known fit列的完整資料池，只作圖像診斷。各手冊列出實際流程與固定產物；入口存在不等於獨立驗收通過。
+
+## 共用模型生命週期
+
+`core.monitor.OpenSetMonitor` 建構後尚未擬合。`score()`、`classify()`、`project()`、`summary()` 都要求完整成功的擬合，否則丟出 `RuntimeError` 並要求成功呼叫 `fit_initial()`。健康基準只用 healthy train 擬合 scaler、detector 與 PCA，known calibration 設門檻；未知資料不參與擬合與校準。
+
+`fit_initial()` 與 `_refit()` 開始即撤銷有效旗標，所有模型及摘要狀態完成後才恢復。重擬合失敗時禁止混用前次模型與新 scaler；操作者須明確重新建立健康基準。`add_class()` 使用已確認配置的完整資料池重新擬合，沒有原子回滾保證；失敗後已改動的 known／splits 不能當作有效模型。無效或重複配置若在註冊前被拒，原模型仍可使用。
+
+`holdout(config)` 只讀既有 splits，不使用推論 guard，未註冊配置保留 `KeyError`。成功擬合後，Mahalanobis-LW／k-NN 均以正規化分數大於 1 拒絕；PolarMap 幾何不受本生命週期說明改動。回歸入口為 `tests/test_monitor_guard.py`、`tests/test_openset.py` 與 `tests/test_geometry.py`。
+
+## Web 串流生命週期
+
+`web.experiments.CATALOG` 的 stream 旗標決定可播放的實驗：exp1、exp3、exp4、exp8_monitor。既有 `run()` 批次與 `iter_run()` 逐步計算共用實驗邏輯；展示編排不自行計算另一套指標。使用 `uv run --locked python -m web.server --bind-address 127.0.0.1 --data-root data --port 8600` 啟動本機展示，再在實驗卡片選批次執行或「邊跑邊畫」。
+
+`GET /api/experiments/{id}/stream` 接受 JSON 物件 params 與有限 rate；速率限制在 1～1000 筆／秒，只控制播放節奏。SSE 事件從 start 開始，再推送 scores／tick／window 等實驗事件，完成才發 done。done 的 payload 已由 runner 存入 `output/web_server/{時間戳}/experiments/`，帶 `streamed: true`；停止或失敗沒有 done 就不得當作完整結果。
+
+批次與 SSE 使用同一執行鎖，另一工作執行中即拒絕。瀏覽器停止或斷線時中止後續播放；已交給 executor 的一次計算可能仍需完成。finally 關閉 generator，即使 close 丟例外也釋放鎖。完成、取消或錯誤後，待伺服器釋放鎖再重試；不能以重新點擊掩蓋中斷。回歸入口為 `tests/test_stream_integration.py`、`tests/test_iter_run.py`、`tests/test_health_monitor.py`。
+
+獨立導覽另用 [UI 操作腳本](../navigation/exp24_UI操作腳本.md) 的 WebSocket session：重連不自動播放，模型失敗須明確重設或重建。兩個入口均為 CSV 重播，不保證實體時間、原始視窗獨立或部署誤報率。現行 server／guide 的部分錯誤會把例外文字傳給 client，可能包含私人路徑；這項限制仍由 [#28](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/28) 追蹤，不能宣稱全部錯誤回應已去敏。
 
 ## 各實驗的檔案位置
 
 實驗八重算補充：`experiments/health_index_aggregate.py`、`tests/test_health_index_aggregate.py`、`docs/experiments/exp8_health_index_aggregate_contract.json`；紀錄寫入 `logs/exp8_health_index_aggregate/` 與 `output/exp8_health_index_aggregate/`，不經 web 層。
 
-一個實驗的程式常分散在 `experiments/`、`core/`、`experiments/health/`、`web/`、`tests/` 與 `reports/`。2026-10-03 刪除的稽核紀錄不列在表內，清單見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。下表列出每個實驗用到的全部位置；各報告的「程式碼與輸出」節有逐函式說明。
+一個實驗的程式常分散在 `experiments/`、`core/`、`experiments/health/`、`web/`、`tests/` 與 `reports/`。下表列出入口與相關位置；健康監測的封存結果讀法見[reports與預期成果](../health_and_reports.md#reports與預期成果)，各手冊的「程式碼與輸出」節說明用途。
 
 | 編號 | 入口 | 邏輯 | 測試 | Web | 已提交的紀錄與結果 | 其他文件 |
 |---|---|---|---|---|---|---|
@@ -48,7 +68,7 @@
 | 實驗十 | `experiments/exp10_transfer.py` | `core/monitor.py`、`core/data.py` | `tests/test_exp10_transfer.py` | 無 | `logs/exp10_transfer/`、`output/exp10_transfer/` | 無 |
 | 實驗十一 | `experiments/exp11_ancestor_comparison.py` | `core/monitor.py`、`core/mahalanobis.py`、`core/data.py` | `tests/test_exp11_ancestor_comparison.py` | 無 | `logs/exp11_ancestor_comparison/`、`output/exp11_ancestor_comparison/` | `docs/Mahalanobis_Improvement.md`（歷史對照） |
 | 實驗十二 | `experiments/exp12_confusion_tsne.py` | `experiments/exp11_ancestor_comparison.py`（匯入 `build_ancestor_monitor`）、`core/monitor.py`、`core/data.py` | `tests/test_exp12_confusion_tsne.py` | 無 | `logs/exp12_confusion_tsne/`、`output/exp12_confusion_tsne/` | 無 |
-| 實驗二十四 | `experiments/navigation_data_contract.py`、`navigation_regression.py` | 沿用 `core/monitor.py`、`core/openset.py`、`core/geometry.py`、exp2/3 與 `web/live.py` | `tests/test_navigation_guide.py`、`test_integration_navigation.py` | 獨立 `web/guide.py`、`guide.html/js/css` | `logs/navigation_*`、`output/navigation_*`、`logs/web_guide`、`output/web_guide` | `docs/navigation/exp24_*.md`；`docs/integration_20261008` |
+| 實驗二十四 | `experiments/navigation_data_contract.py`、`navigation_regression.py` | 沿用 `core/monitor.py`、`core/openset.py`、`core/geometry.py`、exp2/3 與 `web/live.py` | `tests/test_navigation_guide.py`、`test_integration_navigation.py` | 獨立 `web/guide.py`、`guide.html/js/css` | `logs/navigation_*`、`output/navigation_*`、`logs/web_guide`、`output/web_guide` | `docs/navigation/exp24_*.md`；`reports/Andy_20261008_分支整合` |
 
 Web 頁首可切換即時展示與實驗一～八各頁；實驗頁的目錄與參數在 `web/experiments.py` 的 `CATALOG`，畫面在 `web/static/experiments.js`，每次執行的結果存到 `output/web_server/{ts}/experiments/`。不屬於任何編號實驗的檔案：`web/server.py` 與 `output/web_server/` 是展示本身；`logs/session_analysis/`、`output/session_analysis/`（2026-08-26）是一次 Web session 的事後分析圖，產生它的腳本不在 repo。
 

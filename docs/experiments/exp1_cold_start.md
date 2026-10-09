@@ -74,3 +74,5 @@ CLI writer是[main()](../../experiments/exp1_cold_start.py)：
 - [RobustScaler官方說明](https://scikit-learn.org/1.7/modules/generated/sklearn.preprocessing.RobustScaler.html)。實際版本由uv.lock固定，不按網站最新版本推論現行行為。
 - [core/runner.py](../../core/runner.py)負責資料定位／CLI；[core/openset.py](../../core/openset.py)是正式兩方法factory；Mahalanobis檔頭記Ancestor來源，Lineage的monitor整合scaler、切分及擴張。
 - [tests/test_openset.py](../../tests/test_openset.py)、[test_monitor_guard.py](../../tests/test_monitor_guard.py)、[test_stream_integration.py](../../tests/test_stream_integration.py)、[test_web_experiments.py](../../tests/test_web_experiments.py)核對共用方法／guard／串流與Web編排，不能證明raw來源獨立或現場準確率。
+
+串流停止、錯誤復原與模型有效狀態見[Web 串流生命週期](README.md#web-串流生命週期)及[共用模型生命週期](README.md#共用模型生命週期)。當次串流整合來源與配對證據見[固定交付紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/integration_20261008/integration_report.md)。

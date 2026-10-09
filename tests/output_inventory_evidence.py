@@ -31,15 +31,15 @@ WRITERS = {
 # 僅列已由瀏覽器操作紀錄確認的外部截圖，不依 png 副檔名推斷來源。
 EXTERNAL_SCREENSHOTS = {
     **{f"output/integration_browser/{name}.png":
-       f"docs/integration_20261008/browser_qa/screenshots/{name}.png" for name in (
+       f"reports/Andy_20261008_分支整合/browser_qa/screenshots/{name}.png" for name in (
            "guide_reconnected", "guide_trend_a_done", "guide_trend_a", "guide_trend_b_done",
            "stream_batch_recovered", "stream_exp1_done", "stream_exp3_done", "stream_exp4_done",
            "stream_invalid_parameter")},
     **{f"output/web_guide/2026-10-08-21-50-53/{name}.png":
-       f"docs/issue_delivery_20261008/browser_screenshots/2026-10-08-21-50-53/{name}.png"
+       f"reports/Andy_20261008_議題交付/browser_screenshots/2026-10-08-21-50-53/{name}.png"
        for name in ("anonymous", "candidate", "confirmed", "reset_reconnected", "trend_b")},
     "output/web_guide/2026-10-08-21-55-14/trend_a.png":
-    "docs/issue_delivery_20261008/browser_screenshots/2026-10-08-21-55-14/trend_a.png",
+    "reports/Andy_20261008_議題交付/browser_screenshots/2026-10-08-21-55-14/trend_a.png",
 }
 
 
@@ -100,11 +100,12 @@ def inspect(root: Path) -> dict:
             category, evidence = "DOCUMENTED_EXTERNAL_SCREENSHOT", []
         if group == "integration_browser" and path.name in {"guide_qa.md", "stream_qa.md"}:
             category, evidence = "CONFIRMED_MANUAL_QA_PR58", []
-        log = root / "logs" / group / (path.relative_to(output).parts[1] + ".log")
+        parts = path.relative_to(output).parts
+        log = root / "logs" / group / (parts[1] + ".log") if len(parts) > 1 else None
         rows.append({"path": relative, "sha256_bytes": sha(path), "bytes": path.stat().st_size,
                      "tracked": relative in tracked, "category": category,
-                     "candidate_writers": evidence, "log": log.relative_to(root).as_posix() if log.is_file() else None,
-                     "log_sha256": sha(log) if log.is_file() else None, "action": "KEEP"})
+                     "candidate_writers": evidence, "log": log.relative_to(root).as_posix() if log and log.is_file() else None,
+                     "log_sha256": sha(log) if log and log.is_file() else None, "action": "KEEP"})
     return {"schema": "output_inventory_v1", "head": subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=root, text=True).strip(),
         "scope": "僅指定 checkout 的 output；writer 相符不保證歷史版本、命令或完整來源鏈",
@@ -119,7 +120,7 @@ def verify_cleanup(root: Path) -> dict:
     moves = []
     for name in ("guide_qa.md", "stream_qa.md"):
         old = f"output/integration_browser/{name}"
-        new = f"docs/integration_20261008/browser_qa/{name}"
+        new = f"reports/Andy_20261008_分支整合/browser_qa/{name}"
         old_blob = subprocess.check_output(["git", "rev-parse", f"{baseline}:{old}"], cwd=root, text=True).strip()
         new_blob = subprocess.check_output(["git", "hash-object", "--path", new, new], cwd=root, text=True).strip()
         moves.append({"old": old, "new": new, "old_blob": old_blob, "new_normalized_blob": new_blob,
@@ -127,11 +128,11 @@ def verify_cleanup(root: Path) -> dict:
                       "new_exists": (root / new).is_file()})
     changed = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=MDR", baseline, "HEAD", "--", "output"],
                                       cwd=root, text=True).splitlines()
-    manifest = json.loads((root / "docs/integration_20261008/manifest.json").read_text(encoding="utf-8"))
+    manifest = json.loads((root / "reports/Andy_20261008_分支整合/manifest.json").read_text(encoding="utf-8"))
     targets = manifest["verification"]["browser_qa"]
     from tests.issue_delivery_evidence import local_links
-    documents = [root / "docs/integration_20261008/output_inventory_20261009.md", root / "docs/integration_20261008/browser_qa/guide_qa.md",
-                 root / "docs/integration_20261008/browser_qa/stream_qa.md"]
+    documents = [root / "reports/Andy_20261008_分支整合/browser_qa/guide_qa.md",
+                 root / "reports/Andy_20261008_分支整合/browser_qa/stream_qa.md"]
     links = [row for document in documents for row in local_links(document, root)]
     external = verify_external_relocations(root, "791216cf5602c370091fa516264f1ce6aaad6ab1")
     expected = [row["old"] for row in moves] + list(EXTERNAL_SCREENSHOTS)
@@ -144,8 +145,7 @@ def verify_cleanup(root: Path) -> dict:
 
 def run(root: Path) -> dict:
     result = inspect(root)
-    if (root / "docs/integration_20261008/output_inventory_20261009.md").is_file():
-        result["cleanup_verification"] = verify_cleanup(root)
+    result["cleanup_verification"] = verify_cleanup(root)
     log, paths = setup_run("output_inventory_evidence")
     (paths.output_dir / "inventory.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -157,16 +157,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
     result = run(parser.parse_args().root)
-    verification = result.get("cleanup_verification")
-    if verification is not None:
-        valid = (verification["other_tracked_output_unchanged"] and verification["manifest_targets_exist"]
-                 and not verification["broken_links"] and all(
-                     row["same_git_content"] and row["old_absent"] and row["new_exists"]
-                     for row in verification["moves"]) and all(
-                         row["same_bytes"] and row["old_absent"]
-                         for row in verification["external_relocations"]))
-        return 0 if valid else 1
-    return 0
+    verification = result["cleanup_verification"]
+    valid = (verification["other_tracked_output_unchanged"] and verification["manifest_targets_exist"]
+             and not verification["broken_links"] and all(
+                 row["same_git_content"] and row["old_absent"] and row["new_exists"]
+                 for row in verification["moves"]) and all(
+                     row["same_bytes"] and row["old_absent"]
+                     for row in verification["external_relocations"]))
+    return 0 if valid else 1
 
 
 if __name__ == "__main__":

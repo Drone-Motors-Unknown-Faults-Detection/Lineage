@@ -50,3 +50,7 @@ Web啟動見[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)，切
 Roberts（1959），*Control Chart Tests Based on Geometric Moving Averages*，Technometrics1(3),239–250，[DOI](https://doi.org/10.1080/00401706.1959.10489860)，支持EWMA遞迴。Page（1954），*Continuous Inspection Schemes*，Biometrika41(1/2),100–115，[DOI](https://doi.org/10.1093/biomet/41.1-2.100)；既有[固定引用查證](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/issue_delivery_20261008/citation_followup.md)仍列Page全文未取得，不能宣稱整套控制圖已原文驗證。0.08／0.2／0.5／12及劇本是Lineage操作約定，非上述論文為此資料保證的參數。
 
 [exp3](../../experiments/exp3_trend.py)產生劇本、管理trial與writer；[core/trend](../../core/trend.py)實作旗標EWMA／CUSUM；[web/live](../../web/live.py)重用劇本；[test_stream_integration](../../tests/test_stream_integration.py)與[test_web_experiments](../../tests/test_web_experiments.py)檢查編排。實驗八另用SessionTrajectoryMonitor，不是同一趨勢演算法。
+
+兩套趨勢的輸入與用途見[兩套趨勢](../health_and_reports.md#兩套趨勢)；EWMA／CUSUM 的引用核對與未確認項見[來源附件](../../reports/Andy_20261008_議題交付/citation_followup.md)。
+
+串流停止、錯誤復原與模型有效狀態見[Web 串流生命週期](README.md#web-串流生命週期)及[共用模型生命週期](README.md#共用模型生命週期)。當次串流整合來源與配對證據見[固定交付紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/integration_20261008/integration_report.md)。
