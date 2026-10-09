@@ -92,7 +92,8 @@ def _figure(summary):
     fig, axes = plt.subplots(1, 2, figsize=(13, 4.6))
     axes[0].bar(names, [s["auroc_mean"] for s in summary],
                 yerr=[s["auroc_std"] for s in summary], color="#3b82f6", capsize=3)
-    axes[0].set_ylim(0.9, 1.001); axes[0].set_title("AUROC (mean ± std over 9 datasets)")
+    axes[0].set_ylim(0.9, 1.001)
+    axes[0].set_title("AUROC (mean ± std over 9 datasets)")
     axes[0].tick_params(axis="x", rotation=30)
     axes[1].bar(names, [s["healthy_fp_mean"] * 100 for s in summary],
                 yerr=[s["healthy_fp_std"] * 100 for s in summary], color="#ef4444", capsize=3)

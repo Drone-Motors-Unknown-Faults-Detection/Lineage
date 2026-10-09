@@ -23,7 +23,7 @@ import argparse
 
 import numpy as np
 
-from core.data import HEALTHY, config_sort_key, display_name
+from core.data import HEALTHY, config_sort_key
 from core.geometry import PolarMap
 from core.logger import save_plot, setup_run
 from core.monitor import OpenSetMonitor
@@ -191,7 +191,9 @@ def _figure(geometry, severity):
         axes[1].plot(ladder, [r[f"sev_{name}_median"] for r in severity["rows"]],
                      marker=marker, label=f"{name} (ρ={severity['spearman'][name]})")
     axes[1].set_title("(c) Severity definitions vs loosening grade (anchors: 7s & 1s)")
-    axes[1].set_ylabel("median severity"); axes[1].legend(); axes[1].grid(alpha=.3)
+    axes[1].set_ylabel("median severity")
+    axes[1].legend()
+    axes[1].grid(alpha=.3)
     fig.tight_layout()
     return fig
 
