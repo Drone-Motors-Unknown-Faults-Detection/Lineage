@@ -1,29 +1,31 @@
-#!/bin/bash
-
-set -e
-
-# clear 在無 TTY 時（nohup / cron / CI）會回傳 1，配上 set -e 會讓整支腳本靜默中止
-if [ -t 1 ]; then clear 2>/dev/null || true; fi
-
-VENV_DIR="venv"
-PYTHON_VERSION="3.10.19"
-
-# 預設安裝新專案依賴；帶 --legacy 會額外安裝重跑論文版管線（Ancestor）所需的套件（含 TensorFlow GPU）
-EXTRAS="."
-if [ "$1" = "--legacy" ]; then
-    EXTRAS=".[legacy-linux]"
+#!/usr/bin/env bash
+set -euo pipefail
+# 保留歷史入口名稱；使用官方 venv 與單一 constraints，不刪除既有環境。
+cd -- "$(dirname -- "$0")"
+PYTHON_BIN="python3.10"
+VENV_DIR=".venv310"
+EXTRA=""
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        --python) PYTHON_BIN="$2"; shift 2 ;;
+        --venv) VENV_DIR="$2"; shift 2 ;;
+        --legacy) EXTRA="legacy-linux"; shift ;;
+        --legacy-mac) EXTRA="legacy-mac"; shift ;;
+        *) echo "未知參數：$1" >&2; exit 2 ;;
+    esac
+done
+if [ -e "$VENV_DIR" ] || [ -L "$VENV_DIR" ]; then
+    echo "目標已存在，保留原環境：$VENV_DIR" >&2
+    exit 2
 fi
-
-echo "[INFO] Remove Virtual Python${PYTHON_VERSION} Environment."
-rm -rf "$VENV_DIR"
-
-echo "[INFO] Build Virtual Python${PYTHON_VERSION} Environment."
-uv venv --python "${PYTHON_VERSION}" --seed "$VENV_DIR"
-echo "[INFO] Venv Build Completed"
-
-echo "[INFO] Upgrade PIP Version."
-"$VENV_DIR/bin/pip" install --upgrade pip
-
-echo "[INFO] Install Python3 Required Package (${EXTRAS})"
-"$VENV_DIR/bin/pip" install "${EXTRAS}"
-echo "[INFO] Install Completed"
+"$PYTHON_BIN" -c 'import sys; assert sys.version_info[:2] == (3, 10), "正式安裝要求 Python 3.10.x"'
+"$PYTHON_BIN" -m venv "$VENV_DIR"
+"$VENV_DIR/bin/python" -m pip install -c runtime-constraints.txt pip setuptools wheel
+TARGET="."
+if [ -n "$EXTRA" ]; then
+    echo "legacy extras 未完整鎖版，不屬於正式驗證環境" >&2
+    TARGET=".[$EXTRA]"
+fi
+"$VENV_DIR/bin/python" -m pip install --no-build-isolation -c runtime-constraints.txt "$TARGET"
+"$VENV_DIR/bin/python" -m pip check
+"$VENV_DIR/bin/python" -m core.runtime_environment

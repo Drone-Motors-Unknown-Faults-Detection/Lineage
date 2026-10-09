@@ -87,5 +87,5 @@
 
 - [x] [#29](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/29)：PR #40 已合併 `c68b7cdbb5bddf1034a9e713c8e8efd5acc61c87`，main 124 項與 11 項 guard 驗證通過；未擬合／失敗重擬合有明確 RuntimeError，成功擬合分數及投影不變。
 - [x] [#25](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/25)：PR #41 已合併 `ae53b92eea7dd68cd7ffefe8d5c24b3f7157428d`，main 162 項通過；六 run／54 列可重算，349 比對有 2 精度差異，原公式 UNKNOWN。依「有差異回報」驗收關單，未改歷史彙總。
-- [ ] [#30](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/30)：§2.2 與 17 項重驗已入 main；七個去重追蹤 #43–#49 已發布，R5/R6/R9 已補 #27/#28/#26，待本輪清冊 PR/main 驗收關單；[發布證據](docs/project_closeout_20261009/audit_followups.md)。這些後續修補仍未完成。
+- [x] [#30](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/30)：PR #50 已合 main `ebb702d`，主線 162 項測試與文件驗證通過後 completed；七個去重追蹤 #43–#49 已發布，R5/R6/R9 已補 #27/#28/#26；[發布證據](docs/project_closeout_20261009/audit_followups.md)。這些後續程式修補仍未完成。
 - #19 尚缺原參考表／合法全文；#9 仍缺獨立新資料與採集證據；#24/#28/#35/#37 原首頁部分等待 Albert PR #36 定案。測試通過不消除這些限制。

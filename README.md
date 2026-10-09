@@ -403,7 +403,7 @@ Lineage/
 ├── output/                      # 每次執行的結果檔與圖表（納入版控）
 ├── run_web.sh                   # 啟動展示伺服器
 ├── build_uv.sh / build_uv_mac.sh# 建立 venv（--legacy 可加裝論文版管線依賴）
-└── pyproject.toml               # 依賴定義（Python 3.10.19）
+└── pyproject.toml               # 正式 Python 3.10.x；runtime-constraints.txt 固定版本
 ```
 
 ---
@@ -411,9 +411,11 @@ Lineage/
 ## 環境與執行
 
 ```bash
-./build_uv.sh              # 建立 venv 並安裝本專案依賴（無 TensorFlow、不需 GPU）
-./build_uv.sh --legacy     # 需要重跑論文版管線（Ancestor）時使用（加裝 TF/CUDA、Jupyter 等）
+./build_uv.sh --python python3.10 --venv venv  # 新目錄才可建立，既有 venv 不刪除
+./build_uv.sh --legacy --venv venv-legacy     # legacy extras 未完整鎖版，非正式驗證環境
 ```
+
+Windows 使用 PowerShell 7：`./build_uv.ps1 -Python 'C:/path/to/python3.10.exe' -VenvDir 'venv'`。兩平台都使用同一份 constraints；正式範圍、更新流程與未完成的 health CLI 覆蓋見 [執行環境契約](docs/runtime_policy.md)。3.14 歷史研究不代表本輪 main 安裝相容。
 
 所有指令都在**專案根目錄**執行，直接用 `venv/bin/python`，不需 activate：
 
@@ -432,6 +434,8 @@ venv/bin/python -m experiments.exp3_trend --trials 40
 logs/{program}/{YYYY-MM-DD-HH-MM-SS}.log      # 完整執行日誌
 output/{program}/{YYYY-MM-DD-HH-MM-SS}/       # results.csv / summary.json / *.png
 ```
+
+呼叫 `setup_run()` 的入口另存 `environment.json`，記錄 Python、OS、套件、Git HEAD 與 constraints SHA；不記錄 token 或使用者絕對路徑。尚未統一的三支 health CLI 與未初始化的直接 API 呼叫不包含在這項保證。
 
 ---
 

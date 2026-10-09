@@ -37,7 +37,8 @@ docs/            實驗技術報告在 docs/experiments/（每個 experiments/*.
 data/            特徵資料（git 忽略；由論文版管線產出，本專案唯讀）
 logs/ output/    每次執行的日誌與結果（納入版控）
 run_web.sh       啟動展示伺服器
-build_uv.sh      建 venv；--legacy 加裝論文版管線依賴（TF/CUDA、Jupyter）
+build_uv.sh      保留入口名稱，改用官方 venv 與 runtime-constraints.txt；不刪除既有目錄
+build_uv.ps1     Windows PowerShell 7 的同版安裝入口；詳見 docs/runtime_policy.md
 ```
 
 ---
@@ -128,8 +129,8 @@ venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn
 ./run_web.sh --port 8600 --motor T1 --rpm 8000rpm --rate 4
 
 # 環境
-./build_uv.sh              # 新專案依賴（無 TF、不需 GPU）
-./build_uv.sh --legacy     # 另需重跑 legacy 管線時
+./build_uv.sh --python python3.10 --venv venv  # 只建立新目錄；正式支援 3.10.x
+./build_uv.sh --legacy --venv venv-legacy     # legacy extras 非本輪正式鎖版驗證範圍
 ```
 
 ---

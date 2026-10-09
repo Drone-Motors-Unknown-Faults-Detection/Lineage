@@ -7,6 +7,7 @@
 | 未擬合防護 | PR #40；core/monitor.py | main `c68b7cdbb5bddf1034a9e713c8e8efd5acc61c87`；#29 completed | 沒有擬合或重擬合失敗時，推論有明確 RuntimeError；成功擬合分數與原版相同 |
 | 健康指數封存彙總 | PR #41；experiments/health_index_aggregate.py | main `ae53b92eea7dd68cd7ffefe8d5c24b3f7157428d`；#25 completed | 六 run／54 列可重算；349 欄中 347 吻合、2 精度差異明列 |
 | hard600 subset/all-train | 研究分支既有 E02/E04，非本輪新訓練 | #22 於 2026-10-06 關閉；研究程式未整批合入 main | 固定 seed0 的 fault accuracy 下降 3.507／3.655 個百分點；未找到可靠提升 |
+| 稽核追蹤 | PR #50；七個新 issue 與三則去重補充 | main `ebb702d` 驗證後 #30 completed | 17 項現況、限制與負責議題可追溯；缺陷未因此修復 |
 
 主線最後一次 Python 3.10.19：162 passed，0 failed/error/skipped，pip check 與四個 CLI help 成功。guard 另有 11 項與 8 組等價比較；導覽 Mahalanobis/k-NN 各 595 筆、0 mismatch。詳見 [命令、commit 與產物](execution_log.md)。工程修補沒有重新 fit，也沒有準確率增加。
 
