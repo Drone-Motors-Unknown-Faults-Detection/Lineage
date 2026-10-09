@@ -27,7 +27,9 @@ import os
 import re
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
+import stat
+import tempfile
 from typing import Iterable, Iterator, Sequence
 from zipfile import ZipFile, ZipInfo
 
@@ -105,6 +107,10 @@ class MaterializedFile:
     rows_after_clean: int
     columns: int
     mode: str
+    channel_shapes: dict[str, list[int]] | None = None
+    discarded_windows: dict[str, int] | None = None
+    window_policy: str = "equal_window_counts_v1"
+    alignment_status: str = "UNKNOWN"
 
 
 def _sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
@@ -140,6 +146,7 @@ def discover_stage_archives(source_root: Path | str, stages: Iterable[str] = STA
 
 
 def _find_member(archive: ZipFile, *, suffix: str) -> str:
+    _validate_archive(archive)
     matches = [name for name in archive.namelist() if name.lower().endswith(suffix.lower())]
     if len(matches) != 1:
         raise FormalDataError(
@@ -149,13 +156,53 @@ def _find_member(archive: ZipFile, *, suffix: str) -> str:
 
 
 def _safe_relative_member(name: str, prefix: str) -> Path:
-    path = Path(name)
-    if path.is_absolute() or ".." in path.parts:
-        raise FormalDataError(f"unsafe archive member: {name}")
+    path = _archive_path(name)
     try:
-        return path.relative_to(prefix)
+        return Path(*path.relative_to(PurePosixPath(prefix)).parts)
     except ValueError as exc:
         raise FormalDataError(f"unexpected member {name!r}; expected prefix {prefix!r}") from exc
+
+
+def _archive_path(name: str) -> PurePosixPath:
+    """跨平台一致拒絕特殊路徑；ZIP 只接受 POSIX 相對節點。"""
+    candidate = name[:-1] if name.endswith("/") else name
+    if (not candidate or "\\" in candidate or ":" in candidate
+            or PureWindowsPath(candidate).drive or PurePosixPath(candidate).is_absolute()
+            or any(part in {"", ".", ".."} for part in candidate.split("/"))):
+        raise FormalDataError(f"不安全的 archive member：{name!r}")
+    return PurePosixPath(candidate)
+
+
+def _validate_archive(archive: ZipFile) -> None:
+    seen: set[str] = set()
+    for info in archive.infolist():
+        _archive_path(info.filename)
+        if stat.S_ISLNK(info.external_attr >> 16):
+            raise FormalDataError(f"archive 不接受 symlink：{info.filename!r}")
+        if info.filename in seen:
+            raise FormalDataError(f"重複 archive member：{info.filename!r}")
+        seen.add(info.filename)
+
+
+def _validate_condition(motor: str, rpm: str, config: str) -> None:
+    if motor not in MOTORS or rpm not in RPMS or config not in {*CONFIGS, "1screw"}:
+        raise FormalDataError(f"未知正式配置：{motor}/{rpm}/{config}")
+
+
+def _contained_output(path: Path, output_root: Path) -> Path:
+    root = output_root.resolve()
+    try:
+        relative = path.absolute().relative_to(root)
+        resolved = path.resolve()
+        resolved.relative_to(root)
+    except ValueError as exc:
+        raise FormalDataError("目的路徑不在宣告的 output_root 內") from exc
+    current = root
+    for part in relative.parts:
+        current = current / part
+        if current.is_symlink():
+            raise FormalDataError("目的路徑包含 symlink，拒絕寫入")
+    return resolved
 
 
 def _ensure_output_not_source(source_root: Path, output_root: Path) -> None:
@@ -167,15 +214,36 @@ def _ensure_output_not_source(source_root: Path, output_root: Path) -> None:
         )
 
 
-def _write_bytes(path: Path, data: bytes, *, force: bool) -> None:
+def _write_bytes(path: Path, data: bytes, *, force: bool, output_root: Path) -> None:
+    path = _contained_output(path, output_root)
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists() and not force:
         if path.read_bytes() == data:
             return
         raise FormalDataError(f"output exists with different content (use --force): {path}")
-    temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_bytes(data)
-    os.replace(temporary, path)
+    temporary: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=path.parent, prefix=".materialize-", suffix=".tmp", delete=False) as handle:
+            temporary = Path(handle.name)
+            handle.write(data)
+        _contained_output(path, output_root)
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
+def _commit_writes(pending: list[tuple[Path, bytes]], output_root: Path, *, force: bool) -> None:
+    destinations: set[Path] = set()
+    for path, payload in pending:
+        target = _contained_output(path, output_root)
+        if target in destinations:
+            raise FormalDataError("多個來源對應同一目的檔案")
+        destinations.add(target)
+        if target.exists() and not force and target.read_bytes() != payload:
+            raise FormalDataError("目的檔案已有不同內容；拒絕部分寫入")
+    for path, payload in pending:
+        _write_bytes(path, payload, force=force, output_root=output_root)
 
 
 def _copy_clean_features(
@@ -185,11 +253,14 @@ def _copy_clean_features(
     *,
     force: bool,
     selected_conditions: set[tuple[str, str, str]] | None,
+    pending_writes: list[tuple[Path, bytes]] | None = None,
 ) -> list[MaterializedFile]:
     records: list[MaterializedFile] = []
+    pending = [] if pending_writes is None else pending_writes
     with ZipFile(archive_path) as outer:
         member = _find_member(outer, suffix="myfeature.zip")
         with ZipFile(outer.open(member)) as features:
+            _validate_archive(features)
             for info in features.infolist():
                 if info.is_dir() or not info.filename.endswith("_Group_feature_data_clean.csv"):
                     continue
@@ -198,16 +269,18 @@ def _copy_clean_features(
                 if len(parts) != 4:
                     raise FormalDataError(f"unexpected feature path: {info.filename}")
                 motor, rpm, config, _ = parts
+                _validate_condition(motor, rpm, config)
                 condition = (motor, rpm, config)
                 if selected_conditions is not None and condition not in selected_conditions:
                     continue
                 payload = features.read(info.filename)
                 output = output_root / f"Step-{stage}" / "myfeature" / relative
-                _write_bytes(output, payload, force=force)
+                _contained_output(output, output_root)
                 frame = pd.read_csv(io.BytesIO(payload))
                 numeric = frame.select_dtypes(include="number")
                 if numeric.shape[1] != FEATURE_DIM:
                     raise FormalDataError(f"{info.filename}: expected {FEATURE_DIM} numeric columns")
+                pending.append((output, payload))
                 records.append(
                     MaterializedFile(
                         stage=stage,
@@ -223,6 +296,8 @@ def _copy_clean_features(
                         mode="copied_clean_feature",
                     )
                 )
+    if pending_writes is None:
+        _commit_writes(pending, output_root, force=force)
     return records
 
 
@@ -304,6 +379,7 @@ def _channel_key(filename: str) -> str | None:
 
 
 def _condition_from_member(name: str) -> tuple[str, str, str] | None:
+    _archive_path(name)
     match = re.search(r"(?:^|/)\s*(T[123])/(\d+rpm)\.zip$", name)
     if not match:
         return None
@@ -320,19 +396,26 @@ def _convert_condition(
     *,
     force: bool,
     selected_conditions: set[tuple[str, str, str]] | None,
+    pending_writes: list[tuple[Path, bytes]] | None = None,
 ) -> list[MaterializedFile]:
     records: list[MaterializedFile] = []
+    pending = [] if pending_writes is None else pending_writes
+    _validate_archive(condition_archive)
     by_config: dict[str, dict[str, ZipInfo]] = {}
     for info in condition_archive.infolist():
         if info.is_dir() or not info.filename.lower().endswith(".csv"):
             continue
-        parts = Path(info.filename).parts
+        parts = _archive_path(info.filename).parts
         if len(parts) < 2:
             continue
         config = parts[-2]
         channel = _channel_key(parts[-1])
         if channel:
-            by_config.setdefault(config, {})[channel] = info
+            _validate_condition(motor, rpm, config)
+            channels = by_config.setdefault(config, {})
+            if channel in channels:
+                raise FormalDataError(f"{config} 有重複通道 {channel}")
+            channels[channel] = info
 
     for config in sorted(by_config):
         condition = (motor, rpm, config)
@@ -347,10 +430,10 @@ def _convert_condition(
             for key, info in channels.items()
         }
         widths = {key: value.shape[1] for key, value in frames.items()}
-        n_windows = min(widths.values())
-        if n_windows < 1:
-            raise FormalDataError(f"{source_label}: {config} has no windows: {widths}")
-        arrays = {key: value.iloc[:, :n_windows] for key, value in frames.items()}
+        shapes = {key: list(value.shape) for key, value in frames.items()}
+        if len(set(widths.values())) != 1 or len({value.shape[0] for value in frames.values()}) != 1 or any(min(shape) < 1 for shape in shapes.values()):
+            raise FormalDataError(f"{config} 通道形狀不一致或空值；equal_window_counts_v1 拒絕，原始shape={shapes}；丟棄數=0；同步UNKNOWN")
+        arrays = frames
         stats = [
             _statistical_features(arrays["current"]),
             _statistical_features(arrays["x"]),
@@ -374,7 +457,8 @@ def _convert_condition(
             output_root / "Step-2" / "myfeature" / motor / rpm / config
             / f"{motor}_Group_feature_data_clean.csv"
         )
-        _write_bytes(output, payload, force=force)
+        _contained_output(output, output_root)
+        pending.append((output, payload))
         records.append(
             MaterializedFile(
                 stage="2",
@@ -388,8 +472,12 @@ def _convert_condition(
                 rows_after_clean=len(clean_frame),
                 columns=clean_frame.shape[1],
                 mode="converted_step2_channels",
+                channel_shapes=shapes,
+                discarded_windows={key: 0 for key in frames},
             )
         )
+    if pending_writes is None:
+        _commit_writes(pending, output_root, force=force)
     return records
 
 
@@ -399,11 +487,14 @@ def _convert_stage2(
     *,
     force: bool,
     selected_conditions: set[tuple[str, str, str]] | None,
+    pending_writes: list[tuple[Path, bytes]] | None = None,
 ) -> list[MaterializedFile]:
     records: list[MaterializedFile] = []
+    pending = [] if pending_writes is None else pending_writes
     with ZipFile(archive_path) as outer:
         csv_member = _find_member(outer, suffix="csv.zip")
         with ZipFile(outer.open(csv_member)) as csv_archive:
+            _validate_archive(csv_archive)
             for condition_info in csv_archive.infolist():
                 if condition_info.is_dir() or not condition_info.filename.lower().endswith("rpm.zip"):
                     continue
@@ -425,8 +516,11 @@ def _convert_stage2(
                             rpm,
                             force=force,
                             selected_conditions=selected_conditions,
+                            pending_writes=pending,
                         )
                     )
+    if pending_writes is None:
+        _commit_writes(pending, output_root, force=force)
     return records
 
 
@@ -447,36 +541,65 @@ def materialize(
     output = Path(output_root).expanduser().resolve()
     _ensure_output_not_source(source, output)
     archives = discover_stage_archives(source, stages)
+    archive_sha = {stage: _sha256_file(path) for stage, path in archives.items()}
     selected = set(conditions) if conditions else None
+    for condition in selected or ():
+        _validate_condition(*condition)
     records: list[MaterializedFile] = []
+    pending: list[tuple[Path, bytes]] = []
     for stage in stages:
         if stage == "2":
             records.extend(
-                _convert_stage2(archives[stage], output, force=force, selected_conditions=selected)
+                _convert_stage2(archives[stage], output, force=force, selected_conditions=selected, pending_writes=pending)
             )
         else:
             records.extend(
                 _copy_clean_features(
-                    archives[stage], stage, output, force=force, selected_conditions=selected
+                    archives[stage], stage, output, force=force, selected_conditions=selected, pending_writes=pending
                 )
             )
+    if not records:
+        raise FormalDataError("選定來源沒有可物化的正式檔案")
+    if archive_sha != {stage: _sha256_file(path) for stage, path in archives.items()}:
+        raise FormalDataError("讀取期間來源 SHA 改變，拒絕物化")
     manifest = {
+        "schema_version": "formal_materialization_v2",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "source_root": str(source),
         "output_root": str(output),
         "stages": list(stages),
-        "archive_sha256": {stage: _sha256_file(path) for stage, path in archives.items()},
+        "archive_sha256": archive_sha,
         "formal_contract": {
             "feature_dim": FEATURE_DIM,
             "clean_rule": "feature-level IQR scale=1.5, drop rows outside any feature bound",
             "raw_length": RAW_LENGTH,
             "sample_rate_hz": SAMPLE_RATE,
+            "window_policy": "equal_window_counts_v1",
+            "alignment_status": "UNKNOWN",
         },
         "files": [asdict(record) for record in records],
     }
-    output.mkdir(parents=True, exist_ok=True)
     manifest_path = output / "formal_materialization_manifest.json"
-    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    pending.append((manifest_path, json.dumps(manifest, ensure_ascii=False, indent=2).encode("utf-8")))
+    _commit_writes(pending, output, force=force)
+    return manifest
+
+
+def run(source_root: Path | str, output_root: Path | str, **options) -> dict:
+    """具日誌的物化入口；公開執行摘要不包含私人來源路徑。"""
+    from core.logger import setup_run
+    log, paths = setup_run("formal_materialization")
+    try:
+        manifest = materialize(source_root, output_root, **options)
+    except BaseException as exc:
+        summary = {"status": "FAILED", "error_type": type(exc).__name__, "alignment_status": "UNKNOWN"}
+        (paths.output_dir / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+        raise
+    summary = {"status": "COMPLETED", "schema_version": manifest["schema_version"],
+               "files": len(manifest["files"]), "archive_sha256": manifest["archive_sha256"],
+               "alignment_status": "UNKNOWN"}
+    (paths.output_dir / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    log.info("物化完成：{} 個檔案；物理同步仍 UNKNOWN", len(manifest["files"]))
     return manifest
 
 
@@ -497,14 +620,14 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--condition", action="append", type=_parse_condition)
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args(argv)
-    manifest = materialize(
+    manifest = run(
         args.source_root,
         args.output_root,
         stages=tuple(args.stages or STAGES),
         conditions=args.condition,
         force=args.force,
     )
-    print(json.dumps({"output_root": manifest["output_root"], "files": len(manifest["files"])}, ensure_ascii=False))
+    print(json.dumps({"status": "COMPLETED", "files": len(manifest["files"])}, ensure_ascii=False))
     return 0
 
 
