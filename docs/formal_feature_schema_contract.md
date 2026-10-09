@@ -28,3 +28,13 @@
 
 `rejected_rows` 指已查明的違規列數；錯header時整檔列都違規，數值問題則另列零起算的 `rejected_row_indices`。遇到錯誤整個載入失敗、不回傳合法子集；其他尚未讀檔列數不能由此計數推定。無法讀取的來源不補造列數。`discarded_rows=0` 表示沒有清洗／刪點；不等於整批輸入已被接受。
 CLI：`python -m core.data --dataset <RPM目錄>`；完整配置加 `--require-complete`。API失敗拋 `FeatureSchemaError`，可由 `audit={}` 取得portable拒絕紀錄；CLI保存 `output/formal_schema_audit/*/schema_audit.json` 並exit 1。
+
+## 本輪實測與交付
+
+契約 `1d14bd45baca9398679bd1f598887712ea11bff1`；實作 `06189bda0b3e83f620ccd08679fcf4bee935dc0a`；[PR #56](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/56)。只以程式／來源證據建立兩版本映射，遵守唯讀來源要求，沒有清洗或改檔。
+固定實作HEAD重算實際來源60份、T1／T3各三轉速共6工況、19,053列。60份全部為 `historical_clean_v1`、每工況10個配置。來源前後SHA完全相同，與main固定舊loader逐元素完全相同；seed42／123／2026的train／cal／holdout索引SHA全部相同。這是載入與切分驗證，模型fit=0，不是重跑90份／9工況研究。
+來源腳本AST僅讀 `feature_name` assignment，不執行Ancestor程式；SHA與事前清冊相同。證據：`output/feature_schema_evidence/2026-10-09-14-20-46/schema_evidence.json`，對應log同時間戳。
+
+fixture初次49項測試出現15個失敗、6個錯誤：Windows csv.writer 的CRLF再經預設文字換行造成空列，另有fixture日誌sink未釋放。修測試為 `newline=""` 並明確關閉sink後，相關49項通過；未放寬正式空列拒絕政策。再新增健康only／complete CLI與不可讀來源測試。
+最新13項格式測試全通過；完整 `python -m tests.ci_evidence` 共223項，220通過、3個本機symlink權限skip、0 failed／errors，pip check、七CLI與8份文件目標成功。摘要 `output/ci_evidence/2026-10-09-14-19-35/public_summary.json`；先前221項摘要保留，不冒充最新總數。
+本機 CPython3.10.19；遠端兩平台結果待Actions完成後追加，不以本機替代。未合main前#44維持OPEN。
