@@ -60,7 +60,8 @@ def run(
         knn_neighbors=knn_neighbors,
     )
     monitor = SessionTrajectoryMonitor(model, require_identity=require_identity)
-    samples = pools[config][split.holdout]
+    # 8screws 取與擬合不重疊的 holdout；其他配置沒參與擬合，依原順序取整池（#35）
+    samples = healthy[split.holdout] if config == HEALTHY else pools[config]
     if max_windows is not None:
         if max_windows < 1:
             raise ValueError("max_windows must be positive")
