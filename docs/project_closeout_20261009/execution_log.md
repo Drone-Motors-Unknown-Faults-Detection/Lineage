@@ -53,3 +53,9 @@ PR #41 經 `471c04b...` 更新至 PR #40 後 main，兩側文件索引保留。�
 重新讀最新 AGENT、main、相關 issue 與 open PR，19 個議題含 closed 去重；目前只 PR #36 open，head 未變，不接手其同檔。七份新 issue 本文與三份既有 issue 補充先保存於 `issues/`。[接續判定與發布契約](audit_followups.md) 明列 17 項狀態，沒有把 git blob 相同當反例重跑。[16 份來源及相對目標](../../output/audit_followup_evidence/2026-10-09-11-41-15/evidence.json) 可回算；仍缺 profiling 與 root escape 證據。
 
 契約 commit `1a9c59c15ab1dc31e9017a4c24c49d86fe863a5a` 已 push；七個議題實際為 #43–#49，回讀皆 OPEN；三則去重補充與 PR #36 協調 URL 見發布清冊。提交後完整162項及pip/CLI通過，來源16檔及15相對目標通過。清冊與§2.2現況接續入庫，不覆寫原稽核表。等待本輪文件PR/main驗證後關 #30。
+
+### P1-A 主線驗收
+
+PR #50 的交付 head 為 `058affde052717213187fa72d98d7bdf3e607746`，已合併至 main `ebb702dae4fe2a79df44d78738d1412b0c24bd2e`。在該 main 執行 `tests.integration_evidence --phase post_merge`：[162 passed，0 failed/error/skipped，pip check 與四個 CLI help 成功](../../output/branch_integration/2026-10-09-11-46-21/validation.json)。另外驗證 [5 份文件／83 個相對目標](../../output/project_closeout_evidence/2026-10-09-11-46-19/evidence.json) 與 [16 份來源／18 個相對目標](../../output/audit_followup_evidence/2026-10-09-11-46-20/evidence.json)，失效目標均為 0。
+
+這些產物經獨立交付分支保存並 push，再以固定 commit 連結發布 #30 完成留言。#30 的完成範圍是逐項核對、去重追蹤與第 2.2 節文件；#43–#49 的程式缺陷仍未修復，PERF 尚無 profiling，SEC-003 的 root escape 仍未確認。PR #36 未獲作者新回覆，不修改其待決檔案。
