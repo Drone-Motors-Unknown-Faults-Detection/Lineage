@@ -26,3 +26,5 @@ Python 3.10.19：`-m unittest tests.test_output_inventory` 2 passed；`-m tests.
 本機提交 `5ded768` 推送遇到遠端同時新增 `b61b8964457b53cacaa0e0c18e3c1fae6e6bf7cf`（Albert 刪除舊 `docs/output_cleanup_20261009.md`）而失敗。保留遠端刪除，以此新路徑保存本輪核對，不恢復原文件、不 force push。遠端 main 此時前進至 `6ace108157a7f9e1e03b76d343c93e222020bd41`（PR59）；AGENT.md 仍相同，未改它或 Albert 程式。
 
 清理核對完成後接回 #46 的內容 SHA／來源紀錄提交與驗證，不重新執行歷史 2,490 組研究。
+
+後續驗證：[最終清冊與引用核對](../../output/output_inventory_evidence/2026-10-09-14-47-22/inventory.json) 明確回傳成功。新增本輪清冊不列為「既有產物變動」；只核對既有檔案修改／刪除。2 項 fixture 再次通過。交付提交 `038ac5c`、`3be8f46` 已推送並核對遠端 SHA；本段及最終清冊另以證據提交保存。PR58 未經本代理合併。
