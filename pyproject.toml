@@ -19,9 +19,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-# CI 與本機跑 tests/ 用；正式執行期不需要
+# CI 與本機跑 tests/、ruff 用；正式執行期不需要
 test = [
     "pytest>=9.1,<10",
+    "ruff>=0.16,<0.17",
 ]
 # 重跑論文版管線（Ancestor repo）才需要的額外套件：
 #   ./build_uv.sh --legacy    （Linux, GPU）
@@ -45,3 +46,11 @@ legacy-mac = [
 
 [tool.setuptools]
 packages = ["core", "experiments", "experiments.health", "web"]
+
+[tool.ruff]
+target-version = "py310"
+extend-exclude = ["venv", ".venv310", "data"]
+
+[tool.ruff.lint]
+# 明確鎖定規則集合：跨 ruff 版本穩定，不隨其「預設集合」改版變動。
+select = ["E4", "E7", "E9", "F"]

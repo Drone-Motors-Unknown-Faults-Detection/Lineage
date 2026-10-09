@@ -3,7 +3,6 @@ import argparse
 import hashlib
 import importlib
 import json
-from pathlib import Path
 
 from core.data import discover_datasets, load_pools
 from core.logger import setup_run

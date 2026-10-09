@@ -23,7 +23,9 @@
 ```
 core/            共用零件：data / mahalanobis / monitor / openset / geometry / detectors / formal_data /
                  trend / logger / runner / runtime_environment
-reports/         只剩實驗八結果 reports/exp8_health_index_results/；一般實驗輸出不放這裡
+reports/         單次實驗結果／單次說明／更新紀錄，每篇一個資料夾，命名
+                 `<Author Name>_<YYYYMMDD>_<Report Subject>`；見「docs／reports／note 分工」
+note/            個人記事，非專案全局變動；每人一個資料夾（例如 note/JW-Albert/）
 experiments/     實驗模組（exp1 冷啟動 exp1_cold_start.py、exp2 量尺擴張 exp2_scale_growth.py、
                  exp3 趨勢 exp3_trend.py、exp4 極座標 exp4_polar_map.py、
                  exp5 跨工況 exp5_cross_condition.py、
@@ -47,7 +49,10 @@ docs/            實驗技術報告在 docs/experiments/（每個 experiments/*.
 data/            特徵資料（git 忽略；由論文版管線產出，本專案唯讀）
 logs/ output/    每次執行的日誌與結果（納入版控）。output/ 只能是程式碼寫出的檔案，見鐵則 9
 run_web.sh       啟動展示伺服器
-build_uv.sh      保留入口名稱，改用官方 venv 與 runtime-constraints.txt；不刪除既有目錄
+run_pytest.sh    提交前跑全套 pytest（鐵則 10）；CI 的獨立 Pytest step 也呼叫它
+run_ruff.sh      提交前跑 ruff 風格檢查（鐵則 12）；CI 的獨立 Ruff step 也呼叫它
+build_uv.sh      保留入口名稱；環境管理工具固定為 uv（`uv venv` / `uv pip install`），
+                 單一 runtime-constraints.txt；不刪除既有目錄
 build_uv.ps1     Windows PowerShell 7 的同版安裝入口；詳見 docs/runtime_policy.md
 build_uv_mac.sh  macOS 版安裝入口，與 build_uv.sh 同一套 runtime-constraints.txt
 ```
@@ -82,8 +87,31 @@ build_uv_mac.sh  macOS 版安裝入口，與 build_uv.sh 同一套 runtime-const
    repo 內沒有任何程式碼寫這兩個檔案，應移除或改放 `docs/`）。
 10. **新增或修改程式碼一律要有對應的 pytest 測試，且測試要能通過。** 測試放在 `tests/`，
     檔名 `test_<module>.py`，對應 `core/`、`experiments/`、`experiments/health/` 或 `web/` 裡被改動的
-    模組；提交前跑 `venv/bin/python -m pytest tests/`（或至少跑到相關檔案）確認全部通過，
-    不要留下失敗或被跳過的測試就視為完成。
+    模組；提交前跑 `./run_pytest.sh`（或 `venv/bin/python -m pytest tests/`，或至少跑到相關檔案）
+    確認全部通過，不要留下失敗或被跳過的測試就視為完成。
+11. **Python 環境管理工具固定為 [uv](https://docs.astral.sh/uv/)。** 建環境、裝套件一律用
+    `uv venv` / `uv pip install`，不要退回 `python -m venv` 配 `pip install`；版本仍以單一
+    `runtime-constraints.txt` 鎖定（`uv pip install -c runtime-constraints.txt ...`）。
+    細節見 `build_uv.sh`／`build_uv.ps1`／`docs/runtime_policy.md`。
+12. **`ruff check .` 必須零錯誤才能合併。** 規則集合固定在 `pyproject.toml` 的
+    `[tool.ruff.lint] select`（`E4`／`E7`／`E9`／`F`），不依賴 ruff 版本的預設集合。
+    CI 用 `.github/workflows/ci.yml` 的獨立 `Ruff` step 跑這關；提交前本機先跑
+    `./run_ruff.sh`，有錯就地修掉，不要用 `# noqa` 繞過真正的問題。
+
+---
+
+## docs／reports／note 分工
+
+`docs/` 的目的是說明程式碼如何運作、程式碼的目的，以及期望的成果。`docs/` 不是用於稽核；
+不是單次實驗的結果（實驗結果反映出需要改進，開 issue，不是回頭改文件掩蓋）；也不是單次的
+說明或更新紀錄。
+
+單次實驗結果、單次說明、更新紀錄等屬於專案全局變動的，放進 `reports/`，每一篇都要有自己的
+資料夾，命名格式 `<Author Name>_<YYYYMMDD>_<Report Subject>`
+（例如 `JW-Albert_20261009_exp8_health_index_results`）。
+
+不是專案全局變動、只是個人記事的，放進 `note/`，且要放在自己的資料夾裡
+（例如 `note/JW-Albert/`），不要混進 `docs/` 或 `reports/`。
 
 ---
 
@@ -109,6 +137,7 @@ build_uv_mac.sh  macOS 版安裝入口，與 build_uv.sh 同一套 runtime-const
 3. 句子長短依內容決定。不要為了節奏湊成三段排比。
 4. 動作留在動詞上。少把事情收成「○○感」「○○性」「○○化」。
 5. 錨在具體座標：路徑、函數名、seed、日期、工況。能寫 `core/openset.py` 就不要寫「某個模組」。
+6. 不寫過去怎樣；現在怎樣。
 
 ---
 
@@ -153,6 +182,10 @@ venv/bin/python -m experiments.compare_openset --openset-methods mahalanobis knn
 # 環境
 ./build_uv.sh --python python3.10 --venv venv  # 只建立新目錄；正式支援 3.10.x
 ./build_uv.sh --legacy --venv venv-legacy     # legacy extras 非本輪正式鎖版驗證範圍
+
+# 提交前檢查
+./run_ruff.sh
+./run_pytest.sh
 ```
 
 ---
