@@ -6,6 +6,8 @@
 
 引用收尾：[文獻與程式對照／剩餘未核實清單](issue_delivery_20261008/citation_followup.md)。
 
+#30 接續：[最新17項判定與七個追蹤議題](project_closeout_20261009/audit_followups.md)，R5/R6/R9 已補入既有 #27/#28/#26，原稽核與負面證據不覆寫。
+
 導覽收尾：[實際操作與配對驗收](issue_delivery_20261008/guide_acceptance.md)。API防護：[未擬合契約與固定版本回歸](issue_delivery_20261008/monitor_guard.md)。
 
 2026-10-08 分支整合：[驗收報告](integration_20261008/integration_report.md)、[分支矩陣](integration_20261008/branch_inventory.md)、[機器索引](integration_20261008/manifest.json)。main 合併證據以後續 delivery 紀錄為準；未整合研究保留固定來源。

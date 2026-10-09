@@ -51,3 +51,5 @@ PR #41 經 `471c04b...` 更新至 PR #40 後 main，兩側文件索引保留。�
 ## P1-A：#30 追蹤契約先提交
 
 重新讀最新 AGENT、main、相關 issue 與 open PR，19 個議題含 closed 去重；目前只 PR #36 open，head 未變，不接手其同檔。七份新 issue 本文與三份既有 issue 補充先保存於 `issues/`。[接續判定與發布契約](audit_followups.md) 明列 17 項狀態，沒有把 git blob 相同當反例重跑。[16 份來源及相對目標](../../output/audit_followup_evidence/2026-10-09-11-41-15/evidence.json) 可回算；仍缺 profiling 與 root escape 證據。
+
+契約 commit `1a9c59c15ab1dc31e9017a4c24c49d86fe863a5a` 已 push；七個議題實際為 #43–#49，回讀皆 OPEN；三則去重補充與 PR #36 協調 URL 見發布清冊。提交後完整162項及pip/CLI通過，來源16檔及15相對目標通過。清冊與§2.2現況接續入庫，不覆寫原稽核表。等待本輪文件PR/main驗證後關 #30。

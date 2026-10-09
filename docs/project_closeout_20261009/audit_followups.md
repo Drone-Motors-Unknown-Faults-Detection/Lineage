@@ -35,3 +35,23 @@ Albert 的 PR #36 與 #24/#28/#35/#37 仍有同檔邊界，本輪不修改 healt
 ## 本輪驗證
 
 PR #42 合併後 main：Python 3.10.19，[162 passed／0 failed/error/skipped 與 pip/CLI](../../output/branch_integration/2026-10-09-11-37-18/validation.json)；[5 文件／75 相對目標／0 失效](../../output/project_closeout_evidence/2026-10-09-11-37-17/evidence.json)。這些是工程測試，不是 17 個問題全部修補或新模型成績。
+
+## 已發布清冊
+
+追蹤契約 commit `1a9c59c15ab1dc31e9017a4c24c49d86fe863a5a` 已 push 並核對遠端。2026-10-09 實際建立以下七個 issue，回讀皆 OPEN；不指定組員、不重開 #25。
+
+| 分組 | 實際追蹤 | 缺口 |
+|---|---|---|
+| R1 | [#43](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/43) | exp6 矩陣與彙總完整性 |
+| R2 | [#44](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/44) | 正式105維資料契約 |
+| R3 | [#45](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/45) | containment／不等長通道 |
+| R4 | [#46](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/46) | 內容SHA與portable metadata |
+| R7 | [#47](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/47) | resolved config／schema |
+| R8 | [#48](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/48) | profiling後決定優化 |
+| R10 | [#49](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/49) | 小步拆分orchestration |
+
+不新建重複議題：R5 [補入 #27](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/27#issuecomment-6073814615)，R6 [補入 #28](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/28#issuecomment-6073814870)，R9 [補入 #26](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/26#issuecomment-6073815098)。每項包含最小重現、範圍與驗收；各缺陷仍未完成。
+
+[PR #36 協調留言](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/36#issuecomment-6073815390) 已請 Albert 決定重整或關閉；回讀 head `544d4ed...`、DIRTY，目前沒有作者新回覆。本輪不替作者作決定。
+
+提交契約後再跑 `tests.audit_followup_evidence`：[16來源／15相對目標／0失效](../../output/audit_followup_evidence/2026-10-09-11-42-52/evidence.json)；[完整162項與pip/CLI](../../output/branch_integration/2026-10-09-11-42-53/validation.json) 全通過。接續用獨立文件 PR 保存清冊，main 再驗後在 #30 留固定完成證據並關單。#30 completed 僅指重驗與分組追蹤完成，以上修補不會一起變 completed。

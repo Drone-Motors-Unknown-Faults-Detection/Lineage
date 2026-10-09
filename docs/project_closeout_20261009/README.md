@@ -15,7 +15,7 @@
 - **FAILED**：hard600 沒有可靠提升；不能把最佳化收斂當分類改善。其 [固定研究證據](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/e7ee971d2ed41d5ce80e3a56f912eb4dc1c038dc/reports/issue_delivery_20261005/hard600_closeout.md) 與負面結果保留。
 - **DIFFERENT**：兩個健康指數方法差值欄為舊 0.018513、新 0.018512；容差 0.0000005。先四捨五入可解釋舊值，原生成程式缺失，歷史操作 **UNKNOWN**。#25 要求回報差異，不要求零差異，因此可關工程 issue。
 - **UNKNOWN／INCOMPLETE**：raw/session/run、原始視窗／刪點／同步證據、獨立新採集與 fresh final 仍不足。T1/T2/T3 是三顆馬達，不能拼成一顆退化生命週期。#9 不關閉。
-- #19 尚未核實全部原文引用；#30 追蹤議題發布待接續；#26 依賴政策、#27 CI 尚未完成。#13–16 須另核完整協定與驗收。
+- #19 尚未核實全部原文引用；#30 追蹤已發布 [#43–#49 與去重補充](audit_followups.md)，各缺陷仍 open；#26 依賴政策、#27 CI 尚未完成。#13–16 須另核完整協定與驗收。
 - #24/#28/#35/#37 原首頁入口與 Albert PR #36 有同檔重疊，本輪未修改 health_monitor.py、server.py、index.html、experiments.js，未合併 PR #36。
 
 七問背景與示範操作在 [exp24 導覽](../navigation/exp24_README.md)；[實驗八完整重算說明](../experiments/exp8_health_index_aggregate_delivery.md) 保存手冊、SHA、舊值／新值與限制。本輪證據僅支持工程交付與現有資料比較，不支持部署可靠度、RUL 或 fresh final。
