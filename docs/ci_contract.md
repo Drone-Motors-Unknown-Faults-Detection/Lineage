@@ -71,3 +71,11 @@ Python 沿用已安裝的 CPython 3.10.19 鎖版環境，不重新建置既有 v
 證據位於 `output/ci_remote_evidence/2026-10-09-14-12-42/remote_runs.json`。artifact 同時含先前已版控摘要，必須以 `environment.git.head=22a253b14eb5df14058800f5a086bf4d7afeae58` 辨識本次 main 結果，不能把舊193項摘要再算一次。
 本機相同程式樹 `85734ae` 的再驗為210項、207通過、3項因 symlink 權限 skip、0失敗；原始限制保留。main 測試已實際覆蓋 Windows symlink。
 #27 的列明工程驗收與 main 整合已符合，可依授權關閉；任意 Origin 的現況仍留 #28，未宣稱 Web 安全完成。
+
+## 改用 pytest、CI 只跑 Ubuntu（2026-10-10）
+
+部署主機固定 Ubuntu，`.github/workflows/ci.yml` 的 `strategy.matrix.os` 移除 `windows-latest`，`contracts` job 直接 `runs-on: ubuntu-latest`；job 名稱、`upload-artifact` 的 `name` 去掉 `${{ matrix.os }}` 插值，固定寫 `ubuntu-latest`。原本因雙平台存在的 `if [ "$RUNNER_OS" = 'Windows' ]` 分支一併移除，建環境步驟只留 POSIX 路徑。Windows 本機安裝入口 `build_uv.ps1` 與 `docs/runtime_policy.md` 的 Windows 段落不受影響，只是不再由 CI 驗證。
+
+`tests/ci_evidence.py` 的測試步驟由 `python -m unittest discover -s tests -t .` 改成 `python -m pytest tests -ra --tb=short`；`execute()` 的輸出解析新增 pytest 摘要列（`X passed, Y failed, Z skipped, W error(s)`）與 `^FAILED `/`^ERROR ` 失敗 ID 的解析，原本 unittest 格式（`Ran N tests in`／`FAILED (failures=…)`）的解析保留不動，`tests/test_ci_contracts.py::EvidencePrivacyTests` 兩項既有測試不必改。`pyproject.toml` 新增 `[project.optional-dependencies] test = ["pytest>=9.1,<10"]`；`runtime-constraints.txt` 固定 `pytest==9.1.1` 與其在 3.10 下的直接依賴（`pluggy`、`iniconfig`、`pygments`、`exceptiongroup`、`tomli`、`typing-extensions`）。CI 的建環境步驟在安裝完 `.` 之後另外 `pip install -c runtime-constraints.txt pytest`。
+
+本機 `venv/bin/python -m tests.ci_evidence` 實跑：pytest 蒐集 233 項、232 passed（含 subtests）、skipped 3（Windows 專用案例，pytest 下用 `pytest.mark.skip`／`unittest.skipIf` 效果相同）、1 failed——`tests/test_runtime_environment.py::RuntimeEnvironmentTests::test_active_dependency_closure_is_pinned`，原因是本機既有 venv（AGENT.md 已知「超集」venv）裝的 `cloudpickle` 缺 `importlib.metadata` 紀錄，屬本機舊 venv 殘留、非這次改動造成；全新 `build_uv.sh` 建的環境會重新安裝 `cloudpickle` 並帶正確 metadata，預期不重現。這項失敗與本輪 pytest／Ubuntu-only 改動無關，本文件只如實記錄，不據此宣稱 CI 綠燈，仍待下一次真實 Actions 執行確認。

@@ -1,4 +1,4 @@
-name: 無正式資料契約測試
+name: CI Standard Testing Procedure
 
 on: [push, pull_request]
 
@@ -7,13 +7,9 @@ permissions:
 
 jobs:
   contracts:
-    name: CPython 3.10 / ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: CPython 3.10 / ubuntu-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest]
     env:
       PYTHONUTF8: '1'
       PYTHONIOENCODING: utf-8
@@ -39,21 +35,18 @@ jobs:
       - name: 依單一 constraints 建立新環境
         run: |
           python -m venv .venv310
-          if [ "$RUNNER_OS" = 'Windows' ]; then
-            VENV_BIN="$PWD/.venv310/Scripts"
-          else
-            VENV_BIN="$PWD/.venv310/bin"
-          fi
+          VENV_BIN="$PWD/.venv310/bin"
           "$VENV_BIN/python" -m pip install -c runtime-constraints.txt pip setuptools wheel
           "$VENV_BIN/python" -m pip install --no-build-isolation -c runtime-constraints.txt .
+          "$VENV_BIN/python" -m pip install -c runtime-constraints.txt pytest
           echo "$VENV_BIN" >> "$GITHUB_PATH"
-      - name: 套件、完整測試、CLI 與文件目標
+      - name: 套件、完整 pytest、CLI 與文件目標
         run: python -m tests.ci_evidence
       - name: 成功或失敗均只保存去敏摘要
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: 去敏契約結果-${{ matrix.os }}-3.10
+          name: 去敏契約結果-ubuntu-latest-3.10
           path: output/ci_evidence/*/public_summary.json
           if-no-files-found: warn
           retention-days: 14
