@@ -1,75 +1,46 @@
-# 實驗五：跨工況冷啟動
+# 實驗五：健康基準換到另一工況會怎樣
 
-程式：`experiments/exp5_cross_condition.py`。一次載入 `discover_datasets` 掃到的全部工況，目前契約是 9 組：T1/T2/T3 × 6000/8000/11000 rpm。
+同一工況建立的健康範圍，換馬達或轉速後可能把正常差異當故障。這個實驗比較跨工況分數與三種基準策略，也檢查T1與T2／T3的差異；它沒有同一顆馬達的長期退化真值。
 
-問題：在工況 A 只用健康資料建的基準，直接拿去給工況 B 打分時，健康接受率與故障偵測率還在不在；把多個工況的健康樣本混在一起建一個基準，會不會比逐工況各建一個更好。
+## 資料與共同處理
 
-## 實驗方法
+[runner](../../experiments/exp5_cross_condition.py)掃描data-root下的Motor／RPM，通常預期T1／T2／T3×6000／8000／11000rpm，但程式**沒有強制九工況齊全**。實際coverage看輸出keys，不拿「9組」補缺件。每個配置池是105維clean特徵，資料列、loader與未知單位／raw視窗限制見[實驗一](exp1_cold_start.md#資料與載入)；沒有去重或重建錄製順序。
 
-`--part` 預設 `abc`。`--method` 預設 `ledoit_wolf`，`--confidence 0.95`，`--seed 42`。本檔沒有 k-NN 開關。
+每次模型只用healthy建立OpenSetMonitor：列洗牌60/20/20，RobustScaler fit健康train，LW估計中心／共變異數，cal的confidence0.95分位數定線，score>1判異常。CLI可改confidence或馬氏method；legacy改用train距離定線，不能混稱校準政策相同。此實驗沒有k-NN選項，沒有神經網路訓練。
 
-**(a) `run_matrix`**  
-每個來源工況各自 `fit_initial()`。對每個目標工況算健康接受率 `(score ≤ 1)`、故障偵測率 `(score > 1)`、AUROC。來源等於目標時，健康分數只用該監測器自己的 holdout，避免訓練樣本回測。跨工況時，目標的健康池整池拿來評，因為那些樣本沒有參與來源的擬合。彙總對角線 AUROC、非對角線 AUROC、同轉速跨馬達、同馬達跨轉速。
+## 三部分的資料用途
 
-**(b) `run_strategy`**  
-先對每個工況的健康池用 `seed + 7` 做一次 `make_split`，留 20% holdout 給三種策略共用，混合基準只能看 train+calibration。
+a：每個source工況健康池fit一個模型，逐一套用所有target工況。同source健康用自己的holdout，跨source健康用target**完整健康池**；fault用target全部fault配置。每格計算healthy_accept、fault_detect與AUROC，分同工況、跨工況、同RPM跨motor、同motor跨RPM作等格權重平均。跨motor是個體轉移，不是同個體時間前後。
 
-- `per_condition`：各工況自己的監測器，再在自己的 holdout 上評
-- `global_mixed`：九組健康的 train+calibration 疊成一個健康池
-- `per_rpm_mixed`：同一轉速的三個馬達疊成一個健康池
+b：用seed+7先對每個工況建立外層健康split，取outer holdout作共同評估池，比較per_condition、global與per_rpm。後兩者把對應工況的outer train+cal混合，再內切60/20/20 fit。**per_condition卻對完整健康池用seed重新內切**，並未排除outer holdout；共同評估列可能進入它的train或cal。因此此部分不能宣稱三策略都是相同無洩漏holdout。這是現行程式缺口，本手冊揭露但不修改計算。
 
-指標是健康接受率與故障偵測率的九組平均。
+c：每個RPM以T1健康池fit，對T1自身holdout、T2／T3完整健康池算分數；缺T1或對照motor會略過該列。文件支持三者為不同馬達個體，T1描述新、T2／T3描述老，但使用時數、安裝與負載等未確認。個體與老化混雜，不能把跨個體分數差歸因為磨損量。程式及UI的aging字樣是歷史命名，不是已驗證生命週期分析。
 
-**(c) `run_drift`**  
-每個轉速用 T1 的健康基準，去看 T1 holdout、以及 T2、T3 的全部 `8screws`。記錄分數中位數、第 90 百分位、被標未知的比例。T1/T2/T3 是三顆馬達，分數位移同時含個體差與檔名上的壽命期，這份資料拆不開。
+三部分unknown都只在評估可見，不fit健康模型；既有特徵清理是否跨raw視窗使用資訊仍未確認。a、b、c也沒有未曝光final test主張。
+
+## 怎麼執行
+
+從repo根目錄依[環境政策](../runtime_policy.md)準備uv與正式特徵：
 
 ```bash
-venv/bin/python -m experiments.exp5_cross_condition
-venv/bin/python -m experiments.exp5_cross_condition --part a
+uv run --locked python -m experiments.exp5_cross_condition --help
+uv run --locked python -m experiments.exp5_cross_condition --data-root data --seed 42 --part abc --confidence 0.95 --method ledoit_wolf
 ```
 
-## 理論
+--part選abc中的部分；API為run(data_root="data",seed=42,parts="abc",confidence=0.95,method="ledoit_wolf")。它載入整個root，不接受單一pools、motor或rpm，也沒有openset-method。資料空、缺healthy或fault可能在堆疊／彙總失敗，應確認coverage與105維，不借其他馬達假補。
 
-監測器估的是「這一組健康窗口的位置與散布」。轉速或馬達一換，健康雲的中心可以離開原來的校準橢球，於是另一台機器的健康窗口也會得到大於 1 的分數。故障偵測率在這種時候仍可能很高，因為故障離新云更遠；健康接受率會先壞。
+Web啟動見[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)，實驗五選seed後按「▶ 執行」，處理伺服器的整個data-root、跑三部分，不以頁面單一資料集下拉選單限制範圍。此卡沒有邊跑邊畫／中途停止與續跑入口；失敗後修正前提，再另跑一次。這個操作不變更現場模型或資料檔。
 
-混合基準把多團健康雲塞進同一個共變異數。若三團中心彼此離得遠，橢球被拉大，閾值跟著變寬，故障可能掉回橢球裡面。逐工況基準避免這次混合，代價是每台機器、每個轉速都要自己的 `8screws` 訓練與校準。
+## 看輸出與判斷限制
 
-## 參考論文
+main寫logs/exp5_cross_condition/{ts}.log、output/exp5_cross_condition/{ts}/environment.json與summary.json；a+c齊全才寫cross_condition.png。Web寫web_server的experiments子目錄。cross_condition中的train／test是模型來源／評估工況，不代表三顆馬達分成專用train／cal／test的另一套研究協定。
 
-- 馬氏距離與 Ledoit–Wolf 出處同 [exp1_cold_start.md](exp1_cold_start.md)。
-- 跨工況時整池評健康、同工況只用 holdout、混合策略用 `seed + 7`：本專案操作約定，寫在 `_evaluate` 與 `run_strategy`。
-- 不把 T1→T3 的分數上升單獨解釋成老化：本專案的資料限制，見本檔 `run_drift` 與 [Experiments_Guide.md](../Experiments_Guide.md) 第 6 節。
+healthy_accept是健康score≤1比例，fault_detect是fault score>1比例，AUROC是故障分數高於健康的排序指標。不是九種故障配置分類準確率。各格先round4，再等格平均，不按視窗數加權；少工況或缺故障改變平均對象。健康score、p95等為無因次正規化量，不是故障嚴重度或時數。
 
-## 預期成果
+預期跨工況健康接受率可能下降，分工況基準是否改善需配合coverage與公平holdout判讀。程式沒有正式成功門檻。b目前用途重疊使策略比較受限，不能據它推薦部署；c只描述現有不同馬達分布。舊完整數字見[固定紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/experiments/exp5_cross_condition.md#已記錄的實測)。
 
-(a) 對角線 AUROC 應高於非對角線，同轉速或同馬達的格子可以比任意交叉好，也可以不好，要看分數而不是先假設。最差的非對角線若掉到 0.5 附近，那一對工況不能共用基準。
+## 方法來源與程式碼
 
-(b) 若 `per_condition` 的健康接受率與故障偵測率同時高於兩種混合，部署就該逐工況冷啟動。若混合在故障偵測上更高、健康接受率卻掉很多，那是閾值變寬，不是泛化變好。
+馬氏距離、LW、RobustScaler來源見[實驗一](exp1_cold_start.md#方法來源與程式定位)。三種混合策略、配對工況與統計分組是Lineage操作約定，不是由某篇論文保證的域適應方法。
 
-(c) T1 看自己的 holdout，未知比例應靠近實驗一的誤報。T1 基準看 T2/T3 的 `8screws` 若大量超過 1，就不能把 T1 的閾值套到另外兩顆馬達。
-
-## 已記錄的實測
-
-[Experiments_Guide.md](../Experiments_Guide.md) 記載：自身 AUROC 為 1.0；跨工況平均 0.893，最差一格 0.10。逐工況策略的健康接受率 97.4%、故障偵測率 100%，兩種混合都較低。T1 基準看 T2/T3 的健康資料，100% 被標未知，分數中位約 14 到 86。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
-|---|---|
-| `experiments/exp5_cross_condition.py` | `run_matrix`、`run_strategy`、`run_drift`、`run`、`main` |
-| `core/data.py` | `discover_datasets`、`load_pools`、`make_split` |
-| `core/monitor.py` | 每個來源工況一個 `OpenSetMonitor` |
-
-`a` 與 `c` 都有結果時才畫 `cross_condition.png`。
-
-- `logs/exp5_cross_condition/{時間戳}.log`
-- `output/exp5_cross_condition/{時間戳}/summary.json`
-- `output/exp5_cross_condition/{時間戳}/cross_condition.png`
-
-### 散在其他位置的相關檔案
-
-- 測試：沒有專屬測試。
-- Web：`web/static/index.html` 的資料集下拉選單（9 組工況各自冷啟動）。
-- 已提交紀錄：`logs/exp5_cross_condition/`、`output/exp5_cross_condition/`（1 次執行）。
-- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 6 節。
-- Web 實驗頁：頁首「實驗五」，`web/experiments.py` 的 `CATALOG` 項目 `exp5` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp5`；結果存到 `output/web_server/{ts}/experiments/exp5_{時間}.json`。
+[exp5](../../experiments/exp5_cross_condition.py)負責載入、三部分、彙總與writer；[core/data](../../core/data.py)切分；[core/monitor](../../core/monitor.py)建健康基準；[web/experiments](../../web/experiments.py)批次編排；[test_web_experiments](../../tests/test_web_experiments.py)與[test_monitor_guard](../../tests/test_monitor_guard.py)檢查入口／基準。這些測試不消除b的外層／內層holdout重疊。

@@ -27,7 +27,7 @@
 
 ## 現行實驗技術報告
 
-`experiments/` 的每一支程式各有一份，目錄與各實驗散在 `core/`、`experiments/health/`、`web/`、`tests/`、`reports/` 的檔案位置在 [experiments/README.md](experiments/README.md)。白話版仍是 [Experiments_Guide.md](Experiments_Guide.md)。
+[experiments/README.md](experiments/README.md)列出13個現行實驗編號（1～12及24）、19份方法／操作手冊及程式位置。實驗六、八的矩陣與彙總共用原編號；實驗九共用實驗六runner。每份手冊說明資料與用途切分、模型建立、CLI／API／Web操作、輸出及限制。[Experiments_Guide.md](Experiments_Guide.md)提供總覽，實際參數與例外以對應手冊及程式為準。
 
 | 編號 | 文件 | 程式 |
 |---|---|---|
@@ -43,7 +43,7 @@
 | 實驗七 | [exp7_compare_openset](experiments/exp7_compare_openset.md) | `experiments/compare_openset.py` |
 | 實驗八 | [exp8_health_index_benchmark](experiments/exp8_health_index_benchmark.md) | `experiments/health_index_benchmark.py` |
 | 實驗八 | [exp8_health_index_matrix](experiments/exp8_health_index_matrix.md) | `experiments/health_index_matrix.py` |
-| 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`；來源完整性、重算定義及差異輸出 |
+| 實驗八 | [封存彙總重算](experiments/exp8_health_index_aggregate.md) | `experiments/health_index_aggregate.py`；來源完整性、54 列重算定義及差異輸出 |
 | 實驗八 | [exp8_health_monitor](experiments/exp8_health_monitor.md) | `experiments/health_monitor.py` |
 | 實驗九 | [exp9_autoencoder](experiments/exp9_autoencoder.md) | `core/detectors.py`（`MLPAutoencoderDet`，`experiments/exp6_osr_benchmark.py` 自動納入） |
 | 實驗十 | [exp10_transfer](experiments/exp10_transfer.md) | `experiments/exp10_transfer.py` |

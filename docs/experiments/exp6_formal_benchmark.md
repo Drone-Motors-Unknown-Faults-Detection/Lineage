@@ -1,83 +1,49 @@
-# 實驗六正式版：Mahalanobis 對 k-NN
+# 實驗六正式版：同條件比較Mahalanobis與k-NN
 
-程式：`experiments/exp6_formal_benchmark.py`。一次呼叫跑完資料根目錄下的全部工況，但只跑一種 `--openset-method`、一個 `--seed`。九工況 × 多 seed × 兩方法的迴圈在 [exp6_matrix.md](exp6_matrix.md)。
+這支runner只用健康建立基準，透過同一個core.openset factory比較兩種偵測器，保留設定與工況指標。它與[八方法廣度比較](exp6_osr_benchmark.md)分開；不是多類故障配置分類，也不修改正式預設。
 
-這支在合併前曾叫 `exp6_osr_benchmark`。現在的七偵測器廣度比較留在原名，見 [exp6_osr_benchmark.md](exp6_osr_benchmark.md)。分支 `output/`、`logs/` 裡 2026-09-19 的 `exp6_osr_benchmark` 紀錄出自本模組。
+## 資料、切分與模型
 
-## 實驗方法
+從data-root掃描105維clean特徵。CLI要求九個不同motor／RPM組合，API require_nine=False可作部分工程測試；九個數量通過不等於已驗證指定三馬達×三RPM全格、來源或視窗獨立。列的物理語意、未知單位與loader限制見[實驗一](exp1_cold_start.md#資料與載入)。
 
-1. `discover_datasets` 後依 `(motor, rpm)` 排序。`require_nine=True` 時工況數必須是 `FORMAL_CONDITION_COUNT = 9`，否則丟 `ValueError`。
-2. `FORMAL_METHODS` 只有 `mahalanobis` 與 `knn`。Mahalanobis 若 `--method legacy` 直接拒絕。預設 `ledoit_wolf`、`confidence=0.95`、`knn_neighbors=5`、seed 42。
-3. 每個工況：`RobustScaler` 只擬合 `8screws` 訓練集；`create_openset_detector(...).fit(...)` 的標籤全是 0，校準標籤也必須是已知類。未知配置在打分之後才疊成正類。
-4. 預測規則是 `score > 1`。指標見下表。`peak_memory_mb` 固定寫 `null`。`inference_seconds` 只包兩次 `score_samples`，不含擬合。
-5. `dataset_fingerprint` 對資料目錄做可攜的內容雜湊。摘要寫 `dataset_root` 的目錄名，不寫本機絕對路徑。另外記錄 `commit_sha`、Python 版、UTC 起迄時間。
+工況按motor／rpm字串排序，default_rng(seed=42)連續洗牌各健康池；約60%train、20%cal、20%holdout。同來源、集合順序與seed才有相同列切分。RobustScaler只fit健康train。LW只用縮放train估中心／共變異數；k-NN保存同一train庫，預設k=5，資料少時縮減有效k。各法cal距離0.95分位數定線，score>1判未知。所有其他配置全池只打分／算指標，不fit、不校準、不選參。legacy因用train距離定線而明確拒絕。沒有神經網路epoch。
 
-| 欄位 | 演算法 |
-|---|---|
-| `known_accuracy` | 健康 holdout 預測為已知的比例 |
-| `open_set_accuracy` | 健康 holdout 加全部未知窗口的準確率 |
-| `auroc` | 未知為正類 |
-| `aupr_unknown_positive` | 同上，average precision |
-| `fpr_at_tpr95` | ROC 上 TPR ≥ 0.95 的最小 FPR |
-| `unknown_precision` / `recall` / `f1` | 閾值 1.0 的未知類 |
-| `known_score_median` / `unknown_score_median` | 分數中位數 |
+每工況先fit→校準→一次健康與fault打分→二元指標→記錄來源與參數。known_accuracy是**健康接受比例**，不是已知故障配置分類率。T1／T2／T3是不同個體；本實驗各自同工況建模，並非專用三馬達train／cal／test研究。
+
+## 操作
+
+在repo根目錄依[環境政策](../runtime_policy.md)準備uv、資料：
 
 ```bash
-venv/bin/python -m experiments.exp6_formal_benchmark --openset-method mahalanobis --seed 42
-venv/bin/python -m experiments.exp6_formal_benchmark --openset-method knn --seed 42
+uv run --locked python -m experiments.exp6_formal_benchmark --help
+uv run --locked python -m experiments.exp6_formal_benchmark --data-root data/formal_local --seed 42 --openset-method mahalanobis --method ledoit_wolf --confidence 0.95
+uv run --locked python -m experiments.exp6_formal_benchmark --data-root data/formal_local --seed 42 --openset-method knn --knn-neighbors 5 --confidence 0.95
 ```
 
-## 理論
+API run(data_root,seed=42,confidence=0.95,openset_method="mahalanobis",mahalanobis_method="ledoit_wolf",knn_neighbors=5,require_nine=True)回傳dict，不寫CLI檔案。confidence須在0與1間；缺九工況、healthy、unknown或非有限score明確失敗，先查來源，不借test調門檻。
 
-兩種偵測器共用工廠 `create_openset_detector`，共用「越大越未知、超過 1 就拒絕」。Mahalanobis 估的是類別橢球。k-NN 估的是到該類訓練集 k 個近鄰的平均歐氏距離，每類用自己的校準分位數正規化，再取最小正規化分數。健康-only 時只有一類，最小分數就是那一類的分數。
+Web啟動見[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)，選「實驗六正式版」、方法／seed後「▶ 執行」。Web用require_nine=False，因此看見成功不代表正式九工況完整；須看formal_condition_count。沒有逐筆串流、取消或續跑。多seed持久化由[矩陣](exp6_matrix.md)負責，不用手動覆寫歷史目錄。
 
-這次比較不包含 One-Class SVM、Isolation Forest、LOF、PCA 重建，也不包含 `core/detectors.py` 的 `knn_dist`。那些留在廣度比較。`polarmap_base_method` 在摘要裡固定寫 `mahalanobis`，因為幾何模組不跟著這次的拒絕器切換。
+## 輸出怎麼讀
 
-## 參考論文
+main經setup_run寫logs/exp6_formal_benchmark/{ts}.log及output/exp6_formal_benchmark/{ts}/environment.json、summary.json、results.csv、osr_benchmark.png。Web另寫web_server的experiments JSON。
 
-- 馬氏距離、Ledoit–Wolf、Cover 與 Hart 的出處同 [exp1_cold_start.md](exp1_cold_start.md)。
-- W. J. Scheirer, A. de Rezende Rocha, A. Sapkota, and T. E. Boult (2013), “Toward Open Set Recognition,” *IEEE TPAMI*, 35(7), 1757–1772。DOI [10.1109/TPAMI.2012.256](https://doi.org/10.1109/TPAMI.2012.256)。本程式實作的是校準距離拒絕，沒有實作該文的 open space risk 或 OpenMax。
-- 拒絕 legacy 校準、未知不進閾值、指紋不含絕對路徑：本專案操作約定，寫在 `run()` 開頭的檢查與回傳字典。
-
-## 預期成果
-
-九列都應 `status=completed`，分數全為有限值。若特徵已經把螺絲配置和 `8screws` 分開，AUROC 與未知 recall 會接近 1，兩種方法的差距會落在小數點後段的準確率，而不是出現一個方法完全失敗。若某一工況的 `unknown_recall` 明顯低於其餘工況，先查該工況的目錄與 105 維是否齊全，再談偵測器。
-
-`legacy` 被拒是預期行為。要看訓練集自校準的對照，跑 [exp6_osr_benchmark.md](exp6_osr_benchmark.md) 的 `maha_legacy`。
-
-## 已記錄的實測
-
-多 seed 的彙總不在本程式的單次輸出，而在 `output/exp6_formal_matrix/aggregate/aggregate.md`（54 列，seed 42、123、2026）：
-
-| method | AUROC | open-set accuracy | unknown F1 |
-|---|---:|---:|---:|
-| mahalanobis | 1.000000 ± 0.000000 | 0.998849 ± 0.000887 | 0.999412 ± 0.000453 |
-| knn | 1.000000 ± 0.000000 | 0.998842 ± 0.000937 | 0.999409 ± 0.000478 |
-
-成對差（k-NN 減 Mahalanobis）裡，AUROC、AUPR、FPR@TPR95、unknown recall 的平均差是 0。open-set accuracy 的平均差是 −0.000007。這是矩陣跑完之後的數字。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
+| 欄位 | 含義 |
 |---|---|
-| `experiments/exp6_formal_benchmark.py` | `run`、`dataset_fingerprint`、`FORMAL_METHODS`、`main` |
-| `core/openset.py` | `create_openset_detector`、`canonical_openset_method` |
-| `core/data.py` | `discover_datasets`、`load_pools`、`make_split` |
-| `experiments/health_index_benchmark.py` | 只借用 `dataset_fingerprint` |
+| n_train／n_calibration／n_known_test／n_unknown_test | 每用途實際列數，不是錄製批次 |
+| known_accuracy／open_set_accuracy | 健康接受率／健康對fault二元正確率；後者受類別比例影響 |
+| auroc／aupr_unknown_positive | unknown為正類的排序／平均精確率；AUPR須同時看正類比例 |
+| unknown_precision／unknown_recall／unknown_f1 | 判未知的精確率／召回／調和平均，零分母按sklearn設0 |
+| fpr_at_tpr95 | fault分數5%分位數的事後診斷線，健康score≥該線比例；不是已校準部署線 |
+| raw_thresholds／threshold_strategy | cal的原距離線與政策，正規化threshold固定1 |
+| inference_seconds／peak_memory_mb | 兩次打分的耗秒，不含fit；記憶體未量測為null |
 
-`setup_run("exp6_formal_benchmark")` 寫入：
+dataset_fingerprint目前有manifest時雜湊其穩定欄位，**不重新驗證每個實際CSV內容**；無manifest時只用相對路徑、size、mtime，不是CSV內容SHA。不能單憑這欄宣稱來源位元組已完整核實。commit_sha、python與config供設定追溯，未存逐樣本ID、預測或模型checkpoint。
 
-- `logs/exp6_formal_benchmark/{時間戳}.log`
-- `output/exp6_formal_benchmark/{時間戳}/results.csv`
-- `output/exp6_formal_benchmark/{時間戳}/summary.json`
-- `output/exp6_formal_benchmark/{時間戳}/osr_benchmark.png`
+預期完整九列、有限指標且unknown排序高／健康誤報低；沒有通用可靠模型PASS門檻。舊完整結果查[固定矩陣](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/1fa9431bb7b86959f29540d07b2b9290ab39ce42/output/exp6_formal_matrix)，不把不同資料指紋或seed直接當改善。不保證5%現場誤報、錄製獨立或fresh final。
 
-摘要裡的 `output_dir` 另外記成相對路徑 `output/exp6_formal_benchmark/{時間戳}`。
+## 方法來源與程式碼
 
-### 散在其他位置的相關檔案
+馬氏距離、LW與近鄰來源見[實驗一](exp1_cold_start.md#方法來源與程式定位)；平均k距離／分位數正規化是Lineage操作約定。Ancestor提供馬氏核心來源，Lineage整合factory與正式比較。
 
-- 測試：`tests/test_exp6_benchmark.py`；偵測器工廠 `tests/test_openset.py`。
-- 正式資料物化：`core/formal_data.py`（`tests/test_formal_data.py`），把 raw ZIP 轉成 `data/formal_local/`。
-- 進度紀錄與資料來源稽核：[實驗六進度紀錄（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/ancester_openset_exp6_progress.md)、[raw_data_audit/](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/raw_data_audit)、[github_data_audit/](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/github_data_audit)，均已刪除，清單見 [health_and_reports.md](../health_and_reports.md) 第 2.2 節。
-- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 7 節。
-- Web 實驗頁：頁首「實驗六」的 6-2，`web/experiments.py` 的 `CATALOG` 項目 `exp6_formal` 以 `require_nine=False` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp6_formal`；結果存到 `output/web_server/{ts}/experiments/exp6_formal_{時間}.json`。
+[runner](../../experiments/exp6_formal_benchmark.py)負責流程／指標／writer；[factory](../../core/openset.py)建立兩法；[test_exp6_benchmark](../../tests/test_exp6_benchmark.py)檢查known-only與指標；[test_openset](../../tests/test_openset.py)驗證參考與校準分離；[web/experiments](../../web/experiments.py)編排。這些測試不證明raw來源鏈完整。

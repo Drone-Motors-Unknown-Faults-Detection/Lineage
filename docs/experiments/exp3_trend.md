@@ -1,79 +1,56 @@
-# 實驗三：漸進磨損與突發跳變
+# 實驗三：漸進與突發的劇本判別
 
-程式：`experiments/exp3_trend.py`。判別邏輯在 `core/trend.py` 的 `TrendMonitor`。劇本表 `SCENARIOS` 同時被 `web/live.py` 拿去播。
+健康與故障的CSV樣本按兩種節奏混入，分數序列能不能區分「慢慢變多」與「一下變多」？它使用[實驗一](exp1_cold_start.md)的固定健康基準，不在劇本中學新類。這是抽樣劇本檢查，沒有同一顆馬達真正磨損的生命週期真值。
 
-問題：開集分數的時間形狀能否分開「螺絲慢慢鬆」和「一下子換成另一種配置」。
+## 資料與模型怎麼準備
 
-## 實驗方法
+單一馬達／RPM的105維clean特徵、loader行為與單位／來源限制同[實驗一](exp1_cold_start.md#資料與載入)。健康池由seed42列洗牌60/20/20；train fit scaler、LW中心／共變異數（或k-NN參考）與顯示PCA，cal定confidence0.95門檻。legacy例外用train距離定門檻。未知配置不fit、不校準；healthy串流只抽holdout，fault串流抽各配置全池。CycleSampler洗牌、循環重用，不保證raw視窗獨立。
 
-1. 用實驗一的方式 `fit_initial()`，監測器停在只有健康類的階段 0。
-2. 劇本 A，預期標籤 `gradual`。phase 是 `(配置, 故障混入比例, 筆數)`：
-   - `8screws`，比例 0，40 筆
-   - `7screws`，0.25，50 筆
-   - `7screws`，0.70，50 筆
-   - `6screws`，1.0，60 筆
-   - `5screws`，1.0，60 筆
-3. 劇本 B，預期標籤 `sudden`：健康 40 筆，接著 `4screws` 比例 1.0、120 筆。
-4. 比例小於 1 時，其餘機率抽健康 holdout。故障樣本用 `CycleSampler` 在該配置全池上抽。故障開始時間 `onset` 等於第一段的 40 筆。
-5. 每一筆呼叫 `TrendMonitor.update(score)`。第一次 `alarm_now` 記下 `kind`、警報時刻與 `transition`，該 trial 結束。
-6. CLI `--trials` 預設 20。文件裡那次 40 次重複要自己加上 `--trials 40`。trial `k` 的 seed 是 `seed + 1000 * 劇本序 + k`。
+整次run只fit一次健康monitor，所有trial共用這個模型。trial另建TrendMonitor並重設狀態；A的rng為seed+1000+k，B為seed+2000+k（k從0開始）。因此20trial是同資料與模型下的抽樣重複，不是20顆馬達。
+
+## 劇本與判別順序
+
+| 劇本 | 有順序的階段（配置／抽故障機率／筆數） | 預期標籤 |
+|---|---|---|
+| A | 健康／0／40 → 7screws／0.25／50 → 7screws／0.7／50 → 6screws／1／60 → 5screws／1／60 | gradual |
+| B | 健康／0／40 → 4screws／1／120 | sudden |
+
+機率剩餘部分抽健康holdout，不是把兩筆特徵線性混合。onset固定40；各trial第一個alarm_now出現就停止，未必播完表中全部筆數。
+
+每筆先算Open Set score，再交給[core/trend.py](../../core/trend.py)：
+`flag=1{score>1}; ewma += 0.08*(flag-ewma)`。EWMA平滑的是異常旗標，不是原始振動或健康百分比。超過warmup10筆後，EWMA至少0.5才首次警報。當下從最近120筆歷史數EWMA落在[0.2,0.5)的筆數，transition≤12叫sudden，其餘gradual；當前警報點是在判定後才加入history。CUSUM為`max(0,previous+score-1)`，只展示、不決定kind。
+
+這些固定規則不訓練神經網路，沒有loss／optimizer；不從T1／T2／T3推論退化速度。健康早期若已誤報也會停止，latency可能是負值，不能偷偷截成0。
+
+## 如何執行與使用
+
+在repo根目錄，依[環境政策](../runtime_policy.md)準備uv與資料：
 
 ```bash
-venv/bin/python -m experiments.exp3_trend --motor T1 --rpm 8000rpm --trials 40
+uv run --locked python -m experiments.exp3_trend --help
+uv run --locked python -m experiments.exp3_trend --data-root data --motor T1 --rpm 8000rpm --seed 42 --trials 20
 ```
 
-## 理論
+CLI支援共用openset-method／method／confidence／knn-neighbors；`--trials`預設20，必須正整數，程式未完整驗證0或負值，可能零分母；不要當空跑成功。API為`run(pools,n_trials=20,seed=42)`，回傳trials與summary；iter_run逐事件計算，不自行持久化。
 
-`TrendMonitor` 不看單點分數的大小，看「分數 > 1」這個旗標的密度。EWMA 為
+Web啟動見[實驗一](exp1_cold_start.md#實驗怎麼跑與怎麼使用)，切「實驗三」、選資料集／方法／seed／每劇本次數，按「▶ 執行」。選「⏵ 邊跑邊畫」可看首trial的分數／EWMA，其餘trial出統計；「■ 停止」會取消後續串流，不把未收到done的結果當完整。批次沒有中途停止按鈕。即時展示的A/B劇本與本頁共享SCENARIOS，但session可能已擴張，不能直接當冷啟動同一設定比較。
 
-`ewma ← (1 - α) * ewma + α * 1{score > 1}`
+缺7、6、5或4screws時會失敗，應核對配置來源，不補造資料。模型未fit須重建；重跑目錄由setup_run秒級時間戳建立，不同秒分開，沒有trial續跑入口。
 
-預設 `α = 0.08`。`ewma` 升到 `alarm_frac = 0.5` 且已過 `warmup = 10` 筆才警報。
+## 輸出怎麼看
 
-警報當下回看最近 `window = 120` 筆，數異常比例落在中間帶 `[onset_frac, alarm_frac) = [0.2, 0.5)` 的筆數，記成 `transition`。`transition ≤ sudden_max`（12）標 `sudden`，否則標 `gradual`。用停留時間，是為了不被健康期偶發超線拉長「從起點到警報」的距離。
+[main](../../experiments/exp3_trend.py)寫`logs/exp3_trend/{ts}.log`及`output/exp3_trend/{ts}/environment.json`、`trials.csv`、`summary.json`；Web結果另存web_server的experiments子目錄。
 
-CUSUM 累積 `(score - 1)` 的正偏移，欄位給展示看，不參與 `kind` 判定。這段判別規則是本專案的操作約定，門檻寫在 `TrendMonitor.__init__`。
+`trials.csv`每列是劇本／trial，不是輸入視窗。expected是劇本指定標籤；verdict是程式結果；correct含未警報為false。alarm_t、latency=alarm_t−40、transition單位都是**筆**，無警報為None。`alarm_rate`以所有trial為分母；`correct_rate`同樣包含未警報；mean_latency／mean_transition只平均已警報trial，不是所有trial平均。兩劇本各自匯總，不把它們當新獨立採集。
 
-## 參考論文
+預期A以gradual、B以sudden為主且兩者有警報；程式沒有獨立資料成功門檻。歷史完整數字見[固定原紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/experiments/exp3_trend.md#已記錄的實測)。劇本成功支持這個分數／規則辨識抽樣節奏，不支持實體故障機制、每小時誤報、真實警報秒數、RUL或損壞百分比。
 
-- S. W. Roberts (1959), “Control Chart Tests Based on Geometric Moving Averages,” *Technometrics*, 1(3), 239–250。DOI [10.1080/00401706.1959.10489860](https://doi.org/10.1080/00401706.1959.10489860)。
-- E. S. Page (1954), “Continuous Inspection Schemes,” *Biometrika*, 41(1/2), 100–115。DOI [10.1093/biomet/41.1-2.100](https://doi.org/10.1093/biomet/41.1-2.100)。程式只把 CUSUM 當展示統計量。
-- 中間帶 `[0.2, 0.5)`、`sudden_max = 12`、`α = 0.08`：本專案操作約定。`AGENT.md` 寫明這兩條線是照實驗一的誤報分數分布拉開的。
+## 方法來源與程式
 
-## 預期成果
+Roberts（1959），*Control Chart Tests Based on Geometric Moving Averages*，Technometrics1(3),239–250，[DOI](https://doi.org/10.1080/00401706.1959.10489860)，支持EWMA遞迴。Page（1954），*Continuous Inspection Schemes*，Biometrika41(1/2),100–115，[DOI](https://doi.org/10.1093/biomet/41.1-2.100)；既有[固定引用查證](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/issue_delivery_20261008/citation_followup.md)仍列Page全文未取得，不能宣稱整套控制圖已原文驗證。0.08／0.2／0.5／12及劇本是Lineage操作約定，非上述論文為此資料保證的參數。
 
-2026-10-08引用核對：Roberts原文p.240式(1)可支持EWMA遞迴；本專案輸入為旗標、初值0，並自行設定警報與判別規則。Page原文全文本輪未取得；CUSUM欄位只供展示，不宣稱完整控制圖程序。逐條來源與尚未核實項見[引用核對](../../reports/Andy_20261008_議題交付/citation_followup.md)。這些資料列的順序是劇本抽樣，不證明真實馬達磨損速度或每小時警報率。
+[exp3](../../experiments/exp3_trend.py)產生劇本、管理trial與writer；[core/trend](../../core/trend.py)實作旗標EWMA／CUSUM；[web/live](../../web/live.py)重用劇本；[test_stream_integration](../../tests/test_stream_integration.py)與[test_web_experiments](../../tests/test_web_experiments.py)檢查編排。實驗八另用SessionTrajectoryMonitor，不是同一趨勢演算法。
 
-兩個劇本的警報率都應接近 1。劇本 A 的 `kind` 應以 `gradual` 為主，劇本 B 以 `sudden` 為主。突發的警報延遲（`alarm_t - onset`）應短於漸進。若兩者的 `transition` 大量重疊，12 筆這條切線就沒有把兩種節奏分開。
+兩套趨勢的輸入與用途見[兩套趨勢](../health_and_reports.md#兩套趨勢)；EWMA／CUSUM 的引用核對與未確認項見[來源附件](../../reports/Andy_20261008_議題交付/citation_followup.md)。
 
-## 已記錄的實測
-
-[Experiments_Guide.md](../Experiments_Guide.md) 記載 T1/8000 rpm、40 次：兩劇本警報率皆 100%，判別正確率各 98%。突發平均 7.7 筆警報，漸進平均 49.8 筆。中間帶停留大致是突發 5–13 筆、漸進 12–60 筆。CLI 預設仍是 20 次，和這次紀錄的 40 次不同。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
-|---|---|
-| `experiments/exp3_trend.py` | `SCENARIOS`、`iter_stream`、`run`、`iter_run`、`main`；`run` 把 `iter_run` 跑完取最後的 `result`（2026-10-03 起） |
-| `core/trend.py` | `TrendMonitor.update` |
-| `core/monitor.py` | 階段 0 的開集分數 |
-| `core/data.py` | `CycleSampler` |
-| `web/live.py` | `from experiments.exp3_trend import SCENARIOS, KIND_DISPLAY`，逐筆 `trend.update` |
-
-輸出：
-
-- `logs/exp3_trend/{時間戳}.log`
-- `output/exp3_trend/{時間戳}/trials.csv`
-- `output/exp3_trend/{時間戳}/summary.json`
-
-### 散在其他位置的相關檔案
-
-- 測試：沒有專屬測試。
-- Web：`web/live.py` 用 `TrendMonitor` 與 `SCENARIOS`；`web/static/index.html` 的「變化點分析（實驗三）」卡。
-- 已提交紀錄：`logs/exp3_trend/`、`output/exp3_trend/`（3 次執行）。
-- 另一套趨勢邏輯 `experiments/health/trajectory.py` 屬於實驗八，兩者差別見[兩套趨勢](../health_and_reports.md#兩套趨勢)。
-- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 4 節。
-- Web 實驗頁：頁首「實驗三」，`web/experiments.py` 的 `CATALOG` 項目 `exp3` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp3`；結果存到 `output/web_server/{ts}/experiments/exp3_{時間}.json`。
-- 邊跑邊畫：頁面上的「⏵ 邊跑邊畫」改走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/{id}/stream`）逐步推送，速度 20／80／400 筆/秒可選。`iter_run()` 只多吐出中間事件，計算與 `run()` 相同；`tests/test_iter_run.py` 比對兩者輸出。兩個劇本的第 1 次重複逐筆畫出分數與 EWMA，其餘重複直接計算、只列結果。
-
-串流與模型錯誤復原統一見 [共用生命週期](README.md#web-串流生命週期)。當次整合來源與配對證據見 [固定交付紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/integration_20261008/integration_report.md)。
+串流停止、錯誤復原與模型有效狀態見[Web 串流生命週期](README.md#web-串流生命週期)及[共用模型生命週期](README.md#共用模型生命週期)。當次串流整合來源與配對證據見[固定交付紀錄](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/integration_20261008/integration_report.md)。
