@@ -16,7 +16,7 @@ Windows／Ubuntu 使用 CPython 3.10、新 venv、同一份 runtime-constraints.
 
 CI permissions 只有 contents:read，使用 push／pull_request，不使用 pull_request_target、不讀 secrets、不部署服務。
 官方 Actions 固定完整 commit SHA；pip cache 由 OS／Python／constraints SHA 區分，只快取下載套件。
-失敗時只上傳經去敏的測試摘要，不上傳正式 CSV、模型、全部 logs/output 或 private sidecar。
+成功與失敗都只上傳經去敏的測試摘要，不上傳正式 CSV、模型、全部 logs/output 或 private sidecar。
 測試例外須保留類型、測試 ID、失敗狀態；私人路徑和任意例外 payload 不公開。
 
 在獨立測試分支先提交故意失敗 fixture，等真實 Actions 紅燈；下一 commit 移除，再等綠燈。
@@ -48,3 +48,18 @@ Python 沿用已安裝的 CPython 3.10.19 鎖版環境，不重新建置既有 v
 新增 `.github/workflows/ci.yml`、`tests/ci_evidence.py`、`tests/test_ci_contracts.py`；既有 fixture 視真正跨平台失敗作最小修補。
 證據沿用 `logs/ci_evidence/`、`output/ci_evidence/`，手寫結果追加本文件。
 本項沒有改實驗方法／切分／指標，不占 exp9～12。
+
+## 實測與公開交付
+
+事前契約 `d85cf83`；實作 `d2647f3`；[PR #53](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/53)。
+本輪基線 discover 實跑 179 項全通過；新增 14 項後本機 CPython 3.10.19 共 193 項全通過，pip check、七個 CLI help、8 份文件相對目標零失效。
+第一次 fixture 關閉順序曾在測試後造成 WebSocket on_close 存取已復原的 HUB，雖 unittest 仍 OK，不能忽略背景例外；已修測試自身的斷線等待與 teardown 次序，再跑四個 WS 測試與全部193項。沒有修改 Web 實作。
+
+- [候選 push 綠燈](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891076062)：`d2647f3`，Windows／Ubuntu 均成功。
+- [候選 PR 綠燈](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891111826)：相同候選的 pull_request 事件，兩平台成功。
+- [故意失敗紅燈](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891086977)：獨立分支 `8d804ace5b3568a61b965018e7ddbce4237821ea`，兩平台只因 `test_intentional_failure` 失敗；194項中新增故障fixture確實令exit非零。
+- [下一 commit 移除後綠燈](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37891379134)：`42476c3739a0a0bc83b58ce7c391ab65fd6d6db4`，兩平台成功。該分支沒有 PR，故障檔不在正式交付。
+
+初版 workflow 只在失敗上傳摘要，因此初次成功run的逐項計數未保存為artifact；後續改成成功／失敗都只保存白名單摘要並在log列skip。不可為舊綠燈補造artifact。
+遠端證據入口為 `python -m tests.ci_remote_evidence --run-id RUN_ID`；輸出 `output/ci_remote_evidence/*/remote_runs.json`，保留真實 head／run／job／artifact與摘要。
+#27 候選工程條件已交付；尚未合 main，issue 維持 OPEN，macOS 未驗證。模型／準確率變動為0。

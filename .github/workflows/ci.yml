@@ -49,8 +49,8 @@ jobs:
           echo "$VENV_BIN" >> "$GITHUB_PATH"
       - name: 套件、完整測試、CLI 與文件目標
         run: python -m tests.ci_evidence
-      - name: 失敗時只保存去敏摘要
-        if: failure()
+      - name: 成功或失敗均只保存去敏摘要
+        if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: 去敏契約結果-${{ matrix.os }}-3.10
