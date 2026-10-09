@@ -1,55 +1,42 @@
-# 實驗六彙總：exp6 矩陣彙總
+# 實驗六彙總：讀取矩陣摘要，不重新訓練
 
-程式：`experiments/aggregate_exp6.py`。它不打分、不重新切資料。它讀已經完成的 `matrix_manifest.json`，把每一格的 `summary.json` 收成平均、標準差與成對差。
+已完成的工況×seed×方法結果，如何放在一起比較？本工具只讀[矩陣](exp6_matrix.md)manifest指向的JSON，計算平均、標準差與配對差。沒有載入105維資料、fit模型、重設門檻或新增測試樣本。
 
-問題：54 格都在不同檔案裡時，怎樣加總才不會在缺格的時候仍印出一個看起來完整的平均。
+## 輸入與驗證邊界
 
-## 實驗方法
+load_matrix要求manifest status=completed、runs長度符合expected_runs，每run有completed摘要、方法／seed相符且共同dataset_fingerprint一致，八個指標須有限值。缺檔、不完整或NaN會失敗，不補零。
 
-1. `--manifest` 預設 `output/exp6_formal_matrix/matrix_manifest.json`。`--output-root` 省略時，寫到 manifest 旁邊的 `aggregate/`。
-2. `load_matrix()` 要求 manifest 的 `status` 是 `completed`，`runs` 的長度等於 `expected_runs`，而且每一格的 `status` 都是 `completed`。每一格要有相對路徑欄位 `summary`，指向的 `summary.json` 必須存在，方法、seed 與資料指紋也必須和 manifest 一致。
-3. 從每格 summary 取出唯一的一列。列裡的 `method`、`seed`、`motor`、`rpm` 必須和 manifest 一致，否則丟錯。
-4. 對 `METRICS` 裡每個欄位算平均與樣本標準差（`ddof=1`）。欄位是 `known_accuracy`、`open_set_accuracy`、`auroc`、`aupr_unknown_positive`、`fpr_at_tpr95`、`unknown_precision`、`unknown_recall`、`unknown_f1`。非有限值直接失敗。
-5. 若方法集合正好是 Mahalanobis 與 k-NN，再依 `(motor, rpm, seed)` 內連接，計算 k-NN 減 Mahalanobis。對不上就丟「not paired」，不補列。
+現行驗證**沒有完整重建九工況×seed×方法預期鍵集合、唯一run鍵及來源SHA檢查**；摘要可含多列，未逐一核對manifest的motor／rpm。status=completed不能單獨證明54格無重複或來源正確；dataset_fingerprint本身限制見[正式版](exp6_formal_benchmark.md#輸出怎麼讀)。此手冊不把防護不足包成已驗證完整矩陣。
+
+## 怎麼算
+
+八欄是known_accuracy、open_set_accuracy、auroc、aupr_unknown_positive、fpr_at_tpr95、unknown_precision、unknown_recall、unknown_f1，意義見[正式版](exp6_formal_benchmark.md#輸出怎麼讀)。known只指healthy，不是known fault type。
+
+| 產物分組 | 權重與計算 |
+|---|---|
+| condition_summary | dataset×method，對保存的seed列等權平均 |
+| macro_summary | method，所有工況×seed列等權，不按視窗數加權 |
+| paired_differences | dataset×seed匹配，k-NN減Mahalanobis；兩方列數須匹配 |
+
+mean用保存的已round6指標；std用ddof=1，單列std設0；輸出再round6。seed不是獨立馬達，這些std只描述保存列的變動。paired的knn_better_pairs欄實際計算「差值>0的筆數」；對FPR等越低越好的指標，名稱**不代表k-NN較好**，須反向解讀。其他正差也不是統計顯著性。
+
+## 怎麼使用
+
+在repo根目錄依[環境政策](../runtime_policy.md)準備uv，不需要data目錄，但需要完整結果包：
 
 ```bash
-venv/bin/python -m experiments.aggregate_exp6
-venv/bin/python -m experiments.aggregate_exp6 --manifest output/exp6_formal_matrix/matrix_manifest.json
+uv run --locked python -m experiments.aggregate_exp6 --help
+uv run --locked python -m experiments.aggregate_exp6 --manifest output/exp6_formal_matrix/matrix_manifest.json --output-root output/exp6_formal_matrix/recompute_001
 ```
 
-## 理論
+選未使用的recompute_001；預設會寫manifest旁的aggregate/，**會覆寫同名檔**，不要對封存直接使用預設。API aggregate(manifest_path)只算dict；write_aggregate(manifest_path,output_root)寫檔；main提供CLI，沒有run(pools)、Web重算按鈕或續跑機制。Web唯讀讀原正式aggregate，新根不會自動部署到頁面。
 
-平均與標準差描述的是這 9 個工況、這 3 個 seed 上的重複，不是新的檢測模型。成對差把同一格的兩種方法相減，避免拿不同工況的邊際平均來比。缺一格仍做平均，會把沒跑的工況悄悄排除；這支程式選擇失敗，讓缺漏留在 manifest 的 `incomplete`。
+## 輸出、判斷與限制
 
-## 參考論文
+writer是[write_aggregate](../../experiments/aggregate_exp6.py)，寫五檔：aggregate.json、condition_summary.csv、macro_summary.csv、paired_differences.csv與aggregate.md。aggregate.md雖是Markdown，確由程式生成，不是手寫報告。此模組尚未setup_run，沒有標準logs/與environment.json；不能宣稱完整執行環境已自動保存。
 
-沒有另加統計論文。樣本標準差用 pandas `std(ddof=1)` 是本專案操作約定。指標定義沿用 [exp6_formal_benchmark.md](exp6_formal_benchmark.md)。
+預期同來源重算數字一致，paired鍵對齊，缺件明確失敗。它只能核對摘要算術，不證明逐樣本預測、錄製獨立、fresh test或最佳部署方法。未知正類比例不同時不直接比accuracy／AUPR；不同指紋／split／cal策略不可混為方法提升。完整舊平均查[固定正式aggregate](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/1fa9431bb7b86959f29540d07b2b9290ab39ce42/output/exp6_formal_matrix/aggregate)，不人工複製分數表。
 
-## 預期成果
+## 依據與程式碼
 
-54 格都完成時，應寫出四個檔，`macro_summary` 每種方法一列，`paired_differences` 每個指標一列，`n_pairs` 為 27（9 工況 × 3 seed）。manifest 仍是 `running` 或 `incomplete` 時，程式應停，不產生一份部分平均。
-
-## 已記錄的實測
-
-現有檔在 `output/exp6_formal_matrix/aggregate/`。`aggregate.md` 的表已抄到 [exp6_formal_benchmark.md](exp6_formal_benchmark.md)。成對差的正號表示 k-NN 較高。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
-|---|---|
-| `experiments/aggregate_exp6.py` | `aggregate`、`write_aggregate`、`main` |
-| `experiments/exp6_matrix.py` | 產出被讀的 `matrix_manifest.json` 與 `runs/*/summary.json` |
-| `output/exp6_formal_matrix/aggregate/aggregate.json` | 完整彙總 |
-| `output/exp6_formal_matrix/aggregate/aggregate.md` | 人讀的表 |
-| `output/exp6_formal_matrix/aggregate/macro_summary.csv` | 方法平均 |
-| `output/exp6_formal_matrix/aggregate/condition_summary.csv` | 逐工況 |
-| `output/exp6_formal_matrix/aggregate/paired_differences.csv` | k-NN 減 Mahalanobis |
-
-沒有 `logs/aggregate_exp6/`。錯誤用例外訊息退出。
-
-### 散在其他位置的相關檔案
-
-- 測試：`tests/test_aggregate_exp6.py`。
-- 已提交紀錄：`output/exp6_formal_matrix/aggregate/`。
-- 進度紀錄：[實驗六進度紀錄（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/ancester_openset_exp6_progress.md) P10。
-- Web 實驗頁：頁首「實驗六」的 6-3 讀取本程式產出的 `aggregate.json`（`web/experiments.py` 的 `_load_exp6_matrix`）。
+平均、ddof與配對方向是Lineage統計約定，沒有新模型；原演算法文獻見[正式benchmark](exp6_formal_benchmark.md#方法來源與程式碼)。[aggregate_exp6](../../experiments/aggregate_exp6.py)讀取、驗證與寫檔；[test_aggregate_exp6](../../tests/test_aggregate_exp6.py)提供不依賴data的fixtures；[web/experiments](../../web/experiments.py)只讀正式結果。程式元件測試不替代來源完整性查核。
