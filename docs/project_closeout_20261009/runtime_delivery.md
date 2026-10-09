@@ -31,3 +31,9 @@ Co-authored-by: Codex <codex@openai.com>
 以新目錄 `D:/schoolshit/專題/src/tmp/lineage_clean310_20261009_locked` 執行 [最終安裝](../../output/runtime_policy_evidence/2026-10-09-12-08-35/evidence.json)，命令全部 exit 0，完整固定版本核對 0 差異，pip check 成功；沒有沿用第一次失敗環境或第二次探索安裝。安裝後 [環境 sidecar](../../output/environment_install/2026-10-09-12-14-19/environment.json) 的實際 HEAD 與來源狀態另存，不把外層安裝 runner 的版本當成新 venv 版本。
 
 該最終環境實際執行 [179 項完整 fixture](../../output/branch_integration/2026-10-09-12-15-20/validation.json)，0 failed/error/skipped，pip check、四個 CLI help 與 [全部固定版本核對](../../output/runtime_policy_evidence/2026-10-09-12-15-16/evidence.json) 成功。擴大至七份文件時，[第一次文件檢查](../../output/project_closeout_evidence/2026-10-09-12-15-57/evidence.json) 發現 sidecar 連結秒數筆誤，已改為實際存在的 `12-14-19`，[重驗104目標／0失效](../../output/project_closeout_evidence/2026-10-09-12-16-11/evidence.json)。失敗產物保留，沒有降低檢查標準。
+
+## PR #51 合併後
+
+合併前交付 head `26320e7e8b4935a14ccbdbdeb223453cd5e61d34` 已核對遠端，PR #51 已合併至 main `3ceea37ab1d4b52b7a414a74310eec8401b5b751`。真正 main 在最終乾淨環境執行 [179項完整測試](../../output/branch_integration/2026-10-09-12-19-13/validation.json)、[版本／fixture驗證](../../output/runtime_policy_evidence/2026-10-09-12-19-09/evidence.json)、[guard配對](../../output/monitor_guard_evidence/2026-10-09-12-19-41/evidence.json) 及 [7文件109目標](../../output/project_closeout_evidence/2026-10-09-12-19-43/evidence.json)，全部成功，0 failed/error/skipped，版本0差異。環境 sidecar 的 HEAD 為受測 main，tracked_dirty=false。
+
+驗證入口內部的 `phase` 固定寫 candidate；本次是否真為 main 以實際 HEAD 判定，不修改封存欄位。#26 繼續 OPEN；#27 尚未建立 Actions，#13–16 尚未接續新實驗。本輪既有交付已備份，見 [備份索引](backup_manifest.json)。

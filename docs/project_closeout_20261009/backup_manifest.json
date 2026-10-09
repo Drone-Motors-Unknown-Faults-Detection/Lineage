@@ -1,0 +1,30 @@
+{
+  "schema_version": "project_closeout_backup_v1",
+  "source_head": "3ceea37ab1d4b52b7a414a74310eec8401b5b751",
+  "base": "4f783c676849a27185cd28d2410b4e76639b7357",
+  "selection": "兩個固定提交之間新增或修改的338個tracked檔案；不含刪除、data、既有ZIP或secrets",
+  "verified_archive": {
+    "path": "D:/schoolshit/專題/src/lineage_project_closeout_artifacts/2026-10-09/main_delivery_20261009_3ceea37_retry1.zip",
+    "sha256": "88cc4bab9ce5bc7200be19c0af634ac18d865e3f8dc2baa14ed0020d5276dc64",
+    "bytes": 1374508,
+    "expected_files": 338,
+    "actual_entries": 338,
+    "decompressed_sha_mismatches": 0,
+    "zipfile_testzip": null,
+    "status": "VERIFIED"
+  },
+  "preserved_failed_archive": {
+    "path": "D:/schoolshit/專題/src/lineage_project_closeout_artifacts/2026-10-09/main_delivery_20261009_3ceea37.zip",
+    "sha256": "0cfbec235c4b2b654f86c3a59759acc4462d8d648066c692971e59583613b247",
+    "bytes": 115970,
+    "expected_files": 338,
+    "actual_entries": 36,
+    "status": "FAILED_PARTIAL",
+    "reason": "首次Git清單使用quotePath轉義繁體中文檔名，產生不完整包；以core.quotepath=false及Stop重跑，未覆寫"
+  },
+  "limitations": [
+    "只備份已合main的本輪差異；不是完整repo、data或所有研究分支備份",
+    "本次合併後測試產物於後續文件PR保存，不在source_head的結果包內",
+    "舊研究ZIP與失敗環境均未刪除或覆寫"
+  ]
+}
