@@ -8,6 +8,8 @@
 
 本頁是PR58尚待審閱的接續紀錄，#62已另要求檢查文件保留用途；不把它當成實驗手冊或最新科學結果。
 
+追加驗證：Python3.10.19／pytest8.4.2，相關6項全部通過、0 skip（`output/pytest_evidence/2026-10-09-15-20-56/summary.json`）；完整239項中236通過、3項symlink權限skip、0 failed/error，標INCOMPLETE（`output/pytest_evidence/2026-10-09-15-21-20/summary.json`）。`output/output_inventory_evidence/2026-10-09-15-21-20/inventory.json`掃描539檔，其中537檔有候選writer、2檔歷史來源未核實；15份搬移原bytes相同、舊檔不存在，其他既有output未修改。writer相符仍不冒稱歷史完整來源已證實。`git diff --check`通過。
+
 2026-10-09，Asia/Taipei。本輪開始時遠端 main 為 `5a7865610fff07a455c0a23cec34fc5957ba3569`，PR #58 原提交為 `3656852b2b5e28748621775e5816f0a47ab6602c`，仍開放。根目錄 AGENT.md 與遠端相同，無子目錄指引。指定寫作文章存取失敗，依 AGENT.md 已列的五條規則撰寫，不聲稱讀過全文。
 
 ## 範圍與既有成果
