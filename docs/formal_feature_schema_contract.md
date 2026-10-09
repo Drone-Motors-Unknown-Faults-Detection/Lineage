@@ -25,3 +25,6 @@
 唯讀實際60份來源，逐檔SHA前後相同、和固定 main 舊loader逐元素／split索引完全相等；只跑載入與切分，不重fit模型、不用未知選參。不冒稱已稽核90份或9工況。
 修改 `core/feature_schema.py`、`core/data.py`、`experiments/exp6_formal_benchmark.py` 的coverage呼叫、對應fixtures／測試；工程證據入口 `tests/feature_schema_evidence.py` 經 setup_run 寫 logs/output。實驗六手冊先記錄新增輸入檢查；模型、參考論文、方法與指標不變。本項為工程契約，不占exp9–12。
 程式交付、PR建立、main合併與全部驗收分開回報；#44需合main才能關閉。
+
+`rejected_rows` 指已查明的違規列數；錯header時整檔列都違規，數值問題則另列零起算的 `rejected_row_indices`。遇到錯誤整個載入失敗、不回傳合法子集；其他尚未讀檔列數不能由此計數推定。無法讀取的來源不補造列數。`discarded_rows=0` 表示沒有清洗／刪點；不等於整批輸入已被接受。
+CLI：`python -m core.data --dataset <RPM目錄>`；完整配置加 `--require-complete`。API失敗拋 `FeatureSchemaError`，可由 `audit={}` 取得portable拒絕紀錄；CLI保存 `output/formal_schema_audit/*/schema_audit.json` 並exit 1。
