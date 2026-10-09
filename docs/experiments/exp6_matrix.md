@@ -1,67 +1,37 @@
-# 實驗六矩陣：9 工況 × seed × 方法
+# 實驗六矩陣：保存多工況、seed與方法的執行狀態
 
-程式：`experiments/exp6_matrix.py`。每一格呼叫 [exp6_formal_benchmark.md](exp6_formal_benchmark.md) 的 `run()`，再把該工況的一列寫進自己的目錄。它不重新定義偵測器。
+這個工具把[正式benchmark](exp6_formal_benchmark.md)放進可續跑矩陣，保留完成與失敗格；不增加偵測方法，也不做共同模型選擇。後續平均由[彙總工具](exp6_aggregate.md)處理。
 
-問題：正式比較要能中斷後續跑，而且 54 格的指紋、commit、種子與方法要對得上，不能靠人手改檔名。
+## 迴圈、資料與fit
 
-## 實驗方法
+expected_run_matrix要求掃描九工況，預設seed為42／123／2026、方法為mahalanobis／knn，產生9×3×2＝54個run_id，格式T1_8000rpm_seed42_knn。這是54個工況×seed×方法記錄，不是54顆獨立馬達。資料列105維、healthy切60/20/20、train-only scaler與參考、known-only cal與unknown全池評估，全部沿用正式benchmark；原始時間／session／單位未知，不能靠seed建立獨立採集。
 
-預設格子是 9 工況 × seed `(42, 123, 2026)` × `FORMAL_METHODS`（`mahalanobis`、`knn`），共 54。`run_id` 形如 `T1_8000rpm_seed42_mahalanobis`。
+實作有一個成本差異：**每個run_id都呼叫一次涵蓋全部九工況的benchmark，再只取目標工況那一列保存**。因此有重複計算，54列不是只fit54次的承諾。參數固定benchmark預設LW、confidence0.95、k=5；matrix CLI沒有改這三者的選項，不從fault結果調參。
 
-1. `expected_run_matrix` 先確認掃到的工況數正好是 9。方法必須落在 `FORMAL_METHODS`。
-2. 寫 `matrix_manifest.json`。`data_root` 只存目錄名。JSON 用暫存檔再 `os.replace`，避免寫到一半壞掉。
-3. `resume=True` 時，若該格 `summary.json` 已完成、且指紋與這次資料根一致，標 `resumed` 並跳過。
-4. 否則呼叫 `experiments.exp6_formal_benchmark.run`，它仍會對九個工況都打分。矩陣只留下 `motor` 與 `rpm` 對上這一格的那一列，並把 `formal_condition_count` 改成 1。列數不是 1 就丟錯。
-5. 失敗的格寫 `status=failed` 與錯誤訊息，迴圈繼續。結束時若完成數等於 54，manifest `status=completed`，否則 `incomplete`。
+## 操作與續跑風險
+
+在repo根目錄準備[uv環境](../runtime_policy.md)與完整資料，先選一個尚未使用的輸出根：
 
 ```bash
-venv/bin/python -m experiments.exp6_matrix
-venv/bin/python -m experiments.exp6_matrix --data-root data/formal_local --output-root output/exp6_formal_matrix
+uv run --locked python -m experiments.exp6_matrix --help
+uv run --locked python -m experiments.exp6_matrix --data-root data/formal_local --output-root output/exp6_formal_matrix/manual_run_001 --seed 42 --seed 123 --seed 2026 --method mahalanobis --method knn
 ```
 
-`--no-resume` 會重算已完成的格。彙總另跑 [exp6_aggregate.md](exp6_aggregate.md)，本檔不計算平均。
+manual_run_001只是範例，已存在就換新名稱，不能覆寫封存。API實際為run_matrix(data_root,output_root,seeds=(42,123,2026),methods=("mahalanobis","knn"),resume=True)，沒有獨立run(pools)介面或Web重跑按鈕。網頁只能讀既有結果。
 
-## 理論
+同命令、同根再跑預設resume：_is_complete查summary狀態、方法、seed、單列motor／rpm及資料fingerprint，通過就跳過。**不驗證results.csv、run.log、模型、全部指標或CSV內容SHA**，也沒有完整參數lock；不能把resumed視為整包證據已驗證。--no-resume會重算並覆寫同run目錄，不用在封存上。缺九工況或非法方法在開跑前拒絕；個別run失敗保存error並繼續，最後退出碼2，不把失敗靜默刪除。
 
-每一格的統計模型和單次正式 benchmark 相同：健康 60/20/20、未知只在打分後當正類、分數 `> 1` 拒絕。矩陣多做的是實驗設計上的重複：三個 seed 讓切分不要只靠 42；兩種方法在同一批工況上成對出現，後面才能逐格相減。
+## 輸出怎麼看
 
-`exp6_formal_benchmark.run` 每次仍走完整個資料根。某一格失敗時，其他工況的分數不會被這支矩陣存下來。續跑靠 manifest 與指紋，不靠部分列。
+此模組自己的_atomic_json／_write_run_csv寫output-root，**尚未呼叫setup_run**，也沒有標準logs/exp6_matrix/{ts}.log；這是與AGENT慣例的缺口，不補寫不存在的日誌。
 
-## 參考論文
+- matrix_manifest.json：預期清單、每格狀態、耗時、摘要相對路徑；開始時會重寫manifest。
+- runs/{run_id}/summary.json：正式benchmark設定、fingerprint、單目標工況列。
+- runs/{run_id}/results.csv：相同單列的表格。
+- runs/{run_id}/run.log：開始、狀態與錯誤；duration_seconds含整次九工況運算，不等於該列單獨推論耗時。
 
-偵測器與開集拒絕的出處同 [exp6_formal_benchmark.md](exp6_formal_benchmark.md)。種子清單、54 格、原子寫入與 resume 規則是本專案操作約定，寫在 `DEFAULT_SEEDS`、`expected_run_matrix`、`_is_complete`。
+completed只表示本工具54格完成，unknown召回／健康接受等解釋見[正式版](exp6_formal_benchmark.md#輸出怎麼讀)。三seed的切分敏感度不能當motor母體信賴區間。預期54完成、0失敗且各列可追溯；來源／參數完整防護仍不足時，不宣稱研究可靠性通過。完整舊包見[固定矩陣](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/tree/1fa9431bb7b86959f29540d07b2b9290ab39ce42/output/exp6_formal_matrix)。
 
-## 預期成果
+## 方法來源與程式碼
 
-資料根正好 9 個工況、且每格都能打完時，manifest 的 `expected_runs` 與 `completed_runs` 都是 54，`failed_runs` 是 0。中斷後再跑，已完成格的 `resumed` 應為真，摘要檔不被覆寫。工況數不是 9 時應在開跑前失敗，而不是寫出一份缺格的正式表。
-
-若兩種方法的成對差距只在小數點後很多位，讀法與單次 benchmark 相同：這份特徵把健康和未知分開了，方法排名還不構成更換預設偵測器的理由。
-
-## 已記錄的實測
-
-`output/exp6_formal_matrix/aggregate/aggregate.md` 寫 `expected runs: 54`、`completed runs: 54`。數字表見 [exp6_formal_benchmark.md](exp6_formal_benchmark.md) 的實測節。那份 aggregate 是事後彙總，不是本程式的預期。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
-|---|---|
-| `experiments/exp6_matrix.py` | `expected_run_matrix`、`run_matrix`、`main` |
-| `experiments/exp6_formal_benchmark.py` | 每一格的 `run`、`dataset_fingerprint`、`FORMAL_METHODS` |
-| `experiments/aggregate_exp6.py` | 讀完成後的 manifest |
-| `core/data.py` | `discover_datasets` |
-
-預設輸出根 `output/exp6_formal_matrix/`：
-
-- `matrix_manifest.json`
-- `runs/{run_id}/summary.json`
-- `runs/{run_id}/results.csv`
-- `runs/{run_id}/run.log`
-
-本程式不呼叫 `setup_run`，所以不會另開 `logs/exp6_matrix/`。
-
-### 散在其他位置的相關檔案
-
-- 測試：`tests/test_exp6_matrix.py`。
-- 已提交紀錄：`output/exp6_formal_matrix/`（`matrix_manifest.json`、`runs/`、`aggregate/`）。
-- 進度紀錄：[實驗六進度紀錄（已刪除，見 commit 80bdf54）](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/80bdf54fdf43d466ea19549fb7c0b4e391394799/reports/ancester_openset_exp6_progress.md) P9。
-- Web 實驗頁：頁首「實驗六」的 6-3 唯讀顯示本矩陣經 `aggregate_exp6` 彙總後的 `output/exp6_formal_matrix/aggregate/aggregate.json`，不從網頁重跑。
+統計方法文獻見[正式benchmark](exp6_formal_benchmark.md#方法來源與程式碼)，run_id、54格與resume為Lineage操作約定。[exp6_matrix](../../experiments/exp6_matrix.py)負責排程與writer；[benchmark](../../experiments/exp6_formal_benchmark.py)負責fit／校準／指標；[test_exp6_matrix](../../tests/test_exp6_matrix.py)檢查矩陣與續跑。[web/experiments](../../web/experiments.py)的唯讀結果入口不會啟動此工具。
