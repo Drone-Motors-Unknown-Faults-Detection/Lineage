@@ -201,6 +201,7 @@ WebSocket `/ws`，JSON 訊息：
 3. `logs/` 與 `output/` 納入版控，不需要加入 .gitignore；`data/` 維持忽略。
 4. Agent 進行 GitHub 相關操作時，將自己加入 Co-Authors。
 5. legacy 的 issue 討論串在 [Ancestor](https://github.com/Drone-Motors-Unknown-Faults-Detection/Ancestor)，查缺陷成因時到該處。
+6. 每個 PR 都要指定 reviewer：JW-Albert <ru04jo30801@gmail.com>。
 
 
 ---
