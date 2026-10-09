@@ -43,3 +43,11 @@ PR #41 經 `471c04b...` 更新至 PR #40 後 main，兩側文件索引保留。�
 新文件 [給老師的說明](README.md) 分開列工程完成、FAILED、UNKNOWN／INCOMPLETE；索引與 health 文件不改寫 2026-10-03 歷史表。文件專用驗證入口 `tests.project_closeout_evidence` 共用原 `local_links()`，不需要 gitignored data；[5 份文件／72 個相對目標／0 失效](../../output/project_closeout_evidence/2026-10-09-11-36-02/evidence.json)。這次只驗檔案目標，沒有核對所有錨點或遠端原文。
 
 文件修改後再跑 [完整測試與 CLI](../../output/branch_integration/2026-10-09-11-36-05/validation.json)：162 passed，0 failed/error/skipped、pip check 與四個 CLI help 成功。產物的受測 HEAD 為 `651c0a7...`，文件差異尚在工作樹，來源 SHA 由文件驗證另存；沒有將新文件 commit 誤稱成模型訓練結果。交付用獨立文件 PR，沒有直接 push main。
+
+### P0-C 主線整合
+
+文件 commit `88067075e65d7b0ddee0e33c781df4054ddf1f59` 已 push；PR #42 經審閱合併至 main `4d1858b830890a761af1dc550e74010db8a4b5f5`。真正 main 再跑 [162 項與 pip/CLI](../../output/branch_integration/2026-10-09-11-37-18/validation.json)，0 failed/error/skipped；[75 個相對目標](../../output/project_closeout_evidence/2026-10-09-11-37-17/evidence.json) 皆存在。此段產物於下一個獨立追蹤 PR 保存，不在 main 直接追加 commit。
+
+## P1-A：#30 追蹤契約先提交
+
+重新讀最新 AGENT、main、相關 issue 與 open PR，19 個議題含 closed 去重；目前只 PR #36 open，head 未變，不接手其同檔。七份新 issue 本文與三份既有 issue 補充先保存於 `issues/`。[接續判定與發布契約](audit_followups.md) 明列 17 項狀態，沒有把 git blob 相同當反例重跑。[16 份來源及相對目標](../../output/audit_followup_evidence/2026-10-09-11-41-15/evidence.json) 可回算；仍缺 profiling 與 root escape 證據。
