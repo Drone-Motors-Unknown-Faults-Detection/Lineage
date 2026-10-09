@@ -1,71 +1,76 @@
 # 實驗一：冷啟動未知偵測
 
-程式：`experiments/exp1_cold_start.py`，函式 `run(pools, ...)` 與 `main()`。
+只拿健康資料建立警戒線，能不能把未見過的螺絲配置抓出來？這份實驗先量健康誤報，再量每個未知配置的召回與分數排序。它建立後續未知學習、趨勢與跨工況比較的健康基準；不訓練九種故障名稱的分類器。
 
-問題：只拿 `8screws` 擬合健康基準時，其餘螺絲配置會不會被打成未知，健康 holdout 的誤報會落在哪。
+## 資料與載入
 
-## 實驗方法
+從儲存庫根目錄執行。[core/data.py](../../core/data.py) 掃描
+`data/Step-*/myfeature/{Motor}/{RPM}/{Screws}/*_Group_feature_data_clean.csv`。
+每次選一個馬達／轉速目錄，預設T1／8000rpm；可用組合以實際檔案為準。
 
-1. `core.runner.resolve_dataset` 載入一組工況。CLI 預設由 `add_dataset_args` 指定馬達與轉速，文件裡的對照跑法是 T1、8000 rpm。
-2. `OpenSetMonitor.fit_initial()` 只用健康池。`make_split` 切 60/20/20。訓練集擬合 `RobustScaler` 與偵測器，校準集的距離分位數把閾值正規化成 1。
-3. 預設 `--openset-method mahalanobis`、`--method ledoit_wolf`、`--confidence 0.95`、`--seed 42`。改成 `knn` 時用 `--knn-neighbors`，預設 5。
-4. 健康 holdout 算誤報率 `(score > 1)`。每個未知配置用全部樣本算偵測率、分數中位數，以及相對健康 holdout 的 AUROC。未知樣本不進 `fit`。
-5. 彙總 `healthy_fp_rate`、`macro_detect_rate`、`macro_auroc`。
+每列是Ancestor前處理管線留下的105維特徵向量，不是本程式接收的原始10,000Hz訊號。健康配置為`8screws`，其餘目錄名是螺絲數量／位置配置，不能直接當九種已驗證的物理故障原因。T1／T2／T3是不同馬達個體，不能串成同一顆馬達的壽命歷程。來源說明見[固定採集文件](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/afcfcc419dab3103a86a8f95601d3af85890eb38/docs/Experiments_Guide.md#L218)。
+
+載入順序為：逐配置依檔名排序讀CSV → 串接資料列 → 只取數值欄 → 移除含NaN或Inf的列 → 檢查是否105欄 → 保留非空配置。沒有去重、原始訊號再清理、欄位單位轉換或嚴格欄名／順序驗證；任意105個數值欄通過不表示物理語意正確，見[#44](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/44)。資料的原始視窗時間、stride、錄製群組與單位須另查來源，不能由這個loader補出。
+
+載入後`pools[config]`是「資料列數×105」陣列。筆數依這次載入結果與輸出`n`查核，本手冊不預填固定總數。
+
+## 如何切分與建立基準
+
+[OpenSetMonitor](../../core/monitor.py)只註冊健康配置。`make_split`用`numpy.random.default_rng(seed)`洗牌資料列；預設seed42。訓練筆數為`int(n*0.6)`，校準為`max(1,int(n*0.2))`，剩餘是holdout，比例有整數捨入。
+
+| 用途 | 資料 | 實際動作 |
+|---|---|---|
+| train | 健康池約60% | fit RobustScaler、偵測器參考與顯示用PCA |
+| calibration | 健康池約20% | LW或k-NN用來定距離警戒線；不fit scaler／參考樣本 |
+| test／holdout | 剩餘健康列 | 計算誤報，不參與上述fit或LW／k-NN校準 |
+| unknown test | 所有未註冊配置的全部列 | 只打分與算指標，不fit、不選參、不校準 |
+
+這是同馬達、同轉速的列隨機切分，沒有獨立session或raw-window guard；不能當跨錄製盲測。少量健康列可能造成空train／holdout，不應把空集合的NaN彙總當成功。
+
+模型學的是健康特徵的位置與散布。RobustScaler只在train學每欄中位數與四分位距；其餘集合只transform。預設Mahalanobis-Ledoit–Wolf從縮放後train估中心／收縮共變異數，距離除以calibration的0.95分位數。改k-NN則保存train近鄰索引，取平均歐氏距離；k預設5，樣本不足時取較小的有效k。多已知類時分數取各類正規化距離的最小值；本實驗初始只有健康一類。`score > 1`才判未知，等於1仍接受。
+
+**legacy例外**：[core/mahalanobis.py](../../core/mahalanobis.py)的`legacy`刻意用train本身的距離定門檻，而非獨立calibration；不能把它寫成與LW相同的校準契約。它的類別label為-1，不適合作為多類配置辨識的成功證據。本實驗只比較score。OAS、MCD是可選共變異數方法；MCD另fit train-only PCA。顯示用2維PCA固定random_state0，不是主要偵測特徵，分數仍走105維（MCD除外）。這些統計／近鄰方法沒有epoch、loss或optimizer。
+
+## 實驗怎麼跑與怎麼使用
+
+先依[環境政策](../runtime_policy.md)準備Python3.10.x、uv及`uv.lock`環境，不重建既有venv；資料由Ancestor產出，本repo唯讀。以下在repo根目錄執行：
 
 ```bash
-venv/bin/python -m experiments.exp1_cold_start --motor T1 --rpm 8000rpm
+uv run --locked python -m experiments.exp1_cold_start --help
+uv run --locked python -m experiments.exp1_cold_start --data-root data --motor T1 --rpm 8000rpm --seed 42
+uv run --locked python -m experiments.exp1_cold_start --data-root data --motor T1 --rpm 8000rpm --seed 42 --openset-method knn --knn-neighbors 5
 ```
 
-## 理論
+兩方法比較時固定來源、馬達、RPM、seed、confidence；不要挑較好seed再報提升。`--method`預設ledoit_wolf，只控制Mahalanobis；k-NN忽略它。`--confidence`預設0.95，不能用unknown結果掃門檻再稱獨立驗證。
 
-健康樣本在 105 維特徵上估一個位置與散布。新窗口的分數是它離這個健康雲多遠，再除以校準集第 95 百分位。百分位設在 0.95，所以校準集裡約 5% 的健康窗口會被標成超過 1。holdout 誤報不必剛好等於 5%：校準筆數少的時候，分位數本身會晃。
+執行依序為健康fit → 健康holdout打分 → 每個unknown配置全池打分 → 計算逐配置及等權macro指標 → 存CSV／JSON／圖。Python API是`experiments.exp1_cold_start.run(pools, seed=42)`，回傳dict；API本身不寫CLI輸出。`iter_run`回傳fitted、scores、row、result事件，批次run把同一generator跑完。
 
-Mahalanobis 距離用類別平均與共變異數。105 維、單類、訓練筆數有限時，樣本共變異數容易病態，所以預設用 Ledoit–Wolf 把樣本共變異數往一個結構目標收縮。k-NN 路徑不估共變異數，改算到該類訓練集 k 個近鄰的平均距離，再各自用校準分位數正規化。
+Web實際入口為`uv run --locked python -m web.server --bind-address 127.0.0.1 --data-root data --port 8600`。開http://localhost:8600，切「實驗一」，選資料集、Open Set方法與seed，按「▶ 執行」。要逐筆看就選速度、按「⏵ 邊跑邊畫」；「■ 停止」關閉串流，不代表保存完整done結果，已在執行緒運算的一步可能仍在完成。待鎖釋放再重試。批次沒有中途取消按鈕；切頁不能當作運算取消。每次重跑重新fit，不載入長期模型。
 
-這一步只回答「像不像目前已知的健康」。它不輸出故障名稱，也不估計剩餘壽命。
+找不到資料集時核對`--data-root`及實際RPM目錄；缺健康或維度錯誤時查來源CSV，不改欄湊105。尚未擬合的API會丟RuntimeError，須先成功fit_initial。重跑同秒可能共用setup_run目錄；不要並行覆寫，這項來源／輸出契約限制由[#46](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/issues/46)追蹤，沒有虛構安全續跑選項。
 
-## 參考論文
+## 輸出怎麼看
 
-- P. C. Mahalanobis (1936), “On the Generalised Distance in Statistics,” *Proceedings of the National Institute of Sciences of India*, 2(1), 49–55。重印 DOI [10.1007/s13171-019-00164-5](https://doi.org/10.1007/s13171-019-00164-5)。
-- O. Ledoit and M. Wolf (2004), “A well-conditioned estimator for large-dimensional covariance matrices,” *Journal of Multivariate Analysis*, 88(2), 365–411。DOI [10.1016/S0047-259X(03)00096-4](https://doi.org/10.1016/S0047-259X(03)00096-4)。
-- T. Cover and P. Hart (1967), “Nearest Neighbor Pattern Classification,” *IEEE Transactions on Information Theory*, 13(1), 21–27。DOI [10.1109/TIT.1967.1053964](https://doi.org/10.1109/TIT.1967.1053964)。本實驗的 k-NN 用的是類別訓練集上的平均 k 近鄰距離，門檻仍是校準分位數，這段正規化是本專案的操作約定。
-- 60/20/20、分數 `> 1` 判未知、`RobustScaler` 只在訓練集擬合：本專案操作約定，寫在 `core/data.py` 與 `core/openset.py`。
+CLI writer是[main()](../../experiments/exp1_cold_start.py)：
+`logs/exp1_cold_start/{時間戳}.log`及`output/exp1_cold_start/{時間戳}/`。
+目錄含`environment.json`（setup_run記環境）、`results.csv`（逐配置）、`summary.json`（整體及model設定）、`detect_rates.png`（判未知比例）。Web由ExperimentRunner另存`output/web_server/{ts}/experiments/`的JSON，與CLI檔案不同。
 
-## 預期成果
-
-九種未知配置的偵測率要高，AUROC 要明顯高於 0.5。健康 holdout 誤報應靠近校準名義值 5%，允許因為校準樣本少而偏高。若某種故障的偵測率接近健康誤報，或 AUROC 接近 0.5，這組特徵與這個偵測器就沒有把該配置和健康分開。
-
-## 已記錄的實測
-
-[Experiments_Guide.md](../Experiments_Guide.md) 記載 T1/8000 rpm、預設 Mahalanobis：九種故障偵測率 100%，AUROC 1.0，健康誤報 10.9%。該手冊把偏離 5% 歸因於校準集約 62 筆。這是跑完之後的數字，不要把它寫回上面的預期。
-
-## 程式碼與輸出
-
-| 路徑 | 角色 |
+| 欄位 | 讀法 |
 |---|---|
-| `experiments/exp1_cold_start.py` | `run`、`iter_run`、`_auroc`、`_make_figure`、`main`；`run` 把 `iter_run` 跑完取最後的 `result`（2026-10-03 起） |
-| `core/monitor.py` | `OpenSetMonitor.fit_initial`、`score`、`holdout` |
-| `core/data.py` | `HEALTHY`、`make_split`、`load_pools` |
-| `core/openset.py` | `create_openset_detector` |
-| `core/mahalanobis.py` | Ledoit–Wolf 與 legacy 共變異數 |
-| `core/logger.py` | `setup_run("exp1_cold_start")` |
-| `core/runner.py` | `add_dataset_args`、`add_openset_args`、`resolve_dataset`、`save_json` |
-| `web/live.py` | 展示串流走 `ScaleGrowthSession` 裡的同一個 `OpenSetMonitor`，階段 0 即本實驗的擬合 |
+| kind／n／flagged | healthy-holdout或unknown-fault、實際評估筆數、嚴格超線筆數 |
+| detect_rate | 健康列是誤報率；未知列才是未知召回率，範圍0～1 |
+| auroc | 未知分數能否排在健康前；0.5近隨機，1為本次樣本完全排序分離 |
+| median_score | 無單位正規化偏離；不是故障百分比 |
+| macro_detect_rate／macro_auroc | 各unknown配置等權平均，不按資料列數加權 |
+| model | train／cal／holdout數、方法、閾值與seed；不是已保存的模型權重 |
 
-輸出：
+預期是未知召回／AUROC高且健康誤報低；程式沒有全域「可靠模型PASS」門檻。名義0.95分位數不保證test只有5%誤報。歷史結果只查[固定版本原說明](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/blob/1fa9431bb7b86959f29540d07b2b9290ab39ce42/docs/experiments/exp1_cold_start.md#已記錄的實測)及其來源，不能把早期同工況高分當成跨馬達已知故障分類成功。本次文件工作沒有重新執行正式研究。
 
-- `logs/exp1_cold_start/{時間戳}.log`
-- `output/exp1_cold_start/{時間戳}/results.csv`
-- `output/exp1_cold_start/{時間戳}/summary.json`
-- `output/exp1_cold_start/{時間戳}/detect_rates.png`
+## 方法來源與程式定位
 
-### 散在其他位置的相關檔案
-
-- 測試：沒有專屬測試；共用的 `core/openset.py`、`core/mahalanobis.py` 由 `tests/test_openset.py` 涵蓋。
-- Web：`web/live.py` 的開集分數串流圖、偵測統計表；`web/static/index.html` 對應畫面。
-- 已提交紀錄：`logs/exp1_cold_start/`、`output/exp1_cold_start/`（3 次執行）。
-- 其他文件：[Experiments_Guide.md](../Experiments_Guide.md) 第 2 節。
-- Web 實驗頁：頁首「實驗一」，`web/experiments.py` 的 `CATALOG` 項目 `exp1` 呼叫本程式的 `run()`，畫面在 `web/static/experiments.js` 的 `RENDER.exp1`；結果存到 `output/web_server/{ts}/experiments/exp1_{時間}.json`。
-- 邊跑邊畫：頁面上的「⏵ 邊跑邊畫」改走 `iter_run()`，經 `web/experiments.py` 的 `ExperimentRunner.stream()` 與 `web/server.py` 的 `StreamHandler`（Server-Sent Events，`GET /api/experiments/{id}/stream`）逐步推送，速度 20／80／400 筆/秒可選。`iter_run()` 只多吐出中間事件，計算與 `run()` 相同；`tests/test_iter_run.py` 比對兩者輸出。每筆開集分數依序播放（先健康 holdout、再九種故障），統計列逐配置出現。
-
-2026-10-08 整合：串流來源 PR #36 / `544d4ed8c6516622e2f46c095351f9483a61635c`，本輪只抽取實驗一／三／四，不含 health_monitor（#35 尚未修復）。計算與 main 原 run 配對後才可合入；細節見 [串流整合契約](../integration_20261008/streaming_contract.md)。
+- Mahalanobis（1936），*On the Generalised Distance in Statistics*，PNISI 2(1),49–55；[重印DOI](https://doi.org/10.1007/s13171-019-00164-5)。
+- Ledoit與Wolf（2004），*A well-conditioned estimator for large-dimensional covariance matrices*，JMVA 88(2),365–411；[DOI](https://doi.org/10.1016/S0047-259X(03)00096-4)。
+- Cover與Hart（1967），*Nearest Neighbor Pattern Classification*，IEEE TIT 13(1),21–27；[DOI](https://doi.org/10.1109/TIT.1967.1053964)。本repo的平均k距離／分位數拒絕規則是專案操作約定，不能說該論文提出本套校準管線。
+- [RobustScaler官方說明](https://scikit-learn.org/1.7/modules/generated/sklearn.preprocessing.RobustScaler.html)。實際版本由uv.lock固定，不按網站最新版本推論現行行為。
+- [core/runner.py](../../core/runner.py)負責資料定位／CLI；[core/openset.py](../../core/openset.py)是正式兩方法factory；Mahalanobis檔頭記Ancestor來源，Lineage的monitor整合scaler、切分及擴張。
+- [tests/test_openset.py](../../tests/test_openset.py)、[test_monitor_guard.py](../../tests/test_monitor_guard.py)、[test_stream_integration.py](../../tests/test_stream_integration.py)、[test_web_experiments.py](../../tests/test_web_experiments.py)核對共用方法／guard／串流與Web編排，不能證明raw來源獨立或現場準確率。
