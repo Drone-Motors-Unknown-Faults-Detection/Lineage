@@ -115,3 +115,16 @@ def test_web_catalog_documents_and_guide_parser_unchanged():
     for doc in selected_documents():
         for target in re.findall(r"\]\((https?://[^)]+)\)", doc.read_text(encoding="utf-8")):
             assert not urlsplit(target).path.startswith("/Users/")
+
+
+def test_existing_indexes_reach_all_current_handbooks():
+    handbooks = {doc.name for doc in DOCS.glob("exp*.md")
+                 if not doc.stem.endswith("_delivery")}
+    for index in (ROOT / "docs/README.md", DOCS / "README.md"):
+        text = index.read_text(encoding="utf-8")
+        targets = local_links(index, ROOT)
+        assert all(row["exists"] for row in targets), index
+        linked = {Path(row["target"]).name for row in targets}
+        assert handbooks.issubset(linked), (index.name, handbooks - linked)
+        assert "13個現行實驗編號" in text
+        assert "19份方法" in text
