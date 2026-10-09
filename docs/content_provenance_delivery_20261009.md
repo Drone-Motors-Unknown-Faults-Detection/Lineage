@@ -62,3 +62,22 @@ git diff --check
 `af58a70` 的 [本機完整回歸](../output/ci_evidence/2026-10-09-14-51-03/public_summary.json) 235 項，232 passed／3 skip／0 failed/error；pip、CLI、連結通過。真實 Actions [37895650364](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/actions/runs/37895650364) 已完成：Windows Python 3.10.11 **235 passed、0 skip**；Ubuntu Python 3.10.22 **232 passed、3 Windows 專屬 skip**，兩者皆 0 failed/error、pip／CLI／連結通過。[同時保留修正前後摘要](../output/ci_remote_evidence/2026-10-09-14-52-32/remote_runs.json)。artifact 內有較舊摘要，計數只讀 environment.git.head 等於該 run.headSha 的紀錄，不累加歷史檔案。
 
 本輪曾有推送因自動權限審查使用量不足而未執行；接續時正常核准後成功，沒有繞過審查。output 清理分支另遇遠端同時前進，正常整合刪除後推送，沒有 force push。這些不列模型效能變動。
+
+## 交付 PR 與新版指引核對
+
+證據提交 `8ab8f11e0d6d61869f8d5f5820d2e94abc0858b8` 已推送，遠端 SHA 相同；已建立 [PR60](https://github.com/Drone-Motors-Unknown-Faults-Detection/Lineage/pull/60)，base 為 PR56 的 `delivery/formal-schema-20261009`，兩者尚未合併。8ab8f11 的真實 Actions 37895977216／37895983628 均成功，未自動關閉 #46。
+
+遠端 main 又合併 PR57 至 `8c1b8dfb5134a56c6dfd56fa37bf04fecc241020`。已完整讀新版 AGENT.md；新增鐵則9（output 可追溯專案 writer）、10（pytest），下一實驗編號改13。本輪都是來源工程與驗證工具，沒有占新實驗編號；沒有再實作已合併的 exp9–12。對既有未核實歷史檔案遵守使用者保留證據要求，不因 writer 缺失刪除。
+
+原鎖版 venv 沒有 pytest。以 `pip install --target D:/schoolshit/專題/src/tmp/lineage_pytest_tools_20261009 -c runtime-constraints.txt pytest==8.4.2` 安裝隔離工具，原 venv 未重建或改套件；實際工具版本固定於 [工具清單](pytest_evidence_tools.txt)。重現時可在另一個空工具目錄使用 `--no-deps -r docs/pytest_evidence_tools.txt`。設定 `PYTHONPATH` 指向工具目錄、`PYTEST_DISABLE_PLUGIN_AUTOLOAD=1`，再以同一 Python3.10 執行：
+
+```powershell
+python -m tests.pytest_evidence tests/test_provenance.py tests/test_pytest_evidence.py
+python -m tests.pytest_evidence tests/
+```
+
+入口實際呼叫 `python -m pytest`，JUnit／原始 stdout 留在暫存／記憶體，只寫去敏計數及 stdout SHA。拒絕私人絕對目標；摘要函數有對應測試。依 [pytest 官方文件](https://docs.pytest.org/en/8.4.x/how-to/unittest.html)，既有 unittest 測試可以由 pytest 收集，沒有重寫生產測試內容。
+
+相關測試 [14:58:51](../output/pytest_evidence/2026-10-09-14-58-51/summary.json) **14 passed、0 failed/error/skip**；完整 [14:57:26](../output/pytest_evidence/2026-10-09-14-57-26/summary.json) **237 collected、234 passed、3 skipped、0 failed/error**，標記 **INCOMPLETE**，不當作全套驗收完成。skip 為本機 symlink 權限，沒有刪除或強行跳過新增測試；修正前歷史 unittest235結果保留不同版本含義。隔離工具載入後 pip check 無衝突。
+
+下一步：合併前依序處理 PR56／60 與最新 main 的整合驗收；#46 其餘 runner／resolved config 缺口仍待後續，不能靠本輪來源子項關單。PR58 清理另行交付，未混入此分支。
