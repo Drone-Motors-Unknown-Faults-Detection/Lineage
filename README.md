@@ -407,7 +407,7 @@ Lineage/
 ├── output/                      # 每次執行的結果檔與圖表（納入版控）
 ├── run_web.sh                   # 啟動展示伺服器
 ├── build_uv.sh / build_uv_mac.sh# 建立 venv（--legacy 可加裝論文版管線依賴）
-└── pyproject.toml               # 正式 Python 3.10.x；runtime-constraints.txt 固定版本
+└── pyproject.toml               # 正式 Python 3.10.x；版本訂死，完整依賴樹鎖在 uv.lock
 ```
 
 ---

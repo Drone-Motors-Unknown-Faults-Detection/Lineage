@@ -84,3 +84,31 @@ CI（`.github/workflows/ci.yml`）改用官方 [astral-sh/setup-uv](https://gith
 - 同一環境跑 `python -m pytest tests -ra -q`：230 passed、3 skipped（Windows 專用案例）、0 failed、160 subtests passed，46~53 秒；`test_active_dependency_closure_is_pinned`（需要 `pip`/`setuptools`/`wheel` 的 metadata 可查）通過，確認 `--seed` 補的三個套件版本正確。
 - 實跑 `build_uv.sh --venv .venv_script_test`（已刪除，非正式環境）：`pip check` 通過、`core.runtime_environment` 寫出 `output/environment_install/2026-10-09-15-13-28/environment.json`，記錄的套件版本與上一步一致。
 - 尚未在真實 GitHub Actions 跑過改用 `astral-sh/setup-uv` 後的 workflow；下一次 push／PR 的 Actions run 是第一次真實驗證，macOS 與 Windows 的 uv 路徑本輪同樣未在實機驗證，風險與既有「macOS 未驗證」相同。
+
+## 移除 runtime-constraints.txt，改用 pyproject.toml 版本訂死 + uv.lock（2026-10-10）
+
+上一節決定「不維護 uv.lock」，本節推翻這個決定：`runtime-constraints.txt` 已刪除，`pyproject.toml` 的 `dependencies`（8 項直接依賴）直接訂死版本（`numpy==2.2.6` 等，不再用 `>=2.2,<2.3` 範圍），完整依賴樹（含 `cloudpickle`、`joblib` 等間接依賴）改由 `uv lock` 產生的 `uv.lock` 鎖定，`uv.lock` 版控、不忽略。
+
+### legacy extras 仍不進 uv.lock
+
+`legacy-linux`／`legacy-mac` 從 `[project.optional-dependencies]` 移出，改放 `requirements-legacy-linux.txt`／`requirements-legacy-mac.txt`（純 pip 格式清單，不受 `uv.lock` 管理）。原因與上一節相同且更直接：`uv lock` 的 universal lock 預設會嘗試讓「任意 extras 組合」都能同時成立，但 `legacy-mac` 要求 `tensorflow==2.18.0`（依賴 `numpy<2.1`）跟主依賴 `numpy==2.2.6` 無法同時滿足，`uv lock` 直接報 unsatisfiable；把它們移出 `[project.optional-dependencies]` 之後 `uv lock` 才能成功解析（33 個套件）。`./build_uv.sh --legacy`／`--legacy-mac` 改成 `uv sync --locked` 裝完標準依賴後，再額外 `uv pip install -r requirements-legacy-*.txt`（單次解析、不鎖版，维持「非本輪正式驗證範圍」的既有定位）。
+
+### 建環境從 uv venv --seed 改成 uv sync --locked
+
+`build_uv.sh`／`build_uv.ps1` 改用 `UV_PROJECT_ENVIRONMENT=<dir> uv sync --python <PY> --extra test --locked`：`--locked` 要求 `uv.lock` 必須存在且與 `pyproject.toml` 一致，不一致就報錯、不會偷偷重新解析版本。`uv sync` 預設**不會**把 `pip`／`setuptools`／`wheel` 裝進最終 venv（跟上一節用的 `uv venv --seed` 不同），這是 uv 原生工作流程的正常行為：建置 `lineage` 這個套件本身用的是獨立的 build-isolation 環境，不需要目標 venv 裡有 pip。相應地：
+
+- `pip check` 改成 `uv pip check --python <venv>/bin/python`（uv 原生等效指令，不需要 pip 本身安裝在 venv 裡）。
+- `core/runtime_environment.py` 的 `constraints_sha256` 欄位改讀 `uv.lock` 的雜湊（欄位名稱不變，語意改成「這次鎖版依據檔案的雜湊」）；新增 `lock_versions(root)` 函式解析 `uv.lock`（Python 3.10 用 `tomli`，透過 pytest 的依賴鏈帶入，只給測試／驗證入口用，不在正式執行路徑上）。
+- `tests/test_runtime_environment.py`：`test_constraints_are_exact_and_unique` 改讀 `uv.lock` 的 TOML 結構，拿掉「`pip`／`setuptools`／`wheel` 必須在清單裡」的斷言（它們不再被 `uv.lock` 鎖，而是 build-system 需求），改成斷言 `pytest`／`ruff`（test extra）在清單裡。`test_active_dependency_closure_is_pinned` 改成只比對「`uv.lock` 鎖定、且這台機器目前真的有裝」的套件交集，不要求 lock 清單裡的每個名稱在目前平台都能找到（`colorama`／`win32-setctime` 只在 Windows marker 下安裝，Linux 環境本來就不會有）。拿掉 `test_constraints_decode_under_legacy_windows_locale`：那是 `runtime-constraints.txt` 這份純文字檔案曾經被 pip 23 的 tokenize 編碼偵測誤判的歷史反例，`uv.lock` 是 TOML、不會被那段 pip 內部邏輯處理，風險不再適用。
+- CI 的 `cache-dependency-glob` 從 `runtime-constraints.txt` 改成 `uv.lock`——這才是真正決定版本的檔案，cache key 要跟著它變。
+
+### 實測
+
+本機（同一台機器，`uv sync --locked` 取代 `uv venv --seed`）：
+
+- `uv lock --python 3.10`：移除 legacy extras 後成功解析 33 個套件（含 `lineage` 自己）；保留 legacy extras 在 `[project.optional-dependencies]` 時會重現上一節記錄的 unsatisfiable 錯誤，交叉確認原因一致。
+- `UV_PROJECT_ENVIRONMENT=<dir> uv sync --python 3.10 --extra test --locked`：裝出 31 個套件，版本與 `uv.lock` 完全一致；確認 `pip`／`setuptools`／`wheel` 確實不在這個 venv 裡（`importlib.metadata.version` 對這三者都拋 `PackageNotFoundError`），`uv pip check` 回報 `All installed packages are compatible`。
+- 同一環境跑 `./run_pytest.sh -ra -q`：229 passed、3 skipped（Windows 專用案例）、**0 failed**、166 subtests passed，約 50 秒——先前「本機舊 venv 缺 `cloudpickle` metadata」的失敗因為改用新的比對邏輯（只比對 lock 與目前環境的交集）而不再出現，不是繞過問題，是舊測試的假設（pip/setuptools/wheel 一定在場）本來就不適用於 uv 原生流程。
+- `./run_ruff.sh`：All checks passed。
+- 實跑 `build_uv.sh --venv <dir>`（已刪除，非正式環境）：完整走過 `uv sync --locked` → `uv pip check` → `core.runtime_environment` 全流程成功；另外用 `--dry-run` 驗證 `--legacy`／`--legacy-mac` 分支會正確解析 `requirements-legacy-linux.txt`（含 tensorflow 等套件），未真的下載安裝。
+- 尚未在真實 GitHub Actions 跑過這次的改動；下一次 push／PR 的 Actions run 是第一次真實驗證。
